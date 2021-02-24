@@ -6,7 +6,7 @@ public class ManagerOfScenes : ScriptableObject
     public void ChangeScene(string sceneName) //Use to change scenes
     {
         SceneManager.LoadScene(sceneName, LoadSceneMode.Single); //Refrences scene by name with string.
-    }
+    }    
     public void Activate(GameObject gameObject) //Can turn game objects on.
     {
         gameObject.SetActive(true); //Sets gameobject to active
