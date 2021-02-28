@@ -36,9 +36,9 @@ public class EnemySpawning : MonoBehaviour
 
     IEnumerator EnemySpawnDelayTimer()
     {
-        if (loopLimit < amountOfEnemies)//As long as the loop has not looped the amount of enemies to spawn GO.
+        if (loopLimit < amountOfEnemies)//As long as the loop has not looped the amount of enemies to spawn GO. Might be obsolete
         {
-            for (int i = 0; loopLimit < amountOfEnemies; loopLimit++)
+            for (int loopLimit = 0; loopLimit < amountOfEnemies; loopLimit++)
             {
                 randomLaneForSpawning = Random.Range(0, sizeOfSpawnLocations); //Gives a random lane spawn everytime
                 randomEnemyTypeToSpawn = Random.Range(0, sizeOfEnemiesTypes); //Gives a random enemy type every spawn
