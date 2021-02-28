@@ -792,6 +792,8 @@ GameObject:
   - component: {fileID: 8080988688112348292}
   - component: {fileID: 7908503385630428805}
   - component: {fileID: 8997407159683608220}
+  - component: {fileID: 2493045457924778200}
+  - component: {fileID: 2493045457924778199}
   m_Layer: 0
   m_Name: Enemy Test 1
   m_TagString: Untagged
@@ -799,6 +801,42 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &2493045457924778199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2493045457924778198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ef0dea17e8f1bb4f9beedb68b8ae00b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 5
+  enemyHealth: 1
+  obstacleTags: Finish
+--- !u!50 &2493045457924778200
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2493045457924778198}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!4 &2778078553048250085
 Transform:
   m_ObjectHideFlags: 0
