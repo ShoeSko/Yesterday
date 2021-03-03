@@ -37,7 +37,7 @@ public class HandScript : MonoBehaviour
         }
 
         if (clock >= 5)
-            SceneManager.LoadScene("CoreGame");
+            SceneManager.LoadScene("Minigame#2");
     }
 
     private void FixedUpdate()
