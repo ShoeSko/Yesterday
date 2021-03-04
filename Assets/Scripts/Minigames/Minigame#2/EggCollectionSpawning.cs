@@ -63,6 +63,6 @@ public class EggCollectionSpawning : MonoBehaviour
         levelcountdown += Time.deltaTime;
 
         if (levelcountdown >= 5)//switch scenes after 5 sec after winning
-            SceneManager.LoadScene("CoreGame");
+            SceneManager.LoadScene("Minigame#3");
     }
 }
