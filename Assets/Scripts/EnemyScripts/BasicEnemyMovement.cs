@@ -74,6 +74,7 @@ public class BasicEnemyMovement : MonoBehaviour
             for (int i = 0; i < enemiesToDamage.Length; i++)
             {
                 enemiesToDamage[i].GetComponent<UnitPrototypeScript>().TakeDamage(attackDamage); //Sent attackDamage to Unit
+                hasAttacked = true;
             }
         }
         else if (hasAttacked) { StartCoroutine(AttackRecharge()); } //Start Coroutine to recharge
