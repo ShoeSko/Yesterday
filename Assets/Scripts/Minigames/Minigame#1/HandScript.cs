@@ -22,21 +22,21 @@ public class HandScript : MonoBehaviour
     }
     private void Update()
     {
-        if (!Boop)
+        if (!Boop)//hand movement following the mouse 
         {
             mousePos = Input.mousePosition;
             mousePos = Camera.main.ScreenToWorldPoint(mousePos);
             position = Vector2.Lerp(transform.position, mousePos, moveSpeed);
         }
 
-        if (Boop)
+        if (Boop)//when the hand touches the nose, add blush
         {
             boopeffect.transform.position = new Vector3(3.700827f, 0.2415431f, 0.5916452f);
             text.SetActive(true);
             clock += Time.deltaTime;
         }
 
-        if (clock >= 5)
+        if (clock >= 5)//load next scene after 5 sec
             SceneManager.LoadScene("Minigame#2");
     }
 

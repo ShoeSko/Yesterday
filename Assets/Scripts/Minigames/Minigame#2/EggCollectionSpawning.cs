@@ -51,7 +51,7 @@ public class EggCollectionSpawning : MonoBehaviour
 
     void Update()
     {
-        if(score == 5)
+        if(score == 5)//win after clicking 5 eggs
         {
             Win();
         }
@@ -62,7 +62,7 @@ public class EggCollectionSpawning : MonoBehaviour
         wintext.SetActive(true);
         levelcountdown += Time.deltaTime;
 
-        if (levelcountdown >= 5)
+        if (levelcountdown >= 5)//switch scenes after 5 sec after winning
             SceneManager.LoadScene("CoreGame");
     }
 }

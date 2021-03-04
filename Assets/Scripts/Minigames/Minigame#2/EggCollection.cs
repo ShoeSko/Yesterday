@@ -11,18 +11,18 @@ public class EggCollection : MonoBehaviour
     {
         timer += Time.deltaTime;
         
-        if(timer > 3)
+        if(timer > 3)//destroy after 3 second
             Destroy(gameObject);
     }
     public void EggCollected()
     {
-        GetPoints = true;
+        GetPoints = true;   //counts the eggs towards the total goal
         Destroy(gameObject);//Tempt simple solution, destroy the egg on press.
     }
 
     private void OnDestroy()
     {
-        if (GetPoints == true)
+        if (GetPoints == true)//the egg won't give points when disappearing
             EggCollectionSpawning.score++;
     }
 }
