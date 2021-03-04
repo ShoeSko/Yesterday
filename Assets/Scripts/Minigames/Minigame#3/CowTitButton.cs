@@ -10,7 +10,7 @@ public class CowTitButton : MonoBehaviour
     private Vector2 startingPos;
     private Vector2 down;
     public float timer;
-    private int counterPress;
+    private int counterPress;//this is used to make it so the game doesn't count the same button more than once for the win-condition
 
     public void buttonPressed() //when you press on the tit, do everything in update section
     {
@@ -22,20 +22,20 @@ public class CowTitButton : MonoBehaviour
 
     public void Start()
     {
-        startingPos = tit.transform.position;
-        down = new Vector2(0, -0.7f);
+        startingPos = tit.transform.position; //define original position
+        down = new Vector2(0, -0.7f);//define how far down the tit goes when clicked
     }
 
     public void Update()
     {
-        if(pullDown == true)
+        if(pullDown == true)//when you have pressed the button (the tit)
         {
             timer += Time.deltaTime;
 
-            if(timer <= 1f)
+            if(timer <= 1f)//move down
             tit.transform.position = Vector2.MoveTowards(tit.transform.position, startingPos + down, speed * Time.deltaTime);
 
-            if(timer >= 1f)
+            if(timer >= 1f)//move back up
                 tit.transform.position = Vector2.MoveTowards(tit.transform.position, startingPos, speed * Time.deltaTime);
         }
     }
