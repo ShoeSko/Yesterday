@@ -8,8 +8,8 @@ public class ManaSystem : MonoBehaviour
     public GameObject manaBox;//black box inicating mana filling up
     private Vector2 startingPos;//starting position of fillable manabox ^
     private Vector2 offset;//this is used to move the fillable manabox
-    private int CurrentMana = 0;//your current mana
-    private int MaximumMana = 10;//maximum possible mana
+    public static int CurrentMana = 0;//your current mana
+    public static int MaximumMana = 10;//maximum possible mana
 
     public Text mana;//your current mana
 
