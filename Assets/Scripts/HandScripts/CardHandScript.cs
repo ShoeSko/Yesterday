@@ -70,7 +70,7 @@ public class CardHandScript : MonoBehaviour
         }
     }
 
-    public void EnlargeButtonPressed()
+    public void EnlargeButtonPressed()//enlarge your hand
     {
         Smallhand = false;
         enlargeButton.SetActive(false);
@@ -79,7 +79,7 @@ public class CardHandScript : MonoBehaviour
         handEnlarged.SetActive(true);
     }
 
-    public void MinimizeButtonPressed()
+    public void MinimizeButtonPressed()//minimize your hand
     {
         Smallhand = true;
         enlargeButton.SetActive(true);
@@ -88,7 +88,7 @@ public class CardHandScript : MonoBehaviour
         handEnlarged.SetActive(false);
     }
 
-    public void PlayCard()
+    public void PlayCard()//this happens when you click on a playable card
     {
         TowerSpots.SetActive(true);
         handEnlarged.SetActive(false);
