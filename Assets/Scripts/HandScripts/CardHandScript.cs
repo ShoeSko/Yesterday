@@ -6,10 +6,13 @@ public class CardHandScript : MonoBehaviour
 {
     private bool Smallhand = true;
 
+    public GameObject cowwithgunPrefab;
+
     public GameObject enlargeButton;//arrow up above your hand to enlarge your hand
     public GameObject minimizeButton;//arrow down visible after enlarging your hand
     public GameObject handSmall;//your hand at the bottom of the screen
     public GameObject handEnlarged;//enlarged hand after pressing the scroll up button
+    public GameObject TowerSpots;
 
     public GameObject CardButton1S;//all of this is temporary
     public GameObject CardButton2S;
@@ -28,11 +31,12 @@ public class CardHandScript : MonoBehaviour
     {
         handEnlarged.SetActive(false);
         minimizeButton.SetActive(false);
+        TowerSpots.SetActive(false);
     }
 
     void Update()
     {
-        if(ManaSystem.CurrentMana >= 2)
+        if(ManaSystem.CurrentMana >= 2)//all of this is temporary solution for the prototype
         {
             if (Smallhand)
             {
@@ -86,6 +90,10 @@ public class CardHandScript : MonoBehaviour
 
     public void PlayCard()
     {
-        Debug.Log("I work");
+        TowerSpots.SetActive(true);
+        handEnlarged.SetActive(false);
+        enlargeButton.SetActive(true);
+        handSmall.SetActive(true);
+        minimizeButton.SetActive(false);
     }
 }
