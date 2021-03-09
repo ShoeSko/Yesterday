@@ -12,8 +12,10 @@ public class CardDisplayer : MonoBehaviour
     public TextMeshProUGUI descriptionText; // what does it do
     public TextMeshProUGUI flavorTexts; //Flavor
 
+    [HideInInspector]public int manaValue; //Accsess
     private void Start()
     {
+        manaValue = card.manaCost;
         artworkImage.sprite = card.image;
 
         nameText.text = card.cardName;
