@@ -21,6 +21,7 @@ public class EggCollectionSpawning : MonoBehaviour
     public GameObject wintext;
     public GameObject goaltext;
     private float levelcountdown = 0;
+    private bool victoryEgg;
 
     void Start()
     {
@@ -33,6 +34,8 @@ public class EggCollectionSpawning : MonoBehaviour
     IEnumerator EggSpawner()
     {
             for (int i = 0; i < eggSpawnAmount; i++)
+            {
+            if (!victoryEgg)
             {
                 randomEggSpawnLocation = Random.Range(0, sizeOfEggSpawnLocationsList);//Gives a random spawn location Index
                 if (lastSpawn == randomEggSpawnLocation && randomEggSpawnLocation == sizeOfEggSpawnLocationsList) { randomEggSpawnLocation++; } //If the last spawn was the same as the new random, and it is the highest number -1
@@ -47,13 +50,16 @@ public class EggCollectionSpawning : MonoBehaviour
                 lastSpawn = randomEggSpawnLocation;//Set the last spawn to the current latest spawn
                 yield return new WaitForSeconds(randomDelayForSpawn);//Wait for random time for next egg
             }
+            else eggSpawnAmount = i;
+            }
     }
 
     void Update()
     {
-        if(score == 5)//win after clicking 5 eggs
+        if(score >= 5)//win after clicking 5 eggs
         {
             Win();
+            victoryEgg = true;
         }
     }
     public void Win()
