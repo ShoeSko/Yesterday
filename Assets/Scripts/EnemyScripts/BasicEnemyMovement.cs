@@ -5,17 +5,19 @@ using UnityEngine;
 public class BasicEnemyMovement : MonoBehaviour
 {
     [Header("Enemy Controls")]
-    [Range(0,100)][SerializeField]private float moveSpeed = 5;
-    [Range(0,100)][SerializeField] private int enemyHealth;
-    [Tooltip("The tag corresponding to what the enemy will care about")][SerializeField]private string obstacleTags;
-    [Tooltip("The tag coresponding to projectiles")][SerializeField]private string projectileTags;
+    private float moveSpeed;
+    private int enemyHealth;
+    private string obstacleTags;
+    private string projectileTags;
 
     [Header("Enemy Attack")]
-    [Tooltip("The damage they deal")][Range(0,100)][SerializeField]private int attackDamage;
-    [Tooltip("The rate of attacks")][Range(0, 100)] [SerializeField]private float attackSpeed;
-    [Tooltip("What layer is to be attacked?")][SerializeField]private LayerMask whatIsUnitLayer;
-    [Tooltip("How big is the attack range?")][SerializeField]private float attackRange;
+    private int attackDamage;
+    private float attackSpeed;
+    private LayerMask whatIsUnitLayer;
+
+    [Tooltip("How big is the attack range?")][SerializeField]private float attackRange; //These two stay here as they are harder to do from a scriptableobject.
     [Tooltip("Where does it attack from?")][SerializeField]private Transform attackPosition;
+    public EnemyScript enemy;
 
     private bool obstacleInTheWay;//Is there a unit blocking the path?
     private Rigidbody2D rg2D;
@@ -23,6 +25,7 @@ public class BasicEnemyMovement : MonoBehaviour
 
     private void Start()
     {
+        EnemyInfoFeed();
         rg2D = GetComponent<Rigidbody2D>();
     }
 
@@ -100,5 +103,14 @@ public class BasicEnemyMovement : MonoBehaviour
         }
     }
 
-    
+    private void EnemyInfoFeed()
+    {
+        moveSpeed = enemy.moveSpeed;
+        enemyHealth = enemy.enemyHealth;
+        obstacleTags = enemy.obstacleTags;
+        projectileTags = enemy.projectileTags;
+        attackDamage = enemy.attackDamage;
+        attackSpeed = enemy.attackSpeed;
+        whatIsUnitLayer = enemy.whatIsUnitLayer;
+    }
 }

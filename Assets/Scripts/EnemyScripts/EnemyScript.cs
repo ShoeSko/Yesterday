@@ -1,18 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-
-public class EnemyScript : MonoBehaviour
+[CreateAssetMenu (fileName = "New Enemy", menuName ="EnemyTemplate")]
+public class EnemyScript : ScriptableObject
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [Header("Enemy Controls")]
+    [Range(0, 100)] public float moveSpeed = 5;
+    [Range(0, 100)] public int enemyHealth = 100;
+    [Tooltip("The tag corresponding to what the enemy will care about")] public string obstacleTags;
+    [Tooltip("The tag coresponding to projectiles")] public string projectileTags;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    [Header("Enemy Attack")]
+    [Tooltip("The damage they deal")] [Range(0, 100)] public int attackDamage;
+    [Tooltip("The rate of attacks")] [Range(0, 100)] public float attackSpeed;
+    [Tooltip("What layer is to be attacked?")] public LayerMask whatIsUnitLayer = 10;
 }

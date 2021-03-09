@@ -134,17 +134,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ef0dea17e8f1bb4f9beedb68b8ae00b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 25
-  enemyHealth: 100
-  obstacleTags: Finish
-  projectileTags: Projectile
-  attackDamage: 25
-  attackSpeed: 2
-  whatIsUnitLayer:
-    serializedVersion: 2
-    m_Bits: 256
   attackRange: 0.6
   attackPosition: {fileID: 5870890239225317845}
+  enemy: {fileID: 11400000, guid: 717528f62d167f54b85d56740f10be79, type: 2}
 --- !u!1 &8427884919296250485
 GameObject:
   m_ObjectHideFlags: 0
