@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Minigame#3.unity
     guid: 13ee7efb747392941985d5694068fa45
+  - enabled: 1
+    path: Assets/Scenes/HandPrototype.unity
+    guid: 526202e9f621c4b43aeec2abd05b675f
   m_configObjects: {}

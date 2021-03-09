@@ -23,6 +23,6 @@ public class GoalCounter : MonoBehaviour
         }
 
         if (timer >= 5)
-            SceneManager.LoadScene("CoreGame");
+            SceneManager.LoadScene("HandPrototype");
     }
 }
