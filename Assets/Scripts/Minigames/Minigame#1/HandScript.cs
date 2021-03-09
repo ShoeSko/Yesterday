@@ -24,9 +24,18 @@ public class HandScript : MonoBehaviour
     {
         if (!Boop)//hand movement following the mouse 
         {
+            Camera mainCamera = Camera.main;
+            #if UNITY_ANDROID //Everything within this, only works if the build is android.
+                if (Input.touchCount > 0)
+                {
+                    mousePos = mainCamera.ScreenToWorldPoint(Input.GetTouch(0).position); //Short temp touch version
+                }
+            transform.position = mousePos + Vector3.forward * 10;
+#else
             mousePos = Input.mousePosition;
             mousePos = Camera.main.ScreenToWorldPoint(mousePos);
             position = Vector2.Lerp(transform.position, mousePos, moveSpeed);
+#endif
         }
 
         if (Boop)//when the hand touches the nose, add blush
