@@ -11,6 +11,7 @@ public class EnemySpawning : MonoBehaviour
     [Range(0,25)]public float delayBetweenSpawnsMin;//The minimum time between spawns
     [Range(0,25)]public float delayBetweenSpawnsMax;//The maximum time between spawns
 
+
     private int randomLaneForSpawning; //The index number for the list of Lanes
     private int randomEnemyTypeToSpawn;//The index number for the list of enemy types
     private float randomDelayTime;//The value of the wait time between spawns

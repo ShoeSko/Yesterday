@@ -15,6 +15,7 @@ public class ManaSystem : MonoBehaviour
 
     private float speed = 0.5f;//speed how fast mana fills up // Current formula: 2/speed // current speed at which mana fills up: 4 seconds
     private float time;//clock
+    private bool start;
     void Start()
     {
         startingPos = manaBox.transform.position;
@@ -25,7 +26,7 @@ public class ManaSystem : MonoBehaviour
     {
         mana.text = CurrentMana + "/" + MaximumMana;//this is the text visualizing how much mana the player has
 
-        if (CurrentMana < MaximumMana)//cap the mana recovery at maximum mana
+        if (CurrentMana < MaximumMana && start)//cap the mana recovery at maximum mana
         {
             time += Time.deltaTime;
             manaBox.transform.position = Vector2.MoveTowards(manaBox.transform.position, startingPos + offset, speed * Time.deltaTime);
@@ -37,5 +38,9 @@ public class ManaSystem : MonoBehaviour
             CurrentMana++;
             time = 0;
         }
+    }
+    public void GameStarted()
+    {
+        start = true;
     }
 }
