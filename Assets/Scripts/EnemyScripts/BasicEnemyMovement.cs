@@ -31,15 +31,17 @@ public class BasicEnemyMovement : MonoBehaviour
 
     private void Update()
     {
-        MovingEnemy();//Currently both moving & attacking
         EnemyDeath();//Death comes for us all.
     }
-
+    private void FixedUpdate()
+    {
+        MovingEnemy();//Currently both moving & attacking
+    }
     void MovingEnemy()
     {
         if (!obstacleInTheWay)//If there are no obstacles the enemy will start moving
         {
-            rg2D.velocity = new Vector2(-moveSpeed /** Time.deltaTime*/, 0); //Move to the right timed with deltatime for now, have to check build if change has to be done.
+            rg2D.velocity = new Vector2(-moveSpeed * Time.deltaTime, 0); //Move to the right timed with deltatime for now, have to check build if change has to be done.
         }
         else { AttackObstacle(); } //If you have someone blocking your path, kill them.
     }
