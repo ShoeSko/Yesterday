@@ -52,4 +52,9 @@ public class EnemySpawning : MonoBehaviour
             }
         }   
     }
+
+    public void SpawnEnemies()
+    {
+        gameStarted = true;
+    }
 }
