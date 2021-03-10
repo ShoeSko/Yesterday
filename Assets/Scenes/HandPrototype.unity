@@ -1842,7 +1842,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1485272402}
         m_TargetAssemblyTypeName: NewCardHandScript, Assembly-CSharp
-        m_MethodName: PlayCard
+        m_MethodName: PlayCard3
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2595,7 +2595,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1485272402}
         m_TargetAssemblyTypeName: NewCardHandScript, Assembly-CSharp
-        m_MethodName: PlayCard
+        m_MethodName: PlayCard1
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3570,7 +3570,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1485272402}
         m_TargetAssemblyTypeName: NewCardHandScript, Assembly-CSharp
-        m_MethodName: PlayCard
+        m_MethodName: PlayCard3
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3974,7 +3974,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1485272402}
         m_TargetAssemblyTypeName: NewCardHandScript, Assembly-CSharp
-        m_MethodName: PlayCard
+        m_MethodName: PlayCard1
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7627,7 +7627,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1485272402}
         m_TargetAssemblyTypeName: NewCardHandScript, Assembly-CSharp
-        m_MethodName: PlayCard
+        m_MethodName: PlayCard5
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7843,7 +7843,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1485272402}
         m_TargetAssemblyTypeName: NewCardHandScript, Assembly-CSharp
-        m_MethodName: PlayCard
+        m_MethodName: PlayCard4
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7975,7 +7975,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1485272402}
         m_TargetAssemblyTypeName: NewCardHandScript, Assembly-CSharp
-        m_MethodName: PlayCard
+        m_MethodName: PlayCard5
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8843,7 +8843,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1485272402}
         m_TargetAssemblyTypeName: NewCardHandScript, Assembly-CSharp
-        m_MethodName: PlayCard
+        m_MethodName: PlayCard2
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -9450,6 +9450,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Smallhand: 1
   cowwithgunPrefab: {fileID: 2557954877800294563, guid: 19fdaec487ab265478dee2e3b84fbde0, type: 3}
+  PlayedCard: {fileID: 0}
   enlargeButton: {fileID: 330656593}
   minimizeButton: {fileID: 1359261358}
   handSmall: {fileID: 1595204776}
@@ -10628,7 +10629,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1485272402}
         m_TargetAssemblyTypeName: NewCardHandScript, Assembly-CSharp
-        m_MethodName: PlayCard
+        m_MethodName: PlayCard4
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -11221,7 +11222,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1485272402}
         m_TargetAssemblyTypeName: NewCardHandScript, Assembly-CSharp
-        m_MethodName: PlayCard
+        m_MethodName: PlayCard2
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
