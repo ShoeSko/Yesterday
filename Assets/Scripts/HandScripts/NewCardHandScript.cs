@@ -7,6 +7,7 @@ public class NewCardHandScript : MonoBehaviour
     public bool Smallhand = true;
 
     public GameObject cowwithgunPrefab;
+    public GameObject PlayedCard;
 
     public GameObject enlargeButton;//arrow up above your hand to enlarge your hand
     public GameObject minimizeButton;//arrow down visible after enlarging your hand
@@ -124,6 +125,7 @@ public class NewCardHandScript : MonoBehaviour
         ReadMana(); //Quick fix to read the mana value
     }
 
+
     public void EnlargeButtonPressed()//enlarge your hand
     {
         Smallhand = false;
@@ -142,14 +144,38 @@ public class NewCardHandScript : MonoBehaviour
         handEnlarged.SetActive(false);
     }
 
-    public void PlayCard()//this happens when you click on a playable card
+
+    public void PlayCard1()//Play the first card
     {
+        MinimizeButtonPressed();
         TowerSpots.SetActive(true);
-        handEnlarged.SetActive(false);
-        enlargeButton.SetActive(true);
-        handSmall.SetActive(true);
-        minimizeButton.SetActive(false);
+        PlayedCard = card1;
     }
+    public void PlayCard2()//Play the second card
+    {
+        MinimizeButtonPressed();
+        TowerSpots.SetActive(true);
+        PlayedCard = card2;
+    }
+    public void PlayCard3()//Play the third card
+    {
+        MinimizeButtonPressed();
+        TowerSpots.SetActive(true);
+        PlayedCard = card3;
+    }
+    public void PlayCard4()//Play the fourth card
+    {
+        MinimizeButtonPressed();
+        TowerSpots.SetActive(true);
+        PlayedCard = card4;
+    }
+    public void PlayCard5()//Play the fifth card
+    {
+        MinimizeButtonPressed();
+        TowerSpots.SetActive(true);
+        PlayedCard = card5;
+    }
+
     private void ReadMana()
     {
         CardValues1 = card1.GetComponent<CardDisplayer>();
