@@ -825,6 +825,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cowwithgunPrefab: {fileID: 2557954877800294563, guid: 19fdaec487ab265478dee2e3b84fbde0, type: 3}
   towerSpots: {fileID: 644915287}
+  positionResetTransform: {fileID: 1404517288}
 --- !u!114 &79904646
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -973,6 +974,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cowwithgunPrefab: {fileID: 2557954877800294563, guid: 19fdaec487ab265478dee2e3b84fbde0, type: 3}
   towerSpots: {fileID: 644915287}
+  positionResetTransform: {fileID: 1404517288}
 --- !u!114 &97887038
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1378,6 +1380,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cowwithgunPrefab: {fileID: 2557954877800294563, guid: 19fdaec487ab265478dee2e3b84fbde0, type: 3}
   towerSpots: {fileID: 644915287}
+  positionResetTransform: {fileID: 1404517288}
 --- !u!1 &164716455
 GameObject:
   m_ObjectHideFlags: 0
@@ -1526,6 +1529,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cowwithgunPrefab: {fileID: 2557954877800294563, guid: 19fdaec487ab265478dee2e3b84fbde0, type: 3}
   towerSpots: {fileID: 644915287}
+  positionResetTransform: {fileID: 1404517288}
 --- !u!1001 &187037983
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2298,6 +2302,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cowwithgunPrefab: {fileID: 2557954877800294563, guid: 19fdaec487ab265478dee2e3b84fbde0, type: 3}
   towerSpots: {fileID: 644915287}
+  positionResetTransform: {fileID: 1404517288}
 --- !u!114 &418025764
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2692,6 +2697,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cowwithgunPrefab: {fileID: 2557954877800294563, guid: 19fdaec487ab265478dee2e3b84fbde0, type: 3}
   towerSpots: {fileID: 644915287}
+  positionResetTransform: {fileID: 1404517288}
 --- !u!114 &486590222
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2919,6 +2925,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cowwithgunPrefab: {fileID: 2557954877800294563, guid: 19fdaec487ab265478dee2e3b84fbde0, type: 3}
   towerSpots: {fileID: 644915287}
+  positionResetTransform: {fileID: 1404517288}
 --- !u!114 &492886035
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3305,6 +3312,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cowwithgunPrefab: {fileID: 2557954877800294563, guid: 19fdaec487ab265478dee2e3b84fbde0, type: 3}
   towerSpots: {fileID: 644915287}
+  positionResetTransform: {fileID: 1404517288}
 --- !u!114 &557068109
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3787,6 +3795,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cowwithgunPrefab: {fileID: 2557954877800294563, guid: 19fdaec487ab265478dee2e3b84fbde0, type: 3}
   towerSpots: {fileID: 644915287}
+  positionResetTransform: {fileID: 1404517288}
 --- !u!114 &686929645
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4365,6 +4374,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cowwithgunPrefab: {fileID: 2557954877800294563, guid: 19fdaec487ab265478dee2e3b84fbde0, type: 3}
   towerSpots: {fileID: 644915287}
+  positionResetTransform: {fileID: 1404517288}
 --- !u!114 &807711532
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4551,6 +4561,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cowwithgunPrefab: {fileID: 2557954877800294563, guid: 19fdaec487ab265478dee2e3b84fbde0, type: 3}
   towerSpots: {fileID: 644915287}
+  positionResetTransform: {fileID: 1404517288}
 --- !u!114 &817280771
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4699,6 +4710,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cowwithgunPrefab: {fileID: 2557954877800294563, guid: 19fdaec487ab265478dee2e3b84fbde0, type: 3}
   towerSpots: {fileID: 644915287}
+  positionResetTransform: {fileID: 1404517288}
 --- !u!114 &841284250
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4847,6 +4859,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cowwithgunPrefab: {fileID: 2557954877800294563, guid: 19fdaec487ab265478dee2e3b84fbde0, type: 3}
   towerSpots: {fileID: 644915287}
+  positionResetTransform: {fileID: 1404517288}
 --- !u!114 &870410982
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5168,6 +5181,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cowwithgunPrefab: {fileID: 2557954877800294563, guid: 19fdaec487ab265478dee2e3b84fbde0, type: 3}
   towerSpots: {fileID: 644915287}
+  positionResetTransform: {fileID: 1404517288}
 --- !u!1 &929853901
 GameObject:
   m_ObjectHideFlags: 0
@@ -5222,6 +5236,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cowwithgunPrefab: {fileID: 2557954877800294563, guid: 19fdaec487ab265478dee2e3b84fbde0, type: 3}
   towerSpots: {fileID: 644915287}
+  positionResetTransform: {fileID: 1404517288}
 --- !u!114 &929853904
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5975,6 +5990,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cowwithgunPrefab: {fileID: 2557954877800294563, guid: 19fdaec487ab265478dee2e3b84fbde0, type: 3}
   towerSpots: {fileID: 644915287}
+  positionResetTransform: {fileID: 1404517288}
 --- !u!114 &1019175922
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6255,6 +6271,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cowwithgunPrefab: {fileID: 2557954877800294563, guid: 19fdaec487ab265478dee2e3b84fbde0, type: 3}
   towerSpots: {fileID: 644915287}
+  positionResetTransform: {fileID: 1404517288}
 --- !u!1 &1097224096
 GameObject:
   m_ObjectHideFlags: 0
@@ -6309,6 +6326,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cowwithgunPrefab: {fileID: 2557954877800294563, guid: 19fdaec487ab265478dee2e3b84fbde0, type: 3}
   towerSpots: {fileID: 644915287}
+  positionResetTransform: {fileID: 1404517288}
 --- !u!114 &1097224099
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6457,6 +6475,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cowwithgunPrefab: {fileID: 2557954877800294563, guid: 19fdaec487ab265478dee2e3b84fbde0, type: 3}
   towerSpots: {fileID: 644915287}
+  positionResetTransform: {fileID: 1404517288}
 --- !u!114 &1097936546
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6605,6 +6624,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cowwithgunPrefab: {fileID: 2557954877800294563, guid: 19fdaec487ab265478dee2e3b84fbde0, type: 3}
   towerSpots: {fileID: 644915287}
+  positionResetTransform: {fileID: 1404517288}
 --- !u!114 &1120330845
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6847,6 +6867,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cowwithgunPrefab: {fileID: 2557954877800294563, guid: 19fdaec487ab265478dee2e3b84fbde0, type: 3}
   towerSpots: {fileID: 644915287}
+  positionResetTransform: {fileID: 1404517288}
 --- !u!1 &1153575545
 GameObject:
   m_ObjectHideFlags: 0
@@ -7199,6 +7220,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cowwithgunPrefab: {fileID: 2557954877800294563, guid: 19fdaec487ab265478dee2e3b84fbde0, type: 3}
   towerSpots: {fileID: 644915287}
+  positionResetTransform: {fileID: 1404517288}
 --- !u!114 &1168022020
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7441,6 +7463,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cowwithgunPrefab: {fileID: 2557954877800294563, guid: 19fdaec487ab265478dee2e3b84fbde0, type: 3}
   towerSpots: {fileID: 644915287}
+  positionResetTransform: {fileID: 1404517288}
 --- !u!1 &1194646612
 GameObject:
   m_ObjectHideFlags: 0
@@ -8586,6 +8609,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cowwithgunPrefab: {fileID: 2557954877800294563, guid: 19fdaec487ab265478dee2e3b84fbde0, type: 3}
   towerSpots: {fileID: 644915287}
+  positionResetTransform: {fileID: 1404517288}
 --- !u!1 &1354434992
 GameObject:
   m_ObjectHideFlags: 0
@@ -8640,6 +8664,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cowwithgunPrefab: {fileID: 2557954877800294563, guid: 19fdaec487ab265478dee2e3b84fbde0, type: 3}
   towerSpots: {fileID: 644915287}
+  positionResetTransform: {fileID: 1404517288}
 --- !u!114 &1354434995
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9224,6 +9249,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cowwithgunPrefab: {fileID: 2557954877800294563, guid: 19fdaec487ab265478dee2e3b84fbde0, type: 3}
   towerSpots: {fileID: 644915287}
+  positionResetTransform: {fileID: 1404517288}
 --- !u!114 &1397054372
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9318,6 +9344,36 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1397054369}
   m_CullTransparentMesh: 1
+--- !u!1 &1404517287
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1404517288}
+  m_Layer: 0
+  m_Name: TowerSpotLocations
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1404517288
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1404517287}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1485272399
 GameObject:
   m_ObjectHideFlags: 0
@@ -9714,6 +9770,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cowwithgunPrefab: {fileID: 2557954877800294563, guid: 19fdaec487ab265478dee2e3b84fbde0, type: 3}
   towerSpots: {fileID: 644915287}
+  positionResetTransform: {fileID: 1404517288}
 --- !u!114 &1647161717
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9862,6 +9919,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cowwithgunPrefab: {fileID: 2557954877800294563, guid: 19fdaec487ab265478dee2e3b84fbde0, type: 3}
   towerSpots: {fileID: 644915287}
+  positionResetTransform: {fileID: 1404517288}
 --- !u!114 &1656059096
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10766,6 +10824,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cowwithgunPrefab: {fileID: 2557954877800294563, guid: 19fdaec487ab265478dee2e3b84fbde0, type: 3}
   towerSpots: {fileID: 644915287}
+  positionResetTransform: {fileID: 1404517288}
 --- !u!1 &1805673292
 GameObject:
   m_ObjectHideFlags: 0
@@ -10820,6 +10879,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cowwithgunPrefab: {fileID: 2557954877800294563, guid: 19fdaec487ab265478dee2e3b84fbde0, type: 3}
   towerSpots: {fileID: 644915287}
+  positionResetTransform: {fileID: 1404517288}
 --- !u!114 &1805673295
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11532,6 +11592,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cowwithgunPrefab: {fileID: 2557954877800294563, guid: 19fdaec487ab265478dee2e3b84fbde0, type: 3}
   towerSpots: {fileID: 644915287}
+  positionResetTransform: {fileID: 1404517288}
 --- !u!114 &2028297926
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11838,6 +11899,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cowwithgunPrefab: {fileID: 2557954877800294563, guid: 19fdaec487ab265478dee2e3b84fbde0, type: 3}
   towerSpots: {fileID: 644915287}
+  positionResetTransform: {fileID: 1404517288}
 --- !u!114 &2099444916
 MonoBehaviour:
   m_ObjectHideFlags: 0
