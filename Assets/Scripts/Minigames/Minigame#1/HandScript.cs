@@ -14,6 +14,7 @@ public class HandScript : MonoBehaviour
     public GameObject boopeffect;
     public GameObject text;
     private float clock = 0;
+    public AudioSource boopSound;
 
     private void Start()
     {
@@ -57,6 +58,9 @@ public class HandScript : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D colliderName)
     {
         if (colliderName.gameObject == Nose)
+        {
+            boopSound.Play();
             Boop = true;
+        }
     }
 }

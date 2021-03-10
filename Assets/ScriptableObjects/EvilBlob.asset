@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 684945d7a3c87d84d98ae17e8af85abb, type: 3}
   m_Name: EvilBlob
   m_EditorClassIdentifier: 
-  moveSpeed: 69
+  moveSpeed: 25
   enemyHealth: 100
   obstacleTags: Finish
   projectileTags: Projectile
