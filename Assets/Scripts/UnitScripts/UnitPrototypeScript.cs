@@ -16,6 +16,7 @@ public class UnitPrototypeScript : MonoBehaviour
     [SerializeField]private LayerMask targetLayer;
     [SerializeField]private LayerMask edgeOfRangeLayer;
 
+
     private bool isRecharging;
     private Vector3 originForAim;
     private Vector3 directionForAim;
@@ -87,6 +88,11 @@ public class UnitPrototypeScript : MonoBehaviour
 
     private void Death()
     {
-        if(health <= 0) { Destroy(gameObject); }
+        if(health <= 0) 
+        {
+            transform.GetChild(0).gameObject.SetActive(true);
+            transform.GetChild(0).gameObject.transform.SetParent(transform.parent, true);
+            Destroy(gameObject);
+        }
     }
 }
