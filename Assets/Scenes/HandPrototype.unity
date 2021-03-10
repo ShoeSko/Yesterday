@@ -458,7 +458,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3126888794182818877, guid: 2f51d16dd28a21e4a89f7e03b0786f2d, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3126888794182818877, guid: 2f51d16dd28a21e4a89f7e03b0786f2d, type: 3}
       propertyPath: m_AnchorMax.x
@@ -1225,6 +1225,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 122871493}
   m_CullTransparentMesh: 1
+--- !u!1 &157569947 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3126888794182818876, guid: 2f51d16dd28a21e4a89f7e03b0786f2d, type: 3}
+  m_PrefabInstance: {fileID: 50703115}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &162433757
 GameObject:
   m_ObjectHideFlags: 0
@@ -1635,6 +1640,11 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3126888794182818877, guid: 2f51d16dd28a21e4a89f7e03b0786f2d, type: 3}
   m_PrefabInstance: {fileID: 187037983}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &306789267 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3126888794182818876, guid: 2f51d16dd28a21e4a89f7e03b0786f2d, type: 3}
+  m_PrefabInstance: {fileID: 316497370}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &316497370
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1656,7 +1666,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3126888794182818877, guid: 2f51d16dd28a21e4a89f7e03b0786f2d, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3126888794182818877, guid: 2f51d16dd28a21e4a89f7e03b0786f2d, type: 3}
       propertyPath: m_AnchorMax.x
@@ -1965,6 +1975,18 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1485272401}
         m_TargetAssemblyTypeName: CardHandScript, Assembly-CSharp
+        m_MethodName: EnlargeButtonPressed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1485272402}
+        m_TargetAssemblyTypeName: NewCardHandScript, Assembly-CSharp
         m_MethodName: EnlargeButtonPressed
         m_Mode: 1
         m_Arguments:
@@ -3058,7 +3080,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3126888794182818877, guid: 2f51d16dd28a21e4a89f7e03b0786f2d, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3126888794182818877, guid: 2f51d16dd28a21e4a89f7e03b0786f2d, type: 3}
       propertyPath: m_AnchorMax.x
@@ -3622,6 +3644,11 @@ Transform:
   m_Father: {fileID: 55712073}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &672011148 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3126888794182818876, guid: 2f51d16dd28a21e4a89f7e03b0786f2d, type: 3}
+  m_PrefabInstance: {fileID: 943781969}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &674595950 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3126888794182818877, guid: 2f51d16dd28a21e4a89f7e03b0786f2d, type: 3}
@@ -5458,7 +5485,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3126888794182818877, guid: 2f51d16dd28a21e4a89f7e03b0786f2d, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3126888794182818877, guid: 2f51d16dd28a21e4a89f7e03b0786f2d, type: 3}
       propertyPath: m_AnchorMax.x
@@ -5727,7 +5754,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3126888794182818877, guid: 2f51d16dd28a21e4a89f7e03b0786f2d, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3126888794182818877, guid: 2f51d16dd28a21e4a89f7e03b0786f2d, type: 3}
       propertyPath: m_AnchorMax.x
@@ -7973,6 +8000,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1258080186}
   m_CullTransparentMesh: 1
+--- !u!1 &1261075971 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3126888794182818876, guid: 2f51d16dd28a21e4a89f7e03b0786f2d, type: 3}
+  m_PrefabInstance: {fileID: 498960749}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1279425196
 GameObject:
   m_ObjectHideFlags: 0
@@ -8928,6 +8960,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1485272402}
+        m_TargetAssemblyTypeName: NewCardHandScript, Assembly-CSharp
+        m_MethodName: MinimizeButtonPressed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1359261361
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9284,6 +9328,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1485272400}
   - component: {fileID: 1485272401}
+  - component: {fileID: 1485272402}
   m_Layer: 0
   m_Name: HANDscript
   m_TagString: Untagged
@@ -9312,7 +9357,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1485272399}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 85c467ea1b15b2a4b819a0e680ff98f0, type: 3}
   m_Name: 
@@ -9335,6 +9380,45 @@ MonoBehaviour:
   CardButton5L: {fileID: 1201383717}
   card1: {fileID: 796216382}
   ManaCost: 0
+--- !u!114 &1485272402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1485272399}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb3ce17b543ebbf43b5f18320309c193, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Smallhand: 1
+  cowwithgunPrefab: {fileID: 2557954877800294563, guid: 19fdaec487ab265478dee2e3b84fbde0, type: 3}
+  enlargeButton: {fileID: 330656593}
+  minimizeButton: {fileID: 1359261358}
+  handSmall: {fileID: 1595204776}
+  handEnlarged: {fileID: 2119027084}
+  TowerSpots: {fileID: 644915287}
+  CardButton1S: {fileID: 461859710}
+  CardButton2S: {fileID: 1893322604}
+  CardButton3S: {fileID: 618753998}
+  CardButton4S: {fileID: 1224832135}
+  CardButton5S: {fileID: 1258080186}
+  CardButton1L: {fileID: 694777353}
+  CardButton2L: {fileID: 1358580905}
+  CardButton3L: {fileID: 318120657}
+  CardButton4L: {fileID: 1763403867}
+  CardButton5L: {fileID: 1201383717}
+  ManaCost1: 0
+  card1: {fileID: 796216382}
+  ManaCost2: 0
+  card2: {fileID: 672011148}
+  ManaCost3: 0
+  card3: {fileID: 1261075971}
+  ManaCost4: 0
+  card4: {fileID: 306789267}
+  ManaCost5: 0
+  card5: {fileID: 157569947}
 --- !u!1 &1545223169
 GameObject:
   m_ObjectHideFlags: 0
@@ -9449,11 +9533,11 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 1224822128}
   - {fileID: 327263846}
   - {fileID: 1821549529}
   - {fileID: 438935053}
   - {fileID: 674595950}
-  - {fileID: 1224822128}
   - {fileID: 461859711}
   - {fileID: 1893322605}
   - {fileID: 618753999}
