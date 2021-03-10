@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CardHandScript : MonoBehaviour
+public class NewCardHandScript : MonoBehaviour
 {
-    private bool Smallhand = true;
+    public bool Smallhand = true;
 
     public GameObject cowwithgunPrefab;
 
@@ -26,9 +26,26 @@ public class CardHandScript : MonoBehaviour
     public GameObject CardButton4L;
     public GameObject CardButton5L;
 
-    private CardDisplayer CardValues;
+    public int ManaCost1;
     public GameObject card1;
-    public int ManaCost;
+    private CardDisplayer CardValues1;
+
+    public int ManaCost2;
+    public GameObject card2;
+    private CardDisplayer CardValues2;
+
+    public int ManaCost3;
+    public GameObject card3;
+    private CardDisplayer CardValues3;
+
+    public int ManaCost4;
+    public GameObject card4;
+    private CardDisplayer CardValues4;
+
+    public int ManaCost5;
+    public GameObject card5;
+    private CardDisplayer CardValues5;
+
     void Start()
     {
         handEnlarged.SetActive(false);
@@ -38,36 +55,69 @@ public class CardHandScript : MonoBehaviour
 
     void Update()
     {
-        if(ManaSystem.CurrentMana >= ManaCost)//all of this is temporary solution for the prototype
+
+        if (ManaSystem.CurrentMana >= ManaCost1)
         {
-            if (Smallhand)
-            {
+            if(Smallhand)
                 CardButton1S.SetActive(true);
-                CardButton2S.SetActive(true);
-                CardButton3S.SetActive(true);
-                CardButton4S.SetActive(true);
-                CardButton5S.SetActive(true);
-            }
-            else if (!Smallhand)
-            {
+            else if(!Smallhand)
                 CardButton1L.SetActive(true);
-                CardButton2L.SetActive(true);
-                CardButton3L.SetActive(true);
-                CardButton4L.SetActive(true);
-                CardButton5L.SetActive(true);
-            }
         }
         else
         {
             CardButton1S.SetActive(false);
-            CardButton2S.SetActive(false);
-            CardButton3S.SetActive(false);
-            CardButton4S.SetActive(false);
-            CardButton5S.SetActive(false);
             CardButton1L.SetActive(false);
+        }
+
+        if (ManaSystem.CurrentMana >= ManaCost2)
+        {
+            if (Smallhand)
+                CardButton2S.SetActive(true);
+            else if (!Smallhand)
+                CardButton2L.SetActive(true);
+        }
+        else
+        {
+            CardButton2S.SetActive(false);
             CardButton2L.SetActive(false);
+        }
+
+        if (ManaSystem.CurrentMana >= ManaCost3)
+        {
+            if (Smallhand)
+                CardButton3S.SetActive(true);
+            else if (!Smallhand)
+                CardButton3L.SetActive(true);
+        }
+        else
+        {
+            CardButton3S.SetActive(false);
             CardButton3L.SetActive(false);
+        }
+
+        if (ManaSystem.CurrentMana >= ManaCost4)
+        {
+            if (Smallhand)
+                CardButton4S.SetActive(true);
+            else if (!Smallhand)
+                CardButton4L.SetActive(true);
+        }
+        else
+        {
+            CardButton4S.SetActive(false);
             CardButton4L.SetActive(false);
+        }
+
+        if (ManaSystem.CurrentMana >= ManaCost5)
+        {
+            if (Smallhand)
+                CardButton5S.SetActive(true);
+            else if (!Smallhand)
+                CardButton5L.SetActive(true);
+        }
+        else
+        {
+            CardButton5S.SetActive(false);
             CardButton5L.SetActive(false);
         }
 
@@ -102,7 +152,19 @@ public class CardHandScript : MonoBehaviour
     }
     private void ReadMana()
     {
-        CardValues = card1.GetComponent<CardDisplayer>();
-        ManaCost = CardValues.manaValue;  
+        CardValues1 = card1.GetComponent<CardDisplayer>();
+        ManaCost1 = CardValues1.manaValue;
+
+        CardValues2 = card2.GetComponent<CardDisplayer>();
+        ManaCost2 = CardValues2.manaValue;
+
+        CardValues3 = card3.GetComponent<CardDisplayer>();
+        ManaCost3 = CardValues3.manaValue;
+
+        CardValues4 = card4.GetComponent<CardDisplayer>();
+        ManaCost4 = CardValues4.manaValue;
+
+        CardValues5 = card5.GetComponent<CardDisplayer>();
+        ManaCost5 = CardValues5.manaValue;
     }
 }
