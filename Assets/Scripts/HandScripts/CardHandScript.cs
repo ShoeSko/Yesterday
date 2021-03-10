@@ -26,7 +26,9 @@ public class CardHandScript : MonoBehaviour
     public GameObject CardButton4L;
     public GameObject CardButton5L;
 
-
+    private CardDisplayer CardValues;
+    public GameObject card1;
+    public int ManaCost;
     void Start()
     {
         handEnlarged.SetActive(false);
@@ -36,7 +38,7 @@ public class CardHandScript : MonoBehaviour
 
     void Update()
     {
-        if(ManaSystem.CurrentMana >= 2)//all of this is temporary solution for the prototype
+        if(ManaSystem.CurrentMana >= ManaCost)//all of this is temporary solution for the prototype
         {
             if (Smallhand)
             {
@@ -68,6 +70,8 @@ public class CardHandScript : MonoBehaviour
             CardButton4L.SetActive(false);
             CardButton5L.SetActive(false);
         }
+
+        ReadMana(); //Quick fix to read the mana value
     }
 
     public void EnlargeButtonPressed()//enlarge your hand
@@ -95,5 +99,11 @@ public class CardHandScript : MonoBehaviour
         enlargeButton.SetActive(true);
         handSmall.SetActive(true);
         minimizeButton.SetActive(false);
+    }
+    private void ReadMana()
+    {
+        CardValues = card1.GetComponent<CardDisplayer>();
+        ManaCost = CardValues.manaValue;
+        
     }
 }

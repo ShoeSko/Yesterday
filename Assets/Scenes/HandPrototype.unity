@@ -4279,6 +4279,11 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3126888794182818877, guid: 2f51d16dd28a21e4a89f7e03b0786f2d, type: 3}
   m_PrefabInstance: {fileID: 775274729}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &796216382 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3126888794182818876, guid: 2f51d16dd28a21e4a89f7e03b0786f2d, type: 3}
+  m_PrefabInstance: {fileID: 992010617}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &807711529
 GameObject:
   m_ObjectHideFlags: 0
@@ -9328,6 +9333,8 @@ MonoBehaviour:
   CardButton3L: {fileID: 318120657}
   CardButton4L: {fileID: 1763403867}
   CardButton5L: {fileID: 1201383717}
+  card1: {fileID: 796216382}
+  ManaCost: 0
 --- !u!1 &1545223169
 GameObject:
   m_ObjectHideFlags: 0
