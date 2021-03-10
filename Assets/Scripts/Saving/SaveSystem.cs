@@ -20,6 +20,11 @@ public class SaveSystem : MonoBehaviour
 
         data = loadedData;
     }
+
+    private void Start()
+    {
+        DontDestroyOnLoad(this); //Makes it so that all scenes can see it. (Potentialy other scrip
+    }
 }
 
 [System.Serializable]
