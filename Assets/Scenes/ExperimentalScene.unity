@@ -999,6 +999,7 @@ GameObject:
   - component: {fileID: 1865605098}
   - component: {fileID: 1865605097}
   - component: {fileID: 1865605101}
+  - component: {fileID: 1865605102}
   m_Layer: 0
   m_Name: CubeOfSides
   m_TagString: Untagged
@@ -1095,8 +1096,21 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1865605096}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4725f495e6f6c354998a5469a7d2d01b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1865605102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1865605096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 976db4878e15326428c224823372df52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectOfGyro: {fileID: 1865605096}
