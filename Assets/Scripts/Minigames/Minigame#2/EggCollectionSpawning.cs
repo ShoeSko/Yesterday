@@ -22,6 +22,12 @@ public class EggCollectionSpawning : MonoBehaviour
     public GameObject goaltext;
     private float levelcountdown = 0;
     private bool victoryEgg;
+    public static int eggsSpawned = 0;//keeps track of how many eggs were spawned/destroyed
+    private float delay;
+
+    public GameObject star1;
+    public GameObject star2;
+    public GameObject star3;
 
     void Start()
     {
@@ -29,6 +35,11 @@ public class EggCollectionSpawning : MonoBehaviour
         StartCoroutine(EggSpawner());//Starts the spawning coroutine
         score = 0;
         wintext.SetActive(false);
+        eggSpawnAmount = 8;
+        eggsSpawned = 0;
+        star1.SetActive(false);
+        star2.SetActive(false);
+        star3.SetActive(false);
     }
 
     IEnumerator EggSpawner()
@@ -56,11 +67,47 @@ public class EggCollectionSpawning : MonoBehaviour
 
     void Update()
     {
-        if(score >= 5)//win after clicking 5 eggs
+        if (eggsSpawned == eggSpawnAmount)
+            delay += Time.deltaTime;
+
+        if(delay >= 2)
         {
-            Win();
-            victoryEgg = true;
+            if(score == 8)
+            {
+                Win();
+                victoryEgg = true;
+                //3 stars
+                star1.SetActive(true);
+                star2.SetActive(true);
+                star3.SetActive(true);
+                print("you got 3 stars");
+            }
+            else if (score == 7)
+            {
+                Win();
+                victoryEgg = true;
+                //2 stars
+                star1.SetActive(true);
+                star2.SetActive(true);
+                print("you got 2 stars");
+            }
+            else if (score == 6)
+            {
+                Win();
+                victoryEgg = true;
+                //1 stars
+                star1.SetActive(true);
+                print("you got 1 stars");
+            }
+            else if (score <= 5)
+            {
+                Win();
+                victoryEgg = true;
+                //0 stars
+                print("you got 0 stars");
+            }
         }
+
     }
     public void Win()
     {

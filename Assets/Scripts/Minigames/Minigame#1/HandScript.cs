@@ -15,14 +15,25 @@ public class HandScript : MonoBehaviour
     public GameObject text;
     private float clock = 0;
     public AudioSource boopSound;
+    private float scoreTimer;
+
+    public GameObject star1;
+    public GameObject star2;
+    public GameObject star3;
+
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         text.SetActive(false);
+        star1.SetActive(false);
+        star2.SetActive(false);
+        star3.SetActive(false);
     }
     private void Update()
     {
+        scoreTimer += Time.deltaTime;
+
         if (!Boop)//hand movement following the mouse 
         {
             Camera mainCamera = Camera.main;
@@ -44,6 +55,29 @@ public class HandScript : MonoBehaviour
             boopeffect.transform.position = new Vector3(3.700827f, 0.2415431f, 0.5916452f);
             text.SetActive(true);
             clock += Time.deltaTime;
+
+            if(scoreTimer <= 2)//define score for this minigame
+            {
+                star1.SetActive(true);
+                star2.SetActive(true);
+                star3.SetActive(true);
+                //3 stars
+            }
+            else if(scoreTimer >2 && scoreTimer <= 3)
+            {
+                star1.SetActive(true);
+                star2.SetActive(true);
+                //2 stars
+            }
+            else if(scoreTimer >3 && scoreTimer <= 4)
+            {
+                star1.SetActive(true);
+                //1 star
+            }
+            else if(scoreTimer > 5)
+            {
+                //0 stars
+            }
         }
 
         if (clock >= 5)//load next scene after 5 sec

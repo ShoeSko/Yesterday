@@ -11,7 +11,7 @@ public class EggCollection : MonoBehaviour
     {
         timer += Time.deltaTime;
         
-        if(timer > 3)//destroy after 3 second
+        if(timer > 1.5f)//destroy after 2 second
             Destroy(gameObject);
     }
     public void EggCollected()
@@ -24,5 +24,7 @@ public class EggCollection : MonoBehaviour
     {
         if (GetPoints == true)//the egg won't give points when disappearing
             EggCollectionSpawning.score++;
+
+        EggCollectionSpawning.eggsSpawned++;
     }
 }
