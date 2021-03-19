@@ -11,12 +11,16 @@ public class CowTitButton : MonoBehaviour
     private Vector2 down;
     public float timer;
     private int counterPress;//this is used to make it so the game doesn't count the same button more than once for the win-condition
+    public AudioSource Moo;
 
     public void buttonPressed() //when you press on the tit, do everything in update section
     {
         pullDown = true;
         if (counterPress == 0)
+        {
+            Moo.Play();
             GoalCounter.counter++;
+        }
         counterPress++;
     }
 

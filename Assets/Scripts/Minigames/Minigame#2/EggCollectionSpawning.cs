@@ -24,7 +24,6 @@ public class EggCollectionSpawning : MonoBehaviour
     private bool victoryEgg;
     public static int eggsSpawned = 0;//keeps track of how many eggs were spawned/destroyed
     private float delay;
-    private bool playSound = false;
     public AudioSource Eggscelent;
 
 
@@ -79,35 +78,27 @@ public class EggCollectionSpawning : MonoBehaviour
             {
                 Win();
                 victoryEgg = true;
-                //3 stars
                 star1.SetActive(true);
                 star2.SetActive(true);
                 star3.SetActive(true);
-                print("you got 3 stars");
             }
             else if (score == 7)
             {
                 Win();
                 victoryEgg = true;
-                //2 stars
                 star1.SetActive(true);
                 star2.SetActive(true);
-                print("you got 2 stars");
             }
             else if (score == 6)
             {
                 Win();
                 victoryEgg = true;
-                //1 stars
                 star1.SetActive(true);
-                print("you got 1 stars");
             }
             else if (score <= 5)
             {
                 Win();
                 victoryEgg = true;
-                //0 stars
-                print("you got 0 stars");
             }
         }
 

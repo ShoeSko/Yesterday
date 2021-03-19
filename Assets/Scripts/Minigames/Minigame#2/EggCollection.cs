@@ -6,11 +6,13 @@ public class EggCollection : MonoBehaviour
 {
     private bool GetPoints = false;
     private float timer = 0;
+    public GameObject eggAudio;
     public AudioSource getEgg;
 
     public void Start()
     {
-        
+        eggAudio = GameObject.Find("getEggSound");
+        getEgg = eggAudio.GetComponent<AudioSource>();
     }
 
     public void Update()
@@ -22,7 +24,7 @@ public class EggCollection : MonoBehaviour
     }
     public void EggCollected()
     {
-        //getEgg.Play();
+        getEgg.Play();
         GetPoints = true;   //counts the eggs towards the total goal
         Destroy(gameObject);//Tempt simple solution, destroy the egg on press.
     }
