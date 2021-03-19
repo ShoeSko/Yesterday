@@ -52,7 +52,7 @@ public class HandScript : MonoBehaviour
 
         if (Boop)//when the hand touches the nose, add blush
         {
-            boopeffect.transform.position = new Vector3(3.700827f, 0.2415431f, 0.5916452f);
+            //boopeffect.transform.position = new Vector3(3.700827f, 0.2415431f, 0.5916452f);
             text.SetActive(true);
             clock += Time.deltaTime;
 
