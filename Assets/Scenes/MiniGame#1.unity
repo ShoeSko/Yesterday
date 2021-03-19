@@ -596,7 +596,7 @@ GameObject:
   - component: {fileID: 522178080}
   - component: {fileID: 522178079}
   m_Layer: 0
-  m_Name: Doggo (1)
+  m_Name: Doggo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1424,7 +1424,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1142370862}
   m_Layer: 0
-  m_Name: Doggo
+  m_Name: Doggo(worse)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
