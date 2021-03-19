@@ -24,6 +24,9 @@ public class EggCollectionSpawning : MonoBehaviour
     private bool victoryEgg;
     public static int eggsSpawned = 0;//keeps track of how many eggs were spawned/destroyed
     private float delay;
+    private bool playSound = false;
+    public AudioSource Eggscelent;
+
 
     public GameObject star1;
     public GameObject star2;
@@ -108,6 +111,10 @@ public class EggCollectionSpawning : MonoBehaviour
             }
         }
 
+        if (delay < 2 && delay > 1)
+        {
+            Eggscelent.Play();
+        }
     }
     public void Win()
     {

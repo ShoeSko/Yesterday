@@ -9,6 +9,8 @@ public class GoalCounter : MonoBehaviour
     private float timer;
     public GameObject text;//text that pops up when you 'win' the minigame
     private float scoreTimer;
+    public AudioSource amoosing;
+    private bool win = false;
 
     public GameObject star1;
     public GameObject star2;
@@ -28,7 +30,14 @@ public class GoalCounter : MonoBehaviour
     {
         scoreTimer += Time.deltaTime;
 
-        if (counter == 4)//when you have pressed all 4 cow tits:
+        if (counter == 4)
+        {
+            amoosing.Play();
+            win = true;
+            counter++;
+        }
+
+        if (win)//when you have pressed all 4 cow tits:
         {
             timer += Time.deltaTime;//*start countdown, after 5 sec you get transported to the next level
             text.SetActive(true);//*show the win screen text
