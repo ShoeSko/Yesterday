@@ -22,6 +22,7 @@ public class BasicEnemyMovement : MonoBehaviour
     private bool obstacleInTheWay;//Is there a unit blocking the path?
     private Rigidbody2D rg2D;
     private bool hasAttacked; //Has it attacked, wait until ready again.
+    private int quackDamage = 80;
 
     private void Start()
     {
@@ -61,6 +62,13 @@ public class BasicEnemyMovement : MonoBehaviour
             enemyHealth = enemyHealth - parentScript.projectileDamage;//Make a way to transfer set damage.
             Destroy(other.gameObject);//Current issue for later, bullet takes time to dissapear.
         }
+
+        if (other.gameObject.tag == "Quack")
+        {
+            enemyHealth = enemyHealth - quackDamage;
+            Destroy(other.gameObject);
+        }
+
     }
 
     private void OnCollisionExit2D(Collision2D other) //Restarts movement upon destroying the obstacle
