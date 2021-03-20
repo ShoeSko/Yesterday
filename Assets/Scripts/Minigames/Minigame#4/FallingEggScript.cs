@@ -7,7 +7,7 @@ public class FallingEggScript : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
 
-        fallingEggs.collectedEggs++;
+        fallingEggs.collectedEggs++;//count towards the goal of the minigame
         Destroy(gameObject);
     }
 }

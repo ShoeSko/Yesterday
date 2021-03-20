@@ -16,10 +16,10 @@ public class BasketController : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetKey(KeyCode.A))//move left
             rb.velocity = new Vector2(-moveSpeed, 0);
 
-        else if (Input.GetKey(KeyCode.D))
+        else if (Input.GetKey(KeyCode.D))//move right
             rb.velocity = new Vector2(moveSpeed, 0);
     }
 }

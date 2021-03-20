@@ -15,7 +15,6 @@ public class fallingEggs : MonoBehaviour
 
     private float timer = 0;
     private float wintimer = 0;
-    private bool IWon;
     public GameObject star1;
     public GameObject star2;
     public GameObject star3;
@@ -30,11 +29,11 @@ public class fallingEggs : MonoBehaviour
         StartCoroutine(itsRainingEgg());
     }
 
-    IEnumerator itsRainingEgg()
+    IEnumerator itsRainingEgg()//activate spawning coroutine for falling eggs
     {
         for (int spawnedEggs = 0; spawnedEggs < EggsToSpawn; spawnedEggs++)
         {
-            spawnLocation = new Vector2(Random.Range(min, max), 5.46f);
+            spawnLocation = new Vector2(Random.Range(min, max), 5.46f);//random location (on the screen)
             Instantiate(egg, spawnLocation, transform.rotation);
             countdownEgg++;
 
@@ -44,39 +43,44 @@ public class fallingEggs : MonoBehaviour
 
     public void Update()
     {
-        timer += Time.deltaTime;
 
-        if (timer >= 18 && timer <= 19)
+        if(countdownEgg == EggsToSpawn)//when you have spawned all of the eggs, initiate endgame sequence
+        {
+            countdown();
+        }
+
+        if (timer >= 4)//countdown for how long the game lasts
             win();
 
-        if (wintimer >= 5)
+        if (wintimer >= 9)//5 seconds after 'winning', change scene
         {
             //SceneManager.LoadScene("");
             print("i changed scene");
         }
-
-        if(IWon == true)
-            wintimer += Time.deltaTime;
     }
 
     private void win()
     {
-        IWon = true;
-
-        if(collectedEggs == 10)
+        if(collectedEggs == 10)//3stars
         {
             star1.SetActive(true);
             star2.SetActive(true);
             star3.SetActive(true);
         }
-        else if(collectedEggs == 9)
+        else if(collectedEggs == 9)//2 stars
         {
             star1.SetActive(true);
             star2.SetActive(true);
         }
-        else if (collectedEggs == 8)
+        else if (collectedEggs == 8)//1 star
         {
             star1.SetActive(true);
         }
+    }
+
+    private void countdown()
+    {
+        timer += Time.deltaTime;
+        wintimer += Time.deltaTime;
     }
 }
