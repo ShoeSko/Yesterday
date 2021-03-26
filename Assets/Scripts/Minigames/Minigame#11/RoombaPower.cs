@@ -7,14 +7,15 @@ public class RoombaPower : MonoBehaviour
     [Header("Material Looks")]
     public Material powerOn;
     [Header("List of the wires to be used")]
+    public List<GameObject> connection0 = new List<GameObject>();
     public List<GameObject> connection1 = new List<GameObject>();
     public List<GameObject> connection2 = new List<GameObject>();
     public List<GameObject> connection3 = new List<GameObject>();
-    private int conncetion1Count;
-    private int conncetion2Count;
-    private int conncetion3Count;
+
     [Header("Switches being used")]
-    public List<GameObject> switches = new List<GameObject>();
+    public List<GameObject> switches1 = new List<GameObject>();
+    public GameObject switch2;
+    public List<GameObject> switches3 = new List<GameObject>();
 
     private bool firstSwitch;
     private bool secondSwitch;
@@ -32,19 +33,21 @@ public class RoombaPower : MonoBehaviour
     public GameObject roombaObject;
     public int roombaSpeed;
     private int roombaflipInt = 1;
+
+    private int randomiser1;
+    private int randomiser2;
     #endregion
 
     private void Start()
     {
+        randomiser1 = Random.Range(0, 3);
+        randomiser2 = Random.Range(0, 3);
+        connection0[randomiser1].GetComponent<MeshRenderer>().material = powerOn; //Choses the first wire.
         starLenght = stars.Count;
         for (int i = 0; i < starLenght; i++)
         {
             stars[i].SetActive(false);
         }
-        conncetion1Count = connection1.Count;
-        conncetion2Count = connection2.Count;
-        conncetion3Count = connection3.Count;
-
     }
     private void Update()
     {
@@ -54,26 +57,26 @@ public class RoombaPower : MonoBehaviour
     private void WhichSwitch()
     {
         //Switch 1
-        if(switches[0].transform.eulerAngles.z == 90)
+        if(switches1[randomiser1].transform.eulerAngles.z == 90)
         {
             ActivateFirstConnection();
             firstSwitch = true;
-            switches[0].layer = 2; //Gives the object ignore raycast, prevents more flipping.
+            switches1[randomiser1].layer = 2; //Gives the object ignore raycast, prevents more flipping.
         }
 
         //Switch 2
-        if (switches[1].transform.eulerAngles.z == 90 && firstSwitch)
+        if (switch2.transform.eulerAngles.z == 90 && firstSwitch)
         {
             ActivateSecondConnection();
             secondSwitch = true;
-            switches[1].layer = 2;
+            switch2.layer = 2;
         }
 
         //Switch 3
-        if (switches[2].transform.eulerAngles.z == 90 && secondSwitch)
+        if (switches3[randomiser2].transform.eulerAngles.z == 90 && secondSwitch)
         {
             ActivateThirdConnection();
-            switches[2].layer = 2;
+            switches3[randomiser2].layer = 2;
             RoombaTime();
         }
     }
@@ -132,27 +135,15 @@ public class RoombaPower : MonoBehaviour
     #region Connections
     private void ActivateFirstConnection() //Turns the wires on (Might just be a object with 2 anim states instead
     {
-
-        for (int i = 0; i < conncetion1Count; i++)
-        {
-            connection1[i].GetComponent<MeshRenderer>().material = powerOn;
-        }
+            connection1[randomiser1].GetComponent<MeshRenderer>().material = powerOn;
     }
     private void ActivateSecondConnection()
     {
-
-        for (int i = 0; i < conncetion2Count; i++)
-        {
-            connection2[i].GetComponent<MeshRenderer>().material = powerOn;
-        }
+            connection2[randomiser2].GetComponent<MeshRenderer>().material = powerOn;
     }
     private void ActivateThirdConnection()
     {
-
-        for (int i = 0; i < conncetion3Count; i++)
-        {
-            connection3[i].GetComponent<MeshRenderer>().material = powerOn;
-        }
+            connection3[randomiser2].GetComponent<MeshRenderer>().material = powerOn;
     }
     #endregion
 }
