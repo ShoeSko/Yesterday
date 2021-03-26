@@ -8,6 +8,7 @@ public class NewCardHandScript : MonoBehaviour
 
     public GameObject cowwithgunPrefab;
     public GameObject PlayedCard;
+    public GameObject quackenButton;
 
     public GameObject enlargeButton;//arrow up above your hand to enlarge your hand
     public GameObject minimizeButton;//arrow down visible after enlarging your hand
@@ -133,6 +134,7 @@ public class NewCardHandScript : MonoBehaviour
         handSmall.SetActive(false);
         minimizeButton.SetActive(true);
         handEnlarged.SetActive(true);
+        quackenButton.SetActive(false);
     }
 
     public void MinimizeButtonPressed()//minimize your hand
@@ -142,6 +144,7 @@ public class NewCardHandScript : MonoBehaviour
         handSmall.SetActive(true);
         minimizeButton.SetActive(false);
         handEnlarged.SetActive(false);
+        quackenButton.SetActive(true);
     }
 
 
