@@ -1,0 +1,125 @@
+using System.Collections.Generic;
+using UnityEngine;
+
+public class WateringCan : MonoBehaviour
+{
+    [Header("Wateringcan settings")]
+    [Range(-0.5f, 0.5f)] public float rotDeadZone = 0.1f;
+    public Transform wateringTrans;
+    [Range(0,5)]public float rotationsSpeed = 1;
+    public Vector3 rotationalDirection;
+    [SerializeField] private LayerMask targetLayer;
+    public GameObject water;
+
+    [Header("Plants")]
+    public float wateringTimeNeeded;
+    public List<GameObject> plantsA = new List<GameObject>();
+    public List<GameObject> plantsD = new List<GameObject>();
+
+    private Vector3 originForAim; //Where to aim from?
+    private Vector3 directionForAim;//Which direction?
+    private bool watered;//Has the plants been watered yet?
+
+    [Header("Star system")]
+    public List<GameObject> stars = new List<GameObject>(); //A list of the stars
+    private int starLenght;//How long is the star list
+    private float scoreTimer; //How long it takes to do the game
+    public int star1Time;
+    public int star2Time;
+    public int star3Time;
+
+    private void Start()
+    {
+        starLenght = stars.Count;
+    }
+
+    private void Update()
+    {
+        if (!watered)
+        {
+        WateringcanControlls();
+        WateringTime();
+        }
+    }
+
+    private void WateringTime()//How long to water the plants + raycast for knowing when to water
+    {
+        scoreTimer += Time.deltaTime; //Score timer
+
+        originForAim = transform.position;
+        directionForAim = transform.right;
+        RaycastHit2D hit;
+        hit = Physics2D.Raycast(originForAim, directionForAim, targetLayer);
+        if (hit)
+        {
+            water.SetActive(true);
+            wateringTimeNeeded -= Time.deltaTime;
+        }
+        else { water.SetActive(false); }
+
+        if(wateringTimeNeeded <= 0)
+        {
+            WateredPlants();
+        }
+    }
+
+    private void WateredPlants() //Plants have been watered enough, end the game.
+    {
+        for (int i = 0; i < 2; i++)//Brings the plants to life
+        {
+            plantsA[i].SetActive(true);
+            plantsD[i].SetActive(false);
+        }
+
+        if (scoreTimer <= star1Time)//define score for this minigame
+        {
+            for (int i = 0; i < starLenght; i++)
+            {
+                stars[i].SetActive(true);
+            }
+            //3 stars
+        }
+        else if (scoreTimer > star1Time && scoreTimer <= star2Time)
+        {
+            for (int i = 0; i < starLenght - 1; i++)
+            {
+                stars[i].SetActive(true);
+            }
+            //2 stars
+        }
+        else if (scoreTimer > star2Time && scoreTimer <= star3Time)
+        {
+            for (int i = 0; i < starLenght - 2; i++)
+            {
+                stars[i].SetActive(true);
+            }
+            //1 star
+        }
+        else
+        {
+            //0 stars
+        }
+        water.SetActive(false);
+        watered = true; //Plants have now been watered
+    }
+
+    private void WateringcanControlls()
+    {
+#if UNITY_ANDROID //Everything within this, only works if the build is android.
+        if (Input.acceleration.x < -rotDeadZone)//move left with phone rotation
+            wateringTrans.Rotate(rotationalDirection * (rotationsSpeed * Time.deltaTime));//Rotates the object to the left
+
+        else if (Input.acceleration.x > rotDeadZone)//move right with phone rotation
+            wateringTrans.Rotate(-rotationalDirection * (rotationsSpeed * Time.deltaTime)); //Rotates the object to the right
+
+        //else if (Input.acceleration.x > -rotDeadZone || Input.acceleration.x < rotDeadZone) //Stops the wateringcan from rotating
+
+#else
+        if (Input.GetKey(KeyCode.A))//rotate left
+            wateringTrans.Rotate(rotationalDirection * (rotationsSpeed * Time.deltaTime));
+
+        else if (Input.GetKey(KeyCode.D))//rotate right
+            wateringTrans.Rotate(-rotationalDirection * (rotationsSpeed * Time.deltaTime));
+#endif
+    }
+}
