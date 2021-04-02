@@ -58,8 +58,8 @@ public class BasicEnemyMovement : MonoBehaviour
     {
         if (other.gameObject.CompareTag(projectileTags))
         {
-            UnitPrototypeScript parentScript = other.gameObject.GetComponentInParent<UnitPrototypeScript>();
-            enemyHealth = enemyHealth - parentScript.projectileDamage;//Make a way to transfer set damage.
+            ProjectileScript projectileScript = other.gameObject.GetComponent<ProjectileScript>();
+            enemyHealth = enemyHealth - projectileScript.projectileDamage;//Reads damage from the projectile script(Which reads it from their parent)
             Destroy(other.gameObject);//Current issue for later, bullet takes time to dissapear.
         }
 
