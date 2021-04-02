@@ -67,8 +67,6 @@ public class AnimalVictory : MonoBehaviour
                 {
                     //0 stars
                 }
-            print("victory");
-            _animalPensFilled = 0; //Resets the game
 
             timer += Time.deltaTime;
             if(timer > 5)//5 seconds after winning the game
@@ -89,7 +87,6 @@ public class AnimalVictory : MonoBehaviour
                 }
             }
         }
-        print(_animalPensFilled);
     }
     private void OnDestroy()
     {
