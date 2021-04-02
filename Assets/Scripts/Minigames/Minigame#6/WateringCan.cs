@@ -11,6 +11,7 @@ public class WateringCan : MonoBehaviour
     public Vector3 rotationalDirection;
     [SerializeField] private LayerMask targetLayer;
     public GameObject water;
+    public ParticleSystem Water;
 
     [Header("Plants")]
     public float wateringTimeNeeded;
@@ -34,6 +35,7 @@ public class WateringCan : MonoBehaviour
     private void Start()
     {
         starLenght = stars.Count;
+        Water.Play();
     }
 
     private void Update()
@@ -77,12 +79,12 @@ public class WateringCan : MonoBehaviour
         hit = Physics2D.Raycast(originForAim, directionForAim, targetLayer);
         if (hit)
         {
-            water.SetActive(true);
-            wateringTimeNeeded -= Time.deltaTime;
+            Water.enableEmission = true; //Turn on water emission
+            wateringTimeNeeded -= Time.deltaTime; //Counts down how long one has been watering the plants
         }
-        else { water.SetActive(false); }
+        else { Water.enableEmission = false; } //Turns of emission when not watering plants (Very visual when you are doing it correctly)
 
-        if(wateringTimeNeeded <= 0)
+        if (wateringTimeNeeded <= 0)
         {
             WateredPlants();
         }
@@ -124,7 +126,7 @@ public class WateringCan : MonoBehaviour
         {
             //0 stars
         }
-        water.SetActive(false);
+        Water.Stop();
         watered = true; //Plants have now been watered
     }
 
