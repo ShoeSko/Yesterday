@@ -161,7 +161,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 524288
   water: {fileID: 1441517960}
-  wateringTimeNeeded: 2
+  Water: {fileID: 1441517963}
+  wateringTimeNeeded: 5
   plantsA:
   - {fileID: 482635764}
   - {fileID: 711237071}
@@ -1120,7 +1121,7 @@ ParticleSystem:
   m_GameObject: {fileID: 1441517960}
   serializedVersion: 7
   lengthInSec: 10
-  simulationSpeed: 1
+  simulationSpeed: 2
   stopAction: 0
   cullingMode: 0
   ringBufferMode: 0
