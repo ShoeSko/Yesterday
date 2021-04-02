@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AnimalVictory : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class AnimalVictory : MonoBehaviour
     public int star1Time;
     public int star2Time;
     public int star3Time;
+
+    private float timer;//time it takes to change scene
 
     private void Awake()
     {
@@ -49,7 +52,6 @@ public class AnimalVictory : MonoBehaviour
                 for (int i = 0; i < starLenght - 1; i++)
                 {
                     stars[i].SetActive(true);
-                    print("Did it");
                 }
                     //2 stars
                 }
@@ -67,6 +69,25 @@ public class AnimalVictory : MonoBehaviour
                 }
             print("victory");
             _animalPensFilled = 0; //Resets the game
+
+            timer += Time.deltaTime;
+            if(timer > 5)//5 seconds after winning the game
+            {
+                if (MinigameSceneScript.activeMinigame == 1)
+                {
+                    MinigameSceneScript.activeMinigame++;
+                    SceneManager.LoadScene("Minigame#" + MinigameSceneScript.scene2);
+                }
+                else if (MinigameSceneScript.activeMinigame == 2)
+                {
+                    MinigameSceneScript.activeMinigame++;
+                    SceneManager.LoadScene("Minigame#" + MinigameSceneScript.scene3);
+                }
+                else if (MinigameSceneScript.activeMinigame == 3)
+                {
+                    SceneManager.LoadScene("CoreGame");
+                }
+            }
         }
         print(_animalPensFilled);
     }

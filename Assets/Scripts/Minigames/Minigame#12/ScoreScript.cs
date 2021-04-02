@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ScoreScript : MonoBehaviour
 {
@@ -29,8 +30,20 @@ public class ScoreScript : MonoBehaviour
 
             if (timer >= 5)//after reaching the goal, change scene after 5 sec
             {
-                //transform scene
-                Debug.Log("i changed scene");//delete when we implement scenemanager
+                if (MinigameSceneScript.activeMinigame == 1)
+                {
+                    MinigameSceneScript.activeMinigame++;
+                    SceneManager.LoadScene("Minigame#" + MinigameSceneScript.scene2);
+                }
+                else if (MinigameSceneScript.activeMinigame == 2)
+                {
+                    MinigameSceneScript.activeMinigame++;
+                    SceneManager.LoadScene("Minigame#" + MinigameSceneScript.scene3);
+                }
+                else if (MinigameSceneScript.activeMinigame == 3)
+                {
+                    SceneManager.LoadScene("CoreGame");
+                }
             }
         }
     }

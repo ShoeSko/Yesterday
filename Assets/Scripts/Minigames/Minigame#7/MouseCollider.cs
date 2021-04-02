@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MouseCollider : MonoBehaviour
 {
@@ -54,10 +55,23 @@ public class MouseCollider : MonoBehaviour
                 star1.SetActive(true);
             }
 
-            if (gamoverTimer >= 5)
+
+            if (gamoverTimer >= 5)//change scenes after 5 sec
             {
-                print("i changed scene");
-                //change scene
+                if (MinigameSceneScript.activeMinigame == 1)
+                {
+                    MinigameSceneScript.activeMinigame++;
+                    SceneManager.LoadScene("Minigame#" + MinigameSceneScript.scene2);
+                }
+                else if (MinigameSceneScript.activeMinigame == 2)
+                {
+                    MinigameSceneScript.activeMinigame++;
+                    SceneManager.LoadScene("Minigame#" + MinigameSceneScript.scene3);
+                }
+                else if (MinigameSceneScript.activeMinigame == 3)
+                {
+                    SceneManager.LoadScene("CoreGame");
+                }
             }
         }
     }

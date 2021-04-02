@@ -81,7 +81,22 @@ public class HandScript : MonoBehaviour
         }
 
         if (clock >= 5)//load next scene after 5 sec
-            SceneManager.LoadScene("Minigame#2");
+        {
+            if(MinigameSceneScript.activeMinigame == 1)
+            {
+                MinigameSceneScript.activeMinigame++;
+                SceneManager.LoadScene("Minigame#" + MinigameSceneScript.scene2);
+            }
+            else if (MinigameSceneScript.activeMinigame == 2)
+            {
+                MinigameSceneScript.activeMinigame++;
+                SceneManager.LoadScene("Minigame#" + MinigameSceneScript.scene3);
+            }
+            else if (MinigameSceneScript.activeMinigame == 3)
+            {
+                SceneManager.LoadScene("CoreGame");
+            }
+        }
     }
 
     private void FixedUpdate()

@@ -2,26 +2,57 @@ using System;
 using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class MinigameSceneScript : MonoBehaviour
 {
-    [Header("MinigameList")]
-    [Tooltip("The names of the minigame scenes goes into the list")]public List<String> minigameSceneList = new List<String>(); //A list to keep track of all minigame scene names
-    int sizeOfMinigameList; //A variable to hold the size of the list
+    int sizeOfMinigameList = 13; //A variable to hold the size of the list - 1
 
-    private void Start()
-    {
-        sizeOfMinigameList = minigameSceneList.Count; //Grabs the size of the list and sets it.
-    }
+    static public int scene1;
+    static public int scene2;
+    static public int scene3;
+    
+    static public int activeMinigame = 1;
+
+    private int randomSceneValue;
+
 
     public void RandomMinigameScene() //Activate this to start a random scene within the list of minigames
     {
-        int randomSceneValue = UnityEngine.Random.Range(0, sizeOfMinigameList -1); //Creates a random int value within the range of the list size.
-        string minigameSceneName = minigameSceneList[randomSceneValue]; //Grabs the corresponding string value to the random value chosen.
-
-        SceneManager.LoadScene(minigameSceneName, LoadSceneMode.Single); //Load the chosen scene
+        activeMinigame = 1;
+        StartCoroutine(minigameRandomizer());
     }
-    //To note, this code will not accept that there is only 1 string in the list. (A if statement can fix this, but the concept of only having 1 minigame scene makes this script obsolete.
 
+    IEnumerator minigameRandomizer()
+    {
+        for (int randomize = 0; randomize < 1; randomize++)
+        {
+            randomSceneValue = UnityEngine.Random.Range(1, sizeOfMinigameList); //Creates a random int value within the range of the list size.
+            scene1 = randomSceneValue;
 
+            randomSceneValue = UnityEngine.Random.Range(1, sizeOfMinigameList); //Creates a random int value within the range of the list size.
+            scene2 = randomSceneValue;
+
+            randomSceneValue = UnityEngine.Random.Range(1, sizeOfMinigameList); //Creates a random int value within the range of the list size.
+            scene3 = randomSceneValue;
+
+            if (scene2 == scene1)
+                randomize--;
+            else if (scene3 == scene1)
+                randomize--;
+
+            Debug.Log(scene1);
+            Debug.Log(scene2);
+            Debug.Log(scene3);
+
+            if (randomize == 0)
+            {
+                print("i load scene");
+
+                SceneManager.LoadScene("Minigame#" + scene1);//it's important that all minigames are called the same
+            }
+
+            yield return new WaitForSeconds(0);
+        }
+    }
 }

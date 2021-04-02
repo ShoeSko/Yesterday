@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GraveCleaning : MonoBehaviour
 {
@@ -69,9 +70,22 @@ public class GraveCleaning : MonoBehaviour
         else
             timer += Time.deltaTime;
 
-        if(endgameTimer >= 5)
+        if(endgameTimer >= 5)//change scenes after 5 sec
         {
-            //change scene
+            if (MinigameSceneScript.activeMinigame == 1)
+            {
+                MinigameSceneScript.activeMinigame++;
+                SceneManager.LoadScene("Minigame#" + MinigameSceneScript.scene2);
+            }
+            else if (MinigameSceneScript.activeMinigame == 2)
+            {
+                MinigameSceneScript.activeMinigame++;
+                SceneManager.LoadScene("Minigame#" + MinigameSceneScript.scene3);
+            }
+            else if (MinigameSceneScript.activeMinigame == 3)
+            {
+                SceneManager.LoadScene("CoreGame");
+            }
         }
     }
 }

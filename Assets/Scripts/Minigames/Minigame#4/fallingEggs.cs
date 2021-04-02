@@ -54,8 +54,20 @@ public class fallingEggs : MonoBehaviour
 
         if (wintimer >= 9)//5 seconds after 'winning', change scene
         {
-            //SceneManager.LoadScene("");
-            print("i changed scene");
+            if (MinigameSceneScript.activeMinigame == 1)
+            {
+                MinigameSceneScript.activeMinigame++;
+                SceneManager.LoadScene("Minigame#" + MinigameSceneScript.scene2);
+            }
+            else if (MinigameSceneScript.activeMinigame == 2)
+            {
+                MinigameSceneScript.activeMinigame++;
+                SceneManager.LoadScene("Minigame#" + MinigameSceneScript.scene3);
+            }
+            else if (MinigameSceneScript.activeMinigame == 3)
+            {
+                SceneManager.LoadScene("CoreGame");
+            }
         }
     }
 

@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class WateringCan : MonoBehaviour
 {
@@ -28,6 +29,8 @@ public class WateringCan : MonoBehaviour
     public int star2Time;
     public int star3Time;
 
+    private float timer;
+
     private void Start()
     {
         starLenght = stars.Count;
@@ -39,6 +42,28 @@ public class WateringCan : MonoBehaviour
         {
         WateringcanControlls();
         WateringTime();
+        }
+        else //if the plants have been watered, start countdown
+        {
+            timer += Time.deltaTime;
+        }
+
+        if(timer > 5)
+        {
+            if (MinigameSceneScript.activeMinigame == 1)
+            {
+                MinigameSceneScript.activeMinigame++;
+                SceneManager.LoadScene("Minigame#" + MinigameSceneScript.scene2);
+            }
+            else if (MinigameSceneScript.activeMinigame == 2)
+            {
+                MinigameSceneScript.activeMinigame++;
+                SceneManager.LoadScene("Minigame#" + MinigameSceneScript.scene3);
+            }
+            else if (MinigameSceneScript.activeMinigame == 3)
+            {
+                SceneManager.LoadScene("CoreGame");
+            }
         }
     }
 

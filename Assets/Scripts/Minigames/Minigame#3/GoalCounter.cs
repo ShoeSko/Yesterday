@@ -67,6 +67,21 @@ public class GoalCounter : MonoBehaviour
         }
 
         if (timer >= 5)
-            SceneManager.LoadScene("HandPrototype");
+        {
+            if (MinigameSceneScript.activeMinigame == 1)
+            {
+                MinigameSceneScript.activeMinigame++;
+                SceneManager.LoadScene("Minigame#" + MinigameSceneScript.scene2);
+            }
+            else if (MinigameSceneScript.activeMinigame == 2)
+            {
+                MinigameSceneScript.activeMinigame++;
+                SceneManager.LoadScene("Minigame#" + MinigameSceneScript.scene3);
+            }
+            else if (MinigameSceneScript.activeMinigame == 3)
+            {
+                SceneManager.LoadScene("CoreGame");
+            }
+        }
     }
 }

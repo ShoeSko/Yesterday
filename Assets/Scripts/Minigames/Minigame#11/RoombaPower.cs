@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class RoombaPower : MonoBehaviour
 {
@@ -51,6 +52,7 @@ public class RoombaPower : MonoBehaviour
     }
     private void Update()
     {
+        scoreTimer += Time.deltaTime;
         WhichSwitch();
     }
 
@@ -83,7 +85,6 @@ public class RoombaPower : MonoBehaviour
 
     private void RoombaTime()
     {
-        scoreTimer += Time.deltaTime;
         if (!thirdSwitch)
         {
             if (scoreTimer <= star1Time)//define score for this minigame
@@ -116,6 +117,27 @@ public class RoombaPower : MonoBehaviour
             }
         }
         RoombaMove();
+        float timer = 0;
+        timer += Time.deltaTime;
+
+        if (timer > 5)
+        {
+            if (MinigameSceneScript.activeMinigame == 1)
+            {
+                MinigameSceneScript.activeMinigame++;
+                SceneManager.LoadScene("Minigame#" + MinigameSceneScript.scene2);
+            }
+            else if (MinigameSceneScript.activeMinigame == 2)
+            {
+                MinigameSceneScript.activeMinigame++;
+                SceneManager.LoadScene("Minigame#" + MinigameSceneScript.scene3);
+            }
+            else if (MinigameSceneScript.activeMinigame == 3)
+            {
+                SceneManager.LoadScene("CoreGame");
+            }
+        }
+
         thirdSwitch = true;//Prevents star script from repeating.
     }
 
