@@ -23,6 +23,7 @@ public class BasicEnemyMovement : MonoBehaviour
     private bool obstacleInTheWay;//Is there a unit blocking the path?
     private Rigidbody2D rg2D;
     private bool hasAttacked; //Has it attacked, wait until ready again.
+    private bool isRecharging; //Is it recharging because then you should not make another wait timer.
     private int quackDamage = 80;
 
     private void Start()
@@ -94,7 +95,7 @@ public class BasicEnemyMovement : MonoBehaviour
                 }
             }
         }
-        else if (hasAttacked) { StartCoroutine(AttackRecharge()); } //Start Coroutine to recharge
+        else if (hasAttacked && !isRecharging) { StartCoroutine(AttackRecharge()); } //Start Coroutine to recharge
     }
 
     private void OnDrawGizmosSelected() //Gizmo to represent attack range.
@@ -104,8 +105,10 @@ public class BasicEnemyMovement : MonoBehaviour
     }
     IEnumerator AttackRecharge() //Recharges the attack speed
     {
+        isRecharging = true;
         yield return new WaitForSeconds(attackSpeed);
         hasAttacked = false;
+        isRecharging = false;
         yield return null;
     }
 

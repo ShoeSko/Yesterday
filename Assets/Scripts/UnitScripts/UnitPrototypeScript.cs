@@ -37,6 +37,7 @@ public class UnitPrototypeScript : MonoBehaviour
 
     [Tooltip("Where does it attack from?")] [SerializeField] private Transform punchPosition;
     private bool hasPunched;
+    private bool isPunchRecharging;
     private int punchTargetAmount; //Stores the punch value.
 
     private void Start()
@@ -96,14 +97,15 @@ public class UnitPrototypeScript : MonoBehaviour
     #region Punching
     private void Punch() //Attack time
     {
-        if (!canPunchEverything)
+        if (!canPunchEverything) // THIS SECTION NEED TO BE FIXED, CURRENTLY IT DOES NOT WORK
         {
             if (!hasPunched) //If you have yet to attack
             {
                 Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(punchPosition.position, punchRange, punchingTargetLayer); //Overlap of all Units withing the attack range
-                if (enemiesToDamage.Length > targetsToPunch)
+                if (enemiesToDamage.Length >= targetsToPunch)
                 {
                     punchTargetAmount = targetsToPunch; //Makes it possible to hitt multiple(Can be removed if wanted)
+                    print("Enemy amount" + targetsToPunch);
                 }
                 else { targetsToPunch = enemiesToDamage.Length; }
                 for (int i = 0; i < punchTargetAmount; i++)
@@ -112,10 +114,11 @@ public class UnitPrototypeScript : MonoBehaviour
                     {
                         hasPunched = true;
                         enemiesToDamage[i].GetComponent<BasicEnemyMovement>().TakeDamage(punchDamage); //Sent attackDamage to Unit
+                        print("Punch");
                     }
                 }
             }
-            else if (hasPunched) { StartCoroutine(PunchRecharge()); } //Start Coroutine to recharge
+            else if (hasPunched && !isPunchRecharging) { StartCoroutine(PunchRecharge()); } //Start Coroutine to recharge
         }
         else if (canPunchEverything)
         {
@@ -131,7 +134,7 @@ public class UnitPrototypeScript : MonoBehaviour
                     }
                 }
             }
-            else if (hasPunched) { StartCoroutine(PunchRecharge()); } //Start Coroutine to recharge
+            else if (hasPunched && !isPunchRecharging) { StartCoroutine(PunchRecharge()); } //Start Coroutine to recharge
         }
     }
 
@@ -142,8 +145,10 @@ public class UnitPrototypeScript : MonoBehaviour
     }
     IEnumerator PunchRecharge() //Recharges the attack speed
     {
+        isPunchRecharging = true;
         yield return new WaitForSeconds(punchRechargeTime);
         hasPunched = false;
+        isPunchRecharging = false;
         yield return null;
     }
 
