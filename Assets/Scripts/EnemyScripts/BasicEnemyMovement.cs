@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class BasicEnemyMovement : MonoBehaviour
 {
+    public EnemyScript enemy;
+
     [Header("Enemy Controls")]
     private float moveSpeed;
     private int enemyHealth;
@@ -17,7 +19,6 @@ public class BasicEnemyMovement : MonoBehaviour
 
     [Tooltip("How big is the attack range?")][SerializeField]private float attackRange; //These two stay here as they are harder to do from a scriptableobject.
     [Tooltip("Where does it attack from?")][SerializeField]private Transform attackPosition;
-    public EnemyScript enemy;
 
     private bool obstacleInTheWay;//Is there a unit blocking the path?
     private Rigidbody2D rg2D;
@@ -60,7 +61,8 @@ public class BasicEnemyMovement : MonoBehaviour
         {
             ProjectileScript projectileScript = other.gameObject.GetComponent<ProjectileScript>();
             enemyHealth = enemyHealth - projectileScript.projectileDamage;//Reads damage from the projectile script(Which reads it from their parent)
-            Destroy(other.gameObject);//Current issue for later, bullet takes time to dissapear.
+            projectileScript.numberOfMaxTargets--;
+            ////Destroy(other.gameObject);//Current issue for later, bullet takes time to dissapear.
         }
 
         if (other.gameObject.tag == "Quack")
@@ -68,7 +70,6 @@ public class BasicEnemyMovement : MonoBehaviour
             enemyHealth = enemyHealth - quackDamage;
             Destroy(other.gameObject);
         }
-
     }
 
     private void OnCollisionExit2D(Collision2D other) //Restarts movement upon destroying the obstacle
@@ -88,8 +89,8 @@ public class BasicEnemyMovement : MonoBehaviour
             {
                 if(enemiesToDamage[i])
                 {
-                 enemiesToDamage[i].GetComponent<UnitPrototypeScript>().TakeDamage(attackDamage); //Sent attackDamage to Unit
-                hasAttacked = true;
+                    enemiesToDamage[i].GetComponent<UnitPrototypeScript>().TakeDamage(attackDamage); //Sent attackDamage to Unit
+                    hasAttacked = true;
                 }
             }
         }
@@ -106,6 +107,12 @@ public class BasicEnemyMovement : MonoBehaviour
         yield return new WaitForSeconds(attackSpeed);
         hasAttacked = false;
         yield return null;
+    }
+
+    public void TakeDamage(int damage)
+    {
+        enemyHealth -= damage;
+        print(enemyHealth);
     }
 
     private void EnemyDeath()//If there is no more health, die.

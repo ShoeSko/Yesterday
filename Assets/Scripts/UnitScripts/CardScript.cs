@@ -15,7 +15,7 @@ public class CardScript : ScriptableObject
 
     [Header("Unit Attack")]
     [Tooltip("Is this unit going to shoot?")] public bool isShooter;
-    [Tooltip("Is this unit going to punch?")] public bool isCQC;
+    [Tooltip("Is this unit going to punch?")] public bool isPunching;
     [Tooltip("Is this Unit special in some way?")] public bool isSpecial;
 
     [Header("Shooting")]
@@ -25,12 +25,15 @@ public class CardScript : ScriptableObject
     [Tooltip("The damage the projectile will deal")] [Range(0, 100)] public int projectileDamage;
     [Tooltip("What layer are enemies on?")] public LayerMask shootingTargetLayer;
     [Tooltip("What layer is the range wall on?")] public LayerMask edgeOfRangeLayer;
+    [Tooltip("How many targets will be hit?")] [Range(0, 10)] public int targetsToShoot;
 
     [Header("Punching")]
     [Tooltip("Time between each punch")] [Range(0, 100)] public float punchRechargeTime;
     [Tooltip("The damage the punch will deal")] [Range(0, 100)] public int punchDamage;
     [Tooltip("What layer are enemies on?")] public LayerMask punchingTargetLayer;
-
+    [Tooltip("How big is the attack range?")] [Range(0, 2)] public float punchRange;
+    [Tooltip("How many targets will be hit?")] [Range(0, 10)] public int targetsToPunch;
+    [Tooltip("Can it hit all targets?")] public bool canPunchEverything;
 
     [Header("Test options, must be off to work normaly")]
     public bool isNotInCorrectSceneTest; //Will be removed
