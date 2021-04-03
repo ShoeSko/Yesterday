@@ -42,7 +42,7 @@ public class UnitPrototypeScript : MonoBehaviour
 
     private void Start()
     {
-        UnitInfoFeed();
+        UnitInfoFeed(); //All info of the Unit is recorded here.
         Aim();
     }
 
@@ -105,9 +105,8 @@ public class UnitPrototypeScript : MonoBehaviour
                 if (enemiesToDamage.Length >= targetsToPunch)
                 {
                     punchTargetAmount = targetsToPunch; //Makes it possible to hitt multiple(Can be removed if wanted)
-                    print("Enemy amount" + targetsToPunch);
                 }
-                else { targetsToPunch = enemiesToDamage.Length; }
+                else { punchTargetAmount = enemiesToDamage.Length; }
                 for (int i = 0; i < punchTargetAmount; i++)
                 {
                     if (enemiesToDamage[i])
