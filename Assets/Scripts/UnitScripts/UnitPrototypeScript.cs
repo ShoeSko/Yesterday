@@ -139,8 +139,11 @@ public class UnitPrototypeScript : MonoBehaviour
 
     private void OnDrawGizmosSelected() //Gizmo to represent attack range.
     {
+        if (isPunching)
+        {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(punchPosition.position, punchRange);
+        }
     }
     IEnumerator PunchRecharge() //Recharges the attack speed
     {
@@ -189,6 +192,7 @@ public class UnitPrototypeScript : MonoBehaviour
         projectileDamage = Unit.projectileDamage;
         shootingTargetLayer = Unit.shootingTargetLayer;
         edgeOfRangeLayer = Unit.edgeOfRangeLayer;
+        targetsToShoot = Unit.targetsToShoot;
         //Punching
         punchRechargeTime = Unit.punchRechargeTime;
         punchDamage = Unit.punchDamage;
