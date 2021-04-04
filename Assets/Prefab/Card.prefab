@@ -270,6 +270,7 @@ MonoBehaviour:
   manatext: {fileID: 3126888795399624551}
   descriptionText: {fileID: 3126888795170594331}
   flavorTexts: {fileID: 3126888794526754905}
+  manaValue: 0
 --- !u!1 &3126888794526754907
 GameObject:
   m_ObjectHideFlags: 0

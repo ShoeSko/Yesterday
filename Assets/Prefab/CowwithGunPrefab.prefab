@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2557954877800294562}
   - component: {fileID: 6118651002381041060}
   m_Layer: 8
-  m_Name: Obstacle #1
+  m_Name: CowwithGunPrefab
   m_TagString: Finish
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -61,18 +61,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 640f5631b972d134691baa2444ec969f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 50
-  isShooter: 1
-  shootRechargeTime: 3
-  projectileSpeed: 4
-  projectilePrefab: {fileID: 3204289923293697707, guid: 5d52c25ce94445743a02a3ddca268b0e, type: 3}
+  Unit: {fileID: 11400000, guid: 2feaa7772e4a0ed4abe51ab0b90c9614, type: 2}
   projectileDamage: 10
-  targetLayer:
-    serializedVersion: 2
-    m_Bits: 64
-  edgeOfRangeLayer:
-    serializedVersion: 2
-    m_Bits: 128
+  targetsToShoot: 0
+  punchRange: 0
+  punchPosition: {fileID: 0}
 --- !u!212 &6118651002381041060
 SpriteRenderer:
   m_ObjectHideFlags: 0

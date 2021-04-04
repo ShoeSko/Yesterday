@@ -18,3 +18,27 @@ MonoBehaviour:
   effectDescription: Shoots its gun at the enemy
   flavorTxt: Mess with the cow, and you get the pow. The strangest yet strongest
     in its herd.
+  health: 100
+  isShooter: 0
+  isPunching: 0
+  isSpecial: 0
+  shootRechargeTime: 1
+  projectileSpeed: 1
+  projectilePrefab: {fileID: 0}
+  projectileDamage: 20
+  shootingTargetLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  edgeOfRangeLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  targetsToShoot: 1
+  punchRechargeTime: 0
+  punchDamage: 0
+  punchingTargetLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  punchRange: 0
+  targetsToPunch: 0
+  canPunchEverything: 0
+  isNotInCorrectSceneTest: 0

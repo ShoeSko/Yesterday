@@ -10014,7 +10014,7 @@ MonoBehaviour:
   Smallhand: 1
   cowwithgunPrefab: {fileID: 2557954877800294563, guid: 19fdaec487ab265478dee2e3b84fbde0, type: 3}
   PlayedCard: {fileID: 0}
-  quackenButton: {fileID: 0}
+  quackenButton: {fileID: 1670201838}
   enlargeButton: {fileID: 330656593}
   minimizeButton: {fileID: 1359261358}
   handSmall: {fileID: 1595204776}
