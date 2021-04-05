@@ -40,6 +40,8 @@ public class MinigameSceneScript : MonoBehaviour
                 randomize--;
             else if (scene3 == scene1)
                 randomize--;
+            else if (scene2 == scene3)
+                randomize--;
 
             Debug.Log(scene1);
             Debug.Log(scene2);
