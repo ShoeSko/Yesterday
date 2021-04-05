@@ -117,26 +117,6 @@ public class RoombaPower : MonoBehaviour
             }
         }
         RoombaMove();
-        float timer = 0;
-        timer += Time.deltaTime;
-
-        if (timer > 5)
-        {
-            if (MinigameSceneScript.activeMinigame == 1)
-            {
-                MinigameSceneScript.activeMinigame++;
-                SceneManager.LoadScene("Minigame#" + MinigameSceneScript.scene2);
-            }
-            else if (MinigameSceneScript.activeMinigame == 2)
-            {
-                MinigameSceneScript.activeMinigame++;
-                SceneManager.LoadScene("Minigame#" + MinigameSceneScript.scene3);
-            }
-            else if (MinigameSceneScript.activeMinigame == 3)
-            {
-                SceneManager.LoadScene("CoreGame");
-            }
-        }
 
         thirdSwitch = true;//Prevents star script from repeating.
     }
