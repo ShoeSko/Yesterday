@@ -197,7 +197,6 @@ public class UnitPrototypeScript : MonoBehaviour
         punchRechargeTime = Unit.punchRechargeTime;
         punchDamage = Unit.punchDamage;
         punchingTargetLayer = Unit.punchingTargetLayer;
-        punchRange = Unit.punchRange;
         targetsToPunch = Unit.targetsToPunch;
         canPunchEverything = Unit.canPunchEverything;
     }

@@ -31,7 +31,6 @@ public class CardScript : ScriptableObject
     [Tooltip("Time between each punch")] [Range(0, 100)] public float punchRechargeTime;
     [Tooltip("The damage the punch will deal")] [Range(0, 100)] public int punchDamage;
     [Tooltip("What layer are enemies on?")] public LayerMask punchingTargetLayer;
-    [Tooltip("How big is the attack range?")] [Range(0, 2)] public float punchRange;
     [Tooltip("How many targets will be hit?")] [Range(0, 10)] public int targetsToPunch;
     [Tooltip("Can it hit all targets?")] public bool canPunchEverything;
 
