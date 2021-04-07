@@ -40,6 +40,11 @@ public class UnitPrototypeScript : MonoBehaviour
     private bool isPunchRecharging;
     private int punchTargetAmount; //Stores the punch value.
 
+    [Header("Special")]
+    [Tooltip("Does the unit die and kill the enemy on contact?")]private bool isSacrificialKill;
+
+
+
     private void Start()
     {
         UnitInfoFeed(); //All info of the Unit is recorded here.
@@ -50,6 +55,7 @@ public class UnitPrototypeScript : MonoBehaviour
     {
         if (isShooter) { ShootProjectile(); }
         else if (isPunching) { Punch(); }
+        else if (isSpecial) { Special(); }
 
         Death();
     }
@@ -97,7 +103,7 @@ public class UnitPrototypeScript : MonoBehaviour
     #region Punching
     private void Punch() //Attack time
     {
-        if (!canPunchEverything) // THIS SECTION NEED TO BE FIXED, CURRENTLY IT DOES NOT WORK
+        if (!canPunchEverything) //Limits the amount of enemies that can be punched at the same time
         {
             if (!hasPunched) //If you have yet to attack
             {
@@ -157,10 +163,35 @@ public class UnitPrototypeScript : MonoBehaviour
 
     #endregion
 
+    #region Special
+    private void Special()
+    {
+        if (isSacrificialKill) { PiranhaPond(); }
+    }
+
+    private void PiranhaPond()
+    {
+        
+    }
+
+    #endregion
+
     public void TakeDamage(int damage)
     {
         health -= damage;
         print("Unit health is " + health);
+        StartCoroutine(PeriodOfBeingDamaged());
+    }
+
+    IEnumerator PeriodOfBeingDamaged() //This entire thing can do whatever is put in here(Rotation is just a short representation.
+    {
+        Quaternion orgRot;
+        orgRot = transform.rotation; //Retain the original rotational value
+
+        transform.Rotate(0, 0, 10);
+        yield return new WaitForSeconds(0.2f);
+        transform.rotation = orgRot;
+        yield return null;
     }
 
     private void Death()
@@ -199,5 +230,7 @@ public class UnitPrototypeScript : MonoBehaviour
         punchingTargetLayer = Unit.punchingTargetLayer;
         targetsToPunch = Unit.targetsToPunch;
         canPunchEverything = Unit.canPunchEverything;
+        //Special
+        isSacrificialKill = Unit.isSacrificialKill;
     }
 }

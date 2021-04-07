@@ -63,6 +63,7 @@ public class BasicEnemyMovement : MonoBehaviour
             ProjectileScript projectileScript = other.gameObject.GetComponent<ProjectileScript>();
             enemyHealth = enemyHealth - projectileScript.projectileDamage;//Reads damage from the projectile script(Which reads it from their parent)
             projectileScript.numberOfMaxTargets--;
+            StartCoroutine(PeriodOfBeingDamaged());
             ////Destroy(other.gameObject);//Current issue for later, bullet takes time to dissapear.
         }
 
@@ -116,6 +117,18 @@ public class BasicEnemyMovement : MonoBehaviour
     {
         enemyHealth -= damage;
         print(enemyHealth);
+        StartCoroutine(PeriodOfBeingDamaged());
+    }
+    IEnumerator PeriodOfBeingDamaged() //This entire thing can do whatever is put in here(Rotation is just a short representation.
+    {
+        Quaternion orgRot;
+        orgRot = transform.rotation; //Retain the original rotational value
+
+        transform.Rotate(0, 0, -10);
+        yield return new WaitForSeconds(0.2f);
+        transform.rotation = orgRot;
+        print("Got hit");
+        yield return null;
     }
 
     private void EnemyDeath()//If there is no more health, die.
