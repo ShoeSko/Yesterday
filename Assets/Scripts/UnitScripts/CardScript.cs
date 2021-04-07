@@ -34,6 +34,9 @@ public class CardScript : ScriptableObject
     [Tooltip("How many targets will be hit?")] [Range(0, 10)] public int targetsToPunch;
     [Tooltip("Can it hit all targets?")] public bool canPunchEverything;
 
+    [Header("Special")]
+    [Tooltip("Does the unit die and kill the enemy on contact?")] public bool isSacrificialKill;
+
     [Header("Test options, must be off to work normaly")]
     public bool isNotInCorrectSceneTest; //Will be removed
 }
