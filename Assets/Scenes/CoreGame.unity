@@ -2666,7 +2666,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 437355752}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 13, y: -3.91, z: 0}
+  m_LocalPosition: {x: 13, y: -3.95, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2145196944}
@@ -13153,11 +13153,16 @@ MonoBehaviour:
   - {fileID: 1632451680}
   - {fileID: 437355752}
   enemyTypesSpawnList:
-  - {fileID: 5916810900470935036, guid: 17a34d617e1366545a6950c4a31c18bf, type: 3}
-  - {fileID: 5916810900470935036, guid: 17a34d617e1366545a6950c4a31c18bf, type: 3}
-  amountOfEnemies: 20
-  delayBetweenSpawnsMin: 5
-  delayBetweenSpawnsMax: 10
+  - {fileID: 4632530650480293340, guid: 9494b6278d2a2f142b88616580c08114, type: 3}
+  - {fileID: 4632530650480293340, guid: 6ee4abbf5aa8a9e4a97861ee08d9502f, type: 3}
+  - {fileID: 4632530650480293340, guid: 4df074e1712742843bdff1a76818ad70, type: 3}
+  - {fileID: 4632530650480293340, guid: eea9e638d1045fe47822cdcf36f5e533, type: 3}
+  - {fileID: 4632530650480293340, guid: 21f8e49263c6d6c449f623f50a943083, type: 3}
+  - {fileID: 4632530650480293340, guid: 5484f17fa96560a46a70414d028e182d, type: 3}
+  - {fileID: 4632530650480293340, guid: c799f829c11bed14aa6b0ee9245c63e2, type: 3}
+  amountOfEnemies: 15
+  delayBetweenSpawnsMin: 3.7
+  delayBetweenSpawnsMax: 6.4
   gameStarted: 0
 --- !u!4 &2145196944
 Transform:

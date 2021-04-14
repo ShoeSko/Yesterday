@@ -4,7 +4,7 @@ public class EnemyScript : ScriptableObject
 {
     [Header("Enemy Controls")]
     [Range(0, 100)] public float moveSpeed = 5;
-    [Range(0, 100)] public int enemyHealth = 100;
+    [Range(0, 1000)] public int enemyHealth = 100;
     [Tooltip("The tag corresponding to what the enemy will care about")] public string obstacleTags;
     [Tooltip("The tag coresponding to projectiles")] public string projectileTags;
 

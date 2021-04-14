@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 684945d7a3c87d84d98ae17e8af85abb, type: 3}
   m_Name: EvilBlob
   m_EditorClassIdentifier: 
-  moveSpeed: 20
-  enemyHealth: 100
+  moveSpeed: 30
+  enemyHealth: 120
   obstacleTags: Finish
   projectileTags: Projectile
   attackDamage: 25
-  attackSpeed: 2
+  attackSpeed: 1
   whatIsUnitLayer:
     serializedVersion: 2
     m_Bits: 256
