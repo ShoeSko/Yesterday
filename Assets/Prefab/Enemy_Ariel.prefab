@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4632530650480293341}
   - component: {fileID: 3188923526487577536}
   m_Layer: 6
-  m_Name: TestModel 2
+  m_Name: Enemy_Ariel
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -84,7 +84,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ef0dea17e8f1bb4f9beedb68b8ae00b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 11400000, guid: 717528f62d167f54b85d56740f10be79, type: 2}
+  enemy: {fileID: 11400000, guid: 8a08752518bac02468f5c1fb72e10684, type: 2}
   attackRange: 0.5
   attackPosition: {fileID: 4841129555665310197}
 --- !u!212 &3188923526487577536
