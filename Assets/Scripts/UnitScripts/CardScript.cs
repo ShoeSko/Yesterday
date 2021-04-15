@@ -11,7 +11,7 @@ public class CardScript : ScriptableObject
     public string flavorTxt;
 
     [Header("Unit Controls")]
-    [Range(0, 100)] public float health;
+    [Range(0, 500)] public float health;
 
     [Header("Unit Attack")]
     [Tooltip("Is this unit going to shoot?")] public bool isShooter;
