@@ -12,33 +12,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 076f6f62ad23884419ae6246752179f9, type: 3}
   m_Name: Sumo_Racoon
   m_EditorClassIdentifier: 
-  cardName: CowwithGun
-  image: {fileID: 21300000, guid: 89f6812af5240ce488e5e5aadbee6687, type: 3}
-  manaCost: 2
-  effectDescription: Shoots its gun at the enemy
-  flavorTxt: Mess with the cow, and you get the pow. The strangest yet strongest
-    in its herd.
-  health: 100
-  isShooter: 1
-  isPunching: 0
+  cardName: Sumo Racoon
+  image: {fileID: 21300000, guid: 2d91666d0e5a5184ca2d80156af57226, type: 3}
+  manaCost: 1
+  effectDescription: He will hold the enemies away for a while
+  flavorTxt: To get the trash you have to earn it
+  health: 85
+  isShooter: 0
+  isPunching: 1
   isSpecial: 0
-  shootRechargeTime: 3
-  projectileSpeed: 5
+  shootRechargeTime: 0
+  projectileSpeed: 0
   projectilePrefab: {fileID: 3204289923293697707, guid: 5d52c25ce94445743a02a3ddca268b0e, type: 3}
-  projectileDamage: 20
+  projectileDamage: 0
   shootingTargetLayer:
     serializedVersion: 2
     m_Bits: 64
   edgeOfRangeLayer:
     serializedVersion: 2
     m_Bits: 128
-  targetsToShoot: 1
-  punchRechargeTime: 0
-  punchDamage: 0
+  targetsToShoot: 0
+  punchRechargeTime: 1.5
+  punchDamage: 10
   punchingTargetLayer:
     serializedVersion: 2
-    m_Bits: 0
-  punchRange: 0
-  targetsToPunch: 0
+    m_Bits: 64
+  punchRange: 1
+  targetsToPunch: 1
   canPunchEverything: 0
   isNotInCorrectSceneTest: 0

@@ -32,12 +32,12 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   targetsToShoot: 0
-  punchRechargeTime: 1
+  punchRechargeTime: 1.5
   punchDamage: 20
   punchingTargetLayer:
     serializedVersion: 2
     m_Bits: 64
-  punchRange: 0
-  targetsToPunch: 0
+  punchRange: 1
+  targetsToPunch: 1
   canPunchEverything: 0
   isNotInCorrectSceneTest: 0
