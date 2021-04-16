@@ -10,6 +10,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2ef8e28a86c0fb94eb1e64e0ed7a982a, type: 3}
-  m_Name: New Enemy List
+  m_Name: Beasts
   m_EditorClassIdentifier: 
   Enemies: []

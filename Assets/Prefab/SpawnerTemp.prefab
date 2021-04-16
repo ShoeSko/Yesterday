@@ -148,6 +148,7 @@ MonoBehaviour:
   enemyTypesSpawnList:
   - {fileID: 5916810900470935036, guid: 17a34d617e1366545a6950c4a31c18bf, type: 3}
   - {fileID: 5916810900470935036, guid: 17a34d617e1366545a6950c4a31c18bf, type: 3}
+  weakEnemyList: {fileID: 11400000, guid: 7fe31d80879a5774d92b7a49914a8cbb, type: 2}
   amountOfEnemies: 20
   delayBetweenSpawnsMin: 5
   delayBetweenSpawnsMax: 10

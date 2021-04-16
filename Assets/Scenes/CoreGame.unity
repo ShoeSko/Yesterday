@@ -13172,18 +13172,15 @@ MonoBehaviour:
   - {fileID: 1545223169}
   - {fileID: 1632451680}
   - {fileID: 437355752}
-  enemyTypesSpawnList:
-  - {fileID: 4632530650480293340, guid: 9494b6278d2a2f142b88616580c08114, type: 3}
-  - {fileID: 4632530650480293340, guid: 6ee4abbf5aa8a9e4a97861ee08d9502f, type: 3}
-  - {fileID: 4632530650480293340, guid: 4df074e1712742843bdff1a76818ad70, type: 3}
-  - {fileID: 4632530650480293340, guid: eea9e638d1045fe47822cdcf36f5e533, type: 3}
-  - {fileID: 4632530650480293340, guid: 21f8e49263c6d6c449f623f50a943083, type: 3}
-  - {fileID: 4632530650480293340, guid: 5484f17fa96560a46a70414d028e182d, type: 3}
-  - {fileID: 4632530650480293340, guid: c799f829c11bed14aa6b0ee9245c63e2, type: 3}
-  amountOfEnemies: 15
+  amountOfEnemies: 5
   delayBetweenSpawnsMin: 4.5
   delayBetweenSpawnsMax: 9
   gameStarted: 0
+  weakEnemyTypesSpawnList: []
+  strongEnemyTypesSpawnList: []
+  strongEnemySpawnWait: 6
+  weakEnemyList: {fileID: 11400000, guid: 7fe31d80879a5774d92b7a49914a8cbb, type: 2}
+  strongEnemyList: {fileID: 11400000, guid: 0199ba676b28820428294e8bc8fc9191, type: 2}
 --- !u!4 &2145196944
 Transform:
   m_ObjectHideFlags: 0
