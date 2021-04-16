@@ -11,6 +11,7 @@ public class TowerSpotsScript : MonoBehaviour
     private GameObject card;
     private GameObject cardplayed;
     private CardDisplayer CardValues;
+    private GameObject Unit;
     private int manacost;
 
 
@@ -22,14 +23,15 @@ public class TowerSpotsScript : MonoBehaviour
     public void PlaceCard()
     {
         cardplayed = card.GetComponent<NewCardHandScript>().PlayedCard;//"What card is being played?"
+        CardValues = cardplayed.GetComponent<CardDisplayer>();//Access played card information
 
-        CardValues = cardplayed.GetComponent<CardDisplayer>();//access played card information
-        manacost = CardValues.manaValue; //define manacost
+        manacost = CardValues.manaValue; //Define manacost
+        Unit = CardValues.UnitPrefab;//Define unit 
         //define more stuff later like 'prefabs', different cards, spells, etc.
 
 
-        ManaSystem.CurrentMana -= manacost;//temporary solution: how much mana the unit costs
-        GameObject unit =Instantiate(cowwithgunPrefab, buttonPos, transform.rotation);//spawn the correct unit
+        ManaSystem.CurrentMana -= manacost;
+        GameObject unit = Instantiate(Unit, buttonPos, transform.rotation);//spawn the correct unit
         unit.transform.SetParent(positionResetTransform, true);
         this.transform.SetParent(unit.transform,true);
         towerSpots.SetActive(false);

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2557954877800294562}
   - component: {fileID: 6118651002381041060}
   m_Layer: 8
-  m_Name: CowwithGunPrefab 1
+  m_Name: BalckSheep
   m_TagString: Finish
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -61,7 +61,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 640f5631b972d134691baa2444ec969f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Unit: {fileID: 11400000, guid: 2feaa7772e4a0ed4abe51ab0b90c9614, type: 2}
+  Unit: {fileID: 11400000, guid: d6bf67d5d2f3ab849ab553181cc9cc11, type: 2}
   projectileDamage: 10
   targetsToShoot: 0
   punchRange: 0

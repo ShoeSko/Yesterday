@@ -17,6 +17,7 @@ MonoBehaviour:
   manaCost: 2
   effectDescription: These rodents bite their victims
   flavorTxt: They say their grandfather started an ice age
+  Prefab: {fileID: 2557954877800294563, guid: c6995c491ae7afc47a0630afbd8d7b7f, type: 3}
   health: 100
   isShooter: 0
   isPunching: 1
@@ -37,7 +38,7 @@ MonoBehaviour:
   punchingTargetLayer:
     serializedVersion: 2
     m_Bits: 64
-  punchRange: 1
   targetsToPunch: 1
   canPunchEverything: 0
+  isSacrificialKill: 0
   isNotInCorrectSceneTest: 0

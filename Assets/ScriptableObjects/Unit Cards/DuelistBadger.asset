@@ -17,6 +17,7 @@ MonoBehaviour:
   manaCost: 4
   effectDescription: The Duelist has longer reach and can pierce multiple enemies
   flavorTxt: His weapon of choice was a baguette, but this will do
+  Prefab: {fileID: 2557954877800294563, guid: cecf244629a5d26458813596a18615dc, type: 3}
   health: 120
   isShooter: 0
   isPunching: 1
@@ -37,7 +38,7 @@ MonoBehaviour:
   punchingTargetLayer:
     serializedVersion: 2
     m_Bits: 64
-  punchRange: 1.6
   targetsToPunch: 5
   canPunchEverything: 1
+  isSacrificialKill: 0
   isNotInCorrectSceneTest: 0

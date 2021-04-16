@@ -12,11 +12,13 @@ public class CardDisplayer : MonoBehaviour
     public TextMeshProUGUI descriptionText; // what does it do
     public TextMeshProUGUI flavorTexts; //Flavor
 
+    [HideInInspector]public GameObject UnitPrefab; //Stores the prefab
     [HideInInspector]public int manaValue; //Accsess
     private void Start()
     {
         manaValue = card.manaCost;
         artworkImage.sprite = card.image;
+        UnitPrefab = card.Prefab;
 
         nameText.text = card.cardName;
         manatext.text = card.manaCost.ToString();

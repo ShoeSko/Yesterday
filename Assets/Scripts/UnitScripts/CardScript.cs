@@ -9,6 +9,7 @@ public class CardScript : ScriptableObject
     public int manaCost;
     public string effectDescription;
     public string flavorTxt;
+    public GameObject Prefab;
 
     [Header("Unit Controls")]
     [Range(0, 500)] public float health;

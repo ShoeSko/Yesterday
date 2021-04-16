@@ -17,6 +17,7 @@ MonoBehaviour:
   manaCost: 1
   effectDescription: He will hold the enemies away for a while
   flavorTxt: To get the trash you have to earn it
+  Prefab: {fileID: 2557954877800294563, guid: 21e9c0cf5c95c854793d6bcd1f71bdb0, type: 3}
   health: 85
   isShooter: 0
   isPunching: 1
@@ -37,7 +38,7 @@ MonoBehaviour:
   punchingTargetLayer:
     serializedVersion: 2
     m_Bits: 64
-  punchRange: 1
   targetsToPunch: 1
   canPunchEverything: 0
+  isSacrificialKill: 0
   isNotInCorrectSceneTest: 0
