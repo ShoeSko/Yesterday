@@ -10,35 +10,34 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 076f6f62ad23884419ae6246752179f9, type: 3}
-  m_Name: Cow with Gun
+  m_Name: DuelistBadger
   m_EditorClassIdentifier: 
-  cardName: Cowster
-  image: {fileID: 21300000, guid: 89f6812af5240ce488e5e5aadbee6687, type: 3}
-  manaCost: 3
-  effectDescription: Shoots its gun at the enemy
-  flavorTxt: Mess with the cow, and you get the pow. The strangest yet strongest
-    in its herd.
-  health: 50
-  isShooter: 1
-  isPunching: 0
+  cardName: The Duelist
+  image: {fileID: 21300000, guid: 6113fe6875b365a41b4a2ef3a3e08d87, type: 3}
+  manaCost: 4
+  effectDescription: The Duelist has longer reach and can pierce multiple enemies
+  flavorTxt: His weapon of choice was a baguette, but this will do
+  health: 120
+  isShooter: 0
+  isPunching: 1
   isSpecial: 0
-  shootRechargeTime: 3
-  projectileSpeed: 5
+  shootRechargeTime: 0
+  projectileSpeed: 0
   projectilePrefab: {fileID: 3204289923293697707, guid: 5d52c25ce94445743a02a3ddca268b0e, type: 3}
-  projectileDamage: 20
+  projectileDamage: 0
   shootingTargetLayer:
     serializedVersion: 2
     m_Bits: 64
   edgeOfRangeLayer:
     serializedVersion: 2
     m_Bits: 128
-  targetsToShoot: 1
-  punchRechargeTime: 0
-  punchDamage: 0
+  targetsToShoot: 0
+  punchRechargeTime: 2
+  punchDamage: 30
   punchingTargetLayer:
     serializedVersion: 2
-    m_Bits: 0
-  punchRange: 0
-  targetsToPunch: 0
-  canPunchEverything: 0
+    m_Bits: 64
+  punchRange: 1.6
+  targetsToPunch: 5
+  canPunchEverything: 1
   isNotInCorrectSceneTest: 0

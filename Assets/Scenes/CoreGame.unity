@@ -440,6 +440,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1595204777}
     m_Modifications:
+    - target: {fileID: 3126888794182818874, guid: 2f51d16dd28a21e4a89f7e03b0786f2d, type: 3}
+      propertyPath: card
+      value: 
+      objectReference: {fileID: 11400000, guid: 01fb32f34ffdc9746a586702493998b1, type: 2}
     - target: {fileID: 3126888794182818876, guid: 2f51d16dd28a21e4a89f7e03b0786f2d, type: 3}
       propertyPath: m_Name
       value: SCard5
@@ -1688,6 +1692,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1595204777}
     m_Modifications:
+    - target: {fileID: 3126888794182818874, guid: 2f51d16dd28a21e4a89f7e03b0786f2d, type: 3}
+      propertyPath: card
+      value: 
+      objectReference: {fileID: 11400000, guid: 4384fdca5bba346488c6adff280c2ba1, type: 2}
     - target: {fileID: 3126888794182818876, guid: 2f51d16dd28a21e4a89f7e03b0786f2d, type: 3}
       propertyPath: m_Name
       value: SCard4
@@ -2666,7 +2674,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 437355752}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 13, y: -3.91, z: 0}
+  m_LocalPosition: {x: 13, y: -3.95, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2145196944}
@@ -3372,6 +3380,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1595204777}
     m_Modifications:
+    - target: {fileID: 3126888794182818874, guid: 2f51d16dd28a21e4a89f7e03b0786f2d, type: 3}
+      propertyPath: card
+      value: 
+      objectReference: {fileID: 11400000, guid: a7f79d8ff64064948b19ac3c1cc02860, type: 2}
     - target: {fileID: 3126888794182818876, guid: 2f51d16dd28a21e4a89f7e03b0786f2d, type: 3}
       propertyPath: m_Name
       value: SCard3
@@ -5814,6 +5826,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1595204777}
     m_Modifications:
+    - target: {fileID: 3126888794182818874, guid: 2f51d16dd28a21e4a89f7e03b0786f2d, type: 3}
+      propertyPath: card
+      value: 
+      objectReference: {fileID: 11400000, guid: d6bf67d5d2f3ab849ab553181cc9cc11, type: 2}
     - target: {fileID: 3126888794182818876, guid: 2f51d16dd28a21e4a89f7e03b0786f2d, type: 3}
       propertyPath: m_Name
       value: SCard2
@@ -6113,6 +6129,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1595204777}
     m_Modifications:
+    - target: {fileID: 3126888794182818874, guid: 2f51d16dd28a21e4a89f7e03b0786f2d, type: 3}
+      propertyPath: card
+      value: 
+      objectReference: {fileID: 11400000, guid: 2feaa7772e4a0ed4abe51ab0b90c9614, type: 2}
     - target: {fileID: 3126888794182818876, guid: 2f51d16dd28a21e4a89f7e03b0786f2d, type: 3}
       propertyPath: m_Name
       value: SCard1
@@ -13153,11 +13173,16 @@ MonoBehaviour:
   - {fileID: 1632451680}
   - {fileID: 437355752}
   enemyTypesSpawnList:
-  - {fileID: 5916810900470935036, guid: 17a34d617e1366545a6950c4a31c18bf, type: 3}
-  - {fileID: 5916810900470935036, guid: 17a34d617e1366545a6950c4a31c18bf, type: 3}
-  amountOfEnemies: 20
-  delayBetweenSpawnsMin: 5
-  delayBetweenSpawnsMax: 10
+  - {fileID: 4632530650480293340, guid: 9494b6278d2a2f142b88616580c08114, type: 3}
+  - {fileID: 4632530650480293340, guid: 6ee4abbf5aa8a9e4a97861ee08d9502f, type: 3}
+  - {fileID: 4632530650480293340, guid: 4df074e1712742843bdff1a76818ad70, type: 3}
+  - {fileID: 4632530650480293340, guid: eea9e638d1045fe47822cdcf36f5e533, type: 3}
+  - {fileID: 4632530650480293340, guid: 21f8e49263c6d6c449f623f50a943083, type: 3}
+  - {fileID: 4632530650480293340, guid: 5484f17fa96560a46a70414d028e182d, type: 3}
+  - {fileID: 4632530650480293340, guid: c799f829c11bed14aa6b0ee9245c63e2, type: 3}
+  amountOfEnemies: 15
+  delayBetweenSpawnsMin: 4.5
+  delayBetweenSpawnsMax: 9
   gameStarted: 0
 --- !u!4 &2145196944
 Transform:

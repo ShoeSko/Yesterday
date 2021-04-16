@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4632530650480293341}
   - component: {fileID: 3188923526487577536}
   m_Layer: 6
-  m_Name: TestModel
+  m_Name: Enemy_MoneyBag
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -84,9 +84,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ef0dea17e8f1bb4f9beedb68b8ae00b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemy: {fileID: 11400000, guid: d953b71623a7d5642ad3a0789c409a39, type: 2}
   attackRange: 0.5
   attackPosition: {fileID: 4841129555665310197}
-  enemy: {fileID: 11400000, guid: 717528f62d167f54b85d56740f10be79, type: 2}
 --- !u!212 &3188923526487577536
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -127,7 +127,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: a9fcda3685aaa98438edec8d9a80d941, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 692b3d26a65c55f459a295e4fe5917d6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
