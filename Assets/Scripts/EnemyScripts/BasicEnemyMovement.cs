@@ -55,6 +55,11 @@ public class BasicEnemyMovement : MonoBehaviour
         {
             obstacleInTheWay = true;
         }
+        if (other.collider.CompareTag("InstaKill"))
+        {
+            Destroy(other.gameObject);
+            Destroy(this.gameObject);
+        }
     }
     void OnTriggerEnter2D(Collider2D other)
     {

@@ -171,7 +171,7 @@ public class UnitPrototypeScript : MonoBehaviour
 
     private void PiranhaPond()
     {
-        
+        transform.gameObject.tag= "InstaKill"; //If the unit is Piranha Pond, then it will be an instaKill tag, the enemy will die with it on impact.
     }
 
     #endregion
