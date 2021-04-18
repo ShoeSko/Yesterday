@@ -6,6 +6,8 @@ public class NewCardHandScript : MonoBehaviour
 {
     public bool Smallhand = true;
 
+    public GameObject cardScript1;
+
     public GameObject cowwithgunPrefab;
     public GameObject PlayedCard;
     public GameObject quackenButton;
@@ -57,6 +59,7 @@ public class NewCardHandScript : MonoBehaviour
 
     void Update()
     {
+
 
         if (ManaSystem.CurrentMana >= ManaCost1)
         {

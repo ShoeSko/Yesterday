@@ -2017,7 +2017,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1485272401}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: CardHandScript, Assembly-CSharp
         m_MethodName: EnlargeButtonPressed
         m_Mode: 1
@@ -9556,7 +9556,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1485272401}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: CardHandScript, Assembly-CSharp
         m_MethodName: MinimizeButtonPressed
         m_Mode: 1
@@ -9966,7 +9966,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1485272400}
-  - component: {fileID: 1485272401}
   - component: {fileID: 1485272402}
   m_Layer: 0
   m_Name: HANDscript
@@ -9989,36 +9988,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1485272401
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1485272399}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 85c467ea1b15b2a4b819a0e680ff98f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cowwithgunPrefab: {fileID: 2557954877800294563, guid: 19fdaec487ab265478dee2e3b84fbde0, type: 3}
-  enlargeButton: {fileID: 330656593}
-  minimizeButton: {fileID: 1359261358}
-  handSmall: {fileID: 1595204776}
-  handEnlarged: {fileID: 2119027084}
-  TowerSpots: {fileID: 644915287}
-  CardButton1S: {fileID: 461859710}
-  CardButton2S: {fileID: 1893322604}
-  CardButton3S: {fileID: 618753998}
-  CardButton4S: {fileID: 1224832135}
-  CardButton5S: {fileID: 1258080186}
-  CardButton1L: {fileID: 694777353}
-  CardButton2L: {fileID: 1358580905}
-  CardButton3L: {fileID: 318120657}
-  CardButton4L: {fileID: 1763403867}
-  CardButton5L: {fileID: 1201383717}
-  card1: {fileID: 796216382}
-  ManaCost: 0
 --- !u!114 &1485272402
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10032,6 +10001,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Smallhand: 1
+  cardScript1: {fileID: 0}
   cowwithgunPrefab: {fileID: 2557954877800294563, guid: 19fdaec487ab265478dee2e3b84fbde0, type: 3}
   PlayedCard: {fileID: 0}
   quackenButton: {fileID: 1670201838}
