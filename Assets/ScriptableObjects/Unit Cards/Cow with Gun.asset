@@ -42,4 +42,11 @@ MonoBehaviour:
   targetsToPunch: 0
   canPunchEverything: 0
   isSacrificialKill: 0
+  isSupportExpert: 0
+  allyLayerToTarget:
+    serializedVersion: 2
+    m_Bits: 256
+  hitAllyRange: 5
+  healthBuff: 5
+  damageBuff: 10
   isNotInCorrectSceneTest: 0
