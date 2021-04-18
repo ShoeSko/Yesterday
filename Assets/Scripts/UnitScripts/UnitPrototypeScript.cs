@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -43,12 +44,22 @@ public class UnitPrototypeScript : MonoBehaviour
     [Header("Special")]
     [Tooltip("Does the unit die and kill the enemy on contact?")]private bool isSacrificialKill;
 
+    [Tooltip("Does the unit buff the ally in front of it?")] private bool isSupportExpert;
+    [Tooltip("What layer is allies on?")] private LayerMask allyLayerToTarget;
+    [Tooltip("The range that the support can reach")]private float hitAllyRange; 
+    [Tooltip("How much the health should be buffed")] private int healthBuff;
+    [Tooltip("How much the damage should be buffed")] private int damageBuff;
 
+    private bool hasBuffedAlly = false; //Has the unit given it's buff?
+
+    private Vector3 originForAllyAim; //Where does the unit aim from?
+    private Vector3 directionForAllyAim; //In which direction does the unit aim?
 
     private void Start()
     {
         UnitInfoFeed(); //All info of the Unit is recorded here.
-        Aim();
+        if (isShooter) { Aim(); }
+        if (isSupportExpert) { AllyAim(); }
     }
 
     private void Update()
@@ -167,11 +178,39 @@ public class UnitPrototypeScript : MonoBehaviour
     private void Special()
     {
         if (isSacrificialKill) { PiranhaPond(); }
+        if(isSupportExpert) { SupportBuffing(); }
     }
-
-    private void PiranhaPond()
+    private void PiranhaPond() //Piranha ability
     {
         transform.gameObject.tag= "InstaKill"; //If the unit is Piranha Pond, then it will be an instaKill tag, the enemy will die with it on impact.
+    }
+    private void AllyAim() //Special Aim for targeting allies specifically.
+    {
+        originForAllyAim = transform.position;
+        directionForAllyAim = transform.right;
+        originForAllyAim = originForAllyAim + directionForAllyAim; //Make sure there is an offset to prevent the support from supporting themselves.
+    }
+    private void SupportBuffing() //Supportive Cat ability
+    {
+        RaycastHit2D hitAlly; //Delegate memory
+
+        hitAlly = Physics2D.Raycast(originForAllyAim, directionForAllyAim, hitAllyRange, allyLayerToTarget); //Ray to hit your ally
+        Debug.DrawRay(originForAllyAim, directionForAllyAim * hitAllyRange, Color.yellow, 20); //Visual guide to ray
+
+        if (hitAlly)
+        {
+            if (!hasBuffedAlly)
+            {
+                Debug.Log("Unit that is targeted buffed" + hitAlly.transform.name); //Confirm that the correct unit is hit.
+                UnitPrototypeScript allyUnit = hitAlly.transform.gameObject.GetComponent<UnitPrototypeScript>(); //Get the script to affect it.
+
+                allyUnit.health += healthBuff;//How much the health increases
+                allyUnit.punchDamage += damageBuff; //How much ounch damage increases
+                allyUnit.projectileDamage += damageBuff; //How much shoot damage increases
+
+                hasBuffedAlly = true; //Currently only 1 buff, more changes needs to be discussed.
+            }
+        }
     }
 
     #endregion
@@ -232,5 +271,11 @@ public class UnitPrototypeScript : MonoBehaviour
         canPunchEverything = Unit.canPunchEverything;
         //Special
         isSacrificialKill = Unit.isSacrificialKill;
+        isSupportExpert = Unit.isSupportExpert;
+
+        allyLayerToTarget = Unit.allyLayerToTarget;
+        hitAllyRange = Unit.hitAllyRange;
+        healthBuff = Unit.healthBuff;
+        damageBuff = Unit.damageBuff;
     }
 }

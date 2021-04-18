@@ -37,6 +37,12 @@ public class CardScript : ScriptableObject
 
     [Header("Special")]
     [Tooltip("Does the unit die and kill the enemy on contact?")] public bool isSacrificialKill;
+    [Tooltip("Does the unit buff the ally in front of it?")] public bool isSupportExpert;
+
+    [Tooltip("What layer is allies on?")] public LayerMask allyLayerToTarget;
+    [Tooltip("The range that the support can reach")] public float hitAllyRange;
+    [Tooltip("How much the health should be buffed")] public int healthBuff;
+    [Tooltip("How much the damage should be buffed")] public int damageBuff;
 
     [Header("Test options, must be off to work normaly")]
     public bool isNotInCorrectSceneTest; //Will be removed
