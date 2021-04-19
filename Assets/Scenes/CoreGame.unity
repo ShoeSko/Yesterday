@@ -1680,6 +1680,11 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3126888794182818877, guid: 2f51d16dd28a21e4a89f7e03b0786f2d, type: 3}
   m_PrefabInstance: {fileID: 187037983}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &208740414 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3126888794182818876, guid: 2f51d16dd28a21e4a89f7e03b0786f2d, type: 3}
+  m_PrefabInstance: {fileID: 5992004}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &306789267 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3126888794182818876, guid: 2f51d16dd28a21e4a89f7e03b0786f2d, type: 3}
@@ -2817,6 +2822,11 @@ CanvasRenderer:
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3126888794182818877, guid: 2f51d16dd28a21e4a89f7e03b0786f2d, type: 3}
   m_PrefabInstance: {fileID: 316497370}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &446264171 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3126888794182818876, guid: 2f51d16dd28a21e4a89f7e03b0786f2d, type: 3}
+  m_PrefabInstance: {fileID: 72995851}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &461859710
 GameObject:
@@ -4655,6 +4665,11 @@ PrefabInstance:
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3126888794182818877, guid: 2f51d16dd28a21e4a89f7e03b0786f2d, type: 3}
   m_PrefabInstance: {fileID: 775274729}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &776190046 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3126888794182818876, guid: 2f51d16dd28a21e4a89f7e03b0786f2d, type: 3}
+  m_PrefabInstance: {fileID: 355162650}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &796216382 stripped
 GameObject:
@@ -7898,6 +7913,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   YouLost: {fileID: 437649686}
+--- !u!1 &1175712575 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3126888794182818876, guid: 2f51d16dd28a21e4a89f7e03b0786f2d, type: 3}
+  m_PrefabInstance: {fileID: 187037983}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1189148885
 GameObject:
   m_ObjectHideFlags: 0
@@ -8474,6 +8494,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1224832135}
   m_CullTransparentMesh: 1
+--- !u!1 &1257352591 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3126888794182818876, guid: 2f51d16dd28a21e4a89f7e03b0786f2d, type: 3}
+  m_PrefabInstance: {fileID: 775274729}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1258080186
 GameObject:
   m_ObjectHideFlags: 0
@@ -10001,7 +10026,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Smallhand: 1
-  cardScript1: {fileID: 0}
   cowwithgunPrefab: {fileID: 2557954877800294563, guid: 19fdaec487ab265478dee2e3b84fbde0, type: 3}
   PlayedCard: {fileID: 0}
   quackenButton: {fileID: 1670201838}
@@ -10030,6 +10054,11 @@ MonoBehaviour:
   card4: {fileID: 306789267}
   ManaCost5: 0
   card5: {fileID: 157569947}
+  Lcard1: {fileID: 776190046}
+  Lcard2: {fileID: 208740414}
+  Lcard3: {fileID: 446264171}
+  Lcard4: {fileID: 1175712575}
+  Lcard5: {fileID: 1257352591}
 --- !u!1 &1545223169
 GameObject:
   m_ObjectHideFlags: 0

@@ -6,8 +6,6 @@ public class NewCardHandScript : MonoBehaviour
 {
     public bool Smallhand = true;
 
-    public GameObject cardScript1;
-
     public GameObject cowwithgunPrefab;
     public GameObject PlayedCard;
     public GameObject quackenButton;
@@ -50,6 +48,12 @@ public class NewCardHandScript : MonoBehaviour
     public GameObject card5;
     private CardDisplayer CardValues5;
 
+    public GameObject Lcard1;
+    public GameObject Lcard2;
+    public GameObject Lcard3;
+    public GameObject Lcard4;
+    public GameObject Lcard5;
+
     void Start()
     {
         handEnlarged.SetActive(false);
@@ -59,8 +63,6 @@ public class NewCardHandScript : MonoBehaviour
 
     void Update()
     {
-
-
         if (ManaSystem.CurrentMana >= ManaCost1)
         {
             if(Smallhand)
@@ -127,6 +129,8 @@ public class NewCardHandScript : MonoBehaviour
         }
 
         ReadMana(); //Quick fix to read the mana value
+
+        SetCard(); //Sets the large card to be equal to the small one
     }
 
 
@@ -198,5 +202,16 @@ public class NewCardHandScript : MonoBehaviour
 
         CardValues5 = card5.GetComponent<CardDisplayer>();
         ManaCost5 = CardValues5.manaValue;
+    }
+
+    private void SetCard()
+    {
+        {
+            Lcard1.GetComponent<CardDisplayer>().card = CardValues1.card;
+            Lcard2.GetComponent<CardDisplayer>().card = CardValues2.card;
+            Lcard3.GetComponent<CardDisplayer>().card = CardValues3.card;
+            Lcard4.GetComponent<CardDisplayer>().card = CardValues4.card;
+            Lcard5.GetComponent<CardDisplayer>().card = CardValues5.card;
+        }
     }
 }
