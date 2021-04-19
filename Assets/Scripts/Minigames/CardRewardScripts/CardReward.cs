@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class CardReward : MonoBehaviour
 {
@@ -42,7 +44,7 @@ public class CardReward : MonoBehaviour
             Debug.Log(activeCard.name);
 
             activeCard.transform.position = prefabPos;
-            Instantiate(activeCard);//spawn the card (except its bugged for some reason)
+            Instantiate(activeCard);
         }
     }
 

@@ -13171,9 +13171,9 @@ MonoBehaviour:
   - {fileID: 1545223169}
   - {fileID: 1632451680}
   - {fileID: 437355752}
-  amountOfEnemies: 5
-  delayBetweenSpawnsMin: 4.5
-  delayBetweenSpawnsMax: 9
+  amountOfEnemies: 11
+  delayBetweenSpawnsMin: 7.6
+  delayBetweenSpawnsMax: 11.1
   gameStarted: 0
   weakEnemyTypesSpawnList: []
   strongEnemyTypesSpawnList: []

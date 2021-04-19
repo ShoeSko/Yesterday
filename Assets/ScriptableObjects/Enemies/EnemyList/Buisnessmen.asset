@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Buisnessmen
   m_EditorClassIdentifier: 
   Enemies:
+  - {fileID: 4632530650480293340, guid: 4df074e1712742843bdff1a76818ad70, type: 3}
   - {fileID: 4632530650480293340, guid: 5484f17fa96560a46a70414d028e182d, type: 3}
   - {fileID: 4632530650480293340, guid: 9494b6278d2a2f142b88616580c08114, type: 3}
-  - {fileID: 4632530650480293340, guid: c799f829c11bed14aa6b0ee9245c63e2, type: 3}
   - {fileID: 4632530650480293340, guid: 21f8e49263c6d6c449f623f50a943083, type: 3}

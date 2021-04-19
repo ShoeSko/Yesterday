@@ -22,10 +22,10 @@ MonoBehaviour:
   isShooter: 1
   isPunching: 0
   isSpecial: 0
-  shootRechargeTime: 3
+  shootRechargeTime: 4
   projectileSpeed: 20
   projectilePrefab: {fileID: 3204289923293697707, guid: 5d52c25ce94445743a02a3ddca268b0e, type: 3}
-  projectileDamage: 15
+  projectileDamage: 10
   shootingTargetLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -41,4 +41,12 @@ MonoBehaviour:
   targetsToPunch: 0
   canPunchEverything: 0
   isSacrificialKill: 0
+  isSupportExpert: 0
+  allyLayerToTarget:
+    serializedVersion: 2
+    m_Bits: 0
+  hitAllyRange: 0
+  sizeBuff: {x: 0, y: 0, z: 0}
+  healthBuff: 0
+  damageBuff: 0
   isNotInCorrectSceneTest: 0
