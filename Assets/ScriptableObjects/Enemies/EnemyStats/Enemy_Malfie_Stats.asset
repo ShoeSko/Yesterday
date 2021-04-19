@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 30
   enemyHealth: 120
-  obstacleTags: Finish
+  obstacleTags: Obstacle
   projectileTags: Projectile
   attackDamage: 30
   attackSpeed: 1

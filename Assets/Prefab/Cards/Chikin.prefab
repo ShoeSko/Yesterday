@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6118651002381041060}
   m_Layer: 8
   m_Name: Chikin
-  m_TagString: Finish
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
