@@ -48,11 +48,14 @@ public class UnitPrototypeScript : MonoBehaviour
     [Tooltip("What layer is allies on?")] private LayerMask allyLayerToTarget;
     [Tooltip("The range that the support can reach")]private float hitAllyRange;
     [Tooltip("How much bigger will the unit be?")] private Vector3 sizeBuff;
-    [Tooltip("How much the health should be buffed")] private int healthBuff;
-    [Tooltip("How much the damage should be buffed")] private int damageBuff;
+    [Tooltip("How much the health should be buffed")] private float healthBuff;
+    [Tooltip("How much the damage should be buffed")] private float damageBuff;
 
     private bool hasBuffedAlly = false; //Has the unit given it's buff?
 
+    private float healthToBuff;
+    private float damageProjectileToBuff;
+    private float damagePunchToBuff;
     private Vector3 originForAllyAim; //Where does the unit aim from?
     private Vector3 directionForAllyAim; //In which direction does the unit aim?
 
@@ -204,15 +207,27 @@ public class UnitPrototypeScript : MonoBehaviour
             {
                 Debug.Log("Unit that is targeted buffed" + hitAlly.transform.name); //Confirm that the correct unit is hit.
                 UnitPrototypeScript allyUnit = hitAlly.transform.gameObject.GetComponent<UnitPrototypeScript>(); //Get the script to affect it.
-
-                allyUnit.health += healthBuff;//How much the health increases
                 allyUnit.transform.localScale += sizeBuff; //How much the unit increases in size
-                allyUnit.punchDamage += damageBuff; //How much ounch damage increases
-                allyUnit.projectileDamage += damageBuff; //How much shoot damage increases
+
+                healthToBuff = allyUnit.health; //Get a refrence for the health
+                damageProjectileToBuff = allyUnit.projectileDamage;//Get a refrence for the damage
+                damagePunchToBuff = allyUnit.punchDamage; //Get a refrence for the damage
+
+                DamageHealingBuff(); //Start the calculation program
+                allyUnit.health = healthBuff;
+                allyUnit.punchDamage =(int)damageBuff; //How much ounch damage increases
+                allyUnit.projectileDamage = (int)damageBuff; //How much shoot damage increases
 
                 hasBuffedAlly = true; //Currently only 1 buff, more changes needs to be discussed.
             }
         }
+    }
+    private void DamageHealingBuff()
+    {
+        healthBuff = healthToBuff + (healthToBuff * healthBuff); //Increase the health by this much.
+
+        damageProjectileToBuff = damageProjectileToBuff + (damageProjectileToBuff * damageBuff); //Increase the damage by this much.
+        damagePunchToBuff *= damagePunchToBuff + (damagePunchToBuff * damageBuff); //Increase the damage by this much.
     }
 
     #endregion
