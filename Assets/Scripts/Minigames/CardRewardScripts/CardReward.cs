@@ -45,6 +45,7 @@ public class CardReward : MonoBehaviour
 
             rewardCardsTMPro[cardsToRandomize].text = activeCard.name; //Write the name of the current random card. **
 
+            rewardCardsTMPro[cardsToRandomize].transform.position = new Vector2(prefabPos.x, prefabPos.y + 1);//offset for the text to appear above the icon
             activeCard.transform.position = prefabPos;
             Instantiate(activeCard);
         }
