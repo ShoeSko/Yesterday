@@ -37,10 +37,17 @@ public class RoombaPower : MonoBehaviour
 
     private int randomiser1;
     private int randomiser2;
+
+    private bool win;
+    private float delay;
+    private int score;
     #endregion
 
     private void Start()
     {
+        win = false;
+        score = 0;
+
         randomiser1 = Random.Range(0, 3);
         randomiser2 = Random.Range(0, 3);
         connection0[randomiser1].GetComponent<MeshRenderer>().material = powerOn; //Choses the first wire.
@@ -52,8 +59,38 @@ public class RoombaPower : MonoBehaviour
     }
     private void Update()
     {
-        scoreTimer += Time.deltaTime;
+        if(!win)
+            scoreTimer += Time.deltaTime;
+
         WhichSwitch();
+
+        if (win)
+        {
+            delay += Time.deltaTime;
+
+            if(delay > 5)
+            {
+                if (score == 0)//skip card reward
+                {
+                    if (MinigameSceneScript.activeMinigame == 1)
+                    {
+                        MinigameSceneScript.activeMinigame++;
+                        SceneManager.LoadScene("Minigame#" + MinigameSceneScript.scene2);
+                    }
+                    else if (MinigameSceneScript.activeMinigame == 2)
+                    {
+                        MinigameSceneScript.activeMinigame++;
+                        SceneManager.LoadScene("Minigame#" + MinigameSceneScript.scene3);
+                    }
+                    else if (MinigameSceneScript.activeMinigame == 3)
+                    {
+                        SceneManager.LoadScene("CoreGame");
+                    }
+                }
+                else//go to card reward
+                    SceneManager.LoadScene("CardReward");
+            }
+        }
     }
 
     private void WhichSwitch()
@@ -87,12 +124,14 @@ public class RoombaPower : MonoBehaviour
     {
         if (!thirdSwitch)
         {
+            win = true;
             if (scoreTimer <= star1Time)//define score for this minigame
             {
                 for (int i = 0; i < starLenght; i++)
                 {
                     stars[i].SetActive(true);
                 }
+                score = 3;
                 //3 stars
             }
             else if (scoreTimer > star1Time && scoreTimer <= star2Time)
@@ -101,6 +140,7 @@ public class RoombaPower : MonoBehaviour
                 {
                     stars[i].SetActive(true);
                 }
+                score = 2;
                 //2 stars
             }
             else if (scoreTimer > star2Time && scoreTimer <= star3Time)
@@ -109,10 +149,12 @@ public class RoombaPower : MonoBehaviour
                 {
                     stars[i].SetActive(true);
                 }
+                score = 1;
                 //1 star
             }
             else if (scoreTimer > 5)
             {
+                score = 0;
                 //0 stars
             }
         }

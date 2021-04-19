@@ -68,20 +68,25 @@ public class GoalCounter : MonoBehaviour
 
         if (timer >= 5)
         {
-            if (MinigameSceneScript.activeMinigame == 1)
+            if(scoreTimer >= 8)//skip card reward
             {
-                MinigameSceneScript.activeMinigame++;
-                SceneManager.LoadScene("Minigame#" + MinigameSceneScript.scene2);
+                if (MinigameSceneScript.activeMinigame == 1)
+                {
+                    MinigameSceneScript.activeMinigame++;
+                    SceneManager.LoadScene("Minigame#" + MinigameSceneScript.scene2);
+                }
+                else if (MinigameSceneScript.activeMinigame == 2)
+                {
+                    MinigameSceneScript.activeMinigame++;
+                    SceneManager.LoadScene("Minigame#" + MinigameSceneScript.scene3);
+                }
+                else if (MinigameSceneScript.activeMinigame == 3)
+                {
+                    SceneManager.LoadScene("CoreGame");
+                }
             }
-            else if (MinigameSceneScript.activeMinigame == 2)
-            {
-                MinigameSceneScript.activeMinigame++;
-                SceneManager.LoadScene("Minigame#" + MinigameSceneScript.scene3);
-            }
-            else if (MinigameSceneScript.activeMinigame == 3)
-            {
-                SceneManager.LoadScene("CoreGame");
-            }
+            else//go to card reward
+                SceneManager.LoadScene("CardReward");
         }
     }
 }

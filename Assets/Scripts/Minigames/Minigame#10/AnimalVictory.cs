@@ -36,7 +36,9 @@ public class AnimalVictory : MonoBehaviour
 
     private void AllAnimalsInPens()
     {
-        scoreTimer += Time.deltaTime;
+        if(_animalPensFilled != 4)
+            scoreTimer += Time.deltaTime;
+
         if (_animalPensFilled == 4)
         {
             if (scoreTimer <= star1Time)//define score for this minigame
@@ -69,22 +71,28 @@ public class AnimalVictory : MonoBehaviour
                 }
 
             timer += Time.deltaTime;
+
             if(timer > 5)//5 seconds after winning the game
             {
-                if (MinigameSceneScript.activeMinigame == 1)
+                if (scoreTimer > 5)//skip card reward
                 {
-                    MinigameSceneScript.activeMinigame++;
-                    SceneManager.LoadScene("Minigame#" + MinigameSceneScript.scene2);
+                    if (MinigameSceneScript.activeMinigame == 1)
+                    {
+                        MinigameSceneScript.activeMinigame++;
+                        SceneManager.LoadScene("Minigame#" + MinigameSceneScript.scene2);
+                    }
+                    else if (MinigameSceneScript.activeMinigame == 2)
+                    {
+                        MinigameSceneScript.activeMinigame++;
+                        SceneManager.LoadScene("Minigame#" + MinigameSceneScript.scene3);
+                    }
+                    else if (MinigameSceneScript.activeMinigame == 3)
+                    {
+                        SceneManager.LoadScene("CoreGame");
+                    }
                 }
-                else if (MinigameSceneScript.activeMinigame == 2)
-                {
-                    MinigameSceneScript.activeMinigame++;
-                    SceneManager.LoadScene("Minigame#" + MinigameSceneScript.scene3);
-                }
-                else if (MinigameSceneScript.activeMinigame == 3)
-                {
-                    SceneManager.LoadScene("CoreGame");
-                }
+                else//go to card reward
+                    SceneManager.LoadScene("CardReward");
             }
         }
     }

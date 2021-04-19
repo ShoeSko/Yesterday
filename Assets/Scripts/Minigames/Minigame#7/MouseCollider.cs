@@ -29,7 +29,8 @@ public class MouseCollider : MonoBehaviour
     }
     void Update()
     {
-        ScoreTimer += Time.deltaTime;//Overall timer for score
+        if (score != 3)
+            ScoreTimer += Time.deltaTime;//Overall timer for score
 
         mousePos = Input.mousePosition;
         mousePos = Camera.main.ScreenToWorldPoint(mousePos);
@@ -58,20 +59,25 @@ public class MouseCollider : MonoBehaviour
 
             if (gamoverTimer >= 5)//change scenes after 5 sec
             {
-                if (MinigameSceneScript.activeMinigame == 1)
+                if (ScoreTimer > 25)//skip card reward
                 {
-                    MinigameSceneScript.activeMinigame++;
-                    SceneManager.LoadScene("Minigame#" + MinigameSceneScript.scene2);
+                    if (MinigameSceneScript.activeMinigame == 1)
+                    {
+                        MinigameSceneScript.activeMinigame++;
+                        SceneManager.LoadScene("Minigame#" + MinigameSceneScript.scene2);
+                    }
+                    else if (MinigameSceneScript.activeMinigame == 2)
+                    {
+                        MinigameSceneScript.activeMinigame++;
+                        SceneManager.LoadScene("Minigame#" + MinigameSceneScript.scene3);
+                    }
+                    else if (MinigameSceneScript.activeMinigame == 3)
+                    {
+                        SceneManager.LoadScene("CoreGame");
+                    }
                 }
-                else if (MinigameSceneScript.activeMinigame == 2)
-                {
-                    MinigameSceneScript.activeMinigame++;
-                    SceneManager.LoadScene("Minigame#" + MinigameSceneScript.scene3);
-                }
-                else if (MinigameSceneScript.activeMinigame == 3)
-                {
-                    SceneManager.LoadScene("CoreGame");
-                }
+                else//go to card reward
+                    SceneManager.LoadScene("CardReward");
             }
         }
     }

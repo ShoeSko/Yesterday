@@ -21,6 +21,8 @@ public class HandScript : MonoBehaviour
     public GameObject star2;
     public GameObject star3;
 
+    private int score;
+
 
     private void Start()
     {
@@ -29,6 +31,8 @@ public class HandScript : MonoBehaviour
         star1.SetActive(false);
         star2.SetActive(false);
         star3.SetActive(false);
+
+        score = 0;
     }
     private void Update()
     {
@@ -62,17 +66,20 @@ public class HandScript : MonoBehaviour
                 star2.SetActive(true);
                 star3.SetActive(true);
                 //3 stars
+                score = 3;
             }
             else if(scoreTimer >2 && scoreTimer <= 3)
             {
                 star1.SetActive(true);
                 star2.SetActive(true);
                 //2 stars
+                score = 2;
             }
             else if(scoreTimer >3 && scoreTimer <= 4)
             {
                 star1.SetActive(true);
                 //1 star
+                score = 1;
             }
             else if(scoreTimer > 5)
             {
@@ -82,20 +89,25 @@ public class HandScript : MonoBehaviour
 
         if (clock >= 5)//load next scene after 5 sec
         {
-            if(MinigameSceneScript.activeMinigame == 1)
+            if (score == 0)//skip card reward
             {
-                MinigameSceneScript.activeMinigame++;
-                SceneManager.LoadScene("Minigame#" + MinigameSceneScript.scene2);
+                if (MinigameSceneScript.activeMinigame == 1)
+                {
+                    MinigameSceneScript.activeMinigame++;
+                    SceneManager.LoadScene("Minigame#" + MinigameSceneScript.scene2);
+                }
+                else if (MinigameSceneScript.activeMinigame == 2)
+                {
+                    MinigameSceneScript.activeMinigame++;
+                    SceneManager.LoadScene("Minigame#" + MinigameSceneScript.scene3);
+                }
+                else if (MinigameSceneScript.activeMinigame == 3)
+                {
+                    SceneManager.LoadScene("CoreGame");
+                }
             }
-            else if (MinigameSceneScript.activeMinigame == 2)
-            {
-                MinigameSceneScript.activeMinigame++;
-                SceneManager.LoadScene("Minigame#" + MinigameSceneScript.scene3);
-            }
-            else if (MinigameSceneScript.activeMinigame == 3)
-            {
-                SceneManager.LoadScene("CoreGame");
-            }
+            else//go to card reward
+                SceneManager.LoadScene("CardReward");
         }
     }
 

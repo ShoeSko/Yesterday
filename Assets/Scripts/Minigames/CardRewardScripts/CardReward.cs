@@ -1,8 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class CardReward : MonoBehaviour
 {
@@ -68,16 +68,37 @@ public class CardReward : MonoBehaviour
 
 
 
-    void selectG1()//add cards from group 1 to your deck
+    public void selectG1()//add cards from group 1 to your deck
     {
-
+        //select these cards
+        NextScene();
     }
-    void selectG2()//add cards from group 2 to your deck
+    public void selectG2()//add cards from group 2 to your deck
     {
-
+        //select these cards
+        NextScene();
     }
-    void selectG3()//add cards from group 3 to your deck
+    public void selectG3()//add cards from group 3 to your deck
     {
+        //select these cards
+        NextScene();
+    }
 
+    private void NextScene()
+    {
+        if (MinigameSceneScript.activeMinigame == 1)
+        {
+            MinigameSceneScript.activeMinigame++;
+            SceneManager.LoadScene("Minigame#" + MinigameSceneScript.scene2);
+        }
+        else if (MinigameSceneScript.activeMinigame == 2)
+        {
+            MinigameSceneScript.activeMinigame++;
+            SceneManager.LoadScene("Minigame#" + MinigameSceneScript.scene3);
+        }
+        else if (MinigameSceneScript.activeMinigame == 3)
+        {
+            SceneManager.LoadScene("CoreGame");
+        }
     }
 }

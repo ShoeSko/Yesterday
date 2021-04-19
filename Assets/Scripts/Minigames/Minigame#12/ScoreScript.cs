@@ -30,20 +30,25 @@ public class ScoreScript : MonoBehaviour
 
             if (timer >= 5)//after reaching the goal, change scene after 5 sec
             {
-                if (MinigameSceneScript.activeMinigame == 1)
+                if (scoreTimer > 30)//skip card reward
                 {
-                    MinigameSceneScript.activeMinigame++;
-                    SceneManager.LoadScene("Minigame#" + MinigameSceneScript.scene2);
+                    if (MinigameSceneScript.activeMinigame == 1)
+                    {
+                        MinigameSceneScript.activeMinigame++;
+                        SceneManager.LoadScene("Minigame#" + MinigameSceneScript.scene2);
+                    }
+                    else if (MinigameSceneScript.activeMinigame == 2)
+                    {
+                        MinigameSceneScript.activeMinigame++;
+                        SceneManager.LoadScene("Minigame#" + MinigameSceneScript.scene3);
+                    }
+                    else if (MinigameSceneScript.activeMinigame == 3)
+                    {
+                        SceneManager.LoadScene("CoreGame");
+                    }
                 }
-                else if (MinigameSceneScript.activeMinigame == 2)
-                {
-                    MinigameSceneScript.activeMinigame++;
-                    SceneManager.LoadScene("Minigame#" + MinigameSceneScript.scene3);
-                }
-                else if (MinigameSceneScript.activeMinigame == 3)
-                {
-                    SceneManager.LoadScene("CoreGame");
-                }
+                else//go to card reward
+                    SceneManager.LoadScene("CardReward");
             }
         }
     }
@@ -59,13 +64,13 @@ public class ScoreScript : MonoBehaviour
             star2.SetActive(true);
             star3.SetActive(true);
         }
-        else if (scoreTimer <= 20 && scoreTimer > 10)
+        else if (scoreTimer > 10 && scoreTimer <= 20)
         {
             //2stars
             star1.SetActive(true);
             star2.SetActive(true);
         }
-        else if (scoreTimer <= 30 && scoreTimer > 20)
+        else if (scoreTimer > 20 && scoreTimer <= 30)
         {
             //1stars
             star1.SetActive(true);

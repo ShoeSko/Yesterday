@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: fdb3c79c55edb5b489b364afc10665a0
   - enabled: 1
-    path: Assets/Scenes/PrototypeScene.unity
+    path: Assets/Scenes/CoreGame.unity
     guid: b4b8d8ab336fe8d4ab716bd0d345984c
   - enabled: 1
     path: Assets/Scenes/MiniGame#1.unity
@@ -23,9 +23,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Minigame#3.unity
     guid: 13ee7efb747392941985d5694068fa45
-  - enabled: 1
-    path: Assets/Scenes/CoreGame.unity
-    guid: 526202e9f621c4b43aeec2abd05b675f
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/Minigame#4.unity
     guid: 9c6511a75a0c8cb4f965a1ec75b05bab
@@ -53,4 +53,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Minigame#12.unity
     guid: 97a044fd9c19e3f4c9fee37a239a60ca
+  - enabled: 1
+    path: Assets/Scenes/CardReward.unity
+    guid: f52f73451b8462c42bdf42a42aa69fa8
   m_configObjects: {}
