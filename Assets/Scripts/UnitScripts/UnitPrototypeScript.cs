@@ -46,7 +46,8 @@ public class UnitPrototypeScript : MonoBehaviour
 
     [Tooltip("Does the unit buff the ally in front of it?")] private bool isSupportExpert;
     [Tooltip("What layer is allies on?")] private LayerMask allyLayerToTarget;
-    [Tooltip("The range that the support can reach")]private float hitAllyRange; 
+    [Tooltip("The range that the support can reach")]private float hitAllyRange;
+    [Tooltip("How much bigger will the unit be?")] private Vector3 sizeBuff;
     [Tooltip("How much the health should be buffed")] private int healthBuff;
     [Tooltip("How much the damage should be buffed")] private int damageBuff;
 
@@ -205,6 +206,7 @@ public class UnitPrototypeScript : MonoBehaviour
                 UnitPrototypeScript allyUnit = hitAlly.transform.gameObject.GetComponent<UnitPrototypeScript>(); //Get the script to affect it.
 
                 allyUnit.health += healthBuff;//How much the health increases
+                allyUnit.transform.localScale += sizeBuff; //How much the unit increases in size
                 allyUnit.punchDamage += damageBuff; //How much ounch damage increases
                 allyUnit.projectileDamage += damageBuff; //How much shoot damage increases
 
@@ -275,6 +277,7 @@ public class UnitPrototypeScript : MonoBehaviour
 
         allyLayerToTarget = Unit.allyLayerToTarget;
         hitAllyRange = Unit.hitAllyRange;
+        sizeBuff = Unit.sizeBuff;
         healthBuff = Unit.healthBuff;
         damageBuff = Unit.damageBuff;
     }
