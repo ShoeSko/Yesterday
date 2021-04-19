@@ -8,6 +8,7 @@ public class CardReward : MonoBehaviour
 {
     public List<GameObject> totalCards = new List<GameObject>();//all of the cards in the game
     public List<GameObject> rewardCards = new List<GameObject>();//The random cards given to the player
+    public List<TextMeshProUGUI> rewardCardsTMPro = new List<TextMeshProUGUI>();//The names of random cards given to the player ** //Second note, will always be the same size as rewardCards
 
     private int sizeOfCards;
     private int sizeOfRewardCards;
@@ -34,7 +35,6 @@ public class CardReward : MonoBehaviour
         {
             activeCard = rewardCards[cardsToRandomize];//define the active card that's being looked at
             Debug.Log(activeCard.name);
-
             prefabPos = activeCard.transform.position;
 
             randomCardInt = Random.Range(0, sizeOfCards);//randomise a card from the total card pool
@@ -42,6 +42,8 @@ public class CardReward : MonoBehaviour
 
             activeCard = randomCard;//set the active card to the random card
             Debug.Log(activeCard.name);
+
+            rewardCardsTMPro[cardsToRandomize].text = activeCard.name; //Write the name of the current random card. **
 
             activeCard.transform.position = prefabPos;
             Instantiate(activeCard);
