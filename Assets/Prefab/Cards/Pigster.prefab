@@ -46,8 +46,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.29161215, y: 0}
-  m_Size: {x: 1.5832243, y: 2}
+  m_Offset: {x: 1.597386, y: -0.1917336}
+  m_Size: {x: 4.61903, y: 5.628483}
   m_Direction: 0
 --- !u!114 &2557954877800294562
 MonoBehaviour:
@@ -64,8 +64,8 @@ MonoBehaviour:
   Unit: {fileID: 11400000, guid: 4384fdca5bba346488c6adff280c2ba1, type: 2}
   projectileDamage: 10
   targetsToShoot: 0
-  punchRange: 0
-  punchPosition: {fileID: 0}
+  punchRange: 1
+  punchPosition: {fileID: 2066630506426419775}
 --- !u!212 &6118651002381041060
 SpriteRenderer:
   m_ObjectHideFlags: 0

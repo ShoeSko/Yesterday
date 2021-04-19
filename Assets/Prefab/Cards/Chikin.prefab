@@ -64,8 +64,8 @@ MonoBehaviour:
   Unit: {fileID: 11400000, guid: d8854abcbe197604194b903ffbcc8e84, type: 2}
   projectileDamage: 10
   targetsToShoot: 0
-  punchRange: 0
-  punchPosition: {fileID: 0}
+  punchRange: 1
+  punchPosition: {fileID: 2066630506426419775}
 --- !u!212 &6118651002381041060
 SpriteRenderer:
   m_ObjectHideFlags: 0
