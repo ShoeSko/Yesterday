@@ -12,6 +12,10 @@ public class GroundScript : MonoBehaviour
     public GameObject star1;
     public GameObject star2;
     public GameObject star3;
+    public GameObject RunningSound;
+
+    public AudioSource jump;
+    public AudioSource Run;
 
     private bool jumpCooldown;
     private float jumpDelay;
@@ -34,11 +38,14 @@ public class GroundScript : MonoBehaviour
 
     void Update()
     {
-        if(!win)
+        if (!win)
             transform.Translate(Vector2.left * speed * Time.deltaTime);
+
+
 
         if (Input.GetKeyDown(KeyCode.Space) && !jumpCooldown && !win)
         {
+            jump.Play();
             playerRB.velocity = Vector2.up * jumpSpeed;
             jumpCooldown = true;
         }
@@ -56,6 +63,7 @@ public class GroundScript : MonoBehaviour
 
         if (win)
         {
+            Destroy(RunningSound);
             if(score == 3)
             {
                 star1.SetActive(true);

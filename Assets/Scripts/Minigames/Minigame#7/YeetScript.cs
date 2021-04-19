@@ -16,6 +16,8 @@ public class YeetScript : MonoBehaviour
     private bool triggered2;
     private bool triggered3;
 
+    public AudioSource CarrotPOP;
+
     private void Start()
     {
         Croot1 = root1.GetComponent<Collider2D>();
@@ -27,16 +29,19 @@ public class YeetScript : MonoBehaviour
     {
         if(collider == Croot1 && !triggered1)
         {
+            CarrotPOP.Play();
             root1.GetComponent<WeedPulling>().PulledOut = true;
             triggered1 = true;
         }
         if (collider == Croot2 && !triggered2)
         {
+            CarrotPOP.Play();
             root2.GetComponent<WeedPulling>().PulledOut = true;
             triggered2 = true;
         }
         if (collider == Croot3 && !triggered3)
         {
+            CarrotPOP.Play();
             root3.GetComponent<WeedPulling>().PulledOut = true;
             triggered3 = true;
         }
