@@ -17,7 +17,7 @@ MonoBehaviour:
   obstacleTags: Obstacle
   projectileTags: Projectile
   attackDamage: 25
-  attackSpeed: 0.8
+  attackSpeed: 1.1
   whatIsUnitLayer:
     serializedVersion: 2
     m_Bits: 256

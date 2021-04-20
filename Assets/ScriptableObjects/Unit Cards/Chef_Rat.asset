@@ -18,7 +18,7 @@ MonoBehaviour:
   effectDescription: Not as fierce but knows how to use knives
   flavorTxt: Rumores have it that his ratatouille is the best
   Prefab: {fileID: 2557954877800294563, guid: fe48313fc5633034da8b85c142c98f0e, type: 3}
-  health: 45
+  health: 60
   isShooter: 0
   isPunching: 1
   isSpecial: 0
@@ -33,7 +33,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   targetsToShoot: 0
-  punchRechargeTime: 1.5
+  punchRechargeTime: 1.2
   punchDamage: 20
   punchingTargetLayer:
     serializedVersion: 2
@@ -41,4 +41,12 @@ MonoBehaviour:
   targetsToPunch: 1
   canPunchEverything: 0
   isSacrificialKill: 0
+  isSupportExpert: 0
+  allyLayerToTarget:
+    serializedVersion: 2
+    m_Bits: 0
+  hitAllyRange: 0
+  sizeBuff: {x: 0, y: 0, z: 0}
+  healthBuff: 0
+  damageBuff: 0
   isNotInCorrectSceneTest: 0

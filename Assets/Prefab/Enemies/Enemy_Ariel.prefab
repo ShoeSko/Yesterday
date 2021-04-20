@@ -85,7 +85,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 11400000, guid: 8a08752518bac02468f5c1fb72e10684, type: 2}
-  attackRange: 0.5
+  attackRange: 0.8
   attackPosition: {fileID: 4841129555665310197}
 --- !u!212 &3188923526487577536
 SpriteRenderer:

@@ -18,7 +18,7 @@ MonoBehaviour:
   effectDescription: This black sheep will slash anayone that comes close
   flavorTxt: Standing out does have some benefits afterall.
   Prefab: {fileID: 2557954877800294563, guid: 867cc57a67d30f5488c74ff2bb99af6e, type: 3}
-  health: 150
+  health: 190
   isShooter: 0
   isPunching: 1
   isSpecial: 0
@@ -34,11 +34,19 @@ MonoBehaviour:
     m_Bits: 128
   targetsToShoot: 0
   punchRechargeTime: 2.5
-  punchDamage: 60
+  punchDamage: 70
   punchingTargetLayer:
     serializedVersion: 2
     m_Bits: 64
   targetsToPunch: 1
   canPunchEverything: 0
   isSacrificialKill: 0
+  isSupportExpert: 0
+  allyLayerToTarget:
+    serializedVersion: 2
+    m_Bits: 0
+  hitAllyRange: 0
+  sizeBuff: {x: 0, y: 0, z: 0}
+  healthBuff: 0
+  damageBuff: 0
   isNotInCorrectSceneTest: 0
