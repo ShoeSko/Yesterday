@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class TowerSpotsScript : MonoBehaviour
 {
-    public GameObject cowwithgunPrefab;//temporary solution: the unit that's supposed to be summoned
     private Vector2 buttonPos;
     public GameObject towerSpots;
     public Transform positionResetTransform;
@@ -13,12 +12,15 @@ public class TowerSpotsScript : MonoBehaviour
     private CardDisplayer CardValues;
     private GameObject Unit;
     private int manacost;
+    public GameObject Deck;
+    private DeckScript DeckCode;
 
 
     public void Start()
     {
         buttonPos = transform.position;
         card = GameObject.Find("HANDscript");
+        DeckCode = Deck.GetComponent<DeckScript>();
     }
     public void PlaceCard()
     {
@@ -36,6 +38,12 @@ public class TowerSpotsScript : MonoBehaviour
         this.transform.SetParent(unit.transform,true);
         towerSpots.SetActive(false);
         gameObject.SetActive(false);
+
+        DeckCode.Randomise();
+        CardValues.card = DeckCode.activecard;
+        cardplayed.GetComponent<CardDisplayer>().Read();
+
+        card.GetComponent<NewCardHandScript>().ReSetCard();
     }
 
     private void Update()

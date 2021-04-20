@@ -209,6 +209,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2119027085}
     m_Modifications:
+    - target: {fileID: 3126888794182818874, guid: 2f51d16dd28a21e4a89f7e03b0786f2d, type: 3}
+      propertyPath: card
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 3126888794182818876, guid: 2f51d16dd28a21e4a89f7e03b0786f2d, type: 3}
       propertyPath: m_Name
       value: LCard2
@@ -696,6 +700,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2119027085}
     m_Modifications:
+    - target: {fileID: 3126888794182818874, guid: 2f51d16dd28a21e4a89f7e03b0786f2d, type: 3}
+      propertyPath: card
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 3126888794182818876, guid: 2f51d16dd28a21e4a89f7e03b0786f2d, type: 3}
       propertyPath: m_Name
       value: LCard3
@@ -859,9 +867,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7ea4a8f6b62f524c9cb44d28a7036c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cowwithgunPrefab: {fileID: 2557954877800294563, guid: 19fdaec487ab265478dee2e3b84fbde0, type: 3}
   towerSpots: {fileID: 644915287}
   positionResetTransform: {fileID: 1404517288}
+  Deck: {fileID: 368766258}
 --- !u!114 &79904646
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1008,9 +1016,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7ea4a8f6b62f524c9cb44d28a7036c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cowwithgunPrefab: {fileID: 2557954877800294563, guid: 19fdaec487ab265478dee2e3b84fbde0, type: 3}
   towerSpots: {fileID: 644915287}
   positionResetTransform: {fileID: 1404517288}
+  Deck: {fileID: 368766258}
 --- !u!114 &97887038
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1414,9 +1422,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7ea4a8f6b62f524c9cb44d28a7036c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cowwithgunPrefab: {fileID: 2557954877800294563, guid: 19fdaec487ab265478dee2e3b84fbde0, type: 3}
   towerSpots: {fileID: 644915287}
   positionResetTransform: {fileID: 1404517288}
+  Deck: {fileID: 368766258}
 --- !u!1 &164716455
 GameObject:
   m_ObjectHideFlags: 0
@@ -1563,9 +1571,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7ea4a8f6b62f524c9cb44d28a7036c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cowwithgunPrefab: {fileID: 2557954877800294563, guid: 19fdaec487ab265478dee2e3b84fbde0, type: 3}
   towerSpots: {fileID: 644915287}
   positionResetTransform: {fileID: 1404517288}
+  Deck: {fileID: 368766258}
 --- !u!1001 &187037983
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1573,6 +1581,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2119027085}
     m_Modifications:
+    - target: {fileID: 3126888794182818874, guid: 2f51d16dd28a21e4a89f7e03b0786f2d, type: 3}
+      propertyPath: card
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 3126888794182818876, guid: 2f51d16dd28a21e4a89f7e03b0786f2d, type: 3}
       propertyPath: m_Name
       value: LCard4
@@ -2225,6 +2237,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2119027085}
     m_Modifications:
+    - target: {fileID: 3126888794182818874, guid: 2f51d16dd28a21e4a89f7e03b0786f2d, type: 3}
+      propertyPath: card
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 3126888794182818876, guid: 2f51d16dd28a21e4a89f7e03b0786f2d, type: 3}
       propertyPath: m_Name
       value: LCard1
@@ -2344,6 +2360,7 @@ GameObject:
   - component: {fileID: 368766261}
   - component: {fileID: 368766260}
   - component: {fileID: 368766259}
+  - component: {fileID: 368766263}
   m_Layer: 0
   m_Name: Deck
   m_TagString: Untagged
@@ -2427,6 +2444,50 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &368766263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 368766258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be178b46287bfa14da1dc4ebb521c64a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Deck:
+  - {fileID: 11400000, guid: d6bf67d5d2f3ab849ab553181cc9cc11, type: 2}
+  - {fileID: 11400000, guid: a7f79d8ff64064948b19ac3c1cc02860, type: 2}
+  - {fileID: 11400000, guid: d8854abcbe197604194b903ffbcc8e84, type: 2}
+  - {fileID: 11400000, guid: 2feaa7772e4a0ed4abe51ab0b90c9614, type: 2}
+  - {fileID: 11400000, guid: 8d7668c9289f2a54fb2118436e41cd19, type: 2}
+  - {fileID: 11400000, guid: 01fb32f34ffdc9746a586702493998b1, type: 2}
+  - {fileID: 11400000, guid: 4384fdca5bba346488c6adff280c2ba1, type: 2}
+  - {fileID: 11400000, guid: 8f232aae2c0d38c4482a943b7064cbc1, type: 2}
+  - {fileID: 11400000, guid: 99471469f811338408bac4333bac98d1, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  activecard: {fileID: 0}
 --- !u!1 &418025761
 GameObject:
   m_ObjectHideFlags: 0
@@ -2479,9 +2540,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7ea4a8f6b62f524c9cb44d28a7036c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cowwithgunPrefab: {fileID: 2557954877800294563, guid: 19fdaec487ab265478dee2e3b84fbde0, type: 3}
   towerSpots: {fileID: 644915287}
   positionResetTransform: {fileID: 1404517288}
+  Deck: {fileID: 368766258}
 --- !u!114 &418025764
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3012,9 +3073,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7ea4a8f6b62f524c9cb44d28a7036c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cowwithgunPrefab: {fileID: 2557954877800294563, guid: 19fdaec487ab265478dee2e3b84fbde0, type: 3}
   towerSpots: {fileID: 644915287}
   positionResetTransform: {fileID: 1404517288}
+  Deck: {fileID: 368766258}
 --- !u!114 &486590222
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3240,9 +3301,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7ea4a8f6b62f524c9cb44d28a7036c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cowwithgunPrefab: {fileID: 2557954877800294563, guid: 19fdaec487ab265478dee2e3b84fbde0, type: 3}
   towerSpots: {fileID: 644915287}
   positionResetTransform: {fileID: 1404517288}
+  Deck: {fileID: 368766258}
 --- !u!114 &492886035
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3631,9 +3692,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7ea4a8f6b62f524c9cb44d28a7036c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cowwithgunPrefab: {fileID: 2557954877800294563, guid: 19fdaec487ab265478dee2e3b84fbde0, type: 3}
   towerSpots: {fileID: 644915287}
   positionResetTransform: {fileID: 1404517288}
+  Deck: {fileID: 368766258}
 --- !u!114 &557068109
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4144,9 +4205,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7ea4a8f6b62f524c9cb44d28a7036c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cowwithgunPrefab: {fileID: 2557954877800294563, guid: 19fdaec487ab265478dee2e3b84fbde0, type: 3}
   towerSpots: {fileID: 644915287}
   positionResetTransform: {fileID: 1404517288}
+  Deck: {fileID: 368766258}
 --- !u!114 &686929645
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4555,6 +4616,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2119027085}
     m_Modifications:
+    - target: {fileID: 3126888794182818874, guid: 2f51d16dd28a21e4a89f7e03b0786f2d, type: 3}
+      propertyPath: card
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 3126888794182818876, guid: 2f51d16dd28a21e4a89f7e03b0786f2d, type: 3}
       propertyPath: m_Name
       value: LCard5
@@ -4728,9 +4793,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7ea4a8f6b62f524c9cb44d28a7036c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cowwithgunPrefab: {fileID: 2557954877800294563, guid: 19fdaec487ab265478dee2e3b84fbde0, type: 3}
   towerSpots: {fileID: 644915287}
   positionResetTransform: {fileID: 1404517288}
+  Deck: {fileID: 368766258}
 --- !u!114 &807711532
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4915,9 +4980,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7ea4a8f6b62f524c9cb44d28a7036c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cowwithgunPrefab: {fileID: 2557954877800294563, guid: 19fdaec487ab265478dee2e3b84fbde0, type: 3}
   towerSpots: {fileID: 644915287}
   positionResetTransform: {fileID: 1404517288}
+  Deck: {fileID: 368766258}
 --- !u!114 &817280771
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5064,9 +5129,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7ea4a8f6b62f524c9cb44d28a7036c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cowwithgunPrefab: {fileID: 2557954877800294563, guid: 19fdaec487ab265478dee2e3b84fbde0, type: 3}
   towerSpots: {fileID: 644915287}
   positionResetTransform: {fileID: 1404517288}
+  Deck: {fileID: 368766258}
 --- !u!114 &841284250
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5213,9 +5278,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7ea4a8f6b62f524c9cb44d28a7036c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cowwithgunPrefab: {fileID: 2557954877800294563, guid: 19fdaec487ab265478dee2e3b84fbde0, type: 3}
   towerSpots: {fileID: 644915287}
   positionResetTransform: {fileID: 1404517288}
+  Deck: {fileID: 368766258}
 --- !u!114 &870410982
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5535,9 +5600,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7ea4a8f6b62f524c9cb44d28a7036c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cowwithgunPrefab: {fileID: 2557954877800294563, guid: 19fdaec487ab265478dee2e3b84fbde0, type: 3}
   towerSpots: {fileID: 644915287}
   positionResetTransform: {fileID: 1404517288}
+  Deck: {fileID: 368766258}
 --- !u!1 &929853901
 GameObject:
   m_ObjectHideFlags: 0
@@ -5590,9 +5655,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7ea4a8f6b62f524c9cb44d28a7036c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cowwithgunPrefab: {fileID: 2557954877800294563, guid: 19fdaec487ab265478dee2e3b84fbde0, type: 3}
   towerSpots: {fileID: 644915287}
   positionResetTransform: {fileID: 1404517288}
+  Deck: {fileID: 368766258}
 --- !u!114 &929853904
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6147,7 +6212,7 @@ PrefabInstance:
     - target: {fileID: 3126888794182818874, guid: 2f51d16dd28a21e4a89f7e03b0786f2d, type: 3}
       propertyPath: card
       value: 
-      objectReference: {fileID: 11400000, guid: 2feaa7772e4a0ed4abe51ab0b90c9614, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 3126888794182818876, guid: 2f51d16dd28a21e4a89f7e03b0786f2d, type: 3}
       propertyPath: m_Name
       value: SCard1
@@ -6381,9 +6446,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7ea4a8f6b62f524c9cb44d28a7036c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cowwithgunPrefab: {fileID: 2557954877800294563, guid: 19fdaec487ab265478dee2e3b84fbde0, type: 3}
   towerSpots: {fileID: 644915287}
   positionResetTransform: {fileID: 1404517288}
+  Deck: {fileID: 368766258}
 --- !u!114 &1019175922
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6796,9 +6861,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7ea4a8f6b62f524c9cb44d28a7036c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cowwithgunPrefab: {fileID: 2557954877800294563, guid: 19fdaec487ab265478dee2e3b84fbde0, type: 3}
   towerSpots: {fileID: 644915287}
   positionResetTransform: {fileID: 1404517288}
+  Deck: {fileID: 368766258}
 --- !u!1 &1097224096
 GameObject:
   m_ObjectHideFlags: 0
@@ -6851,9 +6916,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7ea4a8f6b62f524c9cb44d28a7036c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cowwithgunPrefab: {fileID: 2557954877800294563, guid: 19fdaec487ab265478dee2e3b84fbde0, type: 3}
   towerSpots: {fileID: 644915287}
   positionResetTransform: {fileID: 1404517288}
+  Deck: {fileID: 368766258}
 --- !u!114 &1097224099
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7000,9 +7065,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7ea4a8f6b62f524c9cb44d28a7036c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cowwithgunPrefab: {fileID: 2557954877800294563, guid: 19fdaec487ab265478dee2e3b84fbde0, type: 3}
   towerSpots: {fileID: 644915287}
   positionResetTransform: {fileID: 1404517288}
+  Deck: {fileID: 368766258}
 --- !u!114 &1097936546
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7149,9 +7214,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7ea4a8f6b62f524c9cb44d28a7036c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cowwithgunPrefab: {fileID: 2557954877800294563, guid: 19fdaec487ab265478dee2e3b84fbde0, type: 3}
   towerSpots: {fileID: 644915287}
   positionResetTransform: {fileID: 1404517288}
+  Deck: {fileID: 368766258}
 --- !u!114 &1120330845
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7392,9 +7457,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7ea4a8f6b62f524c9cb44d28a7036c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cowwithgunPrefab: {fileID: 2557954877800294563, guid: 19fdaec487ab265478dee2e3b84fbde0, type: 3}
   towerSpots: {fileID: 644915287}
   positionResetTransform: {fileID: 1404517288}
+  Deck: {fileID: 368766258}
 --- !u!1 &1153575545
 GameObject:
   m_ObjectHideFlags: 0
@@ -7745,9 +7810,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7ea4a8f6b62f524c9cb44d28a7036c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cowwithgunPrefab: {fileID: 2557954877800294563, guid: 19fdaec487ab265478dee2e3b84fbde0, type: 3}
   towerSpots: {fileID: 644915287}
   positionResetTransform: {fileID: 1404517288}
+  Deck: {fileID: 368766258}
 --- !u!114 &1168022020
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8064,9 +8129,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7ea4a8f6b62f524c9cb44d28a7036c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cowwithgunPrefab: {fileID: 2557954877800294563, guid: 19fdaec487ab265478dee2e3b84fbde0, type: 3}
   towerSpots: {fileID: 644915287}
   positionResetTransform: {fileID: 1404517288}
+  Deck: {fileID: 368766258}
 --- !u!1 &1194646612
 GameObject:
   m_ObjectHideFlags: 0
@@ -9215,9 +9280,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7ea4a8f6b62f524c9cb44d28a7036c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cowwithgunPrefab: {fileID: 2557954877800294563, guid: 19fdaec487ab265478dee2e3b84fbde0, type: 3}
   towerSpots: {fileID: 644915287}
   positionResetTransform: {fileID: 1404517288}
+  Deck: {fileID: 368766258}
 --- !u!1 &1354434992
 GameObject:
   m_ObjectHideFlags: 0
@@ -9270,9 +9335,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7ea4a8f6b62f524c9cb44d28a7036c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cowwithgunPrefab: {fileID: 2557954877800294563, guid: 19fdaec487ab265478dee2e3b84fbde0, type: 3}
   towerSpots: {fileID: 644915287}
   positionResetTransform: {fileID: 1404517288}
+  Deck: {fileID: 368766258}
 --- !u!114 &1354434995
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9855,9 +9920,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7ea4a8f6b62f524c9cb44d28a7036c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cowwithgunPrefab: {fileID: 2557954877800294563, guid: 19fdaec487ab265478dee2e3b84fbde0, type: 3}
   towerSpots: {fileID: 644915287}
   positionResetTransform: {fileID: 1404517288}
+  Deck: {fileID: 368766258}
 --- !u!114 &1397054372
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10029,6 +10094,7 @@ MonoBehaviour:
   cowwithgunPrefab: {fileID: 2557954877800294563, guid: 19fdaec487ab265478dee2e3b84fbde0, type: 3}
   PlayedCard: {fileID: 0}
   quackenButton: {fileID: 1670201838}
+  Deck: {fileID: 368766258}
   enlargeButton: {fileID: 330656593}
   minimizeButton: {fileID: 1359261358}
   handSmall: {fileID: 1595204776}
@@ -10382,9 +10448,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7ea4a8f6b62f524c9cb44d28a7036c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cowwithgunPrefab: {fileID: 2557954877800294563, guid: 19fdaec487ab265478dee2e3b84fbde0, type: 3}
   towerSpots: {fileID: 644915287}
   positionResetTransform: {fileID: 1404517288}
+  Deck: {fileID: 368766258}
 --- !u!114 &1647161717
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10531,9 +10597,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7ea4a8f6b62f524c9cb44d28a7036c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cowwithgunPrefab: {fileID: 2557954877800294563, guid: 19fdaec487ab265478dee2e3b84fbde0, type: 3}
   towerSpots: {fileID: 644915287}
   positionResetTransform: {fileID: 1404517288}
+  Deck: {fileID: 368766258}
 --- !u!114 &1656059096
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11581,9 +11647,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7ea4a8f6b62f524c9cb44d28a7036c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cowwithgunPrefab: {fileID: 2557954877800294563, guid: 19fdaec487ab265478dee2e3b84fbde0, type: 3}
   towerSpots: {fileID: 644915287}
   positionResetTransform: {fileID: 1404517288}
+  Deck: {fileID: 368766258}
 --- !u!1 &1805673292
 GameObject:
   m_ObjectHideFlags: 0
@@ -11636,9 +11702,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7ea4a8f6b62f524c9cb44d28a7036c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cowwithgunPrefab: {fileID: 2557954877800294563, guid: 19fdaec487ab265478dee2e3b84fbde0, type: 3}
   towerSpots: {fileID: 644915287}
   positionResetTransform: {fileID: 1404517288}
+  Deck: {fileID: 368766258}
 --- !u!114 &1805673295
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12530,9 +12596,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7ea4a8f6b62f524c9cb44d28a7036c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cowwithgunPrefab: {fileID: 2557954877800294563, guid: 19fdaec487ab265478dee2e3b84fbde0, type: 3}
   towerSpots: {fileID: 644915287}
   positionResetTransform: {fileID: 1404517288}
+  Deck: {fileID: 368766258}
 --- !u!114 &2028297926
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12837,9 +12903,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7ea4a8f6b62f524c9cb44d28a7036c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cowwithgunPrefab: {fileID: 2557954877800294563, guid: 19fdaec487ab265478dee2e3b84fbde0, type: 3}
   towerSpots: {fileID: 644915287}
   positionResetTransform: {fileID: 1404517288}
+  Deck: {fileID: 368766258}
 --- !u!114 &2099444916
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -16,6 +16,11 @@ public class CardDisplayer : MonoBehaviour
     [HideInInspector]public int manaValue; //Accsess
     private void Start()
     {
+
+    }
+
+    public void Read()
+    {
         manaValue = card.manaCost;
         artworkImage.sprite = card.image;
         UnitPrefab = card.Prefab;

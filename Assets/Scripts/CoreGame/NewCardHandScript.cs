@@ -9,6 +9,11 @@ public class NewCardHandScript : MonoBehaviour
     public GameObject cowwithgunPrefab;
     public GameObject PlayedCard;
     public GameObject quackenButton;
+    public GameObject Deck;
+    private GameObject CurrentCard;
+
+    private int card;
+
 
     public GameObject enlargeButton;//arrow up above your hand to enlarge your hand
     public GameObject minimizeButton;//arrow down visible after enlarging your hand
@@ -56,9 +61,22 @@ public class NewCardHandScript : MonoBehaviour
 
     void Start()
     {
+        handEnlarged.SetActive(true);
+        minimizeButton.SetActive(true);
+        TowerSpots.SetActive(false);
+
+        for (card = 1; card <= 5; card++)
+        {
+            Deck.GetComponent<DeckScript>().Randomise();
+
+            CurrentCard = GameObject.Find("SCard" + card);
+            CurrentCard.GetComponent<CardDisplayer>().card = Deck.GetComponent<DeckScript>().activecard;
+            CurrentCard.GetComponent<CardDisplayer>().Read();
+        }
+
+        SetCard();
         handEnlarged.SetActive(false);
         minimizeButton.SetActive(false);
-        TowerSpots.SetActive(false);
     }
 
     void Update()
@@ -130,7 +148,7 @@ public class NewCardHandScript : MonoBehaviour
 
         ReadMana(); //Quick fix to read the mana value
 
-        SetCard(); //Sets the large card to be equal to the small one
+        //SetCard(); //Sets the large card to be equal to the small one
     }
 
 
@@ -204,14 +222,31 @@ public class NewCardHandScript : MonoBehaviour
         ManaCost5 = CardValues5.manaValue;
     }
 
-    private void SetCard()
+    public void SetCard()
     {
+        for (card = 1; card <= 5; card++)
         {
-            Lcard1.GetComponent<CardDisplayer>().card = CardValues1.card;
-            Lcard2.GetComponent<CardDisplayer>().card = CardValues2.card;
-            Lcard3.GetComponent<CardDisplayer>().card = CardValues3.card;
-            Lcard4.GetComponent<CardDisplayer>().card = CardValues4.card;
-            Lcard5.GetComponent<CardDisplayer>().card = CardValues5.card;
+            CurrentCard = GameObject.Find("LCard" + card);
+            CurrentCard.GetComponent<CardDisplayer>().card = GameObject.Find("SCard" + card).GetComponent<CardDisplayer>().card;
+            CurrentCard.GetComponent<CardDisplayer>().Read();
         }
+    }
+
+    public void ReSetCard()
+    {
+        Lcard1.GetComponent<CardDisplayer>().card = CardValues1.card;
+        Lcard1.GetComponent<CardDisplayer>().Read();
+
+        Lcard2.GetComponent<CardDisplayer>().card = CardValues2.card;
+        Lcard2.GetComponent<CardDisplayer>().Read();
+
+        Lcard3.GetComponent<CardDisplayer>().card = CardValues3.card;
+        Lcard3.GetComponent<CardDisplayer>().Read();
+
+        Lcard4.GetComponent<CardDisplayer>().card = CardValues4.card;
+        Lcard4.GetComponent<CardDisplayer>().Read();
+
+        Lcard5.GetComponent<CardDisplayer>().card = CardValues5.card;
+        Lcard5.GetComponent<CardDisplayer>().Read();
     }
 }
