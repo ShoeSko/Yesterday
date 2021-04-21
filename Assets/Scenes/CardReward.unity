@@ -3321,15 +3321,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   totalCards:
-  - {fileID: 2557954877800294563, guid: 867cc57a67d30f5488c74ff2bb99af6e, type: 3}
-  - {fileID: 2557954877800294563, guid: b5363aadaddcdda4896ee74117c5ee18, type: 3}
-  - {fileID: 2557954877800294563, guid: 19fdaec487ab265478dee2e3b84fbde0, type: 3}
-  - {fileID: 2557954877800294563, guid: cecf244629a5d26458813596a18615dc, type: 3}
-  - {fileID: 2557954877800294563, guid: 5535974e39e021f4388de73fb52630a8, type: 3}
-  - {fileID: 2557954877800294563, guid: f999babf9535eef48abcce9a0b04c469, type: 3}
-  - {fileID: 2557954877800294563, guid: fe48313fc5633034da8b85c142c98f0e, type: 3}
-  - {fileID: 2557954877800294563, guid: c6995c491ae7afc47a0630afbd8d7b7f, type: 3}
-  - {fileID: 2557954877800294563, guid: 21e9c0cf5c95c854793d6bcd1f71bdb0, type: 3}
+  - {fileID: 11400000, guid: d6bf67d5d2f3ab849ab553181cc9cc11, type: 2}
+  - {fileID: 11400000, guid: a7f79d8ff64064948b19ac3c1cc02860, type: 2}
+  - {fileID: 11400000, guid: d8854abcbe197604194b903ffbcc8e84, type: 2}
+  - {fileID: 11400000, guid: 2feaa7772e4a0ed4abe51ab0b90c9614, type: 2}
+  - {fileID: 11400000, guid: 8d7668c9289f2a54fb2118436e41cd19, type: 2}
+  - {fileID: 11400000, guid: 01fb32f34ffdc9746a586702493998b1, type: 2}
+  - {fileID: 11400000, guid: 4384fdca5bba346488c6adff280c2ba1, type: 2}
+  - {fileID: 11400000, guid: 8f232aae2c0d38c4482a943b7064cbc1, type: 2}
+  - {fileID: 11400000, guid: 99471469f811338408bac4333bac98d1, type: 2}
   rewardCards:
   - {fileID: 818926379}
   - {fileID: 1104920717}

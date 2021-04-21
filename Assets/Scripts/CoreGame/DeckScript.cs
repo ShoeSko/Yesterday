@@ -4,17 +4,21 @@ using UnityEngine;
 
 public class DeckScript : MonoBehaviour
 {
-    public List<CardScript> Deck = new List<CardScript>();
+    public static List<CardScript> Deck = new List<CardScript>();
 
     private int DeckCards;
     public CardScript activecard;
     private int randomcard;
+
+    public CardScript CowCard;
 
     //public CardDisplayer chosenCard;
 
 
     void Start()
     {
+        Deck.Add(CowCard);//the starting cards 
+
         DeckCards = Deck.Count;
     }
 
@@ -29,8 +33,6 @@ public class DeckScript : MonoBehaviour
             if (activecard != null)
             {
                 Debug.Log(activecard.name);
-
-                //chosenCard.card = activecard.GetComponent<CardDisplayer>().card;
             }
             else
                 cards--;
