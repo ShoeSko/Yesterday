@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BasicEnemyMovement : MonoBehaviour
 {
+    #region Variables
     public EnemyScript enemy;
 
     [Header("Enemy Controls")]
@@ -25,8 +26,15 @@ public class BasicEnemyMovement : MonoBehaviour
     private bool hasAttacked; //Has it attacked, wait until ready again.
     private bool isRecharging; //Is it recharging because then you should not make another wait timer.
     private float knockbackPower; //Grabbing a refrence of the knockback Strenght
-    private bool isBeingKnockedback; //Prevents actions during the knockback
     private int quackDamage = 80;
+
+    [Header("Spell card effects")]
+    private float moveSpeedSave;
+    private bool isBeingPreventedFromDoingAnything; //Prevents actions
+    private bool isBeingPreventedFromMoving; //Prevents Movement
+    private bool isBeingPreventedFromAttacking; //Prevents attack
+
+    #endregion
 
     private void Start()
     {
@@ -40,15 +48,24 @@ public class BasicEnemyMovement : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        if (!isBeingKnockedback) { MovingEnemy(); } //Currently both moving & attacking
+        if (isBeingPreventedFromMoving) //Allows attack during root.
+        {
+            if (!isBeingPreventedFromAttacking) { AttackObstacle(); }
+        }
+        else
+        {
+            if (!isBeingPreventedFromDoingAnything) { MovingEnemy(); } //Currently both moving & attacking
+        }
     }
+
+    #region Movement
     void MovingEnemy()
     {
         if (!obstacleInTheWay)//If there are no obstacles the enemy will start moving
         {
             rg2D.velocity = new Vector2(-moveSpeed * Time.deltaTime, 0); //Move to the right timed with deltatime for now, have to check build if change has to be done.
         }
-        else { AttackObstacle(); } //If you have someone blocking your path, kill them.
+        else { if (!isBeingPreventedFromAttacking) { AttackObstacle(); } } //If you have someone blocking your path, kill them.
     }
 
     private void OnCollisionEnter2D(Collision2D other) //Stops movement upon reaching a blockade
@@ -63,24 +80,6 @@ public class BasicEnemyMovement : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.gameObject.CompareTag(projectileTags))
-        {
-            ProjectileScript projectileScript = other.gameObject.GetComponent<ProjectileScript>();
-            enemyHealth = enemyHealth - projectileScript.projectileDamage;//Reads damage from the projectile script(Which reads it from their parent)
-            projectileScript.numberOfMaxTargets--;
-            StartCoroutine(PeriodOfBeingDamaged());
-            ////Destroy(other.gameObject);//Current issue for later, bullet takes time to dissapear.
-        }
-
-        if (other.gameObject.tag == "Quack")
-        {
-            enemyHealth = enemyHealth - quackDamage;
-            Destroy(other.gameObject);
-        }
-    }
-
     private void OnCollisionExit2D(Collision2D other) //Restarts movement upon destroying the obstacle
     {
         if (other.collider.CompareTag(obstacleTags))
@@ -88,7 +87,8 @@ public class BasicEnemyMovement : MonoBehaviour
             obstacleInTheWay = false;
         }        
     }
-    
+    #endregion
+    #region Attack
     private void AttackObstacle() //Attack time
     {
         if (!hasAttacked) //If you have yet to attack
@@ -119,6 +119,26 @@ public class BasicEnemyMovement : MonoBehaviour
         isRecharging = false;
         yield return null;
     }
+    #endregion
+    #region Take Damage
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag(projectileTags))
+        {
+            ProjectileScript projectileScript = other.gameObject.GetComponent<ProjectileScript>();
+            enemyHealth = enemyHealth - projectileScript.projectileDamage;//Reads damage from the projectile script(Which reads it from their parent)
+            projectileScript.numberOfMaxTargets--;
+            StartCoroutine(PeriodOfBeingDamaged());
+            ////Destroy(other.gameObject);//Current issue for later, bullet takes time to dissapear.
+        }
+
+        if (other.gameObject.tag == "Quack")
+        {
+            enemyHealth = enemyHealth - quackDamage;
+            Destroy(other.gameObject);
+        }
+    }
 
     public void TakeDamage(int damage, bool isKnockback, float knockbackStrenght)
     {
@@ -147,7 +167,7 @@ public class BasicEnemyMovement : MonoBehaviour
     }
     IEnumerator PeriodOfBeingDamagedWithKnockback() //This entire thing can do whatever is put in here(Rotation is just a short representation.
     {
-        isBeingKnockedback = true;
+        isBeingPreventedFromDoingAnything = true;
         Quaternion orgRot;
         orgRot = transform.rotation; //Retain the original rotational value
 
@@ -158,7 +178,7 @@ public class BasicEnemyMovement : MonoBehaviour
         print("Got hit");
 
 
-        isBeingKnockedback = false; //No longer being knockedback
+        isBeingPreventedFromDoingAnything = false; //No longer being knockedback
         yield return null;
     }
     private void EnemyDeath()//If there is no more health, die.
@@ -168,6 +188,59 @@ public class BasicEnemyMovement : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    #endregion
+    #region Spell effects
+
+    public void Slow(float slowDebuff,float debuffTime)
+    {
+        StartCoroutine(SlowedTime(slowDebuff, debuffTime));
+    }
+    IEnumerator SlowedTime(float slowStrength, float waitTime)
+    {
+        moveSpeedSave = moveSpeed; //Stores speed
+        moveSpeed = moveSpeed - (moveSpeed * slowStrength); //Calculates how much slower %
+        yield return new WaitForSeconds(waitTime); // Debuff lenght
+        moveSpeed = moveSpeedSave; //Resets speed
+        yield return null;
+    }
+    public void Stun(float debuffTime)
+    {
+        StartCoroutine(StunTime(debuffTime));
+    }
+    IEnumerator StunTime(float waitTime)
+    {
+        isBeingPreventedFromDoingAnything = true;
+        yield return new WaitForSeconds(waitTime);
+        isBeingPreventedFromDoingAnything = false;
+        yield return null;
+    }
+    public void Root(float debuffTime)
+    {
+        StartCoroutine(RootTime(debuffTime));
+    }
+    IEnumerator RootTime(float waitTime)
+    {
+        isBeingPreventedFromMoving = true;
+        yield return new WaitForSeconds(waitTime);
+        isBeingPreventedFromMoving = false;
+        yield return null;
+    }
+    public void Pacify(float debuffTime)
+    {
+        StartCoroutine(PacifyTime(debuffTime));
+    }
+    IEnumerator PacifyTime(float waitTime)
+    {
+        isBeingPreventedFromAttacking = true;
+        yield return new WaitForSeconds(waitTime);
+        isBeingPreventedFromAttacking = false;
+        yield return null;
+    }
+    public void Harm(int damage)
+    {
+        enemyHealth -= damage; //Deal damage straight to the core
+    }
+    #endregion
 
     private void EnemyInfoFeed()
     {

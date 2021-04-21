@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class UnitPrototypeScript : MonoBehaviour
 {
+    #region Variables
     public CardScript Unit; //Scriptableobject template for all Units.
     [Header("Unit Controls")]
     [Range(0, 100)] private float health;
@@ -60,6 +61,15 @@ public class UnitPrototypeScript : MonoBehaviour
     private float damagePunchToBuff;
     private Vector3 originForAllyAim; //Where does the unit aim from?
     private Vector3 directionForAllyAim; //In which direction does the unit aim?
+
+    [Header("Spell effects")]
+    private int shootDamageSave; // Saves the shoot Damage
+    private float shootSpeedSave; // Saves the shoot speed
+    private int punchDamageSave; // Saves the Punch Damage
+    private float punchSpeedSave; // Saves the Punch speed
+
+
+    #endregion
 
     private void Start()
     {
@@ -232,7 +242,7 @@ public class UnitPrototypeScript : MonoBehaviour
     }
 
     #endregion
-
+    #region Take Damage
     public void TakeDamage(int damage)
     {
         health -= damage;
@@ -264,6 +274,49 @@ public class UnitPrototypeScript : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    #endregion
+    #region Spell Effects
+
+    public void AttackBuff(float speedBuff, float damageBuff, float buffTime) // Get this to buff allies with spells
+    {
+        StartCoroutine(AttackBuffTime(speedBuff, damageBuff, buffTime));
+    }
+    IEnumerator AttackBuffTime(float speedStrength, float damageStrength,float waitTime)
+    {
+        shootSpeedSave = shootRechargeTime;
+        punchSpeedSave = punchRechargeTime;
+
+        shootDamageSave = projectileDamage;
+        punchDamageSave = punchDamage;
+
+        shootRechargeTime = shootRechargeTime - (shootRechargeTime * speedStrength);
+        punchRechargeTime = punchRechargeTime - (punchRechargeTime * speedStrength);
+
+        DamageMath(damageStrength);
+
+        yield return new WaitForSeconds(waitTime);
+
+        shootRechargeTime = shootSpeedSave;
+        punchRechargeTime = punchSpeedSave;
+
+        projectileDamage = shootDamageSave;
+        punchDamage = punchDamageSave;
+        yield return null;
+    }
+    private void DamageMath(float damageBonus)
+    {
+        float damageChange = projectileDamage;
+        projectileDamage = (int)(damageChange + (damageChange*damageBonus));
+
+        damageChange = punchDamage;
+        punchDamage = (int)(damageChange + (damageChange * damageBonus));
+    }
+
+    public void HealthBuff(float healthBuff) // Get this to buff allies health with spells
+    {
+        health = health + (health * healthBuff); //Currently buffs health in comparison to current health %
+    }
+    #endregion
 
     private void UnitInfoFeed()
     {
