@@ -34,6 +34,8 @@ public class CardScript : ScriptableObject
     [Tooltip("What layer are enemies on?")] public LayerMask punchingTargetLayer;
     [Tooltip("How many targets will be hit?")] [Range(0, 10)] public int targetsToPunch;
     [Tooltip("Can it hit all targets?")] public bool canPunchEverything;
+    [Tooltip("Does the unit give knockback on hit?")] public bool hasKnockback;
+    [Tooltip("How powerful is the knockback?")][Range(0,500)] public float knockbackPower;
 
     [Header("Special")]
     [Tooltip("Does the unit die and kill the enemy on contact?")] public bool isSacrificialKill;

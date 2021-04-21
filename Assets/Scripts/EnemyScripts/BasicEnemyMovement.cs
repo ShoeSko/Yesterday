@@ -24,6 +24,8 @@ public class BasicEnemyMovement : MonoBehaviour
     private Rigidbody2D rg2D;
     private bool hasAttacked; //Has it attacked, wait until ready again.
     private bool isRecharging; //Is it recharging because then you should not make another wait timer.
+    private float knockbackPower; //Grabbing a refrence of the knockback Strenght
+    private bool isBeingKnockedback; //Prevents actions during the knockback
     private int quackDamage = 80;
 
     private void Start()
@@ -38,7 +40,7 @@ public class BasicEnemyMovement : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        MovingEnemy();//Currently both moving & attacking
+        if (!isBeingKnockedback) { MovingEnemy(); } //Currently both moving & attacking
     }
     void MovingEnemy()
     {
@@ -118,24 +120,47 @@ public class BasicEnemyMovement : MonoBehaviour
         yield return null;
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(int damage, bool isKnockback, float knockbackStrenght)
     {
         enemyHealth -= damage;
         print(enemyHealth);
+        if (!isKnockback)
+        {
         StartCoroutine(PeriodOfBeingDamaged());
+        }
+        else if (isKnockback)
+        {
+            knockbackPower = knockbackStrenght;
+            StartCoroutine(PeriodOfBeingDamagedWithKnockback());
+        }
     }
     IEnumerator PeriodOfBeingDamaged() //This entire thing can do whatever is put in here(Rotation is just a short representation.
     {
         Quaternion orgRot;
         orgRot = transform.rotation; //Retain the original rotational value
 
-        transform.Rotate(0, 0, -10);
+        transform.Rotate(0, 0, -10);//Tilts the figure on hit,,, to note Will change their attack area.
         yield return new WaitForSeconds(0.2f);
         transform.rotation = orgRot;
         print("Got hit");
         yield return null;
     }
+    IEnumerator PeriodOfBeingDamagedWithKnockback() //This entire thing can do whatever is put in here(Rotation is just a short representation.
+    {
+        isBeingKnockedback = true;
+        Quaternion orgRot;
+        orgRot = transform.rotation; //Retain the original rotational value
 
+        transform.Rotate(0, 0, -10);
+        rg2D.AddForce(new Vector2(knockbackPower, 0)); //Does the knockback
+        yield return new WaitForSeconds(1); //Dictates how long the knockback takes effect
+        transform.rotation = orgRot;
+        print("Got hit");
+
+
+        isBeingKnockedback = false; //No longer being knockedback
+        yield return null;
+    }
     private void EnemyDeath()//If there is no more health, die.
     {
         if (enemyHealth <= 0)

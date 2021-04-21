@@ -35,6 +35,8 @@ public class UnitPrototypeScript : MonoBehaviour
     [Tooltip("This does not change the actual range(Use scrub for that)")] [Range(0, 2)][SerializeField] private float punchRange;
     [Tooltip("How many targets will be hit?")] private int targetsToPunch;
     [Tooltip("Can it hit all targets?")] private bool canPunchEverything;
+    [Tooltip("Does the unit give knockback on hit?")] private bool hasKnockback;
+    [Tooltip("How powerful is the knockback?")] private float knockbackPower;
 
     [Tooltip("Where does it attack from?")] [SerializeField] private Transform punchPosition;
     private bool hasPunched;
@@ -133,7 +135,7 @@ public class UnitPrototypeScript : MonoBehaviour
                     if (enemiesToDamage[i])
                     {
                         hasPunched = true;
-                        enemiesToDamage[i].GetComponent<BasicEnemyMovement>().TakeDamage(punchDamage); //Sent attackDamage to Unit
+                        enemiesToDamage[i].GetComponent<BasicEnemyMovement>().TakeDamage(punchDamage, hasKnockback, knockbackPower); //Sent attackDamage to Unit
                         print("Punch");
                     }
                 }
@@ -150,7 +152,7 @@ public class UnitPrototypeScript : MonoBehaviour
                     if (enemiesToDamage[i])
                     {
                         hasPunched = true;
-                        enemiesToDamage[i].GetComponent<BasicEnemyMovement>().TakeDamage(punchDamage); //Sent attackDamage to Unit
+                        enemiesToDamage[i].GetComponent<BasicEnemyMovement>().TakeDamage(punchDamage, hasKnockback,knockbackPower); //Sent attackDamage to Unit
                     }
                 }
             }
@@ -177,7 +179,6 @@ public class UnitPrototypeScript : MonoBehaviour
 
 
     #endregion
-
     #region Special
     private void Special()
     {
@@ -286,6 +287,8 @@ public class UnitPrototypeScript : MonoBehaviour
         punchingTargetLayer = Unit.punchingTargetLayer;
         targetsToPunch = Unit.targetsToPunch;
         canPunchEverything = Unit.canPunchEverything;
+        hasKnockback = Unit.hasKnockback;
+        knockbackPower = Unit.knockbackPower;
         //Special
         isSacrificialKill = Unit.isSacrificialKill;
         isSupportExpert = Unit.isSupportExpert;
