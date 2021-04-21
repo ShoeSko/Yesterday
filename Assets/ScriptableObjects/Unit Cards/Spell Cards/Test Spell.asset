@@ -33,7 +33,7 @@ MonoBehaviour:
   canRoot: 0
   debuffTime: 2
   canHarm: 1
-  harmStrength: 999
+  harmStrength: 10
   canBuffAttack: 0
   attackSpeedBuffStrength: 0
   attackDamageBuffStrength: 0
