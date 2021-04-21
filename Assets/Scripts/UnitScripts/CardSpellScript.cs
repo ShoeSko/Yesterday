@@ -15,7 +15,9 @@ public class CardSpellScript : ScriptableObject
 
     [Header("Spell basic")]
     [Tooltip("Can this spell affect allies?")] public bool targetFriendly;
+    [Tooltip("What is a friendly layer?")] public LayerMask friendlyLayer;
     [Tooltip("Can this spell affect enemies?")] public bool targetEnemy;
+    [Tooltip("What is a hostile layer")] public LayerMask enemyLayer;
 
     [Header("Negative Effects")]
     [Tooltip("Can this spell slow enemies?")] public bool canSlow; //Slows enemies
@@ -25,16 +27,17 @@ public class CardSpellScript : ScriptableObject
     [Tooltip("Can this spell root an enemy")] public bool canRoot; //Stops movement not attack
     [Tooltip("How long will this debuff last?")] public float debuffTime; // Period the debuf takes place
     [Tooltip("Can this spell harm/kill enemies?")] public bool canHarm; // Harm with enough damage will also be a kill effect.
+    [Tooltip("How powerfull is the harm effect?")] public int harmStrength; // Strength in numbers
 
 
     [Header("Positive Effects")]
     [Tooltip("Can this spell buff ally attack speed or damage?")] public bool canBuffAttack; // Can it buff speed / Damage?
-    [Tooltip("How much attack speed is buffed?")] public float attackSpeedBuffStrength; // Strenght in %
-    [Tooltip("How much attack damage is buffed?")] public float attackDamageBuffStrength; // Strenght in %
+    [Tooltip("How much attack speed is buffed?")][Range(0,2)] public float attackSpeedBuffStrength; // Strenght in %
+    [Tooltip("How much attack damage is buffed?")][Range(0,2)] public float attackDamageBuffStrength; // Strenght in %
     [Tooltip("How long will this buff last?")] public float buffTime; // Period the buff takes place
 
     [Tooltip("Can this spell buff ally health?")] public bool canBuffHealth; // Permanent Health Buff
-    [Tooltip("How much health is buffed?")] public float healthBuffStrength; //Strenght in %?
+    [Tooltip("How much health is buffed?")][Range(0,2)] public float healthBuffStrength; //Strenght in %?
 
     //[Header("Can this spell harm everything?")] public bool canRagnarok; //Wait a bit
 

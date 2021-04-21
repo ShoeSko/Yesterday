@@ -12,18 +12,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac041c8f829ec434697c2e8afe3b006c, type: 3}
   m_Name: Test Spell
   m_EditorClassIdentifier: 
-  cardName: 
-  image: {fileID: 0}
-  manaCost: 0
-  effectDescription: 
-  flavorTxt: 
+  cardName: Test Spell
+  image: {fileID: 21300000, guid: 0477d5df46347cf4f87d58b54aabc034, type: 3}
+  manaCost: 1
+  effectDescription: I do whatever my setting currently say
+  flavorTxt: I was born from a need of testing.
   Prefab: {fileID: 0}
   targetFriendly: 0
-  targetEnemy: 0
+  friendlyLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  targetEnemy: 1
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 64
   canSlow: 0
+  slowDebuffStrength: 0.7
   canStun: 0
-  canHarm: 0
   canPacify: 0
-  canBuffAttackSpeed: 0
-  canBuffAttackDamage: 0
-  canBuffHealth: 0
+  canRoot: 0
+  debuffTime: 2
+  canHarm: 1
+  harmStrength: 999
+  canBuffAttack: 0
+  attackSpeedBuffStrength: 0
+  attackDamageBuffStrength: 0
+  buffTime: 0
+  canBuffHealth: 1
+  healthBuffStrength: 2
