@@ -10,7 +10,7 @@ public class PillowScript : MonoBehaviour
     public GameObject star2;
     public GameObject star3;
 
-    private Vector3 moveLenght = new Vector3(0.21f, 0, 0);
+    private Vector3 moveLenght = new Vector3(0.1078f, 0.02f, 0);
     private Vector3 currentPos;
 
     public float timer;
@@ -38,7 +38,7 @@ public class PillowScript : MonoBehaviour
         if(!iWon)//Score timer
             timer += Time.deltaTime;
 
-        if (bedSheet.transform.position.x >= -5)//win condition
+        if (bedSheet.transform.position.x >= -3.12f)//win condition
         {
             iWon = true;
         }
