@@ -63,17 +63,20 @@ public class ScoreScript : MonoBehaviour
             star1.SetActive(true);
             star2.SetActive(true);
             star3.SetActive(true);
+            CardReward.Stars = 3;
         }
         else if (scoreTimer > 10 && scoreTimer <= 20)
         {
             //2stars
             star1.SetActive(true);
             star2.SetActive(true);
+            CardReward.Stars = 2;
         }
         else if (scoreTimer > 20 && scoreTimer <= 30)
         {
             //1stars
             star1.SetActive(true);
+            CardReward.Stars = 1;
         }
     }
 }

@@ -26,20 +26,27 @@ public class CardReward : MonoBehaviour
     private int groupNumber;//used to place cards in groups
 
     private int groupOfCards;
+    private int StarLimit;
+    public static int Stars;
 
 
     private void Start()
     {
+        StarLimit = 0;
         groupNumber = 1;
 
         sizeOfCards = totalCards.Count;
         sizeOfRewardCards = rewardCards.Count;
 
-        randomize3Cards();//3 star reward
-        //future updates: 2 star reward & 1 star reward
+        if(Stars == 3)
+            randomize3Cards();
+        if (Stars == 2)
+            randomize2Cards();
+        if (Stars == 1)
+            randomize1Cards();
     }
 
-    void randomize3Cards()//3 star reward
+    public void randomize3Cards()//3 star reward
     {
         for (int cardsToRandomize = 0; cardsToRandomize < sizeOfRewardCards; cardsToRandomize++)
         {
@@ -73,6 +80,96 @@ public class CardReward : MonoBehaviour
             }
 
             groupNumber++;
+        }
+    }
+
+
+    public void randomize2Cards()//2 star reward
+    {
+        for (int cardsToRandomize = 0; cardsToRandomize < sizeOfRewardCards; cardsToRandomize++)
+        {
+            StarLimit++;
+
+            cardPrefab = rewardCards[cardsToRandomize];//define the active card spot that's being looked at
+            Debug.Log(cardPrefab.name);
+            prefabPos = cardPrefab.transform.position;
+
+            if(StarLimit <= 6)//limit cards to randomise to 6
+            {
+                randomCardInt = Random.Range(0, sizeOfCards);//randomise a card from the total card pool
+                activeCard = totalCards[randomCardInt];
+
+                CardName = activeCard.cardName;
+                Debug.Log(CardName);
+
+                cardPrefab = activeCard.Prefab;
+
+                rewardCardsTMPro[cardsToRandomize].text = CardName; //Write the name of the current random card. **
+
+                rewardCardsTMPro[cardsToRandomize].transform.position = new Vector2(prefabPos.x, prefabPos.y + 1);//offset for the text to appear above the icon
+                cardPrefab.transform.position = prefabPos;
+                Instantiate(cardPrefab);
+
+                //assign cards in groups
+                if (groupNumber == 1)
+                    Group1.Add(activeCard);
+                else if (groupNumber == 2)
+                    Group2.Add(activeCard);
+                else if (groupNumber == 3)
+                {
+                    Group3.Add(activeCard);
+                    groupNumber = 0;
+                }
+
+                groupNumber++;
+            }
+            else
+                cardPrefab.SetActive(false);
+        }
+    }
+
+
+    public void randomize1Cards()//1 star reward
+    {
+        for (int cardsToRandomize = 0; cardsToRandomize < sizeOfRewardCards; cardsToRandomize++)
+        {
+            StarLimit++;
+
+            cardPrefab = rewardCards[cardsToRandomize];//define the active card spot that's being looked at
+            Debug.Log(cardPrefab.name);
+            prefabPos = cardPrefab.transform.position;
+
+            if (StarLimit <= 3)//limit cards to randomise to 3
+            {
+                randomCardInt = Random.Range(0, sizeOfCards);//randomise a card from the total card pool
+                activeCard = totalCards[randomCardInt];
+
+                CardName = activeCard.cardName;
+                Debug.Log(CardName);
+
+                cardPrefab = activeCard.Prefab;
+
+                rewardCardsTMPro[cardsToRandomize].text = CardName; //Write the name of the current random card. **
+
+                rewardCardsTMPro[cardsToRandomize].transform.position = new Vector2(prefabPos.x, prefabPos.y + 1);//offset for the text to appear above the icon
+                cardPrefab.transform.position = prefabPos;
+                Instantiate(cardPrefab);
+
+                //assign cards in groups
+                if (groupNumber == 1)
+                    Group1.Add(activeCard);
+                else if (groupNumber == 2)
+                    Group2.Add(activeCard);
+                else if (groupNumber == 3)
+                {
+                    Group3.Add(activeCard);
+                    groupNumber = 0;
+                }
+
+                groupNumber++;
+            }
+            else
+                cardPrefab.SetActive(false);
         }
     }
 
@@ -130,7 +227,7 @@ public class CardReward : MonoBehaviour
         NextScene();
     }
 
-    private void NextScene()
+    private void NextScene()//The code to change scene after choosing your cards
     {
         if (MinigameSceneScript.activeMinigame == 1)
         {

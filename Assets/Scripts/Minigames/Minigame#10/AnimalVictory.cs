@@ -48,6 +48,7 @@ public class AnimalVictory : MonoBehaviour
                     stars[i].SetActive(true);
                 }
                 //3 stars
+                CardReward.Stars = 3;
             }
             else if (scoreTimer > star1Time && scoreTimer <= star2Time)
             {
@@ -55,16 +56,18 @@ public class AnimalVictory : MonoBehaviour
                 {
                     stars[i].SetActive(true);
                 }
-                    //2 stars
-                }
+                //2 stars
+                CardReward.Stars = 2;
+            }
             else if (scoreTimer > star2Time && scoreTimer <= star3Time)
             {
                 for (int i = 0; i < starLenght - 2; i++)
                 {
                     stars[i].SetActive(true);
                 }
-                    //1 star
-                }
+                //1 star
+                CardReward.Stars = 1;
+            }
             else if (scoreTimer > 5)
                 {
                     //0 stars

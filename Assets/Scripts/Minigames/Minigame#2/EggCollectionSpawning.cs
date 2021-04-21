@@ -81,6 +81,7 @@ public class EggCollectionSpawning : MonoBehaviour
                 star1.SetActive(true);
                 star2.SetActive(true);
                 star3.SetActive(true);
+                CardReward.Stars = 3;
             }
             else if (score == 7)
             {
@@ -88,12 +89,14 @@ public class EggCollectionSpawning : MonoBehaviour
                 victoryEgg = true;
                 star1.SetActive(true);
                 star2.SetActive(true);
+                CardReward.Stars = 2;
             }
             else if (score == 6)
             {
                 Win();
                 victoryEgg = true;
                 star1.SetActive(true);
+                CardReward.Stars = 1;
             }
             else if (score <= 5)
             {
@@ -132,7 +135,7 @@ public class EggCollectionSpawning : MonoBehaviour
                     SceneManager.LoadScene("CoreGame");
                 }
             }
-            else//go to card reward
+            else//Go to card reward screen
                 SceneManager.LoadScene("CardReward");
         }
     }

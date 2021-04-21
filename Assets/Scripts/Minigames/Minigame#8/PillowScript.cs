@@ -10,7 +10,7 @@ public class PillowScript : MonoBehaviour
     public GameObject star2;
     public GameObject star3;
 
-    private Vector3 moveLenght = new Vector3(0.19f, 0, 0);
+    private Vector3 moveLenght = new Vector3(0.21f, 0, 0);
     private Vector3 currentPos;
 
     public float timer;
@@ -47,20 +47,23 @@ public class PillowScript : MonoBehaviour
         {
             countdown += Time.deltaTime;
 
-            if(timer <= 8)//3 stars between 0-8 sec
+            if(timer <= 7)//3 stars between 0-7 sec
             {
                 star1.SetActive(true);
                 star2.SetActive(true);
                 star3.SetActive(true);
+                CardReward.Stars = 3;
             }
-            else if(timer > 8 && timer <= 14)//2 stars between 8-14 sec
+            else if(timer > 7 && timer <= 12)//2 stars between 7-12 sec
             {
                 star1.SetActive(true);
                 star2.SetActive(true);
+                CardReward.Stars = 2;
             }
-            else if (timer > 14 && timer <= 20)//1 stars between 14-20 sec
+            else if (timer > 12 && timer <= 18)//1 stars between 12-18 sec
             {
                 star1.SetActive(true);
+                CardReward.Stars = 1;
             }
 
             {

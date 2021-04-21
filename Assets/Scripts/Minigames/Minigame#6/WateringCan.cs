@@ -110,6 +110,7 @@ public class WateringCan : MonoBehaviour
                 stars[i].SetActive(true);
             }
             //3 stars
+            CardReward.Stars = 3;
         }
         else if (scoreTimer > star1Time && scoreTimer <= star2Time)
         {
@@ -118,6 +119,7 @@ public class WateringCan : MonoBehaviour
                 stars[i].SetActive(true);
             }
             //2 stars
+            CardReward.Stars = 2;
         }
         else if (scoreTimer > star2Time && scoreTimer <= star3Time)
         {
@@ -126,6 +128,7 @@ public class WateringCan : MonoBehaviour
                 stars[i].SetActive(true);
             }
             //1 star
+            CardReward.Stars = 1;
         }
         else
         {

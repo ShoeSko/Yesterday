@@ -28,7 +28,8 @@ public class GoalCounter : MonoBehaviour
     }
     public void Update()
     {
-        scoreTimer += Time.deltaTime;
+        if(!win)
+            scoreTimer += Time.deltaTime;
 
         if (counter == 4)
         {
@@ -42,23 +43,26 @@ public class GoalCounter : MonoBehaviour
             timer += Time.deltaTime;//*start countdown, after 5 sec you get transported to the next level
             text.SetActive(true);//*show the win screen text
 
-            if(scoreTimer >= 2)
+            if(scoreTimer <= 3)
             {
                 star1.SetActive(true);
                 star2.SetActive(true);
                 star3.SetActive(true);
                 //3 stars
+                CardReward.Stars = 3;
             }
-            else if (scoreTimer >= 4 && scoreTimer < 6)
+            else if (scoreTimer >= 3 && scoreTimer < 6)
             {
                 star1.SetActive(true);
                 star2.SetActive(true);
                 //2 stars
+                CardReward.Stars = 2;
             }
             else if (scoreTimer >= 6 && scoreTimer < 8)
             {
                 star1.SetActive(true);
                 //1 stars
+                CardReward.Stars = 1;
             }
             else if (scoreTimer >= 8)
             {
@@ -85,7 +89,7 @@ public class GoalCounter : MonoBehaviour
                     SceneManager.LoadScene("CoreGame");
                 }
             }
-            else//go to card reward
+            else//Go to card reward screen
                 SceneManager.LoadScene("CardReward");
         }
     }

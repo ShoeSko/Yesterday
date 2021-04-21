@@ -45,15 +45,18 @@ public class MouseCollider : MonoBehaviour
                 star1.SetActive(true);
                 star2.SetActive(true);
                 star3.SetActive(true);
+                CardReward.Stars = 3;
             }
             else if (ScoreTimer > 10 && ScoreTimer <= 17)//2 stars
             {
                 star1.SetActive(true);
                 star2.SetActive(true);
+                CardReward.Stars = 2;
             }
             else if (ScoreTimer > 17 && ScoreTimer <= 25)//1 stars
             {
                 star1.SetActive(true);
+                CardReward.Stars = 1;
             }
 
 

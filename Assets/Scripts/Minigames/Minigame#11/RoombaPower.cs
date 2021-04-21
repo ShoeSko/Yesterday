@@ -133,6 +133,7 @@ public class RoombaPower : MonoBehaviour
                 }
                 score = 3;
                 //3 stars
+                CardReward.Stars = 3;
             }
             else if (scoreTimer > star1Time && scoreTimer <= star2Time)
             {
@@ -142,6 +143,7 @@ public class RoombaPower : MonoBehaviour
                 }
                 score = 2;
                 //2 stars
+                CardReward.Stars = 2;
             }
             else if (scoreTimer > star2Time && scoreTimer <= star3Time)
             {
@@ -151,6 +153,7 @@ public class RoombaPower : MonoBehaviour
                 }
                 score = 1;
                 //1 star
+                CardReward.Stars = 1;
             }
             else if (scoreTimer > 5)
             {

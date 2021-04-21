@@ -56,15 +56,18 @@ public class GraveCleaning : MonoBehaviour
                 star1.SetActive(true);
                 star2.SetActive(true);
                 star3.SetActive(true);
+                CardReward.Stars = 3;
             }
             else if(timer > 5 && timer <= 10)
             {
                 star1.SetActive(true);
                 star2.SetActive(true);
+                CardReward.Stars = 2;
             }
             else if (timer > 10 && timer <= 15)
             {
                 star1.SetActive(true);
+                CardReward.Stars = 1;
             }
         }
         else

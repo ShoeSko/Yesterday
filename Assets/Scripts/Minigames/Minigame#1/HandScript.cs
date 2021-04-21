@@ -67,6 +67,7 @@ public class HandScript : MonoBehaviour
                 star3.SetActive(true);
                 //3 stars
                 score = 3;
+                CardReward.Stars = 3;
             }
             else if(scoreTimer >2 && scoreTimer <= 3)
             {
@@ -74,12 +75,14 @@ public class HandScript : MonoBehaviour
                 star2.SetActive(true);
                 //2 stars
                 score = 2;
+                CardReward.Stars = 2;
             }
             else if(scoreTimer >3 && scoreTimer <= 4)
             {
                 star1.SetActive(true);
                 //1 star
                 score = 1;
+                CardReward.Stars = 1;
             }
             else if(scoreTimer > 5)
             {
@@ -106,7 +109,7 @@ public class HandScript : MonoBehaviour
                     SceneManager.LoadScene("CoreGame");
                 }
             }
-            else//go to card reward
+            else//Go to card reward screen
                 SceneManager.LoadScene("CardReward");
         }
     }

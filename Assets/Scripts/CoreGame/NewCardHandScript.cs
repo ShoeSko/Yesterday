@@ -176,32 +176,77 @@ public class NewCardHandScript : MonoBehaviour
     public void PlayCard1()//Play the first card
     {
         MinimizeButtonPressed();
-        TowerSpots.SetActive(true);
-        PlayedCard = card1;
+
+        if (PlayedCard == card1)
+        {
+            TowerSpots.SetActive(false);
+            PlayedCard = null;
+        }
+        else
+        {
+            TowerSpots.SetActive(true);
+            PlayedCard = card1;
+        }
     }
     public void PlayCard2()//Play the second card
     {
         MinimizeButtonPressed();
-        TowerSpots.SetActive(true);
-        PlayedCard = card2;
+
+        if (PlayedCard == card2)
+        {
+            TowerSpots.SetActive(false);
+            PlayedCard = null;
+        }
+        else
+        {
+            TowerSpots.SetActive(true);
+            PlayedCard = card2;
+        }
     }
     public void PlayCard3()//Play the third card
     {
         MinimizeButtonPressed();
-        TowerSpots.SetActive(true);
-        PlayedCard = card3;
+
+        if (PlayedCard == card3)
+        {
+            TowerSpots.SetActive(false);
+            PlayedCard = null;
+        }
+        else
+        {
+            TowerSpots.SetActive(true);
+            PlayedCard = card3;
+        }
     }
     public void PlayCard4()//Play the fourth card
     {
         MinimizeButtonPressed();
-        TowerSpots.SetActive(true);
-        PlayedCard = card4;
+
+        if (PlayedCard == card4)
+        {
+            TowerSpots.SetActive(false);
+            PlayedCard = null;
+        }
+        else
+        {
+            TowerSpots.SetActive(true);
+            PlayedCard = card4;
+        }
     }
     public void PlayCard5()//Play the fifth card
     {
         MinimizeButtonPressed();
-        TowerSpots.SetActive(true);
-        PlayedCard = card5;
+
+        if (PlayedCard == card5)
+        {
+            TowerSpots.SetActive(false);
+            PlayedCard = null;
+        }
+        else
+        {
+            TowerSpots.SetActive(true);
+            PlayedCard = card5;
+        }
     }
 
     private void ReadMana()

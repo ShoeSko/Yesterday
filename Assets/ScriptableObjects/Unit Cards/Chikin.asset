@@ -18,7 +18,7 @@ MonoBehaviour:
   effectDescription: Stabs his enemies quickly when they come close
   flavorTxt: Watch out, he's got a license of stabbin
   Prefab: {fileID: 2557954877800294563, guid: b5363aadaddcdda4896ee74117c5ee18, type: 3}
-  health: 80
+  health: 70
   isShooter: 0
   isPunching: 1
   isSpecial: 0
@@ -40,6 +40,8 @@ MonoBehaviour:
     m_Bits: 64
   targetsToPunch: 1
   canPunchEverything: 0
+  hasKnockback: 0
+  knockbackPower: 0
   isSacrificialKill: 0
   isSupportExpert: 0
   allyLayerToTarget:

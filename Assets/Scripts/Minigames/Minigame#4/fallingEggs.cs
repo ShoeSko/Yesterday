@@ -71,7 +71,7 @@ public class fallingEggs : MonoBehaviour
                     SceneManager.LoadScene("CoreGame");
                 }
             }
-            else//go to card reward
+            else//Go to card reward screen
                 SceneManager.LoadScene("CardReward");
         }
     }
@@ -83,15 +83,18 @@ public class fallingEggs : MonoBehaviour
             star1.SetActive(true);
             star2.SetActive(true);
             star3.SetActive(true);
+            CardReward.Stars = 3;
         }
         else if(collectedEggs == 9)//2 stars
         {
             star1.SetActive(true);
             star2.SetActive(true);
+            CardReward.Stars = 2;
         }
         else if (collectedEggs == 8)//1 star
         {
             star1.SetActive(true);
+            CardReward.Stars = 1;
         }
     }
 

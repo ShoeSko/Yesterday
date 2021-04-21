@@ -26,7 +26,7 @@ MonoBehaviour:
   shootRechargeTime: 4
   projectileSpeed: 5
   projectilePrefab: {fileID: 3204289923293697707, guid: 5d52c25ce94445743a02a3ddca268b0e, type: 3}
-  projectileDamage: 15
+  projectileDamage: 20
   shootingTargetLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -41,6 +41,8 @@ MonoBehaviour:
     m_Bits: 0
   targetsToPunch: 0
   canPunchEverything: 0
+  hasKnockback: 0
+  knockbackPower: 0
   isSacrificialKill: 0
   isSupportExpert: 0
   allyLayerToTarget:

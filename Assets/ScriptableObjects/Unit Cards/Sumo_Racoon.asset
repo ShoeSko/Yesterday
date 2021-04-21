@@ -18,7 +18,7 @@ MonoBehaviour:
   effectDescription: He will hold the enemies away for a while
   flavorTxt: To get the trash you have to earn it
   Prefab: {fileID: 2557954877800294563, guid: 21e9c0cf5c95c854793d6bcd1f71bdb0, type: 3}
-  health: 110
+  health: 100
   isShooter: 0
   isPunching: 1
   isSpecial: 0
@@ -33,13 +33,15 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   targetsToShoot: 0
-  punchRechargeTime: 1.5
+  punchRechargeTime: 2
   punchDamage: 10
   punchingTargetLayer:
     serializedVersion: 2
     m_Bits: 64
   targetsToPunch: 1
   canPunchEverything: 0
+  hasKnockback: 0
+  knockbackPower: 0
   isSacrificialKill: 0
   isSupportExpert: 0
   allyLayerToTarget:
