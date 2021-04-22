@@ -18,6 +18,7 @@ public class ManaSystem : MonoBehaviour
     private bool start;
     void Start()
     {
+        CurrentMana = 0; // Resets the mana value for a fresh game.
         startingPos = manaBox.transform.position;
 
         offset = new Vector2(0, 2);
