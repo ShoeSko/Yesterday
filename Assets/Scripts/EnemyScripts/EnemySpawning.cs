@@ -18,8 +18,8 @@ public class EnemySpawning : MonoBehaviour
 
     public bool gameStarted = false;//Prevents the spawning before the game should start //THIS SHOULD POTENTIALY BE REMOVED UNLESS WE STILL WANT TO CONFIRM THE START OF MAIN GAME:
 
-    [SerializeField]private List<GameObject> weakEnemyTypesSpawnList = new List<GameObject>();//Becomes the Weak Enemylist.
-    [SerializeField]private List<GameObject> strongEnemyTypesSpawnList = new List<GameObject>();//Becomes the Strong Enemylist.
+    private List<GameObject> weakEnemyTypesSpawnList = new List<GameObject>();//Becomes the Weak Enemylist.
+    private List<GameObject> strongEnemyTypesSpawnList = new List<GameObject>();//Becomes the Strong Enemylist.
     [Tooltip("How many weak enemies are to spawn before the strong enemies can spawn?")][Range(0, 50)] public int strongEnemySpawnWait;//The minimum amount of enemies that spawn before strong enemies can spawn.
     private int sizeOfSpawnLocations;//The highest Index in the list of lanes
     private int sizeOfWeakEnemyTypes;//The highest Index in the list of weak enemy types
@@ -67,7 +67,11 @@ public class EnemySpawning : MonoBehaviour
                 GameObject enemyObject = Instantiate(weakEnemyTypesSpawnList[randomEnemyTypeToSpawn], transform); //Instantiates a random enemy type from the list.
                 enemyObject.transform.position = spawnLocation.position; //Sets the random enemy on a random lane from the list.
                 }
-
+                if(loopLimit == amountOfEnemies-1)
+                {
+                    print("Last enemy has spawned, time to win");
+                    Victory.s_youWon = true; // Starts the search for win condition
+                }
                 randomDelayTime = Random.Range(delayBetweenSpawnsMin, delayBetweenSpawnsMax); //Gives a random time
                 yield return new WaitForSeconds(randomDelayTime);//Wait the random amount of time, before resuming the spawning.
             }

@@ -83,7 +83,6 @@ public class UnitPrototypeScript : MonoBehaviour
         if (isShooter) { ShootProjectile(); }
         else if (isPunching) { Punch(); }
         else if (isSpecial) { Special(); }
-
         Death();
     }
 

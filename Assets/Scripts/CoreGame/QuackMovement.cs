@@ -16,4 +16,9 @@ public class QuackMovement : MonoBehaviour
     {
         rg.velocity = new Vector2(moveSpeed * Time.deltaTime, 0);
     }
+
+    private void OnBecameInvisible()
+    {
+        Destroy(gameObject); // Added this to remove the quacks the moment they leave the camera.
+    }
 }

@@ -239,6 +239,7 @@ public class BasicEnemyMovement : MonoBehaviour
     public void Harm(int damage)
     {
         enemyHealth -= damage; //Deal damage straight to the core
+        StartCoroutine(PeriodOfBeingDamaged());
     }
     #endregion
 
