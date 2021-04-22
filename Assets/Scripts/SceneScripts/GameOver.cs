@@ -22,6 +22,7 @@ public class GameOver : MonoBehaviour
     public void returnHome()
     {
         Time.timeScale = 1;
+        Quacken.s_quackenBeenReleased = false; //Resets the Quacken.
         SceneManager.LoadScene("MainMenu");
     }
 }

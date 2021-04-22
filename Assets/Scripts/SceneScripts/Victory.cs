@@ -38,6 +38,7 @@ public class Victory : MonoBehaviour
         Time.timeScale = 1;
         NewCardHandScript.Stage++;
         Debug.Log(NewCardHandScript.Stage);
+        Quacken.s_quackenBeenReleased = false; //Resets the Quacken.
 
         if (NewCardHandScript.Stage == 4)
             SceneManager.LoadScene("MainMenu");
