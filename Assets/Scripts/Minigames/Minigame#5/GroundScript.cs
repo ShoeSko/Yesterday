@@ -42,13 +42,21 @@ public class GroundScript : MonoBehaviour
             transform.Translate(Vector2.left * speed * Time.deltaTime);
 
 
-
+#if UNITY_ANDROID //Everything within this, only works if the build is android.
+        if (Input.touchCount > 0 && !jumpCooldown && !win)
+        {
+            jump.Play();
+            playerRB.velocity = Vector2.up * jumpSpeed;
+            jumpCooldown = true;
+        }
+#else
         if (Input.GetKeyDown(KeyCode.Space) && !jumpCooldown && !win)
         {
             jump.Play();
             playerRB.velocity = Vector2.up * jumpSpeed;
             jumpCooldown = true;
         }
+#endif
 
         if (jumpCooldown)
         {
