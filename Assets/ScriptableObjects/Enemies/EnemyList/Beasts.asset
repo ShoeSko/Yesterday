@@ -12,4 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ef8e28a86c0fb94eb1e64e0ed7a982a, type: 3}
   m_Name: Beasts
   m_EditorClassIdentifier: 
-  Enemies: []
+  Enemies:
+  - {fileID: 4632530650480293340, guid: 23da5bf24910c0d4eada7dd70d29a093, type: 3}
+  - {fileID: 4632530650480293340, guid: 7b9185de13495064eb49a2a5bb81ba77, type: 3}
+  - {fileID: 4632530650480293340, guid: 19d6a065ec17bc04395d0da886441b5c, type: 3}
+  - {fileID: 4632530650480293340, guid: c0a99387a5d6b8f43b38d394f1501cb1, type: 3}

@@ -19,8 +19,11 @@ public class MinigameSceneScript : MonoBehaviour
 
     public void RandomMinigameScene() //Activate this to start a random scene within the list of minigames
     {
-        activeMinigame = 1;
-        StartCoroutine(minigameRandomizer());
+        if(NewCardHandScript.Stage != 4)
+        {
+            activeMinigame = 1;
+            StartCoroutine(minigameRandomizer());
+        }
     }
 
     IEnumerator minigameRandomizer()
@@ -56,5 +59,11 @@ public class MinigameSceneScript : MonoBehaviour
 
             yield return new WaitForSeconds(0);
         }
+    }
+
+    public void DeckClear()
+    {
+        DeckScript.Deck.Clear();
+        NewCardHandScript.Stage = 1;
     }
 }

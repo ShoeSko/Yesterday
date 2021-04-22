@@ -44,7 +44,7 @@ public class ScoreScript : MonoBehaviour
                     }
                     else if (MinigameSceneScript.activeMinigame == 3)
                     {
-                        SceneManager.LoadScene("CoreGame");
+                        SceneManager.LoadScene("CoreGame2");
                     }
                 }
                 else//go to card reward

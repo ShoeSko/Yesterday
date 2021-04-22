@@ -14,6 +14,10 @@ public class NewCardHandScript : MonoBehaviour
 
     private int card;
 
+    public static int Stage;//Which stage is the player on? (Will define which enemies spawn)
+    public GameObject SpawnerHuman;//Spawner for Businessmen
+    public GameObject SpawnerBeast;//Spawner for Beasts
+    public GameObject SpawnerBoss;//Spawner for Boss
 
     public GameObject enlargeButton;//arrow up above your hand to enlarge your hand
     public GameObject minimizeButton;//arrow down visible after enlarging your hand
@@ -293,5 +297,16 @@ public class NewCardHandScript : MonoBehaviour
 
         Lcard5.GetComponent<CardDisplayer>().card = CardValues5.card;
         Lcard5.GetComponent<CardDisplayer>().Read();
+    }
+
+    public void Spawn()
+    {
+        if (Stage == 1)
+            SpawnerBeast.GetComponent<EnemySpawning>().gameStarted = true;
+        else if (Stage == 2)
+            SpawnerHuman.GetComponent<EnemySpawning>().gameStarted = true;
+        else if (Stage == 3)
+            SpawnerBoss.GetComponent<EnemySpawning>().gameStarted = true;
+
     }
 }
