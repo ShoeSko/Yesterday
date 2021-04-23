@@ -69,6 +69,8 @@ public class NewCardHandScript : MonoBehaviour
         minimizeButton.SetActive(true);
         TowerSpots.SetActive(false);
 
+        ManaSystem.CurrentMana = 0;
+
         for (card = 1; card <= 5; card++)
         {
             Deck.GetComponent<DeckScript>().Randomise();
