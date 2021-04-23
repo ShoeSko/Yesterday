@@ -36,10 +36,11 @@ public class HandScript : MonoBehaviour
     }
     private void Update()
     {
-        scoreTimer += Time.deltaTime;
 
         if (!Boop)//hand movement following the mouse 
         {
+            scoreTimer += Time.deltaTime;
+
             Camera mainCamera = Camera.main;
             #if UNITY_ANDROID //Everything within this, only works if the build is android.
                 if (Input.touchCount > 0)

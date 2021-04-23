@@ -19,6 +19,10 @@ public class NewCardHandScript : MonoBehaviour
     public GameObject SpawnerBeast;//Spawner for Beasts
     public GameObject SpawnerBoss;//Spawner for Boss
 
+    public AudioSource Music1;
+    public AudioSource Music2;
+    public AudioSource Boss1;
+
     public GameObject enlargeButton;//arrow up above your hand to enlarge your hand
     public GameObject minimizeButton;//arrow down visible after enlarging your hand
     public GameObject handSmall;//your hand at the bottom of the screen
@@ -304,11 +308,19 @@ public class NewCardHandScript : MonoBehaviour
     public void Spawn()
     {
         if (Stage == 1)
+        {
             SpawnerBeast.GetComponent<EnemySpawning>().gameStarted = true;
+            Music1.Play();
+        }
         else if (Stage == 2)
+        {
             SpawnerHuman.GetComponent<EnemySpawning>().gameStarted = true;
+            Music2.Play();
+        }
         else if (Stage == 3)
+        {
             SpawnerBoss.GetComponent<EnemySpawning>().gameStarted = true;
-
+            Boss1.Play();
+        }
     }
 }
