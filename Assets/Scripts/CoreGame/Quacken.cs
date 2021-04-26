@@ -8,7 +8,7 @@ public class Quacken : MonoBehaviour
     public GameObject quacks;
     private int AmountOfQuacks = 20;
 
-    static public bool s_quackenBeenReleased; // Prevensts the Quacken from reapering more than it should.
+    static public bool s_quackenBeenReleased = false; // Prevensts the Quacken from reapering more than it should.
 
     public List<GameObject> spawnLocationList = new List<GameObject>();
     private int sizeOfSpawnLocations;
@@ -23,9 +23,7 @@ public class Quacken : MonoBehaviour
     public void Release_The_Quacken()
     {
         StartCoroutine(quackenSpawner());
-        //do quacken stuff
         s_quackenBeenReleased = true;
-        //quackenButton.SetActive(false);
     }
 
     IEnumerator quackenSpawner()
@@ -44,7 +42,8 @@ public class Quacken : MonoBehaviour
 
     public void startGame()
     {
-        quackenButton.SetActive(true);
+        if(s_quackenBeenReleased == false)
+            quackenButton.SetActive(true);
     }
 
     private void Update()
