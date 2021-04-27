@@ -8,6 +8,7 @@ public class Victory : MonoBehaviour
 
     private void Start()
     {
+        s_youWon = false; //Makes sure that if this loosing does not cause you to win automatically when returning to core game. ("Bugfix")
         youWin.SetActive(false); //In case it was left on.
     }
     private void Update()
