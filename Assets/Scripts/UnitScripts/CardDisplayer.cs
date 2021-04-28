@@ -17,10 +17,6 @@ public class CardDisplayer : MonoBehaviour
 
     [HideInInspector]public GameObject UnitPrefab; //Stores the prefab
     [HideInInspector]public int manaValue; //Accsess
-    private void Start()
-    {
-
-    }
 
     public void Read()
     {

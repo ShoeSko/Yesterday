@@ -68,7 +68,7 @@ public class AnimalVictory : MonoBehaviour
                 //1 star
                 CardReward.Stars = 1;
             }
-            else if (scoreTimer > 5)
+            else if (scoreTimer > 15)
                 {
                     //0 stars
                 }
@@ -77,7 +77,7 @@ public class AnimalVictory : MonoBehaviour
 
             if(timer > 5)//5 seconds after winning the game
             {
-                if (scoreTimer > 5)//skip card reward
+                if (scoreTimer > 15)//skip card reward
                 {
                     if (MinigameSceneScript.activeMinigame == 1)
                     {

@@ -14,6 +14,8 @@ public class CardReward : MonoBehaviour
     private List<CardScript> Group2 = new List<CardScript>();
     private List<CardScript> Group3 = new List<CardScript>();
 
+    public List<GameObject> ViewCardGroup = new List<GameObject>();
+
     private int sizeOfCards;
     private int sizeOfRewardCards;
 
@@ -29,9 +31,15 @@ public class CardReward : MonoBehaviour
     private int StarLimit;
     public static int Stars;
 
+    public GameObject Overview;
+    public GameObject ViewView;
+
 
     private void Start()
     {
+        Overview.SetActive(true);
+        ViewView.SetActive(false);
+
         StarLimit = 0;
         groupNumber = 1;
 
@@ -175,17 +183,59 @@ public class CardReward : MonoBehaviour
 
 
 
-    void viewG1()//view all cards from group 1
+    public void viewG1()//view all cards from group 1
     {
+        Overview.SetActive(false);
+        ViewView.SetActive(true);
 
+        groupOfCards = Group1.Count;
+
+        for (int CardsInGroup = 0; CardsInGroup < groupOfCards; CardsInGroup++)
+        {
+            activeCard = Group1[CardsInGroup];
+            cardPrefab = ViewCardGroup[CardsInGroup];
+
+            cardPrefab.SetActive(true);
+            cardPrefab.GetComponent<CardDisplayer>().card = activeCard;
+
+            cardPrefab.GetComponent<CardDisplayer>().Read();
+        }
     }
-    void viewG2()//view all cards from group 2
+    public void viewG2()//view all cards from group 2
     {
+        Overview.SetActive(false);
+        ViewView.SetActive(true);
 
+        groupOfCards = Group2.Count;
+
+        for (int CardsInGroup = 0; CardsInGroup < groupOfCards; CardsInGroup++)
+        {
+            activeCard = Group2[CardsInGroup];
+            cardPrefab = ViewCardGroup[CardsInGroup];
+
+            cardPrefab.SetActive(true);
+            cardPrefab.GetComponent<CardDisplayer>().card = activeCard;
+
+            cardPrefab.GetComponent<CardDisplayer>().Read();
+        }
     }
-    void viewG3()//view all cards from group 3
+    public void viewG3()//view all cards from group 3
     {
+        Overview.SetActive(false);
+        ViewView.SetActive(true);
 
+        groupOfCards = Group3.Count;
+
+        for (int CardsInGroup = 0; CardsInGroup < groupOfCards; CardsInGroup++)
+        {
+            activeCard = Group3[CardsInGroup];
+            cardPrefab = ViewCardGroup[CardsInGroup];
+
+            cardPrefab.SetActive(true);
+            cardPrefab.GetComponent<CardDisplayer>().card = activeCard;
+
+            cardPrefab.GetComponent<CardDisplayer>().Read();
+        }
     }
 
 
@@ -243,5 +293,11 @@ public class CardReward : MonoBehaviour
         {
             SceneManager.LoadScene("CoreGame");
         }
+    }
+
+    public void Back()
+    {
+        Overview.SetActive(true);
+        ViewView.SetActive(false);
     }
 }

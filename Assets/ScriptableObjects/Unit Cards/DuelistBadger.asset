@@ -16,7 +16,7 @@ MonoBehaviour:
   image: {fileID: 21300000, guid: 6113fe6875b365a41b4a2ef3a3e08d87, type: 3}
   manaCost: 4
   effectDescription: The Duelist has longer reach and can pierce multiple enemies
-  flavorTxt: His weapon of choice was a baguette, but this will do
+  flavorTxt: His weapon of choice was a baguette, but this stick will do
   Prefab: {fileID: 2557954877800294563, guid: cecf244629a5d26458813596a18615dc, type: 3}
   health: 130
   isShooter: 0
