@@ -18,7 +18,7 @@ MonoBehaviour:
   effectDescription: He's not very strong but can survive a hit or two
   flavorTxt: His CHONK is enough to scare most intruders
   Prefab: {fileID: 2557954877800294563, guid: f999babf9535eef48abcce9a0b04c469, type: 3}
-  health: 250
+  health: 220
   isShooter: 0
   isPunching: 1
   isSpecial: 0
@@ -40,6 +40,8 @@ MonoBehaviour:
     m_Bits: 64
   targetsToPunch: 1
   canPunchEverything: 0
+  hasKnockback: 0
+  knockbackPower: 0
   isSacrificialKill: 0
   isSupportExpert: 0
   allyLayerToTarget:

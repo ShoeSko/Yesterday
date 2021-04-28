@@ -2912,9 +2912,9 @@ MonoBehaviour:
   - {fileID: 1395564859}
   - {fileID: 1099231170}
   - {fileID: 1743756068}
-  star1Time: 2
-  star2Time: 3
-  star3Time: 5
+  star1Time: 3
+  star2Time: 5
+  star3Time: 8
   roombaObject: {fileID: 840998290}
   roombaSpeed: 5
 --- !u!1 &2088006538

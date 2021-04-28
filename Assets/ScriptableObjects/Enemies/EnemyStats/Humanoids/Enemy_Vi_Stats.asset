@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 684945d7a3c87d84d98ae17e8af85abb, type: 3}
   m_Name: Enemy_Vi_Stats
   m_EditorClassIdentifier: 
-  moveSpeed: 40
-  enemyHealth: 50
+  moveSpeed: 45
+  enemyHealth: 65
   obstacleTags: Obstacle
   projectileTags: Projectile
   attackDamage: 30
-  attackSpeed: 0.8
+  attackSpeed: 0.7
   whatIsUnitLayer:
     serializedVersion: 2
     m_Bits: 256

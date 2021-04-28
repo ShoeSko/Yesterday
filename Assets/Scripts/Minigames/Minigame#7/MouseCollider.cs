@@ -40,20 +40,20 @@ public class MouseCollider : MonoBehaviour
         {
             gamoverTimer += Time.deltaTime;
 
-            if (ScoreTimer <= 10)//3 stars
+            if (ScoreTimer <= 9)//3 stars
             {
                 star1.SetActive(true);
                 star2.SetActive(true);
                 star3.SetActive(true);
                 CardReward.Stars = 3;
             }
-            else if (ScoreTimer > 10 && ScoreTimer <= 17)//2 stars
+            else if (ScoreTimer > 9 && ScoreTimer <= 15)//2 stars
             {
                 star1.SetActive(true);
                 star2.SetActive(true);
                 CardReward.Stars = 2;
             }
-            else if (ScoreTimer > 17 && ScoreTimer <= 25)//1 stars
+            else if (ScoreTimer > 15 && ScoreTimer <= 20)//1 stars
             {
                 star1.SetActive(true);
                 CardReward.Stars = 1;

@@ -173,8 +173,8 @@ MonoBehaviour:
   - {fileID: 1322199661}
   - {fileID: 1120371786}
   - {fileID: 1434354648}
-  star1Time: 5
-  star2Time: 10
+  star1Time: 7
+  star2Time: 11
   star3Time: 15
 --- !u!212 &47159880
 SpriteRenderer:

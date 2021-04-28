@@ -51,20 +51,20 @@ public class GraveCleaning : MonoBehaviour
         {
             endgameTimer += Time.deltaTime;
 
-            if (timer <= 5)
+            if (timer <= 3)
             {
                 star1.SetActive(true);
                 star2.SetActive(true);
                 star3.SetActive(true);
                 CardReward.Stars = 3;
             }
-            else if(timer > 5 && timer <= 10)
+            else if(timer > 3 && timer <= 8)
             {
                 star1.SetActive(true);
                 star2.SetActive(true);
                 CardReward.Stars = 2;
             }
-            else if (timer > 10 && timer <= 15)
+            else if (timer > 8 && timer <= 15)
             {
                 star1.SetActive(true);
                 CardReward.Stars = 1;

@@ -57,7 +57,7 @@ public class ScoreScript : MonoBehaviour
     {
         iWon = true;
 
-        if (scoreTimer <= 10)
+        if (scoreTimer <= 6)
         {
             //3stars
             star1.SetActive(true);
@@ -65,14 +65,14 @@ public class ScoreScript : MonoBehaviour
             star3.SetActive(true);
             CardReward.Stars = 3;
         }
-        else if (scoreTimer > 10 && scoreTimer <= 20)
+        else if (scoreTimer > 6 && scoreTimer <= 10)
         {
             //2stars
             star1.SetActive(true);
             star2.SetActive(true);
             CardReward.Stars = 2;
         }
-        else if (scoreTimer > 20 && scoreTimer <= 30)
+        else if (scoreTimer > 10 && scoreTimer <= 15)
         {
             //1stars
             star1.SetActive(true);

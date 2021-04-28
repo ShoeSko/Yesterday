@@ -34,12 +34,14 @@ MonoBehaviour:
     m_Bits: 128
   targetsToShoot: 0
   punchRechargeTime: 2
-  punchDamage: 45
+  punchDamage: 40
   punchingTargetLayer:
     serializedVersion: 2
     m_Bits: 64
   targetsToPunch: 5
   canPunchEverything: 1
+  hasKnockback: 0
+  knockbackPower: 0
   isSacrificialKill: 0
   isSupportExpert: 0
   allyLayerToTarget:
