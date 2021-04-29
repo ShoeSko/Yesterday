@@ -35,6 +35,10 @@ public class CardReward : MonoBehaviour
     public GameObject ViewView;
 
 
+    private GameObject[] unitList;
+    private int unitListLenght;
+
+
     private void Start()
     {
         Overview.SetActive(true);
@@ -199,6 +203,8 @@ public class CardReward : MonoBehaviour
             cardPrefab.GetComponent<CardDisplayer>().card = activeCard;
 
             cardPrefab.GetComponent<CardDisplayer>().Read();
+
+            ViewCleaner(); //Will clean the scene of objects during view.
         }
     }
     public void viewG2()//view all cards from group 2
@@ -217,6 +223,8 @@ public class CardReward : MonoBehaviour
             cardPrefab.GetComponent<CardDisplayer>().card = activeCard;
 
             cardPrefab.GetComponent<CardDisplayer>().Read();
+
+            ViewCleaner(); //Will clean the scene of objects during view.
         }
     }
     public void viewG3()//view all cards from group 3
@@ -235,10 +243,21 @@ public class CardReward : MonoBehaviour
             cardPrefab.GetComponent<CardDisplayer>().card = activeCard;
 
             cardPrefab.GetComponent<CardDisplayer>().Read();
+
+            ViewCleaner(); //Will clean the scene of objects during view.
         }
     }
 
-
+    private void ViewCleaner()
+    {
+        SpriteRenderer unitRenderer;
+        unitList = GameObject.FindGameObjectsWithTag("Obstacle"); //Grabs all Units spawned
+        unitListLenght = unitList.Length;
+        for (int i = 0; i < unitListLenght; i++)
+        {
+            unitList[i].GetComponent<SpriteRenderer>().enabled = false;
+        }
+    }
 
     public void selectG1()//add cards from group 1 to your deck
     {
@@ -297,7 +316,19 @@ public class CardReward : MonoBehaviour
 
     public void Back()
     {
+        ViewBacker(); //Will revert the Objects upon return
+
         Overview.SetActive(true);
         ViewView.SetActive(false);
+    }
+
+    private void ViewBacker()
+    {
+        print("I was triggered!!!!");
+        for (int i = 0; i < unitListLenght; i++)
+        {
+            unitList[i].GetComponent<SpriteRenderer>().enabled = true;
+            print(unitList[i].name + (" should be turned on now"));
+        }
     }
 }
