@@ -5,11 +5,13 @@ using TMPro;
 public class CardDisplayer : MonoBehaviour
 {
     [Tooltip("Is this a spell card?")]public bool isSpellCard;
+    [Tooltip("Does it use a background?")] public bool useBackground;
 
     [Tooltip("The scriptableobject holding this cards info")]public CardScript card;//Pulls the Scriptableobject, to get the refrences.
-    [Tooltip("The scriptableobject holding this spell cards info")]public CardScript spellCard;//Pulls the Scriptableobject, to get the refrences.
+    [Tooltip("The scriptableobject holding this spell cards info")]public CardSpellScript spellCard;//Pulls the Scriptableobject, to get the refrences.
 
     public Image artworkImage; //The display image
+    public Image backgroundImage; //The background image
     public TextMeshProUGUI nameText; //The name of the card
     public TextMeshProUGUI manatext; //The cost of the mana
     public TextMeshProUGUI descriptionText; // what does it do
@@ -18,18 +20,24 @@ public class CardDisplayer : MonoBehaviour
     [HideInInspector]public GameObject UnitPrefab; //Stores the prefab
     [HideInInspector]public int manaValue; //Accsess
 
+    [ContextMenu("play")]
     public void Read()
     {
         if (!isSpellCard)
         {
-        manaValue = card.manaCost;
-        artworkImage.sprite = card.image;
-        UnitPrefab = card.Prefab;
+            manaValue = card.manaCost;
+            artworkImage.sprite = card.image;
+            UnitPrefab = card.Prefab;
 
-        nameText.text = card.cardName;
-        manatext.text = card.manaCost.ToString();
-        descriptionText.text = card.effectDescription;
-        flavorTexts.text = card.flavorTxt;
+            nameText.text = card.cardName;
+            manatext.text = card.manaCost.ToString();
+            descriptionText.text = card.effectDescription;
+            flavorTexts.text = card.flavorTxt;
+
+            if (useBackground)
+            {
+                backgroundImage.sprite = card.backgroundImage;
+            }
         }
         else if (isSpellCard)
         {
@@ -40,7 +48,7 @@ public class CardDisplayer : MonoBehaviour
             nameText.text = spellCard.cardName;
             manatext.text = spellCard.manaCost.ToString();
             descriptionText.text = spellCard.effectDescription;
-            flavorTexts.text = spellCard.flavorTxt;
+            //flavorTexts.text = spellCard.flavorTxt;// Is flavor needed on spell cards?
         }
     }
 }
