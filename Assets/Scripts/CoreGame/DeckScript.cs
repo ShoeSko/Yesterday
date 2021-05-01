@@ -12,7 +12,8 @@ public class DeckScript : MonoBehaviour
 
     public CardScript CowCard;
 
-    //public CardDisplayer chosenCard;
+    public GameObject deckViewer;
+    public GameObject ViewDeck;
 
 
     void Start()
@@ -20,6 +21,10 @@ public class DeckScript : MonoBehaviour
         Deck.Add(CowCard);//the starting cards 
 
         DeckCards = Deck.Count;
+
+        deckViewer.GetComponent<DeckView>().CreateList();
+
+        ViewDeck.SetActive(false);
     }
 
     public void Randomise()
@@ -30,12 +35,20 @@ public class DeckScript : MonoBehaviour
 
             activecard = Deck[randomcard];
 
-            if (activecard != null)
+            if (activecard == null)
             {
-                Debug.Log(activecard.name);
-            }
-            else
                 cards--;
+            }
+
         }
+    }
+
+    public void DeckViewModeOn()
+    {
+        Time.timeScale = 0;
+    }
+    public void DeckViewModeOff()
+    {
+        Time.timeScale = 1;
     }
 }
