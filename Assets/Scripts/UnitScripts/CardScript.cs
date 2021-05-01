@@ -6,6 +6,7 @@ public class CardScript : ScriptableObject
     public string cardName;
 
     public Sprite image;
+    public Sprite backgroundImage;
     public int manaCost;
     public string effectDescription;
     public string flavorTxt;

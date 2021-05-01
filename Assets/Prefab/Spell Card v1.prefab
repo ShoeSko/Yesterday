@@ -181,8 +181,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
-  m_fontSizeBase: 18
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -464,7 +464,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &489340966799937203
 RectTransform:
   m_ObjectHideFlags: 0
@@ -711,9 +711,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76201eaf93780c24d8ce5068457708c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isSpellCard: 0
-  card: {fileID: 11400000, guid: 2feaa7772e4a0ed4abe51ab0b90c9614, type: 2}
-  spellCard: {fileID: 0}
+  isSpellCard: 1
+  card: {fileID: 0}
+  spellCard: {fileID: 11400000, guid: a7f79d8ff64064948b19ac3c1cc02860, type: 2}
   artworkImage: {fileID: 489340967398354740}
   nameText: {fileID: 489340967690425228}
   manatext: {fileID: 489340966465122700}
@@ -721,6 +721,7 @@ MonoBehaviour:
   flavorTexts: {fileID: 489340966799937202}
   UnitPrefab: {fileID: 0}
   manaValue: 0
+  toTest: 0
 --- !u!1 &489340967690425266
 GameObject:
   m_ObjectHideFlags: 0
@@ -813,13 +814,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 16
-  m_fontSizeBase: 16
+  m_fontSize: 18
+  m_fontSizeBase: 18
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 17
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
