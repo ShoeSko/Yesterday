@@ -3,6 +3,7 @@ using UnityEngine;
 public class FlipTheSwitch : MonoBehaviour
 {
     private bool isFlipped;
+    private float flipStrenght = -90;
 
     private void OnMouseDown() //Is called with a mouseclick or touch on an object with collider. (Ignore raycast layer prevents this)
     {
@@ -13,7 +14,7 @@ public class FlipTheSwitch : MonoBehaviour
     {
         if (isFlipped)
         {
-            transform.localRotation = Quaternion.Euler(0, 0, 90); //Flips the object 90 degrees
+            transform.localRotation = Quaternion.Euler(0, 0,flipStrenght); //Flips the object 90 degrees
             isFlipped = false;
         }
         else

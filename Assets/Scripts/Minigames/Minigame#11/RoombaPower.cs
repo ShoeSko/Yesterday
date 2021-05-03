@@ -6,7 +6,7 @@ public class RoombaPower : MonoBehaviour
 {
     #region Variables
     [Header("Material Looks")]
-    public Material powerOn;
+    public Color powerOn;
     [Header("List of the wires to be used")]
     public List<GameObject> connection0 = new List<GameObject>();
     public List<GameObject> connection1 = new List<GameObject>();
@@ -17,6 +17,7 @@ public class RoombaPower : MonoBehaviour
     public List<GameObject> switches1 = new List<GameObject>();
     public GameObject switch2;
     public List<GameObject> switches3 = new List<GameObject>();
+    private float flipStrenght = 270;
 
     private bool firstSwitch;
     private bool secondSwitch;
@@ -50,7 +51,7 @@ public class RoombaPower : MonoBehaviour
 
         randomiser1 = Random.Range(0, 3);
         randomiser2 = Random.Range(0, 3);
-        connection0[randomiser1].GetComponent<MeshRenderer>().material = powerOn; //Choses the first wire.
+        connection0[randomiser1].GetComponent<SpriteRenderer>().color = powerOn; //Choses the first wire.
         starLenght = stars.Count;
         for (int i = 0; i < starLenght; i++)
         {
@@ -96,7 +97,7 @@ public class RoombaPower : MonoBehaviour
     private void WhichSwitch()
     {
         //Switch 1
-        if(switches1[randomiser1].transform.eulerAngles.z == 90)
+        if(switches1[randomiser1].transform.eulerAngles.z == flipStrenght)
         {
             ActivateFirstConnection();
             firstSwitch = true;
@@ -104,7 +105,7 @@ public class RoombaPower : MonoBehaviour
         }
 
         //Switch 2
-        if (switch2.transform.eulerAngles.z == 90 && firstSwitch)
+        if (switch2.transform.eulerAngles.z == flipStrenght && firstSwitch)
         {
             ActivateSecondConnection();
             secondSwitch = true;
@@ -112,7 +113,7 @@ public class RoombaPower : MonoBehaviour
         }
 
         //Switch 3
-        if (switches3[randomiser2].transform.eulerAngles.z == 90 && secondSwitch)
+        if (switches3[randomiser2].transform.eulerAngles.z == flipStrenght && secondSwitch)
         {
             ActivateThirdConnection();
             switches3[randomiser2].layer = 2;
@@ -182,15 +183,15 @@ public class RoombaPower : MonoBehaviour
     #region Connections
     private void ActivateFirstConnection() //Turns the wires on (Might just be a object with 2 anim states instead
     {
-            connection1[randomiser1].GetComponent<MeshRenderer>().material = powerOn;
+            connection1[randomiser1].GetComponent<SpriteRenderer>().color = powerOn;
     }
     private void ActivateSecondConnection()
     {
-            connection2[randomiser2].GetComponent<MeshRenderer>().material = powerOn;
+            connection2[randomiser2].GetComponent<SpriteRenderer>().color = powerOn;
     }
     private void ActivateThirdConnection()
     {
-            connection3[randomiser2].GetComponent<MeshRenderer>().material = powerOn;
+            connection3[randomiser2].GetComponent<SpriteRenderer>().color = powerOn;
     }
     #endregion
 }
