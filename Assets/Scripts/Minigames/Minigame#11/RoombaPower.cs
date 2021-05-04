@@ -49,15 +49,24 @@ public class RoombaPower : MonoBehaviour
         win = false;
         score = 0;
 
-        randomiser1 = Random.Range(0, 3);
-        randomiser2 = Random.Range(0, 3);
-        connection0[randomiser1].GetComponent<SpriteRenderer>().color = powerOn; //Choses the first wire.
+        FirstLineInitialization();
+
         starLenght = stars.Count;
         for (int i = 0; i < starLenght; i++)
         {
             stars[i].SetActive(false);
         }
     }
+
+    private void FirstLineInitialization()
+    {
+        randomiser1 = Random.Range(0, 3);
+        randomiser2 = Random.Range(0, 3);
+        connection0[randomiser1].transform.GetChild(0).gameObject.SetActive(false); //Turns of the Line that is a child of the wire
+        connection0[randomiser1].GetComponent<SpriteRenderer>().color = powerOn; //Choses the first wire.
+        connection0[randomiser1].GetComponent<Animator>().enabled = true; //Activates the animation that will loop eternally
+    }
+
     private void Update()
     {
         if(!win)
@@ -183,15 +192,21 @@ public class RoombaPower : MonoBehaviour
     #region Connections
     private void ActivateFirstConnection() //Turns the wires on (Might just be a object with 2 anim states instead
     {
-            connection1[randomiser1].GetComponent<SpriteRenderer>().color = powerOn;
+        connection1[randomiser1].transform.GetChild(0).gameObject.SetActive(false);
+        connection1[randomiser1].GetComponent<SpriteRenderer>().color = powerOn;
+        connection1[randomiser1].GetComponent<Animator>().enabled = true;
     }
     private void ActivateSecondConnection()
     {
-            connection2[randomiser2].GetComponent<SpriteRenderer>().color = powerOn;
+        connection2[randomiser2].transform.GetChild(0).gameObject.SetActive(false);
+        connection2[randomiser2].GetComponent<SpriteRenderer>().color = powerOn;
+        connection2[randomiser2].GetComponent<Animator>().enabled = true;
     }
     private void ActivateThirdConnection()
     {
-            connection3[randomiser2].GetComponent<SpriteRenderer>().color = powerOn;
+        connection3[randomiser2].transform.GetChild(0).gameObject.SetActive(false);
+        connection3[randomiser2].GetComponent<SpriteRenderer>().color = powerOn;
+        connection3[randomiser2].GetComponent<Animator>().enabled = true;
     }
     #endregion
 }
