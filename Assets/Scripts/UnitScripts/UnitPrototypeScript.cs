@@ -67,7 +67,10 @@ public class UnitPrototypeScript : MonoBehaviour
     private float shootSpeedSave; // Saves the shoot speed
     private int punchDamageSave; // Saves the Punch Damage
     private float punchSpeedSave; // Saves the Punch speed
+    private float healthSave; //Saves the health;
 
+    [Header("Unit Damage Taken Visuals")]
+    private Animator animatorOfUnit;
 
     #endregion
 
@@ -76,6 +79,8 @@ public class UnitPrototypeScript : MonoBehaviour
         UnitInfoFeed(); //All info of the Unit is recorded here.
         if (isShooter) { Aim(); }
         if (isSupportExpert) { AllyAim(); }
+        animatorOfUnit = GetComponent<Animator>();
+        healthSave = health; // Saves the health value at max.
     }
 
     private void Update()
@@ -83,6 +88,7 @@ public class UnitPrototypeScript : MonoBehaviour
         if (isShooter) { ShootProjectile(); }
         else if (isPunching) { Punch(); }
         else if (isSpecial) { Special(); }
+        CurrentDamageTaken();
         Death();
     }
 
@@ -273,6 +279,16 @@ public class UnitPrototypeScript : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    private void CurrentDamageTaken() // This calculates the amount of damage into a percentage, and feeds this info into an animator.
+    {
+        float currentDamage;
+
+        currentDamage = (health / healthSave)*100;
+
+        animatorOfUnit.SetFloat("DamageTaken",currentDamage);
+    }
+
     #endregion
     #region Spell Effects
 
@@ -313,7 +329,7 @@ public class UnitPrototypeScript : MonoBehaviour
 
     public void HealthBuff(float healthBuff) // Get this to buff allies health with spells
     {
-        health = health + (health * healthBuff); //Currently buffs health in comparison to current health %
+        health = health + (healthSave * healthBuff); //Currently buffs health in comparison to current health %
     }
     #endregion
 
