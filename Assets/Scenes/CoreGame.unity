@@ -10232,11 +10232,16 @@ MonoBehaviour:
   strongEnemySpawnWait: 6
   weakEnemyList: {fileID: 11400000, guid: 7d1662747b8d7434babbb893a870f109, type: 2}
   strongEnemyList: {fileID: 11400000, guid: 9e8a4a283699219438b1d58598753059, type: 2}
-  tokenList:
-  - {fileID: 1533484198}
-  - {fileID: 1072808233}
-  - {fileID: 1562129611}
-  - {fileID: 1292569148}
+  tokenLocationList: []
+  spriteTokenWeakList:
+  - {fileID: 21300000, guid: 85afb82235051db4d9766bb35d78f439, type: 3}
+  - {fileID: 21300000, guid: 0a40f504eaf116546b078e36c7c303a8, type: 3}
+  - {fileID: 21300000, guid: d249d39b39961684d96b67677bcd1f8d, type: 3}
+  - {fileID: 21300000, guid: 813ae5402fdc6ef4b8fee860b800b6bb, type: 3}
+  spriteTokenStrongList:
+  - {fileID: 21300000, guid: df528de26eeed29489d5b43872d32031, type: 3}
+  - {fileID: 21300000, guid: 800a24a78e13a41479d8462a28ec9562, type: 3}
+  - {fileID: 21300000, guid: a4d422100e11c3b44899a1e33a3f70d8, type: 3}
 --- !u!4 &1099777751
 Transform:
   m_ObjectHideFlags: 0
@@ -14538,11 +14543,20 @@ MonoBehaviour:
   strongEnemySpawnWait: 8
   weakEnemyList: {fileID: 11400000, guid: 7fe31d80879a5774d92b7a49914a8cbb, type: 2}
   strongEnemyList: {fileID: 11400000, guid: 9e8a4a283699219438b1d58598753059, type: 2}
-  tokenList:
+  tokenLocationList:
   - {fileID: 1533484198}
   - {fileID: 1072808233}
   - {fileID: 1562129611}
   - {fileID: 1292569148}
+  spriteTokenWeakList:
+  - {fileID: 21300000, guid: 62787dd5a6c5e5d44982877efe372872, type: 3}
+  - {fileID: 21300000, guid: ce5f66af396f93549a856d7d2e878212, type: 3}
+  - {fileID: 21300000, guid: 374c21740074ec1498ddff02150e1311, type: 3}
+  - {fileID: 21300000, guid: 9db30b3c25138c64cae363b40c593b43, type: 3}
+  spriteTokenStrongList:
+  - {fileID: 21300000, guid: df528de26eeed29489d5b43872d32031, type: 3}
+  - {fileID: 21300000, guid: 800a24a78e13a41479d8462a28ec9562, type: 3}
+  - {fileID: 21300000, guid: a4d422100e11c3b44899a1e33a3f70d8, type: 3}
 --- !u!4 &1519029870
 Transform:
   m_ObjectHideFlags: 0
@@ -19508,11 +19522,20 @@ MonoBehaviour:
   strongEnemySpawnWait: 6
   weakEnemyList: {fileID: 11400000, guid: 7fe31d80879a5774d92b7a49914a8cbb, type: 2}
   strongEnemyList: {fileID: 11400000, guid: 0199ba676b28820428294e8bc8fc9191, type: 2}
-  tokenList:
+  tokenLocationList:
   - {fileID: 1533484198}
   - {fileID: 1072808233}
   - {fileID: 1562129611}
   - {fileID: 1292569148}
+  spriteTokenWeakList:
+  - {fileID: 21300000, guid: 62787dd5a6c5e5d44982877efe372872, type: 3}
+  - {fileID: 21300000, guid: 374c21740074ec1498ddff02150e1311, type: 3}
+  - {fileID: 21300000, guid: ce5f66af396f93549a856d7d2e878212, type: 3}
+  - {fileID: 21300000, guid: 9db30b3c25138c64cae363b40c593b43, type: 3}
+  spriteTokenStrongList:
+  - {fileID: 21300000, guid: 5bfb3aef426ad2c42813e0beffecff6d, type: 3}
+  - {fileID: 21300000, guid: 8d12977aa92127b4db8734d2e9387237, type: 3}
+  - {fileID: 21300000, guid: 753ba16d9789a664cb0dbd99e98ad0a0, type: 3}
 --- !u!4 &2145196944
 Transform:
   m_ObjectHideFlags: 0

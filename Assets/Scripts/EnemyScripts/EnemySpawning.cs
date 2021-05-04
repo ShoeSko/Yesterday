@@ -30,7 +30,10 @@ public class EnemySpawning : MonoBehaviour
     [Tooltip("Strong Enemies to be spawned")][SerializeField] private EnemyList strongEnemyList;
 
     [Header("Token settings")]
-    [SerializeField] private List<GameObject> tokenList = new List<GameObject>();
+    [SerializeField] private List<GameObject> tokenLocationList = new List<GameObject>();
+    [SerializeField] private List<Sprite> spriteTokenWeakList = new List<Sprite>();
+    [SerializeField] private List<Sprite> spriteTokenStrongList = new List<Sprite>();
+    private int enemyToKeep;
 
     private void Start()
     {
@@ -61,12 +64,21 @@ public class EnemySpawning : MonoBehaviour
                 randomEnemyTypeToSpawn = Random.Range(0, sizeOfWeakEnemyTypes); //Gives a random enemy type of weak every spawn
                 Transform spawnLocation = spawnLocationList[randomLaneForSpawning].transform; //Grabs the transform of the location for spawning
 
-                tokenList[randomLaneForSpawning].SetActive(true); //Currently only 1 token, so not much of the content to think about, will turn it on for warning.
+                if(loopLimit != strongSpawnNumber)
+                {
+                    tokenLocationList[randomLaneForSpawning].GetComponent<SpriteRenderer>().sprite = spriteTokenWeakList[randomEnemyTypeToSpawn]; //Sets the sprite to match the wanted enemy LISTS MUST MATCH IN ORDER!
+                    tokenLocationList[randomLaneForSpawning].SetActive(true); //Currently only 1 token, so not much of the content to think about, will turn it on for warning.
+                }
+                else
+                {
+                    tokenLocationList[randomLaneForSpawning].GetComponent<SpriteRenderer>().sprite = spriteTokenStrongList[enemyToKeep]; //Sets the sprite to match the wanted enemy LISTS MUST MATCH IN ORDER!
+                    tokenLocationList[randomLaneForSpawning].SetActive(true); //Currently only 1 token, so not much of the content to think about, will turn it on for warning.
+                }
 
                 randomDelayTime = Random.Range(delayBetweenSpawnsMin, delayBetweenSpawnsMax); //Gives a random time
                 yield return new WaitForSeconds(randomDelayTime);//Wait the random amount of time, before resuming the spawning.
 
-                tokenList[randomLaneForSpawning].SetActive(false); // Will turn of the token as an enemy will spawn
+                tokenLocationList[randomLaneForSpawning].SetActive(false); // Will turn of the token as an enemy will spawn
 
                 if (loopLimit == strongSpawnNumber)
                 {
@@ -98,7 +110,7 @@ public class EnemySpawning : MonoBehaviour
         weakEnemyTypesSpawnList.Remove(weakEnemyTypesSpawnList[enemyToRemove]); //Remove the enemy
         sizeOfWeakEnemyTypes = weakEnemyTypesSpawnList.Count;//Get the amount of items in the list of weak enemy types after the removal
 
-        int enemyToKeep = Random.Range(0, sizeOfStrongEnemyTypes - 1); //What enemy to keep on the list
+        enemyToKeep = Random.Range(0, sizeOfStrongEnemyTypes - 1); //What enemy to keep on the list
         for (int i = 0; i < sizeOfStrongEnemyTypes-1; i++)
         {
             if (i != enemyToKeep)
