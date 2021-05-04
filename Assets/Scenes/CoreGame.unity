@@ -10232,7 +10232,11 @@ MonoBehaviour:
   strongEnemySpawnWait: 6
   weakEnemyList: {fileID: 11400000, guid: 7d1662747b8d7434babbb893a870f109, type: 2}
   strongEnemyList: {fileID: 11400000, guid: 9e8a4a283699219438b1d58598753059, type: 2}
-  tokenLocationList: []
+  tokenLocationList:
+  - {fileID: 1533484198}
+  - {fileID: 1072808233}
+  - {fileID: 1562129611}
+  - {fileID: 1292569148}
   spriteTokenWeakList:
   - {fileID: 21300000, guid: 85afb82235051db4d9766bb35d78f439, type: 3}
   - {fileID: 21300000, guid: 0a40f504eaf116546b078e36c7c303a8, type: 3}
