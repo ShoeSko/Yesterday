@@ -34,6 +34,7 @@ public class EnemySpawning : MonoBehaviour
     [SerializeField] private List<Sprite> spriteTokenWeakList = new List<Sprite>();
     [SerializeField] private List<Sprite> spriteTokenStrongList = new List<Sprite>();
     private int enemyToKeep;
+    private int enemyToRemove;
 
     private void Start()
     {
@@ -106,8 +107,9 @@ public class EnemySpawning : MonoBehaviour
 
     private void RemodelingOfLists()
     {
-        int enemyToRemove = Random.Range(0, sizeOfWeakEnemyTypes - 1); //What enemy to remove from the list
+        enemyToRemove = Random.Range(0, sizeOfWeakEnemyTypes - 1); //What enemy to remove from the list
         weakEnemyTypesSpawnList.Remove(weakEnemyTypesSpawnList[enemyToRemove]); //Remove the enemy
+        spriteTokenWeakList.Remove(spriteTokenWeakList[enemyToRemove]);//Removes the obsolete token.
         sizeOfWeakEnemyTypes = weakEnemyTypesSpawnList.Count;//Get the amount of items in the list of weak enemy types after the removal
 
         enemyToKeep = Random.Range(0, sizeOfStrongEnemyTypes - 1); //What enemy to keep on the list
