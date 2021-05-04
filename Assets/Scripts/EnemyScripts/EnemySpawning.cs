@@ -35,6 +35,7 @@ public class EnemySpawning : MonoBehaviour
     [SerializeField] private List<Sprite> spriteTokenStrongList = new List<Sprite>();
     private int enemyToKeep;
     private int enemyToRemove;
+    static public bool s_isCoreGame;
 
     private void Start()
     {
@@ -42,7 +43,7 @@ public class EnemySpawning : MonoBehaviour
         RemodelingOfLists(); //Restructures the lists to fit the current run spawn wish. (Removes enemies that are not to spawn)
         Failsafe(); //In case setting that can be wrong without breaking the code occur.
         sizeOfSpawnLocations = spawnLocationList.Count;//Get the amount of items in the list of lanes
-
+        s_isCoreGame = true;
     }
     private void Update()
     {
@@ -145,5 +146,10 @@ public class EnemySpawning : MonoBehaviour
             print("StrongEnemySpawnWait variable is " + strongEnemySpawnWait + " which is bigger than amountOfEnemies which is " + amountOfEnemies + " please fix this, as that should not be the case");
             strongEnemySpawnWait = amountOfEnemies-2;
         }
+    }
+
+    private void OnDestroy()
+    {
+        s_isCoreGame = false;
     }
 }

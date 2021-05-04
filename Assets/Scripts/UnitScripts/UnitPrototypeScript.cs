@@ -79,8 +79,13 @@ public class UnitPrototypeScript : MonoBehaviour
         UnitInfoFeed(); //All info of the Unit is recorded here.
         if (isShooter) { Aim(); }
         if (isSupportExpert) { AllyAim(); }
-        animatorOfUnit = GetComponent<Animator>();
         healthSave = health; // Saves the health value at max.
+
+        if(EnemySpawning.s_isCoreGame == true) //Makes sure the animation does not occur in the card selection
+        {
+            animatorOfUnit = GetComponent<Animator>();
+            animatorOfUnit.enabled = true;
+        }
     }
 
     private void Update()
@@ -88,8 +93,11 @@ public class UnitPrototypeScript : MonoBehaviour
         if (isShooter) { ShootProjectile(); }
         else if (isPunching) { Punch(); }
         else if (isSpecial) { Special(); }
+        if(EnemySpawning.s_isCoreGame == true)
+        {
         CurrentDamageTaken();
         Death();
+        }
     }
 
     #region Shooting
@@ -285,7 +293,7 @@ public class UnitPrototypeScript : MonoBehaviour
         float currentDamage;
 
         currentDamage = (health / healthSave)*100;
-
+        print(currentDamage + " is the damage " + gameObject.name + " has taken.");
         animatorOfUnit.SetFloat("DamageTaken",currentDamage);
     }
 
