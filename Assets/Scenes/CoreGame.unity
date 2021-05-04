@@ -14550,8 +14550,8 @@ MonoBehaviour:
   - {fileID: 1292569148}
   spriteTokenWeakList:
   - {fileID: 21300000, guid: 62787dd5a6c5e5d44982877efe372872, type: 3}
-  - {fileID: 21300000, guid: ce5f66af396f93549a856d7d2e878212, type: 3}
   - {fileID: 21300000, guid: 374c21740074ec1498ddff02150e1311, type: 3}
+  - {fileID: 21300000, guid: ce5f66af396f93549a856d7d2e878212, type: 3}
   - {fileID: 21300000, guid: 9db30b3c25138c64cae363b40c593b43, type: 3}
   spriteTokenStrongList:
   - {fileID: 21300000, guid: df528de26eeed29489d5b43872d32031, type: 3}
