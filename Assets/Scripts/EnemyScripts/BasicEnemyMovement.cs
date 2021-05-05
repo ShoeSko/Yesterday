@@ -34,17 +34,24 @@ public class BasicEnemyMovement : MonoBehaviour
     private bool isBeingPreventedFromMoving; //Prevents Movement
     private bool isBeingPreventedFromAttacking; //Prevents attack
 
+
+    [Header("Harm Effect Variables")]
+    private Animator animatorOfEnemies; //The Animator for the enemies change in apperance during damaged periods.
+    private float healthSave; //A place to store the original health pool.
     #endregion
 
     private void Start()
     {
         EnemyInfoFeed();
         rg2D = GetComponent<Rigidbody2D>();
+        animatorOfEnemies = GetComponent<Animator>();
+        healthSave = enemyHealth; //Saves the max health of the unit.
     }
 
     private void Update()
     {
         EnemyDeath();//Death comes for us all.
+        CurrentDamageTaken(); //Calculates damage taken, activates the appropriate animation.
     }
     private void FixedUpdate()
     {
@@ -162,7 +169,7 @@ public class BasicEnemyMovement : MonoBehaviour
         transform.Rotate(0, 0, -10);//Tilts the figure on hit,,, to note Will change their attack area.
         yield return new WaitForSeconds(0.2f);
         transform.rotation = orgRot;
-        print("Got hit");
+        //print("Got hit");
         yield return null;
     }
     IEnumerator PeriodOfBeingDamagedWithKnockback() //This entire thing can do whatever is put in here(Rotation is just a short representation.
@@ -175,7 +182,7 @@ public class BasicEnemyMovement : MonoBehaviour
         rg2D.AddForce(new Vector2(knockbackPower, 0)); //Does the knockback
         yield return new WaitForSeconds(1); //Dictates how long the knockback takes effect
         transform.rotation = orgRot;
-        print("Got hit");
+        //print("Got hit");
 
 
         isBeingPreventedFromDoingAnything = false; //No longer being knockedback
@@ -188,6 +195,16 @@ public class BasicEnemyMovement : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    private void CurrentDamageTaken()
+    {
+        float currentDamage;
+
+        currentDamage = (enemyHealth / healthSave) * 100;
+        //print("The " + gameObject.name + " has takken " + currentDamage + " damage.");
+        animatorOfEnemies.SetFloat("DamageTaken", currentDamage);
+    }
+
     #endregion
     #region Spell effects
 
