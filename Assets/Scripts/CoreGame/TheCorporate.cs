@@ -5,6 +5,7 @@ using UnityEngine;
 public class TheCorporate : MonoBehaviour
 {
     private List<string> Abilities = new List<string>();
+    public List<GameObject> spawnLocations = new List<GameObject>();
 
     public List<GameObject> TowerSpots = new List<GameObject>();
     public List<GameObject> DeactivateTowerSpots = new List<GameObject>();
@@ -35,6 +36,9 @@ public class TheCorporate : MonoBehaviour
     private int manaSteal;
 
     //Greedy_Opportunity
+    public GameObject CorporateHand;
+    private int SpawnAt;
+    private GameObject spawnPosition;
 
     private float timer;
     private int loop;
@@ -45,7 +49,10 @@ public class TheCorporate : MonoBehaviour
         NewPos = new Vector2(8.44f, 1.34f);
         speed = 0.8f;
 
-        //timer = 10;
+        //Property_Business();  //(REMOVE // TO TEST THIS ABILITY)
+        //Stock_Shortage();     //(REMOVE // TO TEST THIS ABILITY)
+        //Greedy_Opportunity(); //(REMOVE // TO TEST THIS ABILITY)
+
         CD3 = 1;
         CD2 = 1;
 
@@ -74,12 +81,12 @@ public class TheCorporate : MonoBehaviour
             {
                 for (loop = 0; loop < 1; loop++)
                 {
-                    RandomAbility = Random.Range(0, AbilityNumber+1);//choose one random ability
-                    if (RandomAbility == 1)
+                    RandomAbility = Random.Range(0, 3);//choose one random ability
+                    if (RandomAbility == 0)
                         Property_Business();
-                    else if (RandomAbility == 2)
+                    else if (RandomAbility == 1)
                         Stock_Shortage();
-                    else if (RandomAbility == 3)
+                    else if (RandomAbility == 2)
                         Greedy_Opportunity();
                 }
                 Debug.Log("I used" + Abilities[RandomAbility]);
@@ -101,11 +108,16 @@ public class TheCorporate : MonoBehaviour
         {
             RandomSpot = Random.Range(0, TowerSpots.Count+1);
             activeSpot = TowerSpots[RandomSpot];
-            GameObject sign = Instantiate(CorporateSign);
-            sign.transform.position = activeSpot.transform.position;
-            Destroy(activeSpot);//This permanently removes the slot from the round.
-            
-            CD1 = 2;//Set cooldown
+            if (activeSpot != null)
+            {
+                GameObject sign = Instantiate(CorporateSign);
+                sign.transform.position = activeSpot.transform.position;
+                Destroy(activeSpot);//This permanently removes the slot from the round.
+
+                CD1 = 2;//Set cooldown
+            }
+            else
+                Property_Business();
         }
         else
             loop--;
@@ -135,7 +147,10 @@ public class TheCorporate : MonoBehaviour
     {
         if (CD3 <= 0)//Do this ability
         {
-
+            SpawnAt = Random.Range(0, spawnLocations.Count);
+            spawnPosition = spawnLocations[SpawnAt];
+            GameObject hand = Instantiate(CorporateHand);
+            hand.transform.position = spawnPosition.transform.position * Vector2.right * 3;
 
             CD3 = 2;//set cooldown
         }

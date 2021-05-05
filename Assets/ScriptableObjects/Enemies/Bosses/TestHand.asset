@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 871a5b5d8f76acf4c8580f926ee7d7e2, type: 3}
   m_Name: TestHand
   m_EditorClassIdentifier: 
-  moveSpeed: 0
-  handHealth: 0
-  obstacleTags: 
-  projectileTags: 
-  timeBeforeGreed: 0
+  moveSpeed: 45
+  handHealth: 150
+  obstacleTags: Obstacle
+  projectileTags: Projectile
+  timeBeforeGreed: 4
   quackDamage: 80
