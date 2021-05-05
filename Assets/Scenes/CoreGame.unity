@@ -14469,6 +14469,7 @@ MonoBehaviour:
   PlayedCard: {fileID: 0}
   quackenButton: {fileID: 1670201838}
   Deck: {fileID: 368766258}
+  TheCorporatePrefab: {fileID: 1646560896}
   SpawnerHuman: {fileID: 2145196942}
   SpawnerBeast: {fileID: 1099777749}
   SpawnerBoss: {fileID: 1519029868}
@@ -14540,8 +14541,8 @@ MonoBehaviour:
   - {fileID: 1455730238}
   - {fileID: 1770955119}
   amountOfEnemies: 50
-  delayBetweenSpawnsMin: 6.9
-  delayBetweenSpawnsMax: 9.8
+  delayBetweenSpawnsMin: 10.3
+  delayBetweenSpawnsMax: 13.6
   gameStarted: 0
   strongEnemySpawnWait: 15
   weakEnemyList: {fileID: 11400000, guid: 7fe31d80879a5774d92b7a49914a8cbb, type: 2}
@@ -15736,6 +15737,43 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0edf7ea4669bd6a478afcfcf12e82f6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TowerSpots:
+  - {fileID: 1144365960}
+  - {fileID: 162433757}
+  - {fileID: 1189148885}
+  - {fileID: 883378493}
+  - {fileID: 1344033065}
+  - {fileID: 97887035}
+  - {fileID: 164716455}
+  - {fileID: 1049215300}
+  - {fileID: 929853901}
+  - {fileID: 807711529}
+  - {fileID: 1656059093}
+  - {fileID: 492886032}
+  - {fileID: 1354434992}
+  - {fileID: 1019175919}
+  - {fileID: 870410979}
+  - {fileID: 1168022017}
+  - {fileID: 1097224096}
+  - {fileID: 817280768}
+  - {fileID: 841284247}
+  - {fileID: 1397054369}
+  - {fileID: 1805673292}
+  - {fileID: 686929642}
+  - {fileID: 2099444913}
+  - {fileID: 557068106}
+  - {fileID: 418025761}
+  - {fileID: 79904643}
+  - {fileID: 1120330842}
+  - {fileID: 1097936543}
+  DeactivateTowerSpots:
+  - {fileID: 1792666694}
+  - {fileID: 486590219}
+  - {fileID: 2028297923}
+  - {fileID: 1647161714}
+  IsActive: 0
+  Health: 0
+  CorporateSign: {fileID: 4747197676616993944, guid: 02883c7e53818ce41b04f183980b183c, type: 3}
 --- !u!1 &1647161714
 GameObject:
   m_ObjectHideFlags: 0
@@ -19216,7 +19254,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: b5e7cc8e19cbe654aadf6d0229ccc16f, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 7c5d4275ce86ae1408659e223b1292a7, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.719
   m_Pitch: 1

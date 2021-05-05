@@ -39,6 +39,10 @@ public class ManaSystem : MonoBehaviour
             CurrentMana++;
             time = 0;
         }
+
+        if(CurrentMana < 0)//This ensures that the player cannot go below 0 mana when fighting "The Corporate" boss
+            CurrentMana++;
+
     }
     public void GameStarted()
     {

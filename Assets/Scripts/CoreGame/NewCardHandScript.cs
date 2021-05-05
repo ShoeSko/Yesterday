@@ -11,6 +11,7 @@ public class NewCardHandScript : MonoBehaviour
     public GameObject quackenButton;
     public GameObject Deck;
     private GameObject CurrentCard;
+    public GameObject TheCorporatePrefab;
 
     private int card;
 
@@ -319,6 +320,15 @@ public class NewCardHandScript : MonoBehaviour
         {
             SpawnerBoss.GetComponent<EnemySpawning>().gameStarted = true;
             Boss1.Play();
+            TheCorporatePrefab.GetComponent<TheCorporate>().Activate();
+            TheCorporatePrefab.GetComponent<TheCorporate>().IsActive = true;
+        }
+        else//temporary solution to test boss mechanics
+        {
+            SpawnerBoss.GetComponent<EnemySpawning>().gameStarted = true;
+            Boss1.Play();
+            TheCorporatePrefab.GetComponent<TheCorporate>().Activate();
+            TheCorporatePrefab.GetComponent<TheCorporate>().IsActive = true;
         }
     }
 }
