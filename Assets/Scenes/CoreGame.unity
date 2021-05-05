@@ -15773,6 +15773,7 @@ MonoBehaviour:
   - {fileID: 1647161714}
   IsActive: 0
   Health: 0
+  CorporateSign: {fileID: 4747197676616993944, guid: 02883c7e53818ce41b04f183980b183c, type: 3}
 --- !u!1 &1647161714
 GameObject:
   m_ObjectHideFlags: 0

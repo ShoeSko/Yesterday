@@ -17,7 +17,7 @@ public class TheCorporate : MonoBehaviour
     public bool IsActive;
     private Vector2 NewPos;
     private float speed;
-    public int Health;//boss' health
+    public int Health = 500;//boss' health
 
     //this will keep track of each ability's cooldown
     private int CD1;
@@ -29,6 +29,7 @@ public class TheCorporate : MonoBehaviour
     //Property_Business
     private int RandomSpot;
     private GameObject activeSpot;
+    public GameObject CorporateSign;
 
     //Stock_Shortage
     private int manaSteal;
@@ -59,7 +60,6 @@ public class TheCorporate : MonoBehaviour
             currentTowerSpot = DeactivateTowerSpots[deactivated];
             Destroy(currentTowerSpot);
         }
-        Health = 500;
     }
 
     void Update()
@@ -82,6 +82,7 @@ public class TheCorporate : MonoBehaviour
                     else if (RandomAbility == 3)
                         Greedy_Opportunity();
                 }
+                Debug.Log("I used" + Abilities[RandomAbility]);
                 CD1--;
                 CD2--;
                 CD3--;
@@ -100,10 +101,11 @@ public class TheCorporate : MonoBehaviour
         {
             RandomSpot = Random.Range(0, TowerSpots.Count+1);
             activeSpot = TowerSpots[RandomSpot];
-            //instantiate a sign on the active spot (when we get art of the sign)
+            GameObject sign = Instantiate(CorporateSign);
+            sign.transform.position = activeSpot.transform.position;
             Destroy(activeSpot);//This permanently removes the slot from the round.
-
-            //  CD1 = 2;//Set cooldown
+            
+            CD1 = 2;//Set cooldown
         }
         else
             loop--;
