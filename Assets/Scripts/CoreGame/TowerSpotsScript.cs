@@ -29,7 +29,6 @@ public class TowerSpotsScript : MonoBehaviour
 
         manacost = CardValues.manaValue; //Define manacost
         Unit = CardValues.UnitPrefab;//Define unit 
-        //define more stuff later like 'prefabs', different cards, spells, etc.
 
 
         ManaSystem.CurrentMana -= manacost;

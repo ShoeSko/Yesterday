@@ -14,11 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: Pigster
   image: {fileID: 21300000, guid: 008d611e2bc4758479f2525850001e0f, type: 3}
+  backgroundImage: {fileID: 0}
   manaCost: 3
   effectDescription: He's not very strong but can survive a hit or two
   flavorTxt: His CHONK is enough to scare most intruders
   Prefab: {fileID: 2557954877800294563, guid: f999babf9535eef48abcce9a0b04c469, type: 3}
-  health: 220
+  health: 230
   isShooter: 0
   isPunching: 1
   isSpecial: 0

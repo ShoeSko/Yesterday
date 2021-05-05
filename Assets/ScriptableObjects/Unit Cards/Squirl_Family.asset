@@ -14,11 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: Squirrels
   image: {fileID: 21300000, guid: 355331b44f6469f4eb78bb7d2e9d7a46, type: 3}
+  backgroundImage: {fileID: 0}
   manaCost: 2
   effectDescription: These rodents bite their victims
   flavorTxt: They say their grandfather ended the ice age
   Prefab: {fileID: 2557954877800294563, guid: c6995c491ae7afc47a0630afbd8d7b7f, type: 3}
-  health: 100
+  health: 115
   isShooter: 0
   isPunching: 1
   isSpecial: 0

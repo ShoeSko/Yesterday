@@ -6,7 +6,6 @@ public class DeckView : MonoBehaviour
 {
     public List<GameObject> Cards = new List<GameObject>();
 
-    
     private int CardList;
     private int DeckList;
 
