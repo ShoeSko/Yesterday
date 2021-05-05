@@ -266,7 +266,7 @@ public class UnitPrototypeScript : MonoBehaviour
     IEnumerator PeriodOfBeingDamaged() //This entire thing can do whatever is put in here(Rotation is just a short representation.
     {
         Quaternion orgRot;
-        orgRot = transform.rotation; //Retain the original rotational value
+        orgRot = new Quaternion(0,0,0,0); //Retain the original rotational value
 
         transform.Rotate(0, 0, 10);
         yield return new WaitForSeconds(0.2f);
@@ -293,7 +293,6 @@ public class UnitPrototypeScript : MonoBehaviour
         float currentDamage;
 
         currentDamage = (health / healthSave)*100;
-        print(currentDamage + " is the damage " + gameObject.name + " has taken.");
         animatorOfUnit.SetFloat("DamageTaken",currentDamage);
     }
 
@@ -338,6 +337,7 @@ public class UnitPrototypeScript : MonoBehaviour
     public void HealthBuff(float healthBuff) // Get this to buff allies health with spells
     {
         health = health + (healthSave * healthBuff); //Currently buffs health in comparison to current health %
+        healthSave = healthSave + (healthSave * healthBuff); //Updates what the max health is, potentially remove this. Makes sure that damage visuals are up to date with the new health max in %.
     }
     #endregion
 
