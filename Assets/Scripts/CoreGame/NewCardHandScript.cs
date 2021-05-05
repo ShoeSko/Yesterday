@@ -6,7 +6,7 @@ public class NewCardHandScript : MonoBehaviour
 {
     public bool Smallhand = true;
 
-    public GameObject cowwithgunPrefab;
+    //public GameObject cowwithgunPrefab;
     public GameObject PlayedCard;
     public GameObject quackenButton;
     public GameObject Deck;
@@ -157,8 +157,6 @@ public class NewCardHandScript : MonoBehaviour
         }
 
         ReadMana(); //Quick fix to read the mana value
-
-        //SetCard(); //Sets the large card to be equal to the small one
     }
 
 

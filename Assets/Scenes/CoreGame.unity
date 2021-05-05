@@ -14466,7 +14466,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Smallhand: 1
-  cowwithgunPrefab: {fileID: 2557954877800294563, guid: 19fdaec487ab265478dee2e3b84fbde0, type: 3}
   PlayedCard: {fileID: 0}
   quackenButton: {fileID: 1670201838}
   Deck: {fileID: 368766258}
@@ -14540,13 +14539,13 @@ MonoBehaviour:
   - {fileID: 123061240}
   - {fileID: 1455730238}
   - {fileID: 1770955119}
-  amountOfEnemies: 21
-  delayBetweenSpawnsMin: 6
-  delayBetweenSpawnsMax: 9
+  amountOfEnemies: 50
+  delayBetweenSpawnsMin: 6.9
+  delayBetweenSpawnsMax: 9.8
   gameStarted: 0
-  strongEnemySpawnWait: 8
+  strongEnemySpawnWait: 15
   weakEnemyList: {fileID: 11400000, guid: 7fe31d80879a5774d92b7a49914a8cbb, type: 2}
-  strongEnemyList: {fileID: 11400000, guid: 9e8a4a283699219438b1d58598753059, type: 2}
+  strongEnemyList: {fileID: 11400000, guid: 0199ba676b28820428294e8bc8fc9191, type: 2}
   tokenLocationList:
   - {fileID: 1533484198}
   - {fileID: 1072808233}
@@ -14558,9 +14557,9 @@ MonoBehaviour:
   - {fileID: 21300000, guid: ce5f66af396f93549a856d7d2e878212, type: 3}
   - {fileID: 21300000, guid: 9db30b3c25138c64cae363b40c593b43, type: 3}
   spriteTokenStrongList:
-  - {fileID: 21300000, guid: df528de26eeed29489d5b43872d32031, type: 3}
-  - {fileID: 21300000, guid: 800a24a78e13a41479d8462a28ec9562, type: 3}
-  - {fileID: 21300000, guid: a4d422100e11c3b44899a1e33a3f70d8, type: 3}
+  - {fileID: 21300000, guid: 5bfb3aef426ad2c42813e0beffecff6d, type: 3}
+  - {fileID: 21300000, guid: 8d12977aa92127b4db8734d2e9387237, type: 3}
+  - {fileID: 21300000, guid: 753ba16d9789a664cb0dbd99e98ad0a0, type: 3}
 --- !u!4 &1519029870
 Transform:
   m_ObjectHideFlags: 0
@@ -15630,6 +15629,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1646560898}
   - component: {fileID: 1646560897}
+  - component: {fileID: 1646560899}
+  - component: {fileID: 1646560900}
   m_Layer: 0
   m_Name: The Corporate Placeholder
   m_TagString: Untagged
@@ -15702,6 +15703,39 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &1646560899
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1646560896}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!114 &1646560900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1646560896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0edf7ea4669bd6a478afcfcf12e82f6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1647161714
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,7 +5,7 @@ using UnityEngine;
 public class QuackMovement : MonoBehaviour
 {
     private Rigidbody2D rg;
-    private float moveSpeed = 1800;
+    private float moveSpeed = 1600;
 
     private void Start()
     {
