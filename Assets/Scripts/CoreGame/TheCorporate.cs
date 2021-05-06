@@ -5,20 +5,20 @@ using UnityEngine;
 public class TheCorporate : MonoBehaviour
 {
     private List<string> Abilities = new List<string>();
-    public List<GameObject> spawnLocations = new List<GameObject>();
+    public List<GameObject> CorporateHands = new List<GameObject>();
 
     public List<GameObject> TowerSpots = new List<GameObject>();
     public List<GameObject> DeactivateTowerSpots = new List<GameObject>();
 
-    private int AbilityNumber;
     private GameObject currentTowerSpot;
+    public GameObject WinCondition;
 
     //setup
     private Rigidbody2D rb;
     public bool IsActive;
     private Vector2 NewPos;
     private float speed;
-    public int Health = 500;//boss' health
+    public int Health = 4;//boss' health
 
     //this will keep track of each ability's cooldown
     private int CD1;
@@ -36,22 +36,27 @@ public class TheCorporate : MonoBehaviour
     private int manaSteal;
 
     //Greedy_Opportunity
-    public GameObject CorporateHand;
-    private int SpawnAt;
-    private GameObject spawnPosition;
+    private int RandomHand;
+    private GameObject CurrentHand;
 
     private float timer;
     private int loop;
+
+    private void Start()
+    {
+        Health = 4;
+
+        CorporateHands[0].GetComponent<GreedyOpportunity>().obstacleInTheWay = true;
+        CorporateHands[1].GetComponent<GreedyOpportunity>().obstacleInTheWay = true;
+        CorporateHands[2].GetComponent<GreedyOpportunity>().obstacleInTheWay = true;
+        CorporateHands[3].GetComponent<GreedyOpportunity>().obstacleInTheWay = true;
+    }
 
     public void Activate()//Do this at the start
     {
         rb = GetComponent<Rigidbody2D>();
         NewPos = new Vector2(8.44f, 1.34f);
         speed = 0.8f;
-
-        //Property_Business();  //(REMOVE // TO TEST THIS ABILITY)
-        //Stock_Shortage();     //(REMOVE // TO TEST THIS ABILITY)
-        //Greedy_Opportunity(); //(REMOVE // TO TEST THIS ABILITY)
 
         CD3 = 1;
         CD2 = 1;
@@ -60,7 +65,9 @@ public class TheCorporate : MonoBehaviour
         Abilities.Add("Stock_Shortage");
         Abilities.Add("Greedy_Opportunity");
 
-        AbilityNumber = Abilities.Count;
+        //Property_Business();  //(REMOVE // TO TEST THIS ABILITY)
+        //Stock_Shortage();     //(REMOVE // TO TEST THIS ABILITY)
+        //Greedy_Opportunity(); //(REMOVE // TO TEST THIS ABILITY)
 
         for (int deactivated = 0; deactivated < DeactivateTowerSpots.Count; deactivated++)//make space for the boss by destroying the last row
         {
@@ -96,6 +103,11 @@ public class TheCorporate : MonoBehaviour
                 timer = 0;
             }
         }
+
+        if(Health == 0)
+        {
+            Destroy(gameObject);
+        }
     }
 
 
@@ -114,7 +126,7 @@ public class TheCorporate : MonoBehaviour
                 sign.transform.position = activeSpot.transform.position;
                 Destroy(activeSpot);//This permanently removes the slot from the round.
 
-                CD1 = 2;//Set cooldown
+                CD1 = 1;//Set cooldown
             }
             else
                 Property_Business();
@@ -142,19 +154,30 @@ public class TheCorporate : MonoBehaviour
     /* The Corporate's greed is immeasurable as he will take any opportunity he sees.The Corporate will sometimes try to take one of your units to sell it. 
      * He will reach out his hand on one of the lanes to try to take a unit from that lane. While he reaches out, his hand will be vulrnurable. 
      * If the hand takes a total of 150 damage it will go back. All damage done to the hand is also dealt to The Corporate. 
-     * If the hand reaches a unit, it will start taking it. After 5 seconds if the hand still persists, the hand will snatch that unit, destroying it. 
+     * If the hand reaches a unit, it will start taking it. After 4 seconds if the hand still persists, the hand will snatch that unit, destroying it. 
      * It will then become invincible and go back into hiding. */
     {
         if (CD3 <= 0)//Do this ability
         {
-            SpawnAt = Random.Range(0, spawnLocations.Count);
-            spawnPosition = spawnLocations[SpawnAt];
-            GameObject hand = Instantiate(CorporateHand);
-            hand.transform.position = spawnPosition.transform.position;
+            for(int loop = 0; loop < 1; loop++)
+            {
+                RandomHand = Random.Range(0, 4);
+                CurrentHand = CorporateHands[RandomHand];
+
+                if (CurrentHand != null)
+                    CurrentHand.GetComponent<GreedyOpportunity>().obstacleInTheWay = false;
+                else
+                    loop--;
+            }
 
             CD3 = 2;//set cooldown
         }
         else
             loop--;
+    }
+
+    private void OnDestroy()
+    {
+        WinCondition.GetComponent<Victory>().Win();
     }
 }

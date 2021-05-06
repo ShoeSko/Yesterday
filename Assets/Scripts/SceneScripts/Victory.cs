@@ -26,7 +26,7 @@ public class Victory : MonoBehaviour
         }
     }
 
-    private void Win()
+    public void Win()
     {
         print("Victory");
         s_youWon = false;

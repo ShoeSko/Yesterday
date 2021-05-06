@@ -24,6 +24,7 @@ public class GreedyOpportunity : MonoBehaviour
     private Rigidbody2D rg2D;
     private float knockbackPower = 0; //If the hand could be knocked back, then it would be useless.
     private int quackDamage; //Make this changable?
+    public GameObject CorporateBoss;
 
     [Header("Spell card effects")]
     private float moveSpeedSave;
@@ -212,7 +213,7 @@ public class GreedyOpportunity : MonoBehaviour
     }
     private void OnDestroy() //On death function ready to be used!
     {
-        //Insert damage message to Corporate I assume.
+        CorporateBoss.GetComponent<TheCorporate>().Health--;
     }
 
     #endregion
