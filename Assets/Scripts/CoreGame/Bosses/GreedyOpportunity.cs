@@ -20,7 +20,8 @@ public class GreedyOpportunity : MonoBehaviour
     private bool canGreedStrike;
     private bool isRetreating;
 
-    [HideInInspector] public bool obstacleInTheWay;//Is there a unit blocking the path?
+    [HideInInspector] public bool obstacleInTheWay = true;//Is there a unit blocking the path?
+    private bool isUnitInFront;
     private Rigidbody2D rg2D;
     private float knockbackPower = 0; //If the hand could be knocked back, then it would be useless.
     private int quackDamage; //Make this changable?
@@ -69,6 +70,7 @@ public class GreedyOpportunity : MonoBehaviour
         {
             rg2D.velocity = new Vector2(-moveSpeed * Time.deltaTime, 0); //Move to the right timed with deltatime for now, have to check build if change has to be done.
             gameObject.GetComponent<Collider2D>().enabled = true; //Makes sure the collider is on for fight
+            print("1");
             timerForGreed = timeBeforeGreed; //Resets the greed Timer when moving forward.
         }
         else if(isRetreating) //Turns invinsible after killing. Returns home.
@@ -88,6 +90,7 @@ public class GreedyOpportunity : MonoBehaviour
     {
         if (other.collider.CompareTag(obstacleTags)) //Is there an obstacle blocking your path.
         {
+            isUnitInFront = true;
             obstacleInTheWay = true;
         }
         if (other.collider.CompareTag("InstaKill"))
@@ -106,6 +109,7 @@ public class GreedyOpportunity : MonoBehaviour
     {
         if (other.collider.CompareTag(obstacleTags))
         {
+            isUnitInFront = false;
             obstacleInTheWay = false;
         }
     }
@@ -123,19 +127,20 @@ public class GreedyOpportunity : MonoBehaviour
     #region Greed
     private void GreedStrikes()
     {
-        if (obstacleInTheWay)
+        if (obstacleInTheWay && isUnitInFront)
         {
             timerForGreed = timerForGreed- Time.deltaTime;
             //print(timerForGreed + (" is this now"));
         }
 
-        if(timerForGreed <= 0)
+        if(timerForGreed <= 0 && isUnitInFront)
         {
             canGreedStrike = true;
 
             Collider2D collisionPiece = GetComponent<Collider2D>();
             collisionPiece.enabled = false;
             collisionPiece.enabled = true;
+            print("2");
         }
     }
     #endregion
