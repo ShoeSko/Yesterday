@@ -35,7 +35,7 @@ public class GreedyOpportunity : MonoBehaviour
     private Animator animatorOfHand; //The Animator for the enemies change in apperance during damaged periods.
     private float healthSave; //A place to store the original health pool.
     #endregion
-
+    #region Standard Voids
     private void Start()
     {
         HandInforFeed(); //Updates all stats
@@ -48,10 +48,6 @@ public class GreedyOpportunity : MonoBehaviour
     {
         EnemyDeath();//Death comes for us all.
         CurrentDamageTaken(); //Calculates damage taken, activates the appropriate animation.
-        if (!obstacleInTheWay)
-        {
-            timerForGreed = timeBeforeGreed;
-        }
     }
     private void FixedUpdate()
     {
@@ -64,12 +60,16 @@ public class GreedyOpportunity : MonoBehaviour
             if (!isBeingPreventedFromDoingAnything) { MovingEnemy(); } //Currently both moving & attacking
         }
     }
+    #endregion
     #region Movement
     void MovingEnemy()
     {
         if (!obstacleInTheWay && !isRetreating)//If there are no obstacles the enemy will start moving
         {
             rg2D.velocity = new Vector2(-moveSpeed * Time.deltaTime, 0); //Move to the right timed with deltatime for now, have to check build if change has to be done.
+
+            timerForGreed = timeBeforeGreed; //Resets the greed Timer when moving forward.
+            //print("Time left is " + timerForGreed);
         }
         else if(!obstacleInTheWay && isRetreating) //Turns invinsible after killing. Returns home.
         {
@@ -110,7 +110,7 @@ public class GreedyOpportunity : MonoBehaviour
         if (obstacleInTheWay)
         {
             timerForGreed = timerForGreed- Time.deltaTime;
-            print(timerForGreed + (" is this now"));
+            //print(timerForGreed + (" is this now"));
         }
 
         if(timerForGreed <= 0)

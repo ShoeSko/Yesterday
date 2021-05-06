@@ -39,7 +39,7 @@ public class BasicEnemyMovement : MonoBehaviour
     private Animator animatorOfEnemies; //The Animator for the enemies change in apperance during damaged periods.
     private float healthSave; //A place to store the original health pool.
     #endregion
-
+    #region Standard Voids
     private void Start()
     {
         EnemyInfoFeed();
@@ -64,7 +64,7 @@ public class BasicEnemyMovement : MonoBehaviour
             if (!isBeingPreventedFromDoingAnything) { MovingEnemy(); } //Currently both moving & attacking
         }
     }
-
+    #endregion
     #region Movement
     void MovingEnemy()
     {

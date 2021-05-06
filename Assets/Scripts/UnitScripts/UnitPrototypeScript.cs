@@ -73,7 +73,7 @@ public class UnitPrototypeScript : MonoBehaviour
     private Animator animatorOfUnit;
 
     #endregion
-
+    #region Standard Voids
     private void Start()
     {
         UnitInfoFeed(); //All info of the Unit is recorded here.
@@ -99,7 +99,7 @@ public class UnitPrototypeScript : MonoBehaviour
         Death();
         }
     }
-
+    #endregion
     #region Shooting
     private void ShootProjectile()
     {
@@ -161,12 +161,12 @@ public class UnitPrototypeScript : MonoBehaviour
                         if (enemiesToDamage[i].GetComponent<BasicEnemyMovement>())
                         {
                         enemiesToDamage[i].GetComponent<BasicEnemyMovement>().TakeDamage(punchDamage, hasKnockback, knockbackPower); //Sent attackDamage to Unit
-                        print("Punch");
+                        //print("Punch");
                         }
                         else if (enemiesToDamage[i].GetComponent<GreedyOpportunity>())
                         {
                             enemiesToDamage[i].GetComponent<GreedyOpportunity>().TakeDamage(punchDamage, hasKnockback, knockbackPower); //Sent attackDamage to Unit
-                            print("Punch");
+                            //print("Punch");
                         }
                     }
                 }
@@ -275,7 +275,7 @@ public class UnitPrototypeScript : MonoBehaviour
     public void TakeDamage(int damage)
     {
         health -= damage;
-        print("Unit health is " + health);
+        //print("Unit health is " + health);
         StartCoroutine(PeriodOfBeingDamaged());
     }
 
