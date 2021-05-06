@@ -158,8 +158,16 @@ public class UnitPrototypeScript : MonoBehaviour
                     if (enemiesToDamage[i])
                     {
                         hasPunched = true;
+                        if (enemiesToDamage[i].GetComponent<BasicEnemyMovement>())
+                        {
                         enemiesToDamage[i].GetComponent<BasicEnemyMovement>().TakeDamage(punchDamage, hasKnockback, knockbackPower); //Sent attackDamage to Unit
                         print("Punch");
+                        }
+                        else if (enemiesToDamage[i].GetComponent<GreedyOpportunity>())
+                        {
+                            enemiesToDamage[i].GetComponent<GreedyOpportunity>().TakeDamage(punchDamage, hasKnockback, knockbackPower); //Sent attackDamage to Unit
+                            print("Punch");
+                        }
                     }
                 }
             }
@@ -175,7 +183,15 @@ public class UnitPrototypeScript : MonoBehaviour
                     if (enemiesToDamage[i])
                     {
                         hasPunched = true;
+                        if (enemiesToDamage[i].GetComponent<BasicEnemyMovement>())
+                        {
                         enemiesToDamage[i].GetComponent<BasicEnemyMovement>().TakeDamage(punchDamage, hasKnockback,knockbackPower); //Sent attackDamage to Unit
+                        }
+                        else if (enemiesToDamage[i].GetComponent<GreedyOpportunity>())
+                        {
+                            enemiesToDamage[i].GetComponent<GreedyOpportunity>().TakeDamage(punchDamage, hasKnockback, knockbackPower); //Sent attackDamage to Unit
+
+                        }
                     }
                 }
             }

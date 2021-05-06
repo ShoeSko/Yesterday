@@ -147,12 +147,12 @@ public class GreedyOpportunity : MonoBehaviour
         print(handHealth);
         if (!isKnockback)
         {
-            StartCoroutine(PeriodOfBeingDamaged());
+            //StartCoroutine(PeriodOfBeingDamaged());
         }
         else if (isKnockback)
         {
             knockbackPower = knockbackStrenght;
-            StartCoroutine(PeriodOfBeingDamagedWithKnockback());
+            //StartCoroutine(PeriodOfBeingDamagedWithKnockback());
         }
     }
     IEnumerator PeriodOfBeingDamaged() //This entire thing can do whatever is put in here(Rotation is just a short representation.
