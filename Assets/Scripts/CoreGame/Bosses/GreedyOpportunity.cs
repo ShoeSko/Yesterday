@@ -131,7 +131,7 @@ public class GreedyOpportunity : MonoBehaviour
             ProjectileScript projectileScript = other.gameObject.GetComponent<ProjectileScript>();
             handHealth = handHealth - projectileScript.projectileDamage;//Reads damage from the projectile script(Which reads it from their parent)
             projectileScript.numberOfMaxTargets--;
-            StartCoroutine(PeriodOfBeingDamaged());
+            //StartCoroutine(PeriodOfBeingDamaged());
         }
 
         if (other.gameObject.tag == "Quack")

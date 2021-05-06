@@ -60,9 +60,17 @@ public class SpellCardsScript : MonoBehaviour
             GameObject[] EnemiesToSlow = GameObject.FindGameObjectsWithTag("Enemy");
             for (int i = 0; i < EnemiesToSlow.Length; i++)
             {
-                BasicEnemyMovement Enemy = EnemiesToSlow[i].GetComponent<BasicEnemyMovement>();
-                Enemy.Slow(slowDebuffStrength, debuffTime); // This will be changed, tag. find ?
+                BasicEnemyMovement enemy = EnemiesToSlow[i].GetComponent<BasicEnemyMovement>();
+                GreedyOpportunity handEnemy = EnemiesToSlow[i].GetComponent<GreedyOpportunity>();
+                if (EnemiesToSlow[i] == enemy)
+                {
+                enemy.Slow(slowDebuffStrength, debuffTime); // This will be changed, tag. find ?
                 print("Slowed");
+                }
+                else if (EnemiesToSlow[i] == handEnemy)
+                {
+                    handEnemy.Slow(slowDebuffStrength, debuffTime);
+                }
                 hasCastSpell = true;
             }
             TerminateSpellExistance();
@@ -74,26 +82,55 @@ public class SpellCardsScript : MonoBehaviour
             hasCastSpell = true;
             if (enemiesToEnchant[0])
             {
-                BasicEnemyMovement Enemy = enemiesToEnchant[0].GetComponent<BasicEnemyMovement>();
+                BasicEnemyMovement enemy = enemiesToEnchant[0].GetComponent<BasicEnemyMovement>();
+                GreedyOpportunity handEnemy = enemiesToEnchant[0].GetComponent<GreedyOpportunity>();
                 if (canStun)
                 {
-                    Enemy.Stun(debuffTime);
+                    if(enemiesToEnchant[0] == enemy)
+                    {
+                    enemy.Stun(debuffTime);
                     print("Stunned");
+                    }
+                    else if (enemiesToEnchant[0] == handEnemy)
+                    {
+                        handEnemy.Stun(debuffTime);
+                    }
                 }
                 else if (canPacify)
                 {
-                    Enemy.Pacify(debuffTime);
+                    if (enemiesToEnchant[0] == enemy)
+                    {
+                    enemy.Pacify(debuffTime);
                     print("Disarmed");
+                    }
+                    else if (enemiesToEnchant[0] == handEnemy)
+                    {
+                        handEnemy.Pacify(debuffTime);
+                    }
                 }
                 else if (canRoot)
                 {
-                    Enemy.Root(debuffTime);
+                    if (enemiesToEnchant[0] == enemy)
+                    {
+                    enemy.Root(debuffTime);
                     print("Rooted");
+                    }
+                    else if (enemiesToEnchant[0] == handEnemy)
+                    {
+                        handEnemy.Root(debuffTime);
+                    }
                 }
                 else if (canHarm)
                 {
-                    Enemy.Harm(harmStrength);
+                    if (enemiesToEnchant[0] == enemy)
+                    {
+                    enemy.Harm(harmStrength);
                     print("Harmed");
+                    }
+                    else if (enemiesToEnchant[0] == handEnemy)
+                    {
+                        handEnemy.Harm(harmStrength);
+                    }
                 }
                 TerminateSpellExistance();
             }
