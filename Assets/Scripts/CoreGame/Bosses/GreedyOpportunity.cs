@@ -70,7 +70,6 @@ public class GreedyOpportunity : MonoBehaviour
         {
             rg2D.velocity = new Vector2(-moveSpeed * Time.deltaTime, 0); //Move to the right timed with deltatime for now, have to check build if change has to be done.
             gameObject.GetComponent<Collider2D>().enabled = true; //Makes sure the collider is on for fight
-            print("1");
             timerForGreed = timeBeforeGreed; //Resets the greed Timer when moving forward.
         }
         else if(isRetreating) //Turns invinsible after killing. Returns home.
@@ -140,7 +139,6 @@ public class GreedyOpportunity : MonoBehaviour
             Collider2D collisionPiece = GetComponent<Collider2D>();
             collisionPiece.enabled = false;
             collisionPiece.enabled = true;
-            print("2");
         }
     }
     #endregion
@@ -165,7 +163,6 @@ public class GreedyOpportunity : MonoBehaviour
     public void TakeDamage(int damage, bool isKnockback, float knockbackStrenght)
     {
         handHealth -= damage;
-        print(handHealth);
         if (!isKnockback)
         {
             //StartCoroutine(PeriodOfBeingDamaged());

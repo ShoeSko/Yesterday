@@ -276,7 +276,7 @@ public class UnitPrototypeScript : MonoBehaviour
     public void TakeDamage(int damage)
     {
         health -= damage;
-        print("Unit health is " + health);
+        //print("Unit health is " + health);
         if (health > 0)
         {
             StartCoroutine(PeriodOfBeingDamaged());
@@ -313,7 +313,6 @@ public class UnitPrototypeScript : MonoBehaviour
             transform.GetChild(0).gameObject.GetComponent<Button>().enabled = true;
 
             transform.GetChild(0).gameObject.transform.SetParent(transform.parent, true);
-            print("Did my deed");
         }
     }
 
