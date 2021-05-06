@@ -20,7 +20,7 @@ public class GreedyOpportunity : MonoBehaviour
     private bool canGreedStrike;
     private bool isRetreating;
 
-    private bool obstacleInTheWay;//Is there a unit blocking the path?
+    [HideInInspector] public bool obstacleInTheWay;//Is there a unit blocking the path?
     private Rigidbody2D rg2D;
     private float knockbackPower = 0; //If the hand could be knocked back, then it would be useless.
     private int quackDamage; //Make this changable?
@@ -67,16 +67,20 @@ public class GreedyOpportunity : MonoBehaviour
         if (!obstacleInTheWay && !isRetreating)//If there are no obstacles the enemy will start moving
         {
             rg2D.velocity = new Vector2(-moveSpeed * Time.deltaTime, 0); //Move to the right timed with deltatime for now, have to check build if change has to be done.
-
+            gameObject.GetComponent<Collider2D>().enabled = true; //Makes sure the collider is on for fight
             timerForGreed = timeBeforeGreed; //Resets the greed Timer when moving forward.
-            //print("Time left is " + timerForGreed);
         }
-        else if(!obstacleInTheWay && isRetreating) //Turns invinsible after killing. Returns home.
+        else if(isRetreating) //Turns invinsible after killing. Returns home.
         {
-            rg2D.velocity = new Vector2(moveSpeed * Time.deltaTime, 0);
+            rg2D.velocity = new Vector2(moveSpeed * Time.deltaTime, 0); //Move to the left
             gameObject.GetComponent<Collider2D>().enabled = false;
         }
         else { if (!isBeingPreventedFromAttacking) { GreedStrikes(); } } //If you have someone blocking your path, kill them.
+
+        if (obstacleInTheWay)
+        {
+            rg2D.velocity = new Vector2(0, 0); //Stops movement
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D other) //Stops movement upon reaching a blockade
@@ -92,8 +96,7 @@ public class GreedyOpportunity : MonoBehaviour
         }
         if (canGreedStrike && other.collider.CompareTag(obstacleTags))
         {
-            //Destroy(other.gameObject);
-            other.gameObject.GetComponent<UnitPrototypeScript>().TakeDamage(99999999); //Should prevent issue of hand removing nodes from the game.
+            Destroy(other.gameObject); // Destroys enemy object.
 
             isRetreating = true;
         }
@@ -105,6 +108,16 @@ public class GreedyOpportunity : MonoBehaviour
             obstacleInTheWay = false;
         }
     }
+
+    private void OnBecameInvisible() // When the hand leave the camera after retreating, do this
+    {
+        if (isRetreating) //Is it retreating?
+        {
+            obstacleInTheWay = true; //In a way being blocked, Will not move anymore until this is changed.
+            isRetreating = false; // No longer retreating
+        }
+    }
+
     #endregion
     #region Greed
     private void GreedStrikes()
@@ -186,7 +199,6 @@ public class GreedyOpportunity : MonoBehaviour
     {
         if (handHealth <= 0)
         {
-            //Insert message to boss? Or have all damage be sent to boss.
             Destroy(gameObject);
         }
     }
@@ -198,12 +210,9 @@ public class GreedyOpportunity : MonoBehaviour
         currentDamage = (handHealth / healthSave) * 100;
         animatorOfHand.SetFloat("DamageTaken", currentDamage);
     }
-    private void OnBecameInvisible() //To remove the hand after it has retreated.
+    private void OnDestroy() //On death function ready to be used!
     {
-        if (canGreedStrike)
-        {
-            Destroy(gameObject);
-        }
+        //Insert damage message to Corporate I assume.
     }
 
     #endregion

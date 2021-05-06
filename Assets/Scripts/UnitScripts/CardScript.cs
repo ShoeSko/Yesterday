@@ -47,7 +47,4 @@ public class CardScript : ScriptableObject
     [Tooltip("How much bigger will the unit be?")] public Vector3 sizeBuff;
     [Tooltip("How much the health should be buffed")] public float healthBuff;
     [Tooltip("How much the damage should be buffed")] public float damageBuff;
-
-    [Header("Test options, must be off to work normaly")]
-    public bool isNotInCorrectSceneTest; //Will be removed
 }

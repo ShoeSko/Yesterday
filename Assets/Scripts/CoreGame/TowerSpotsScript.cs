@@ -50,6 +50,7 @@ public class TowerSpotsScript : MonoBehaviour
         if (transform.parent == positionResetTransform)
         {
             transform.SetParent(towerSpots.transform, true);
+            print("I run");
         }
     }
 }
