@@ -80,6 +80,7 @@ public class BasicEnemyMovement : MonoBehaviour
         if (other.collider.CompareTag(obstacleTags)) //Is there an obstacle blocking your path.
         {
             obstacleInTheWay = true;
+            rg2D.velocity = new Vector2(0, 0); //Stops movement
         }
         if (other.collider.CompareTag("InstaKill"))
         {

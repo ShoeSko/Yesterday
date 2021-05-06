@@ -2,13 +2,14 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UnitPrototypeScript : MonoBehaviour
 {
     #region Variables
     public CardScript Unit; //Scriptableobject template for all Units.
     [Header("Unit Controls")]
-    [Range(0, 100)] private float health;
+    [Range(0, 100)] [HideInInspector] public float health;
 
     [Header("Unit Attack")]
     [Tooltip("Is this unit going to shoot?")] private bool isShooter;
@@ -275,8 +276,11 @@ public class UnitPrototypeScript : MonoBehaviour
     public void TakeDamage(int damage)
     {
         health -= damage;
-        //print("Unit health is " + health);
-        StartCoroutine(PeriodOfBeingDamaged());
+        print("Unit health is " + health);
+        if (health > 0)
+        {
+            StartCoroutine(PeriodOfBeingDamaged());
+        }
     }
 
     IEnumerator PeriodOfBeingDamaged() //This entire thing can do whatever is put in here(Rotation is just a short representation.
@@ -292,15 +296,24 @@ public class UnitPrototypeScript : MonoBehaviour
 
     private void Death()
     {
-        if(health <= 0 && !Unit.isNotInCorrectSceneTest) 
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+            print("Im die, thank you forever!");
+        }
+    }
+    private void OnDestroy()
+    {
+        if (EnemySpawning.s_isCoreGame)
         {
             transform.GetChild(0).gameObject.SetActive(true);
+
+            transform.GetChild(0).gameObject.GetComponent<TowerSpotsScript>().enabled = true;
+            transform.GetChild(0).gameObject.GetComponent<Image>().enabled = true;
+            transform.GetChild(0).gameObject.GetComponent<Button>().enabled = true;
+
             transform.GetChild(0).gameObject.transform.SetParent(transform.parent, true);
-            Destroy(gameObject);
-        }
-        else if (health <= 0)
-        {
-            Destroy(gameObject);
+            print("Did my deed");
         }
     }
 
