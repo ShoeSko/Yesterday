@@ -150,7 +150,7 @@ public class TheCorporate : MonoBehaviour
             SpawnAt = Random.Range(0, spawnLocations.Count);
             spawnPosition = spawnLocations[SpawnAt];
             GameObject hand = Instantiate(CorporateHand);
-            hand.transform.position = spawnPosition.transform.position * Vector2.right * 3;
+            hand.transform.position = spawnPosition.transform.position;
 
             CD3 = 2;//set cooldown
         }
