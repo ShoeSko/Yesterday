@@ -92,7 +92,9 @@ public class GreedyOpportunity : MonoBehaviour
         }
         if (canGreedStrike && other.collider.CompareTag(obstacleTags))
         {
-            Destroy(other.gameObject);
+            //Destroy(other.gameObject);
+            other.gameObject.GetComponent<UnitPrototypeScript>().TakeDamage(99999999); //Should prevent issue of hand removing nodes from the game.
+
             isRetreating = true;
         }
     }
