@@ -98,7 +98,7 @@ public class NewCardHandScript : MonoBehaviour
     IEnumerator CardAnimationOn(GameObject animCard, int nr) //Initiates the card draw animation
     {
         animCard.GetComponent<Animator>().SetBool("CardUsed " + nr, true); //Turns on the bool that releases the animation
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(0.5f);
         animCard.GetComponent<Animator>().SetBool("CardUsed " + nr, false); //Turns of the bool after 1 second to prevent a loop of animation
     }
 

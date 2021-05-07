@@ -42,6 +42,9 @@ public class TheCorporate : MonoBehaviour
     private float timer;
     private int loop;
 
+    //Death confirmation
+    private bool isDead;
+
     private void Start()
     {
         Health = 4;
@@ -106,6 +109,7 @@ public class TheCorporate : MonoBehaviour
 
         if(Health == 0)
         {
+            isDead = true;
             Destroy(gameObject);
         }
     }
@@ -180,6 +184,9 @@ public class TheCorporate : MonoBehaviour
 
     private void OnDestroy()
     {
-        WinCondition.GetComponent<Victory>().Win();
+        if (isDead) //A condition to prevent issues when simply unloading the scene, as it would then cause victory condition.
+        {
+            WinCondition.GetComponent<Victory>().Win();
+        }
     }
 }

@@ -63,6 +63,8 @@ public class UnitPrototypeScript : MonoBehaviour
     private Vector3 originForAllyAim; //Where does the unit aim from?
     private Vector3 directionForAllyAim; //In which direction does the unit aim?
 
+    private bool isDead;
+
     [Header("Spell effects")]
     private int shootDamageSave; // Saves the shoot Damage
     private float shootSpeedSave; // Saves the shoot speed
@@ -299,6 +301,7 @@ public class UnitPrototypeScript : MonoBehaviour
         if (health <= 0)
         {
             Destroy(gameObject);
+            isDead = true;
             print("Im die, thank you forever!");
         }
     }
@@ -306,13 +309,17 @@ public class UnitPrototypeScript : MonoBehaviour
     {
         if (EnemySpawning.s_isCoreGame)
         {
-            transform.GetChild(0).gameObject.SetActive(true);
+            if (transform.parent && isDead)
+            {
+                transform.GetChild(0).gameObject.SetActive(true);
 
-            transform.GetChild(0).gameObject.GetComponent<TowerSpotsScript>().enabled = true;
-            transform.GetChild(0).gameObject.GetComponent<Image>().enabled = true;
-            transform.GetChild(0).gameObject.GetComponent<Button>().enabled = true;
+                transform.GetChild(0).gameObject.GetComponent<TowerSpotsScript>().enabled = true;
+                transform.GetChild(0).gameObject.GetComponent<Image>().enabled = true;
+                transform.GetChild(0).gameObject.GetComponent<Button>().enabled = true;
 
-            transform.GetChild(0).gameObject.transform.SetParent(transform.parent, true);
+                transform.GetChild(0).gameObject.transform.SetParent(transform.parent, true);
+
+            }
         }
     }
 

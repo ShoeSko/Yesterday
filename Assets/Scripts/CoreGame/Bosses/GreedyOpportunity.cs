@@ -36,6 +36,7 @@ public class GreedyOpportunity : MonoBehaviour
     [Header("Harm Effect Variables")]
     private Animator animatorOfHand; //The Animator for the enemies change in apperance during damaged periods.
     private float healthSave; //A place to store the original health pool.
+    private bool isDead;
     #endregion
     #region Standard Voids
     private void Start()
@@ -202,6 +203,7 @@ public class GreedyOpportunity : MonoBehaviour
     {
         if (handHealth <= 0)
         {
+            isDead = true;
             Destroy(gameObject);
         }
     }
@@ -215,7 +217,10 @@ public class GreedyOpportunity : MonoBehaviour
     }
     private void OnDestroy() //On death function ready to be used!
     {
+        if (isDead) //A condition to preven scene loading to cause errors.
+        {
         CorporateBoss.GetComponent<TheCorporate>().Health--;
+        }
     }
 
     #endregion

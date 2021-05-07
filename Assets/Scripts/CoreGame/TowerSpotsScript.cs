@@ -47,10 +47,11 @@ public class TowerSpotsScript : MonoBehaviour
 
     private void Update()
     {
-        if (transform.parent == positionResetTransform)
+        if (transform.parent == positionResetTransform && towerSpots)
         {
+            //print("Found " + towerSpots + " it was not this");
             transform.SetParent(towerSpots.transform, true);
-            print("I run");
+            //print("I run");
         }
     }
 }

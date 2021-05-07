@@ -177,7 +177,7 @@ public class BasicEnemyMovement : MonoBehaviour
     IEnumerator PeriodOfBeingDamaged() //This entire thing can do whatever is put in here(Rotation is just a short representation.
     {
         Quaternion orgRot;
-        orgRot = transform.rotation; //Retain the original rotational value
+        orgRot = new Quaternion(0, 0, 0, 0); //Retain the original rotational value
 
         transform.Rotate(0, 0, -10);//Tilts the figure on hit,,, to note Will change their attack area.
         yield return new WaitForSeconds(0.2f);
