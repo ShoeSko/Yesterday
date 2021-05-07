@@ -100,6 +100,7 @@ public class GreedyOpportunity : MonoBehaviour
         }
         if (canGreedStrike && other.collider.CompareTag(obstacleTags))
         {
+            other.gameObject.GetComponent<UnitPrototypeScript>().HandDeath(); //Tells the unit it was killed, not just removed by scene.
             Destroy(other.gameObject); // Destroys enemy object.
 
             isRetreating = true;
