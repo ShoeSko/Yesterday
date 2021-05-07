@@ -279,7 +279,7 @@ public class NewCardHandScript : MonoBehaviour
         {
             TowerSpots.SetActive(true);
             PlayedCard = card5;
-            cardNr = 0;
+            cardNr = 5;
         }
     }
 
