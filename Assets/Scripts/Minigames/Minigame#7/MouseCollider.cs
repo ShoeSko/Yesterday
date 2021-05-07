@@ -62,7 +62,7 @@ public class MouseCollider : MonoBehaviour
 
             if (gamoverTimer >= 5)//change scenes after 5 sec
             {
-                if (ScoreTimer > 25)//skip card reward
+                if (ScoreTimer > 20)//skip card reward
                 {
                     if (MinigameSceneScript.activeMinigame == 1)
                     {
