@@ -68,6 +68,9 @@ public class NewCardHandScript : MonoBehaviour
     public GameObject Lcard4;
     public GameObject Lcard5;
 
+    private int cardNr; //This exists to communicate with TowerSpotsScript to tell it what card is being used for animations.
+    public static bool s_cardWasPlayer; //Too make sure a card was player;
+
     void Start()
     {
         handEnlarged.SetActive(true);
@@ -83,11 +86,20 @@ public class NewCardHandScript : MonoBehaviour
             CurrentCard = GameObject.Find("SCard" + card);
             CurrentCard.GetComponent<CardDisplayer>().card = Deck.GetComponent<DeckScript>().activecard;
             CurrentCard.GetComponent<CardDisplayer>().Read();
+
+            StartCoroutine(CardAnimationOn(CurrentCard, card));//Made to do the animation on start.
         }
 
         SetCard();
         handEnlarged.SetActive(false);
         minimizeButton.SetActive(false);
+    }
+
+    IEnumerator CardAnimationOn(GameObject animCard, int nr) //Initiates the card draw animation
+    {
+        animCard.GetComponent<Animator>().SetBool("CardUsed " + nr, true); //Turns on the bool that releases the animation
+        yield return new WaitForSeconds(1);
+        animCard.GetComponent<Animator>().SetBool("CardUsed " + nr, false); //Turns of the bool after 1 second to prevent a loop of animation
     }
 
     void Update()
@@ -158,6 +170,9 @@ public class NewCardHandScript : MonoBehaviour
         }
 
         ReadMana(); //Quick fix to read the mana value
+
+        if(s_cardWasPlayer == true) { AnimationReset(); }
+
     }
 
 
@@ -190,11 +205,13 @@ public class NewCardHandScript : MonoBehaviour
         {
             TowerSpots.SetActive(false);
             PlayedCard = null;
+            cardNr = 0;
         }
         else
         {
             TowerSpots.SetActive(true);
             PlayedCard = card1;
+            cardNr = 1;
         }
     }
     public void PlayCard2()//Play the second card
@@ -205,11 +222,13 @@ public class NewCardHandScript : MonoBehaviour
         {
             TowerSpots.SetActive(false);
             PlayedCard = null;
+            cardNr = 0;
         }
         else
         {
             TowerSpots.SetActive(true);
             PlayedCard = card2;
+            cardNr = 2;
         }
     }
     public void PlayCard3()//Play the third card
@@ -220,11 +239,13 @@ public class NewCardHandScript : MonoBehaviour
         {
             TowerSpots.SetActive(false);
             PlayedCard = null;
+            cardNr = 0;
         }
         else
         {
             TowerSpots.SetActive(true);
             PlayedCard = card3;
+            cardNr = 3;
         }
     }
     public void PlayCard4()//Play the fourth card
@@ -235,11 +256,13 @@ public class NewCardHandScript : MonoBehaviour
         {
             TowerSpots.SetActive(false);
             PlayedCard = null;
+            cardNr = 0;
         }
         else
         {
             TowerSpots.SetActive(true);
             PlayedCard = card4;
+            cardNr = 4;
         }
     }
     public void PlayCard5()//Play the fifth card
@@ -250,11 +273,13 @@ public class NewCardHandScript : MonoBehaviour
         {
             TowerSpots.SetActive(false);
             PlayedCard = null;
+            cardNr = 0;
         }
         else
         {
             TowerSpots.SetActive(true);
             PlayedCard = card5;
+            cardNr = 0;
         }
     }
 
@@ -329,6 +354,41 @@ public class NewCardHandScript : MonoBehaviour
             Boss1.Play();
             TheCorporatePrefab.GetComponent<TheCorporate>().Activate();
             TheCorporatePrefab.GetComponent<TheCorporate>().IsActive = true;
+        }
+    }
+
+    private void AnimationReset()
+    {
+        print("The bool got turned on");
+        if(cardNr == 1)
+        {
+            StartCoroutine(CardAnimationOn(card1, 1));
+            cardNr = 0;
+            s_cardWasPlayer = false;
+        }
+        else if(cardNr == 2)
+        {
+            StartCoroutine(CardAnimationOn(card2, 2));
+            cardNr = 0;
+            s_cardWasPlayer = false;
+        }
+        else if(cardNr == 3)
+        {
+            StartCoroutine(CardAnimationOn(card3, 3));
+            cardNr = 0;
+            s_cardWasPlayer = false;
+        }
+        else if(cardNr == 4)
+        {
+            StartCoroutine(CardAnimationOn(card4, 4));
+            cardNr = 0;
+            s_cardWasPlayer = false;
+        }
+        else if(cardNr == 5)
+        {
+            StartCoroutine(CardAnimationOn(card5, 5));
+            cardNr = 0;
+            s_cardWasPlayer = false;
         }
     }
 }

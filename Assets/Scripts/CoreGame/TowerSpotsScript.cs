@@ -41,7 +41,7 @@ public class TowerSpotsScript : MonoBehaviour
         DeckCode.Randomise();
         CardValues.card = DeckCode.activecard;
         cardplayed.GetComponent<CardDisplayer>().Read();
-
+        NewCardHandScript.s_cardWasPlayer = true;
         card.GetComponent<NewCardHandScript>().ReSetCard();
     }
 

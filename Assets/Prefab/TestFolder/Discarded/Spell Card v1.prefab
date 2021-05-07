@@ -691,6 +691,7 @@ RectTransform:
   - {fileID: 489340966465122701}
   - {fileID: 489340966688815345}
   - {fileID: 489340966799937203}
+  - {fileID: 380482168629982449}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -712,16 +713,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSpellCard: 1
+  useBackground: 0
   card: {fileID: 0}
-  spellCard: {fileID: 11400000, guid: a7f79d8ff64064948b19ac3c1cc02860, type: 2}
+  spellCard: {fileID: 11400000, guid: ccc49e1f3582d4d41aa836d2d5daae10, type: 2}
   artworkImage: {fileID: 489340967398354740}
+  backgroundImage: {fileID: 0}
   nameText: {fileID: 489340967690425228}
   manatext: {fileID: 489340966465122700}
   descriptionText: {fileID: 489340966688815344}
   flavorTexts: {fileID: 489340966799937202}
   UnitPrefab: {fileID: 0}
   manaValue: 0
-  toTest: 0
 --- !u!1 &489340967690425266
 GameObject:
   m_ObjectHideFlags: 0
@@ -856,6 +858,81 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!1 &5796327992989176123
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 380482168629982449}
+  - component: {fileID: 2334997217703814147}
+  - component: {fileID: 4815995711091365948}
+  m_Layer: 0
+  m_Name: Card_back_Spells
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &380482168629982449
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5796327992989176123}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 47}
+  m_LocalScale: {x: 41.03763, y: 41.03763, z: 41.03763}
+  m_Children: []
+  m_Father: {fileID: 489340967680752342}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -21.28, y: -32.39}
+  m_SizeDelta: {x: 8.75, y: 11.56}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &2334997217703814147
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5796327992989176123}
+  m_CullTransparentMesh: 1
+--- !u!114 &4815995711091365948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5796327992989176123}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: c6cbeb24aa43f3e46a1df9e5e010bb2f, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &8557821228700136543
 GameObject:
   m_ObjectHideFlags: 0
@@ -868,7 +945,7 @@ GameObject:
   - component: {fileID: 5793639429275678235}
   - component: {fileID: 6367793243045516059}
   m_Layer: 0
-  m_Name: Spekk_final
+  m_Name: Spell_final
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
