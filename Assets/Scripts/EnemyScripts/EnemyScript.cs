@@ -12,4 +12,7 @@ public class EnemyScript : ScriptableObject
     [Tooltip("The damage they deal")] [Range(0, 100)] public int attackDamage;
     [Tooltip("The rate of attacks")] [Range(0, 100)] public float attackSpeed;
     [Tooltip("What layer is to be attacked?")] public LayerMask whatIsUnitLayer = 10;
+
+    [Header("Enemy confirmation for Animation")]
+    [Tooltip("Is the Enemy Merry, so that her animation will play")] public bool isMerry;
 }

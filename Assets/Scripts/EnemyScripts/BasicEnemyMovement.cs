@@ -28,6 +28,9 @@ public class BasicEnemyMovement : MonoBehaviour
     private float knockbackPower; //Grabbing a refrence of the knockback Strenght
     private int quackDamage = 80;
 
+    [Header("Enemy confirmation for Animation")]
+    [Tooltip("Is the Enemy Merry, so that her animation will play")] private bool isMerry;
+
     [Header("Spell card effects")]
     private float moveSpeedSave;
     private bool isBeingPreventedFromDoingAnything; //Prevents actions
@@ -46,6 +49,15 @@ public class BasicEnemyMovement : MonoBehaviour
         rg2D = GetComponent<Rigidbody2D>();
         animatorOfEnemies = GetComponent<Animator>();
         healthSave = enemyHealth; //Saves the max health of the unit.
+        MovingAnimation(); //If there is extra animation, activate it.
+    }
+
+    private void MovingAnimation()
+    {
+        if (isMerry)
+        {
+            animatorOfEnemies.SetBool("IsMerry", true);
+        }
     }
 
     private void Update()
@@ -270,5 +282,8 @@ public class BasicEnemyMovement : MonoBehaviour
         attackDamage = enemy.attackDamage;
         attackSpeed = enemy.attackSpeed;
         whatIsUnitLayer = enemy.whatIsUnitLayer;
+
+        //Enemy confirmation
+        isMerry = enemy.isMerry;
     }
 }
