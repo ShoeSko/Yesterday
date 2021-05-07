@@ -118,7 +118,7 @@ public class TheCorporate : MonoBehaviour
     {
         if (CD1 <= 0)//Do this ability
         {
-            RandomSpot = Random.Range(0, TowerSpots.Count+1);
+            RandomSpot = Random.Range(0, TowerSpots.Count);
             activeSpot = TowerSpots[RandomSpot];
             if (activeSpot != null)
             {
@@ -165,12 +165,14 @@ public class TheCorporate : MonoBehaviour
                 CurrentHand = CorporateHands[RandomHand];
 
                 if (CurrentHand != null)
+                {
                     CurrentHand.GetComponent<GreedyOpportunity>().obstacleInTheWay = false;
+                }
                 else
                     loop--;
             }
 
-            CD3 = 2;//set cooldown
+            CD3 = 3;//set cooldown
         }
         else
             loop--;
