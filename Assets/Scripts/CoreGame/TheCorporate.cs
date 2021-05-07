@@ -114,7 +114,6 @@ public class TheCorporate : MonoBehaviour
         }
     }
 
-
     void Property_Business()//Ability 1
     /* The Corporate controls the property market. He will 'buy out' your land right under your nose. 
      * The Corporate will mark an empty unit slot on the map and render it permanently unusuable. 
@@ -122,18 +121,36 @@ public class TheCorporate : MonoBehaviour
     {
         if (CD1 <= 0)//Do this ability
         {
-            RandomSpot = Random.Range(0, TowerSpots.Count);
-            activeSpot = TowerSpots[RandomSpot];
+            bool isNotOccupied = false;
+            for (int i = 0; i < TowerSpots.Count; i++)
+            {
+                if (!TowerSpots[i].GetComponentInParent<UnitPrototypeScript>())
+                {
+                    isNotOccupied = true; //Checks the list for slots that can not be used.
+                }
+            }
+            if (isNotOccupied) //If the For Loop discovered a node that did not have the UnitPrototypeScript, then it will allow this to run. If not, skip it.
+            {
+                RandomSpot = Random.Range(0, TowerSpots.Count);
+                while (TowerSpots[RandomSpot].GetComponentInParent<UnitPrototypeScript>())
+                {
+                    RandomSpot = Random.Range(0, TowerSpots.Count);
+                }
+                activeSpot = TowerSpots[RandomSpot];
+            }
+            isNotOccupied = false; //Return the bool to false.
+
             if (activeSpot != null)
             {
                 GameObject sign = Instantiate(CorporateSign);
                 sign.transform.position = activeSpot.transform.position;
                 Destroy(activeSpot);//This permanently removes the slot from the round.
+                TowerSpots.RemoveAt(RandomSpot);//Removes the Towerspot from the list to prevent reruns.
 
                 CD1 = 1;//Set cooldown
             }
-            else
-                Property_Business();
+            else { CD1 = 1; } //Cooldown before retrying to purchase
+
         }
         else
             loop--;
