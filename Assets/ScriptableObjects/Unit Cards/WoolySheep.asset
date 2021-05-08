@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 076f6f62ad23884419ae6246752179f9, type: 3}
   m_Name: WoolySheep
   m_EditorClassIdentifier: 
-  cardName: Sumo Racoon
+  cardName: Wooly Sheep
   image: {fileID: 21300000, guid: 2f234d6f8304e6540969fc8f3994c5c1, type: 3}
   backgroundImage: {fileID: 0}
   manaCost: 5
