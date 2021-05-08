@@ -48,4 +48,9 @@ public class ManaSystem : MonoBehaviour
     {
         start = true;
     }
+    [ContextMenu("Cheat for full mana")]
+    private void ManaCheat()
+    {
+        CurrentMana = 99;//Cheat amount of mana
+    }
 }

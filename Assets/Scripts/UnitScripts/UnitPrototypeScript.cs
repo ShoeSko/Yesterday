@@ -305,6 +305,11 @@ public class UnitPrototypeScript : MonoBehaviour
             print("Im die, thank you forever!");
         }
     }
+
+    public void HandDeath()
+    {
+        isDead = true;
+    }
     private void OnDestroy()
     {
         if (EnemySpawning.s_isCoreGame)
