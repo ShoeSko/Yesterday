@@ -37,6 +37,7 @@ public class GreedyOpportunity : MonoBehaviour
     private Animator animatorOfHand; //The Animator for the enemies change in apperance during damaged periods.
     private float healthSave; //A place to store the original health pool.
     private bool isDead;
+    private bool didKill;
     #endregion
     #region Standard Voids
     private void Start()
@@ -71,6 +72,7 @@ public class GreedyOpportunity : MonoBehaviour
         {
             rg2D.velocity = new Vector2(-moveSpeed * Time.deltaTime, 0); //Move to the right timed with deltatime for now, have to check build if change has to be done.
             gameObject.GetComponent<Collider2D>().enabled = true; //Makes sure the collider is on for fight
+            didKill = false; //Makes the Hand ready to kill again.
             timerForGreed = timeBeforeGreed; //Resets the greed Timer when moving forward.
         }
         else if(isRetreating) //Turns invinsible after killing. Returns home.
@@ -101,11 +103,21 @@ public class GreedyOpportunity : MonoBehaviour
         if (canGreedStrike && other.collider.CompareTag(obstacleTags))
         {
             other.gameObject.GetComponent<UnitPrototypeScript>().HandDeath(); //Tells the unit it was killed, not just removed by scene.
-            Destroy(other.gameObject); // Destroys enemy object.
+            HandKillsTarget(other);
+            //Destroy(other.gameObject); // Destroys enemy object.
 
             isRetreating = true;
         }
     }
+    private void HandKillsTarget(Collision2D unit)
+    {
+        if (!didKill)
+        {
+            didKill = true;
+            Destroy(unit.gameObject); //Destroys the unit
+        }
+    }
+
     private void OnCollisionExit2D(Collision2D other)
     {
         if (other.collider.CompareTag(obstacleTags))
