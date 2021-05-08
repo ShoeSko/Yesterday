@@ -16,6 +16,14 @@ public class MinigameSceneScript : MonoBehaviour
 
     private int randomSceneValue;
 
+    private GameObject MinigameMusic;
+
+    
+    private void Start()
+    {
+        MinigameMusic = GameObject.Find("MinigameMusic");
+        MinigameMusic.SetActive(false);
+    }
 
     public void RandomMinigameScene() //Activate this to start a random scene within the list of minigames
     {
@@ -53,6 +61,9 @@ public class MinigameSceneScript : MonoBehaviour
             if (randomize == 0)
             {
                 print("i load scene");
+
+                MinigameMusic.SetActive(true);
+                DontDestroyOnLoad(MinigameMusic);
 
                 SceneManager.LoadScene("Minigame#" + scene1);//it's important that all minigames are called the same
             }

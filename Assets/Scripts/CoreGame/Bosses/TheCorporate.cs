@@ -87,7 +87,7 @@ public class TheCorporate : MonoBehaviour
 
             timer += Time.deltaTime;
 
-            if(timer >= 20)
+            if(timer >= 15)//The time before boss uses an ability
             {
                 for (loop = 0; loop < 1; loop++)
                 {
