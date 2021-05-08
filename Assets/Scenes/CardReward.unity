@@ -4082,6 +4082,14 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 4384fdca5bba346488c6adff280c2ba1, type: 2}
   - {fileID: 11400000, guid: 8f232aae2c0d38c4482a943b7064cbc1, type: 2}
   - {fileID: 11400000, guid: 99471469f811338408bac4333bac98d1, type: 2}
+  - {fileID: 11400000, guid: 0e133b6608b90294ca8697c9b38f4209, type: 2}
+  - {fileID: 11400000, guid: 26445e8d8b76b8a42b049b561d4a66b0, type: 2}
+  - {fileID: 11400000, guid: 85286c21f4c59784aa46dcae967ae5ab, type: 2}
+  - {fileID: 11400000, guid: c403c658a701fad4aa20a1de30da3120, type: 2}
+  - {fileID: 11400000, guid: 9cd11fd03d9aa9b4a88b22d2864ca966, type: 2}
+  - {fileID: 11400000, guid: 180486b47d2b0f44d8898f60cfe68db2, type: 2}
+  - {fileID: 11400000, guid: 5f3e525f599024f4c8840ff23083e6cb, type: 2}
+  - {fileID: 11400000, guid: fb956cdb1f3bfb741a86b079ddafc7fd, type: 2}
   rewardCards:
   - {fileID: 818926379}
   - {fileID: 1104920717}
