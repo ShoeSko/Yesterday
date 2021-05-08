@@ -22,7 +22,10 @@ public class MinigameSceneScript : MonoBehaviour
     private void Start()
     {
         MinigameMusic = GameObject.Find("MinigameMusic");
+        if (MinigameMusic)
+        {
         MinigameMusic.SetActive(false);
+        }
     }
 
     public void RandomMinigameScene() //Activate this to start a random scene within the list of minigames
