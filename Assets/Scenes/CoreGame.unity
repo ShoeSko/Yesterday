@@ -10630,6 +10630,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: df528de26eeed29489d5b43872d32031, type: 3}
   - {fileID: 21300000, guid: 800a24a78e13a41479d8462a28ec9562, type: 3}
   - {fileID: 21300000, guid: 261b9100b1fbe3c43b3229574a4cf941, type: 3}
+  maxAmountOfStrongEnemies: 1
 --- !u!4 &1099777751
 Transform:
   m_ObjectHideFlags: 0
@@ -15192,6 +15193,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 5bfb3aef426ad2c42813e0beffecff6d, type: 3}
   - {fileID: 21300000, guid: 8d12977aa92127b4db8734d2e9387237, type: 3}
   - {fileID: 21300000, guid: 753ba16d9789a664cb0dbd99e98ad0a0, type: 3}
+  maxAmountOfStrongEnemies: 15
 --- !u!4 &1519029870
 Transform:
   m_ObjectHideFlags: 0
@@ -20542,6 +20544,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 5bfb3aef426ad2c42813e0beffecff6d, type: 3}
   - {fileID: 21300000, guid: 8d12977aa92127b4db8734d2e9387237, type: 3}
   - {fileID: 21300000, guid: 753ba16d9789a664cb0dbd99e98ad0a0, type: 3}
+  maxAmountOfStrongEnemies: 1
 --- !u!4 &2145196944
 Transform:
   m_ObjectHideFlags: 0

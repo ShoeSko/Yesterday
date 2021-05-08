@@ -6,7 +6,7 @@ public class EnemySpawning : MonoBehaviour
 {
     [Header ("Spawner Details")]
     [Tooltip("Empty gameobjects in the locations of spawning")]public List<GameObject> spawnLocationList = new List<GameObject>();//All lane spawn markers
-    [Tooltip("The amount of enemies the script will spawn")][Range(0,50)]public int amountOfEnemies;//The amount of enemies that is suposed to spawn
+    [Tooltip("The amount of enemies the script will spawn")] public int amountOfEnemies;//The amount of enemies that is suposed to spawn
     [Range(0,25)]public float delayBetweenSpawnsMin;//The minimum time between spawns
     [Range(0,25)]public float delayBetweenSpawnsMax;//The maximum time between spawns
 
@@ -36,6 +36,7 @@ public class EnemySpawning : MonoBehaviour
     private int enemyToKeep;
     private int enemyToRemove;
     static public bool s_isCoreGame;
+    public int maxAmountOfStrongEnemies;
 
     private void Start()
     {
@@ -58,7 +59,11 @@ public class EnemySpawning : MonoBehaviour
     {
         if (loopLimit < amountOfEnemies)//As long as the loop has not looped the amount of enemies to spawn GO. Might be obsolete
         {
-            int strongSpawnNumber = Random.Range(strongEnemySpawnWait, amountOfEnemies); //When to spawn the strong enemy
+            int[] strongEnemyNumber = new int[maxAmountOfStrongEnemies]; //An array of numbers that will be used for spawning.
+            for (int i = 0; i < maxAmountOfStrongEnemies; i++)
+            {
+                strongEnemyNumber[i] = Random.Range(strongEnemySpawnWait, amountOfEnemies); //When to spawn the strong enemy
+            }
 
             for (int loopLimit = 0; loopLimit < amountOfEnemies; loopLimit++)
             {
@@ -66,14 +71,14 @@ public class EnemySpawning : MonoBehaviour
                 randomEnemyTypeToSpawn = Random.Range(0, sizeOfWeakEnemyTypes); //Gives a random enemy type of weak every spawn
                 Transform spawnLocation = spawnLocationList[randomLaneForSpawning].transform; //Grabs the transform of the location for spawning
 
-                if(loopLimit != strongSpawnNumber)
+                if(loopLimit == strongEnemyNumber[loopLimit])
                 {
-                    tokenLocationList[randomLaneForSpawning].GetComponent<SpriteRenderer>().sprite = spriteTokenWeakList[randomEnemyTypeToSpawn]; //Sets the sprite to match the wanted enemy LISTS MUST MATCH IN ORDER!
+                    tokenLocationList[randomLaneForSpawning].GetComponent<SpriteRenderer>().sprite = spriteTokenStrongList[enemyToKeep]; //Sets the sprite to match the wanted enemy LISTS MUST MATCH IN ORDER!
                     tokenLocationList[randomLaneForSpawning].SetActive(true); //Currently only 1 token, so not much of the content to think about, will turn it on for warning.
                 }
                 else
                 {
-                    tokenLocationList[randomLaneForSpawning].GetComponent<SpriteRenderer>().sprite = spriteTokenStrongList[enemyToKeep]; //Sets the sprite to match the wanted enemy LISTS MUST MATCH IN ORDER!
+                    tokenLocationList[randomLaneForSpawning].GetComponent<SpriteRenderer>().sprite = spriteTokenWeakList[randomEnemyTypeToSpawn]; //Sets the sprite to match the wanted enemy LISTS MUST MATCH IN ORDER!
                     tokenLocationList[randomLaneForSpawning].SetActive(true); //Currently only 1 token, so not much of the content to think about, will turn it on for warning.
                 }
 
@@ -82,15 +87,15 @@ public class EnemySpawning : MonoBehaviour
 
                 tokenLocationList[randomLaneForSpawning].SetActive(false); // Will turn of the token as an enemy will spawn
 
-                if (loopLimit == strongSpawnNumber)
+                if (loopLimit == strongEnemyNumber[loopLimit])
                 {
-                    GameObject enemyObject = Instantiate(strongEnemyTypesSpawnList[0], transform); //Instantiates a random enemy type from the list.
+                    GameObject enemyObject = Instantiate(weakEnemyTypesSpawnList[randomEnemyTypeToSpawn], transform); //Instantiates a random enemy type from the list.
                     enemyObject.transform.position = spawnLocation.position; //Sets the random enemy on a random lane from the list.
                 }
                 else
                 {
-                GameObject enemyObject = Instantiate(weakEnemyTypesSpawnList[randomEnemyTypeToSpawn], transform); //Instantiates a random enemy type from the list.
-                enemyObject.transform.position = spawnLocation.position; //Sets the random enemy on a random lane from the list.
+                    GameObject enemyObject = Instantiate(strongEnemyTypesSpawnList[0], transform); //Instantiates a random enemy type from the list.
+                    enemyObject.transform.position = spawnLocation.position; //Sets the random enemy on a random lane from the list.
                 }
                 if(loopLimit == amountOfEnemies-1)
                 {
