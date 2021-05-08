@@ -68,8 +68,15 @@ public class NewCardHandScript : MonoBehaviour
     public GameObject Lcard4;
     public GameObject Lcard5;
 
+    #region Add On Variables
     private int cardNr; //This exists to communicate with TowerSpotsScript to tell it what card is being used for animations.
     public static bool s_cardWasPlayer; //Too make sure a card was player;
+    [HideInInspector]public bool isManaCardGlow1;
+    [HideInInspector]public bool isManaCardGlow2;
+    [HideInInspector]public bool isManaCardGlow3;
+    [HideInInspector]public bool isManaCardGlow4;
+    [HideInInspector]public bool isManaCardGlow5;
+    #endregion
 
     void Start()
     {
@@ -104,11 +111,22 @@ public class NewCardHandScript : MonoBehaviour
 
     void Update()
     {
-        if (ManaSystem.CurrentMana >= ManaCost1)
+        ManaCostDisplayer();
+
+        ReadMana(); //Quick fix to read the mana value
+
+        if(s_cardWasPlayer == true) { AnimationReset(); }
+
+    }
+
+    private void ManaCostDisplayer()
+    {
+
+        if (ManaSystem.CurrentMana >= ManaCost1 && isManaCardGlow1)
         {
-            if(Smallhand)
+            if (Smallhand)
                 CardButton1S.SetActive(true);
-            else if(!Smallhand)
+            else if (!Smallhand)
                 CardButton1L.SetActive(true);
         }
         else
@@ -117,7 +135,7 @@ public class NewCardHandScript : MonoBehaviour
             CardButton1L.SetActive(false);
         }
 
-        if (ManaSystem.CurrentMana >= ManaCost2)
+        if (ManaSystem.CurrentMana >= ManaCost2 && isManaCardGlow2)
         {
             if (Smallhand)
                 CardButton2S.SetActive(true);
@@ -130,7 +148,7 @@ public class NewCardHandScript : MonoBehaviour
             CardButton2L.SetActive(false);
         }
 
-        if (ManaSystem.CurrentMana >= ManaCost3)
+        if (ManaSystem.CurrentMana >= ManaCost3 && isManaCardGlow3)
         {
             if (Smallhand)
                 CardButton3S.SetActive(true);
@@ -143,7 +161,7 @@ public class NewCardHandScript : MonoBehaviour
             CardButton3L.SetActive(false);
         }
 
-        if (ManaSystem.CurrentMana >= ManaCost4)
+        if (ManaSystem.CurrentMana >= ManaCost4 && isManaCardGlow4)
         {
             if (Smallhand)
                 CardButton4S.SetActive(true);
@@ -156,7 +174,7 @@ public class NewCardHandScript : MonoBehaviour
             CardButton4L.SetActive(false);
         }
 
-        if (ManaSystem.CurrentMana >= ManaCost5)
+        if (ManaSystem.CurrentMana >= ManaCost5 && isManaCardGlow5)
         {
             if (Smallhand)
                 CardButton5S.SetActive(true);
@@ -169,12 +187,7 @@ public class NewCardHandScript : MonoBehaviour
             CardButton5L.SetActive(false);
         }
 
-        ReadMana(); //Quick fix to read the mana value
-
-        if(s_cardWasPlayer == true) { AnimationReset(); }
-
     }
-
 
     public void EnlargeButtonPressed()//enlarge your hand
     {
