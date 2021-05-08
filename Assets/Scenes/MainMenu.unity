@@ -2293,7 +2293,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37c4036ba82f7be41ad60ffd8f64218a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MinigameMusic: {fileID: 1794280718}
 --- !u!4 &1537237636
 Transform:
   m_ObjectHideFlags: 0
