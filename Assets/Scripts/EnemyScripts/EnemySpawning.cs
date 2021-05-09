@@ -31,12 +31,14 @@ public class EnemySpawning : MonoBehaviour
 
     [Header("Token settings")]
     [SerializeField] private List<GameObject> tokenLocationList = new List<GameObject>();
+    [SerializeField] private List<GameObject> tokenBossLocationList = new List<GameObject>();
     [SerializeField] private List<Sprite> spriteTokenWeakList = new List<Sprite>();
     [SerializeField] private List<Sprite> spriteTokenStrongList = new List<Sprite>();
     private int enemyToKeep;
     private int enemyToRemove;
     static public bool s_isCoreGame;
     public int maxAmountOfStrongEnemies;
+    public bool isBossSpawner;
 
     private void Start()
     {
@@ -97,19 +99,36 @@ public class EnemySpawning : MonoBehaviour
 
                 if(loopLimit == strongEnemyNumber[loopLimit])
                 {
+                    if (!isBossSpawner)
+                    {
                     tokenLocationList[randomLaneForSpawning].GetComponent<SpriteRenderer>().sprite = spriteTokenStrongList[enemyToKeep]; //Sets the sprite to match the wanted enemy LISTS MUST MATCH IN ORDER!
                     tokenLocationList[randomLaneForSpawning].SetActive(true); //Currently only 1 token, so not much of the content to think about, will turn it on for warning.
+                    }
+                    else
+                    {
+                        tokenBossLocationList[randomLaneForSpawning].GetComponent<SpriteRenderer>().sprite = spriteTokenStrongList[enemyToKeep]; //Sets the sprite to match the wanted enemy LISTS MUST MATCH IN ORDER!
+                        tokenBossLocationList[randomLaneForSpawning].SetActive(true); //Currently only 1 token, so not much of the content to think about, will turn it on for warning.
+                    }
                 }
                 else
                 {
+                    if (!isBossSpawner)
+                    {
                     tokenLocationList[randomLaneForSpawning].GetComponent<SpriteRenderer>().sprite = spriteTokenWeakList[randomEnemyTypeToSpawn]; //Sets the sprite to match the wanted enemy LISTS MUST MATCH IN ORDER!
                     tokenLocationList[randomLaneForSpawning].SetActive(true); //Currently only 1 token, so not much of the content to think about, will turn it on for warning.
+                    }
+                    else
+                    {
+                        tokenBossLocationList[randomLaneForSpawning].GetComponent<SpriteRenderer>().sprite = spriteTokenWeakList[randomEnemyTypeToSpawn]; //Sets the sprite to match the wanted enemy LISTS MUST MATCH IN ORDER!
+                        tokenBossLocationList[randomLaneForSpawning].SetActive(true); //Currently only 1 token, so not much of the content to think about, will turn it on for warning.
+                    }
                 }
 
                 randomDelayTime = Random.Range(delayBetweenSpawnsMin, delayBetweenSpawnsMax); //Gives a random time
                 yield return new WaitForSeconds(randomDelayTime);//Wait the random amount of time, before resuming the spawning.
 
                 tokenLocationList[randomLaneForSpawning].SetActive(false); // Will turn of the token as an enemy will spawn
+                tokenBossLocationList[randomLaneForSpawning].SetActive(false); //Turns off boss location token
 
                 if (loopLimit == strongEnemyNumber[loopLimit])
                 {
