@@ -150,6 +150,7 @@ public class TheCorporate : MonoBehaviour
             {
                 GameObject sign = Instantiate(CorporateSign);
                 sign.transform.position = activeSpot.transform.position;
+                sign.transform.position = new Vector3(activeSpot.transform.position.x, activeSpot.transform.position.y, 0); //An attempt to fix Sign placement.
                 sign.transform.SetParent(transform); //Places all sign as children for the Boss.
                 Destroy(activeSpot);//This permanently removes the slot from the round.
                 TowerSpots.RemoveAt(RandomSpot);//Removes the Towerspot from the list to prevent reruns.
