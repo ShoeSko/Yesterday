@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TheCorporate : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class TheCorporate : MonoBehaviour
 
     private GameObject currentTowerSpot;
     public GameObject WinCondition;
+    public GameObject BossHealthbar;
+    public Slider BossHealth;
 
     //setup
     private Rigidbody2D rb;
@@ -48,6 +51,7 @@ public class TheCorporate : MonoBehaviour
     private void Start()
     {
         Health = 4;
+        BossHealthbar.SetActive(false);//Sets his healthbar to inactive
 
         CorporateHands[0].GetComponent<GreedyOpportunity>().obstacleInTheWay = true;
         CorporateHands[1].GetComponent<GreedyOpportunity>().obstacleInTheWay = true;
@@ -57,6 +61,7 @@ public class TheCorporate : MonoBehaviour
 
     public void Activate()//Do this at the start
     {
+        BossHealthbar.SetActive(true);
         rb = GetComponent<Rigidbody2D>();
         NewPos = new Vector2(8.44f, 1.34f);
         speed = 0.8f;
@@ -83,6 +88,7 @@ public class TheCorporate : MonoBehaviour
     {
         if (IsActive)//when the boss is meant to be active
         {
+            BossHealth.value = Health;
             rb.transform.position = Vector2.MoveTowards(rb.transform.position, NewPos, speed * Time.deltaTime);//move dramatically to position
 
             timer += Time.deltaTime;
@@ -148,7 +154,7 @@ public class TheCorporate : MonoBehaviour
                 Destroy(activeSpot);//This permanently removes the slot from the round.
                 TowerSpots.RemoveAt(RandomSpot);//Removes the Towerspot from the list to prevent reruns.
 
-                CD1 = 1;//Set cooldown
+                CD1 = 2;//Set cooldown
             }
             else { CD1 = 1; } //Cooldown before retrying to purchase
 
@@ -166,7 +172,7 @@ public class TheCorporate : MonoBehaviour
             manaSteal = Random.Range(1, 4);
             ManaSystem.CurrentMana -= manaSteal;
 
-            CD2 = 3;//set cooldown
+            CD2 = 2;//set cooldown
         }
         else
             loop--;

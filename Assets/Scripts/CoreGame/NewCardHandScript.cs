@@ -6,7 +6,6 @@ public class NewCardHandScript : MonoBehaviour
 {
     public bool Smallhand = true;
 
-    //public GameObject cowwithgunPrefab;
     public GameObject PlayedCard;
     public GameObject quackenButton;
     public GameObject Deck;
