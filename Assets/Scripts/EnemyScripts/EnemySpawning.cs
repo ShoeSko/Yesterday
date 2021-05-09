@@ -59,10 +59,34 @@ public class EnemySpawning : MonoBehaviour
     {
         if (loopLimit < amountOfEnemies)//As long as the loop has not looped the amount of enemies to spawn GO. Might be obsolete
         {
-            int[] strongEnemyNumber = new int[maxAmountOfStrongEnemies]; //An array of numbers that will be used for spawning.
-            for (int i = 0; i < maxAmountOfStrongEnemies; i++)
+            bool strongAddedToList = true;
+            int numberOfEnemiesMadeStrong = 0;
+            int strongEnemyDivider = 2;
+            int WhenToSpawn = 0;
+
+            int[] strongEnemyNumber = new int[amountOfEnemies]; //An array of numbers that will be used for spawning. Same size as the amount of Enemies to spawn
+            for (int i = 0; i < amountOfEnemies; i++)
             {
-                strongEnemyNumber[i] = Random.Range(strongEnemySpawnWait, amountOfEnemies); //When to spawn the strong enemy
+                if (i >= strongEnemySpawnWait && strongAddedToList && numberOfEnemiesMadeStrong < maxAmountOfStrongEnemies && strongEnemyDivider <= WhenToSpawn)
+                {
+                    strongEnemyDivider = Random.Range(1, 8); //Enemies between strong enemies
+                    strongEnemyNumber[i] = i; //When to spawn the strong enemy
+                    numberOfEnemiesMadeStrong++;
+                    strongAddedToList = false;
+                }
+                else if (!strongAddedToList) 
+                {
+                    strongEnemyNumber[i] = 999; //Makes sure no strong mobs will spawn in these numbers.
+                    strongAddedToList = true;
+                    strongEnemyDivider--;
+                }
+                else 
+                { 
+                    strongEnemyNumber[i] = 999;
+                    strongEnemyDivider--;
+                }
+
+                print(strongEnemyNumber[i] + " this is nr " + i);
             }
 
             for (int loopLimit = 0; loopLimit < amountOfEnemies; loopLimit++)
@@ -89,12 +113,13 @@ public class EnemySpawning : MonoBehaviour
 
                 if (loopLimit == strongEnemyNumber[loopLimit])
                 {
-                    GameObject enemyObject = Instantiate(weakEnemyTypesSpawnList[randomEnemyTypeToSpawn], transform); //Instantiates a random enemy type from the list.
+                    GameObject enemyObject = Instantiate(strongEnemyTypesSpawnList[0], transform); //Instantiates a random enemy type from the list.
                     enemyObject.transform.position = spawnLocation.position; //Sets the random enemy on a random lane from the list.
+                    print("Spawning strong enemy " + strongEnemyTypesSpawnList[0].name);
                 }
                 else
                 {
-                    GameObject enemyObject = Instantiate(strongEnemyTypesSpawnList[0], transform); //Instantiates a random enemy type from the list.
+                    GameObject enemyObject = Instantiate(weakEnemyTypesSpawnList[randomEnemyTypeToSpawn], transform); //Instantiates a random enemy type from the list.
                     enemyObject.transform.position = spawnLocation.position; //Sets the random enemy on a random lane from the list.
                 }
                 if(loopLimit == amountOfEnemies-1)
@@ -109,6 +134,20 @@ public class EnemySpawning : MonoBehaviour
     public void SpawnEnemies()
     {
         gameStarted = true;
+    }
+    private void ListNewModelMake()
+    {
+        sizeOfWeakEnemyTypes = weakEnemyList.Enemies.Count;
+        for (int i = 0; i < sizeOfWeakEnemyTypes; i++) //Adds the scriptable object items to a list in this script for editing
+        {
+            weakEnemyTypesSpawnList.Add(weakEnemyList.Enemies[i]);
+        }
+
+        sizeOfStrongEnemyTypes = strongEnemyList.Enemies.Count;
+        for (int i = 0; i < sizeOfStrongEnemyTypes-1; i++)
+        {
+            strongEnemyTypesSpawnList.Add(strongEnemyList.Enemies[i]);
+        }
     }
 
     private void RemodelingOfLists()
@@ -129,20 +168,6 @@ public class EnemySpawning : MonoBehaviour
         sizeOfStrongEnemyTypes = strongEnemyTypesSpawnList.Count; //Get the amount of items in the list of strong enemy types after the removal
     }
 
-    private void ListNewModelMake()
-    {
-        sizeOfWeakEnemyTypes = weakEnemyList.Enemies.Count;
-        for (int i = 0; i < sizeOfWeakEnemyTypes; i++) //Adds the scriptable object items to a list in this script for editing
-        {
-            weakEnemyTypesSpawnList.Add(weakEnemyList.Enemies[i]);
-        }
-
-        sizeOfStrongEnemyTypes = strongEnemyList.Enemies.Count;
-        for (int i = 0; i < sizeOfStrongEnemyTypes-1; i++)
-        {
-            strongEnemyTypesSpawnList.Add(strongEnemyList.Enemies[i]);
-        }
-    }
 
     private void Failsafe()
     {
