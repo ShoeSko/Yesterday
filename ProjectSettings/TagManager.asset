@@ -9,6 +9,7 @@ TagManager:
   - Quack
   - Obstacle
   - InstaKill
+  - OverlordHand
   layers:
   - Default
   - TransparentFX
