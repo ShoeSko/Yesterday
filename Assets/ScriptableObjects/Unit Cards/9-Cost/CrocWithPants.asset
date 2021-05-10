@@ -20,7 +20,7 @@ MonoBehaviour:
     line of defence
   flavorTxt: Well this answers how a crocodile would wear pants
   Prefab: {fileID: 2557954877800294563, guid: 02219d542edacea46a714fb5d7356e09, type: 3}
-  health: 450
+  health: 205
   isShooter: 0
   isPunching: 1
   isSpecial: 0
@@ -36,7 +36,7 @@ MonoBehaviour:
     m_Bits: 128
   targetsToShoot: 0
   punchRechargeTime: 0.9
-  punchDamage: 80
+  punchDamage: 45
   punchingTargetLayer:
     serializedVersion: 2
     m_Bits: 64

@@ -34,7 +34,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   targetsToShoot: 0
-  punchRechargeTime: 1
+  punchRechargeTime: 2
   punchDamage: 35
   punchingTargetLayer:
     serializedVersion: 2

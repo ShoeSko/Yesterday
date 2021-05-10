@@ -19,7 +19,7 @@ MonoBehaviour:
   effectDescription: He's harmless but cute
   flavorTxt: 'You can tell he''s shy by looking at his fingers '
   Prefab: {fileID: 2557954877800294563, guid: aca273b587f1d8e4eaa41102981ab167, type: 3}
-  health: 60
+  health: 80
   isShooter: 0
   isPunching: 1
   isSpecial: 0

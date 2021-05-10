@@ -19,7 +19,7 @@ MonoBehaviour:
   effectDescription: The protector of this farm will fight for you
   flavorTxt: Sometimes nicknamed "Chad"
   Prefab: {fileID: 2557954877800294563, guid: 81c54c406c166cc4c8ee9dfaf46ee2f8, type: 3}
-  health: 390
+  health: 280
   isShooter: 0
   isPunching: 1
   isSpecial: 0
@@ -34,8 +34,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   targetsToShoot: 0
-  punchRechargeTime: 1.5
-  punchDamage: 85
+  punchRechargeTime: 2.5
+  punchDamage: 75
   punchingTargetLayer:
     serializedVersion: 2
     m_Bits: 64
