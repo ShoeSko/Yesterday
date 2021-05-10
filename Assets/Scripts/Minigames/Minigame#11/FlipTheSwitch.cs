@@ -12,7 +12,7 @@ public class FlipTheSwitch : MonoBehaviour
 
     private void FlippingSwitch()
     {
-        if (isFlipped)
+        if (!isFlipped)
         {
             transform.localRotation = Quaternion.Euler(0, 0,flipStrenght); //Flips the object 90 degrees
             isFlipped = false;
