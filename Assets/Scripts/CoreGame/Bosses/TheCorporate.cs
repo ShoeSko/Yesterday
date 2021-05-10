@@ -15,6 +15,7 @@ public class TheCorporate : MonoBehaviour
     public GameObject WinCondition;
     public GameObject BossHealthbar;
     public Slider BossHealth;
+    public GameObject manaBarStockIndicator;
 
     //setup
     private Rigidbody2D rb;
@@ -22,6 +23,7 @@ public class TheCorporate : MonoBehaviour
     private Vector2 NewPos;
     private float speed;
     public int Health = 4;//boss' health
+    public float stockShortageWarningTime;
 
     //this will keep track of each ability's cooldown
     private int CD1;
@@ -170,15 +172,21 @@ public class TheCorporate : MonoBehaviour
     {
         if (CD2 <= 0)//Do this ability
         {
-            manaSteal = Random.Range(1, 4);
-            ManaSystem.CurrentMana -= manaSteal;
+            StartCoroutine(IndicateStockShortage()); //Runs a coroutine to give time for the indicator.
 
             CD2 = 2;//set cooldown
         }
         else
             loop--;
     }
-
+    IEnumerator IndicateStockShortage()
+    {
+        manaBarStockIndicator.SetActive(true);
+        yield return new WaitForSeconds(stockShortageWarningTime);
+        manaSteal = Random.Range(1, 4);
+        ManaSystem.CurrentMana -= manaSteal;
+        manaBarStockIndicator.SetActive(false);
+    }
     void Greedy_Opportunity()//Ability 3
     /* The Corporate's greed is immeasurable as he will take any opportunity he sees.The Corporate will sometimes try to take one of your units to sell it. 
      * He will reach out his hand on one of the lanes to try to take a unit from that lane. While he reaches out, his hand will be vulrnurable. 
