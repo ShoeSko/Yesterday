@@ -10,17 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 076f6f62ad23884419ae6246752179f9, type: 3}
-  m_Name: CrocWithPants
+  m_Name: Buffcatt
   m_EditorClassIdentifier: 
-  cardName: Croc
-  image: {fileID: 21300000, guid: 4b2a49b9d10c1e24a8cbb83940541cdd, type: 3}
+  cardName: Buffcat
+  image: {fileID: 21300000, guid: 38c90751cc8081944b595cb055ce6c34, type: 3}
   backgroundImage: {fileID: 0}
-  manaCost: 9
-  effectDescription: His extreme attacks and incredible durability make him the ultimate
-    line of defence
-  flavorTxt: Well this answers how a crocodile would wear pants
-  Prefab: {fileID: 2557954877800294563, guid: 02219d542edacea46a714fb5d7356e09, type: 3}
-  health: 450
+  manaCost: 8
+  effectDescription: The protector of this farm will fight for you
+  flavorTxt: Sometimes nicknamed "Chad"
+  Prefab: {fileID: 2557954877800294563, guid: 81c54c406c166cc4c8ee9dfaf46ee2f8, type: 3}
+  health: 390
   isShooter: 0
   isPunching: 1
   isSpecial: 0
@@ -35,8 +34,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   targetsToShoot: 0
-  punchRechargeTime: 0.9
-  punchDamage: 90
+  punchRechargeTime: 1.5
+  punchDamage: 85
   punchingTargetLayer:
     serializedVersion: 2
     m_Bits: 64
