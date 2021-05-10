@@ -10,20 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 076f6f62ad23884419ae6246752179f9, type: 3}
-  m_Name: WoolySheep
+  m_Name: Piranha Pond
   m_EditorClassIdentifier: 
-  cardName: Wooly Sheep
-  image: {fileID: 21300000, guid: 2f234d6f8304e6540969fc8f3994c5c1, type: 3}
+  cardName: Piranha Pond
+  image: {fileID: 21300000, guid: fd2eddfe48bf1c146ac62fade26c7270, type: 3}
   backgroundImage: {fileID: 0}
-  manaCost: 5
-  effectDescription: His floof is so large he cannot attack but is great at staying
-    alive
-  flavorTxt: Story says he went a whole year without shearing
-  Prefab: {fileID: 2557954877800294563, guid: 1378b5dcb7026d04eac637fdfa1f234d, type: 3}
-  health: 600
+  manaCost: 3
+  effectDescription: The first creature that falls in the pond will be instantly
+    killed
+  flavorTxt: Who put that there??
+  Prefab: {fileID: 2557954877800294563, guid: 466553edf74b0c345862f03d793a9aa4, type: 3}
+  health: 100
   isShooter: 0
   isPunching: 0
-  isSpecial: 0
+  isSpecial: 1
   shootRechargeTime: 0
   projectileSpeed: 0
   projectilePrefab: {fileID: 3204289923293697707, guid: 5d52c25ce94445743a02a3ddca268b0e, type: 3}
@@ -44,7 +44,7 @@ MonoBehaviour:
   canPunchEverything: 0
   hasKnockback: 0
   knockbackPower: 0
-  isSacrificialKill: 0
+  isSacrificialKill: 1
   isSupportExpert: 0
   allyLayerToTarget:
     serializedVersion: 2

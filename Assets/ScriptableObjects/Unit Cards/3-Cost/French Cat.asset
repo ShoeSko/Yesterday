@@ -10,19 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 076f6f62ad23884419ae6246752179f9, type: 3}
-  m_Name: Snek
+  m_Name: French Cat
   m_EditorClassIdentifier: 
-  cardName: Snek
-  image: {fileID: 21300000, guid: abb12db7396587d43a75b2f71a30ef5d, type: 3}
+  cardName: Chatte
+  image: {fileID: 21300000, guid: 3c5c76a4b83c1724ba1ea87c78f1001c, type: 3}
   backgroundImage: {fileID: 0}
-  manaCost: 2
-  effectDescription: This little guy is quite harmless but will try his best
-  flavorTxt: NEVER accept an apple from this guy
-  Prefab: {fileID: 2557954877800294563, guid: df9f9c977cedefd42a73273ebb4b188b, type: 3}
-  health: 95
+  manaCost: 3
+  effectDescription: He can't fight but will encourage the unit in-front
+  flavorTxt: 'You can tell he''s shy by looking at his fingers '
+  Prefab: {fileID: 2557954877800294563, guid: 422ea58729597f4458461086c76d0a99, type: 3}
+  health: 40
   isShooter: 0
-  isPunching: 1
-  isSpecial: 0
+  isPunching: 0
+  isSpecial: 1
   shootRechargeTime: 0
   projectileSpeed: 0
   projectilePrefab: {fileID: 3204289923293697707, guid: 5d52c25ce94445743a02a3ddca268b0e, type: 3}
@@ -34,21 +34,21 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   targetsToShoot: 0
-  punchRechargeTime: 2
-  punchDamage: 20
+  punchRechargeTime: 0
+  punchDamage: 0
   punchingTargetLayer:
     serializedVersion: 2
     m_Bits: 64
-  targetsToPunch: 1
+  targetsToPunch: 0
   canPunchEverything: 0
   hasKnockback: 0
   knockbackPower: 0
   isSacrificialKill: 0
-  isSupportExpert: 0
+  isSupportExpert: 1
   allyLayerToTarget:
     serializedVersion: 2
-    m_Bits: 0
-  hitAllyRange: 0
-  sizeBuff: {x: 0, y: 0, z: 0}
-  healthBuff: 0
-  damageBuff: 0
+    m_Bits: 256
+  hitAllyRange: 2
+  sizeBuff: {x: 1, y: 1, z: 1}
+  healthBuff: 2
+  damageBuff: 2

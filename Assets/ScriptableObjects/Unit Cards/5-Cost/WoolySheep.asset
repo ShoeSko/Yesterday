@@ -10,19 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 076f6f62ad23884419ae6246752179f9, type: 3}
-  m_Name: CrocWithPants
+  m_Name: WoolySheep
   m_EditorClassIdentifier: 
-  cardName: Croc
-  image: {fileID: 21300000, guid: 4b2a49b9d10c1e24a8cbb83940541cdd, type: 3}
+  cardName: Wooly Sheep
+  image: {fileID: 21300000, guid: 2f234d6f8304e6540969fc8f3994c5c1, type: 3}
   backgroundImage: {fileID: 0}
-  manaCost: 9
-  effectDescription: His extreme attacks and incredible durability make him the ultimate
-    line of defence
-  flavorTxt: Well this answers how a crocodile would wear pants
-  Prefab: {fileID: 2557954877800294563, guid: 02219d542edacea46a714fb5d7356e09, type: 3}
-  health: 490
+  manaCost: 5
+  effectDescription: His floof is so large he cannot attack but is great at staying
+    alive
+  flavorTxt: Story says he went a whole year without shearing
+  Prefab: {fileID: 2557954877800294563, guid: 1378b5dcb7026d04eac637fdfa1f234d, type: 3}
+  health: 800
   isShooter: 0
-  isPunching: 1
+  isPunching: 0
   isSpecial: 0
   shootRechargeTime: 0
   projectileSpeed: 0
@@ -35,12 +35,12 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   targetsToShoot: 0
-  punchRechargeTime: 0.9
-  punchDamage: 90
+  punchRechargeTime: 0
+  punchDamage: 0
   punchingTargetLayer:
     serializedVersion: 2
     m_Bits: 64
-  targetsToPunch: 1
+  targetsToPunch: 0
   canPunchEverything: 0
   hasKnockback: 0
   knockbackPower: 0

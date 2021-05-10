@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 076f6f62ad23884419ae6246752179f9, type: 3}
-  m_Name: Nugget
+  m_Name: Buffcatt
   m_EditorClassIdentifier: 
-  cardName: Nugget
-  image: {fileID: 21300000, guid: 0db6c5462f764f64087e0abe0f05349f, type: 3}
+  cardName: Buffcat
+  image: {fileID: 21300000, guid: 38c90751cc8081944b595cb055ce6c34, type: 3}
   backgroundImage: {fileID: 0}
-  manaCost: 2
-  effectDescription: Stabs his enemies quickly when they come close
-  flavorTxt: Watch out, he's got a license of stabbin
-  Prefab: {fileID: 2557954877800294563, guid: b5363aadaddcdda4896ee74117c5ee18, type: 3}
-  health: 70
+  manaCost: 8
+  effectDescription: The protector of this farm will fight for you
+  flavorTxt: Sometimes nicknamed "Chad"
+  Prefab: {fileID: 2557954877800294563, guid: 81c54c406c166cc4c8ee9dfaf46ee2f8, type: 3}
+  health: 280
   isShooter: 0
   isPunching: 1
   isSpecial: 0
@@ -34,8 +34,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   targetsToShoot: 0
-  punchRechargeTime: 0.7
-  punchDamage: 14
+  punchRechargeTime: 2.5
+  punchDamage: 75
   punchingTargetLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -52,4 +52,3 @@ MonoBehaviour:
   sizeBuff: {x: 0, y: 0, z: 0}
   healthBuff: 0
   damageBuff: 0
-  isNotInCorrectSceneTest: 0

@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 076f6f62ad23884419ae6246752179f9, type: 3}
+  m_Name: Evil Rabit
+  m_EditorClassIdentifier: 
+  cardName: Evil Rabbit
+  image: {fileID: 21300000, guid: 2bd9dc7bc000a64478cb05c37eae9626, type: 3}
+  backgroundImage: {fileID: 0}
+  manaCost: 10
+  effectDescription: He may look like nothing but this entity is pure evil
+  flavorTxt: What.. is your favorite color?
+  Prefab: {fileID: 2557954877800294563, guid: 17ee70d6eb7bbe44a8c11abee6b513d7, type: 3}
+  health: 1
+  isShooter: 0
+  isPunching: 1
+  isSpecial: 0
+  shootRechargeTime: 0
+  projectileSpeed: 0
+  projectilePrefab: {fileID: 3204289923293697707, guid: 5d52c25ce94445743a02a3ddca268b0e, type: 3}
+  projectileDamage: 0
+  shootingTargetLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  edgeOfRangeLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  targetsToShoot: 0
+  punchRechargeTime: 2.5
+  punchDamage: 666
+  punchingTargetLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  targetsToPunch: 1
+  canPunchEverything: 0
+  hasKnockback: 0
+  knockbackPower: 0
+  isSacrificialKill: 0
+  isSupportExpert: 0
+  allyLayerToTarget:
+    serializedVersion: 2
+    m_Bits: 0
+  hitAllyRange: 0
+  sizeBuff: {x: 0, y: 0, z: 0}
+  healthBuff: 0
+  damageBuff: 0

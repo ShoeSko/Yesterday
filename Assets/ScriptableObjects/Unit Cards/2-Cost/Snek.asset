@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 076f6f62ad23884419ae6246752179f9, type: 3}
-  m_Name: BearWithBlanket
+  m_Name: Snek
   m_EditorClassIdentifier: 
-  cardName: Comfy Bear
-  image: {fileID: 21300000, guid: af355cb111cf1474fb30d953ef9a4ae3, type: 3}
+  cardName: Snek
+  image: {fileID: 21300000, guid: abb12db7396587d43a75b2f71a30ef5d, type: 3}
   backgroundImage: {fileID: 0}
-  manaCost: 6
-  effectDescription: He might look innocent but he's a ferocious fighter
-  flavorTxt: He just hasn't had his morning coffee
-  Prefab: {fileID: 2557954877800294563, guid: 13c8ce4460acff84182af971b9c82b35, type: 3}
-  health: 320
+  manaCost: 2
+  effectDescription: This little guy is quite harmless but will try his best
+  flavorTxt: NEVER accept an apple from this guy
+  Prefab: {fileID: 2557954877800294563, guid: df9f9c977cedefd42a73273ebb4b188b, type: 3}
+  health: 100
   isShooter: 0
   isPunching: 1
   isSpecial: 0
@@ -35,7 +35,7 @@ MonoBehaviour:
     m_Bits: 128
   targetsToShoot: 0
   punchRechargeTime: 2
-  punchDamage: 65
+  punchDamage: 25
   punchingTargetLayer:
     serializedVersion: 2
     m_Bits: 64

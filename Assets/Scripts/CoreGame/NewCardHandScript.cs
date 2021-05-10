@@ -6,7 +6,6 @@ public class NewCardHandScript : MonoBehaviour
 {
     public bool Smallhand = true;
 
-    //public GameObject cowwithgunPrefab;
     public GameObject PlayedCard;
     public GameObject quackenButton;
     public GameObject Deck;
@@ -76,6 +75,8 @@ public class NewCardHandScript : MonoBehaviour
     [HideInInspector]public bool isManaCardGlow3;
     [HideInInspector]public bool isManaCardGlow4;
     [HideInInspector]public bool isManaCardGlow5;
+
+    public List<GameObject> cardActiveIndicaterList = new List<GameObject>();
     #endregion
 
     void Start()
@@ -116,7 +117,7 @@ public class NewCardHandScript : MonoBehaviour
         ReadMana(); //Quick fix to read the mana value
 
         if(s_cardWasPlayer == true) { AnimationReset(); }
-
+        CardSelectedActivation(); //Marks the current selected card in green.
     }
 
     private void ManaCostDisplayer()
@@ -293,6 +294,21 @@ public class NewCardHandScript : MonoBehaviour
             TowerSpots.SetActive(true);
             PlayedCard = card5;
             cardNr = 5;
+        }
+    }
+
+    private void CardSelectedActivation()
+    {
+        for (int i = 0; i < 5; i++)
+        {
+            if(i == cardNr - 1)
+            {
+                cardActiveIndicaterList[i].SetActive(true);
+            }
+            else
+            {
+                cardActiveIndicaterList[i].SetActive(false);
+            }
         }
     }
 

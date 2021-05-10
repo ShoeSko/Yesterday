@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 076f6f62ad23884419ae6246752179f9, type: 3}
-  m_Name: UWUduck
+  m_Name: Goose With Knife
   m_EditorClassIdentifier: 
-  cardName: Duckey
-  image: {fileID: 21300000, guid: 0bd1642b5f6e22d4da7a73b9ef9a0611, type: 3}
+  cardName: Goosey
+  image: {fileID: 21300000, guid: 13c823e880ae72d4fa79f82e78c0c3ce, type: 3}
   backgroundImage: {fileID: 0}
-  manaCost: 1
-  effectDescription: He's harmless but cute
-  flavorTxt: 'You can tell he''s shy by looking at his fingers '
-  Prefab: {fileID: 2557954877800294563, guid: aca273b587f1d8e4eaa41102981ab167, type: 3}
-  health: 60
+  manaCost: 5
+  effectDescription: One of the most violent creatures equipped with a knife
+  flavorTxt: Peace was never an option
+  Prefab: {fileID: 2557954877800294563, guid: d2df80c9c8f83f840bdd180972f981a7, type: 3}
+  health: 120
   isShooter: 0
   isPunching: 1
   isSpecial: 0
@@ -34,8 +34,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   targetsToShoot: 0
-  punchRechargeTime: 1
-  punchDamage: 8
+  punchRechargeTime: 0.5
+  punchDamage: 17
   punchingTargetLayer:
     serializedVersion: 2
     m_Bits: 64

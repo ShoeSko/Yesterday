@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 076f6f62ad23884419ae6246752179f9, type: 3}
+  m_Name: Maid Catboy
+  m_EditorClassIdentifier: 
+  cardName: Maid
+  image: {fileID: 21300000, guid: 5f228ed230e27064981520dc14dbe16f, type: 3}
+  backgroundImage: {fileID: 0}
+  manaCost: 4
+  effectDescription: This catboy will clean his mess as quick as he makes one
+  flavorTxt: I thought cats are meant to break things not fix them
+  Prefab: {fileID: 2557954877800294563, guid: 031efb49859b5504ea79593392ec6b80, type: 3}
+  health: 169
+  isShooter: 0
+  isPunching: 1
+  isSpecial: 0
+  shootRechargeTime: 0
+  projectileSpeed: 0
+  projectilePrefab: {fileID: 3204289923293697707, guid: 5d52c25ce94445743a02a3ddca268b0e, type: 3}
+  projectileDamage: 0
+  shootingTargetLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  edgeOfRangeLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  targetsToShoot: 0
+  punchRechargeTime: 2
+  punchDamage: 35
+  punchingTargetLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  targetsToPunch: 1
+  canPunchEverything: 0
+  hasKnockback: 0
+  knockbackPower: 0
+  isSacrificialKill: 0
+  isSupportExpert: 0
+  allyLayerToTarget:
+    serializedVersion: 2
+    m_Bits: 0
+  hitAllyRange: 0
+  sizeBuff: {x: 0, y: 0, z: 0}
+  healthBuff: 0
+  damageBuff: 0
