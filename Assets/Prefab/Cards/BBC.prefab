@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6118651002381041060}
   - component: {fileID: -6459765539694841312}
   m_Layer: 8
-  m_Name: Banana Duck
+  m_Name: BBC
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28,8 +28,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2557954877800294563}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.14755422, y: 1.4998566, z: 90}
-  m_LocalScale: {x: 0.08541169, y: 0.08541169, z: 0.08541169}
+  m_LocalPosition: {x: 0.14755422, y: -0.53105944, z: 90}
+  m_LocalScale: {x: 0.106791206, y: 0.106791206, z: 0.106791206}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -47,8 +47,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.36014283, y: -0.2060852}
-  m_Size: {x: 12.420804, y: 20.568182}
+  m_Offset: {x: 2.093099, y: 0.43953785}
+  m_Size: {x: 10.607134, y: 15.70561}
   m_Direction: 0
 --- !u!114 &2557954877800294562
 MonoBehaviour:
@@ -62,7 +62,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 640f5631b972d134691baa2444ec969f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Unit: {fileID: 11400000, guid: 9f7a91233fef5a7469a43f408982af6c, type: 2}
+  Unit: {fileID: 11400000, guid: 34617a0e63345c342baf3a006aded0bb, type: 2}
   health: 0
   projectileDamage: 10
   targetsToShoot: 0
@@ -108,7 +108,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: daf2e3c19d1432743b9276c9fc0f766a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 981fce76029587842a0937d34c7be08d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

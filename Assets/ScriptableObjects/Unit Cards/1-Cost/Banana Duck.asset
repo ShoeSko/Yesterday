@@ -16,7 +16,7 @@ MonoBehaviour:
   image: {fileID: 21300000, guid: daf2e3c19d1432743b9276c9fc0f766a, type: 3}
   backgroundImage: {fileID: 0}
   manaCost: 1
-  effectDescription: Peels the enemies away
+  effectDescription: peels the enemies away
   flavorTxt: '"Buck"'
   Prefab: {fileID: 2557954877800294563, guid: eb0156004064f66488080ca2dc12c43e, type: 3}
   health: 75
