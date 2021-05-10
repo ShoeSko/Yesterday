@@ -22,7 +22,7 @@ public class CardScript : ScriptableObject
 
     [Header("Shooting")]
     [Tooltip("Time between each shot")] [Range(0, 100)] public float shootRechargeTime;
-    [Tooltip("The speed of the projectile being fired")] [Range(0, 100)] public float projectileSpeed;
+    [Tooltip("The speed of the projectile being fired")] [Range(0, 30)] public float projectileSpeed;
     [Tooltip("Prefab of the projectile to be shot")] public GameObject projectilePrefab;
     [Tooltip("The damage the projectile will deal")] [Range(0, 100)] public int projectileDamage;
     [Tooltip("What layer are enemies on?")] public LayerMask shootingTargetLayer;
@@ -45,6 +45,6 @@ public class CardScript : ScriptableObject
     [Tooltip("What layer is allies on?")] public LayerMask allyLayerToTarget;
     [Tooltip("The range that the support can reach")] public float hitAllyRange;
     [Tooltip("How much bigger will the unit be?")] public Vector3 sizeBuff;
-    [Tooltip("How much the health should be buffed")] public float healthBuff;
-    [Tooltip("How much the damage should be buffed")] public float damageBuff;
+    [Tooltip("How much the health should be buffed (Health incrase in % you write)")] public float healthBuff;
+    [Tooltip("How much the damage should be buffed (Damage increase in % you write)")] public float damageBuff;
 }
