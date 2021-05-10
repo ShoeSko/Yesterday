@@ -10,17 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 076f6f62ad23884419ae6246752179f9, type: 3}
-  m_Name: CrocWithPants
+  m_Name: Hill Goat
   m_EditorClassIdentifier: 
-  cardName: Croc
-  image: {fileID: 21300000, guid: 4b2a49b9d10c1e24a8cbb83940541cdd, type: 3}
+  cardName: King of the Hill
+  image: {fileID: 21300000, guid: cfff44f4cf2e02748b0eb960482cd559, type: 3}
   backgroundImage: {fileID: 0}
-  manaCost: 9
-  effectDescription: His extreme attacks and incredible durability make him the ultimate
-    line of defence
-  flavorTxt: Well this answers how a crocodile would wear pants
-  Prefab: {fileID: 2557954877800294563, guid: 02219d542edacea46a714fb5d7356e09, type: 3}
-  health: 450
+  manaCost: 5
+  effectDescription: Rammed enemies are pushed backwards
+  flavorTxt: It's last man standing
+  Prefab: {fileID: 2557954877800294563, guid: f277d647786c3a0418e9ed2d2e7dc469, type: 3}
+  health: 160
   isShooter: 0
   isPunching: 1
   isSpecial: 0
@@ -35,15 +34,15 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   targetsToShoot: 0
-  punchRechargeTime: 0.9
-  punchDamage: 90
+  punchRechargeTime: 5
+  punchDamage: 30
   punchingTargetLayer:
     serializedVersion: 2
     m_Bits: 64
   targetsToPunch: 1
   canPunchEverything: 0
-  hasKnockback: 0
-  knockbackPower: 0
+  hasKnockback: 1
+  knockbackPower: 50
   isSacrificialKill: 0
   isSupportExpert: 0
   allyLayerToTarget:

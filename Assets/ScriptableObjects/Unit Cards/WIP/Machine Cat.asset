@@ -10,24 +10,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 076f6f62ad23884419ae6246752179f9, type: 3}
-  m_Name: CrocWithPants
+  m_Name: Machine Cat
   m_EditorClassIdentifier: 
-  cardName: Croc
-  image: {fileID: 21300000, guid: 4b2a49b9d10c1e24a8cbb83940541cdd, type: 3}
+  cardName: MachineCat
+  image: {fileID: 21300000, guid: 740d431edf45118429146a7d53b6a86f, type: 3}
   backgroundImage: {fileID: 0}
-  manaCost: 9
-  effectDescription: His extreme attacks and incredible durability make him the ultimate
-    line of defence
-  flavorTxt: Well this answers how a crocodile would wear pants
-  Prefab: {fileID: 2557954877800294563, guid: 02219d542edacea46a714fb5d7356e09, type: 3}
-  health: 450
-  isShooter: 0
-  isPunching: 1
+  manaCost: 5
+  effectDescription: Machinegun goes brrr
+  flavorTxt: Wait, did he play the bongos?
+  Prefab: {fileID: 2557954877800294563, guid: dff8d710c757c9542973584d6f70005d, type: 3}
+  health: 90
+  isShooter: 1
+  isPunching: 0
   isSpecial: 0
-  shootRechargeTime: 0
-  projectileSpeed: 0
+  shootRechargeTime: 0.3
+  projectileSpeed: 18
   projectilePrefab: {fileID: 3204289923293697707, guid: 5d52c25ce94445743a02a3ddca268b0e, type: 3}
-  projectileDamage: 0
+  projectileDamage: 2
   shootingTargetLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -35,12 +34,12 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   targetsToShoot: 0
-  punchRechargeTime: 0.9
-  punchDamage: 90
+  punchRechargeTime: 0
+  punchDamage: 0
   punchingTargetLayer:
     serializedVersion: 2
     m_Bits: 64
-  targetsToPunch: 1
+  targetsToPunch: 0
   canPunchEverything: 0
   hasKnockback: 0
   knockbackPower: 0

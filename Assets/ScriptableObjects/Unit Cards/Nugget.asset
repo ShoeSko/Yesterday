@@ -35,7 +35,7 @@ MonoBehaviour:
     m_Bits: 128
   targetsToShoot: 0
   punchRechargeTime: 0.7
-  punchDamage: 14
+  punchDamage: 12
   punchingTargetLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -52,4 +52,3 @@ MonoBehaviour:
   sizeBuff: {x: 0, y: 0, z: 0}
   healthBuff: 0
   damageBuff: 0
-  isNotInCorrectSceneTest: 0

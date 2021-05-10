@@ -10,17 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 076f6f62ad23884419ae6246752179f9, type: 3}
-  m_Name: CrocWithPants
+  m_Name: Samurai Shiba
   m_EditorClassIdentifier: 
-  cardName: Croc
-  image: {fileID: 21300000, guid: 4b2a49b9d10c1e24a8cbb83940541cdd, type: 3}
+  cardName: Shiburai
+  image: {fileID: 21300000, guid: 4177813cd72eb91439b05885cb055ceb, type: 3}
   backgroundImage: {fileID: 0}
-  manaCost: 9
-  effectDescription: His extreme attacks and incredible durability make him the ultimate
-    line of defence
-  flavorTxt: Well this answers how a crocodile would wear pants
-  Prefab: {fileID: 2557954877800294563, guid: 02219d542edacea46a714fb5d7356e09, type: 3}
-  health: 450
+  manaCost: 7
+  effectDescription: A samurai can cut through multiple enemies at once
+  flavorTxt: '"My life for the farmer"'
+  Prefab: {fileID: 2557954877800294563, guid: 881ba56c3e283d5479b8a83bd53b29d9, type: 3}
+  health: 250
   isShooter: 0
   isPunching: 1
   isSpecial: 0
@@ -35,13 +34,13 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   targetsToShoot: 0
-  punchRechargeTime: 0.9
-  punchDamage: 90
+  punchRechargeTime: 1.5
+  punchDamage: 65
   punchingTargetLayer:
     serializedVersion: 2
     m_Bits: 64
-  targetsToPunch: 1
-  canPunchEverything: 0
+  targetsToPunch: 5
+  canPunchEverything: 1
   hasKnockback: 0
   knockbackPower: 0
   isSacrificialKill: 0
