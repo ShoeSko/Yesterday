@@ -97,6 +97,7 @@ public class GreedyOpportunity : MonoBehaviour
         }
         if (other.collider.CompareTag("InstaKill"))
         {
+            other.gameObject.GetComponent<UnitPrototypeScript>().HandDeath(); //Tells the unit it was killed, not just removed by scene.
             Destroy(other.gameObject);
             Destroy(this.gameObject);
         }
