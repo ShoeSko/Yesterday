@@ -27,6 +27,16 @@ public class GreedyOpportunityDeckStealing : MonoBehaviour
 
         if (OverlordHand.GetComponent<GreedyOpportunity>())
         {
+            int childCount = OverlordHand.transform.childCount;
+            for (int i = 0; i < childCount; i++)
+            {
+                if (OverlordHand.transform.GetChild(i).gameObject.GetComponent<CardDisplayer>()) //Safety so that if the child is moved, it can still be found.
+                {
+                    OverlordHand.transform.GetChild(i).gameObject.SetActive(true); //Turns on the card in the hand.
+                }
+            }
+
+
             print(OverlordHand.name);
             OverlordHand.GetComponent<GreedyOpportunity>().isRetreating = true;
         }

@@ -134,6 +134,19 @@ public class GreedyOpportunity : MonoBehaviour
         {
             obstacleInTheWay = true; //In a way being blocked, Will not move anymore until this is changed.
             isRetreating = false; // No longer retreating
+            RemoveCardFromOverlordHand(); // Removes a card, if the overlord has one.
+        }
+    }
+
+    private void RemoveCardFromOverlordHand()
+    {
+        int childCount = transform.childCount;
+        for (int i = 0; i < childCount; i++)
+        {
+            if (transform.GetChild(i).gameObject.GetComponent<CardDisplayer>()) //Safety so that if the child is moved, it can still be found.
+            {
+                transform.GetChild(i).gameObject.SetActive(false); //Turns on the card in the hand.
+            }
         }
     }
 

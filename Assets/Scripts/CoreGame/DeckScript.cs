@@ -24,7 +24,7 @@ public class DeckScript : MonoBehaviour
 
     public void DeckUpdater()
     {
-        if(Deck[0] == null) //Prevents the deck from ever running out.
+        if(Deck.Count == 0) //Prevents the deck from ever running out.
         {
         Deck.Add(CowCard);//the starting cards 
         }
