@@ -18,7 +18,7 @@ public class GreedyOpportunity : MonoBehaviour
     private float timeBeforeGreed;
     private float timerForGreed;
     private bool canGreedStrike;
-    private bool isRetreating;
+    [HideInInspector] public bool isRetreating;
 
     [HideInInspector] public bool obstacleInTheWay = true;//Is there a unit blocking the path?
     private bool isUnitInFront;

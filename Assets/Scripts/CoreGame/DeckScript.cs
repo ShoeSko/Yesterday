@@ -19,6 +19,15 @@ public class DeckScript : MonoBehaviour
     void Start()
     {
         Deck.Add(CowCard);//the starting cards 
+        DeckUpdater();
+    }
+
+    public void DeckUpdater()
+    {
+        if(Deck[0] == null) //Prevents the deck from ever running out.
+        {
+        Deck.Add(CowCard);//the starting cards 
+        }
 
         DeckCards = Deck.Count;
 

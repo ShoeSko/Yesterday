@@ -24,13 +24,15 @@ public class DeckView : MonoBehaviour
 
             if (card < DeckList)
             {
+                activeCard.SetActive(true); //
                 CardStats = activeCard.GetComponent<CardDisplayer>();
                 CardStats.card = DeckScript.Deck[card];
                 CardStats.Read();
             }
             else
             {
-                Destroy(activeCard);
+                //Destroy(activeCard);
+                activeCard.SetActive(false);
             }
 
         }
