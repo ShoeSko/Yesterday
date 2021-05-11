@@ -297,6 +297,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   transitionSystem: {fileID: 1536320827}
+  numberOfLoops: 2
 --- !u!1 &473664833
 GameObject:
   m_ObjectHideFlags: 0
