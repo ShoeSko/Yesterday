@@ -35,13 +35,13 @@ public class Victory : MonoBehaviour
         Time.timeScale = 0;
     }
 
-    public void NextRound()
-    {
-        Time.timeScale = 1;
-        NewCardHandScript.Stage++;
-        Debug.Log(NewCardHandScript.Stage);
+    //public void NextRound()
+    //{
+    //    Time.timeScale = 1;
+    //    NewCardHandScript.Stage++;
+    //    Debug.Log(NewCardHandScript.Stage);
 
-        if (NewCardHandScript.Stage == 4)
-            SceneManager.LoadScene("MainMenu");
-    }
+    //    if (NewCardHandScript.Stage == 4)
+    //        SceneManager.LoadScene("MainMenu");
+    //}
 }

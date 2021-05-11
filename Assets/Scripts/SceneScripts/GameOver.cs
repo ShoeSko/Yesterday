@@ -19,10 +19,10 @@ public class GameOver : MonoBehaviour
         Time.timeScale = 0;
     }
 
-    public void returnHome()
-    {
-        Time.timeScale = 1;
-        Quacken.s_quackenBeenReleased = false; //Resets the Quacken.
-        SceneManager.LoadScene("MainMenu");
-    }
+    //public void returnHome()
+    //{
+    //    //Time.timeScale = 1;
+    //    Quacken.s_quackenBeenReleased = false; //Resets the Quacken.
+    //    //SceneManager.LoadScene("MainMenu");
+    //}
 }

@@ -18,6 +18,8 @@ public class MinigameSceneScript : MonoBehaviour
 
     private GameObject MinigameMusic;
 
+    [SerializeField] private LevelTransitionSystem levelTransition;
+
     
     private void Start()
     {
@@ -68,7 +70,9 @@ public class MinigameSceneScript : MonoBehaviour
                 MinigameMusic.SetActive(true);
                 DontDestroyOnLoad(MinigameMusic);
 
-                SceneManager.LoadScene("Minigame#" + scene1);//it's important that all minigames are called the same
+                //TAKE THIS ONE!!!
+                levelTransition.LoadFirstMiniGame();
+                //SceneManager.LoadScene("Minigame#" + scene1);//it's important that all minigames are called the same
             }
 
             yield return new WaitForSeconds(0);

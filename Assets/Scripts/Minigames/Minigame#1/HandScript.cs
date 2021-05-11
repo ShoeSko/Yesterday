@@ -90,9 +90,9 @@ public class HandScript : MonoBehaviour
             {
                 //0 stars
             }
-        }
         levelTransitioner.currentMinigameScore = score;
         nextSceneButton.SetActive(true);
+        }
     }
 
     private void FixedUpdate()

@@ -13,16 +13,46 @@ public class LevelTransitionSystem : MonoBehaviour
     [HideInInspector] public int currentMinigameScore;
     [SerializeField] private Color hideButtonColour;
 
-    public void LoadNextLevelFromCoreGame()
+    #region Core Game
+    public void VictoryButtonPress()
     {
         string nextLevelName = ""; //Remembers the name
 
+        Time.timeScale = 1;
+        NewCardHandScript.Stage++;
+        Debug.Log(NewCardHandScript.Stage);
 
+        if (NewCardHandScript.Stage == 4)
+            nextLevelName = "MainMenu";
 
-        RemoveButton();
         StartCoroutine(SceneFadeMechanic(nextLevelName));
     }
+    public void GameOverButtonPress() // You lost. Straight to the main menu for a quick and easy reset.
+    {
+        string nextLevelName = "";
 
+        Time.timeScale = 1;
+        Quacken.s_quackenBeenReleased = false; //Resets the Quacken.
+        nextLevelName = "MainMenu";
+
+        StartCoroutine(SceneFadeMechanic(nextLevelName));
+    }
+    public void LoadFirstMiniGame() //Sends you to the loading scene
+    {
+
+        StartCoroutine(SceneFadeMechanic("LoadingScene"));
+    }
+
+    public void LoadNextLevelFromCoreGame() //Runs the first minigame from the Core game after loading scene
+    {
+        string nextLevelName = ""; //Remembers the name
+
+        nextLevelName = "Minigame#" + MinigameSceneScript.scene1;
+
+        StartCoroutine(SceneFadeMechanic(nextLevelName));
+    }
+    #endregion
+    #region Reward Screen
     public void LoadLevelFromRewardScreen()
     {
         string nextLevelName = ""; //Remembers the name
@@ -44,7 +74,8 @@ public class LevelTransitionSystem : MonoBehaviour
         RemoveButton();
         StartCoroutine(SceneFadeMechanic(nextLevelName));
     }
-
+    #endregion
+    #region Minigames
     public void LoadLevelFromMinigame()
     {
         string nextLevelName = ""; //Remembers the name
@@ -72,7 +103,7 @@ public class LevelTransitionSystem : MonoBehaviour
         RemoveButton();
         StartCoroutine(SceneFadeMechanic(nextLevelName)); //Runs Coroutine
     }
-
+    #endregion
 
     IEnumerator SceneFadeMechanic(string levelName)
     {
@@ -80,7 +111,16 @@ public class LevelTransitionSystem : MonoBehaviour
 
         yield return new WaitForSeconds(waitTime); //Waits until animation is done + extra if wanted
 
+        print("Scene name to be loaded this time is " + levelName);
+
+        if(levelName != "")
+        {
         SceneManager.LoadScene(levelName); //Loads planned scene.
+        }
+        else
+        {
+            print("Failed to load scene. Not sure why. SEND HELP!");
+        }
     }
 
     private void RemoveButton()
