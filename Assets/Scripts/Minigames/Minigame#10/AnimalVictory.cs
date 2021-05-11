@@ -14,7 +14,10 @@ public class AnimalVictory : MonoBehaviour
     public int star2Time;
     public int star3Time;
 
-    private float timer;//time it takes to change scene
+    [Header("Level Transition")]
+    [SerializeField] private GameObject nextSceneButton; //The button to reach next scene
+    [SerializeField] private LevelTransitionSystem levelTransitioner; //Refrence to give the score of the game.  
+    private int score;
 
     private void Awake()
     {
@@ -49,6 +52,7 @@ public class AnimalVictory : MonoBehaviour
                 }
                 //3 stars
                 CardReward.Stars = 3;
+                score = 3;
             }
             else if (scoreTimer > star1Time && scoreTimer <= star2Time)
             {
@@ -58,6 +62,7 @@ public class AnimalVictory : MonoBehaviour
                 }
                 //2 stars
                 CardReward.Stars = 2;
+                score = 2;
             }
             else if (scoreTimer > star2Time && scoreTimer <= star3Time)
             {
@@ -67,36 +72,15 @@ public class AnimalVictory : MonoBehaviour
                 }
                 //1 star
                 CardReward.Stars = 1;
+                score = 1;
             }
             else if (scoreTimer > 15)
-                {
-                    //0 stars
-                }
-
-            timer += Time.deltaTime;
-
-            if(timer > 5)//5 seconds after winning the game
             {
-                if (scoreTimer > 15)//skip card reward
-                {
-                    if (MinigameSceneScript.activeMinigame == 1)
-                    {
-                        MinigameSceneScript.activeMinigame++;
-                        SceneManager.LoadScene("Minigame#" + MinigameSceneScript.scene2);
-                    }
-                    else if (MinigameSceneScript.activeMinigame == 2)
-                    {
-                        MinigameSceneScript.activeMinigame++;
-                        SceneManager.LoadScene("Minigame#" + MinigameSceneScript.scene3);
-                    }
-                    else if (MinigameSceneScript.activeMinigame == 3)
-                    {
-                        SceneManager.LoadScene("CoreGame");
-                    }
-                }
-                else//go to card reward
-                    SceneManager.LoadScene("CardReward");
+                //0 stars
             }
+
+            nextSceneButton.SetActive(true);
+            levelTransitioner.currentMinigameScore = score;
         }
     }
     private void OnDestroy()

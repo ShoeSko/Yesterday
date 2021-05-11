@@ -269,7 +269,7 @@ public class CardReward : MonoBehaviour
             DeckScript.Deck.Add(activeCard);
         }
 
-        NextScene();
+        //NextScene();
     }
     public void selectG2()//add cards from group 2 to your deck
     {
@@ -281,7 +281,7 @@ public class CardReward : MonoBehaviour
             DeckScript.Deck.Add(activeCard);
         }
 
-        NextScene();
+        //NextScene();
     }
     public void selectG3()//add cards from group 3 to your deck
     {
@@ -293,26 +293,26 @@ public class CardReward : MonoBehaviour
             DeckScript.Deck.Add(activeCard);
         }
 
-        NextScene();
+        //NextScene();
     }
 
-    private void NextScene()//The code to change scene after choosing your cards
-    {
-        if (MinigameSceneScript.activeMinigame == 1)
-        {
-            MinigameSceneScript.activeMinigame++;
-            SceneManager.LoadScene("Minigame#" + MinigameSceneScript.scene2);
-        }
-        else if (MinigameSceneScript.activeMinigame == 2)
-        {
-            MinigameSceneScript.activeMinigame++;
-            SceneManager.LoadScene("Minigame#" + MinigameSceneScript.scene3);
-        }
-        else if (MinigameSceneScript.activeMinigame == 3)
-        {
-            SceneManager.LoadScene("CoreGame");
-        }
-    }
+    //private void NextScene()//The code to change scene after choosing your cards
+    //{
+    //    if (MinigameSceneScript.activeMinigame == 1)
+    //    {
+    //        MinigameSceneScript.activeMinigame++;
+    //        SceneManager.LoadScene("Minigame#" + MinigameSceneScript.scene2);
+    //    }
+    //    else if (MinigameSceneScript.activeMinigame == 2)
+    //    {
+    //        MinigameSceneScript.activeMinigame++;
+    //        SceneManager.LoadScene("Minigame#" + MinigameSceneScript.scene3);
+    //    }
+    //    else if (MinigameSceneScript.activeMinigame == 3)
+    //    {
+    //        SceneManager.LoadScene("CoreGame");
+    //    }
+    //}
 
     public void Back()
     {

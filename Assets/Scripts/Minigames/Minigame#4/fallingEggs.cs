@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class fallingEggs : MonoBehaviour
 {
@@ -14,10 +13,14 @@ public class fallingEggs : MonoBehaviour
     public static int collectedEggs;
 
     private float timer = 0;
-    private float wintimer = 0;
+
     public GameObject star1;
     public GameObject star2;
     public GameObject star3;
+
+    [SerializeField] private GameObject nextSceneButton; //The button to reach next scene
+    [SerializeField] private LevelTransitionSystem levelTransitioner; //Refrence to give the score of the game.  
+    private int score;
 
     public void Start()
     {
@@ -51,29 +54,6 @@ public class fallingEggs : MonoBehaviour
 
         if (timer >= 4)//countdown for how long the game lasts
             win();
-
-        if (wintimer >= 9)//5 seconds after 'winning', change scene
-        {
-            if(collectedEggs <= 7)//skip card reward
-            {
-                if (MinigameSceneScript.activeMinigame == 1)
-                {
-                    MinigameSceneScript.activeMinigame++;
-                    SceneManager.LoadScene("Minigame#" + MinigameSceneScript.scene2);
-                }
-                else if (MinigameSceneScript.activeMinigame == 2)
-                {
-                    MinigameSceneScript.activeMinigame++;
-                    SceneManager.LoadScene("Minigame#" + MinigameSceneScript.scene3);
-                }
-                else if (MinigameSceneScript.activeMinigame == 3)
-                {
-                    SceneManager.LoadScene("CoreGame");
-                }
-            }
-            else//Go to card reward screen
-                SceneManager.LoadScene("CardReward");
-        }
     }
 
     private void win()
@@ -84,23 +64,27 @@ public class fallingEggs : MonoBehaviour
             star2.SetActive(true);
             star3.SetActive(true);
             CardReward.Stars = 3;
+            score = 3;
         }
         else if(collectedEggs == 9)//2 stars
         {
             star1.SetActive(true);
             star2.SetActive(true);
             CardReward.Stars = 2;
+            score = 2;
         }
         else if (collectedEggs == 8)//1 star
         {
             star1.SetActive(true);
             CardReward.Stars = 1;
+            score = 1;
         }
+        nextSceneButton.SetActive(true);
+        levelTransitioner.currentMinigameScore = score;
     }
 
     private void countdown()
     {
         timer += Time.deltaTime;
-        wintimer += Time.deltaTime;
     }
 }

@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class GroundScript : MonoBehaviour
 {
@@ -22,7 +21,9 @@ public class GroundScript : MonoBehaviour
 
     public static bool win;
     public static int score;
-    private float timer;
+
+    [SerializeField] private GameObject nextSceneButton; //The button to reach next scene
+    [SerializeField] private LevelTransitionSystem levelTransitioner; //Refrence to give the score of the game.  
 
     void Start()
     {
@@ -91,30 +92,8 @@ public class GroundScript : MonoBehaviour
                 CardReward.Stars = 1;
             }
 
-            timer += Time.deltaTime;
-        }
-
-        if(timer > 5)//5 seconds after winning change scene
-        {
-            if (score == 0)//skip card reward
-            {
-                if (MinigameSceneScript.activeMinigame == 1)
-                {
-                    MinigameSceneScript.activeMinigame++;
-                    SceneManager.LoadScene("Minigame#" + MinigameSceneScript.scene2);
-                }
-                else if (MinigameSceneScript.activeMinigame == 2)
-                {
-                    MinigameSceneScript.activeMinigame++;
-                    SceneManager.LoadScene("Minigame#" + MinigameSceneScript.scene3);
-                }
-                else if (MinigameSceneScript.activeMinigame == 3)
-                {
-                    SceneManager.LoadScene("CoreGame");
-                }
-            }
-            else//go to card reward
-                SceneManager.LoadScene("CardReward");
+            nextSceneButton.SetActive(true);
+            levelTransitioner.currentMinigameScore = score;
         }
     }
 }

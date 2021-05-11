@@ -17,6 +17,11 @@ public class PillowScript : MonoBehaviour
     private bool iWon;
     private float countdown;
 
+    [Header("Level Transition")]
+    [SerializeField] private GameObject nextSceneButton; //The button to reach next scene
+    [SerializeField] private LevelTransitionSystem levelTransitioner; //Refrence to give the score of the game.  
+    private int score;
+
     private void Start()
     {
         star1.SetActive(false);
@@ -53,43 +58,24 @@ public class PillowScript : MonoBehaviour
                 star2.SetActive(true);
                 star3.SetActive(true);
                 CardReward.Stars = 3;
+                score = 3;
             }
             else if(timer > 7 && timer <= 12)//2 stars between 7-12 sec
             {
                 star1.SetActive(true);
                 star2.SetActive(true);
                 CardReward.Stars = 2;
+                score = 2;
             }
             else if (timer > 12 && timer <= 18)//1 stars between 12-18 sec
             {
                 star1.SetActive(true);
                 CardReward.Stars = 1;
+                score = 1;
             }
 
-            {
-                if(countdown >= 5)
-                {
-                    if (timer > 20)//skip card reward
-                    {
-                        if (MinigameSceneScript.activeMinigame == 1)
-                        {
-                            MinigameSceneScript.activeMinigame++;
-                            SceneManager.LoadScene("Minigame#" + MinigameSceneScript.scene2);
-                        }
-                        else if (MinigameSceneScript.activeMinigame == 2)
-                        {
-                            MinigameSceneScript.activeMinigame++;
-                            SceneManager.LoadScene("Minigame#" + MinigameSceneScript.scene3);
-                        }
-                        else if (MinigameSceneScript.activeMinigame == 3)
-                        {
-                            SceneManager.LoadScene("CoreGame");
-                        }
-                    }
-                    else//go to card reward
-                        SceneManager.LoadScene("CardReward");
-                }
-            }
+            nextSceneButton.SetActive(true);
+            levelTransitioner.currentMinigameScore = score;
         }
     }
 }

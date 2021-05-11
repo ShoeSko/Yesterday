@@ -13,6 +13,11 @@ public class ScoreScript : MonoBehaviour
     public GameObject star2;
     public GameObject star3;
 
+    [Header("Scene Transition")]
+    [SerializeField] private GameObject nextSceneButton; //The button to reach next scene
+    [SerializeField] private LevelTransitionSystem levelTransitioner; //Refrence to give the score of the game.  
+    private int score;
+
     private void Start()
     {
         star1.SetActive(false);
@@ -26,30 +31,8 @@ public class ScoreScript : MonoBehaviour
 
         if (iWon)
         {
-            timer += Time.deltaTime;
-
-            if (timer >= 5)//after reaching the goal, change scene after 5 sec
-            {
-                if (scoreTimer > 30)//skip card reward
-                {
-                    if (MinigameSceneScript.activeMinigame == 1)
-                    {
-                        MinigameSceneScript.activeMinigame++;
-                        SceneManager.LoadScene("Minigame#" + MinigameSceneScript.scene2);
-                    }
-                    else if (MinigameSceneScript.activeMinigame == 2)
-                    {
-                        MinigameSceneScript.activeMinigame++;
-                        SceneManager.LoadScene("Minigame#" + MinigameSceneScript.scene3);
-                    }
-                    else if (MinigameSceneScript.activeMinigame == 3)
-                    {
-                        SceneManager.LoadScene("CoreGame2");
-                    }
-                }
-                else//go to card reward
-                    SceneManager.LoadScene("CardReward");
-            }
+            nextSceneButton.SetActive(true);
+            levelTransitioner.currentMinigameScore = score;
         }
     }
 
@@ -64,6 +47,7 @@ public class ScoreScript : MonoBehaviour
             star2.SetActive(true);
             star3.SetActive(true);
             CardReward.Stars = 3;
+            score = 3;
         }
         else if (scoreTimer > 6 && scoreTimer <= 10)
         {
@@ -71,12 +55,14 @@ public class ScoreScript : MonoBehaviour
             star1.SetActive(true);
             star2.SetActive(true);
             CardReward.Stars = 2;
+            score = 2;
         }
         else if (scoreTimer > 10 && scoreTimer <= 15)
         {
             //1stars
             star1.SetActive(true);
             CardReward.Stars = 1;
+            score = 1;
         }
     }
 }

@@ -15,10 +15,14 @@ public class MouseCollider : MonoBehaviour
     public GameObject star3;
 
     private float ScoreTimer;
-    private float gamoverTimer;
+
     public bool IWin;
     public int score;
 
+    [Header("Scene Transition")]
+    [SerializeField] private GameObject nextSceneButton; //The button to reach next scene
+    [SerializeField] private LevelTransitionSystem levelTransitioner; //Refrence to give the score of the game.  
+    private int gameScore;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -38,7 +42,6 @@ public class MouseCollider : MonoBehaviour
 
         if (score == 3)//Win Condition
         {
-            gamoverTimer += Time.deltaTime;
 
             if (ScoreTimer <= 9)//3 stars
             {
@@ -59,29 +62,9 @@ public class MouseCollider : MonoBehaviour
                 CardReward.Stars = 1;
             }
 
+            nextSceneButton.SetActive(true);
+            levelTransitioner.currentMinigameScore = gameScore;
 
-            if (gamoverTimer >= 5)//change scenes after 5 sec
-            {
-                if (ScoreTimer > 20)//skip card reward
-                {
-                    if (MinigameSceneScript.activeMinigame == 1)
-                    {
-                        MinigameSceneScript.activeMinigame++;
-                        SceneManager.LoadScene("Minigame#" + MinigameSceneScript.scene2);
-                    }
-                    else if (MinigameSceneScript.activeMinigame == 2)
-                    {
-                        MinigameSceneScript.activeMinigame++;
-                        SceneManager.LoadScene("Minigame#" + MinigameSceneScript.scene3);
-                    }
-                    else if (MinigameSceneScript.activeMinigame == 3)
-                    {
-                        SceneManager.LoadScene("CoreGame");
-                    }
-                }
-                else//go to card reward
-                    SceneManager.LoadScene("CardReward");
-            }
         }
     }
 

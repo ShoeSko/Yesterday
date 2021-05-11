@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class HandScript : MonoBehaviour
 {
@@ -13,7 +12,7 @@ public class HandScript : MonoBehaviour
     public GameObject Nose;
     public GameObject boopeffect;
     public GameObject text;
-    private float clock = 0;
+
     public AudioSource boopSound;
     private float scoreTimer;
 
@@ -21,6 +20,8 @@ public class HandScript : MonoBehaviour
     public GameObject star2;
     public GameObject star3;
 
+    [SerializeField] private GameObject nextSceneButton; //The button to reach next scene
+    [SerializeField] private LevelTransitionSystem levelTransitioner; //Refrence to give the score of the game.
     private int score;
 
 
@@ -59,7 +60,7 @@ public class HandScript : MonoBehaviour
         {
             //boopeffect.transform.position = new Vector3(3.700827f, 0.2415431f, 0.5916452f);
             text.SetActive(true);
-            clock += Time.deltaTime;
+
 
             if(scoreTimer <= 2)//define score for this minigame
             {
@@ -90,29 +91,8 @@ public class HandScript : MonoBehaviour
                 //0 stars
             }
         }
-
-        if (clock >= 5)//load next scene after 5 sec
-        {
-            if (score == 0)//skip card reward
-            {
-                if (MinigameSceneScript.activeMinigame == 1)
-                {
-                    MinigameSceneScript.activeMinigame++;
-                    SceneManager.LoadScene("Minigame#" + MinigameSceneScript.scene2);
-                }
-                else if (MinigameSceneScript.activeMinigame == 2)
-                {
-                    MinigameSceneScript.activeMinigame++;
-                    SceneManager.LoadScene("Minigame#" + MinigameSceneScript.scene3);
-                }
-                else if (MinigameSceneScript.activeMinigame == 3)
-                {
-                    SceneManager.LoadScene("CoreGame");
-                }
-            }
-            else//Go to card reward screen
-                SceneManager.LoadScene("CardReward");
-        }
+        levelTransitioner.currentMinigameScore = score;
+        nextSceneButton.SetActive(true);
     }
 
     private void FixedUpdate()

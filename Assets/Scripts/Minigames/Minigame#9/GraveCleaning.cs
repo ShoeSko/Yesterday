@@ -12,7 +12,6 @@ public class GraveCleaning : MonoBehaviour
 
     public int score;//how many leaves have been removed
     private float timer;
-    private float endgameTimer;
 
     private int LeavesToSpawn = 4; //how many leaves to spawn
 
@@ -21,6 +20,11 @@ public class GraveCleaning : MonoBehaviour
     private float randomY;
     private int randomRotation;
     private Vector3 spawnLocation;
+
+    [Header("Level transition")]
+    [SerializeField] private GameObject nextSceneButton; //The button to reach next scene
+    [SerializeField] private LevelTransitionSystem levelTransitioner; //Refrence to give the score of the game.  
+    private int minigameScore;
 
     private void Start()
     {
@@ -49,51 +53,34 @@ public class GraveCleaning : MonoBehaviour
 
         if(score == LeavesToSpawn)
         {
-            endgameTimer += Time.deltaTime;
-
             if (timer <= 3)
             {
                 star1.SetActive(true);
                 star2.SetActive(true);
                 star3.SetActive(true);
                 CardReward.Stars = 3;
+                minigameScore = 3;
             }
             else if(timer > 3 && timer <= 8)
             {
                 star1.SetActive(true);
                 star2.SetActive(true);
                 CardReward.Stars = 2;
+                minigameScore = 2;
             }
             else if (timer > 8 && timer <= 15)
             {
                 star1.SetActive(true);
                 CardReward.Stars = 1;
+                minigameScore = 1;
             }
+
+            nextSceneButton.SetActive(true);
+            levelTransitioner.currentMinigameScore = minigameScore;
         }
         else
             timer += Time.deltaTime;
 
-        if(endgameTimer >= 5)//change scenes after 5 sec
-        {
-            if (timer > 15)//skip card reward
-            {
-                if (MinigameSceneScript.activeMinigame == 1)
-                {
-                    MinigameSceneScript.activeMinigame++;
-                    SceneManager.LoadScene("Minigame#" + MinigameSceneScript.scene2);
-                }
-                else if (MinigameSceneScript.activeMinigame == 2)
-                {
-                    MinigameSceneScript.activeMinigame++;
-                    SceneManager.LoadScene("Minigame#" + MinigameSceneScript.scene3);
-                }
-                else if (MinigameSceneScript.activeMinigame == 3)
-                {
-                    SceneManager.LoadScene("CoreGame");
-                }
-            }
-            else//go to card reward
-                SceneManager.LoadScene("CardReward");
-        }
+
     }
 }

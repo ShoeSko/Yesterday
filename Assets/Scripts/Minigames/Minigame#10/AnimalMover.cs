@@ -5,7 +5,7 @@ public class AnimalMover : MonoBehaviour
     private Camera mainCamera; //Camera refrence
     private float CameraZDistance; //Variable to determine the distance in the z axis
     private bool grabbed; //Is the object grabber?
-    private BoxCollider2D colliderOfAnimal;
+    private Collider2D colliderOfAnimal;
 
     //private Transform animalTransform;
     private Vector3 originalPos;
@@ -47,7 +47,7 @@ public class AnimalMover : MonoBehaviour
     {
         if (grabbed)
         {
-            colliderOfAnimal = GetComponent<BoxCollider2D>(); //Get the collider
+            colliderOfAnimal = GetComponent<Collider2D>(); //Get the collider
             colliderOfAnimal.enabled = false; //Can't collide if there is not collider
         }
         else

@@ -1,12 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class GoalCounter : MonoBehaviour
 {
     public static int counter;
-    private float timer;
     public GameObject text;//text that pops up when you 'win' the minigame
     private float scoreTimer;
     public AudioSource amoosing;
@@ -16,6 +14,9 @@ public class GoalCounter : MonoBehaviour
     public GameObject star2;
     public GameObject star3;
 
+    [SerializeField] private GameObject nextSceneButton; //The button to reach next scene
+    [SerializeField] private LevelTransitionSystem levelTransitioner; //Refrence to give the score of the game.
+    private int score;
 
     public void Start()
     {
@@ -40,7 +41,6 @@ public class GoalCounter : MonoBehaviour
 
         if (win)//when you have pressed all 4 cow tits:
         {
-            timer += Time.deltaTime;//*start countdown, after 5 sec you get transported to the next level
             text.SetActive(true);//*show the win screen text
 
             if(scoreTimer <= 3)
@@ -50,6 +50,7 @@ public class GoalCounter : MonoBehaviour
                 star3.SetActive(true);
                 //3 stars
                 CardReward.Stars = 3;
+                score = 3;
             }
             else if (scoreTimer >= 3 && scoreTimer < 6)
             {
@@ -57,40 +58,22 @@ public class GoalCounter : MonoBehaviour
                 star2.SetActive(true);
                 //2 stars
                 CardReward.Stars = 2;
+                score = 2;
             }
             else if (scoreTimer >= 6 && scoreTimer < 8)
             {
                 star1.SetActive(true);
                 //1 stars
                 CardReward.Stars = 1;
+                score = 1;
             }
             else if (scoreTimer >= 8)
             {
                 //0 stars
+                score = 0;
             }
-        }
-
-        if (timer >= 5)
-        {
-            if(scoreTimer >= 8)//skip card reward
-            {
-                if (MinigameSceneScript.activeMinigame == 1)
-                {
-                    MinigameSceneScript.activeMinigame++;
-                    SceneManager.LoadScene("Minigame#" + MinigameSceneScript.scene2);
-                }
-                else if (MinigameSceneScript.activeMinigame == 2)
-                {
-                    MinigameSceneScript.activeMinigame++;
-                    SceneManager.LoadScene("Minigame#" + MinigameSceneScript.scene3);
-                }
-                else if (MinigameSceneScript.activeMinigame == 3)
-                {
-                    SceneManager.LoadScene("CoreGame");
-                }
-            }
-            else//Go to card reward screen
-                SceneManager.LoadScene("CardReward");
+            nextSceneButton.SetActive(true);
+            levelTransitioner.currentMinigameScore = score;
         }
     }
 }

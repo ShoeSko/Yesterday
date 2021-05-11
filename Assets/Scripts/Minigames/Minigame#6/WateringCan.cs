@@ -30,7 +30,10 @@ public class WateringCan : MonoBehaviour
     public int star2Time;
     public int star3Time;
 
-    private float timer;
+    [Header("Scene Transitions")]
+    [SerializeField] private GameObject nextSceneButton; //The button to reach next scene
+    [SerializeField] private LevelTransitionSystem levelTransitioner; //Refrence to give the score of the game.  
+    private int score;
 
     private void Start()
     {
@@ -44,33 +47,6 @@ public class WateringCan : MonoBehaviour
         {
         WateringcanControlls();
         WateringTime();
-        }
-        else //if the plants have been watered, start countdown
-        {
-            timer += Time.deltaTime;
-        }
-
-        if(timer > 5)
-        {
-            if (scoreTimer > star3Time)//skip card reward
-            {
-                if (MinigameSceneScript.activeMinigame == 1)
-                {
-                    MinigameSceneScript.activeMinigame++;
-                    SceneManager.LoadScene("Minigame#" + MinigameSceneScript.scene2);
-                }
-                else if (MinigameSceneScript.activeMinigame == 2)
-                {
-                    MinigameSceneScript.activeMinigame++;
-                    SceneManager.LoadScene("Minigame#" + MinigameSceneScript.scene3);
-                }
-                else if (MinigameSceneScript.activeMinigame == 3)
-                {
-                    SceneManager.LoadScene("CoreGame");
-                }
-            }
-            else//go to card reward
-                SceneManager.LoadScene("CardReward");
         }
     }
 
@@ -111,6 +87,7 @@ public class WateringCan : MonoBehaviour
             }
             //3 stars
             CardReward.Stars = 3;
+            score = 3;
         }
         else if (scoreTimer > star1Time && scoreTimer <= star2Time)
         {
@@ -120,6 +97,7 @@ public class WateringCan : MonoBehaviour
             }
             //2 stars
             CardReward.Stars = 2;
+            score = 2;
         }
         else if (scoreTimer > star2Time && scoreTimer <= star3Time)
         {
@@ -129,6 +107,7 @@ public class WateringCan : MonoBehaviour
             }
             //1 star
             CardReward.Stars = 1;
+            score = 1;
         }
         else
         {
@@ -136,6 +115,9 @@ public class WateringCan : MonoBehaviour
         }
         Water.Stop();
         watered = true; //Plants have now been watered
+
+        nextSceneButton.SetActive(true);
+        levelTransitioner.currentMinigameScore = score;
     }
 
     private void WateringcanControlls()

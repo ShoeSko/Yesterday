@@ -20,7 +20,7 @@ public class EggCollectionSpawning : MonoBehaviour
     public static int score = 0;
     public GameObject wintext;
     public GameObject goaltext;
-    private float levelcountdown = 0;
+
     private bool victoryEgg;
     public static int eggsSpawned = 0;//keeps track of how many eggs were spawned/destroyed
     private float delay;
@@ -30,6 +30,10 @@ public class EggCollectionSpawning : MonoBehaviour
     public GameObject star1;
     public GameObject star2;
     public GameObject star3;
+
+    [SerializeField] private GameObject nextSceneButton; //The button to reach next scene
+    [SerializeField] private LevelTransitionSystem levelTransitioner; //Refrence to give the score of the game.
+    private int minigameScore;
 
     void Start()
     {
@@ -82,6 +86,7 @@ public class EggCollectionSpawning : MonoBehaviour
                 star2.SetActive(true);
                 star3.SetActive(true);
                 CardReward.Stars = 3;
+                minigameScore = 3;
             }
             else if (score == 7)
             {
@@ -90,6 +95,7 @@ public class EggCollectionSpawning : MonoBehaviour
                 star1.SetActive(true);
                 star2.SetActive(true);
                 CardReward.Stars = 2;
+                minigameScore = 2;
             }
             else if (score == 6)
             {
@@ -97,6 +103,7 @@ public class EggCollectionSpawning : MonoBehaviour
                 victoryEgg = true;
                 star1.SetActive(true);
                 CardReward.Stars = 1;
+                minigameScore = 1;
             }
             else if (score <= 5)
             {
@@ -114,29 +121,8 @@ public class EggCollectionSpawning : MonoBehaviour
     {
         goaltext.SetActive(false);
         wintext.SetActive(true);
-        levelcountdown += Time.deltaTime;
 
-        if (levelcountdown >= 5)
-        {
-            if (score <= 5)//skip card reward
-            {
-                if (MinigameSceneScript.activeMinigame == 1)
-                {
-                    MinigameSceneScript.activeMinigame++;
-                    SceneManager.LoadScene("Minigame#" + MinigameSceneScript.scene2);
-                }
-                else if (MinigameSceneScript.activeMinigame == 2)
-                {
-                    MinigameSceneScript.activeMinigame++;
-                    SceneManager.LoadScene("Minigame#" + MinigameSceneScript.scene3);
-                }
-                else if (MinigameSceneScript.activeMinigame == 3)
-                {
-                    SceneManager.LoadScene("CoreGame");
-                }
-            }
-            else//Go to card reward screen
-                SceneManager.LoadScene("CardReward");
-        }
+        nextSceneButton.SetActive(true);
+        levelTransitioner.currentMinigameScore = minigameScore;
     }
 }

@@ -42,6 +42,10 @@ public class RoombaPower : MonoBehaviour
     private bool win;
     private float delay;
     private int score;
+
+    [Header("Scene Transition")]
+    [SerializeField] private GameObject nextSceneButton; //The button to reach next scene
+    [SerializeField] private LevelTransitionSystem levelTransitioner; //Refrence to give the score of the game.  
     #endregion
 
     private void Start()
@@ -76,30 +80,8 @@ public class RoombaPower : MonoBehaviour
 
         if (win)
         {
-            delay += Time.deltaTime;
-
-            if(delay > 5)
-            {
-                if (score == 0)//skip card reward
-                {
-                    if (MinigameSceneScript.activeMinigame == 1)
-                    {
-                        MinigameSceneScript.activeMinigame++;
-                        SceneManager.LoadScene("Minigame#" + MinigameSceneScript.scene2);
-                    }
-                    else if (MinigameSceneScript.activeMinigame == 2)
-                    {
-                        MinigameSceneScript.activeMinigame++;
-                        SceneManager.LoadScene("Minigame#" + MinigameSceneScript.scene3);
-                    }
-                    else if (MinigameSceneScript.activeMinigame == 3)
-                    {
-                        SceneManager.LoadScene("CoreGame");
-                    }
-                }
-                else//go to card reward
-                    SceneManager.LoadScene("CardReward");
-            }
+            nextSceneButton.SetActive(true);
+            levelTransitioner.currentMinigameScore = score;
         }
     }
 
