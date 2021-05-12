@@ -8,6 +8,7 @@ public class SettingsScript : MonoBehaviour
     public AudioMixer mixer;
     public Slider slider;
     private SaveSystem saving;
+    public GameObject soundSettings;
 
     [Header("Which Mixer is this?")]
     public bool masterMixer;
@@ -16,22 +17,30 @@ public class SettingsScript : MonoBehaviour
 
     private void Start()
     {
-        saving = FindObjectOfType<SaveSystem>().GetComponent<SaveSystem>(); //Grabs the save system from the scene.  This line can be reused for all scripts needing to save info.
+        if (FindObjectOfType<SaveSystem>() && mixer != null)
+        {
+            saving = FindObjectOfType<SaveSystem>().GetComponent<SaveSystem>(); //Grabs the save system from the scene.  This line can be reused for all scripts needing to save info.
 
-        if (masterMixer)
-        {
-            mixer.SetFloat("MasterVolume", Mathf.Log10(saving.data.masterVolLevel) * 20); //Sets the volume to the stored data from save.
-            slider.value = saving.data.masterVolLevel;
+            if (masterMixer)
+            {
+                mixer.SetFloat("MasterVolume", Mathf.Log10(saving.data.masterVolLevel) * 20); //Sets the volume to the stored data from save.
+                slider.value = saving.data.masterVolLevel;
+            }
+            else if (musicMixer)
+            {
+                mixer.SetFloat("MusicVolume", Mathf.Log10(saving.data.musicVolLevel) * 20);
+                slider.value = saving.data.musicVolLevel;
+            }
+            else if (sfxMixer)
+            {
+                mixer.SetFloat("SFXVolume", Mathf.Log10(saving.data.sfxVolLevel) * 20);
+                slider.value = saving.data.sfxVolLevel;
+            }
         }
-        else if (musicMixer)
+        if(soundSettings.activeInHierarchy == false) //Refreshes the sound on start.
         {
-            mixer.SetFloat("MusicVolume", Mathf.Log10(saving.data.musicVolLevel) * 20);
-            slider.value = saving.data.musicVolLevel;
-        }
-        else if (sfxMixer)
-        {
-            mixer.SetFloat("SFXVolume", Mathf.Log10(saving.data.sfxVolLevel) * 20);
-            slider.value = saving.data.sfxVolLevel;
+            soundSettings.SetActive(true);
+            soundSettings.SetActive(false);
         }
     }
 
