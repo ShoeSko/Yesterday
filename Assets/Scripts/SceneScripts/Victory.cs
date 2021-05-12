@@ -5,6 +5,7 @@ public class Victory : MonoBehaviour
 {
     static public bool s_youWon; //Use the s_ to make static variable easier to find
     [SerializeField] private GameObject youWin;
+    public GameObject emote;
 
     private void Start()
     {
@@ -33,6 +34,7 @@ public class Victory : MonoBehaviour
         s_youWon = false;
         youWin.SetActive(true);
         Time.timeScale = 0;
+        emote.GetComponent<Emotes>().WonGame();
     }
 
     //public void NextRound()
