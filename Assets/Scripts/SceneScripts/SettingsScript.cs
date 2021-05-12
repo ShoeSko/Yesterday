@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
@@ -14,6 +16,24 @@ public class SettingsScript : MonoBehaviour
     public bool masterMixer;
     public bool musicMixer;
     public bool sfxMixer;
+
+    private void Awake()
+    {
+        if (soundSettings && soundSettings.activeInHierarchy == false) //Refreshes the sound on start.
+        {
+            soundSettings.SetActive(true);
+            soundSettings.GetComponent<CanvasGroup>().alpha = 0;
+            soundSettings.GetComponent<CanvasGroup>().interactable = false;
+            StartCoroutine(LoadTheVolumeLevel());
+        }
+    }
+    IEnumerator LoadTheVolumeLevel()
+    {
+        yield return new WaitForSeconds(0.5f);
+        soundSettings.SetActive(false);
+        soundSettings.GetComponent<CanvasGroup>().alpha = 1;
+        soundSettings.GetComponent<CanvasGroup>().interactable = true;
+    }
 
     private void Start()
     {
@@ -36,11 +56,6 @@ public class SettingsScript : MonoBehaviour
                 mixer.SetFloat("SFXVolume", Mathf.Log10(saving.data.sfxVolLevel) * 20);
                 slider.value = saving.data.sfxVolLevel;
             }
-        }
-        if(soundSettings.activeInHierarchy == false) //Refreshes the sound on start.
-        {
-            soundSettings.SetActive(true);
-            soundSettings.SetActive(false);
         }
     }
 
