@@ -11,7 +11,7 @@ public class SaveSystem : MonoBehaviour
     private void Awake()
     {
         DontDestroyOnLoad(this); //Makes it so that all scenes can see it. (Potentialy other scrip
-#if UNITY_Engine || UNITY_EDITOR
+#if UNITY_STANDALONE || UNITY_EDITOR
         if (Directory.Exists(Application.dataPath + "/SaveData/"))
         {
             Load(); //Loads the game at the start.
@@ -39,7 +39,7 @@ public class SaveSystem : MonoBehaviour
     [ContextMenu("Save")] //Makes a menu option in component section,right click to accsess.
     void Save()
     {
-#if UNITY_ENGINE || UNITY_EDITOR
+#if UNITY_STANDALONE || UNITY_EDITOR
         string json = JsonUtility.ToJson(data); //Writes the Data in Json Format
         File.WriteAllText(path, json);  //Stores the Json Data
 #elif UNITY_ANDROID
@@ -50,7 +50,7 @@ public class SaveSystem : MonoBehaviour
     [ContextMenu("Load")]//Makes a menu option in component section,right click to accsess.
     void Load()
     {
-#if UNITY_ENGINE || UNITY_EDITOR
+#if UNITY_STANDALONE || UNITY_EDITOR
         string json = File.ReadAllText(path); //Reads the Json Data
         Data loadedData = JsonUtility.FromJson<Data>(json); //Write the Json format in as readable data
 #elif UNITY_ANDROID
