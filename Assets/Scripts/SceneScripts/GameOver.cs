@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class GameOver : MonoBehaviour
 {
     public GameObject YouLost;
+    public GameObject emote;
 
     void OnTriggerEnter2D(Collider2D collider)
     {
@@ -17,6 +18,7 @@ public class GameOver : MonoBehaviour
     {
         YouLost.SetActive(true);
         Time.timeScale = 0;
+        emote.GetComponent<Emotes>().LoseGame();
     }
 
     //public void returnHome()
