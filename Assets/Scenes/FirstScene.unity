@@ -336,9 +336,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data:
-    masterVolLevel: 0
-    musicVolLevel: 0
-    sfxVolLevel: 0
+    masterVolLevel: 1
+    musicVolLevel: 1
+    sfxVolLevel: 1
 --- !u!4 &769017276
 Transform:
   m_ObjectHideFlags: 0

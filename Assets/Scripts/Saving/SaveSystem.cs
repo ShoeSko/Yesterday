@@ -5,39 +5,62 @@ public class SaveSystem : MonoBehaviour
 {
     public Data data; //Makes all values within the data accsesable
     string path => Application.dataPath + "/SaveData/saveData.json";
+    string mobilePath => Application.persistentDataPath + "/SaveData/saveData.json";
 
-    #region Save & Load
-    [ContextMenu("Save")] //Makes a menu option in component section,right click to accsess.
-    void Save()
-    {
-        string json = JsonUtility.ToJson(data); //Writes the Data in Json Format
-        File.WriteAllText(path, json);  //Stores the Json Data
-    }
-    [ContextMenu("Load")]//Makes a menu option in component section,right click to accsess.
-    void Load()
-    {
-        string json = File.ReadAllText(path); //Reads the Json Data
-        Data loadedData = JsonUtility.FromJson<Data>(json); //Write the Json format in as readable data
-
-        data = loadedData;
-    }
-    #endregion
     #region At the start
     private void Awake()
     {
         DontDestroyOnLoad(this); //Makes it so that all scenes can see it. (Potentialy other scrip
-        if(Directory.Exists(Application.dataPath + "/SaveData/"))
+#if UNITY_Engine || UNITY_EDITOR
+        if (Directory.Exists(Application.dataPath + "/SaveData/"))
         {
-             Load(); //Loads the game at the start.
+            Load(); //Loads the game at the start.
             print("Data Loaded");
         }
-        else 
-        { 
+        else
+        {
             Directory.CreateDirectory(Application.dataPath + "/SaveData/");
         }
+#elif UNITY_ANDROID
+        if (Directory.Exists(Application.persistentDataPath + "/SaveData/"))
+        {
+            Load(); //Loads the game at the start.
+            print("Data Loaded");
+        }
+        else
+        {
+            Directory.CreateDirectory(Application.persistentDataPath + "/SaveData/");
+        }
+
+#endif
     }
-    #endregion
-    #region When to save
+#endregion
+#region Save & Load
+    [ContextMenu("Save")] //Makes a menu option in component section,right click to accsess.
+    void Save()
+    {
+#if UNITY_ENGINE || UNITY_EDITOR
+        string json = JsonUtility.ToJson(data); //Writes the Data in Json Format
+        File.WriteAllText(path, json);  //Stores the Json Data
+#elif UNITY_ANDROID
+        string json = JsonUtility.ToJson(data); //Writes the Data in Json Format
+        File.WriteAllText(mobilePath, json);  //Stores the Json Data
+#endif
+    }
+    [ContextMenu("Load")]//Makes a menu option in component section,right click to accsess.
+    void Load()
+    {
+#if UNITY_ENGINE || UNITY_EDITOR
+        string json = File.ReadAllText(path); //Reads the Json Data
+        Data loadedData = JsonUtility.FromJson<Data>(json); //Write the Json format in as readable data
+#elif UNITY_ANDROID
+        string json = File.ReadAllText(mobilePath); //Reads the Json Data
+        Data loadedData = JsonUtility.FromJson<Data>(json); //Write the Json format in as readable data
+#endif
+        data = loadedData;
+    }
+#endregion
+#region When to save
     //Currently this can be called everytime a value is changed (Will prevent lost data from crash, might be heavy?)
 
     public void SaveTheData()
@@ -45,9 +68,10 @@ public class SaveSystem : MonoBehaviour
         Save(); //Saves the data on every loaded level.
         print("Data Saved!");
     }
-    #endregion
+#endregion
 }
 
+#region The Data to save
 [System.Serializable]
 public class Data //Serializable class of data. All inf to be saved should be here.
 {
@@ -76,3 +100,4 @@ public class Data //Serializable class of data. All inf to be saved should be he
     //    this.cardsSummoned = cardsSummoned;
     //}
 }
+#endregion
