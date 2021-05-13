@@ -8,6 +8,8 @@ public class MinigameSceneScript : MonoBehaviour
 {
     int sizeOfMinigameList = 13; //A variable to hold the size of the list - 1
 
+    public static bool Tutorial;//Changes how the game plays (turns on tutorial mode)
+
     static public int scene1;
     static public int scene2;
     static public int scene3;
@@ -39,6 +41,20 @@ public class MinigameSceneScript : MonoBehaviour
         }
     }
 
+    public void TutorialMinigameScene()
+    {
+        Tutorial = true;
+
+        scene1 = 2; //Introduces tapping
+        scene2 = 10;//Introduces dragging
+        scene3 = 6; //Introduces Tilting
+
+        MinigameMusic.SetActive(true);
+        DontDestroyOnLoad(MinigameMusic);
+
+        levelTransition.LoadFirstMiniGame();
+    }
+
     IEnumerator minigameRandomizer()
     {
         for (int randomize = 0; randomize < 1; randomize++)
@@ -65,8 +81,6 @@ public class MinigameSceneScript : MonoBehaviour
 
             if (randomize == 0)
             {
-                print("i load scene");
-
                 MinigameMusic.SetActive(true);
                 DontDestroyOnLoad(MinigameMusic);
 

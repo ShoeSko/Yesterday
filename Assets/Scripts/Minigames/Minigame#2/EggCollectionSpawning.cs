@@ -26,6 +26,9 @@ public class EggCollectionSpawning : MonoBehaviour
     private float delay;
     public AudioSource Eggscelent;
 
+    private float StartDelay;
+    private bool GameStarted;
+
 
     public GameObject star1;
     public GameObject star2;
@@ -35,10 +38,17 @@ public class EggCollectionSpawning : MonoBehaviour
     [SerializeField] private LevelTransitionSystem levelTransitioner; //Refrence to give the score of the game.
     private int minigameScore;
 
+    //Tutorial stuff
+    public List<GameObject> Texts = new List<GameObject>();
+    private int Text;
+    public GameObject RobotSmile1;
+    public GameObject SpeechBubble;
+    public GameObject continueText;
+    private bool gameHasStarted;
+
     void Start()
     {
-        sizeOfEggSpawnLocationsList = eggSpawnLocationsList.Count;//Grabs the size of the list
-        StartCoroutine(EggSpawner());//Starts the spawning coroutine
+        //Prep
         score = 0;
         wintext.SetActive(false);
         eggSpawnAmount = 8;
@@ -46,6 +56,18 @@ public class EggCollectionSpawning : MonoBehaviour
         star1.SetActive(false);
         star2.SetActive(false);
         star3.SetActive(false);
+
+        if (MinigameSceneScript.Tutorial == true)
+        {
+            continueText.SetActive(true);
+            Text = 0;
+            RobotSmile1.SetActive(true);
+            goaltext.SetActive(false);
+            Texts[Text].SetActive(true);
+            SpeechBubble.SetActive(true);
+        }
+        else
+            GameStarted = true;
     }
 
     IEnumerator EggSpawner()
@@ -73,6 +95,42 @@ public class EggCollectionSpawning : MonoBehaviour
 
     void Update()
     {
+        //Tutorial part
+
+        if(MinigameSceneScript.Tutorial == true && gameHasStarted == false)
+        {
+            if (Input.GetKeyDown(KeyCode.Mouse0) || Input.GetKeyDown(KeyCode.Space))
+            {
+                Texts[Text].SetActive(false);
+                Text++;
+                if (Text != 6)
+                    Texts[Text].SetActive(true);
+                else
+                {
+                    RobotSmile1.SetActive(false);
+                    SpeechBubble.SetActive(false);
+                    continueText.SetActive(false);
+                    goaltext.SetActive(true);
+                    GameStarted = true;
+                    gameHasStarted = true;
+                }
+            }
+        }
+
+        //Actual minigame
+
+        if(GameStarted == true)
+            StartDelay += Time.deltaTime;
+
+        if(StartDelay >= 3)
+        {
+            sizeOfEggSpawnLocationsList = eggSpawnLocationsList.Count;//Grabs the size of the list
+            StartCoroutine(EggSpawner());//Starts the spawning coroutine
+            GameStarted = false;
+            StartDelay = 0;
+        }
+
+
         if (eggsSpawned == eggSpawnAmount)
             delay += Time.deltaTime;
 
