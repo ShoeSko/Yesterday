@@ -11,6 +11,8 @@ public class fallingEggs : MonoBehaviour
     private Vector2 spawnLocation;
     private int countdownEgg;
     public static int collectedEggs;
+    private bool MakeItRain;
+    private float startDelay;
 
     private float timer = 0;
 
@@ -29,7 +31,7 @@ public class fallingEggs : MonoBehaviour
         star2.SetActive(false);
         star3.SetActive(false);
 
-        StartCoroutine(itsRainingEgg());
+        MakeItRain = true;
     }
 
     IEnumerator itsRainingEgg()//activate spawning coroutine for falling eggs
@@ -46,6 +48,17 @@ public class fallingEggs : MonoBehaviour
 
     public void Update()
     {
+        if(MakeItRain == true)
+        {
+            startDelay += Time.deltaTime;
+        }
+
+        if(startDelay >= 3)
+        {
+            MakeItRain = false;
+            StartCoroutine(itsRainingEgg());
+            startDelay = 0;
+        }
 
         if(countdownEgg == EggsToSpawn)//when you have spawned all of the eggs, initiate endgame sequence
         {

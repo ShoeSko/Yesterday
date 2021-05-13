@@ -6,6 +6,7 @@ public class GoalCounter : MonoBehaviour
 {
     public static int counter;
     public GameObject text;//text that pops up when you 'win' the minigame
+    public GameObject objective;
     private float scoreTimer;
     public AudioSource amoosing;
     private bool win = false;
@@ -22,6 +23,7 @@ public class GoalCounter : MonoBehaviour
     {
         counter = 0;
         text.SetActive(false);
+        objective.SetActive(true);
 
         star1.SetActive(false);
         star2.SetActive(false);
@@ -42,8 +44,9 @@ public class GoalCounter : MonoBehaviour
         if (win)//when you have pressed all 4 cow tits:
         {
             text.SetActive(true);//*show the win screen text
+            objective.SetActive(false);
 
-            if(scoreTimer <= 3)
+            if (scoreTimer <= 3)
             {
                 star1.SetActive(true);
                 star2.SetActive(true);

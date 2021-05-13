@@ -10,8 +10,8 @@ public class HandScript : MonoBehaviour
     Vector2 position = new Vector2(0f, 0f);
     public bool Boop = false;
     public GameObject Nose;
-    public GameObject boopeffect;
     public GameObject text;
+    public GameObject Objective;
 
     public AudioSource boopSound;
     private float scoreTimer;
@@ -58,8 +58,8 @@ public class HandScript : MonoBehaviour
 
         if (Boop)//when the hand touches the nose, add blush
         {
-            //boopeffect.transform.position = new Vector3(3.700827f, 0.2415431f, 0.5916452f);
             text.SetActive(true);
+            Objective.SetActive(false);
 
 
             if(scoreTimer <= 2)//define score for this minigame
