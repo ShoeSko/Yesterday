@@ -101,11 +101,14 @@ public class EggCollectionSpawning : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Mouse0) || Input.GetKeyDown(KeyCode.Space))
             {
-                Texts[Text].SetActive(false);
-                Text++;
-                if (Text != 6)
+                if(Text != 9)
+                {
+                    Texts[Text].SetActive(false);
+                    Text++;
+                }
+                if (Text != 6 && Text != 10)
                     Texts[Text].SetActive(true);
-                else
+                else if(Text == 6)
                 {
                     RobotSmile1.SetActive(false);
                     SpeechBubble.SetActive(false);
@@ -114,6 +117,12 @@ public class EggCollectionSpawning : MonoBehaviour
                     GameStarted = true;
                     gameHasStarted = true;
                 }
+            }
+
+            if(Text == 9)
+            {
+                nextSceneButton.SetActive(true);
+                levelTransitioner.currentMinigameScore = minigameScore;
             }
         }
 
@@ -136,7 +145,42 @@ public class EggCollectionSpawning : MonoBehaviour
 
         if(delay >= 2)
         {
-            if(score == 8)
+            if(MinigameSceneScript.Tutorial == false)
+            {
+                if (score == 8)
+                {
+                    Win();
+                    victoryEgg = true;
+                    star1.SetActive(true);
+                    star2.SetActive(true);
+                    star3.SetActive(true);
+                    CardReward.Stars = 3;
+                    minigameScore = 3;
+                }
+                else if (score == 7)
+                {
+                    Win();
+                    victoryEgg = true;
+                    star1.SetActive(true);
+                    star2.SetActive(true);
+                    CardReward.Stars = 2;
+                    minigameScore = 2;
+                }
+                else if (score == 6)
+                {
+                    Win();
+                    victoryEgg = true;
+                    star1.SetActive(true);
+                    CardReward.Stars = 1;
+                    minigameScore = 1;
+                }
+                else if (score <= 5)
+                {
+                    Win();
+                    victoryEgg = true;
+                }
+            }
+            else
             {
                 Win();
                 victoryEgg = true;
@@ -145,28 +189,6 @@ public class EggCollectionSpawning : MonoBehaviour
                 star3.SetActive(true);
                 CardReward.Stars = 3;
                 minigameScore = 3;
-            }
-            else if (score == 7)
-            {
-                Win();
-                victoryEgg = true;
-                star1.SetActive(true);
-                star2.SetActive(true);
-                CardReward.Stars = 2;
-                minigameScore = 2;
-            }
-            else if (score == 6)
-            {
-                Win();
-                victoryEgg = true;
-                star1.SetActive(true);
-                CardReward.Stars = 1;
-                minigameScore = 1;
-            }
-            else if (score <= 5)
-            {
-                Win();
-                victoryEgg = true;
             }
         }
 
@@ -177,10 +199,27 @@ public class EggCollectionSpawning : MonoBehaviour
     }
     public void Win()
     {
-        goaltext.SetActive(false);
-        wintext.SetActive(true);
+        if(MinigameSceneScript.Tutorial == false)
+        {
+            goaltext.SetActive(false);
+            wintext.SetActive(true);
 
-        nextSceneButton.SetActive(true);
-        levelTransitioner.currentMinigameScore = minigameScore;
+            nextSceneButton.SetActive(true);
+            levelTransitioner.currentMinigameScore = minigameScore;
+        }
+        else
+        {
+            if(Text == 6)
+            {
+                CardReward.TutorialMission = 1;
+                goaltext.SetActive(false);
+                RobotSmile1.SetActive(true);
+                SpeechBubble.SetActive(true);
+                continueText.SetActive(true);
+                Text++;
+                Texts[Text].SetActive(true);
+                gameHasStarted = false;
+            }
+        }
     }
 }

@@ -39,23 +39,83 @@ public class CardReward : MonoBehaviour
     private int unitListLenght;
 
 
+    //Tutorial stuff
+    public static int TutorialMission;
+    public GameObject view1Button;
+    public GameObject choose1Button;
+    public GameObject cardgroup1;
+    public GameObject cardgroup2;
+    public GameObject cardgroup3;
+    public GameObject RobotWave;
+    public GameObject SpeechBubble;
+    public GameObject continueText;
+
+    public List<GameObject> Texts1 = new List<GameObject>();
+    public List<GameObject> Texts2 = new List<GameObject>();
+    public List<GameObject> Texts3 = new List<GameObject>();
+    private int Text;
+
     private void Start()
     {
-        Overview.SetActive(true);
-        ViewView.SetActive(false);
-
-        StarLimit = 0;
-        groupNumber = 1;
-
         sizeOfCards = totalCards.Count;
         sizeOfRewardCards = rewardCards.Count;
 
-        if(Stars == 3)
-            randomize3Cards();
-        if (Stars == 2)
-            randomize2Cards();
-        if (Stars == 1)
-            randomize1Cards();
+        if (MinigameSceneScript.Tutorial == false)
+        {
+            Overview.SetActive(true);
+            ViewView.SetActive(false);
+
+            StarLimit = 0;
+            groupNumber = 1;
+
+            if (Stars == 3)
+                randomize3Cards();
+            if (Stars == 2)
+                randomize2Cards();
+            if (Stars == 1)
+                randomize1Cards();
+        }
+        else//Tutorial settings
+        {
+            Text = 0;
+            view1Button.SetActive(false);
+            choose1Button.SetActive(false);
+
+            RobotWave.SetActive(true);
+            SpeechBubble.SetActive(true);
+            continueText.SetActive(true);
+
+            //First reward screen of tutorial
+            if (TutorialMission == 1)
+            {
+                cardgroup3.SetActive(false);
+                cardgroup2.SetActive(false);
+                Texts1[Text].SetActive(true);
+            }
+        }
+    }
+
+    private void Update()
+    {
+        //Tutorial stuff
+        if(TutorialMission == 1)
+        {
+            if (Input.GetKeyDown(KeyCode.Mouse0) || Input.GetKeyDown(KeyCode.Space))
+            {
+                if(Text != 3)
+                {
+                    if (Text == 0)
+                        TutorialRandomG1();
+
+                    Texts1[Text].SetActive(false);
+                    Text++;
+                    Texts1[Text].SetActive(true);
+
+                    if (Text == 3)
+                        choose1Button.SetActive(true);
+                }
+            }
+        }
     }
 
     public void randomize3Cards()//3 star reward
@@ -63,14 +123,12 @@ public class CardReward : MonoBehaviour
         for (int cardsToRandomize = 0; cardsToRandomize < sizeOfRewardCards; cardsToRandomize++)
         {
             cardPrefab = rewardCards[cardsToRandomize];//define the active card spot that's being looked at
-            Debug.Log(cardPrefab.name);
             prefabPos = cardPrefab.transform.position;
 
             randomCardInt = Random.Range(0, sizeOfCards);//randomise a card from the total card pool
             activeCard = totalCards[randomCardInt];
 
             CardName = activeCard.cardName;
-            Debug.Log(CardName);
 
             cardPrefab = activeCard.Prefab;
 
@@ -103,7 +161,6 @@ public class CardReward : MonoBehaviour
             StarLimit++;
 
             cardPrefab = rewardCards[cardsToRandomize];//define the active card spot that's being looked at
-            Debug.Log(cardPrefab.name);
             prefabPos = cardPrefab.transform.position;
 
             if(StarLimit <= 6)//limit cards to randomise to 6
@@ -112,7 +169,6 @@ public class CardReward : MonoBehaviour
                 activeCard = totalCards[randomCardInt];
 
                 CardName = activeCard.cardName;
-                Debug.Log(CardName);
 
                 cardPrefab = activeCard.Prefab;
 
@@ -148,7 +204,6 @@ public class CardReward : MonoBehaviour
             StarLimit++;
 
             cardPrefab = rewardCards[cardsToRandomize];//define the active card spot that's being looked at
-            Debug.Log(cardPrefab.name);
             prefabPos = cardPrefab.transform.position;
 
             if (StarLimit <= 3)//limit cards to randomise to 3
@@ -157,7 +212,6 @@ public class CardReward : MonoBehaviour
                 activeCard = totalCards[randomCardInt];
 
                 CardName = activeCard.cardName;
-                Debug.Log(CardName);
 
                 cardPrefab = activeCard.Prefab;
 
@@ -329,6 +383,30 @@ public class CardReward : MonoBehaviour
         {
             unitList[i].GetComponent<SpriteRenderer>().enabled = true;
             print(unitList[i].name + (" should be turned on now"));
+        }
+    }
+
+    private void TutorialRandomG1()
+    {
+        for (int cardsToRandomize = 0; cardsToRandomize < sizeOfRewardCards; cardsToRandomize += 3)
+        {
+            cardPrefab = rewardCards[cardsToRandomize];//define the active card spot that's being looked at
+            prefabPos = cardPrefab.transform.position;
+
+            randomCardInt = Random.Range(0, sizeOfCards);//randomise a card from the total card pool
+            activeCard = totalCards[randomCardInt];
+
+            CardName = activeCard.cardName;
+
+            cardPrefab = activeCard.Prefab;
+
+            rewardCardsTMPro[cardsToRandomize].text = CardName; //Write the name of the current random card. **
+
+            rewardCardsTMPro[cardsToRandomize].transform.position = new Vector2(prefabPos.x, prefabPos.y + 1);//offset for the text to appear above the icon
+            cardPrefab.transform.position = prefabPos;
+            Instantiate(cardPrefab);
+
+            Group1.Add(activeCard);
         }
     }
 }
