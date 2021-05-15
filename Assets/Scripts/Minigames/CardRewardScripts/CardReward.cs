@@ -43,6 +43,10 @@ public class CardReward : MonoBehaviour
     public static int TutorialMission;
     public GameObject view1Button;
     public GameObject choose1Button;
+    public GameObject view2Button;
+    public GameObject choose2Button;
+    public GameObject view3Button;
+    public GameObject choose3Button;
     public GameObject cardgroup1;
     public GameObject cardgroup2;
     public GameObject cardgroup3;
@@ -92,6 +96,23 @@ public class CardReward : MonoBehaviour
                 cardgroup2.SetActive(false);
                 Texts1[Text].SetActive(true);
             }
+            else if(TutorialMission == 2)
+            {
+                cardgroup3.SetActive(false);
+                cardgroup2.SetActive(false);
+                Texts2[Text].SetActive(true);
+
+                TutorialRandomG2();
+            }
+            else if(TutorialMission == 3)
+            {
+                Texts3[Text].SetActive(true);
+                randomize3Cards();
+                view2Button.SetActive(false);
+                choose2Button.SetActive(false);
+                view3Button.SetActive(false);
+                choose3Button.SetActive(false);
+            }
         }
     }
 
@@ -113,6 +134,46 @@ public class CardReward : MonoBehaviour
 
                     if (Text == 3)
                         choose1Button.SetActive(true);
+                }
+            }
+        }
+        else if(TutorialMission == 2)
+        {
+            if (Input.GetKeyDown(KeyCode.Mouse0) || Input.GetKeyDown(KeyCode.Space))
+            {
+                if(Text == 0)
+                {
+                    Texts2[Text].SetActive(false);
+                    Text++;
+                    Texts2[Text].SetActive(true);
+                    view1Button.SetActive(true);
+                }
+            }
+        }
+        else if(TutorialMission == 3)
+        {
+            if (Input.GetKeyDown(KeyCode.Mouse0) || Input.GetKeyDown(KeyCode.Space))
+            {
+                if(Text != 2)
+                {
+                    Texts3[Text].SetActive(false);
+                    Text++;
+
+                    if (Text != 2)
+                        Texts3[Text].SetActive(true);
+                    else
+                    {
+                        RobotWave.SetActive(false);
+                        SpeechBubble.SetActive(false);
+                        continueText.SetActive(false);
+
+                        view1Button.SetActive(true);
+                        choose1Button.SetActive(true);
+                        view2Button.SetActive(true);
+                        choose2Button.SetActive(true);
+                        view3Button.SetActive(true);
+                        choose3Button.SetActive(true);
+                    }
                 }
             }
         }
@@ -407,6 +468,46 @@ public class CardReward : MonoBehaviour
             Instantiate(cardPrefab);
 
             Group1.Add(activeCard);
+        }
+    }
+
+    private void TutorialRandomG2()
+    {
+        for (int cardsToRandomize = 0; cardsToRandomize < sizeOfRewardCards; cardsToRandomize += 3)
+        {
+            StarLimit++;
+
+            cardPrefab = rewardCards[cardsToRandomize];//define the active card spot that's being looked at
+            prefabPos = cardPrefab.transform.position;
+
+            if (StarLimit <= 2)//limit cards to randomise to 6
+            {
+                randomCardInt = Random.Range(0, sizeOfCards);//randomise a card from the total card pool
+                activeCard = totalCards[randomCardInt];
+
+                CardName = activeCard.cardName;
+
+                cardPrefab = activeCard.Prefab;
+
+                rewardCardsTMPro[cardsToRandomize].text = CardName; //Write the name of the current random card. **
+
+                rewardCardsTMPro[cardsToRandomize].transform.position = new Vector2(prefabPos.x, prefabPos.y + 1);//offset for the text to appear above the icon
+                cardPrefab.transform.position = prefabPos;
+                Instantiate(cardPrefab);
+
+                Group1.Add(activeCard);
+            }
+        }
+    }
+
+    public void TutorialView2()
+    {
+        if(MinigameSceneScript.Tutorial == true && TutorialMission == 2)
+        {
+            choose1Button.SetActive(true);
+            Texts2[Text].SetActive(false);
+            Text = 2;
+            Texts2[Text].SetActive(true);
         }
     }
 }

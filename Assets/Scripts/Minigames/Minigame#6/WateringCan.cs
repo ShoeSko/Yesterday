@@ -35,18 +35,79 @@ public class WateringCan : MonoBehaviour
     [SerializeField] private LevelTransitionSystem levelTransitioner; //Refrence to give the score of the game.  
     private int score;
 
+
+    //Tutorial stuff
+    public List<GameObject> Texts = new List<GameObject>();
+    private int Text;
+    public GameObject BotWave;
+    public GameObject SpeechBubble;
+    public GameObject ContinueText;
+
+    public GameObject objective;
+
+    private bool GameStarted;
+
     private void Start()
     {
         starLenght = stars.Count;
-        Water.Play();
+        if (MinigameSceneScript.Tutorial == false)
+        {
+            GameStarted = true;
+            Water.Play();
+        }
+        else//Tutorial stuff
+        {
+            Text = 0;
+            objective.SetActive(false);
+
+            Texts[Text].SetActive(true);
+            BotWave.SetActive(true);
+            SpeechBubble.SetActive(true);
+            ContinueText.SetActive(true);
+        }
     }
 
     private void Update()
     {
-        if (!watered)
+        if(GameStarted == true)
         {
-        WateringcanControlls();
-        WateringTime();
+            if (!watered)
+            {
+                WateringcanControlls();
+                WateringTime();
+            }
+        }
+
+        //Tutorial stuff
+        if(MinigameSceneScript.Tutorial == true)
+        {
+            if(Text == 0)
+            {
+                if (Input.GetKeyDown(KeyCode.Mouse0) || Input.GetKeyDown(KeyCode.Space))
+                {
+                    if (Text == 0)
+                        GameStarted = true;
+
+                    Texts[Text].SetActive(false);
+                    Text++;
+                    Texts[Text].SetActive(true);
+                }
+            }
+            else
+            {
+                if(Text == 1)
+                {
+                    ContinueText.SetActive(false);
+                    if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D))
+                    {
+                        objective.SetActive(true);
+                        Texts[Text].SetActive(false);
+                        BotWave.SetActive(false);
+                        SpeechBubble.SetActive(false);
+                        Water.Play();
+                    }
+                }
+            }
         }
     }
 
@@ -73,14 +134,53 @@ public class WateringCan : MonoBehaviour
 
     private void WateredPlants() //Plants have been watered enough, end the game.
     {
-        for (int i = 0; i < 2; i++)//Brings the plants to life
+        if(MinigameSceneScript.Tutorial == false)
         {
-            plantsA[i].SetActive(true);
-            plantsD[i].SetActive(false);
-        }
+            for (int i = 0; i < 2; i++)//Brings the plants to life
+            {
+                plantsA[i].SetActive(true);
+                plantsD[i].SetActive(false);
+            }
 
-        if (scoreTimer <= star1Time)//define score for this minigame
+            if (scoreTimer <= star1Time)//define score for this minigame
+            {
+                for (int i = 0; i < starLenght; i++)
+                {
+                    stars[i].SetActive(true);
+                }
+                //3 stars
+                CardReward.Stars = 3;
+                score = 3;
+            }
+            else if (scoreTimer > star1Time && scoreTimer <= star2Time)
+            {
+                for (int i = 0; i < starLenght - 1; i++)
+                {
+                    stars[i].SetActive(true);
+                }
+                //2 stars
+                CardReward.Stars = 2;
+                score = 2;
+            }
+            else if (scoreTimer > star2Time && scoreTimer <= star3Time)
+            {
+                for (int i = 0; i < starLenght - 2; i++)
+                {
+                    stars[i].SetActive(true);
+                }
+                //1 star
+                CardReward.Stars = 1;
+                score = 1;
+            }
+        }
+        else//Tutorial stuff
         {
+            for (int i = 0; i < 2; i++)//Brings the plants to life
+            {
+                plantsA[i].SetActive(true);
+                plantsD[i].SetActive(false);
+            }
+
             for (int i = 0; i < starLenght; i++)
             {
                 stars[i].SetActive(true);
@@ -88,31 +188,15 @@ public class WateringCan : MonoBehaviour
             //3 stars
             CardReward.Stars = 3;
             score = 3;
+
+            Text = 2;
+            Texts[Text].SetActive(true);
+            BotWave.SetActive(true);
+            SpeechBubble.SetActive(true);
+            objective.SetActive(false);
+            CardReward.TutorialMission = 3;
         }
-        else if (scoreTimer > star1Time && scoreTimer <= star2Time)
-        {
-            for (int i = 0; i < starLenght - 1; i++)
-            {
-                stars[i].SetActive(true);
-            }
-            //2 stars
-            CardReward.Stars = 2;
-            score = 2;
-        }
-        else if (scoreTimer > star2Time && scoreTimer <= star3Time)
-        {
-            for (int i = 0; i < starLenght - 2; i++)
-            {
-                stars[i].SetActive(true);
-            }
-            //1 star
-            CardReward.Stars = 1;
-            score = 1;
-        }
-        else
-        {
-            //0 stars
-        }
+
         Water.Stop();
         watered = true; //Plants have now been watered
 

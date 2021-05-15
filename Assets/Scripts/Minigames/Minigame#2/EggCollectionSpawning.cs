@@ -180,7 +180,7 @@ public class EggCollectionSpawning : MonoBehaviour
                     victoryEgg = true;
                 }
             }
-            else
+            else//Tutorial stuff
             {
                 Win();
                 victoryEgg = true;
@@ -207,7 +207,7 @@ public class EggCollectionSpawning : MonoBehaviour
             nextSceneButton.SetActive(true);
             levelTransitioner.currentMinigameScore = minigameScore;
         }
-        else
+        else//Tutorial stuff
         {
             if(Text == 6)
             {
