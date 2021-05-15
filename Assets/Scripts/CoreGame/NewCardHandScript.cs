@@ -79,8 +79,40 @@ public class NewCardHandScript : MonoBehaviour
     public List<GameObject> cardActiveIndicaterList = new List<GameObject>();
     #endregion
 
+
+
+    //Additioanl objects & variables used for tutorial
+    public GameObject manabox;
+    public GameObject manabar;
+    public GameObject ManaNumber;
+    public GameObject StartButton;
+    public GameObject DeckCanvas;
+    public GameObject Lane1;
+    public GameObject Lane2;
+    public GameObject Lane3;
+    public GameObject Lane4;
+    public GameObject TS1;
+    public GameObject TS3;
+    public GameObject TS4;
+    public GameObject DeckHideButton;
+
+    public GameObject TutorialSpawner1;
+    public GameObject TutorialSpawner2;
+
+
+    public GameObject BotWave;
+    public GameObject SpeechBubble;
+    public GameObject ContinueText;
+    public List<GameObject> Texts = new List<GameObject>();
+    private int Text;
+
+
+
     void Start()
     {
+        //This i just for tutorial testing, if this line is not removed, do so.
+        MinigameSceneScript.Tutorial = true;
+
         handEnlarged.SetActive(true);
         minimizeButton.SetActive(true);
         TowerSpots.SetActive(false);
@@ -101,6 +133,33 @@ public class NewCardHandScript : MonoBehaviour
         SetCard();
         handEnlarged.SetActive(false);
         minimizeButton.SetActive(false);
+
+
+        //Tutorial settings
+        if(MinigameSceneScript.Tutorial == true)
+        {
+            Text = 0;
+            ManaSystem.CurrentMana = 10;
+
+            //Deactivate everything
+            handSmall.SetActive(false);
+            quackenButton.SetActive(false);
+            manabar.SetActive(false);
+            manabox.SetActive(false);
+            Deck.SetActive(false);
+            DeckCanvas.SetActive(false);
+            ManaNumber.SetActive(false);
+            enlargeButton.SetActive(false);
+            StartButton.SetActive(false);
+            Lane1.SetActive(false);
+            Lane3.SetActive(false);
+            Lane4.SetActive(false);
+
+            BotWave.SetActive(true);
+            SpeechBubble.SetActive(true);
+            ContinueText.SetActive(true);
+            Texts[Text].SetActive(true);
+        }
     }
 
     IEnumerator CardAnimationOn(GameObject animCard, int nr) //Initiates the card draw animation
@@ -118,7 +177,77 @@ public class NewCardHandScript : MonoBehaviour
 
         if(s_cardWasPlayer == true) { AnimationReset(); }
         CardSelectedActivation(); //Marks the current selected card in green.
+
+
+        //Tutorial stuff
+        if(MinigameSceneScript.Tutorial == true)
+        {
+            enlargeButton.SetActive(false);
+
+            if (Input.GetKeyDown(KeyCode.Mouse0) || Input.GetKeyDown(KeyCode.Space))
+            {
+                if(Text != 2 && Text != 5 && Text != 8 && Text != 10 && Text != 13)
+                {
+                    if (Text == 11 || Text == 12)
+                        Time.timeScale = 1;
+
+                    Texts[Text].SetActive(false);
+                    Text++;
+                    Texts[Text].SetActive(true);
+
+                    if (Text == 2)
+                    {
+                        handSmall.SetActive(true);
+                        ContinueText.SetActive(false);
+                    }
+                    if(Text == 5)
+                    {
+                        ContinueText.SetActive(false);
+                        TowerSpots.SetActive(true);
+                        TS1.SetActive(false);
+                        TS3.SetActive(false);
+                        TS4.SetActive(false);
+                    }
+                    if(Text == 8)
+                    {
+                        ContinueText.SetActive(false);
+                        DeckCanvas.SetActive(true);
+                    }
+                    if(Text == 10)
+                    {
+                        DeckHideButton.SetActive(true);
+                        ContinueText.SetActive(false);
+                    }
+                    if(Text == 13)
+                    {
+                        Texts[Text].SetActive(false);
+                        ContinueText.SetActive(false);
+                        BotWave.SetActive(false);
+                        SpeechBubble.SetActive(false);
+                    }
+                }
+            }
+
+            if (Text == 11)
+            {
+                TutorialSpawner1.GetComponent<EnemySpawning>().gameStarted = true;
+                Time.timeScale = 0;
+            }
+            if(Text == 12)
+            {
+                Lane1.SetActive(true);
+                Lane3.SetActive(true);
+                Lane4.SetActive(true);
+                Time.timeScale = 0;
+            }
+
+            if (Text == 14)
+                quackenButton.SetActive(true);
+            else
+                quackenButton.SetActive(false);
+        }
     }
+
 
     private void ManaCostDisplayer()
     {
@@ -215,85 +344,180 @@ public class NewCardHandScript : MonoBehaviour
     {
         MinimizeButtonPressed();
 
-        if (PlayedCard == card1)
+        if(MinigameSceneScript.Tutorial == false)
         {
-            TowerSpots.SetActive(false);
-            PlayedCard = null;
-            cardNr = 0;
+            if (PlayedCard == card1)
+            {
+                TowerSpots.SetActive(false);
+                PlayedCard = null;
+                cardNr = 0;
+            }
+            else
+            {
+                TowerSpots.SetActive(true);
+                PlayedCard = card1;
+                cardNr = 1;
+            }
         }
-        else
+        else//Tutorial settings
         {
-            TowerSpots.SetActive(true);
-            PlayedCard = card1;
-            cardNr = 1;
+            if(Text == 2)
+            {
+                Texts[Text].SetActive(false);
+                Text++;
+                Texts[Text].SetActive(true);
+                manabox.SetActive(true);
+                manabar.SetActive(true);
+                ManaNumber.SetActive(true);
+                ContinueText.SetActive(true);
+
+                PlayedCard = card1;
+                cardNr = 1;
+            }
         }
     }
     public void PlayCard2()//Play the second card
     {
         MinimizeButtonPressed();
 
-        if (PlayedCard == card2)
+        if (MinigameSceneScript.Tutorial == false)
         {
-            TowerSpots.SetActive(false);
-            PlayedCard = null;
-            cardNr = 0;
+            if (PlayedCard == card2)
+            {
+                TowerSpots.SetActive(false);
+                PlayedCard = null;
+                cardNr = 0;
+            }
+            else
+            {
+                TowerSpots.SetActive(true);
+                PlayedCard = card2;
+                cardNr = 2;
+            }
         }
-        else
+        else//Tutorial settings
         {
-            TowerSpots.SetActive(true);
-            PlayedCard = card2;
-            cardNr = 2;
+            if (Text == 2)
+            {
+                Texts[Text].SetActive(false);
+                Text++;
+                Texts[Text].SetActive(true);
+                manabox.SetActive(true);
+                manabar.SetActive(true);
+                ManaNumber.SetActive(true);
+                ContinueText.SetActive(true);
+
+                PlayedCard = card2;
+                cardNr = 2;
+            }
         }
     }
     public void PlayCard3()//Play the third card
     {
         MinimizeButtonPressed();
 
-        if (PlayedCard == card3)
+        if (MinigameSceneScript.Tutorial == false)
         {
-            TowerSpots.SetActive(false);
-            PlayedCard = null;
-            cardNr = 0;
+            if (PlayedCard == card3)
+            {
+                TowerSpots.SetActive(false);
+                PlayedCard = null;
+                cardNr = 0;
+            }
+            else
+            {
+                TowerSpots.SetActive(true);
+                PlayedCard = card3;
+                cardNr = 3;
+            }
         }
-        else
+        else//Tutorial settings
         {
-            TowerSpots.SetActive(true);
-            PlayedCard = card3;
-            cardNr = 3;
+            if (Text == 2)
+            {
+                Texts[Text].SetActive(false);
+                Text++;
+                Texts[Text].SetActive(true);
+                manabox.SetActive(true);
+                manabar.SetActive(true);
+                ManaNumber.SetActive(true);
+                ContinueText.SetActive(true);
+
+                PlayedCard = card3;
+                cardNr = 3;
+            }
         }
     }
     public void PlayCard4()//Play the fourth card
     {
         MinimizeButtonPressed();
 
-        if (PlayedCard == card4)
+        if (MinigameSceneScript.Tutorial == false)
         {
-            TowerSpots.SetActive(false);
-            PlayedCard = null;
-            cardNr = 0;
+            if (PlayedCard == card4)
+            {
+                TowerSpots.SetActive(false);
+                PlayedCard = null;
+                cardNr = 0;
+            }
+            else
+            {
+                TowerSpots.SetActive(true);
+                PlayedCard = card4;
+                cardNr = 4;
+            }
         }
-        else
+        else//Tutorial settings
         {
-            TowerSpots.SetActive(true);
-            PlayedCard = card4;
-            cardNr = 4;
+            if (Text == 2)
+            {
+                Texts[Text].SetActive(false);
+                Text++;
+                Texts[Text].SetActive(true);
+                manabox.SetActive(true);
+                manabar.SetActive(true);
+                ManaNumber.SetActive(true);
+                ContinueText.SetActive(true);
+
+                PlayedCard = card4;
+                cardNr = 4;
+            }
         }
     }
     public void PlayCard5()//Play the fifth card
     {
         MinimizeButtonPressed();
 
-        if (PlayedCard == card5)
+        if (MinigameSceneScript.Tutorial == false)
         {
-            TowerSpots.SetActive(false);
-            PlayedCard = null;
-            cardNr = 0;
+            if (PlayedCard == card5)
+            {
+                TowerSpots.SetActive(false);
+                PlayedCard = null;
+                cardNr = 0;
+            }
+            else
+            {
+                TowerSpots.SetActive(true);
+                PlayedCard = card5;
+                cardNr = 5;
+            }
         }
-        else
+        else//Tutorial settings
         {
-            TowerSpots.SetActive(true);
-            PlayedCard = card5;
-            cardNr = 5;
+            if (Text == 2)
+            {
+                Texts[Text].SetActive(false);
+                Text++;
+                Texts[Text].SetActive(true);
+                manabox.SetActive(true);
+                manabar.SetActive(true);
+                ManaNumber.SetActive(true);
+                ContinueText.SetActive(true);
+
+                PlayedCard = card5;
+                cardNr = 5;
+            }
         }
     }
 
@@ -418,6 +642,48 @@ public class NewCardHandScript : MonoBehaviour
             StartCoroutine(CardAnimationOn(card5, 5));
             cardNr = 0;
             s_cardWasPlayer = false;
+        }
+    }
+
+    //Tutorial stuff
+    public void PlayedFirstCard()
+    {
+        if(Text == 5)
+        {
+            Texts[5].SetActive(false);
+            Texts[6].SetActive(true);
+            ContinueText.SetActive(true);
+            Deck.SetActive(true);
+
+            TS1.SetActive(true);
+            TS3.SetActive(true);
+            TS4.SetActive(true);
+            TowerSpots.SetActive(false);
+            Text++;
+        }
+    }
+
+    public void DeckTutorial()
+    {
+        if(MinigameSceneScript.Tutorial == true)
+        {
+            Texts[Text].SetActive(false);
+            Text++;
+            Texts[Text].SetActive(true);
+            ContinueText.SetActive(true);
+            DeckHideButton.SetActive(false);
+        }
+    }
+
+    public void DeckTutorial2()
+    {
+        if (MinigameSceneScript.Tutorial == true)
+        {
+            Texts[Text].SetActive(false);
+            Text++;
+            Texts[Text].SetActive(true);
+            ContinueText.SetActive(true);
+            DeckCanvas.SetActive(false);
         }
     }
 }

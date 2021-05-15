@@ -54,4 +54,13 @@ public class TowerSpotsScript : MonoBehaviour
             //print("I run");
         }
     }
+
+    public void TutorialPlaceUnit()
+    {
+        if(MinigameSceneScript.Tutorial == true)
+        {
+            card = GameObject.Find("HANDscript");
+            card.GetComponent<NewCardHandScript>().PlayedFirstCard();
+        }
+    }
 }

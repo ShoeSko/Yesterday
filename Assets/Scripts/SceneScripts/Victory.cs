@@ -14,7 +14,8 @@ public class Victory : MonoBehaviour
     }
     private void Update()
     {
-        SearchForWinCondition();
+        if(MinigameSceneScript.Tutorial == false)
+            SearchForWinCondition();
     }
     private void SearchForWinCondition()
     {
