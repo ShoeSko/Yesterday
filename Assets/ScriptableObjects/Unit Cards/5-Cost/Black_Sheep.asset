@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: Black Knight
   image: {fileID: 21300000, guid: 79510be31546580439f4d3fc1a059e9b, type: 3}
+  backgroundImage: {fileID: 0}
   manaCost: 5
-  effectDescription: This black sheep will slash anayone that comes close
+  effectDescription: This black sheep will slash anyone that comes close
   flavorTxt: Standing out does have some benefits afterall.
   Prefab: {fileID: 2557954877800294563, guid: 867cc57a67d30f5488c74ff2bb99af6e, type: 3}
   health: 190
@@ -51,4 +52,3 @@ MonoBehaviour:
   sizeBuff: {x: 0, y: 0, z: 0}
   healthBuff: 0
   damageBuff: 0
-  isNotInCorrectSceneTest: 0

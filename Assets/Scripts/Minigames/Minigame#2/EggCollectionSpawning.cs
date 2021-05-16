@@ -122,6 +122,7 @@ public class EggCollectionSpawning : MonoBehaviour
             if(Text == 9)
             {
                 nextSceneButton.SetActive(true);
+                continueText.SetActive(false);
                 levelTransitioner.currentMinigameScore = minigameScore;
             }
         }

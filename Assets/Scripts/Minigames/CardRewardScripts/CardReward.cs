@@ -133,7 +133,10 @@ public class CardReward : MonoBehaviour
                     Texts1[Text].SetActive(true);
 
                     if (Text == 3)
+                    {
                         choose1Button.SetActive(true);
+                        continueText.SetActive(false);
+                    }
                 }
             }
         }
@@ -147,6 +150,7 @@ public class CardReward : MonoBehaviour
                     Text++;
                     Texts2[Text].SetActive(true);
                     view1Button.SetActive(true);
+                    continueText.SetActive(false);
                 }
             }
         }

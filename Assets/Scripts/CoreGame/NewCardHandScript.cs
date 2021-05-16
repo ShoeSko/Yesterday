@@ -120,9 +120,6 @@ public class NewCardHandScript : MonoBehaviour
 
     void Start()
     {
-        //This i just for tutorial testing, if this line is not removed, do so.
-        MinigameSceneScript.Tutorial = true;
-
         handEnlarged.SetActive(true);
         minimizeButton.SetActive(true);
         TowerSpots.SetActive(false);
