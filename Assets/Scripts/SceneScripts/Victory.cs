@@ -6,6 +6,7 @@ public class Victory : MonoBehaviour
     static public bool s_youWon; //Use the s_ to make static variable easier to find
     [SerializeField] private GameObject youWin;
     public GameObject emote;
+    public GameObject TutorialHand;
 
     private void Start()
     {
@@ -16,6 +17,16 @@ public class Victory : MonoBehaviour
     {
         if(MinigameSceneScript.Tutorial == false)
             SearchForWinCondition();
+        else//Tutorial stuff
+        {
+            if(TutorialHand.GetComponent<NewCardHandScript>().LookForEnemies == true)
+            {
+                if(GameObject.FindGameObjectsWithTag("Enemy").Length <= 0)
+                {
+                    TutorialHand.GetComponent<NewCardHandScript>().TutorialWin();
+                }
+            }
+        }
     }
     private void SearchForWinCondition()
     {

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Quacken : MonoBehaviour
 {
+    public GameObject TutorialHand;
+
     public GameObject quackenButton;
     public GameObject quacks;
     private int AmountOfQuacks = 20;
@@ -23,6 +25,13 @@ public class Quacken : MonoBehaviour
     public void Release_The_Quacken()
     {
         StartCoroutine(quackenSpawner());
+
+        //Tutorial settings
+        if (MinigameSceneScript.Tutorial == true)
+        {
+            TutorialHand.GetComponent<NewCardHandScript>().TutorialQuacken();
+        }
+
         s_quackenBeenReleased = true;
     }
 

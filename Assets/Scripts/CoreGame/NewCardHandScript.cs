@@ -98,6 +98,10 @@ public class NewCardHandScript : MonoBehaviour
 
     public GameObject TutorialSpawner1;
     public GameObject TutorialSpawner2;
+    public GameObject elitespawner1;
+    public GameObject elitespawner2;
+    public GameObject elitespawner3;
+    public GameObject elitespawner4;
 
 
     public GameObject BotWave;
@@ -105,13 +109,19 @@ public class NewCardHandScript : MonoBehaviour
     public GameObject ContinueText;
     public List<GameObject> Texts = new List<GameObject>();
     private int Text;
+    private bool SpawnOnce;
+    private float SpawnDelay;
+    private bool CantClick;
+    private bool PlayableCards;
+    public bool LookForEnemies;
+    public GameObject MenuReturn;
 
 
 
     void Start()
     {
         //This i just for tutorial testing, if this line is not removed, do so.
-        //MinigameSceneScript.Tutorial = true;
+        MinigameSceneScript.Tutorial = true;
 
         handEnlarged.SetActive(true);
         minimizeButton.SetActive(true);
@@ -186,52 +196,89 @@ public class NewCardHandScript : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.Mouse0) || Input.GetKeyDown(KeyCode.Space))
             {
-                if(Text != 2 && Text != 5 && Text != 8 && Text != 10 && Text != 13)
+                if (Text == 18)
+                    MenuReturn.GetComponent<LevelTransitionSystem>().GameOverButtonPress();
+
+                if (Text != 2 && Text != 5 && Text != 8 && Text != 10 && Text != 14)
                 {
-                    if (Text == 11 || Text == 12)
-                        Time.timeScale = 1;
+                    if (CantClick == false)
+                    {
+                        if (Text == 11 || Text == 12 || Text == 13 || Text == 14 || Text == 15)
+                            Time.timeScale = 1;
 
-                    Texts[Text].SetActive(false);
-                    Text++;
-                    Texts[Text].SetActive(true);
-
-                    if (Text == 2)
-                    {
-                        handSmall.SetActive(true);
-                        ContinueText.SetActive(false);
-                    }
-                    if(Text == 5)
-                    {
-                        ContinueText.SetActive(false);
-                        TowerSpots.SetActive(true);
-                        TS1.SetActive(false);
-                        TS3.SetActive(false);
-                        TS4.SetActive(false);
-                    }
-                    if(Text == 8)
-                    {
-                        ContinueText.SetActive(false);
-                        DeckCanvas.SetActive(true);
-                    }
-                    if(Text == 10)
-                    {
-                        DeckHideButton.SetActive(true);
-                        ContinueText.SetActive(false);
-                    }
-                    if(Text == 13)
-                    {
                         Texts[Text].SetActive(false);
-                        ContinueText.SetActive(false);
-                        BotWave.SetActive(false);
-                        SpeechBubble.SetActive(false);
+                        Text++;
+                        Texts[Text].SetActive(true);
+
+                        if (Text == 2)
+                        {
+                            handSmall.SetActive(true);
+                            ContinueText.SetActive(false);
+                            PlayableCards = true;
+                        }
+                        if (Text == 3)
+                        {
+                            PlayableCards = false;
+                        }
+                        if (Text == 5)
+                        {
+                            ContinueText.SetActive(false);
+                            TowerSpots.SetActive(true);
+                            TS1.SetActive(false);
+                            TS3.SetActive(false);
+                            TS4.SetActive(false);
+                        }
+                        if (Text == 8)
+                        {
+                            ContinueText.SetActive(false);
+                            DeckCanvas.SetActive(true);
+                        }
+                        if (Text == 10)
+                        {
+                            DeckHideButton.SetActive(true);
+                            ContinueText.SetActive(false);
+                        }
+                        if (Text == 13)
+                        {
+                            Texts[Text].SetActive(false);
+                            ContinueText.SetActive(false);
+                            BotWave.SetActive(false);
+                            SpeechBubble.SetActive(false);
+                            CantClick = true;
+                            ManaNumber.GetComponent<ManaSystem>().GameStarted();
+                            PlayableCards = true;
+                        }
+                        if (Text == 14)
+                        {
+                            Texts[Text].SetActive(false);
+                            ContinueText.SetActive(false);
+                            BotWave.SetActive(false);
+                            SpeechBubble.SetActive(false);
+                            CantClick = true;
+                            SpawnDelay = 0;
+                        }
+                        if (Text == 16)
+                        {
+                            CantClick = true;
+                            BotWave.SetActive(false);
+                            SpeechBubble.SetActive(false);
+                            ContinueText.SetActive(false);
+                            Texts[Text].SetActive(false);
+                        }
+                        if (Text == 18)
+                            CantClick = true;
                     }
                 }
             }
 
             if (Text == 11)
             {
-                TutorialSpawner1.GetComponent<EnemySpawning>().gameStarted = true;
-                Time.timeScale = 0;
+                if(SpawnOnce == false)
+                {
+                    TutorialSpawner1.GetComponent<EnemySpawning>().gameStarted = true;
+                    Time.timeScale = 0;
+                    SpawnOnce = true;
+                }
             }
             if(Text == 12)
             {
@@ -241,10 +288,67 @@ public class NewCardHandScript : MonoBehaviour
                 Time.timeScale = 0;
             }
 
-            if (Text == 14)
-                quackenButton.SetActive(true);
-            else
+            if (Text != 14)
                 quackenButton.SetActive(false);
+
+            if (Text == 16)
+                LookForEnemies = true;
+            else
+                LookForEnemies = false;
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        if(MinigameSceneScript.Tutorial == true)
+        {
+            if(Text == 13)
+            {
+                SpawnDelay += Time.deltaTime;
+
+                if(SpawnDelay >= 3 && SpawnOnce == true)
+                {
+                    TutorialSpawner2.GetComponent<EnemySpawning>().gameStarted = true;
+                    SpawnDelay = 0;
+                    SpawnOnce = false;
+                }
+
+                if(SpawnDelay >= 24.15f)
+                {
+                    Time.timeScale = 0;
+                    CantClick = false;
+                    Texts[Text].SetActive(true);
+                    ContinueText.SetActive(true);
+                    BotWave.SetActive(true);
+                    SpeechBubble.SetActive(true);
+                    SpawnDelay = 0;
+                }
+            }
+
+            if(Text == 14)
+            {
+                SpawnDelay += Time.deltaTime;
+
+                if(SpawnDelay >= 20 && SpawnOnce == false)
+                {
+                    elitespawner1.GetComponent<EnemySpawning>().gameStarted = true;
+                    elitespawner2.GetComponent<EnemySpawning>().gameStarted = true;
+                    elitespawner3.GetComponent<EnemySpawning>().gameStarted = true;
+                    elitespawner4.GetComponent<EnemySpawning>().gameStarted = true;
+                    SpawnOnce = true;
+                }
+                if(SpawnDelay >= 27)
+                {
+                    Time.timeScale = 0;
+                    CantClick = false;
+                    Texts[Text].SetActive(true);
+                    BotWave.SetActive(true);
+                    SpeechBubble.SetActive(true);
+                    quackenButton.SetActive(true);
+                    PlayableCards = false;
+                    SpawnDelay = 0;
+                }
+            }
         }
     }
 
@@ -361,18 +465,26 @@ public class NewCardHandScript : MonoBehaviour
         }
         else//Tutorial settings
         {
-            if(Text == 2)
+            if(PlayableCards == true)
             {
-                Texts[Text].SetActive(false);
-                Text++;
-                Texts[Text].SetActive(true);
-                manabox.SetActive(true);
-                manabar.SetActive(true);
-                ManaNumber.SetActive(true);
-                ContinueText.SetActive(true);
+                if (Text == 2)
+                {
+                    Texts[Text].SetActive(false);
+                    Text++;
+                    Texts[Text].SetActive(true);
+                    manabox.SetActive(true);
+                    manabar.SetActive(true);
+                    ManaNumber.SetActive(true);
+                    ContinueText.SetActive(true);
+                }
 
                 PlayedCard = card1;
                 cardNr = 1;
+
+                if (Text == 13 || Text == 14)
+                    TowerSpots.SetActive(true);
+
+                quackenButton.SetActive(false);
             }
         }
     }
@@ -397,18 +509,26 @@ public class NewCardHandScript : MonoBehaviour
         }
         else//Tutorial settings
         {
-            if (Text == 2)
+            if (PlayableCards == true)
             {
-                Texts[Text].SetActive(false);
-                Text++;
-                Texts[Text].SetActive(true);
-                manabox.SetActive(true);
-                manabar.SetActive(true);
-                ManaNumber.SetActive(true);
-                ContinueText.SetActive(true);
+                if(Text == 2)
+                {
+                    Texts[Text].SetActive(false);
+                    Text++;
+                    Texts[Text].SetActive(true);
+                    manabox.SetActive(true);
+                    manabar.SetActive(true);
+                    ManaNumber.SetActive(true);
+                    ContinueText.SetActive(true);
+                }
 
                 PlayedCard = card2;
                 cardNr = 2;
+
+                if (Text == 13 || Text == 14)
+                    TowerSpots.SetActive(true);
+
+                quackenButton.SetActive(false);
             }
         }
     }
@@ -433,18 +553,26 @@ public class NewCardHandScript : MonoBehaviour
         }
         else//Tutorial settings
         {
-            if (Text == 2)
+            if (PlayableCards == true)
             {
-                Texts[Text].SetActive(false);
-                Text++;
-                Texts[Text].SetActive(true);
-                manabox.SetActive(true);
-                manabar.SetActive(true);
-                ManaNumber.SetActive(true);
-                ContinueText.SetActive(true);
+                if (Text == 2)
+                {
+                    Texts[Text].SetActive(false);
+                    Text++;
+                    Texts[Text].SetActive(true);
+                    manabox.SetActive(true);
+                    manabar.SetActive(true);
+                    ManaNumber.SetActive(true);
+                    ContinueText.SetActive(true);
+                }
 
                 PlayedCard = card3;
                 cardNr = 3;
+
+                if (Text == 13 || Text == 14)
+                    TowerSpots.SetActive(true);
+
+                quackenButton.SetActive(false);
             }
         }
     }
@@ -469,18 +597,26 @@ public class NewCardHandScript : MonoBehaviour
         }
         else//Tutorial settings
         {
-            if (Text == 2)
+            if (PlayableCards == true)
             {
-                Texts[Text].SetActive(false);
-                Text++;
-                Texts[Text].SetActive(true);
-                manabox.SetActive(true);
-                manabar.SetActive(true);
-                ManaNumber.SetActive(true);
-                ContinueText.SetActive(true);
+                if (Text == 2)
+                {
+                    Texts[Text].SetActive(false);
+                    Text++;
+                    Texts[Text].SetActive(true);
+                    manabox.SetActive(true);
+                    manabar.SetActive(true);
+                    ManaNumber.SetActive(true);
+                    ContinueText.SetActive(true);
+                }
 
                 PlayedCard = card4;
                 cardNr = 4;
+
+                if (Text == 13 || Text == 14)
+                    TowerSpots.SetActive(true);
+
+                quackenButton.SetActive(false);
             }
         }
     }
@@ -505,18 +641,26 @@ public class NewCardHandScript : MonoBehaviour
         }
         else//Tutorial settings
         {
-            if (Text == 2)
+            if (PlayableCards == true)
             {
-                Texts[Text].SetActive(false);
-                Text++;
-                Texts[Text].SetActive(true);
-                manabox.SetActive(true);
-                manabar.SetActive(true);
-                ManaNumber.SetActive(true);
-                ContinueText.SetActive(true);
-
+                if (Text == 2)
+                {
+                    Texts[Text].SetActive(false);
+                    Text++;
+                    Texts[Text].SetActive(true);
+                    manabox.SetActive(true);
+                    manabar.SetActive(true);
+                    ManaNumber.SetActive(true);
+                    ContinueText.SetActive(true);
+                }
+                
                 PlayedCard = card5;
                 cardNr = 5;
+
+                if (Text == 13 || Text == 14)
+                    TowerSpots.SetActive(true);
+
+                quackenButton.SetActive(false);
             }
         }
     }
@@ -685,5 +829,23 @@ public class NewCardHandScript : MonoBehaviour
             ContinueText.SetActive(true);
             DeckCanvas.SetActive(false);
         }
+    }
+
+    public void TutorialQuacken()
+    {
+        Texts[Text].SetActive(false);
+        Text++;
+        Texts[Text].SetActive(true);
+        ContinueText.SetActive(true);
+    }
+
+    public void TutorialWin()
+    {
+        Texts[Text].SetActive(true);
+        SpeechBubble.SetActive(true);
+        BotWave.SetActive(true);
+        ContinueText.SetActive(true);
+        CantClick = false;
+        LookForEnemies = false;
     }
 }
