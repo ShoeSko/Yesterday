@@ -14,8 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: Sumo Racoon
   image: {fileID: 21300000, guid: 2d91666d0e5a5184ca2d80156af57226, type: 3}
+  backgroundImage: {fileID: 0}
   manaCost: 1
-  effectDescription: He will hold the enemies away for a while
+  effectDescription: 'Type: Melee'
+  effectDescription2: 'Health: High'
+  effectDescription3: 'Damage: Weak'
   flavorTxt: Someone mistook him for a panda so no he does sumo
   Prefab: {fileID: 2557954877800294563, guid: 21e9c0cf5c95c854793d6bcd1f71bdb0, type: 3}
   health: 100
@@ -51,4 +54,3 @@ MonoBehaviour:
   sizeBuff: {x: 0, y: 0, z: 0}
   healthBuff: 0
   damageBuff: 0
-  isNotInCorrectSceneTest: 0

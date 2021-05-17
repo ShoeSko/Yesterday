@@ -16,7 +16,9 @@ MonoBehaviour:
   image: {fileID: 21300000, guid: 5ae39a0690723fb4c962dd2752552be3, type: 3}
   backgroundImage: {fileID: 0}
   manaCost: 2
-  effectDescription: Man's best friend will defend his owner with his life
+  effectDescription: 'Type: Melee'
+  effectDescription2: 'Health: Medium'
+  effectDescription3: 'Damage: High'
   flavorTxt: Who's a good boy? You are!
   Prefab: {fileID: 2557954877800294563, guid: db9dd3e4e09d26e449955fab07a20fd2, type: 3}
   health: 90

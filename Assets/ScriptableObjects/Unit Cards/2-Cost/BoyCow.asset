@@ -16,7 +16,9 @@ MonoBehaviour:
   image: {fileID: 21300000, guid: 7611d7219d018d14ab3bdda0038ad5b5, type: 3}
   backgroundImage: {fileID: 0}
   manaCost: 2
-  effectDescription: This Cow-Boy will shoot anyone in his line of sigh
+  effectDescription: 'Type: Ranged'
+  effectDescription2: 'Health: Very Low'
+  effectDescription3: 'Damage: Average'
   flavorTxt: He's the real owner of the ranch
   Prefab: {fileID: 2557954877800294563, guid: 67a19028508a73d41a0e90ad7ad43123, type: 3}
   health: 20

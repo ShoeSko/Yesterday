@@ -16,7 +16,9 @@ MonoBehaviour:
   image: {fileID: 21300000, guid: 204ed40b85acb9c4e8299770cee87aaf, type: 3}
   backgroundImage: {fileID: 0}
   manaCost: 6
-  effectDescription: She hatches children to fight for her
+  effectDescription: 'Type: Ranged, Special'
+  effectDescription2: 'Health: Low'
+  effectDescription3: 'Damage: Weak'
   flavorTxt: A true fashion model
   Prefab: {fileID: 2557954877800294563, guid: 03103f74d0d96104e833e0e2138ce7d3, type: 3}
   health: 150

@@ -16,8 +16,10 @@ MonoBehaviour:
   image: {fileID: 21300000, guid: 740d431edf45118429146a7d53b6a86f, type: 3}
   backgroundImage: {fileID: 0}
   manaCost: 5
-  effectDescription: Machinegun goes brrr
-  flavorTxt: Wait, did he play the bongos?
+  effectDescription: 'Type: Ranged'
+  effectDescription2: 'Health: Very Low'
+  effectDescription3: 'Damage: Very Good'
+  flavorTxt: Wait, didn't he play the bongos?
   Prefab: {fileID: 2557954877800294563, guid: dff8d710c757c9542973584d6f70005d, type: 3}
   health: 90
   isShooter: 1

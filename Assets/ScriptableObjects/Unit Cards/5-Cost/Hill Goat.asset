@@ -16,7 +16,9 @@ MonoBehaviour:
   image: {fileID: 21300000, guid: cfff44f4cf2e02748b0eb960482cd559, type: 3}
   backgroundImage: {fileID: 0}
   manaCost: 5
-  effectDescription: Rammed enemies are pushed backwards
+  effectDescription: 'Type: Melee, Knockback'
+  effectDescription2: 'Health: Medium'
+  effectDescription3: 'Damage: Weak'
   flavorTxt: It's last man standing
   Prefab: {fileID: 2557954877800294563, guid: f277d647786c3a0418e9ed2d2e7dc469, type: 3}
   health: 160

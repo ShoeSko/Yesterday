@@ -16,7 +16,9 @@ MonoBehaviour:
   image: {fileID: 21300000, guid: af355cb111cf1474fb30d953ef9a4ae3, type: 3}
   backgroundImage: {fileID: 0}
   manaCost: 6
-  effectDescription: He might look innocent but he's a ferocious fighter
+  effectDescription: 'Type: Melee'
+  effectDescription2: 'Health: Very High'
+  effectDescription3: 'Damage: Weak'
   flavorTxt: He just hasn't had his morning coffee
   Prefab: {fileID: 2557954877800294563, guid: 13c8ce4460acff84182af971b9c82b35, type: 3}
   health: 350

@@ -16,7 +16,9 @@ MonoBehaviour:
   image: {fileID: 21300000, guid: 2bd9dc7bc000a64478cb05c37eae9626, type: 3}
   backgroundImage: {fileID: 0}
   manaCost: 10
-  effectDescription: He may look like nothing but this entity is pure evil
+  effectDescription: 'Type: Melee'
+  effectDescription2: 'Health: Extremely Low'
+  effectDescription3: 'Damage: Insane'
   flavorTxt: What.. is your favorite color?
   Prefab: {fileID: 2557954877800294563, guid: 17ee70d6eb7bbe44a8c11abee6b513d7, type: 3}
   health: 1

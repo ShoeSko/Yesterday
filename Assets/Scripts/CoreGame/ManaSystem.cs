@@ -13,7 +13,7 @@ public class ManaSystem : MonoBehaviour
 
     public Text mana;//your current mana
 
-    private float speed = 0.5714f;//speed how fast mana fills up // Current formula: 2/speed // current speed at which mana fills up: 3.5 seconds
+    private float speed = 0.66666f;//speed how fast mana fills up // Current formula: 2/speed // current speed at which mana fills up: 3.5 seconds
     private float time;//clock
     private bool start;
     void Start()
@@ -33,7 +33,7 @@ public class ManaSystem : MonoBehaviour
             manaBox.transform.position = Vector2.MoveTowards(manaBox.transform.position, startingPos + offset, speed * Time.deltaTime);
         }
 
-        if(time >= 3.5f)//time after getting 1 mana. (When changing mana recovery speed, change this manually acordingly after the formula)
+        if(time >= 3f)//time after getting 1 mana. (When changing mana recovery speed, change this manually acordingly after the formula)
         {
             manaBox.transform.position = startingPos;
             CurrentMana++;

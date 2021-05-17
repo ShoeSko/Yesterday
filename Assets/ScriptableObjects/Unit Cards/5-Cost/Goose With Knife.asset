@@ -16,7 +16,9 @@ MonoBehaviour:
   image: {fileID: 21300000, guid: 13c823e880ae72d4fa79f82e78c0c3ce, type: 3}
   backgroundImage: {fileID: 0}
   manaCost: 5
-  effectDescription: One of the most violent creatures equipped with a knife
+  effectDescription: 'Type: Melee'
+  effectDescription2: 'Health: Low'
+  effectDescription3: 'Damage: Very Good'
   flavorTxt: Peace was never an option
   Prefab: {fileID: 2557954877800294563, guid: d2df80c9c8f83f840bdd180972f981a7, type: 3}
   health: 120

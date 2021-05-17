@@ -16,8 +16,9 @@ MonoBehaviour:
   image: {fileID: 21300000, guid: 4b2a49b9d10c1e24a8cbb83940541cdd, type: 3}
   backgroundImage: {fileID: 0}
   manaCost: 9
-  effectDescription: His extreme attacks and incredible durability make him the ultimate
-    line of defence
+  effectDescription: 'Type: Melee'
+  effectDescription2: 'Health: Medium'
+  effectDescription3: 'Damage: Very Good'
   flavorTxt: Well this answers how a crocodile would wear pants
   Prefab: {fileID: 2557954877800294563, guid: 02219d542edacea46a714fb5d7356e09, type: 3}
   health: 205

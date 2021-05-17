@@ -16,7 +16,9 @@ MonoBehaviour:
   image: {fileID: 21300000, guid: b768a8e65bd222148bf29a3044147e93, type: 3}
   backgroundImage: {fileID: 0}
   manaCost: 3
-  effectDescription: Not very brave but will hold his ground
+  effectDescription: 'Type: Melee'
+  effectDescription2: 'Health: Very High'
+  effectDescription3: 'Damage: Very Weak'
   flavorTxt: His cousing won a war against Australia
   Prefab: {fileID: 2557954877800294563, guid: 9749a47c6cebafc4bb59e1d960a8be88, type: 3}
   health: 350

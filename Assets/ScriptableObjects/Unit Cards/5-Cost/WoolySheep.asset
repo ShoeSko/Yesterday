@@ -16,8 +16,9 @@ MonoBehaviour:
   image: {fileID: 21300000, guid: 2f234d6f8304e6540969fc8f3994c5c1, type: 3}
   backgroundImage: {fileID: 0}
   manaCost: 5
-  effectDescription: His floof is so large he cannot attack but is great at staying
-    alive
+  effectDescription: 'Type: Tank'
+  effectDescription2: 'Health: Extreme'
+  effectDescription3: 'Damage: '
   flavorTxt: Story says he went a whole year without shearing
   Prefab: {fileID: 2557954877800294563, guid: 1378b5dcb7026d04eac637fdfa1f234d, type: 3}
   health: 800

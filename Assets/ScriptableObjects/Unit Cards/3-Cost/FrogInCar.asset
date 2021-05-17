@@ -16,7 +16,9 @@ MonoBehaviour:
   image: {fileID: 21300000, guid: 894232edbd585b94399f11b3cca7b719, type: 3}
   backgroundImage: {fileID: 0}
   manaCost: 3
-  effectDescription: Not very durable but will ram his enemies with extreme damage
+  effectDescription: 'Type: Melee'
+  effectDescription2: 'Health: Low'
+  effectDescription3: 'Damage: Very Good'
   flavorTxt: Look at that boy oh damn whats up
   Prefab: {fileID: 2557954877800294563, guid: b86e97acb46beb346bb23f0c0e144e94, type: 3}
   health: 70

@@ -16,8 +16,10 @@ MonoBehaviour:
   image: {fileID: 21300000, guid: 4177813cd72eb91439b05885cb055ceb, type: 3}
   backgroundImage: {fileID: 0}
   manaCost: 7
-  effectDescription: A samurai can cut through multiple enemies at once
-  flavorTxt: '"My life for the farmer"'
+  effectDescription: 'Type: Melee, Pierce'
+  effectDescription2: 'Health: Medium'
+  effectDescription3: 'Damage: Medium'
+  flavorTxt: A samurai can cut through multiple enemies at once
   Prefab: {fileID: 2557954877800294563, guid: 881ba56c3e283d5479b8a83bd53b29d9, type: 3}
   health: 210
   isShooter: 0
