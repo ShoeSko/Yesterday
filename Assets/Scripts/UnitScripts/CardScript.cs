@@ -9,6 +9,8 @@ public class CardScript : ScriptableObject
     public Sprite backgroundImage;
     public int manaCost;
     public string effectDescription;
+    public string effectDescription2;
+    public string effectDescription3;
     public string flavorTxt;
     public GameObject Prefab;
 

@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1623200948
 RectTransform:
   m_ObjectHideFlags: 0
@@ -349,7 +349,7 @@ MonoBehaviour:
   backgroundImage: {fileID: 6362562398710887752}
   nameText: {fileID: 3126888794175403367}
   manatext: {fileID: 3126888795399624551}
-  descriptionText1: {fileID: 3126888795170594331}
+  descriptionText: {fileID: 3126888795170594331}
   descriptionText2: {fileID: 7607838028814905505}
   descriptionText3: {fileID: 2624559504437115055}
   flavorTexts: {fileID: 3126888794526754905}

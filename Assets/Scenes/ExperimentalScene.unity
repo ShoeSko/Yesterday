@@ -156,7 +156,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -214,7 +214,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!108 &130450980
 Light:
   m_ObjectHideFlags: 0
@@ -323,8 +323,8 @@ RectTransform:
   m_Father: {fileID: 2081198520}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -457,6 +457,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DuelistBadger
       objectReference: {fileID: 0}
+    - target: {fileID: 2557954877800294563, guid: cecf244629a5d26458813596a18615dc, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cecf244629a5d26458813596a18615dc, type: 3}
 --- !u!4 &205625583 stripped
@@ -496,8 +500,8 @@ RectTransform:
   m_Father: {fileID: 175106955}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -956,7 +960,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!95 &475758783
 Animator:
   serializedVersion: 3
@@ -1336,7 +1340,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &641254781
 Transform:
   m_ObjectHideFlags: 0
@@ -1518,6 +1522,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mixer: {fileID: 24100000, guid: be53f74c43787c145b68893ef880fc85, type: 2}
   slider: {fileID: 680214880}
+  soundSettings: {fileID: 0}
   masterMixer: 0
   musicMixer: 0
   sfxMixer: 1
@@ -2129,6 +2134,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mixer: {fileID: 24100000, guid: 90ca72afa5b882f48bc94c7e0da44fc6, type: 2}
   slider: {fileID: 894476489}
+  soundSettings: {fileID: 0}
   masterMixer: 1
   musicMixer: 0
   sfxMixer: 0
@@ -2515,6 +2521,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy_Merry
       objectReference: {fileID: 0}
+    - target: {fileID: 4632530650480293340, guid: c799f829c11bed14aa6b0ee9245c63e2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4926562019914492911, guid: c799f829c11bed14aa6b0ee9245c63e2, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -2710,6 +2720,10 @@ PrefabInstance:
     - target: {fileID: 8446718103864775965, guid: b9de4be1b645a124493f815b8a652925, type: 3}
       propertyPath: m_Name
       value: OverlordHand
+      objectReference: {fileID: 0}
+    - target: {fileID: 8446718103864775965, guid: b9de4be1b645a124493f815b8a652925, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8446718103864775975, guid: b9de4be1b645a124493f815b8a652925, type: 3}
       propertyPath: m_RootOrder
@@ -2927,7 +2941,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1222848658
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2996,8 +3010,8 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1222848657}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 10}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 1351327051}
@@ -3020,9 +3034,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1222848661}
     m_Modifications:
+    - target: {fileID: 3126888794182818874, guid: d435ce751af64744a939d80a11b8e1fd, type: 3}
+      propertyPath: manaValue
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3126888794182818874, guid: d435ce751af64744a939d80a11b8e1fd, type: 3}
+      propertyPath: UnitPrefab
+      value: 
+      objectReference: {fileID: 2557954877800294563, guid: 867cc57a67d30f5488c74ff2bb99af6e, type: 3}
     - target: {fileID: 3126888794182818876, guid: d435ce751af64744a939d80a11b8e1fd, type: 3}
       propertyPath: m_Name
       value: CardV2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3126888794182818876, guid: d435ce751af64744a939d80a11b8e1fd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3126888794182818877, guid: d435ce751af64744a939d80a11b8e1fd, type: 3}
       propertyPath: m_Pivot.x
@@ -3170,6 +3196,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CowwithGun
       objectReference: {fileID: 0}
+    - target: {fileID: 2557954877800294563, guid: 19fdaec487ab265478dee2e3b84fbde0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6118651002381041060, guid: 19fdaec487ab265478dee2e3b84fbde0, type: 3}
       propertyPath: m_Color.b
       value: 0.2
@@ -3248,6 +3278,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spell Node Test
       objectReference: {fileID: 0}
+    - target: {fileID: 6211522932534011613, guid: 3f928a0621ebf0a4e968f87246c8988d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3f928a0621ebf0a4e968f87246c8988d, type: 3}
 --- !u!4 &1375106864 stripped
@@ -3310,6 +3344,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mixer: {fileID: 24100000, guid: 8f980014ff4719647af11d142ae9d125, type: 2}
   slider: {fileID: 1459434648}
+  soundSettings: {fileID: 0}
   masterMixer: 0
   musicMixer: 1
   sfxMixer: 0
@@ -3526,6 +3561,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BalckSheep
       objectReference: {fileID: 0}
+    - target: {fileID: 2557954877800294563, guid: 867cc57a67d30f5488c74ff2bb99af6e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 867cc57a67d30f5488c74ff2bb99af6e, type: 3}
 --- !u!4 &1536835081 stripped
@@ -3565,8 +3604,8 @@ RectTransform:
   m_Father: {fileID: 1848302513}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -3872,7 +3911,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1698225101
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4226,7 +4265,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1902108973
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4258,6 +4297,10 @@ PrefabInstance:
     - target: {fileID: 4632530650480293340, guid: 23da5bf24910c0d4eada7dd70d29a093, type: 3}
       propertyPath: m_Name
       value: Enemy_Batsy
+      objectReference: {fileID: 0}
+    - target: {fileID: 4632530650480293340, guid: 23da5bf24910c0d4eada7dd70d29a093, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4926562019914492911, guid: 23da5bf24910c0d4eada7dd70d29a093, type: 3}
       propertyPath: m_RootOrder
@@ -4343,7 +4386,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -4418,7 +4461,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -4859,6 +4902,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spell Card v1
       objectReference: {fileID: 0}
+    - target: {fileID: 489340967680752343, guid: 1d66e74bb5e1c2447b0d1be20a9c154f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d66e74bb5e1c2447b0d1be20a9c154f, type: 3}
 --- !u!224 &430849150131194669 stripped
@@ -4883,7 +4930,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8391648923832691643, guid: 73cef706a19d0e24aa6d68483665b583, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8391648923832691644, guid: 73cef706a19d0e24aa6d68483665b583, type: 3}
       propertyPath: m_RootOrder
