@@ -16,9 +16,9 @@ public class GameOver : MonoBehaviour
 
     private void lose()
     {
+        emote.GetComponent<Emotes>().LoseGame();
         YouLost.SetActive(true);
         Time.timeScale = 0;
-        emote.GetComponent<Emotes>().LoseGame();
     }
 
     //public void returnHome()

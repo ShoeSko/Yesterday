@@ -42,11 +42,11 @@ public class Victory : MonoBehaviour
 
     public void Win()
     {
+        emote.GetComponent<Emotes>().WonGame();
         print("Victory");
         s_youWon = false;
         youWin.SetActive(true);
         Time.timeScale = 0;
-        emote.GetComponent<Emotes>().WonGame();
     }
 
     //public void NextRound()

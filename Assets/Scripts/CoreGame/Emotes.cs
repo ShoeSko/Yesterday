@@ -5,24 +5,19 @@ using UnityEngine;
 public class Emotes : MonoBehaviour
 {
     public GameObject Default_Emote;
-    public GameObject Stress_Emote;
-    public GameObject Panic_Emote;
-    public GameObject Sad_Emote;
-    public GameObject POG_Emote;
 
     public int EnemiesInStressZone;
     public int EnemiesInPanicZone;
 
     private bool GameOver;
     private bool GameStarted;
+    public bool isEndGame;
+
+    [SerializeField] private Animator animation; //The animator for all the emotions. Run emotions.exe
 
     private void Start()
     {
         Default_Emote.SetActive(false);
-        Stress_Emote.SetActive(false);
-        Panic_Emote.SetActive(false);
-        Sad_Emote.SetActive(false);
-        POG_Emote.SetActive(false);
     }
 
     private void Update()
@@ -30,7 +25,7 @@ public class Emotes : MonoBehaviour
         Debug.Log(EnemiesInStressZone);
         Debug.Log(EnemiesInPanicZone);
 
-        if (GameOver == false && GameStarted == true)
+        if (GameOver == false && GameStarted == true && !isEndGame)
         {
             if (EnemiesInStressZone >= 1 && EnemiesInPanicZone == 0)
             {
@@ -57,51 +52,43 @@ public class Emotes : MonoBehaviour
 
     public void Default()
     {
-        Default_Emote.SetActive(true);
+        if (!isEndGame)
+        {
+            Default_Emote.SetActive(true);
 
-        POG_Emote.SetActive(false);
-        Stress_Emote.SetActive(false);
-        Panic_Emote.SetActive(false);
-        Sad_Emote.SetActive(false);
+            animation.SetTrigger("Safe");
+        }
     }
 
     public void StressZone()//When a unit enters the designated "stress zone"
     {
-        Stress_Emote.SetActive(true);
-
-        Default_Emote.SetActive(false);
-        Panic_Emote.SetActive(false);
+        if (!isEndGame) 
+        {
+            animation.SetTrigger("Sweat");
+        }
     }
 
     public void PanicZone()//When a unit enters the designated "panic zone"
     {
-        Panic_Emote.SetActive(true);
-
-        Default_Emote.SetActive(false);
-        Stress_Emote.SetActive(false);
+        if (!isEndGame) 
+        {
+            animation.SetTrigger("Danger");
+        }
     }
 
     public void WonGame()//When you win a round
     {
-        POG_Emote.SetActive(true);
-
-        Default_Emote.SetActive(false);
-        Stress_Emote.SetActive(false);
-        Panic_Emote.SetActive(false);
-        Sad_Emote.SetActive(false);
+        animation.SetTrigger("Pog");
 
         GameOver = true;
     }
 
     public void LoseGame()//When you lose the game
     {
-        Sad_Emote.SetActive(true);
 
-        Default_Emote.SetActive(false);
-        Stress_Emote.SetActive(false);
-        Panic_Emote.SetActive(false);
-        POG_Emote.SetActive(false);
-
+        animation.SetTrigger("Depressed");
+        
         GameOver = true;
+
     }
 }
