@@ -19,6 +19,9 @@ public class fallingEggs : MonoBehaviour
     public GameObject star1;
     public GameObject star2;
     public GameObject star3;
+    public GameObject blackstar1;
+    public GameObject blackstar2;
+    public GameObject blackstar3;
 
     [SerializeField] private GameObject nextSceneButton; //The button to reach next scene
     [SerializeField] private LevelTransitionSystem levelTransitioner; //Refrence to give the score of the game.  
@@ -30,6 +33,9 @@ public class fallingEggs : MonoBehaviour
         star1.SetActive(false);
         star2.SetActive(false);
         star3.SetActive(false);
+        blackstar1.SetActive(false);
+        blackstar2.SetActive(false);
+        blackstar3.SetActive(false);
 
         MakeItRain = true;
     }
@@ -83,14 +89,23 @@ public class fallingEggs : MonoBehaviour
         {
             star1.SetActive(true);
             star2.SetActive(true);
+            blackstar3.SetActive(true);
             CardReward.Stars = 2;
             score = 2;
         }
         else if (collectedEggs == 8)//1 star
         {
             star1.SetActive(true);
+            blackstar2.SetActive(true);
+            blackstar3.SetActive(true);
             CardReward.Stars = 1;
             score = 1;
+        }
+        else if (collectedEggs < 8)
+        {
+            blackstar1.SetActive(true);
+            blackstar2.SetActive(true);
+            blackstar3.SetActive(true);
         }
         nextSceneButton.SetActive(true);
         levelTransitioner.currentMinigameScore = score;

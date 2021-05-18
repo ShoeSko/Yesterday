@@ -12,6 +12,9 @@ public class ScoreScript : MonoBehaviour
     public GameObject star1;
     public GameObject star2;
     public GameObject star3;
+    public GameObject blackstar1;
+    public GameObject blackstar2;
+    public GameObject blackstar3;
 
     [Header("Scene Transition")]
     [SerializeField] private GameObject nextSceneButton; //The button to reach next scene
@@ -23,6 +26,9 @@ public class ScoreScript : MonoBehaviour
         star1.SetActive(false);
         star2.SetActive(false);
         star3.SetActive(false);
+        blackstar1.SetActive(false);
+        blackstar2.SetActive(false);
+        blackstar3.SetActive(false);
     }
 
     private void Update()
@@ -40,7 +46,7 @@ public class ScoreScript : MonoBehaviour
     {
         iWon = true;
 
-        if (scoreTimer <= 6)
+        if (scoreTimer <= 5)
         {
             //3stars
             star1.SetActive(true);
@@ -49,20 +55,30 @@ public class ScoreScript : MonoBehaviour
             CardReward.Stars = 3;
             score = 3;
         }
-        else if (scoreTimer > 6 && scoreTimer <= 10)
+        else if (scoreTimer > 5 && scoreTimer <= 9)
         {
             //2stars
             star1.SetActive(true);
             star2.SetActive(true);
+            blackstar3.SetActive(true);
             CardReward.Stars = 2;
             score = 2;
         }
-        else if (scoreTimer > 10 && scoreTimer <= 15)
+        else if (scoreTimer > 9 && scoreTimer <= 16)
         {
             //1stars
             star1.SetActive(true);
+            blackstar2.SetActive(true);
+            blackstar3.SetActive(true);
             CardReward.Stars = 1;
             score = 1;
+        }
+        else if (scoreTimer > 16)
+        {
+            //0stars
+            blackstar1.SetActive(true);
+            blackstar2.SetActive(true);
+            blackstar3.SetActive(true);
         }
     }
 }

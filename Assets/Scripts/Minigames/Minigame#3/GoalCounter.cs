@@ -14,6 +14,9 @@ public class GoalCounter : MonoBehaviour
     public GameObject star1;
     public GameObject star2;
     public GameObject star3;
+    public GameObject blackstar1;
+    public GameObject blackstar2;
+    public GameObject blackstar3;
 
     [SerializeField] private GameObject nextSceneButton; //The button to reach next scene
     [SerializeField] private LevelTransitionSystem levelTransitioner; //Refrence to give the score of the game.
@@ -28,6 +31,9 @@ public class GoalCounter : MonoBehaviour
         star1.SetActive(false);
         star2.SetActive(false);
         star3.SetActive(false);
+        blackstar1.SetActive(false);
+        blackstar2.SetActive(false);
+        blackstar3.SetActive(false);
     }
     public void Update()
     {
@@ -59,6 +65,7 @@ public class GoalCounter : MonoBehaviour
             {
                 star1.SetActive(true);
                 star2.SetActive(true);
+                blackstar3.SetActive(true);
                 //2 stars
                 CardReward.Stars = 2;
                 score = 2;
@@ -66,12 +73,17 @@ public class GoalCounter : MonoBehaviour
             else if (scoreTimer >= 6 && scoreTimer < 8)
             {
                 star1.SetActive(true);
+                blackstar2.SetActive(true);
+                blackstar3.SetActive(true);
                 //1 stars
                 CardReward.Stars = 1;
                 score = 1;
             }
             else if (scoreTimer >= 8)
             {
+                blackstar1.SetActive(true);
+                blackstar2.SetActive(true);
+                blackstar3.SetActive(true);
                 //0 stars
                 score = 0;
             }

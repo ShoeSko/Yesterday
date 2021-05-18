@@ -11,6 +11,9 @@ public class GroundScript : MonoBehaviour
     public GameObject star1;
     public GameObject star2;
     public GameObject star3;
+    public GameObject blackstar1;
+    public GameObject blackstar2;
+    public GameObject blackstar3;
     public GameObject RunningSound;
 
     public AudioSource jump;
@@ -35,6 +38,9 @@ public class GroundScript : MonoBehaviour
         star1.SetActive(false);
         star2.SetActive(false);
         star3.SetActive(false);
+        blackstar1.SetActive(false);
+        blackstar2.SetActive(false);
+        blackstar3.SetActive(false);
     }
 
     void Update()
@@ -84,12 +90,21 @@ public class GroundScript : MonoBehaviour
             {
                 star1.SetActive(true);
                 star2.SetActive(true);
+                blackstar3.SetActive(true);
                 CardReward.Stars = 2;
             }
             else if(score == 1)
             {
                 star1.SetActive(true);
+                blackstar2.SetActive(true);
+                blackstar3.SetActive(true);
                 CardReward.Stars = 1;
+            }
+            else if (score == 0)
+            {
+                blackstar1.SetActive(true);
+                blackstar2.SetActive(true);
+                blackstar3.SetActive(true);
             }
 
             nextSceneButton.SetActive(true);

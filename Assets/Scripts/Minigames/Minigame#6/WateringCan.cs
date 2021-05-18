@@ -24,6 +24,9 @@ public class WateringCan : MonoBehaviour
 
     [Header("Star system")]
     public List<GameObject> stars = new List<GameObject>(); //A list of the stars
+    public GameObject blackstar1;
+    public GameObject blackstar2;
+    public GameObject blackstar3;
     private int starLenght;//How long is the star list
     private float scoreTimer; //How long it takes to do the game
     public int star1Time;
@@ -158,6 +161,7 @@ public class WateringCan : MonoBehaviour
                 {
                     stars[i].SetActive(true);
                 }
+                blackstar3.SetActive(true);
                 //2 stars
                 CardReward.Stars = 2;
                 score = 2;
@@ -168,9 +172,17 @@ public class WateringCan : MonoBehaviour
                 {
                     stars[i].SetActive(true);
                 }
+                blackstar2.SetActive(true);
+                blackstar3.SetActive(true);
                 //1 star
                 CardReward.Stars = 1;
                 score = 1;
+            }
+            else if (scoreTimer > star3Time)
+            {
+                blackstar1.SetActive(true);
+                blackstar2.SetActive(true);
+                blackstar3.SetActive(true);
             }
         }
         else//Tutorial stuff

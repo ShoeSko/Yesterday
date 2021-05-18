@@ -10,6 +10,10 @@ public class AnimalVictory : MonoBehaviour
     private float scoreTimer; //How long it takes to do the game
     public static int _animalPensFilled; //How many pens have been filled.
 
+    public GameObject blackstar1;
+    public GameObject blackstar2;
+    public GameObject blackstar3;
+
     public int star1Time;
     public int star2Time;
     public int star3Time;
@@ -45,6 +49,9 @@ public class AnimalVictory : MonoBehaviour
         {
             stars[i].SetActive(false);
         }
+        blackstar1.SetActive(false);
+        blackstar2.SetActive(false);
+        blackstar3.SetActive(false);
 
         if (MinigameSceneScript.Tutorial == true)
         {
@@ -122,6 +129,7 @@ public class AnimalVictory : MonoBehaviour
                     {
                         stars[i].SetActive(true);
                     }
+                    blackstar3.SetActive(true);
                     //2 stars
                     CardReward.Stars = 2;
                     score = 2;
@@ -132,12 +140,17 @@ public class AnimalVictory : MonoBehaviour
                     {
                         stars[i].SetActive(true);
                     }
+                    blackstar2.SetActive(true);
+                    blackstar3.SetActive(true);
                     //1 star
                     CardReward.Stars = 1;
                     score = 1;
                 }
-                else if (scoreTimer > 15)
+                else if (scoreTimer > star3Time)
                 {
+                    blackstar1.SetActive(true);
+                    blackstar2.SetActive(true);
+                    blackstar3.SetActive(true);
                     //0 stars
                 }
 
@@ -150,6 +163,7 @@ public class AnimalVictory : MonoBehaviour
                 {
                     stars[i].SetActive(true);
                 }
+                blackstar3.SetActive(true);
                 //2 stars
                 CardReward.Stars = 2;
                 score = 2;

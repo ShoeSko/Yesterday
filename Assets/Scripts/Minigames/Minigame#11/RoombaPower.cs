@@ -47,11 +47,18 @@ public class RoombaPower : MonoBehaviour
     [SerializeField] private GameObject nextSceneButton; //The button to reach next scene
     [SerializeField] private LevelTransitionSystem levelTransitioner; //Refrence to give the score of the game.  
     #endregion
+    public GameObject blackstar1;
+    public GameObject blackstar2;
+    public GameObject blackstar3;
 
     private void Start()
     {
         win = false;
         score = 0;
+
+        blackstar1.SetActive(false);
+        blackstar2.SetActive(false);
+        blackstar3.SetActive(false);
 
         FirstLineInitialization();
 
@@ -133,6 +140,7 @@ public class RoombaPower : MonoBehaviour
                 {
                     stars[i].SetActive(true);
                 }
+                blackstar3.SetActive(true);
                 score = 2;
                 //2 stars
                 CardReward.Stars = 2;
@@ -143,12 +151,17 @@ public class RoombaPower : MonoBehaviour
                 {
                     stars[i].SetActive(true);
                 }
+                blackstar2.SetActive(true);
+                blackstar3.SetActive(true);
                 score = 1;
                 //1 star
                 CardReward.Stars = 1;
             }
-            else if (scoreTimer > 5)
+            else if (scoreTimer > star3Time)
             {
+                blackstar1.SetActive(true);
+                blackstar2.SetActive(true);
+                blackstar3.SetActive(true);
                 score = 0;
                 //0 stars
             }
