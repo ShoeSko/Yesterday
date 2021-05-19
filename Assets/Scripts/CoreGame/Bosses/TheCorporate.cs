@@ -17,6 +17,12 @@ public class TheCorporate : MonoBehaviour
     public Slider BossHealth;
     public GameObject manaBarStockIndicator;
 
+    //Animations & poses
+    public Sprite Default;
+    public Sprite Damaged1;
+    public Sprite Damaged2;
+    public Sprite pepsi;
+
     //setup
     private Rigidbody2D rb;
     public bool IsActive;
@@ -65,8 +71,8 @@ public class TheCorporate : MonoBehaviour
     {
         BossHealthbar.SetActive(true);
         rb = GetComponent<Rigidbody2D>();
-        NewPos = new Vector2(8.44f, 1.34f);
-        speed = 0.8f;
+        NewPos = new Vector2(6f, 1.34f);
+        speed = 0.9f;
 
         CD3 = 1;
         CD2 = 1;
@@ -115,10 +121,15 @@ public class TheCorporate : MonoBehaviour
             }
         }
 
-        if(Health == 0)
+         if (Health == 0)
         {
             isDead = true;
-            Destroy(gameObject);
+        }
+
+        if (isDead) //A condition to prevent issues when simply unloading the scene, as it would then cause victory condition.
+        {
+            this.gameObject.GetComponent<SpriteRenderer>().sprite = pepsi;
+            WinCondition.GetComponent<Victory>().Win();
         }
     }
 
@@ -157,7 +168,7 @@ public class TheCorporate : MonoBehaviour
                 Destroy(activeSpot);//This permanently removes the slot from the round.
                 TowerSpots.RemoveAt(RandomSpot);//Removes the Towerspot from the list to prevent reruns.
 
-                CD1 = 2;//Set cooldown
+                CD1 = 3;//Set cooldown
             }
             else { CD1 = 1; } //Cooldown before retrying to purchase
 
@@ -201,25 +212,40 @@ public class TheCorporate : MonoBehaviour
                 RandomHand = Random.Range(0, 4);
                 CurrentHand = CorporateHands[RandomHand];
 
-                if (CurrentHand != null)
+                if (CurrentHand != null && CurrentHand.GetComponent<GreedyOpportunity>().obstacleInTheWay != false)
                 {
                     CurrentHand.GetComponent<GreedyOpportunity>().obstacleInTheWay = false;
                 }
                 else
                     loop--;
             }
-
-            CD3 = 3;//set cooldown
+            CD3 = 2;//set cooldown
         }
         else
             loop--;
     }
 
-    private void OnDestroy()
+    IEnumerator tookDamage()
     {
-        if (isDead) //A condition to prevent issues when simply unloading the scene, as it would then cause victory condition.
+        if (Health == 3 || Health == 2)
         {
-            WinCondition.GetComponent<Victory>().Win();
+            this.gameObject.GetComponent<SpriteRenderer>().sprite = Damaged1;
+            //Do damage animation 1
         }
+        else if (Health == 1)
+        {
+            this.gameObject.GetComponent<SpriteRenderer>().sprite = Damaged2;
+            //Do damage animation 2
+        }
+        yield return new WaitForSeconds(2);
+
+        this.gameObject.GetComponent<SpriteRenderer>().sprite = Default;
+    }
+
+    public void RecieveDamage()
+    {
+        Health--;
+        if(Health != 0)
+            StartCoroutine(tookDamage());
     }
 }

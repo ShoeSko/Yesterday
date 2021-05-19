@@ -23,6 +23,11 @@ public class NewCardHandScript : MonoBehaviour
     public AudioSource Music2;
     public AudioSource Boss1;
 
+    public GameObject BG_Day;
+    public GameObject BG_Evening;
+    public GameObject BG_Night;
+
+
     public GameObject enlargeButton;//arrow up above your hand to enlarge your hand
     public GameObject minimizeButton;//arrow down visible after enlarging your hand
     public GameObject handSmall;//your hand at the bottom of the screen
@@ -124,6 +129,25 @@ public class NewCardHandScript : MonoBehaviour
         minimizeButton.SetActive(true);
         TowerSpots.SetActive(false);
 
+        if(Stage == 1)
+        {
+            BG_Day.SetActive(true);
+            BG_Evening.SetActive(false);
+            BG_Night.SetActive(false);
+        }
+        else if(Stage == 2)
+        {
+            BG_Day.SetActive(false);
+            BG_Evening.SetActive(true);
+            BG_Night.SetActive(false);
+        }
+        else if(Stage == 3)
+        {
+            BG_Day.SetActive(false);
+            BG_Evening.SetActive(false);
+            BG_Night.SetActive(true);
+        }
+
         ManaSystem.CurrentMana = 0;
 
         for (card = 1; card <= 5; card++)
@@ -145,6 +169,7 @@ public class NewCardHandScript : MonoBehaviour
         //Tutorial settings
         if(MinigameSceneScript.Tutorial == true)
         {
+            BG_Day.SetActive(true);
             Text = 0;
             ManaSystem.CurrentMana = 10;
 
@@ -748,6 +773,9 @@ public class NewCardHandScript : MonoBehaviour
             Boss1.Play();
             TheCorporatePrefab.GetComponent<TheCorporate>().Activate();
             TheCorporatePrefab.GetComponent<TheCorporate>().IsActive = true;
+            BG_Day.SetActive(false);
+            BG_Evening.SetActive(false);
+            BG_Night.SetActive(true);
         }
     }
 

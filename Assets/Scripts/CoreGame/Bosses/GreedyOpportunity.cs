@@ -247,7 +247,7 @@ public class GreedyOpportunity : MonoBehaviour
     {
         if (isDead) //A condition to preven scene loading to cause errors.
         {
-        CorporateBoss.GetComponent<TheCorporate>().Health--;
+            CorporateBoss.GetComponent<TheCorporate>().RecieveDamage();
         }
     }
 
