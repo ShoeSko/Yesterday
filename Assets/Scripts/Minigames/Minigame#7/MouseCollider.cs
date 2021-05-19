@@ -1,15 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class MouseCollider : MonoBehaviour
 {
-    Vector3 mousePos;
-    private float moveSpeed = 1f;
-    Rigidbody2D rb;
-    Vector2 position = new Vector2(0f, 0f);
-
     public GameObject star1;
     public GameObject star2;
     public GameObject star3;
@@ -28,7 +22,6 @@ public class MouseCollider : MonoBehaviour
     private int gameScore;
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
 
         star1.SetActive(false);
         star2.SetActive(false);
@@ -42,9 +35,6 @@ public class MouseCollider : MonoBehaviour
         if (score != 3)
             ScoreTimer += Time.deltaTime;//Overall timer for score
 
-        mousePos = Input.mousePosition;
-        mousePos = Camera.main.ScreenToWorldPoint(mousePos);
-        position = Vector2.Lerp(transform.position, mousePos, moveSpeed);
 
         if (score == 3)//Win Condition
         {
@@ -81,10 +71,5 @@ public class MouseCollider : MonoBehaviour
             levelTransitioner.currentMinigameScore = gameScore;
 
         }
-    }
-
-    private void FixedUpdate()
-    {
-        rb.MovePosition(position);
     }
 }

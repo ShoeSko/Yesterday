@@ -5,16 +5,14 @@ using UnityEngine;
 public class WeedPulling : MonoBehaviour
 {
     Vector3 mousePos;
-    private float moveSpeed = 0.02f;
+    [SerializeField]private float moveSpeed = 0.15f;
     Rigidbody2D rb;
     Vector2 position = new Vector2(0f, 0f);
+
     public GameObject mouse;
 
-    public Collider2D mouseCollider;//this is the "mouse collider"
-
-    private bool setActive;
     public bool PulledOut;
-    private bool inactive;
+    private bool hasLetGo; //Has the carrot been let go?
 
     private Vector2 yeetVector;
     private float yeetForce = 100;
@@ -28,38 +26,38 @@ public class WeedPulling : MonoBehaviour
     void Update()//plant movement - script for following the mouse when being dragged
     {
         mousePos = Input.mousePosition;
-        mousePos = Camera.main.ScreenToWorldPoint(mousePos);
-        position = Vector2.Lerp(transform.position, mousePos, moveSpeed);
+        mousePos = Camera.main.ScreenToWorldPoint(mousePos); //This now exists to prevent the carrots from being dragged downwards
 
         if (PulledOut)
+        {
             yeet();
+        }
     }
 
-    private void FixedUpdate()
+    private void OnMouseDrag() //This runs as long as you press down on a colider hold down, then move.
     {
-        if (setActive == true && Input.GetKey(KeyCode.Mouse0) && !inactive)//If the mouse is within the hitbox of the plant, you can drag it
+        if (!hasLetGo)
+        {
+
+            if (mousePos.y >= 0) //Prevents the carrots from going down when pulling
+            {
+                position = Vector2.Lerp(transform.position, mousePos, moveSpeed);
+            }
+
             rb.MovePosition(position);
-    }
-
-    private void OnTriggerStay2D(Collider2D collider)
-    {
-        if(collider == mouseCollider)
-            setActive = true;
-    }
-    private void OnTriggerExit2D(Collider2D collider)
-    {
-        if (collider == mouseCollider)
-            setActive = false;
+        }
     }
 
     void yeet()
     {
-        inactive = true;
+
         yeetVector = new Vector2(Random.Range(-10, 11), Random.Range(3, 6));
         rb.constraints = RigidbodyConstraints2D.None;
         rb.gravityScale = 1f;
         rb.AddForce(yeetVector * yeetForce);
         mouse.GetComponent<MouseCollider>().score++;
         PulledOut = false;
+        hasLetGo = true;
+        GetComponent<WeedPulling>().enabled = false;
     }
 }
