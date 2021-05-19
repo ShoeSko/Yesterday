@@ -23,6 +23,11 @@ public class TheCorporate : MonoBehaviour
     public Sprite Damaged2;
     public Sprite pepsi;
 
+    public GameObject Snap1;
+    public GameObject Snap2;
+
+    public GameObject Laugh;
+
     //setup
     private Rigidbody2D rb;
     public bool IsActive;
@@ -65,6 +70,10 @@ public class TheCorporate : MonoBehaviour
         CorporateHands[1].GetComponent<GreedyOpportunity>().obstacleInTheWay = true;
         CorporateHands[2].GetComponent<GreedyOpportunity>().obstacleInTheWay = true;
         CorporateHands[3].GetComponent<GreedyOpportunity>().obstacleInTheWay = true;
+
+        Snap1.SetActive(false);
+        Snap2.SetActive(false);
+        Laugh.SetActive(false);
     }
 
     public void Activate()//Do this at the start
@@ -193,10 +202,15 @@ public class TheCorporate : MonoBehaviour
     IEnumerator IndicateStockShortage()
     {
         manaBarStockIndicator.SetActive(true);
+        Snap1.SetActive(true);
         yield return new WaitForSeconds(stockShortageWarningTime);
+        Snap1.SetActive(false);
+        Snap2.SetActive(true);
         manaSteal = Random.Range(1, 4);
         ManaSystem.CurrentMana -= manaSteal;
         manaBarStockIndicator.SetActive(false);
+        yield return new WaitForSeconds(0.5f);
+        Snap2.SetActive(false);
     }
     void Greedy_Opportunity()//Ability 3
     /* The Corporate's greed is immeasurable as he will take any opportunity he sees.The Corporate will sometimes try to take one of your units to sell it. 
@@ -215,6 +229,7 @@ public class TheCorporate : MonoBehaviour
                 if (CurrentHand != null && CurrentHand.GetComponent<GreedyOpportunity>().obstacleInTheWay != false)
                 {
                     CurrentHand.GetComponent<GreedyOpportunity>().obstacleInTheWay = false;
+                    StartCoroutine(Laughter());
                 }
                 else
                     loop--;
@@ -240,6 +255,13 @@ public class TheCorporate : MonoBehaviour
         yield return new WaitForSeconds(2);
 
         this.gameObject.GetComponent<SpriteRenderer>().sprite = Default;
+    }
+
+    IEnumerator Laughter()
+    {
+        Laugh.SetActive(true);
+        yield return new WaitForSeconds(2);
+        Laugh.SetActive(false);
     }
 
     public void RecieveDamage()
