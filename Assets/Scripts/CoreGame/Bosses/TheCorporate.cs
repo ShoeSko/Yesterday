@@ -94,12 +94,32 @@ public class TheCorporate : MonoBehaviour
         //Stock_Shortage();     //(REMOVE // TO TEST THIS ABILITY)
         //Greedy_Opportunity(); //(REMOVE // TO TEST THIS ABILITY)
 
+        //Ths cheats above have been upgraded to be in cheats. Right click the component to get the contextMenu options.
+
         for (int deactivated = 0; deactivated < DeactivateTowerSpots.Count; deactivated++)//make space for the boss by destroying the last row
         {
             currentTowerSpot = DeactivateTowerSpots[deactivated];
             Destroy(currentTowerSpot);
         }
     }
+
+    #region Cheats
+    [ContextMenu("Run Property Business")]
+    private void PropertCheat()
+    {
+        Property_Business();
+    }
+    [ContextMenu("Run Stock Shortage")]
+    private void StockCheat()
+    {
+        Stock_Shortage();
+    }
+    [ContextMenu("Run Greedy Opportunity")]
+    private void GreedyCheat()
+    {
+        Greedy_Opportunity();
+    }
+    #endregion
 
     void Update()
     {
@@ -201,14 +221,14 @@ public class TheCorporate : MonoBehaviour
     }
     IEnumerator IndicateStockShortage()
     {
-        manaBarStockIndicator.SetActive(true);
+        manaBarStockIndicator.GetComponent<Animator>().SetTrigger("Stock"); //Starts warning animation
         Snap1.SetActive(true);
         yield return new WaitForSeconds(stockShortageWarningTime);
         Snap1.SetActive(false);
         Snap2.SetActive(true);
         manaSteal = Random.Range(1, 4);
         ManaSystem.CurrentMana -= manaSteal;
-        manaBarStockIndicator.SetActive(false);
+        manaBarStockIndicator.GetComponent<Animator>().SetTrigger("End");
         yield return new WaitForSeconds(0.5f);
         Snap2.SetActive(false);
     }
