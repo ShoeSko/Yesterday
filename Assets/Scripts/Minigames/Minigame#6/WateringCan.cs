@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class WateringCan : MonoBehaviour
 {
@@ -12,6 +12,7 @@ public class WateringCan : MonoBehaviour
     [SerializeField] private LayerMask targetLayer;
     public GameObject water;
     public ParticleSystem Water;
+    public Slider waterMeter;
 
     [Header("Plants")]
     public float wateringTimeNeeded;
@@ -68,6 +69,7 @@ public class WateringCan : MonoBehaviour
             SpeechBubble.SetActive(true);
             ContinueText.SetActive(true);
         }
+        waterMeter.maxValue = wateringTimeNeeded; //Makes sure the meter has the same max value as the watering should occur.
     }
 
     private void Update()
@@ -126,6 +128,7 @@ public class WateringCan : MonoBehaviour
         {
             Water.enableEmission = true; //Turn on water emission
             wateringTimeNeeded -= Time.deltaTime; //Counts down how long one has been watering the plants
+            waterMeter.value += Time.deltaTime; //Increases the meter as fast as the time decreases.
         }
         else { Water.enableEmission = false; } //Turns of emission when not watering plants (Very visual when you are doing it correctly)
 
