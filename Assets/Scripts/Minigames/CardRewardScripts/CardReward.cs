@@ -66,6 +66,7 @@ public class CardReward : MonoBehaviour
 
         if (MinigameSceneScript.Tutorial == false)
         {
+            TutorialMission = 0;//hopefully resets the tutorial
             Overview.SetActive(true);
             ViewView.SetActive(false);
 

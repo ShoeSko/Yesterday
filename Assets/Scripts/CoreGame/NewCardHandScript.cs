@@ -11,6 +11,7 @@ public class NewCardHandScript : MonoBehaviour
     public GameObject Deck;
     private GameObject CurrentCard;
     public GameObject TheCorporatePrefab;
+    public GameObject BossIntro;
 
     private int card;
 
@@ -146,6 +147,8 @@ public class NewCardHandScript : MonoBehaviour
             BG_Day.SetActive(false);
             BG_Evening.SetActive(false);
             BG_Night.SetActive(true);
+
+            BossIntro.GetComponent<Corporate_Intro>().PlayIntro();
         }
 
         ManaSystem.CurrentMana = 0;
