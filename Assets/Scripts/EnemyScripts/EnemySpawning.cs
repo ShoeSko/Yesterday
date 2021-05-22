@@ -163,7 +163,7 @@ public class EnemySpawning : MonoBehaviour
         }
 
         sizeOfStrongEnemyTypes = strongEnemyList.Enemies.Count;
-        for (int i = 0; i < sizeOfStrongEnemyTypes-1; i++)
+        for (int i = 0; i < sizeOfStrongEnemyTypes; i++)
         {
             strongEnemyTypesSpawnList.Add(strongEnemyList.Enemies[i]);
         }

@@ -95,6 +95,7 @@ public class MinigameSceneScript : MonoBehaviour
 
     public void DeckClear()
     {
+        Tutorial = false;
         DeckScript.Deck.Clear();
         NewCardHandScript.Stage = 1;
     }
