@@ -45,6 +45,7 @@ public class MouseCollider : MonoBehaviour
                 star2.SetActive(true);
                 star3.SetActive(true);
                 CardReward.Stars = 3;
+                gameScore = 3;
             }
             else if (ScoreTimer > 12 && ScoreTimer <= 18)//2 stars
             {
@@ -52,6 +53,7 @@ public class MouseCollider : MonoBehaviour
                 star2.SetActive(true);
                 blackstar3.SetActive(true);
                 CardReward.Stars = 2;
+                gameScore = 2;
             }
             else if (ScoreTimer > 18 && ScoreTimer <= 25)//1 stars
             {
@@ -59,6 +61,7 @@ public class MouseCollider : MonoBehaviour
                 blackstar2.SetActive(true);
                 blackstar3.SetActive(true);
                 CardReward.Stars = 1;
+                gameScore = 1;
             }
             else if (ScoreTimer > 25)
             {
