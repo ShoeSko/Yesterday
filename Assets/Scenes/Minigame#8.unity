@@ -344,7 +344,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Make the bed!
+  m_text: Pat the pillow!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -883,16 +883,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1294842556}
-  m_LocalRotation: {x: -0, y: -0, z: 0.13735522, w: 0.99052185}
+  m_LocalRotation: {x: -0, y: -0, z: -0.0778986, w: 0.9969613}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2.6983798, y: 6.7562547, z: 1.6184074}
+  m_LocalScale: {x: 1.0221843, y: 2.6670604, z: 0.6388732}
   m_Children: []
   m_Father: {fileID: 1061696809}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 15.79}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -8.936}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 109.9, y: -45.9}
+  m_AnchoredPosition: {x: 153.1, y: -0.5}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1294842558
