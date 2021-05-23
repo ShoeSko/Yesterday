@@ -121,11 +121,14 @@ public class NewCardHandScript : MonoBehaviour
     private bool PlayableCards;
     public bool LookForEnemies;
     public GameObject MenuReturn;
+    private bool LostTutorial;
 
 
 
     void Start()
     {
+        MinigameSceneScript.Tutorial = true;
+
         handEnlarged.SetActive(true);
         minimizeButton.SetActive(true);
         TowerSpots.SetActive(false);
@@ -321,6 +324,19 @@ public class NewCardHandScript : MonoBehaviour
                 LookForEnemies = true;
             else
                 LookForEnemies = false;
+        }
+
+        if(LostTutorial == true)
+        {
+            if (Input.GetKeyDown(KeyCode.Mouse0) || Input.GetKeyDown(KeyCode.Space))
+            {
+                Texts[19].SetActive(false);
+                SpeechBubble.SetActive(false);
+                BotWave.SetActive(false);
+                ContinueText.SetActive(false);
+                Time.timeScale = 1;
+                LostTutorial = false;
+            }
         }
     }
 
@@ -876,5 +892,15 @@ public class NewCardHandScript : MonoBehaviour
         ContinueText.SetActive(true);
         CantClick = false;
         LookForEnemies = false;
+    }
+
+    public void TutorialLose()
+    {
+        Texts[19].SetActive(true);
+        SpeechBubble.SetActive(true);
+        BotWave.SetActive(true);
+        ContinueText.SetActive(true);
+        LostTutorial = true;
+        Time.timeScale = 0;
     }
 }

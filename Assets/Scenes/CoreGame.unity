@@ -4928,6 +4928,7 @@ RectTransform:
   - {fileID: 363164338}
   - {fileID: 1649367742}
   - {fileID: 259652860}
+  - {fileID: 1288200705}
   m_Father: {fileID: 1446362325}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -16100,6 +16101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   YouLost: {fileID: 437649686}
   emote: {fileID: 2052679301}
+  HandCode: {fileID: 1485272399}
 --- !u!1 &1182832676
 GameObject:
   m_ObjectHideFlags: 0
@@ -16496,11 +16498,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5e96f7d28af79744854f8af73d4dee6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TEST: 1
+  TEST: 0
   Player: {fileID: 1105724848}
   Boss: {fileID: 421133829}
   background: {fileID: 566778478}
-  Intro: 3
+  Intro: 1
 --- !u!1001 &1192148800
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17912,6 +17914,86 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1279425196}
+  m_CullTransparentMesh: 1
+--- !u!1 &1288200704
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1288200705}
+  - component: {fileID: 1288200707}
+  - component: {fileID: 1288200706}
+  m_Layer: 5
+  m_Name: Text 20
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1288200705
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1288200704}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.17207041, y: 0.17207041, z: 0.17207041}
+  m_Children: []
+  m_Father: {fileID: 382933163}
+  m_RootOrder: 22
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -163.6, y: 127.5}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1288200706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1288200704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 123
+    m_FontStyle: 0
+    m_BestFit: 1
+    m_MinSize: 27
+    m_MaxSize: 123
+    m_Alignment: 3
+    m_AlignByGeometry: 1
+    m_RichText: 1
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
+    m_LineSpacing: 1
+  m_Text: "Oh oh, looks like a enemy got \nthrough. Normally that would \nmean that
+    you lost, however \nthis one time i'll take care of him."
+--- !u!222 &1288200707
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1288200704}
   m_CullTransparentMesh: 1
 --- !u!1 &1292569148
 GameObject:
@@ -20577,6 +20659,7 @@ MonoBehaviour:
   - {fileID: 363164337}
   - {fileID: 1649367741}
   - {fileID: 259652859}
+  - {fileID: 1288200704}
   LookForEnemies: 0
   MenuReturn: {fileID: 366520314}
 --- !u!1 &1494691261

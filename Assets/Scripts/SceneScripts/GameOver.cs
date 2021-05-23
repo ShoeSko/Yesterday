@@ -7,11 +7,17 @@ public class GameOver : MonoBehaviour
 {
     public GameObject YouLost;
     public GameObject emote;
+    public GameObject HandCode;
 
     void OnTriggerEnter2D(Collider2D collider)
     {
-        if(collider.gameObject.tag == "Enemy")
-            lose();
+        if (collider.gameObject.tag == "Enemy")
+        {
+            if (MinigameSceneScript.Tutorial == false)
+                lose();
+            else
+                HandCode.GetComponent<NewCardHandScript>().TutorialLose();
+        }
     }
 
     private void lose()
