@@ -52,6 +52,7 @@ public class GreedyOpportunity : MonoBehaviour
     {
         EnemyDeath();//Death comes for us all.
         CurrentDamageTaken(); //Calculates damage taken, activates the appropriate animation.
+
     }
     private void FixedUpdate()
     {
@@ -74,6 +75,7 @@ public class GreedyOpportunity : MonoBehaviour
             gameObject.GetComponent<Collider2D>().enabled = true; //Makes sure the collider is on for fight
             didKill = false; //Makes the Hand ready to kill again.
             timerForGreed = timeBeforeGreed; //Resets the greed Timer when moving forward.
+            canGreedStrike = false;
         }
         else if(isRetreating) //Turns invinsible after killing. Returns home.
         {
