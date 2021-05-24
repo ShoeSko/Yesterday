@@ -31,6 +31,12 @@ public class BasicEnemyMovement : MonoBehaviour
     [Header("Enemy confirmation for Animation")]
     [Tooltip("Is the Enemy Merry, so that her animation will play")] private bool isMerry;
 
+    [Header("Enemy Index")]
+    [Tooltip("Is it a beast?")] private bool isBeast;
+    [Tooltip("Is it a humanoid?")] private bool isHumanoid;
+    [Tooltip("Is it a monstrosity?")] private bool isMonstrosity;
+    [Tooltip("What index number does it have?")] private int enemyIndex;
+
     [Header("Spell card effects")]
     private float moveSpeedSave;
     private bool isBeingPreventedFromDoingAnything; //Prevents actions
@@ -286,5 +292,11 @@ public class BasicEnemyMovement : MonoBehaviour
 
         //Enemy confirmation
         isMerry = enemy.isMerry;
+
+        //Indexing
+        isBeast = enemy.isBeast;
+        isHumanoid = enemy.isHumanoid;
+        isMonstrosity = enemy.isMonstrosity;
+        enemyIndex = enemy.enemyIndex;
     }
 }

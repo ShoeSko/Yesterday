@@ -49,4 +49,7 @@ public class CardScript : ScriptableObject
     [Tooltip("How much bigger will the unit be?")] public Vector3 sizeBuff;
     [Tooltip("How much the health should be buffed (Health incrase in % you write)")] public float healthBuff;
     [Tooltip("How much the damage should be buffed (Damage increase in % you write)")] public float damageBuff;
+
+    [Header("Unit index")]
+    [Tooltip("What index is the unit?")] public int unitIndex;
 }

@@ -65,6 +65,9 @@ public class UnitPrototypeScript : MonoBehaviour
 
     private bool isDead;
 
+    [Header("Unit index")]
+    [Tooltip("What index is the unit?")] public int unitIndex;
+
     [Header("Spell effects")]
     private int shootDamageSave; // Saves the shoot Damage
     private float shootSpeedSave; // Saves the shoot speed
@@ -414,5 +417,7 @@ public class UnitPrototypeScript : MonoBehaviour
         sizeBuff = Unit.sizeBuff;
         healthBuff = Unit.healthBuff;
         damageBuff = Unit.damageBuff;
+
+        unitIndex = Unit.unitIndex;
     }
 }
