@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 388464609}
   - component: {fileID: 388464608}
   - component: {fileID: 388464607}
+  - component: {fileID: 388464611}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -223,6 +224,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &388464611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 388464606}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c08980f1dd6d3b041bfcc79316eec9f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  amountOfUnits: 40
+  amountOfEnemies: 14
+  amountOfBosses: 2
 --- !u!1 &736383880
 GameObject:
   m_ObjectHideFlags: 0
@@ -336,9 +352,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data:
+    isFirstRun: 0
     masterVolLevel: 1
     musicVolLevel: 1
     sfxVolLevel: 1
+    unitList: 
+    enemyList: 
+    bossList: 
 --- !u!4 &769017276
 Transform:
   m_ObjectHideFlags: 0

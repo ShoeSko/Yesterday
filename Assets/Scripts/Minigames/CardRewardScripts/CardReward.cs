@@ -387,6 +387,11 @@ public class CardReward : MonoBehaviour
         {
             activeCard = Group1[CardsInGroup];
             DeckScript.Deck.Add(activeCard);
+
+            if (MinigameSceneScript.Tutorial == false) //Stores the info only they are playing normal.
+            {
+                UnitForBeastiary(activeCard.unitIndex); //Stores the data in the save file.
+            }
         }
 
         //NextScene();
@@ -399,6 +404,11 @@ public class CardReward : MonoBehaviour
         {
             activeCard = Group2[CardsInGroup];
             DeckScript.Deck.Add(activeCard);
+
+            if (MinigameSceneScript.Tutorial == false) //Stores the info only they are playing normal.
+            {
+                UnitForBeastiary(activeCard.unitIndex); //Stores the data in the save file.
+            }
         }
 
         //NextScene();
@@ -411,10 +421,40 @@ public class CardReward : MonoBehaviour
         {
             activeCard = Group3[CardsInGroup];
             DeckScript.Deck.Add(activeCard);
+
+            if(MinigameSceneScript.Tutorial == false) //Stores the info only they are playing normal.
+            {
+                UnitForBeastiary(activeCard.unitIndex); //Stores the data in the save file.
+            }
         }
 
         //NextScene();
     }
+
+    #region Beastiary storing
+    private void UnitForBeastiary(int indexOfUnit)
+    {
+        if (FindObjectOfType<SaveSystem>()) //Confirms that the save system is in the scene
+        {
+            SaveSystem saving = FindObjectOfType<SaveSystem>(); //Finds the save system in the scene
+            int indexLenght = saving.data.unitList.Length; //Aquires the lenght of the Array to store in.
+
+            for (int index = 0; index < indexLenght; index++) //Runs a loop through the entire array until it reaches the same index as the unit.
+            {
+                if(index == indexOfUnit) //If current unit is equal to the in the loop. (Make sure he goes from 0.39)
+                {
+                    if(saving.data.unitList[index] == false)
+                    {
+                        //Everything here will we done when a unit is for the first time picked in the reward screen.
+                        saving.data.unitList[index] = true;
+
+                        print(indexOfUnit + " is the index of the unit that was just chosen.");
+                    }
+                }
+            }
+        }
+    }
+    #endregion
 
     //private void NextScene()//The code to change scene after choosing your cards
     //{

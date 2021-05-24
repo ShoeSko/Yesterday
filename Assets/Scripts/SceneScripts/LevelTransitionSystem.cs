@@ -104,9 +104,21 @@ public class LevelTransitionSystem : MonoBehaviour
         StartCoroutine(SceneFadeMechanic(nextLevelName)); //Runs Coroutine
     }
     #endregion
+    #region Save on Load
+    private void SaveGameOnLoad()
+    {
+        if (FindObjectOfType<SaveSystem>())
+        {
+            FindObjectOfType<SaveSystem>().SaveTheData(); //Saves the data.
+        }
+    }
+    #endregion
+
 
     IEnumerator SceneFadeMechanic(string levelName)
     {
+        SaveGameOnLoad(); //Saves game when loading a new scene.
+
         transitionController.SetTrigger("Start"); //Gives a trigger to the controller to start the leave animation.
 
         yield return new WaitForSeconds(waitTime); //Waits until animation is done + extra if wanted

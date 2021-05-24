@@ -56,6 +56,11 @@ public class BasicEnemyMovement : MonoBehaviour
         animatorOfEnemies = GetComponent<Animator>();
         healthSave = enemyHealth; //Saves the max health of the unit.
         MovingAnimation(); //If there is extra animation, activate it.
+
+        if(MinigameSceneScript.Tutorial == false) //Will not update beastiary from Tutorial run
+        {
+            EnemyIndexCalculator(); //New enemy has spawned so they will be added to Beastieary (If the load a new scene.
+        }
     }
 
     private void MovingAnimation()
@@ -225,6 +230,47 @@ public class BasicEnemyMovement : MonoBehaviour
         animatorOfEnemies.SetFloat("DamageTaken", currentDamage);
     }
 
+    #endregion
+    #region Beastiary storing
+    private void EnemyIndexCalculator()
+    {
+        int indexOfEnemy = 0;
+        if (isBeast)
+        {
+            indexOfEnemy = enemyIndex; //Beast is the base value
+        }
+        if (isHumanoid)
+        {
+            indexOfEnemy = enemyIndex + 4; //Humanoind is base value + beast value.
+        }
+        if (isMonstrosity)
+        {
+            indexOfEnemy = enemyIndex + 4 + 7; //Monstrosity is base value + beast value + Humanoid value
+        }
+
+        UnitForBeastiary(indexOfEnemy);
+    }
+    private void UnitForBeastiary(int indexOfEnemy)
+    {
+        if (FindObjectOfType<SaveSystem>()) //Confirms that the save system is in the scene
+        {
+            SaveSystem saving = FindObjectOfType<SaveSystem>(); //Finds the save system in the scene
+            int indexLenght = saving.data.enemyList.Length; //Aquires the lenght of the Array to store in.
+
+            for (int index = 0; index < indexLenght; index++) //Runs a loop through the entire array until it reaches the same index as the enemy.
+            {
+                if (index == indexOfEnemy) //If current unit is equal to the in the loop. (Make sure he goes from 0.39)
+                {
+                    if (saving.data.enemyList[index] == false)
+                    {
+                        saving.data.enemyList[index] = true;
+
+                        print(indexOfEnemy + " is the index of the Enemy that was just chosen.");
+                    }
+                }
+            }
+        }
+    }
     #endregion
     #region Spell effects
 

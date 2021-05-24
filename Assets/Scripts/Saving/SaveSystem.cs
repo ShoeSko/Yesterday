@@ -75,20 +75,31 @@ public class SaveSystem : MonoBehaviour
 [System.Serializable]
 public class Data //Serializable class of data. All inf to be saved should be here.
 {
+    public bool isFirstRun;
+
     public float masterVolLevel;
     public float musicVolLevel;
     public float sfxVolLevel;
 
+    public bool[] unitList;
+    public bool[] enemyList;
+    public bool[] bossList;
 
     //public int minigamesFinished;
     //public int enemiesKilled;
     //public int cardsSummoned;
 
-    public Data(float masterVolLevel, float musicVolLevel, float sfxVolLevel)
+    public Data(bool isFirstRun, float masterVolLevel, float musicVolLevel, float sfxVolLevel, bool[] unitList, bool[] enemyList, bool[] bossList)
     {
+        this.isFirstRun = isFirstRun;
+         //Sound Settings
         this.masterVolLevel = masterVolLevel;
         this.musicVolLevel = musicVolLevel;
         this.sfxVolLevel = sfxVolLevel;
+        //Unit Encounter lists
+        this.unitList = unitList;
+        this.enemyList = enemyList;
+        this.bossList = bossList;
     }
 
     //public Data(int minigamesFinished, int enemiesKilled, int cardsSummoned)
