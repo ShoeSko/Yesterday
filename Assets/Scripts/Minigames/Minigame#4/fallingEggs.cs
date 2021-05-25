@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class fallingEggs : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class fallingEggs : MonoBehaviour
     public static int collectedEggs;
     private bool MakeItRain;
     private float startDelay;
+
+    [SerializeField] private Slider eggsLostSlider;
 
     private float timer = 0;
 
@@ -73,6 +76,11 @@ public class fallingEggs : MonoBehaviour
 
         if (timer >= 4)//countdown for how long the game lasts
             win();
+    }
+
+    public void AnEggWasLost()
+    {
+        eggsLostSlider.value = eggsLostSlider.value + 1;
     }
 
     private void win()
