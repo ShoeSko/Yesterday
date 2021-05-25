@@ -1935,6 +1935,7 @@ GameObject:
   - component: {fileID: 1055836797}
   - component: {fileID: 1055836799}
   - component: {fileID: 1055836798}
+  - component: {fileID: 1055836800}
   m_Layer: 5
   m_Name: Win text
   m_TagString: Untagged
@@ -1958,8 +1959,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 160, y: 17}
-  m_SizeDelta: {x: 1018.637, y: 408.3895}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 1901.5, y: 253.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1055836798
 MonoBehaviour:
@@ -2008,15 +2009,15 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 225.3
-  m_fontSizeBase: 225.3
+  m_fontSize: 220
+  m_fontSizeBase: 220
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 17
   m_HorizontalAlignment: 2
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -2044,7 +2045,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 1
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -1177.0262, y: 0, z: -365.93433, w: -33.95276}
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -2058,6 +2059,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1055836796}
   m_CullTransparentMesh: 1
+--- !u!114 &1055836800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1055836796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70ff8b9a1047d0043b09f816c7c4e0fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colour: {r: 1, g: 0.66106135, b: 0, a: 1}
+  useOutline: 0
+  outlineColour: {r: 0, g: 0, b: 0, a: 0}
+  outlineWitdh: 0
 --- !u!1 &1064336718
 GameObject:
   m_ObjectHideFlags: 0
@@ -2943,8 +2960,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -126, y: -11}
-  m_SizeDelta: {x: 200, y: 61.674988}
+  m_AnchoredPosition: {x: 0, y: -30.837494}
+  m_SizeDelta: {x: 200, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1688810858
 MonoBehaviour:
@@ -2993,13 +3010,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 160.9
-  m_fontSizeBase: 160.9
+  m_fontSize: 100
+  m_fontSizeBase: 100
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 17
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
@@ -3029,7 +3046,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 1
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -450.31525, y: 0, z: -944.69727, w: -128.28728}
+  m_margin: {x: -450.31525, y: 0, z: -392.36966, w: -128.28728}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
