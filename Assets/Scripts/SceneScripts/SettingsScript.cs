@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
@@ -63,24 +62,16 @@ public class SettingsScript : MonoBehaviour
     {
         mixer.SetFloat("MasterVolume", Mathf.Log10(sliderValue) * 20);
         saving.data.masterVolLevel = sliderValue; //Sets the volume level in the save file. Still needs to activate the save function.
-        SaveTheVolume();
     }
     public void SetLevelMusic(float sliderValue)
     {
         mixer.SetFloat("MusicVolume", Mathf.Log10(sliderValue) * 20);
         saving.data.musicVolLevel = sliderValue;
-        SaveTheVolume();
     }
     public void SetLevelSFX(float sliderValue)
     {
         mixer.SetFloat("SFXVolume", Mathf.Log10(sliderValue) * 20);
         saving.data.sfxVolLevel = sliderValue;
-        SaveTheVolume();
-    }
-
-    private void SaveTheVolume()
-    {
-        saving.SaveTheData();
     }
 }
 

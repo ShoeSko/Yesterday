@@ -59,7 +59,7 @@ public class BasicEnemyMovement : MonoBehaviour
 
         if(MinigameSceneScript.Tutorial == false) //Will not update beastiary from Tutorial run
         {
-            EnemyIndexCalculator(); //New enemy has spawned so they will be added to Beastieary (If the load a new scene.
+            UnitForBeastiary(enemyIndex); //New enemy has spawned so they will be added to Beastieary (If the load a new scene.
         }
     }
 
@@ -232,40 +232,62 @@ public class BasicEnemyMovement : MonoBehaviour
 
     #endregion
     #region Beastiary storing
-    private void EnemyIndexCalculator()
-    {
-        int indexOfEnemy = 0;
-        if (isBeast)
-        {
-            indexOfEnemy = enemyIndex; //Beast is the base value
-        }
-        if (isHumanoid)
-        {
-            indexOfEnemy = enemyIndex + 4; //Humanoind is base value + beast value.
-        }
-        if (isMonstrosity)
-        {
-            indexOfEnemy = enemyIndex + 4 + 7; //Monstrosity is base value + beast value + Humanoid value
-        }
-
-        UnitForBeastiary(indexOfEnemy);
-    }
     private void UnitForBeastiary(int indexOfEnemy)
     {
         if (FindObjectOfType<SaveSystem>()) //Confirms that the save system is in the scene
         {
             SaveSystem saving = FindObjectOfType<SaveSystem>(); //Finds the save system in the scene
-            int indexLenght = saving.data.enemyList.Length; //Aquires the lenght of the Array to store in.
 
-            for (int index = 0; index < indexLenght; index++) //Runs a loop through the entire array until it reaches the same index as the enemy.
+            if (isBeast)
             {
-                if (index == indexOfEnemy) //If current unit is equal to the in the loop. (Make sure he goes from 0.39)
-                {
-                    if (saving.data.enemyList[index] == false)
-                    {
-                        saving.data.enemyList[index] = true;
+                int indexLenght = saving.data.beastList.Length; //Aquires the lenght of the Array to store in.
 
-                        print(indexOfEnemy + " is the index of the Enemy that was just chosen.");
+                for (int index = 0; index < indexLenght; index++) //Runs a loop through the entire array until it reaches the same index as the enemy.
+                {
+                    if (index == indexOfEnemy) //If current unit is equal to the in the loop. (Make sure he goes from 0.39)
+                    {
+                        if (saving.data.beastList[index] == false)
+                        {
+                            saving.data.beastList[index] = true;
+
+                            print(indexOfEnemy + " is the index of the Beast that was just chosen.");
+                        }
+                    }
+                }
+            }
+
+            if (isHumanoid)
+            {
+                int indexLenght = saving.data.humanoidList.Length; //Aquires the lenght of the Array to store in.
+
+                for (int index = 0; index < indexLenght; index++) //Runs a loop through the entire array until it reaches the same index as the enemy.
+                {
+                    if (index == indexOfEnemy) //If current unit is equal to the in the loop. (Make sure he goes from 0.39)
+                    {
+                        if (saving.data.humanoidList[index] == false)
+                        {
+                            saving.data.humanoidList[index] = true;
+
+                            print(indexOfEnemy + " is the index of the Humanoid that was just chosen.");
+                        }
+                    }
+                }
+            }
+
+            if (isMonstrosity)
+            {
+                int indexLenght = saving.data.monstrosityList.Length; //Aquires the lenght of the Array to store in.
+
+                for (int index = 0; index < indexLenght; index++) //Runs a loop through the entire array until it reaches the same index as the enemy.
+                {
+                    if (index == indexOfEnemy) //If current unit is equal to the in the loop. (Make sure he goes from 0.39)
+                    {
+                        if (saving.data.monstrosityList[index] == false)
+                        {
+                            saving.data.monstrosityList[index] = true;
+
+                            print(indexOfEnemy + " is the index of the Monstrosity that was just chosen.");
+                        }
                     }
                 }
             }

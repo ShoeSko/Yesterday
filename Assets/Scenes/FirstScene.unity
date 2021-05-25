@@ -237,7 +237,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   amountOfUnits: 40
-  amountOfEnemies: 14
+  amountOfBeasts: 4
+  amountOfHumanoids: 14
+  amountOfMonstrosities: 3
   amountOfBosses: 2
 --- !u!1 &736383880
 GameObject:
@@ -357,7 +359,9 @@ MonoBehaviour:
     musicVolLevel: 1
     sfxVolLevel: 1
     unitList: 
-    enemyList: 
+    beastList: 
+    humanoidList: 
+    monstrosityList: 
     bossList: 
 --- !u!4 &769017276
 Transform:

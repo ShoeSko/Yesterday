@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,7 +6,9 @@ public class Bestiary : MonoBehaviour
     private SaveSystem saving;
 
     [SerializeField] private List<GameObject> unitBestiaryList = new List<GameObject>();
-    [SerializeField] private List<GameObject> enemyBestiaryList = new List<GameObject>();
+    [SerializeField] private List<GameObject> beastBestiaryList = new List<GameObject>();
+    [SerializeField] private List<GameObject> humanoidBestiaryList = new List<GameObject>();
+    [SerializeField] private List<GameObject> monstrosityBestiaryList = new List<GameObject>();
     [SerializeField] private List<GameObject> bossBestiaryList = new List<GameObject>();
 
     private void Awake()
@@ -22,7 +23,9 @@ public class Bestiary : MonoBehaviour
             saving = FindObjectOfType<SaveSystem>();
 
             LoadUnitBestiary();
-            LoadEnemyBestiary();
+            LoadBeastBestiary();
+            LoadHumanoidBestiary();
+            LoadMonstrosityBestiary();
             LoadBossBestiary();
         }
     }
@@ -38,13 +41,35 @@ public class Bestiary : MonoBehaviour
         }
     }
 
-    private void LoadEnemyBestiary()
+    private void LoadBeastBestiary()
     {
-        for (int index = 0; index < enemyBestiaryList.Count; index++)
+        for (int index = 0; index < beastBestiaryList.Count; index++)
         {
-            if (saving.data.enemyList[index] == true)
+            if (saving.data.beastList[index] == true)
             {
-                enemyBestiaryList[index].SetActive(true);
+                beastBestiaryList[index].SetActive(true);
+            }
+        }
+    }
+
+    private void LoadHumanoidBestiary()
+    {
+        for (int index = 0; index < humanoidBestiaryList.Count; index++)
+        {
+            if(saving.data.humanoidList[index] == true)
+            {
+                humanoidBestiaryList[index].SetActive(true);
+            }
+        }
+    }
+
+    private void LoadMonstrosityBestiary()
+    {
+        for (int index = 0; index < monstrosityBestiaryList.Count; index++)
+        {
+            if (saving.data.monstrosityList[index] == true)
+            {
+                monstrosityBestiaryList[index].SetActive(true);
             }
         }
     }
@@ -67,9 +92,9 @@ public class Bestiary : MonoBehaviour
             unitBestiaryList[index].SetActive(false);
         }
 
-        for (int index = 0; index < enemyBestiaryList.Count; index++)
+        for (int index = 0; index < beastBestiaryList.Count; index++)
         {
-            enemyBestiaryList[index].SetActive(false);
+            beastBestiaryList[index].SetActive(false);
         }
 
         for (int index = 0; index < bossBestiaryList.Count; index++)

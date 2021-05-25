@@ -5,7 +5,9 @@ public class FirstRunOfGame : MonoBehaviour
     private SaveSystem saving;
 
     [SerializeField] private int amountOfUnits;
-    [SerializeField] private int amountOfEnemies;
+    [SerializeField] private int amountOfBeasts;
+    [SerializeField] private int amountOfHumanoids;
+    [SerializeField] private int amountOfMonstrosities;
     [SerializeField] private int amountOfBosses;
 
     private void Start()
@@ -18,7 +20,9 @@ public class FirstRunOfGame : MonoBehaviour
                 saving.data.isFirstRun = true;
 
                 saving.data.unitList = new bool[amountOfUnits];
-                saving.data.enemyList = new bool[amountOfEnemies];
+                saving.data.beastList = new bool[amountOfBeasts];
+                saving.data.humanoidList = new bool[amountOfHumanoids];
+                saving.data.monstrosityList = new bool[amountOfMonstrosities];
                 saving.data.bossList = new bool[amountOfBosses];
             }
 
