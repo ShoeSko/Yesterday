@@ -11,18 +11,23 @@ public class NewCardHandScript : MonoBehaviour
     public GameObject Deck;
     private GameObject CurrentCard;
     public GameObject TheCorporatePrefab;
+    public GameObject TheGuardianPrefab;
     public GameObject BossIntro;
 
     private int card;
+    private int RandomBoss;
 
     public static int Stage;//Which stage is the player on? (Will define which enemies spawn)
     public GameObject SpawnerHuman;//Spawner for Businessmen
     public GameObject SpawnerBeast;//Spawner for Beasts
-    public GameObject SpawnerBoss;//Spawner for Boss
+    public GameObject SpawnerBossCorporate;//Spawner for Boss
+    public GameObject SpawnerBossGuardian;//Spawner for Boss
+
 
     public AudioSource Music1;
     public AudioSource Music2;
     public AudioSource Boss1;
+    public AudioSource Boss2;
 
     public GameObject BG_Day;
     public GameObject BG_Evening;
@@ -780,17 +785,43 @@ public class NewCardHandScript : MonoBehaviour
         }
         else if (Stage == 3)
         {
-            SpawnerBoss.GetComponent<EnemySpawning>().gameStarted = true;
-            Boss1.Play();
-            TheCorporatePrefab.GetComponent<TheCorporate>().Activate();
-            TheCorporatePrefab.GetComponent<TheCorporate>().IsActive = true;
+            RandomBoss = Random.Range(1, 3);//Simple boss randomiser
+            if(RandomBoss == 1)
+            {
+                SpawnerBossCorporate.GetComponent<EnemySpawning>().gameStarted = true;
+                Boss1.Play();
+                TheCorporatePrefab.GetComponent<TheCorporate>().Activate();
+                TheCorporatePrefab.GetComponent<TheCorporate>().IsActive = true;
+            }
+            else if(RandomBoss == 2)
+            {
+                //Do second boss stuff
+                SpawnerBossGuardian.GetComponent<EnemySpawning>().gameStarted = true;
+                Boss2.Play();
+                TheGuardianPrefab.GetComponent<TheGuardian>().Activate();
+                TheGuardianPrefab.GetComponent<TheGuardian>().IsActive = true;
+            }
         }
         else//temporary solution to test boss mechanics
         {
-            SpawnerBoss.GetComponent<EnemySpawning>().gameStarted = true;
-            Boss1.Play();
-            TheCorporatePrefab.GetComponent<TheCorporate>().Activate();
-            TheCorporatePrefab.GetComponent<TheCorporate>().IsActive = true;
+            RandomBoss = 2;//Set this number to the boss you want to test
+
+            if (RandomBoss == 1)
+            {
+                SpawnerBossCorporate.GetComponent<EnemySpawning>().gameStarted = true;
+                Boss1.Play();
+                TheCorporatePrefab.GetComponent<TheCorporate>().Activate();
+                TheCorporatePrefab.GetComponent<TheCorporate>().IsActive = true;
+            }
+            else if (RandomBoss == 2)
+            {
+                //Do second boss stuff
+                SpawnerBossGuardian.GetComponent<EnemySpawning>().gameStarted = true;
+                Boss2.Play();
+                TheGuardianPrefab.GetComponent<TheGuardian>().Activate();
+                TheGuardianPrefab.GetComponent<TheGuardian>().IsActive = true;
+            }
+
             BG_Day.SetActive(false);
             BG_Evening.SetActive(false);
             BG_Night.SetActive(true);

@@ -90,9 +90,6 @@ public class TheCorporate : MonoBehaviour
         Abilities.Add("Stock_Shortage");
         Abilities.Add("Greedy_Opportunity");
 
-        //Property_Business();  //(REMOVE // TO TEST THIS ABILITY)
-        //Stock_Shortage();     //(REMOVE // TO TEST THIS ABILITY)
-        //Greedy_Opportunity(); //(REMOVE // TO TEST THIS ABILITY)
 
         //Ths cheats above have been upgraded to be in cheats. Right click the component to get the contextMenu options.
 
@@ -235,8 +232,9 @@ public class TheCorporate : MonoBehaviour
     void Greedy_Opportunity()//Ability 3
     /* The Corporate's greed is immeasurable as he will take any opportunity he sees.The Corporate will sometimes try to take one of your units to sell it. 
      * He will reach out his hand on one of the lanes to try to take a unit from that lane. While he reaches out, his hand will be vulrnurable. 
-     * If the hand takes a total of 150 damage it will go back. All damage done to the hand is also dealt to The Corporate. 
+     * The hand has 150HP and when it dies, The Corporate loses 1HP.
      * If the hand reaches a unit, it will start taking it. After 4 seconds if the hand still persists, the hand will snatch that unit, destroying it. 
+     * If the hand reaches your farm, it will take a card from your deck, then proceed to back away with it, invincible.
      * It will then become invincible and go back into hiding. */
     {
         if (CD3 <= 0)//Do this ability
