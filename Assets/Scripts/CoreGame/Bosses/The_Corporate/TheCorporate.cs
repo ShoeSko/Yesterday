@@ -155,6 +155,7 @@ public class TheCorporate : MonoBehaviour
         if (isDead) //A condition to prevent issues when simply unloading the scene, as it would then cause victory condition.
         {
             this.gameObject.GetComponent<SpriteRenderer>().sprite = pepsi;
+            GetComponent<Animator>().enabled = true;
             WinCondition.GetComponent<Victory>().Win();
         }
     }

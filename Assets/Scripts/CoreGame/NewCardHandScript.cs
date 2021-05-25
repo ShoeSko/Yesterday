@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class NewCardHandScript : MonoBehaviour
 {
+    [Header("Boss Testing")]
+    [Range(1,2)] public int whichBoss;
+
+    [Header("Variables")]
     public bool Smallhand = true;
 
     public GameObject PlayedCard;
@@ -804,7 +808,7 @@ public class NewCardHandScript : MonoBehaviour
         }
         else//temporary solution to test boss mechanics
         {
-            RandomBoss = 2;//Set this number to the boss you want to test
+            RandomBoss = whichBoss;//Set this number to the boss you want to test // Added a variable that can be accesed from outside the script. More usefull for testing.
 
             if (RandomBoss == 1)
             {

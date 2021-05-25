@@ -21186,6 +21186,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb3ce17b543ebbf43b5f18320309c193, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  whichBoss: 2
   Smallhand: 1
   PlayedCard: {fileID: 0}
   quackenButton: {fileID: 1670201838}
@@ -23101,6 +23102,7 @@ GameObject:
   - component: {fileID: 1646560897}
   - component: {fileID: 1646560899}
   - component: {fileID: 1646560900}
+  - component: {fileID: 1646560901}
   m_Layer: 0
   m_Name: The Corporate Body
   m_TagString: Untagged
@@ -23168,7 +23170,7 @@ Transform:
   m_GameObject: {fileID: 1646560896}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 245.6, y: 69, z: 0}
-  m_LocalScale: {x: 15.569864, y: 15.569864, z: 15.569864}
+  m_LocalScale: {x: 15.569864, y: 15.56986, z: 15.56986}
   m_Children:
   - {fileID: 1008088323}
   - {fileID: 1802276042}
@@ -23269,6 +23271,25 @@ MonoBehaviour:
   Health: 0
   stockShortageWarningTime: 1.5
   CorporateSign: {fileID: 4747197676616993944, guid: 02883c7e53818ce41b04f183980b183c, type: 3}
+--- !u!95 &1646560901
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1646560896}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2152845eeef8eb5438479f0b98ce79ad, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 2
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1647161714
 GameObject:
   m_ObjectHideFlags: 0
