@@ -236,6 +236,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c08980f1dd6d3b041bfcc79316eec9f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  masterVolume: 1
+  musicVolume: 1
+  sfxVolume: 1
   amountOfUnits: 40
   amountOfBeasts: 4
   amountOfHumanoids: 14
