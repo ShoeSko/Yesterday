@@ -15,6 +15,7 @@ public class FallingEggScript : MonoBehaviour
     {
         fallingEggs.collectedEggs++;//count towards the goal of the minigame
         isCollected = true;
+        motherHenScript.AnEggWasCollected();
         Destroy(gameObject);
     }
 

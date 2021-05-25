@@ -9,8 +9,11 @@ public class EggCollection : MonoBehaviour
     public GameObject eggAudio;
     public AudioSource getEgg;
 
+    private EggCollectionSpawning coreSystem;
+
     public void Start()
     {
+        coreSystem = FindObjectOfType<EggCollectionSpawning>();
         eggAudio = GameObject.Find("getEggSound");
         getEgg = eggAudio.GetComponent<AudioSource>();
     }
@@ -26,6 +29,7 @@ public class EggCollection : MonoBehaviour
     {
         getEgg.Play();
         GetPoints = true;   //counts the eggs towards the total goal
+        coreSystem.EggCollected();
         Destroy(gameObject);//Tempt simple solution, destroy the egg on press.
     }
 
@@ -33,6 +37,7 @@ public class EggCollection : MonoBehaviour
     {
         if (GetPoints == true)//the egg won't give points when disappearing
             EggCollectionSpawning.score++;
+        else { coreSystem.EggLost(); }
 
         EggCollectionSpawning.eggsSpawned++;
     }

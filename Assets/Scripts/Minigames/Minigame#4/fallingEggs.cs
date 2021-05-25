@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class fallingEggs : MonoBehaviour
 {
-    private int EggsToSpawn = 10;
+    private int EggsToSpawn = 8;
     public GameObject egg;
     private float min = -7.97f;
     private float max = 8.01f;
@@ -15,7 +15,8 @@ public class fallingEggs : MonoBehaviour
     private bool MakeItRain;
     private float startDelay;
 
-    [SerializeField] private Slider eggsLostSlider;
+    [SerializeField] private List<Image> eggsImage = new List<Image>();
+    private int CurrentEgg;
 
     private float timer = 0;
 
@@ -80,12 +81,31 @@ public class fallingEggs : MonoBehaviour
 
     public void AnEggWasLost()
     {
-        eggsLostSlider.value = eggsLostSlider.value + 1;
+        for (int eggNumber = 0; eggNumber < EggsToSpawn; eggNumber++)
+        {
+            if(eggNumber == CurrentEgg)
+            {
+                eggsImage[eggNumber].color = Color.red; //Can be adjusted later for specific red.
+            }
+        }
+        CurrentEgg++;
+    }
+
+    public void AnEggWasCollected()
+    {
+        for (int eggNumber = 0; eggNumber < EggsToSpawn; eggNumber++)
+        {
+            if(eggNumber == CurrentEgg)
+            {
+                eggsImage[eggNumber].color = Color.green; //Can be adjusted later for specific green
+            }
+        }
+        CurrentEgg++;
     }
 
     private void win()
     {
-        if(collectedEggs == 10)//3stars
+        if(collectedEggs == 8)//3stars
         {
             star1.SetActive(true);
             star2.SetActive(true);
@@ -93,7 +113,7 @@ public class fallingEggs : MonoBehaviour
             CardReward.Stars = 3;
             score = 3;
         }
-        else if(collectedEggs == 9)//2 stars
+        else if(collectedEggs == 7)//2 stars
         {
             star1.SetActive(true);
             star2.SetActive(true);
@@ -101,7 +121,7 @@ public class fallingEggs : MonoBehaviour
             CardReward.Stars = 2;
             score = 2;
         }
-        else if (collectedEggs == 8)//1 star
+        else if (collectedEggs == 6)//1 star
         {
             star1.SetActive(true);
             blackstar2.SetActive(true);
