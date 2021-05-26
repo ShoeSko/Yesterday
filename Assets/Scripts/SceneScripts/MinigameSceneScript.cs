@@ -34,7 +34,7 @@ public class MinigameSceneScript : MonoBehaviour
 
     public void RandomMinigameScene() //Activate this to start a random scene within the list of minigames
     {
-        if(NewCardHandScript.Stage > 4)
+        if(NewCardHandScript.Stage != 4)
         {
             activeMinigame = 1;
             StartCoroutine(minigameRandomizer());
