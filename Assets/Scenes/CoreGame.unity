@@ -17091,11 +17091,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5e96f7d28af79744854f8af73d4dee6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TEST: 0
+  TEST: 1
   Player: {fileID: 1105724848}
   Boss: {fileID: 421133829}
   background: {fileID: 566778478}
-  Intro: 1
+  Intro: 2
 --- !u!1001 &1192148800
 PrefabInstance:
   m_ObjectHideFlags: 0

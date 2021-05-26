@@ -158,6 +158,7 @@ public class NewCardHandScript : MonoBehaviour
             BG_Evening.SetActive(false);
             BG_Night.SetActive(true);
 
+            RandomBoss = Random.Range(1, 3);//Simple boss randomiser
             BossIntro.GetComponent<Corporate_Intro>().PlayIntro();
         }
 
@@ -789,7 +790,6 @@ public class NewCardHandScript : MonoBehaviour
         }
         else if (Stage == 3)
         {
-            RandomBoss = Random.Range(1, 3);//Simple boss randomiser
             if(RandomBoss == 1)
             {
                 SpawnerBossCorporate.GetComponent<EnemySpawning>().gameStarted = true;
