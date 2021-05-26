@@ -368,4 +368,11 @@ public class BasicEnemyMovement : MonoBehaviour
         isMonstrosity = enemy.isMonstrosity;
         enemyIndex = enemy.enemyIndex;
     }
+
+    public void MotherlyEmbraceBuff()
+    {
+        enemyHealth += 20;
+        enemyHealth = enemyHealth * 2;
+        attackDamage = attackDamage * 2;
+    }
 }

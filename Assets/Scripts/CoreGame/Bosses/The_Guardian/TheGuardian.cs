@@ -42,6 +42,12 @@ public class TheGuardian : MonoBehaviour
     private Vector3 DarknessEndingPos;
     private float EclipseDuration;//Duration of the darkness effect
 
+    //Ability_Motherly_Embrace
+    private GameObject VisibleEnemy;
+    private GameObject MothersChosen;
+    private bool ChosenOne;
+
+
     private float timer;
     private int loop;
 
@@ -123,6 +129,15 @@ public class TheGuardian : MonoBehaviour
             EclipseDuration = 0;
         }
 
+        if(ChosenOne == true)
+        {
+            if(MothersChosen == null)
+            {
+                Health--;
+                ChosenOne = false;
+            }
+        }
+
         if (Health == 0)
             IsDead = true;
 
@@ -176,8 +191,25 @@ public class TheGuardian : MonoBehaviour
         if (CD3 <= 0)
         {
             //Do stuff
+            VisibleEnemy = GameObject.FindGameObjectWithTag("Enemy");
+            if (VisibleEnemy != null)
+            {
+                VisibleEnemy.GetComponent<BasicEnemyMovement>().MotherlyEmbraceBuff();
+                VisibleEnemy.transform.localScale = VisibleEnemy.transform.localScale * 1.5f;
 
-            CD3 = 2;
+                MothersChosen = VisibleEnemy;
+                ChosenOne = true;
+
+                CD3 = 2;
+            }
+            else if (CD1 > 0 && CD2 > 0)
+            {
+                CD1--;
+                CD2--;
+                loop--;
+            }
+            else
+                loop--;
         }
         else
             loop--;

@@ -5613,7 +5613,7 @@ MonoBehaviour:
   - {fileID: 1097936543}
   BossHealthbar: {fileID: 1352814963}
   BossHealth: {fileID: 1352814965}
-  WinCondition: {fileID: 1751664150}
+  WinCondition: {fileID: 55712069}
   IsActive: 0
   Health: 4
   NaturesWrath: {fileID: 3465558172937363183, guid: 93356b999225f6f41aab83411be2fd29, type: 3}
@@ -26329,10 +26329,10 @@ MonoBehaviour:
   - {fileID: 1424822939}
   - {fileID: 446325259}
   amountOfEnemies: 100
-  delayBetweenSpawnsMin: 7.1
-  delayBetweenSpawnsMax: 8.5
+  delayBetweenSpawnsMin: 7.6
+  delayBetweenSpawnsMax: 9.1
   gameStarted: 0
-  strongEnemySpawnWait: 15
+  strongEnemySpawnWait: 12
   weakEnemyList: {fileID: 11400000, guid: 7d1662747b8d7434babbb893a870f109, type: 2}
   strongEnemyList: {fileID: 11400000, guid: 9e8a4a283699219438b1d58598753059, type: 2}
   tokenLocationList:
