@@ -34,6 +34,7 @@ public class Corporate_Intro : MonoBehaviour
 
     void FixedUpdate()
     {
+        //Skip function
         if (Input.GetKeyDown(KeyCode.Escape))
             ImDone();
 

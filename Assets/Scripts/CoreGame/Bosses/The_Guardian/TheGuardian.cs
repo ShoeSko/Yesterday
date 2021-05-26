@@ -28,6 +28,11 @@ public class TheGuardian : MonoBehaviour
 
     private int RandomAbility;
 
+    //Ability_Wrath_of_the_Forest
+    public GameObject NaturesWrath;
+    public List<GameObject> SpawnPoints = new List<GameObject>();
+    private int spawnLocation;
+
     //Ability_Eclipse
     public GameObject Darkness;
     private bool UsedEclipse;
@@ -136,6 +141,9 @@ public class TheGuardian : MonoBehaviour
         if (CD1 <= 0)
         {
             //Do stuff
+            spawnLocation = Random.Range(0, 4);
+            Instantiate(NaturesWrath);
+            NaturesWrath.transform.position = SpawnPoints[spawnLocation].transform.position;
 
             CD1 = 1;
         }

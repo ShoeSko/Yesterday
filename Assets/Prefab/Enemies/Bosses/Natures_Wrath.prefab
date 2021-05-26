@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 9102133454823222679}
   - component: {fileID: 8443837155753015200}
   - component: {fileID: 1545647045688682912}
+  - component: {fileID: -8890967932040178826}
   m_Layer: 0
   m_Name: Natures_Wrath
   m_TagString: Untagged
@@ -28,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3465558172937363183}
   m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 6.76, y: 3.97, z: -0.28}
+  m_LocalPosition: {x: 10.542401, y: 3.9596581, z: -5.3393936}
   m_LocalScale: {x: 0.5713383, y: 1.0489594, z: 0.57133836}
   m_Children: []
   m_Father: {fileID: 0}
@@ -120,3 +121,15 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &-8890967932040178826
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3465558172937363183}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e2d9781649283245b700d45c2404c6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

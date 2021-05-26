@@ -5616,6 +5616,12 @@ MonoBehaviour:
   WinCondition: {fileID: 1751664150}
   IsActive: 0
   Health: 4
+  NaturesWrath: {fileID: 3465558172937363183, guid: 93356b999225f6f41aab83411be2fd29, type: 3}
+  SpawnPoints:
+  - {fileID: 227486608}
+  - {fileID: 1020210051}
+  - {fileID: 1424822939}
+  - {fileID: 446325259}
   Darkness: {fileID: 1751664150}
 --- !u!50 &434857307
 Rigidbody2D:
@@ -17091,7 +17097,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5e96f7d28af79744854f8af73d4dee6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TEST: 1
   Player: {fileID: 1105724848}
   Boss: {fileID: 421133829}
   background: {fileID: 566778478}
@@ -21313,7 +21318,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb3ce17b543ebbf43b5f18320309c193, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BossTesting: 0
   whichBoss: 1
+  DevStageTest: 1
+  whichStage: 3
   Smallhand: 1
   PlayedCard: {fileID: 0}
   quackenButton: {fileID: 1670201838}
