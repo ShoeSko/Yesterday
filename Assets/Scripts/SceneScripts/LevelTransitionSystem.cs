@@ -44,6 +44,11 @@ public class LevelTransitionSystem : MonoBehaviour
         StartCoroutine(SceneFadeMechanic("LoadingScene"));
     }
 
+    public void LoadCreditScene()
+    {
+        StartCoroutine(SceneFadeMechanic("Credits"));
+    }
+
     public void LoadNextLevelFromCoreGame() //Runs the first minigame from the Core game after loading scene
     {
         string nextLevelName = ""; //Remembers the name
