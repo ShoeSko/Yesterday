@@ -34,6 +34,9 @@ public class Corporate_Intro : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (Input.GetKeyDown(KeyCode.Escape))
+            ImDone();
+
         if(PlayMe1 == true)
         {
             speedFunction += Time.deltaTime;
