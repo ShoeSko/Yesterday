@@ -22,3 +22,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   isMerry: 1
+  isBeast: 0
+  isHumanoid: 1
+  isMonstrosity: 0
+  enemyIndex: 3

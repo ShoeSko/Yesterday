@@ -241,7 +241,7 @@ MonoBehaviour:
   sfxVolume: 1
   amountOfUnits: 40
   amountOfBeasts: 4
-  amountOfHumanoids: 14
+  amountOfHumanoids: 7
   amountOfMonstrosities: 3
   amountOfBosses: 2
 --- !u!1 &736383880
