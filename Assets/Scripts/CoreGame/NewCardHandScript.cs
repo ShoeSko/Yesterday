@@ -5,7 +5,11 @@ using UnityEngine;
 public class NewCardHandScript : MonoBehaviour
 {
     [Header("Boss Testing")]
+    public bool BossTesting;
     [Range(1,2)] public int whichBoss;
+
+    public bool DevStageTest;
+    [Range(1,3)] public int whichStage;
 
     [Header("Variables")]
     public bool Smallhand = true;
@@ -136,6 +140,9 @@ public class NewCardHandScript : MonoBehaviour
 
     void Start()
     {
+        if (DevStageTest == true)
+            Stage = whichStage;
+
         handEnlarged.SetActive(true);
         minimizeButton.SetActive(true);
         TowerSpots.SetActive(false);
@@ -158,6 +165,7 @@ public class NewCardHandScript : MonoBehaviour
             BG_Evening.SetActive(false);
             BG_Night.SetActive(true);
 
+            RandomBoss = Random.Range(1, 3);//Simple boss randomiser
             BossIntro.GetComponent<Corporate_Intro>().PlayIntro();
         }
 
@@ -789,8 +797,10 @@ public class NewCardHandScript : MonoBehaviour
         }
         else if (Stage == 3)
         {
-            RandomBoss = Random.Range(1, 3);//Simple boss randomiser
-            if(RandomBoss == 1)
+            if (BossTesting == true)
+                RandomBoss = whichBoss;//Set this number to the boss you want to test // Added a variable that can be accesed from outside the script. More usefull for testing.
+
+            if (RandomBoss == 1)
             {
                 SpawnerBossCorporate.GetComponent<EnemySpawning>().gameStarted = true;
                 Boss1.Play();
@@ -805,30 +815,6 @@ public class NewCardHandScript : MonoBehaviour
                 TheGuardianPrefab.GetComponent<TheGuardian>().Activate();
                 TheGuardianPrefab.GetComponent<TheGuardian>().IsActive = true;
             }
-        }
-        else//temporary solution to test boss mechanics
-        {
-            RandomBoss = whichBoss;//Set this number to the boss you want to test // Added a variable that can be accesed from outside the script. More usefull for testing.
-
-            if (RandomBoss == 1)
-            {
-                SpawnerBossCorporate.GetComponent<EnemySpawning>().gameStarted = true;
-                Boss1.Play();
-                TheCorporatePrefab.GetComponent<TheCorporate>().Activate();
-                TheCorporatePrefab.GetComponent<TheCorporate>().IsActive = true;
-            }
-            else if (RandomBoss == 2)
-            {
-                //Do second boss stuff
-                SpawnerBossGuardian.GetComponent<EnemySpawning>().gameStarted = true;
-                Boss2.Play();
-                TheGuardianPrefab.GetComponent<TheGuardian>().Activate();
-                TheGuardianPrefab.GetComponent<TheGuardian>().IsActive = true;
-            }
-
-            BG_Day.SetActive(false);
-            BG_Evening.SetActive(false);
-            BG_Night.SetActive(true);
         }
     }
 

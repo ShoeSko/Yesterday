@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Corporate_Intro : MonoBehaviour
 {
-    public bool TEST;//TURN ME ON TO TEST
-
     public GameObject Player;
     public GameObject Boss;
     public GameObject background;
@@ -29,9 +27,6 @@ public class Corporate_Intro : MonoBehaviour
 
     private void Start()
     {
-        if(TEST == true)
-            NewCardHandScript.Stage = 3;
-
         Player.SetActive(false);
         Boss.SetActive(false);
         background.SetActive(false);
@@ -39,6 +34,9 @@ public class Corporate_Intro : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (Input.GetKeyDown(KeyCode.Escape))
+            ImDone();
+
         if(PlayMe1 == true)
         {
             speedFunction += Time.deltaTime;

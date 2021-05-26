@@ -183,7 +183,7 @@ public class CardReward : MonoBehaviour
             }
         }
     }
-
+    
     public void randomize3Cards()//3 star reward
     {
         for (int cardsToRandomize = 0; cardsToRandomize < sizeOfRewardCards; cardsToRandomize++)
