@@ -7,6 +7,9 @@ public class NewCardHandScript : MonoBehaviour
     [Header("Boss Testing")]
     [Range(1,2)] public int whichBoss;
 
+    public bool DevStageTest;
+    [Range(1,3)] public int whichStage;
+
     [Header("Variables")]
     public bool Smallhand = true;
 
@@ -136,6 +139,9 @@ public class NewCardHandScript : MonoBehaviour
 
     void Start()
     {
+        if (DevStageTest == true)
+            Stage = whichStage;
+
         handEnlarged.SetActive(true);
         minimizeButton.SetActive(true);
         TowerSpots.SetActive(false);
