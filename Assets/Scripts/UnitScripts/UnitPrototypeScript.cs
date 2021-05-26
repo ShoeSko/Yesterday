@@ -234,28 +234,28 @@ public class UnitPrototypeScript : MonoBehaviour
     private void PiranhaPond() //Piranha ability
     {
         transform.gameObject.tag= "InstaKill"; //If the unit is Piranha Pond, then it will be an instaKill tag, the enemy will die with it on impact.
-        print("Is now instakill");
+        //print("Is now instakill");
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-            print("Has had a collision");
-        if(this.gameObject.tag == "InstaKill")
-        {
-            print("Was insta kill");
-            if(collision.gameObject.layer == punchingTargetLayer)
-            {
-                print("Got the kill inn");
-                if (!hasInstakilled)
-                {
-                    HandDeath();
-                    hasInstakilled = true;
-                    Destroy(collision.gameObject);
-                    Destroy(this.gameObject);
-                }
-            }
-        }
-    }
+    //private void OnCollisionEnter2D(Collision2D collision)
+    //{
+    //        print("Has had a collision");
+    //    if(this.gameObject.tag == "InstaKill")
+    //    {
+    //        print("Was insta kill");
+    //        if(collision.gameObject.layer == punchingTargetLayer)
+    //        {
+    //            print("Got the kill inn");
+    //            if (!hasInstakilled)
+    //            {
+    //                HandDeath();
+    //                hasInstakilled = true;
+    //                Destroy(collision.gameObject);
+    //                Destroy(this.gameObject);
+    //            }
+    //        }
+    //    }
+    //}
     private void AllyAim() //Special Aim for targeting allies specifically.
     {
         originForAllyAim = transform.position;
