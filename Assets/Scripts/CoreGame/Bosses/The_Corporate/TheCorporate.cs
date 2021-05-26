@@ -47,6 +47,7 @@ public class TheCorporate : MonoBehaviour
     private int RandomSpot;
     private GameObject activeSpot;
     public GameObject CorporateSign;
+    private List<GameObject> placedCorporateSigns = new List<GameObject>();
 
     //Stock_Shortage
     private int manaSteal;
@@ -154,6 +155,10 @@ public class TheCorporate : MonoBehaviour
 
         if (isDead) //A condition to prevent issues when simply unloading the scene, as it would then cause victory condition.
         {
+            for (int CurretnSign = placedCorporateSigns.Count - 1; CurretnSign >= 0; CurretnSign--)
+            {
+                Destroy(placedCorporateSigns[CurretnSign]); //Destroys all placed signs.
+            }
             this.gameObject.GetComponent<SpriteRenderer>().sprite = pepsi;
             GetComponent<Animator>().enabled = true;
             WinCondition.GetComponent<Victory>().Win();
@@ -192,6 +197,7 @@ public class TheCorporate : MonoBehaviour
                 sign.transform.position = activeSpot.transform.position;
                 sign.transform.position = new Vector3(activeSpot.transform.position.x, activeSpot.transform.position.y, 0); //An attempt to fix Sign placement.
                 sign.transform.SetParent(transform); //Places all sign as children for the Boss.
+                placedCorporateSigns.Add(sign);
                 Destroy(activeSpot);//This permanently removes the slot from the round.
                 TowerSpots.RemoveAt(RandomSpot);//Removes the Towerspot from the list to prevent reruns.
 
