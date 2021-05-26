@@ -13,7 +13,7 @@ public class NaturesWrath : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         speed = -600;
-        damage = 50;
+        damage = 49;
     }
 
     private void FixedUpdate()
@@ -23,7 +23,7 @@ public class NaturesWrath : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        if(collider.gameObject.tag == "Units")
+        if(collider.gameObject.tag == "Obstacle")
         {
             Debug.Log("I dealth damage");
             collider.GetComponent<UnitPrototypeScript>().TakeDamage(damage);//Deal damage to that unit (hopefully)
