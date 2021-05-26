@@ -22,9 +22,10 @@ public class LevelTransitionSystem : MonoBehaviour
         NewCardHandScript.Stage++;
         Debug.Log(NewCardHandScript.Stage);
 
-        if (NewCardHandScript.Stage == 4)
+        if (NewCardHandScript.Stage <= 4)
+        {
             nextLevelName = "MainMenu";
-
+        }
         StartCoroutine(SceneFadeMechanic(nextLevelName));
     }
     public void GameOverButtonPress() // You lost. Straight to the main menu for a quick and easy reset.
