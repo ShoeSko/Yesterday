@@ -28,6 +28,15 @@ public class TheGuardian : MonoBehaviour
 
     private int RandomAbility;
 
+    //Ability_Eclipse
+    public GameObject Darkness;
+    private bool UsedEclipse;
+    private Rigidbody2D DarknessRB;
+    private float DarknessSpeed = 2;
+    private Vector3 DarknessStartingPos;
+    private Vector3 DarknessEndingPos;
+    private float EclipseDuration;//Duration of the darkness effect
+
     private float timer;
     private int loop;
 
@@ -38,10 +47,16 @@ public class TheGuardian : MonoBehaviour
     {
         Health = 5;
         BossHealthbar.SetActive(false);
+
+        Darkness.SetActive(true);
+        DarknessRB = Darkness.GetComponent<Rigidbody2D>();
+        DarknessStartingPos = Darkness.transform.position;
+        DarknessEndingPos = new Vector3(5, DarknessStartingPos.y, DarknessStartingPos.z);
     }
 
     public void Activate()
     {
+
         BossHealthbar.SetActive(true);
         rb = GetComponent<Rigidbody2D>();
         NewPos = new Vector2(6f, 1.59707f);
@@ -89,6 +104,20 @@ public class TheGuardian : MonoBehaviour
             }
         }
 
+        if(UsedEclipse == true)//The "Eclipse" ability
+        {
+            DarknessRB.transform.position = Vector3.MoveTowards(DarknessRB.transform.position, DarknessEndingPos, DarknessSpeed * Time.deltaTime);
+            EclipseDuration += Time.deltaTime;
+
+            if (EclipseDuration >= 15)
+                UsedEclipse = false;
+        }
+        else
+        {
+            DarknessRB.transform.position = Vector3.MoveTowards(DarknessRB.transform.position, DarknessStartingPos, DarknessSpeed * Time.deltaTime);
+            EclipseDuration = 0;
+        }
+
         if (Health == 0)
             IsDead = true;
 
@@ -122,6 +151,7 @@ public class TheGuardian : MonoBehaviour
         if (CD2 <= 0)
         {
             //Do stuff
+            UsedEclipse = true;
 
             CD2 = 3;
         }
