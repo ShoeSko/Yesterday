@@ -21313,7 +21313,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb3ce17b543ebbf43b5f18320309c193, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  whichBoss: 2
+  whichBoss: 1
   Smallhand: 1
   PlayedCard: {fileID: 0}
   quackenButton: {fileID: 1670201838}
