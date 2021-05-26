@@ -21,3 +21,8 @@ MonoBehaviour:
   whatIsUnitLayer:
     serializedVersion: 2
     m_Bits: 256
+  isMerry: 0
+  isBeast: 0
+  isHumanoid: 0
+  isMonstrosity: 1
+  enemyIndex: 2

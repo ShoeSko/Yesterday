@@ -55,3 +55,4 @@ MonoBehaviour:
   sizeBuff: {x: 0, y: 0, z: 0}
   healthBuff: 0
   damageBuff: 0
+  unitIndex: 7
