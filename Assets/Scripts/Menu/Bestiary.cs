@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Bestiary : MonoBehaviour
 {
@@ -11,12 +12,21 @@ public class Bestiary : MonoBehaviour
     [SerializeField] private List<GameObject> monstrosityBestiaryList = new List<GameObject>();
     [SerializeField] private List<GameObject> bossBestiaryList = new List<GameObject>();
 
+
+    [SerializeField] private GameObject CardV2;
+    [SerializeField] private GameObject CardButton;
+
     private void Awake()
     {
         HideTheLore(); //Hides the lore by turning lore off.
     }
 
     private void Start()
+    {
+        InitiateTheBestiary();
+    }
+
+    private void InitiateTheBestiary()
     {
         if (FindObjectOfType<SaveSystem>())
         {
@@ -36,7 +46,8 @@ public class Bestiary : MonoBehaviour
         {
             if(saving.data.unitList[index] == true)
             {
-                unitBestiaryList[index].SetActive(true);
+                unitBestiaryList[index].GetComponent<Image>().color = Color.white;
+                unitBestiaryList[index].GetComponent<Button>().interactable = true;
             }
         }
     }
@@ -47,7 +58,7 @@ public class Bestiary : MonoBehaviour
         {
             if (saving.data.beastList[index] == true)
             {
-                beastBestiaryList[index].SetActive(true);
+                beastBestiaryList[index].GetComponent<Image>().color = Color.white;
             }
         }
     }
@@ -58,7 +69,7 @@ public class Bestiary : MonoBehaviour
         {
             if(saving.data.humanoidList[index] == true)
             {
-                humanoidBestiaryList[index].SetActive(true);
+                humanoidBestiaryList[index].GetComponent<Image>().color = Color.white;
             }
         }
     }
@@ -69,7 +80,7 @@ public class Bestiary : MonoBehaviour
         {
             if (saving.data.monstrosityList[index] == true)
             {
-                monstrosityBestiaryList[index].SetActive(true);
+                monstrosityBestiaryList[index].GetComponent<Image>().color = Color.white;
             }
         }
     }
@@ -89,17 +100,70 @@ public class Bestiary : MonoBehaviour
     {
         for (int index = 0; index < unitBestiaryList.Count; index++)
         {
-            unitBestiaryList[index].SetActive(false);
+            unitBestiaryList[index].GetComponent<Image>().color = Color.black;
+            unitBestiaryList[index].GetComponent<Button>().interactable = false;
+        }
+
+        for (int index = 0; index < humanoidBestiaryList.Count; index++)
+        {
+            humanoidBestiaryList[index].GetComponent<Image>().color = Color.black;
+        }
+
+        for (int index = 0; index < monstrosityBestiaryList.Count; index++)
+        {
+            monstrosityBestiaryList[index].GetComponent<Image>().color = Color.black;
         }
 
         for (int index = 0; index < beastBestiaryList.Count; index++)
         {
-            beastBestiaryList[index].SetActive(false);
+            beastBestiaryList[index].GetComponent<Image>().color = Color.black;
         }
 
         for (int index = 0; index < bossBestiaryList.Count; index++)
         {
-            bossBestiaryList[index].SetActive(false);
+            bossBestiaryList[index].GetComponent<Image>().color = Color.black;
         }
     }
+
+    public void ReadCardInBestiary(CardScript UnitRead)
+    {
+        CardV2.SetActive(true);
+        CardButton.SetActive(true);
+
+        CardV2.GetComponent<CardDisplayer>().card = UnitRead;
+
+        CardV2.GetComponent<CardDisplayer>().Read();
+
+    }
+
+    #region Cheat
+    [ContextMenu("Meet the cheat")]
+    private void MeetAllThePeople()
+    {
+        for (int index = 0; index < saving.data.unitList.Length; index++)
+        {
+            saving.data.unitList[index] = true;
+        }
+        for (int inde = 0; inde < saving.data.beastList.Length; inde++)
+        {
+            saving.data.beastList[inde] = true;
+        }
+
+        for (int ind = 0; ind < saving.data.humanoidList.Length; ind++)
+        {
+            saving.data.humanoidList[ind] = true;
+        }
+
+        for (int index = 0; index < saving.data.monstrosityList.Length; index++)
+        {
+            saving.data.monstrosityList[index] = true;
+        }
+
+        for (int index = 0; index < saving.data.bossList.Length; index++)
+        {
+            saving.data.bossList[index] = true;
+        }
+        InitiateTheBestiary();
+    }
+    #endregion
 }

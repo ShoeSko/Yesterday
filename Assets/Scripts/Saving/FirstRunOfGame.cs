@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class FirstRunOfGame : MonoBehaviour
 {
+    [SerializeField] private bool reset;
+
     private SaveSystem saving;
 
     [Header("Wanted volume on the first boot")]
@@ -28,7 +30,7 @@ public class FirstRunOfGame : MonoBehaviour
 
     private void SetVolume()
     {
-        if (saving.data.isFirstRun == false) //If this is the first time the game is booted up / reset
+        if (saving.data.isFirstRun == false || reset) //If this is the first time the game is booted up / reset
         {
             saving.data.masterVolLevel = masterVolume;
             saving.data.musicVolLevel = musicVolume;
@@ -39,7 +41,7 @@ public class FirstRunOfGame : MonoBehaviour
 
     private void SetListSizes()
     {
-        if (saving.data.isFirstRun == false) //If this is the first time the game is booted up / reset
+        if (saving.data.isFirstRun == false ||reset) //If this is the first time the game is booted up / reset
         {
             saving.data.isFirstRun = true;
 
