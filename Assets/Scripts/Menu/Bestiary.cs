@@ -5,20 +5,22 @@ using UnityEngine.UI;
 public class Bestiary : MonoBehaviour
 {
     private SaveSystem saving;
-
+    [Header("All base Content")]
     [SerializeField] private List<GameObject> unitBestiaryList = new List<GameObject>();
     [SerializeField] private List<GameObject> beastBestiaryList = new List<GameObject>();
     [SerializeField] private List<GameObject> humanoidBestiaryList = new List<GameObject>();
     [SerializeField] private List<GameObject> monstrosityBestiaryList = new List<GameObject>();
     [SerializeField] private List<GameObject> bossBestiaryList = new List<GameObject>();
 
-
+    [Header("Unit functions")]
     [SerializeField] private GameObject cardV2;
     [SerializeField] private GameObject cardButton;
     [SerializeField] private GameObject nextButton;
     [SerializeField] private GameObject lastButton;
 
+
     [SerializeField] private List<CardScript> unitCardList = new List<CardScript>();
+    [SerializeField] private GameObject unitPage2;
     private int firstDiscoveredUnitIndex;
     private int lastDiscoveredUnitIndex;
     private int currentUnitCardIndex;
@@ -231,6 +233,11 @@ public class Bestiary : MonoBehaviour
             nextButton.GetComponent<Button>().interactable = true;
             lastButton.GetComponent<Button>().interactable = true;
         }
+
+        if(currentUnitCardIndex >= 20)
+        {
+            unitPage2.SetActive(true);
+        }
     }
 
     public void ReadLastCardInBestiary()
@@ -267,6 +274,11 @@ public class Bestiary : MonoBehaviour
         {
             nextButton.GetComponent<Button>().interactable = true;
             lastButton.GetComponent<Button>().interactable = true;
+        }
+
+        if(currentUnitCardIndex <= 19)
+        {
+            unitPage2.SetActive(false);
         }
     }
 
