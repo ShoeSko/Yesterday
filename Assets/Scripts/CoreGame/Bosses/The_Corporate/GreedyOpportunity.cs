@@ -174,21 +174,20 @@ public class GreedyOpportunity : MonoBehaviour
             //StartCoroutine(PeriodOfBeingDamaged());
         }
 
-        if (other.CompareTag("StopTheHand"))
-        {
-            print("There was interaction");
-            if (isRetreating) //Is it retreating?
-            {
-                obstacleInTheWay = true; //In a way being blocked, Will not move anymore until this is changed.
-                isRetreating = false; // No longer retreating
-                RemoveCardFromOverlordHand(); // Removes a card, if the overlord has one.
-            }
-        }
-
         if (other.gameObject.tag == "Quack")
         {
             handHealth = handHealth - quackDamage;
             Destroy(other.gameObject);
+        }
+    }
+
+    public void HandHasReturned()
+    {
+        if (isRetreating) //Is it retreating?
+        {
+            obstacleInTheWay = true; //In a way being blocked, Will not move anymore until this is changed.
+            isRetreating = false; // No longer retreating
+            RemoveCardFromOverlordHand(); // Removes a card, if the overlord has one.
         }
     }
 
