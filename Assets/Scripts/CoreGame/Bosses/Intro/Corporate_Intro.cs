@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class Corporate_Intro : MonoBehaviour
 {
+    public GameObject BossManager;
+
     public GameObject Player;
-    public GameObject Boss;
+    public GameObject Corporate;
+    public GameObject Guardian;
     public GameObject background;
 
     private Rigidbody2D RBplayer;
@@ -28,7 +31,8 @@ public class Corporate_Intro : MonoBehaviour
     private void Start()
     {
         Player.SetActive(false);
-        Boss.SetActive(false);
+        Corporate.SetActive(false);
+        Guardian.SetActive(false);
         background.SetActive(false);
     }
 
@@ -107,10 +111,20 @@ public class Corporate_Intro : MonoBehaviour
     void Intro1()
     {
         Player.SetActive(true);
-        Boss.SetActive(true);
         background.SetActive(true);
         RBplayer = Player.GetComponent<Rigidbody2D>();
-        RBboss = Boss.GetComponent<Rigidbody2D>();
+
+        if(BossManager.GetComponent<NewCardHandScript>().whichBoss == 1)
+        {
+            Corporate.SetActive(true);
+            RBboss = Corporate.GetComponent<Rigidbody2D>();
+        }
+        else
+        {
+            Guardian.SetActive(true);
+            RBboss = Guardian.GetComponent<Rigidbody2D>();
+        }
+
         speedFunction = -2.5f;
 
         PlayMe1 = true;
@@ -119,10 +133,18 @@ public class Corporate_Intro : MonoBehaviour
     void Intro2()
     {
         Player.SetActive(true);
-        Boss.SetActive(true);
         background.SetActive(true);
         RBplayer = Player.GetComponent<Rigidbody2D>();
-        RBboss = Boss.GetComponent<Rigidbody2D>();
+        if (BossManager.GetComponent<NewCardHandScript>().whichBoss == 1)
+        {
+            Corporate.SetActive(true);
+            RBboss = Corporate.GetComponent<Rigidbody2D>();
+        }
+        else
+        {
+            Guardian.SetActive(true);
+            RBboss = Guardian.GetComponent<Rigidbody2D>();
+        }
         speedFunction = 0.5f;
 
         PlayMe2 = true;
@@ -131,10 +153,18 @@ public class Corporate_Intro : MonoBehaviour
     void Intro3()
     {
         Player.SetActive(true);
-        Boss.SetActive(true);
         background.SetActive(true);
         RBplayer = Player.GetComponent<Rigidbody2D>();
-        RBboss = Boss.GetComponent<Rigidbody2D>();
+        if (BossManager.GetComponent<NewCardHandScript>().whichBoss == 1)
+        {
+            Corporate.SetActive(true);
+            RBboss = Corporate.GetComponent<Rigidbody2D>();
+        }
+        else
+        {
+            Guardian.SetActive(true);
+            RBboss = Guardian.GetComponent<Rigidbody2D>();
+        }
         speedFunction = 0.5f;
         speedFunction2 = 0.5f;
 
@@ -144,7 +174,8 @@ public class Corporate_Intro : MonoBehaviour
     void ImDone()
     {
         Destroy(background);
-        Destroy(Boss);
+        Destroy(Corporate);
+        Destroy(Guardian);
         Destroy(Player);
         Destroy(this);
     }
