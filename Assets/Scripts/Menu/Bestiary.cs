@@ -13,8 +13,16 @@ public class Bestiary : MonoBehaviour
     [SerializeField] private List<GameObject> bossBestiaryList = new List<GameObject>();
 
 
-    [SerializeField] private GameObject CardV2;
-    [SerializeField] private GameObject CardButton;
+    [SerializeField] private GameObject cardV2;
+    [SerializeField] private GameObject cardButton;
+    [SerializeField] private GameObject nextButton;
+    [SerializeField] private GameObject lastButton;
+
+    [SerializeField] private List<CardScript> unitCardList = new List<CardScript>();
+    private int firstDiscoveredUnitIndex;
+    private int lastDiscoveredUnitIndex;
+    private int currentUnitCardIndex;
+
 
     private void Awake()
     {
@@ -24,6 +32,7 @@ public class Bestiary : MonoBehaviour
     private void Start()
     {
         InitiateTheBestiary();
+        CalculateUnitBestiarySlots();
     }
 
     private void InitiateTheBestiary()
@@ -125,16 +134,147 @@ public class Bestiary : MonoBehaviour
         }
     }
 
-    public void ReadCardInBestiary(CardScript UnitRead)
+    #region Unit Functions
+    private void CalculateUnitBestiarySlots()
     {
-        CardV2.SetActive(true);
-        CardButton.SetActive(true);
+        bool firstFound = false;
+        for (int index = 0; index < saving.data.unitList.Length; index++)
+        {
+            if(saving.data.unitList[index] == true)
+            {
+                if(firstFound == false)
+                {
+                    firstFound = true;
+                    firstDiscoveredUnitIndex = index;
+                }
+            }
+        }
 
-        CardV2.GetComponent<CardDisplayer>().card = UnitRead;
+        bool lastFound = false;
+        for (int index = saving.data.unitList.Length-1; index >= 0; index--)
+        {
+            if (saving.data.unitList[index] == true)
+            {
+                if (lastFound == false)
+                {
+                    lastFound = true;
+                    lastDiscoveredUnitIndex = index;
+                }
+            }
+        }
+    }
 
-        CardV2.GetComponent<CardDisplayer>().Read();
+    public void ReadCardInBestiary(int UnitIndex)
+    {
+        cardV2.SetActive(true);
+        cardButton.SetActive(true);
+        nextButton.SetActive(true);
+        lastButton.SetActive(true);
+        nextButton.GetComponent<Button>().interactable = true;
+        lastButton.GetComponent<Button>().interactable = true;
+        currentUnitCardIndex = UnitIndex;
+
+        if (firstDiscoveredUnitIndex == lastDiscoveredUnitIndex)
+        {
+            nextButton.GetComponent<Button>().interactable = false;
+            lastButton.GetComponent<Button>().interactable = false;
+        }
+        else if(currentUnitCardIndex == firstDiscoveredUnitIndex) //Make this value work with actual library
+        {
+            lastButton.GetComponent<Button>().interactable = false;
+            nextButton.GetComponent<Button>().interactable = true;
+        }
+        else if (currentUnitCardIndex == lastDiscoveredUnitIndex) //Make this value with actual library
+        {
+            nextButton.GetComponent<Button>().interactable = false;
+            lastButton.GetComponent<Button>().interactable = true;
+        }
+
+        cardV2.GetComponent<CardDisplayer>().card = unitCardList[currentUnitCardIndex];
+
+        cardV2.GetComponent<CardDisplayer>().Read();
 
     }
+
+    public void ReadNextCardInBestiary()
+    {
+        bool indexIsFound = false;
+        for (int index = 0; index < saving.data.unitList.Length; index++)
+        {
+            if (index > currentUnitCardIndex && saving.data.unitList[index] == true && indexIsFound == false)
+            {
+                indexIsFound = true;
+                currentUnitCardIndex = index;
+            }
+        }
+        cardV2.GetComponent<CardDisplayer>().card = unitCardList[currentUnitCardIndex];
+
+        cardV2.GetComponent<CardDisplayer>().Read();
+
+        if (firstDiscoveredUnitIndex == lastDiscoveredUnitIndex)
+        {
+            nextButton.GetComponent<Button>().interactable = false;
+            lastButton.GetComponent<Button>().interactable = false;
+        }
+        else if (currentUnitCardIndex == firstDiscoveredUnitIndex) //Make this value work with actual library
+        {
+            lastButton.GetComponent<Button>().interactable = false;
+            nextButton.GetComponent<Button>().interactable = true;
+        }
+        else if (currentUnitCardIndex == lastDiscoveredUnitIndex) //Make this value with actual library
+        {
+            nextButton.GetComponent<Button>().interactable = false;
+            lastButton.GetComponent<Button>().interactable = true;
+        }
+        else
+        {
+            nextButton.GetComponent<Button>().interactable = true;
+            lastButton.GetComponent<Button>().interactable = true;
+        }
+    }
+
+    public void ReadLastCardInBestiary()
+    {
+        bool indexIsFound = false;
+        for (int index = saving.data.unitList.Length-1; index >= 0; index--) //A reverse for loop (This might explode...
+        {
+            if (index < currentUnitCardIndex && saving.data.unitList[index] == true && indexIsFound == false)
+            {
+                indexIsFound = true;
+                currentUnitCardIndex = index;
+            }
+        }
+        cardV2.GetComponent<CardDisplayer>().card = unitCardList[currentUnitCardIndex];
+
+        cardV2.GetComponent<CardDisplayer>().Read();
+
+        if (firstDiscoveredUnitIndex == lastDiscoveredUnitIndex)
+        {
+            nextButton.GetComponent<Button>().interactable = false;
+            lastButton.GetComponent<Button>().interactable = false;
+        }
+        else if (currentUnitCardIndex == firstDiscoveredUnitIndex) //Make this value work with actual library
+        {
+            lastButton.GetComponent<Button>().interactable = false;
+            nextButton.GetComponent<Button>().interactable = true;
+        }
+        else if (currentUnitCardIndex == lastDiscoveredUnitIndex) //Make this value with actual library
+        {
+            nextButton.GetComponent<Button>().interactable = false;
+            lastButton.GetComponent<Button>().interactable = true;
+        }
+        else
+        {
+            nextButton.GetComponent<Button>().interactable = true;
+            lastButton.GetComponent<Button>().interactable = true;
+        }
+    }
+
+    private void Update()
+    {
+        print("The first card is " + firstDiscoveredUnitIndex + " and the last card is " + lastDiscoveredUnitIndex + ". The current card is " + currentUnitCardIndex);
+    }
+    #endregion
 
     #region Cheat
     [ContextMenu("Meet the cheat")]
@@ -164,6 +304,8 @@ public class Bestiary : MonoBehaviour
             saving.data.bossList[index] = true;
         }
         InitiateTheBestiary();
+
+        CalculateUnitBestiarySlots();
     }
     #endregion
 }
