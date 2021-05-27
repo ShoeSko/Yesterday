@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class NewCardHandScript : MonoBehaviour
 {
+    #region Variables
     [Header("Boss Testing")]
     public bool BossTesting;
     [Range(1,2)] public int whichBoss;
@@ -135,31 +136,37 @@ public class NewCardHandScript : MonoBehaviour
     public bool LookForEnemies;
     public GameObject MenuReturn;
     private bool LostTutorial;
-
-
-
+    #endregion
+    #region Setup
     void Start()
     {
         if (DevStageTest == true)
             Stage = whichStage;
 
+        CoreGameSetup(); //All the setup for the core game
+
+        //Tutorial settings
+        TutorialSetup();
+    }
+    private void CoreGameSetup()
+    {
         handEnlarged.SetActive(true);
         minimizeButton.SetActive(true);
         TowerSpots.SetActive(false);
 
-        if(Stage == 1)
+        if (Stage == 1)
         {
             BG_Day.SetActive(true);
             BG_Evening.SetActive(false);
             BG_Night.SetActive(false);
         }
-        else if(Stage == 2)
+        else if (Stage == 2)
         {
             BG_Day.SetActive(false);
             BG_Evening.SetActive(true);
             BG_Night.SetActive(false);
         }
-        else if(Stage == 3)
+        else if (Stage == 3)
         {
             BG_Day.SetActive(false);
             BG_Evening.SetActive(false);
@@ -185,10 +192,11 @@ public class NewCardHandScript : MonoBehaviour
         SetCard();
         handEnlarged.SetActive(false);
         minimizeButton.SetActive(false);
+    }
 
-
-        //Tutorial settings
-        if(MinigameSceneScript.Tutorial == true)
+    private void TutorialSetup()
+    {
+        if (MinigameSceneScript.Tutorial == true)
         {
             BG_Day.SetActive(true);
             Text = 0;
@@ -215,13 +223,8 @@ public class NewCardHandScript : MonoBehaviour
             Texts[Text].SetActive(true);
         }
     }
+    #endregion
 
-    IEnumerator CardAnimationOn(GameObject animCard, int nr) //Initiates the card draw animation
-    {
-        animCard.GetComponent<Animator>().SetBool("CardUsed " + nr, true); //Turns on the bool that releases the animation
-        yield return new WaitForSeconds(0.5f);
-        animCard.GetComponent<Animator>().SetBool("CardUsed " + nr, false); //Turns of the bool after 1 second to prevent a loop of animation
-    }
 
     void Update()
     {
@@ -236,7 +239,7 @@ public class NewCardHandScript : MonoBehaviour
         //Tutorial stuff
         RunningTutorial();
     }
-
+    #region Tutorial Parts
     private void RunningTutorial()
     {
         if (MinigameSceneScript.Tutorial == true)
@@ -417,8 +420,8 @@ public class NewCardHandScript : MonoBehaviour
             }
         }
     }
-
-
+    #endregion
+    #region ManaDisplay & Enlarge/Reduce buttons
     private void ManaCostDisplayer()
     {
 
@@ -511,8 +514,8 @@ public class NewCardHandScript : MonoBehaviour
         handEnlarged.SetActive(false);
         quackenButton.SetActive(true);
     }
-
-
+    #endregion
+    #region Play Card
     public void PlayCard1()//Play the first card
     {
         MinimizeButtonPressed();
@@ -733,7 +736,8 @@ public class NewCardHandScript : MonoBehaviour
             }
         }
     }
-
+    #endregion
+    #region Card Selection functions
     private void CardSelectedActivation()
     {
         for (int i = 0; i < 5; i++)
@@ -794,7 +798,7 @@ public class NewCardHandScript : MonoBehaviour
         Lcard5.GetComponent<CardDisplayer>().card = CardValues5.card;
         Lcard5.GetComponent<CardDisplayer>().Read();
     }
-
+    #endregion
     public void Spawn()
     {
         if (Stage == 1)
@@ -829,7 +833,7 @@ public class NewCardHandScript : MonoBehaviour
             }
         }
     }
-
+    #region Animation Controlls
     private void AnimationReset()
     {
         print("The bool got turned on");
@@ -864,7 +868,14 @@ public class NewCardHandScript : MonoBehaviour
             s_cardWasPlayer = false;
         }
     }
-
+    IEnumerator CardAnimationOn(GameObject animCard, int nr) //Initiates the card draw animation
+    {
+        animCard.GetComponent<Animator>().SetBool("CardUsed " + nr, true); //Turns on the bool that releases the animation
+        yield return new WaitForSeconds(0.5f);
+        animCard.GetComponent<Animator>().SetBool("CardUsed " + nr, false); //Turns of the bool after 1 second to prevent a loop of animation
+    }
+    #endregion
+    #region Tutorial Public Voids
     //Tutorial stuff
     public void PlayedFirstCard()
     {
@@ -934,4 +945,5 @@ public class NewCardHandScript : MonoBehaviour
         LostTutorial = true;
         Time.timeScale = 0;
     }
+    #endregion
 }
