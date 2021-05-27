@@ -14,6 +14,8 @@ public class AnimalPens : MonoBehaviour
             currentAnimal.layer = 2; //Sets the object to not be interactable by mouse/touch
             currentAnimal.transform.position = transform.position; //Can be set later to make it look good when placed correctly
             AnimalVictory._animalPensFilled++; //Increases the finished Animal Pens list.
+            currentAnimal.GetComponent<Collider2D>().enabled = false;
+            currentAnimal.GetComponent<SpriteRenderer>().sortingOrder = 2;
         }
     }
 }

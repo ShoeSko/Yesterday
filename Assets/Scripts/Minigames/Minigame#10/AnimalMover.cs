@@ -49,6 +49,7 @@ public class AnimalMover : MonoBehaviour
         {
             colliderOfAnimal = GetComponent<Collider2D>(); //Get the collider
             colliderOfAnimal.enabled = false; //Can't collide if there is not collider
+            GetComponent<SpriteRenderer>().sortingOrder = 5;
         }
         else
         {
@@ -56,6 +57,7 @@ public class AnimalMover : MonoBehaviour
             colliderOfAnimal.enabled = true; //Collide once more
             gameObject.transform.position = fakePos; //Send to god knows where
             gameObject.transform.position = originalPos; //Return before anyone notices, but makes collider able to trigger.
+            GetComponent<SpriteRenderer>().sortingOrder = 3;
         }
     }
 }
