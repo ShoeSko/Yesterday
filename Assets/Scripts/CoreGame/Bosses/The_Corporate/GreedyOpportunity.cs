@@ -131,16 +131,6 @@ public class GreedyOpportunity : MonoBehaviour
         }
     }
 
-    private void OnBecameInvisible() // When the hand leave the camera after retreating, do this
-    {
-        if (isRetreating) //Is it retreating?
-        {
-            obstacleInTheWay = true; //In a way being blocked, Will not move anymore until this is changed.
-            isRetreating = false; // No longer retreating
-            RemoveCardFromOverlordHand(); // Removes a card, if the overlord has one.
-        }
-    }
-
     private void RemoveCardFromOverlordHand()
     {
         int childCount = transform.childCount;
@@ -182,6 +172,17 @@ public class GreedyOpportunity : MonoBehaviour
             handHealth = handHealth - projectileScript.projectileDamage;//Reads damage from the projectile script(Which reads it from their parent)
             projectileScript.numberOfMaxTargets--;
             //StartCoroutine(PeriodOfBeingDamaged());
+        }
+
+        if (other.CompareTag("StopTheHand"))
+        {
+            print("There was interaction");
+            if (isRetreating) //Is it retreating?
+            {
+                obstacleInTheWay = true; //In a way being blocked, Will not move anymore until this is changed.
+                isRetreating = false; // No longer retreating
+                RemoveCardFromOverlordHand(); // Removes a card, if the overlord has one.
+            }
         }
 
         if (other.gameObject.tag == "Quack")
