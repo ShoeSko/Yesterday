@@ -40,6 +40,7 @@ public class Victory : MonoBehaviour
         }
     }
 
+    [ContextMenu("Actiave Win")]
     public void Win()
     {
         emote.GetComponent<Emotes>().WonGame();

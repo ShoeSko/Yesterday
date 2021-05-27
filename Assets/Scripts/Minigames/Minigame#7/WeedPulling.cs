@@ -4,18 +4,23 @@ using UnityEngine;
 
 public class WeedPulling : MonoBehaviour
 {
-    Vector3 mousePos;
-    [SerializeField]private float moveSpeed = 0.15f;
     Rigidbody2D rb;
-    Vector2 position = new Vector2(0f, 0f);
 
     public GameObject mouse;
 
     public bool PulledOut;
-    private bool hasLetGo; //Has the carrot been let go?
 
     private Vector2 yeetVector;
     private float yeetForce = 100;
+
+
+    private Vector3 gameObjectSreenPoint;
+    private Vector3 mousePreviousLocation;
+    private Vector3 mouseCurLocation;
+    private Vector3 force;
+
+    public float topSpeed = 10;
+    public float speed = 2f;
 
 
     void Start()
@@ -25,39 +30,59 @@ public class WeedPulling : MonoBehaviour
 
     void Update()//plant movement - script for following the mouse when being dragged
     {
-        mousePos = Input.mousePosition;
-        mousePos = Camera.main.ScreenToWorldPoint(mousePos); //This now exists to prevent the carrots from being dragged downwards
 
         if (PulledOut)
         {
             yeet();
         }
+
+        //Debug.Log("Current velocity is " + rb.velocity.magnitude);
+    }
+
+
+    private void OnMouseDown()
+    {
+        //This grabs the position of the object in the world and turns it into the position on the screen
+        gameObjectSreenPoint = Camera.main.WorldToScreenPoint(gameObject.transform.position);
+        //Sets the mouse pointers vector3
+        mousePreviousLocation = new Vector3(Input.mousePosition.x, Input.mousePosition.y, gameObjectSreenPoint.z);
     }
 
     private void OnMouseDrag() //This runs as long as you press down on a colider hold down, then move.
     {
-        if (!hasLetGo)
+        if (Input.mousePosition.y > mousePreviousLocation.y) //As long as the new input goes up, preventing the carrot from being dragged down.
         {
+            mouseCurLocation = new Vector3(Input.mousePosition.x, Input.mousePosition.y, gameObjectSreenPoint.z);
+            force = mouseCurLocation - mousePreviousLocation;//Changes the force to be applied
+            mousePreviousLocation = mouseCurLocation;
+        }
+    }
 
-            if (mousePos.y >= 0) //Prevents the carrots from going down when pulling
-            {
-                position = Vector2.Lerp(transform.position, mousePos, moveSpeed);
-            }
 
-            rb.MovePosition(position);
+    private void OnMouseUp()
+    {
+        //Makes sure there isn't a ludicrous speed
+        if (rb.velocity.magnitude > topSpeed)
+            force = rb.velocity.normalized * topSpeed;
+    }
+
+    public void FixedUpdate()
+    {
+        if(rb.velocity.magnitude < topSpeed)
+        {
+            rb.velocity = force * speed * Time.deltaTime;
         }
     }
 
     void yeet()
     {
-
+        force = new Vector3(0, 0, 0);
         yeetVector = new Vector2(Random.Range(-10, 11), Random.Range(3, 6));
         rb.constraints = RigidbodyConstraints2D.None;
         rb.gravityScale = 1f;
         rb.AddForce(yeetVector * yeetForce);
         mouse.GetComponent<MouseCollider>().score++;
         PulledOut = false;
-        hasLetGo = true;
         GetComponent<WeedPulling>().enabled = false;
     }
 }

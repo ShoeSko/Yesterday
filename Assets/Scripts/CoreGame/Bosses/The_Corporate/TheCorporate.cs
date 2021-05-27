@@ -47,6 +47,7 @@ public class TheCorporate : MonoBehaviour
     private int RandomSpot;
     private GameObject activeSpot;
     public GameObject CorporateSign;
+    private List<GameObject> placedCorporateSigns = new List<GameObject>();
 
     //Stock_Shortage
     private int manaSteal;
@@ -90,9 +91,8 @@ public class TheCorporate : MonoBehaviour
         Abilities.Add("Stock_Shortage");
         Abilities.Add("Greedy_Opportunity");
 
-        //Property_Business();  //(REMOVE // TO TEST THIS ABILITY)
-        //Stock_Shortage();     //(REMOVE // TO TEST THIS ABILITY)
-        //Greedy_Opportunity(); //(REMOVE // TO TEST THIS ABILITY)
+
+        //Ths cheats above have been upgraded to be in cheats. Right click the component to get the contextMenu options.
 
         for (int deactivated = 0; deactivated < DeactivateTowerSpots.Count; deactivated++)//make space for the boss by destroying the last row
         {
@@ -100,6 +100,24 @@ public class TheCorporate : MonoBehaviour
             Destroy(currentTowerSpot);
         }
     }
+
+    #region Cheats
+    [ContextMenu("Run Property Business")]
+    private void PropertCheat()
+    {
+        Property_Business();
+    }
+    [ContextMenu("Run Stock Shortage")]
+    private void StockCheat()
+    {
+        Stock_Shortage();
+    }
+    [ContextMenu("Run Greedy Opportunity")]
+    private void GreedyCheat()
+    {
+        Greedy_Opportunity();
+    }
+    #endregion
 
     void Update()
     {
@@ -110,7 +128,7 @@ public class TheCorporate : MonoBehaviour
 
             timer += Time.deltaTime;
 
-            if(timer >= 15)//The time before boss uses an ability
+            if(timer >= 12)//The time before boss uses an ability
             {
                 for (loop = 0; loop < 1; loop++)
                 {
@@ -137,7 +155,12 @@ public class TheCorporate : MonoBehaviour
 
         if (isDead) //A condition to prevent issues when simply unloading the scene, as it would then cause victory condition.
         {
+            for (int CurretnSign = placedCorporateSigns.Count - 1; CurretnSign >= 0; CurretnSign--)
+            {
+                Destroy(placedCorporateSigns[CurretnSign]); //Destroys all placed signs.
+            }
             this.gameObject.GetComponent<SpriteRenderer>().sprite = pepsi;
+            GetComponent<Animator>().enabled = true;
             WinCondition.GetComponent<Victory>().Win();
         }
     }
@@ -174,6 +197,7 @@ public class TheCorporate : MonoBehaviour
                 sign.transform.position = activeSpot.transform.position;
                 sign.transform.position = new Vector3(activeSpot.transform.position.x, activeSpot.transform.position.y, 0); //An attempt to fix Sign placement.
                 sign.transform.SetParent(transform); //Places all sign as children for the Boss.
+                placedCorporateSigns.Add(sign);
                 Destroy(activeSpot);//This permanently removes the slot from the round.
                 TowerSpots.RemoveAt(RandomSpot);//Removes the Towerspot from the list to prevent reruns.
 
@@ -201,22 +225,23 @@ public class TheCorporate : MonoBehaviour
     }
     IEnumerator IndicateStockShortage()
     {
-        manaBarStockIndicator.SetActive(true);
+        manaBarStockIndicator.GetComponent<Animator>().SetTrigger("Stock"); //Starts warning animation
         Snap1.SetActive(true);
         yield return new WaitForSeconds(stockShortageWarningTime);
         Snap1.SetActive(false);
         Snap2.SetActive(true);
         manaSteal = Random.Range(1, 4);
         ManaSystem.CurrentMana -= manaSteal;
-        manaBarStockIndicator.SetActive(false);
+        manaBarStockIndicator.GetComponent<Animator>().SetTrigger("End");
         yield return new WaitForSeconds(0.5f);
         Snap2.SetActive(false);
     }
     void Greedy_Opportunity()//Ability 3
     /* The Corporate's greed is immeasurable as he will take any opportunity he sees.The Corporate will sometimes try to take one of your units to sell it. 
      * He will reach out his hand on one of the lanes to try to take a unit from that lane. While he reaches out, his hand will be vulrnurable. 
-     * If the hand takes a total of 150 damage it will go back. All damage done to the hand is also dealt to The Corporate. 
+     * The hand has 150HP and when it dies, The Corporate loses 1HP.
      * If the hand reaches a unit, it will start taking it. After 4 seconds if the hand still persists, the hand will snatch that unit, destroying it. 
+     * If the hand reaches your farm, it will take a card from your deck, then proceed to back away with it, invincible.
      * It will then become invincible and go back into hiding. */
     {
         if (CD3 <= 0)//Do this ability

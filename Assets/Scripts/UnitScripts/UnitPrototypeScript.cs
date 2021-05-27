@@ -54,6 +54,7 @@ public class UnitPrototypeScript : MonoBehaviour
     [Tooltip("How much bigger will the unit be?")] private Vector3 sizeBuff;
     [Tooltip("How much the health should be buffed")] private float healthBuff;
     [Tooltip("How much the damage should be buffed")] private float damageBuff;
+    private bool hasInstakilled;
 
     private bool hasBuffedAlly = false; //Has the unit given it's buff?
 
@@ -64,6 +65,9 @@ public class UnitPrototypeScript : MonoBehaviour
     private Vector3 directionForAllyAim; //In which direction does the unit aim?
 
     private bool isDead;
+
+    [Header("Unit index")]
+    [Tooltip("What index is the unit?")] public int unitIndex;
 
     [Header("Spell effects")]
     private int shootDamageSave; // Saves the shoot Damage
@@ -230,7 +234,28 @@ public class UnitPrototypeScript : MonoBehaviour
     private void PiranhaPond() //Piranha ability
     {
         transform.gameObject.tag= "InstaKill"; //If the unit is Piranha Pond, then it will be an instaKill tag, the enemy will die with it on impact.
+        //print("Is now instakill");
     }
+
+    //private void OnCollisionEnter2D(Collision2D collision)
+    //{
+    //        print("Has had a collision");
+    //    if(this.gameObject.tag == "InstaKill")
+    //    {
+    //        print("Was insta kill");
+    //        if(collision.gameObject.layer == punchingTargetLayer)
+    //        {
+    //            print("Got the kill inn");
+    //            if (!hasInstakilled)
+    //            {
+    //                HandDeath();
+    //                hasInstakilled = true;
+    //                Destroy(collision.gameObject);
+    //                Destroy(this.gameObject);
+    //            }
+    //        }
+    //    }
+    //}
     private void AllyAim() //Special Aim for targeting allies specifically.
     {
         originForAllyAim = transform.position;
@@ -414,5 +439,7 @@ public class UnitPrototypeScript : MonoBehaviour
         sizeBuff = Unit.sizeBuff;
         healthBuff = Unit.healthBuff;
         damageBuff = Unit.damageBuff;
+
+        unitIndex = Unit.unitIndex;
     }
 }

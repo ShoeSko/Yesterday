@@ -35,7 +35,7 @@ public class SaveSystem : MonoBehaviour
 #endif
     }
 #endregion
-#region Save & Load
+    #region Save & Load
     [ContextMenu("Save")] //Makes a menu option in component section,right click to accsess.
     void Save()
     {
@@ -60,7 +60,7 @@ public class SaveSystem : MonoBehaviour
         data = loadedData;
     }
 #endregion
-#region When to save
+    #region When to save
     //Currently this can be called everytime a value is changed (Will prevent lost data from crash, might be heavy?)
 
     public void SaveTheData()
@@ -75,20 +75,35 @@ public class SaveSystem : MonoBehaviour
 [System.Serializable]
 public class Data //Serializable class of data. All inf to be saved should be here.
 {
+    public bool isFirstRun;
+
     public float masterVolLevel;
     public float musicVolLevel;
     public float sfxVolLevel;
 
+    public bool[] unitList;
+    public bool[] beastList;
+    public bool[] humanoidList;
+    public bool[] monstrosityList;
+    public bool[] bossList;
 
     //public int minigamesFinished;
     //public int enemiesKilled;
     //public int cardsSummoned;
 
-    public Data(float masterVolLevel, float musicVolLevel, float sfxVolLevel)
+    public Data(bool isFirstRun, float masterVolLevel, float musicVolLevel, float sfxVolLevel, bool[] unitList, bool[] beastList, bool[] humanoidList, bool[] monstrosityList, bool[] bossList)
     {
+        this.isFirstRun = isFirstRun;
+         //Sound Settings
         this.masterVolLevel = masterVolLevel;
         this.musicVolLevel = musicVolLevel;
         this.sfxVolLevel = sfxVolLevel;
+        //Unit Encounter lists
+        this.unitList = unitList;
+        this.beastList = beastList;
+        this.humanoidList = humanoidList;
+        this.monstrosityList = monstrosityList;
+        this.bossList = bossList;
     }
 
     //public Data(int minigamesFinished, int enemiesKilled, int cardsSummoned)

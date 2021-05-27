@@ -25,10 +25,10 @@ MonoBehaviour:
   isShooter: 1
   isPunching: 0
   isSpecial: 0
-  shootRechargeTime: 3
+  shootRechargeTime: 2
   projectileSpeed: 15
   projectilePrefab: {fileID: 3204289923293697707, guid: 5d52c25ce94445743a02a3ddca268b0e, type: 3}
-  projectileDamage: 5
+  projectileDamage: 3
   shootingTargetLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -54,3 +54,4 @@ MonoBehaviour:
   sizeBuff: {x: 0, y: 0, z: 0}
   healthBuff: 0
   damageBuff: 0
+  unitIndex: 28

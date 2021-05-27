@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class EggCollectionSpawning : MonoBehaviour
 {
@@ -29,6 +29,8 @@ public class EggCollectionSpawning : MonoBehaviour
     private float StartDelay;
     private bool GameStarted;
 
+    [SerializeField] private List<Image> eggList = new List<Image>();
+    private int eggsListedUp;
 
     public GameObject star1;
     public GameObject star2;
@@ -54,7 +56,7 @@ public class EggCollectionSpawning : MonoBehaviour
         //Prep
         score = 0;
         wintext.SetActive(false);
-        eggSpawnAmount = 8;
+        //eggSpawnAmount = 8;  //Things like this in code tends to make it less flexible. Just to let you know.
         eggsSpawned = 0;
         star1.SetActive(false);
         star2.SetActive(false);
@@ -97,6 +99,30 @@ public class EggCollectionSpawning : MonoBehaviour
             }
             else eggSpawnAmount = i;
             }
+    }
+
+    public void EggCollected()
+    {
+        for (int eggNumber = 0; eggNumber < eggSpawnAmount; eggNumber++)
+        {
+            if(eggNumber == eggsListedUp)
+            {
+                eggList[eggNumber].color = Color.green;
+            }
+        }
+        eggsListedUp++;
+    }
+
+    public void EggLost()
+    {
+        for (int eggNumber = 0; eggNumber < eggSpawnAmount; eggNumber++)
+        {
+            if(eggNumber == eggsListedUp)
+            {
+                eggList[eggNumber].color = Color.red;
+            }
+        }
+        eggsListedUp++;
     }
 
     void Update()
@@ -154,7 +180,7 @@ public class EggCollectionSpawning : MonoBehaviour
         {
             if(MinigameSceneScript.Tutorial == false)
             {
-                if (score == 8)
+                if (score == 6)
                 {
                     Win();
                     victoryEgg = true;
@@ -164,7 +190,7 @@ public class EggCollectionSpawning : MonoBehaviour
                     CardReward.Stars = 3;
                     minigameScore = 3;
                 }
-                else if (score == 7)
+                else if (score == 5)
                 {
                     Win();
                     victoryEgg = true;
@@ -174,7 +200,7 @@ public class EggCollectionSpawning : MonoBehaviour
                     CardReward.Stars = 2;
                     minigameScore = 2;
                 }
-                else if (score == 6)
+                else if (score == 4)
                 {
                     Win();
                     victoryEgg = true;
@@ -184,7 +210,7 @@ public class EggCollectionSpawning : MonoBehaviour
                     CardReward.Stars = 1;
                     minigameScore = 1;
                 }
-                else if (score <= 5)
+                else if (score <= 3)
                 {
                     Win();
                     victoryEgg = true;

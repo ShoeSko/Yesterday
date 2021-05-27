@@ -4,6 +4,14 @@ using UnityEngine;
 
 public class NewCardHandScript : MonoBehaviour
 {
+    [Header("Boss Testing")]
+    public bool BossTesting;
+    [Range(1,2)] public int whichBoss;
+
+    public bool DevStageTest;
+    [Range(1,3)] public int whichStage;
+
+    [Header("Variables")]
     public bool Smallhand = true;
 
     public GameObject PlayedCard;
@@ -11,17 +19,23 @@ public class NewCardHandScript : MonoBehaviour
     public GameObject Deck;
     private GameObject CurrentCard;
     public GameObject TheCorporatePrefab;
+    public GameObject TheGuardianPrefab;
+    public GameObject BossIntro;
 
     private int card;
+    private int RandomBoss;
 
     public static int Stage;//Which stage is the player on? (Will define which enemies spawn)
     public GameObject SpawnerHuman;//Spawner for Businessmen
     public GameObject SpawnerBeast;//Spawner for Beasts
-    public GameObject SpawnerBoss;//Spawner for Boss
+    public GameObject SpawnerBossCorporate;//Spawner for Boss
+    public GameObject SpawnerBossGuardian;//Spawner for Boss
+
 
     public AudioSource Music1;
     public AudioSource Music2;
     public AudioSource Boss1;
+    public AudioSource Boss2;
 
     public GameObject BG_Day;
     public GameObject BG_Evening;
@@ -120,11 +134,15 @@ public class NewCardHandScript : MonoBehaviour
     private bool PlayableCards;
     public bool LookForEnemies;
     public GameObject MenuReturn;
+    private bool LostTutorial;
 
 
 
     void Start()
     {
+        if (DevStageTest == true)
+            Stage = whichStage;
+
         handEnlarged.SetActive(true);
         minimizeButton.SetActive(true);
         TowerSpots.SetActive(false);
@@ -146,6 +164,9 @@ public class NewCardHandScript : MonoBehaviour
             BG_Day.SetActive(false);
             BG_Evening.SetActive(false);
             BG_Night.SetActive(true);
+
+            RandomBoss = Random.Range(1, 3);//Simple boss randomiser
+            BossIntro.GetComponent<Corporate_Intro>().PlayIntro();
         }
 
         ManaSystem.CurrentMana = 0;
@@ -172,6 +193,7 @@ public class NewCardHandScript : MonoBehaviour
             BG_Day.SetActive(true);
             Text = 0;
             ManaSystem.CurrentMana = 10;
+            Music1.Play();
 
             //Deactivate everything
             handSmall.SetActive(false);
@@ -317,6 +339,19 @@ public class NewCardHandScript : MonoBehaviour
                 LookForEnemies = true;
             else
                 LookForEnemies = false;
+        }
+
+        if(LostTutorial == true)
+        {
+            if (Input.GetKeyDown(KeyCode.Mouse0) || Input.GetKeyDown(KeyCode.Space))
+            {
+                Texts[19].SetActive(false);
+                SpeechBubble.SetActive(false);
+                BotWave.SetActive(false);
+                ContinueText.SetActive(false);
+                Time.timeScale = 1;
+                LostTutorial = false;
+            }
         }
     }
 
@@ -762,20 +797,24 @@ public class NewCardHandScript : MonoBehaviour
         }
         else if (Stage == 3)
         {
-            SpawnerBoss.GetComponent<EnemySpawning>().gameStarted = true;
-            Boss1.Play();
-            TheCorporatePrefab.GetComponent<TheCorporate>().Activate();
-            TheCorporatePrefab.GetComponent<TheCorporate>().IsActive = true;
-        }
-        else//temporary solution to test boss mechanics
-        {
-            SpawnerBoss.GetComponent<EnemySpawning>().gameStarted = true;
-            Boss1.Play();
-            TheCorporatePrefab.GetComponent<TheCorporate>().Activate();
-            TheCorporatePrefab.GetComponent<TheCorporate>().IsActive = true;
-            BG_Day.SetActive(false);
-            BG_Evening.SetActive(false);
-            BG_Night.SetActive(true);
+            if (BossTesting == true)
+                RandomBoss = whichBoss;//Set this number to the boss you want to test // Added a variable that can be accesed from outside the script. More usefull for testing.
+
+            if (RandomBoss == 1)
+            {
+                SpawnerBossCorporate.GetComponent<EnemySpawning>().gameStarted = true;
+                Boss1.Play();
+                TheCorporatePrefab.GetComponent<TheCorporate>().Activate();
+                TheCorporatePrefab.GetComponent<TheCorporate>().IsActive = true;
+            }
+            else if(RandomBoss == 2)
+            {
+                //Do second boss stuff
+                SpawnerBossGuardian.GetComponent<EnemySpawning>().gameStarted = true;
+                Boss2.Play();
+                TheGuardianPrefab.GetComponent<TheGuardian>().Activate();
+                TheGuardianPrefab.GetComponent<TheGuardian>().IsActive = true;
+            }
         }
     }
 
@@ -872,5 +911,15 @@ public class NewCardHandScript : MonoBehaviour
         ContinueText.SetActive(true);
         CantClick = false;
         LookForEnemies = false;
+    }
+
+    public void TutorialLose()
+    {
+        Texts[19].SetActive(true);
+        SpeechBubble.SetActive(true);
+        BotWave.SetActive(true);
+        ContinueText.SetActive(true);
+        LostTutorial = true;
+        Time.timeScale = 0;
     }
 }

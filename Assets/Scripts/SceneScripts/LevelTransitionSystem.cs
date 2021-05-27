@@ -22,9 +22,10 @@ public class LevelTransitionSystem : MonoBehaviour
         NewCardHandScript.Stage++;
         Debug.Log(NewCardHandScript.Stage);
 
-        if (NewCardHandScript.Stage == 4)
+        if (NewCardHandScript.Stage <= 4)
+        {
             nextLevelName = "MainMenu";
-
+        }
         StartCoroutine(SceneFadeMechanic(nextLevelName));
     }
     public void GameOverButtonPress() // You lost. Straight to the main menu for a quick and easy reset.
@@ -41,6 +42,11 @@ public class LevelTransitionSystem : MonoBehaviour
     {
 
         StartCoroutine(SceneFadeMechanic("LoadingScene"));
+    }
+
+    public void LoadCreditScene()
+    {
+        StartCoroutine(SceneFadeMechanic("Credits"));
     }
 
     public void LoadNextLevelFromCoreGame() //Runs the first minigame from the Core game after loading scene
@@ -104,9 +110,21 @@ public class LevelTransitionSystem : MonoBehaviour
         StartCoroutine(SceneFadeMechanic(nextLevelName)); //Runs Coroutine
     }
     #endregion
+    #region Save on Load
+    private void SaveGameOnLoad()
+    {
+        if (FindObjectOfType<SaveSystem>())
+        {
+            FindObjectOfType<SaveSystem>().SaveTheData(); //Saves the data.
+        }
+    }
+    #endregion
+
 
     IEnumerator SceneFadeMechanic(string levelName)
     {
+        SaveGameOnLoad(); //Saves game when loading a new scene.
+
         transitionController.SetTrigger("Start"); //Gives a trigger to the controller to start the leave animation.
 
         yield return new WaitForSeconds(waitTime); //Waits until animation is done + extra if wanted

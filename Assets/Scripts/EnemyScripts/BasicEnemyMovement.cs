@@ -31,6 +31,12 @@ public class BasicEnemyMovement : MonoBehaviour
     [Header("Enemy confirmation for Animation")]
     [Tooltip("Is the Enemy Merry, so that her animation will play")] private bool isMerry;
 
+    [Header("Enemy Index")]
+    [Tooltip("Is it a beast?")] private bool isBeast;
+    [Tooltip("Is it a humanoid?")] private bool isHumanoid;
+    [Tooltip("Is it a monstrosity?")] private bool isMonstrosity;
+    [Tooltip("What index number does it have?")] private int enemyIndex;
+
     [Header("Spell card effects")]
     private float moveSpeedSave;
     private bool isBeingPreventedFromDoingAnything; //Prevents actions
@@ -50,6 +56,11 @@ public class BasicEnemyMovement : MonoBehaviour
         animatorOfEnemies = GetComponent<Animator>();
         healthSave = enemyHealth; //Saves the max health of the unit.
         MovingAnimation(); //If there is extra animation, activate it.
+
+        if(MinigameSceneScript.Tutorial == false) //Will not update beastiary from Tutorial run
+        {
+            UnitForBeastiary(enemyIndex); //New enemy has spawned so they will be added to Beastieary (If the load a new scene.
+        }
     }
 
     private void MovingAnimation()
@@ -96,6 +107,7 @@ public class BasicEnemyMovement : MonoBehaviour
         }
         if (other.collider.CompareTag("InstaKill"))
         {
+
             other.gameObject.GetComponent<UnitPrototypeScript>().HandDeath(); //Tells the unit it was killed, not just removed by scene.
             Destroy(other.gameObject);
             Destroy(this.gameObject);
@@ -220,6 +232,69 @@ public class BasicEnemyMovement : MonoBehaviour
     }
 
     #endregion
+    #region Beastiary storing
+    private void UnitForBeastiary(int indexOfEnemy)
+    {
+        if (FindObjectOfType<SaveSystem>()) //Confirms that the save system is in the scene
+        {
+            SaveSystem saving = FindObjectOfType<SaveSystem>(); //Finds the save system in the scene
+
+            if (isBeast)
+            {
+                int indexLenght = saving.data.beastList.Length; //Aquires the lenght of the Array to store in.
+
+                for (int index = 0; index < indexLenght; index++) //Runs a loop through the entire array until it reaches the same index as the enemy.
+                {
+                    if (index == indexOfEnemy) //If current unit is equal to the in the loop. (Make sure he goes from 0.39)
+                    {
+                        if (saving.data.beastList[index] == false)
+                        {
+                            saving.data.beastList[index] = true;
+
+                            print(indexOfEnemy + " is the index of the Beast that was just chosen.");
+                        }
+                    }
+                }
+            }
+
+            if (isHumanoid)
+            {
+                int indexLenght = saving.data.humanoidList.Length; //Aquires the lenght of the Array to store in.
+
+                for (int index = 0; index < indexLenght; index++) //Runs a loop through the entire array until it reaches the same index as the enemy.
+                {
+                    if (index == indexOfEnemy) //If current unit is equal to the in the loop. (Make sure he goes from 0.39)
+                    {
+                        if (saving.data.humanoidList[index] == false)
+                        {
+                            saving.data.humanoidList[index] = true;
+
+                            print(indexOfEnemy + " is the index of the Humanoid that was just chosen.");
+                        }
+                    }
+                }
+            }
+
+            if (isMonstrosity)
+            {
+                int indexLenght = saving.data.monstrosityList.Length; //Aquires the lenght of the Array to store in.
+
+                for (int index = 0; index < indexLenght; index++) //Runs a loop through the entire array until it reaches the same index as the enemy.
+                {
+                    if (index == indexOfEnemy) //If current unit is equal to the in the loop. (Make sure he goes from 0.39)
+                    {
+                        if (saving.data.monstrosityList[index] == false)
+                        {
+                            saving.data.monstrosityList[index] = true;
+
+                            print(indexOfEnemy + " is the index of the Monstrosity that was just chosen.");
+                        }
+                    }
+                }
+            }
+        }
+    }
+    #endregion
     #region Spell effects
 
     public void Slow(float slowDebuff,float debuffTime)
@@ -286,5 +361,18 @@ public class BasicEnemyMovement : MonoBehaviour
 
         //Enemy confirmation
         isMerry = enemy.isMerry;
+
+        //Indexing
+        isBeast = enemy.isBeast;
+        isHumanoid = enemy.isHumanoid;
+        isMonstrosity = enemy.isMonstrosity;
+        enemyIndex = enemy.enemyIndex;
+    }
+
+    public void MotherlyEmbraceBuff()
+    {
+        enemyHealth += 20;
+        enemyHealth = enemyHealth * 2;
+        attackDamage = attackDamage * 2;
     }
 }

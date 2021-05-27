@@ -15,4 +15,10 @@ public class EnemyScript : ScriptableObject
 
     [Header("Enemy confirmation for Animation")]
     [Tooltip("Is the Enemy Merry, so that her animation will play")] public bool isMerry;
+
+    [Header("Enemy Index")]
+    [Tooltip("Is it a beast?")] public bool isBeast;
+    [Tooltip("Is it a humanoid?")] public bool isHumanoid;
+    [Tooltip("Is it a monstrosity?")] public bool isMonstrosity;
+    [Tooltip("What index number does it have? Please start with 0.")] public int enemyIndex;
 }

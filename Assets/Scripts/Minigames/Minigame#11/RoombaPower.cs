@@ -25,6 +25,9 @@ public class RoombaPower : MonoBehaviour
 
     [Header("Star system")]
     public List<GameObject> stars = new List<GameObject>(); //A list of the stars
+    public GameObject blackstar1;
+    public GameObject blackstar2;
+    public GameObject blackstar3;
     private int starLenght;//How long is the star list
     private float scoreTimer; //How long it takes to do the game
     public int star1Time;
@@ -42,14 +45,13 @@ public class RoombaPower : MonoBehaviour
     private bool win;
     private float delay;
     private int score;
+    private bool onlyOnce2ndSwithc;
+    private bool onlyOnce3rdSwithc;
 
     [Header("Scene Transition")]
     [SerializeField] private GameObject nextSceneButton; //The button to reach next scene
     [SerializeField] private LevelTransitionSystem levelTransitioner; //Refrence to give the score of the game.  
     #endregion
-    public GameObject blackstar1;
-    public GameObject blackstar2;
-    public GameObject blackstar3;
 
     private void Start()
     {
@@ -76,6 +78,10 @@ public class RoombaPower : MonoBehaviour
         connection0[randomiser1].transform.GetChild(0).gameObject.SetActive(false); //Turns of the Line that is a child of the wire
         connection0[randomiser1].GetComponent<SpriteRenderer>().color = powerOn; //Choses the first wire.
         connection0[randomiser1].GetComponent<Animator>().enabled = true; //Activates the animation that will loop eternally
+        for (int i = 0; i < switches1.Count; i++)
+        {
+            switches1[i].transform.GetComponentInChildren<Animator>().SetTrigger("Start"); //Starts animation on first layer
+        }
     }
 
     private void Update()
@@ -99,7 +105,17 @@ public class RoombaPower : MonoBehaviour
         {
             ActivateFirstConnection();
             firstSwitch = true;
-            switches1[randomiser1].layer = 2; //Gives the object ignore raycast, prevents more flipping.
+
+            for (int i = 0; i < switches1.Count; i++)
+            {
+                switches1[i].layer = 2; //Gives the object ignore raycast, prevents more flipping.
+                switches1[i].transform.GetComponentInChildren<Animator>().SetTrigger("End"); //Stops the last animation run.
+            }
+            if (!onlyOnce2ndSwithc)
+            {
+                switch2.transform.GetComponentInChildren<Animator>().SetTrigger("Start"); //Start the new animation run.
+                onlyOnce2ndSwithc = true;
+            }
         }
 
         //Switch 2
@@ -108,14 +124,30 @@ public class RoombaPower : MonoBehaviour
             ActivateSecondConnection();
             secondSwitch = true;
             switch2.layer = 2;
+            switch2.transform.GetComponentInChildren<Animator>().SetTrigger("End"); //Ends the second animation run
+            if (!onlyOnce3rdSwithc) //Prevents this part of the code to be contionously sent
+            {
+                for (int i = 0; i < switches3.Count; i++)
+                {
+                    switches3[i].transform.GetComponentInChildren<Animator>().SetTrigger("Start"); //Starts the last animation run
+                }
+                onlyOnce3rdSwithc = true;
+            }
+
         }
 
         //Switch 3
         if (switches3[randomiser2].transform.eulerAngles.z == flipStrenght && secondSwitch)
         {
             ActivateThirdConnection();
-            switches3[randomiser2].layer = 2;
+
             RoombaTime();
+
+            for (int i = 0; i < switches3.Count; i++)
+            {
+                switches3[i].layer = 2;
+                switches3[i].transform.GetComponentInChildren<Animator>().SetTrigger("End"); //Ends the last animation run
+            }
         }
     }
 

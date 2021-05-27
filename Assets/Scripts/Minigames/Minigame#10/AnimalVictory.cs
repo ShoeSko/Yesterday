@@ -170,7 +170,6 @@ public class AnimalVictory : MonoBehaviour
 
                 BotWave.SetActive(true);
                 SpeechBubble.SetActive(true);
-                ContinueText.SetActive(true);
                 Texts[Text].SetActive(true);
 
                 ObjectiveText.SetActive(false);

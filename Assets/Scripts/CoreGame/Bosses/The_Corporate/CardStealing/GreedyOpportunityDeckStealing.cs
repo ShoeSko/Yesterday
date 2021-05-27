@@ -7,16 +7,35 @@ public class GreedyOpportunityDeckStealing : MonoBehaviour
     public DeckScript deck;
 
     public CardScript anyCard;
+
+    [HideInInspector] public bool isCardStolen;
+    [SerializeField] private Animator animationOfHand;
+
+    private GameObject theHand;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.tag == "OverlordHand")
         {
-            StealFromDeck(collision.gameObject); //Runns the program, gives it accsess to the OverlordHand
+            theHand = collision.gameObject;
+            theHand.SetActive(false);
+            animationOfHand.SetTrigger("Steal");
+            //StealFromDeck(collision.gameObject); //Runns the program, gives it accsess to the OverlordHand
+        }
+    }
+
+    private void Update()
+    {
+        if (isCardStolen)
+        {
+            isCardStolen = false;
+            theHand.SetActive(true);
+            StealFromDeck(theHand);
         }
     }
 
     [ContextMenu("StealFromDeck")]
-    private void StealFromDeck(GameObject OverlordHand)
+    public void StealFromDeck(GameObject OverlordHand)
     {
         //Get the info
         int deckSize;
