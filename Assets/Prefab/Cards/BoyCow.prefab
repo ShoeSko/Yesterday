@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2557954877800294563}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.14755422, y: 1.4998566, z: 192.87221}
+  m_LocalPosition: {x: -7.0622168, y: 1.5000046, z: 192.88235}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -68,6 +68,7 @@ MonoBehaviour:
   targetsToShoot: 0
   punchRange: 0
   punchPosition: {fileID: 2066630506426419775}
+  unitIndex: 0
 --- !u!212 &6118651002381041060
 SpriteRenderer:
   m_ObjectHideFlags: 0
