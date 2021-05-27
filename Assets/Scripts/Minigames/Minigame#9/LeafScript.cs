@@ -8,7 +8,7 @@ public class LeafScript : MonoBehaviour
 
     private void Start()
     {
-        grave = GameObject.Find("Grave");
+        grave = GameObject.Find("Gravestone");
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
