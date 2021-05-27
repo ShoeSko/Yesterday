@@ -895,7 +895,7 @@ GameObject:
   - component: {fileID: 639007721}
   - component: {fileID: 639007720}
   - component: {fileID: 639007722}
-  m_Layer: 18
+  m_Layer: 0
   m_Name: Cow Pen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1404,7 +1404,7 @@ GameObject:
   - component: {fileID: 894746782}
   - component: {fileID: 894746781}
   - component: {fileID: 894746783}
-  m_Layer: 15
+  m_Layer: 0
   m_Name: Chicken Pen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2315,7 +2315,7 @@ GameObject:
   - component: {fileID: 1372409070}
   - component: {fileID: 1372409069}
   - component: {fileID: 1372409071}
-  m_Layer: 16
+  m_Layer: 0
   m_Name: Sheep Pen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2741,7 +2741,7 @@ GameObject:
   - component: {fileID: 1496072645}
   - component: {fileID: 1496072644}
   - component: {fileID: 1496072646}
-  m_Layer: 17
+  m_Layer: 0
   m_Name: Pig Pen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
