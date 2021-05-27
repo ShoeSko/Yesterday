@@ -25,6 +25,11 @@ public class LevelTransitionSystem : MonoBehaviour
         if (NewCardHandScript.Stage <= 4)
         {
             nextLevelName = "MainMenu";
+
+            if (FindObjectOfType<SaveSystem>())
+            {
+                FindObjectOfType<SaveSystem>().data.lastScene = "";
+            }
         }
         StartCoroutine(SceneFadeMechanic(nextLevelName));
     }
@@ -35,6 +40,10 @@ public class LevelTransitionSystem : MonoBehaviour
         Time.timeScale = 1;
         Quacken.s_quackenBeenReleased = false; //Resets the Quacken.
         nextLevelName = "MainMenu";
+        if (FindObjectOfType<SaveSystem>())
+        {
+            FindObjectOfType<SaveSystem>().data.lastScene = "";
+        }
 
         StartCoroutine(SceneFadeMechanic(nextLevelName));
     }
@@ -54,6 +63,10 @@ public class LevelTransitionSystem : MonoBehaviour
         string nextLevelName = ""; //Remembers the name
 
         nextLevelName = "Minigame#" + MinigameSceneScript.scene1;
+        if (FindObjectOfType<SaveSystem>())
+        {
+            FindObjectOfType<SaveSystem>().data.lastScene = "Minigame#" + MinigameSceneScript.scene1;
+        }
 
         StartCoroutine(SceneFadeMechanic(nextLevelName));
     }
@@ -67,15 +80,27 @@ public class LevelTransitionSystem : MonoBehaviour
         {
             MinigameSceneScript.activeMinigame++;
             nextLevelName = "Minigame#" + MinigameSceneScript.scene2;
+            if (FindObjectOfType<SaveSystem>())
+            {
+                FindObjectOfType<SaveSystem>().data.lastScene = "Minigame#" + MinigameSceneScript.scene2;
+            }
         }
         else if (MinigameSceneScript.activeMinigame == 2)
         {
             MinigameSceneScript.activeMinigame++;
             nextLevelName= "Minigame#" + MinigameSceneScript.scene3;
+            if (FindObjectOfType<SaveSystem>())
+            {
+                FindObjectOfType<SaveSystem>().data.lastScene = "Minigame#" + MinigameSceneScript.scene3;
+            }
         }
         else if (MinigameSceneScript.activeMinigame == 3)
         {
             nextLevelName = "CoreGame";
+            if (FindObjectOfType<SaveSystem>())
+            {
+                FindObjectOfType<SaveSystem>().data.lastScene = "CoreGame";
+            }
         }
         RemoveButton();
         StartCoroutine(SceneFadeMechanic(nextLevelName));
@@ -86,25 +111,43 @@ public class LevelTransitionSystem : MonoBehaviour
     {
         string nextLevelName = ""; //Remembers the name
 
-            if (currentMinigameScore == 0)//skip card reward
+        if (currentMinigameScore == 0)//skip card reward
+        {
+            if (MinigameSceneScript.activeMinigame == 1)
             {
-                if (MinigameSceneScript.activeMinigame == 1)
+                MinigameSceneScript.activeMinigame++;
+                nextLevelName = "Minigame#" + MinigameSceneScript.scene2;
+                if (FindObjectOfType<SaveSystem>())
                 {
-                    MinigameSceneScript.activeMinigame++;
-                    nextLevelName = "Minigame#" + MinigameSceneScript.scene2;
-                }
-                else if (MinigameSceneScript.activeMinigame == 2)
-                {
-                    MinigameSceneScript.activeMinigame++;
-                    nextLevelName= "Minigame#" + MinigameSceneScript.scene3;
-                }
-                else if (MinigameSceneScript.activeMinigame == 3)
-                {
-                    nextLevelName = "CoreGame";
+                    FindObjectOfType<SaveSystem>().data.lastScene = "Minigame#" + MinigameSceneScript.scene2;
                 }
             }
-            else//Go to card reward screen
-                nextLevelName = "CardReward";
+            else if (MinigameSceneScript.activeMinigame == 2)
+            {
+                MinigameSceneScript.activeMinigame++;
+                nextLevelName = "Minigame#" + MinigameSceneScript.scene3;
+                if (FindObjectOfType<SaveSystem>())
+                {
+                    FindObjectOfType<SaveSystem>().data.lastScene = "Minigame#" + MinigameSceneScript.scene3;
+                }
+            }
+            else if (MinigameSceneScript.activeMinigame == 3)
+            {
+                nextLevelName = "CoreGame";
+                if (FindObjectOfType<SaveSystem>())
+                {
+                    FindObjectOfType<SaveSystem>().data.lastScene = "CoreGame";
+                }
+            }
+        }
+        else//Go to card reward screen
+        {
+            nextLevelName = "CardReward";
+            if (FindObjectOfType<SaveSystem>())
+            {
+                FindObjectOfType<SaveSystem>().data.lastScene = "CardReward";
+            }
+        }
 
         RemoveButton();
         StartCoroutine(SceneFadeMechanic(nextLevelName)); //Runs Coroutine

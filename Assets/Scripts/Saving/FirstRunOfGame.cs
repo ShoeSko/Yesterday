@@ -53,4 +53,13 @@ public class FirstRunOfGame : MonoBehaviour
         }
 
     }
+
+    private void SetContinueValue()
+    {
+        if (saving.data.isFirstRun == false || reset) //If this is the first time the game is booted up / reset
+        {
+            saving.data.lastScene = "";
+        }
+
+    }
 }
