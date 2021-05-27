@@ -234,7 +234,12 @@ public class NewCardHandScript : MonoBehaviour
 
 
         //Tutorial stuff
-        if(MinigameSceneScript.Tutorial == true)
+        RunningTutorial();
+    }
+
+    private void RunningTutorial()
+    {
+        if (MinigameSceneScript.Tutorial == true)
         {
             enlargeButton.SetActive(false);
 
@@ -317,14 +322,14 @@ public class NewCardHandScript : MonoBehaviour
 
             if (Text == 11)
             {
-                if(SpawnOnce == false)
+                if (SpawnOnce == false)
                 {
                     TutorialSpawner1.GetComponent<EnemySpawning>().gameStarted = true;
                     Time.timeScale = 0;
                     SpawnOnce = true;
                 }
             }
-            if(Text == 12)
+            if (Text == 12)
             {
                 Lane1.SetActive(true);
                 Lane3.SetActive(true);
@@ -341,7 +346,7 @@ public class NewCardHandScript : MonoBehaviour
                 LookForEnemies = false;
         }
 
-        if(LostTutorial == true)
+        if (LostTutorial == true)
         {
             if (Input.GetKeyDown(KeyCode.Mouse0) || Input.GetKeyDown(KeyCode.Space))
             {
@@ -357,20 +362,24 @@ public class NewCardHandScript : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(MinigameSceneScript.Tutorial == true)
+        TutorialSpawning();
+    }
+    private void TutorialSpawning()
+    {
+        if (MinigameSceneScript.Tutorial == true)
         {
-            if(Text == 13)
+            if (Text == 13)
             {
                 SpawnDelay += Time.deltaTime;
 
-                if(SpawnDelay >= 3 && SpawnOnce == true)
+                if (SpawnDelay >= 3 && SpawnOnce == true)
                 {
                     TutorialSpawner2.GetComponent<EnemySpawning>().gameStarted = true;
                     SpawnDelay = 0;
                     SpawnOnce = false;
                 }
 
-                if(SpawnDelay >= 24.15f)
+                if (SpawnDelay >= 24.15f)
                 {
                     Time.timeScale = 0;
                     CantClick = false;
@@ -382,11 +391,11 @@ public class NewCardHandScript : MonoBehaviour
                 }
             }
 
-            if(Text == 14)
+            if (Text == 14)
             {
                 SpawnDelay += Time.deltaTime;
 
-                if(SpawnDelay >= 20 && SpawnOnce == false)
+                if (SpawnDelay >= 20 && SpawnOnce == false)
                 {
                     elitespawner1.GetComponent<EnemySpawning>().gameStarted = true;
                     elitespawner2.GetComponent<EnemySpawning>().gameStarted = true;
@@ -394,7 +403,7 @@ public class NewCardHandScript : MonoBehaviour
                     elitespawner4.GetComponent<EnemySpawning>().gameStarted = true;
                     SpawnOnce = true;
                 }
-                if(SpawnDelay >= 27)
+                if (SpawnDelay >= 27)
                 {
                     Time.timeScale = 0;
                     CantClick = false;
@@ -488,6 +497,9 @@ public class NewCardHandScript : MonoBehaviour
         minimizeButton.SetActive(true);
         handEnlarged.SetActive(true);
         quackenButton.SetActive(false);
+        TowerSpots.SetActive(false);
+        PlayedCard = null; //Resets the cards when pulling up the big one
+        cardNr = 0;
     }
 
     public void MinimizeButtonPressed()//minimize your hand
