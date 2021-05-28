@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -28,11 +27,12 @@ public class LevelTransitionSystem : MonoBehaviour
 
             if (FindObjectOfType<SaveSystem>())
             {
-                FindObjectOfType<SaveSystem>().data.lastScene = "";
+                FindObjectOfType<SaveSystem>().data.lastScene = null;
             }
         }
         StartCoroutine(SceneFadeMechanic(nextLevelName));
     }
+
     public void GameOverButtonPress() // You lost. Straight to the main menu for a quick and easy reset.
     {
         string nextLevelName = "";
@@ -42,7 +42,7 @@ public class LevelTransitionSystem : MonoBehaviour
         nextLevelName = "MainMenu";
         if (FindObjectOfType<SaveSystem>())
         {
-            FindObjectOfType<SaveSystem>().data.lastScene = "";
+            FindObjectOfType<SaveSystem>().data.lastScene = null;
         }
 
         StartCoroutine(SceneFadeMechanic(nextLevelName));
