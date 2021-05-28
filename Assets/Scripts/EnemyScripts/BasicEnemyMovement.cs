@@ -105,13 +105,13 @@ public class BasicEnemyMovement : MonoBehaviour
             obstacleInTheWay = true;
             rg2D.velocity = new Vector2(0, 0); //Stops movement
         }
-        if (other.collider.CompareTag("InstaKill"))
-        {
+        //if (other.collider.CompareTag("InstaKill"))
+        //{
 
-            other.gameObject.GetComponent<UnitPrototypeScript>().HandDeath(); //Tells the unit it was killed, not just removed by scene.
-            Destroy(other.gameObject);
-            Destroy(this.gameObject);
-        }
+        //    other.gameObject.GetComponent<UnitPrototypeScript>().HandDeath(); //Tells the unit it was killed, not just removed by scene.
+        //    Destroy(other.gameObject);
+        //    Destroy(this.gameObject);
+        //}
     }
     private void OnCollisionExit2D(Collision2D other) //Restarts movement upon destroying the obstacle
     {

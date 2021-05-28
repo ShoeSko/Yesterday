@@ -36,7 +36,7 @@ public class GreedyOpportunity : MonoBehaviour
     [Header("Harm Effect Variables")]
     private Animator animatorOfHand; //The Animator for the enemies change in apperance during damaged periods.
     private float healthSave; //A place to store the original health pool.
-    private bool isDead;
+    [HideInInspector] public bool isDead;
     private bool didKill;
     #endregion
     #region Standard Voids
@@ -97,13 +97,13 @@ public class GreedyOpportunity : MonoBehaviour
             isUnitInFront = true;
             obstacleInTheWay = true;
         }
-        if (other.collider.CompareTag("InstaKill"))
-        {
-            other.gameObject.GetComponent<UnitPrototypeScript>().HandDeath(); //Tells the unit it was killed, not just removed by scene.
-            isDead = true;
-            Destroy(other.gameObject);
-            Destroy(this.gameObject);
-        }
+        //if (other.collider.CompareTag("InstaKill"))
+        //{
+        //    other.gameObject.GetComponent<UnitPrototypeScript>().HandDeath(); //Tells the unit it was killed, not just removed by scene.
+        //    isDead = true;
+        //    Destroy(other.gameObject);
+        //    Destroy(this.gameObject);
+        //}
         if (canGreedStrike && other.collider.CompareTag(obstacleTags))
         {
             other.gameObject.GetComponent<UnitPrototypeScript>().HandDeath(); //Tells the unit it was killed, not just removed by scene.
