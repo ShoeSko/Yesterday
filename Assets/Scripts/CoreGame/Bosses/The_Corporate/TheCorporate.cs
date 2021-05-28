@@ -16,6 +16,7 @@ public class TheCorporate : MonoBehaviour
     public GameObject BossHealthbar;
     public Slider BossHealth;
     public GameObject manaBarStockIndicator;
+    private bool hasBeenDefeated;
 
     //Animations & poses
     public Sprite Default;
@@ -161,7 +162,11 @@ public class TheCorporate : MonoBehaviour
             }
             this.gameObject.GetComponent<SpriteRenderer>().sprite = pepsi;
             GetComponent<Animator>().enabled = true;
-            WinCondition.GetComponent<Victory>().Win();
+            if (!hasBeenDefeated)
+            {
+                WinCondition.GetComponent<Victory>().Win();
+                hasBeenDefeated = true;
+            }
         }
     }
 
@@ -249,7 +254,11 @@ public class TheCorporate : MonoBehaviour
             for(int loop = 0; loop < 1; loop++)
             {
                 RandomHand = Random.Range(0, 4);
+                if (CorporateHands[RandomHand])
+                {
                 CurrentHand = CorporateHands[RandomHand];
+
+                }
 
                 if (CurrentHand != null && CurrentHand.GetComponent<GreedyOpportunity>().obstacleInTheWay != false)
                 {

@@ -78,9 +78,13 @@ public class Emotes : MonoBehaviour
 
     public void WonGame()//When you win a round
     {
-        animation.SetTrigger("Pog");
+        if (!GameOver)
+        {
+            animation.SetTrigger("Pog");
+            print("That is POG!");
+            GameOver = true;
+        }
 
-        GameOver = true;
     }
 
     public void LoseGame()//When you lose the game

@@ -21,10 +21,9 @@ public class LevelTransitionSystem : MonoBehaviour
         NewCardHandScript.Stage++;
         Debug.Log(NewCardHandScript.Stage);
 
-        if (NewCardHandScript.Stage <= 4)
+        if (NewCardHandScript.Stage >= 4)
         {
             nextLevelName = "MainMenu";
-
             if (FindObjectOfType<SaveSystem>())
             {
                 FindObjectOfType<SaveSystem>().data.lastScene = null;
@@ -44,7 +43,6 @@ public class LevelTransitionSystem : MonoBehaviour
         {
             FindObjectOfType<SaveSystem>().data.lastScene = null;
         }
-
         StartCoroutine(SceneFadeMechanic(nextLevelName));
     }
     public void LoadFirstMiniGame() //Sends you to the loading scene
@@ -187,6 +185,11 @@ public class LevelTransitionSystem : MonoBehaviour
     private void RemoveButton()
     {
         nextLevelButton.GetComponent<Image>().color = hideButtonColour;
+    }
+
+    private void OnDestroy()
+    {
+        Debug.Log("Level Transition system was destroyed");
     }
 }
 

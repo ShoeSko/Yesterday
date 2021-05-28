@@ -7,6 +7,7 @@ public class Victory : MonoBehaviour
     [SerializeField] private GameObject youWin;
     public GameObject emote;
     public GameObject TutorialHand;
+    private bool victoryIsSHown;
 
     private void Start()
     {
@@ -35,7 +36,11 @@ public class Victory : MonoBehaviour
             print("Trying to win");
             if (GameObject.FindGameObjectsWithTag("Enemy").Length <= 0) //As everything is in one scene, we are forced to have the boss hands in the equation.
             {
-                Win();
+                if (!victoryIsSHown)
+                {
+                    Win();
+                    victoryIsSHown = true;
+                }
             }
         }
     }
