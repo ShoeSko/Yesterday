@@ -11,6 +11,8 @@ public class DeckScript : MonoBehaviour
     private int randomcard;
 
     public CardScript CowCard;
+    public CardScript Chikin;
+    public CardScript Sheep;
 
     public GameObject deckViewer;
     public GameObject ViewDeck;
@@ -19,6 +21,8 @@ public class DeckScript : MonoBehaviour
     void Start()
     {
         Deck.Add(CowCard);//the starting cards 
+        Deck.Add(Chikin);//the starting cards 
+        Deck.Add(Sheep);//the starting cards 
         DeckUpdater();
     }
 

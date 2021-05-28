@@ -4613,6 +4613,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   activecard: {fileID: 0}
   CowCard: {fileID: 11400000, guid: 2feaa7772e4a0ed4abe51ab0b90c9614, type: 2}
+  Chikin: {fileID: 11400000, guid: d8854abcbe197604194b903ffbcc8e84, type: 2}
+  Sheep: {fileID: 11400000, guid: d6bf67d5d2f3ab849ab553181cc9cc11, type: 2}
   deckViewer: {fileID: 251797549}
   ViewDeck: {fileID: 90165295}
 --- !u!1 &369066552
@@ -21310,7 +21312,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BossTesting: 0
-  whichBoss: 1
+  whichBoss: 2
   DevStageTest: 0
   whichStage: 3
   Smallhand: 1
