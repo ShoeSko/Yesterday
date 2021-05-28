@@ -4,6 +4,7 @@ using UnityEngine.UI;
 
 public class Bestiary : MonoBehaviour
 {
+    #region Variables
     private SaveSystem saving;
     [Header("All base Content")]
     [SerializeField] private List<GameObject> unitBestiaryList = new List<GameObject>();
@@ -15,8 +16,8 @@ public class Bestiary : MonoBehaviour
     [Header("Unit functions")]
     [SerializeField] private GameObject cardV2;
     [SerializeField] private GameObject cardButton;
-    [SerializeField] private GameObject nextButton;
-    [SerializeField] private GameObject lastButton;
+    [SerializeField] private GameObject nextButtonUnit;
+    [SerializeField] private GameObject lastButtonUnit;
 
 
     [SerializeField] private List<CardScript> unitCardList = new List<CardScript>();
@@ -25,7 +26,38 @@ public class Bestiary : MonoBehaviour
     private int lastDiscoveredUnitIndex;
     private int currentUnitCardIndex;
 
+    [Header("Beast functions")]
+    [SerializeField] private GameObject backButtonBeasts;
+    [SerializeField] private GameObject nextButtonBeasts;
+    [SerializeField] private GameObject lastButtonBeasts;
 
+    [SerializeField] private List<GameObject> beastLoreList = new List<GameObject>();
+    private int firstDiscovereBeastIndex;
+    private int lastDiscoveredBeastIndex;
+    private int currentBeastIndex;
+
+    [Header("Humanoid functions")]
+    [SerializeField] private GameObject backButtonHumanoid;
+    [SerializeField] private GameObject nextButtonHumanoid;
+    [SerializeField] private GameObject lastButtonHumanoid;
+
+    [SerializeField] private List<GameObject> humanoidLoreList = new List<GameObject>();
+    private int firstDiscovereHumanoidIndex;
+    private int lastDiscoveredHumanoidIndex;
+    private int currentHumanoidIndex;
+
+    [Header("Monstrosity functions")]
+    [SerializeField] private GameObject backButtonMonstrosity;
+    [SerializeField] private GameObject nextButtonMonstrosity;
+    [SerializeField] private GameObject lastButtonMonstrosity;
+
+    [SerializeField] private List<GameObject> monstrosityLoreList = new List<GameObject>();
+    private int firstDiscoveredMonstrosityIndex;
+    private int lastDiscoveredMonstrosityIndex;
+    private int currentMonstrosityIndex;
+
+    #endregion
+    #region Setup Bestiary
     private void Awake()
     {
         HideTheLore(); //Hides the lore by turning lore off.
@@ -35,6 +67,9 @@ public class Bestiary : MonoBehaviour
     {
         InitiateTheBestiary();
         CalculateUnitBestiarySlots();
+        CalculateBeastBestiarySlots();
+        CalculateHumanoidBestiarySlots();
+        CalculateMonstrosityBestiarySlots();
     }
 
     private void InitiateTheBestiary()
@@ -70,6 +105,7 @@ public class Bestiary : MonoBehaviour
             if (saving.data.beastList[index] == true)
             {
                 beastBestiaryList[index].GetComponent<Image>().color = Color.white;
+                beastBestiaryList[index].GetComponent<Button>().interactable = true;
             }
         }
     }
@@ -81,6 +117,7 @@ public class Bestiary : MonoBehaviour
             if(saving.data.humanoidList[index] == true)
             {
                 humanoidBestiaryList[index].GetComponent<Image>().color = Color.white;
+                humanoidBestiaryList[index].GetComponent<Button>().interactable = true;
             }
         }
     }
@@ -92,6 +129,7 @@ public class Bestiary : MonoBehaviour
             if (saving.data.monstrosityList[index] == true)
             {
                 monstrosityBestiaryList[index].GetComponent<Image>().color = Color.white;
+                monstrosityBestiaryList[index].GetComponent<Button>().interactable = true;
             }
         }
     }
@@ -115,27 +153,32 @@ public class Bestiary : MonoBehaviour
             unitBestiaryList[index].GetComponent<Button>().interactable = false;
         }
 
+        for (int index = 0; index < beastBestiaryList.Count; index++)
+        {
+            beastBestiaryList[index].GetComponent<Image>().color = Color.black;
+            beastBestiaryList[index].GetComponent<Button>().interactable = false;
+        }
+
         for (int index = 0; index < humanoidBestiaryList.Count; index++)
         {
             humanoidBestiaryList[index].GetComponent<Image>().color = Color.black;
+            humanoidBestiaryList[index].GetComponent<Button>().interactable = false;
         }
 
         for (int index = 0; index < monstrosityBestiaryList.Count; index++)
         {
             monstrosityBestiaryList[index].GetComponent<Image>().color = Color.black;
+            monstrosityBestiaryList[index].GetComponent<Button>().interactable = false;
         }
 
-        for (int index = 0; index < beastBestiaryList.Count; index++)
-        {
-            beastBestiaryList[index].GetComponent<Image>().color = Color.black;
-        }
+
 
         for (int index = 0; index < bossBestiaryList.Count; index++)
         {
             bossBestiaryList[index].GetComponent<Image>().color = Color.black;
         }
     }
-
+    #endregion
     #region Unit Functions
     private void CalculateUnitBestiarySlots()
     {
@@ -170,26 +213,26 @@ public class Bestiary : MonoBehaviour
     {
         cardV2.SetActive(true);
         cardButton.SetActive(true);
-        nextButton.SetActive(true);
-        lastButton.SetActive(true);
-        nextButton.GetComponent<Button>().interactable = true;
-        lastButton.GetComponent<Button>().interactable = true;
+        nextButtonUnit.SetActive(true);
+        lastButtonUnit.SetActive(true);
+        nextButtonUnit.GetComponent<Button>().interactable = true;
+        lastButtonUnit.GetComponent<Button>().interactable = true;
         currentUnitCardIndex = UnitIndex;
 
         if (firstDiscoveredUnitIndex == lastDiscoveredUnitIndex)
         {
-            nextButton.GetComponent<Button>().interactable = false;
-            lastButton.GetComponent<Button>().interactable = false;
+            nextButtonUnit.GetComponent<Button>().interactable = false;
+            lastButtonUnit.GetComponent<Button>().interactable = false;
         }
         else if(currentUnitCardIndex == firstDiscoveredUnitIndex) //Make this value work with actual library
         {
-            lastButton.GetComponent<Button>().interactable = false;
-            nextButton.GetComponent<Button>().interactable = true;
+            lastButtonUnit.GetComponent<Button>().interactable = false;
+            nextButtonUnit.GetComponent<Button>().interactable = true;
         }
         else if (currentUnitCardIndex == lastDiscoveredUnitIndex) //Make this value with actual library
         {
-            nextButton.GetComponent<Button>().interactable = false;
-            lastButton.GetComponent<Button>().interactable = true;
+            nextButtonUnit.GetComponent<Button>().interactable = false;
+            lastButtonUnit.GetComponent<Button>().interactable = true;
         }
 
         cardV2.GetComponent<CardDisplayer>().card = unitCardList[currentUnitCardIndex];
@@ -215,23 +258,23 @@ public class Bestiary : MonoBehaviour
 
         if (firstDiscoveredUnitIndex == lastDiscoveredUnitIndex)
         {
-            nextButton.GetComponent<Button>().interactable = false;
-            lastButton.GetComponent<Button>().interactable = false;
+            nextButtonUnit.GetComponent<Button>().interactable = false;
+            lastButtonUnit.GetComponent<Button>().interactable = false;
         }
         else if (currentUnitCardIndex == firstDiscoveredUnitIndex) //Make this value work with actual library
         {
-            lastButton.GetComponent<Button>().interactable = false;
-            nextButton.GetComponent<Button>().interactable = true;
+            lastButtonUnit.GetComponent<Button>().interactable = false;
+            nextButtonUnit.GetComponent<Button>().interactable = true;
         }
         else if (currentUnitCardIndex == lastDiscoveredUnitIndex) //Make this value with actual library
         {
-            nextButton.GetComponent<Button>().interactable = false;
-            lastButton.GetComponent<Button>().interactable = true;
+            nextButtonUnit.GetComponent<Button>().interactable = false;
+            lastButtonUnit.GetComponent<Button>().interactable = true;
         }
         else
         {
-            nextButton.GetComponent<Button>().interactable = true;
-            lastButton.GetComponent<Button>().interactable = true;
+            nextButtonUnit.GetComponent<Button>().interactable = true;
+            lastButtonUnit.GetComponent<Button>().interactable = true;
         }
 
         if(currentUnitCardIndex >= 20)
@@ -257,23 +300,23 @@ public class Bestiary : MonoBehaviour
 
         if (firstDiscoveredUnitIndex == lastDiscoveredUnitIndex)
         {
-            nextButton.GetComponent<Button>().interactable = false;
-            lastButton.GetComponent<Button>().interactable = false;
+            nextButtonUnit.GetComponent<Button>().interactable = false;
+            lastButtonUnit.GetComponent<Button>().interactable = false;
         }
         else if (currentUnitCardIndex == firstDiscoveredUnitIndex) //Make this value work with actual library
         {
-            lastButton.GetComponent<Button>().interactable = false;
-            nextButton.GetComponent<Button>().interactable = true;
+            lastButtonUnit.GetComponent<Button>().interactable = false;
+            nextButtonUnit.GetComponent<Button>().interactable = true;
         }
         else if (currentUnitCardIndex == lastDiscoveredUnitIndex) //Make this value with actual library
         {
-            nextButton.GetComponent<Button>().interactable = false;
-            lastButton.GetComponent<Button>().interactable = true;
+            nextButtonUnit.GetComponent<Button>().interactable = false;
+            lastButtonUnit.GetComponent<Button>().interactable = true;
         }
         else
         {
-            nextButton.GetComponent<Button>().interactable = true;
-            lastButton.GetComponent<Button>().interactable = true;
+            nextButtonUnit.GetComponent<Button>().interactable = true;
+            lastButtonUnit.GetComponent<Button>().interactable = true;
         }
 
         if(currentUnitCardIndex <= 19)
@@ -287,7 +330,104 @@ public class Bestiary : MonoBehaviour
         print("The first card is " + firstDiscoveredUnitIndex + " and the last card is " + lastDiscoveredUnitIndex + ". The current card is " + currentUnitCardIndex);
     }
     #endregion
+    #region Beast Functions
+    private void CalculateBeastBestiarySlots()
+    {
+        bool firstFound = false;
+        for (int index = 0; index < saving.data.beastList.Length; index++)
+        {
+            if (saving.data.beastList[index] == true)
+            {
+                if (firstFound == false)
+                {
+                    firstFound = true;
+                    firstDiscovereBeastIndex = index;
+                }
+            }
+        }
 
+        bool lastFound = false;
+        for (int index = saving.data.beastList.Length - 1; index >= 0; index--)
+        {
+            if (saving.data.beastList[index] == true)
+            {
+                if (lastFound == false)
+                {
+                    lastFound = true;
+                    lastDiscoveredBeastIndex = index;
+                }
+            }
+        }
+    }
+
+    #endregion
+    #region Humanoid Functions
+
+    private void CalculateHumanoidBestiarySlots()
+    {
+        bool firstFound = false;
+        for (int index = 0; index < saving.data.humanoidList.Length; index++)
+        {
+            if (saving.data.humanoidList[index] == true)
+            {
+                if (firstFound == false)
+                {
+                    firstFound = true;
+                    firstDiscovereHumanoidIndex = index;
+                }
+            }
+        }
+
+        bool lastFound = false;
+        for (int index = saving.data.humanoidList.Length - 1; index >= 0; index--)
+        {
+            if (saving.data.humanoidList[index] == true)
+            {
+                if (lastFound == false)
+                {
+                    lastFound = true;
+                    lastDiscoveredHumanoidIndex = index;
+                }
+            }
+        }
+    }
+
+    #endregion
+    #region Monstrosity Functions
+
+    private void CalculateMonstrosityBestiarySlots()
+    {
+        bool firstFound = false;
+        for (int index = 0; index < saving.data.monstrosityList.Length; index++)
+        {
+            if (saving.data.monstrosityList[index] == true)
+            {
+                if (firstFound == false)
+                {
+                    firstFound = true;
+                    firstDiscoveredMonstrosityIndex = index;
+                }
+            }
+        }
+
+        bool lastFound = false;
+        for (int index = saving.data.monstrosityList.Length - 1; index >= 0; index--)
+        {
+            if (saving.data.monstrosityList[index] == true)
+            {
+                if (lastFound == false)
+                {
+                    lastFound = true;
+                    lastDiscoveredMonstrosityIndex = index;
+                }
+            }
+        }
+    }
+
+    #endregion
+    #region Boss Functions
+
+    #endregion
     #region Cheat
     [ContextMenu("Meet the cheat")]
     private void MeetAllThePeople()
