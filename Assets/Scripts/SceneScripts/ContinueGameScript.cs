@@ -13,7 +13,7 @@ public class ContinueGameScript : MonoBehaviour
         if (FindObjectOfType<SaveSystem>())
         {
             saving = FindObjectOfType<SaveSystem>();
-            print(saving.data.lastScene);
+            //print(saving.data.lastScene);
         }
     }
 
@@ -31,13 +31,13 @@ public class ContinueGameScript : MonoBehaviour
         if(saving.data.lastScene == null) //If there is no last scene
         {
             GetComponent<Button>().interactable = false;
-            print("The is no save game to continue");
+            //print("The is no save game to continue");
         }
 
         if(saving.data.lastScene != null) //If there is a last scene
         {
             GetComponent<Button>().interactable = true;
-            print("The was a save game to continue");
+            //print("The was a save game to continue");
         }
     }
 
