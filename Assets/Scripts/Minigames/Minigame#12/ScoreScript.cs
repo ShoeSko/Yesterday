@@ -23,7 +23,6 @@ public class ScoreScript : MonoBehaviour
 
     [Header("Time Limit Minigame")]
     [SerializeField] private float minigameTimeLimit = 30f;
-    private bool timeIsUp;
 
     private void Start()
     {
@@ -92,7 +91,6 @@ public class ScoreScript : MonoBehaviour
     {
         yield return new WaitForSeconds(minigameTimeLimit);
 
-        timeIsUp = true;
         win();
     }
 }

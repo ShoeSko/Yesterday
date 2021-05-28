@@ -23,8 +23,18 @@ public class FirstRunOfGame : MonoBehaviour
         if (FindObjectOfType<SaveSystem>())
         {
             saving = FindObjectOfType<SaveSystem>();
+            TutorialToBePlayed();
             SetVolume();
             SetListSizes();
+            SetContinueValue();
+        }
+    }
+
+    private void TutorialToBePlayed()
+    {
+        if(saving.data.isFirstRun == false || reset)
+        {
+            saving.data.hasPlayedTutorial = false;
         }
     }
 
@@ -51,14 +61,13 @@ public class FirstRunOfGame : MonoBehaviour
             saving.data.monstrosityList = new bool[amountOfMonstrosities];
             saving.data.bossList = new bool[amountOfBosses];
         }
-
     }
 
     private void SetContinueValue()
     {
         if (saving.data.isFirstRun == false || reset) //If this is the first time the game is booted up / reset
         {
-            saving.data.lastScene = "";
+            saving.data.lastScene = null;
         }
 
     }

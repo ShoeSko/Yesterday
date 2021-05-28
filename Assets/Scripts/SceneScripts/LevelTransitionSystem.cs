@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -22,17 +21,17 @@ public class LevelTransitionSystem : MonoBehaviour
         NewCardHandScript.Stage++;
         Debug.Log(NewCardHandScript.Stage);
 
-        if (NewCardHandScript.Stage <= 4)
+        if (NewCardHandScript.Stage >= 4)
         {
             nextLevelName = "MainMenu";
-
             if (FindObjectOfType<SaveSystem>())
             {
-                FindObjectOfType<SaveSystem>().data.lastScene = "";
+                FindObjectOfType<SaveSystem>().data.lastScene = null;
             }
         }
         StartCoroutine(SceneFadeMechanic(nextLevelName));
     }
+
     public void GameOverButtonPress() // You lost. Straight to the main menu for a quick and easy reset.
     {
         string nextLevelName = "";
@@ -42,9 +41,8 @@ public class LevelTransitionSystem : MonoBehaviour
         nextLevelName = "MainMenu";
         if (FindObjectOfType<SaveSystem>())
         {
-            FindObjectOfType<SaveSystem>().data.lastScene = "";
+            FindObjectOfType<SaveSystem>().data.lastScene = null;
         }
-
         StartCoroutine(SceneFadeMechanic(nextLevelName));
     }
     public void LoadFirstMiniGame() //Sends you to the loading scene
@@ -63,7 +61,7 @@ public class LevelTransitionSystem : MonoBehaviour
         string nextLevelName = ""; //Remembers the name
 
         nextLevelName = "Minigame#" + MinigameSceneScript.scene1;
-        if (FindObjectOfType<SaveSystem>())
+        if (FindObjectOfType<SaveSystem>() && !MinigameSceneScript.Tutorial)
         {
             FindObjectOfType<SaveSystem>().data.lastScene = "Minigame#" + MinigameSceneScript.scene1;
         }
@@ -80,7 +78,7 @@ public class LevelTransitionSystem : MonoBehaviour
         {
             MinigameSceneScript.activeMinigame++;
             nextLevelName = "Minigame#" + MinigameSceneScript.scene2;
-            if (FindObjectOfType<SaveSystem>())
+            if (FindObjectOfType<SaveSystem>() && !MinigameSceneScript.Tutorial)
             {
                 FindObjectOfType<SaveSystem>().data.lastScene = "Minigame#" + MinigameSceneScript.scene2;
             }
@@ -89,7 +87,7 @@ public class LevelTransitionSystem : MonoBehaviour
         {
             MinigameSceneScript.activeMinigame++;
             nextLevelName= "Minigame#" + MinigameSceneScript.scene3;
-            if (FindObjectOfType<SaveSystem>())
+            if (FindObjectOfType<SaveSystem>() && !MinigameSceneScript.Tutorial)
             {
                 FindObjectOfType<SaveSystem>().data.lastScene = "Minigame#" + MinigameSceneScript.scene3;
             }
@@ -97,7 +95,7 @@ public class LevelTransitionSystem : MonoBehaviour
         else if (MinigameSceneScript.activeMinigame == 3)
         {
             nextLevelName = "CoreGame";
-            if (FindObjectOfType<SaveSystem>())
+            if (FindObjectOfType<SaveSystem>() && !MinigameSceneScript.Tutorial)
             {
                 FindObjectOfType<SaveSystem>().data.lastScene = "CoreGame";
             }
@@ -117,7 +115,7 @@ public class LevelTransitionSystem : MonoBehaviour
             {
                 MinigameSceneScript.activeMinigame++;
                 nextLevelName = "Minigame#" + MinigameSceneScript.scene2;
-                if (FindObjectOfType<SaveSystem>())
+                if (FindObjectOfType<SaveSystem>() && !MinigameSceneScript.Tutorial)
                 {
                     FindObjectOfType<SaveSystem>().data.lastScene = "Minigame#" + MinigameSceneScript.scene2;
                 }
@@ -126,7 +124,7 @@ public class LevelTransitionSystem : MonoBehaviour
             {
                 MinigameSceneScript.activeMinigame++;
                 nextLevelName = "Minigame#" + MinigameSceneScript.scene3;
-                if (FindObjectOfType<SaveSystem>())
+                if (FindObjectOfType<SaveSystem>() && !MinigameSceneScript.Tutorial)
                 {
                     FindObjectOfType<SaveSystem>().data.lastScene = "Minigame#" + MinigameSceneScript.scene3;
                 }
@@ -134,7 +132,7 @@ public class LevelTransitionSystem : MonoBehaviour
             else if (MinigameSceneScript.activeMinigame == 3)
             {
                 nextLevelName = "CoreGame";
-                if (FindObjectOfType<SaveSystem>())
+                if (FindObjectOfType<SaveSystem>() && !MinigameSceneScript.Tutorial)
                 {
                     FindObjectOfType<SaveSystem>().data.lastScene = "CoreGame";
                 }
@@ -143,7 +141,7 @@ public class LevelTransitionSystem : MonoBehaviour
         else//Go to card reward screen
         {
             nextLevelName = "CardReward";
-            if (FindObjectOfType<SaveSystem>())
+            if (FindObjectOfType<SaveSystem>() && !MinigameSceneScript.Tutorial)
             {
                 FindObjectOfType<SaveSystem>().data.lastScene = "CardReward";
             }
@@ -187,6 +185,11 @@ public class LevelTransitionSystem : MonoBehaviour
     private void RemoveButton()
     {
         nextLevelButton.GetComponent<Image>().color = hideButtonColour;
+    }
+
+    private void OnDestroy()
+    {
+        Debug.Log("Level Transition system was destroyed");
     }
 }
 

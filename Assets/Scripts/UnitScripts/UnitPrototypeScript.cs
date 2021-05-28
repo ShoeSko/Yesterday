@@ -237,25 +237,30 @@ public class UnitPrototypeScript : MonoBehaviour
         //print("Is now instakill");
     }
 
-    //private void OnCollisionEnter2D(Collision2D collision)
-    //{
-    //        print("Has had a collision");
-    //    if(this.gameObject.tag == "InstaKill")
-    //    {
-    //        print("Was insta kill");
-    //        if(collision.gameObject.layer == punchingTargetLayer)
-    //        {
-    //            print("Got the kill inn");
-    //            if (!hasInstakilled)
-    //            {
-    //                HandDeath();
-    //                hasInstakilled = true;
-    //                Destroy(collision.gameObject);
-    //                Destroy(this.gameObject);
-    //            }
-    //        }
-    //    }
-    //}
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        print("Has had a collision");
+        if (this.gameObject.tag == "InstaKill")
+        {
+            print("Was insta kill");
+            if (collision.gameObject.GetComponent<BasicEnemyMovement>() || collision.gameObject.GetComponent<GreedyOpportunity>())
+            {
+                print("Got the kill inn");
+                if (!hasInstakilled)
+                {
+                    HandDeath();
+                    hasInstakilled = true;
+                    Destroy(collision.gameObject);
+                    Destroy(this.gameObject);
+
+                    if (collision.gameObject.GetComponent<GreedyOpportunity>())
+                    {
+                        collision.gameObject.GetComponent<GreedyOpportunity>().isDead = true;
+                    }
+                }
+            }
+        }
+    }
     private void AllyAim() //Special Aim for targeting allies specifically.
     {
         originForAllyAim = transform.position;

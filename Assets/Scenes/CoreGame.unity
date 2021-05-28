@@ -16435,6 +16435,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelTransition: {fileID: 646080275}
+  playButton: {fileID: 0}
+  tutorialButton: {fileID: 0}
+  tutorialPlayButton: {fileID: 0}
 --- !u!4 &1164114887
 Transform:
   m_ObjectHideFlags: 0
@@ -21213,6 +21216,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 184784393}
     m_Modifications:
+    - target: {fileID: 8446718103864775964, guid: b9de4be1b645a124493f815b8a652925, type: 3}
+      propertyPath: CorporateBoss
+      value: 
+      objectReference: {fileID: 1646560896}
     - target: {fileID: 8446718103864775965, guid: b9de4be1b645a124493f815b8a652925, type: 3}
       propertyPath: m_Name
       value: OverlordHand1
@@ -28892,6 +28899,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: MinigameSceneScript, Assembly-CSharp
         m_MethodName: RandomMinigameScene
         m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2068675839}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

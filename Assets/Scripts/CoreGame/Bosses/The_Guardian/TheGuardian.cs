@@ -13,6 +13,7 @@ public class TheGuardian : MonoBehaviour
     public GameObject BossHealthbar;
     public Slider BossHealth;
     public GameObject WinCondition;
+    private bool hasBeenDefeated;
 
     //setup
     private Rigidbody2D rb;
@@ -143,7 +144,11 @@ public class TheGuardian : MonoBehaviour
 
         if(IsDead == true)
         {
-            WinCondition.GetComponent<Victory>().Win();
+            if (!hasBeenDefeated)
+            {
+                WinCondition.GetComponent<Victory>().Win();
+                hasBeenDefeated = true;
+            }
         }
     }
 

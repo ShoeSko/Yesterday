@@ -22,6 +22,10 @@ public class MinigameSceneScript : MonoBehaviour
 
     [SerializeField] private LevelTransitionSystem levelTransition;
 
+    [SerializeField] private GameObject playButton;
+    [SerializeField] private GameObject tutorialButton;
+    [SerializeField] private GameObject tutorialPlayButton;
+
     
     private void Start()
     {
@@ -30,6 +34,8 @@ public class MinigameSceneScript : MonoBehaviour
         {
         MinigameMusic.SetActive(false);
         }
+
+        CheckIfTutorialHasRun();
     }
 
     public void RandomMinigameScene() //Activate this to start a random scene within the list of minigames
@@ -51,10 +57,41 @@ public class MinigameSceneScript : MonoBehaviour
 
         MinigameMusic.SetActive(true);
         DontDestroyOnLoad(MinigameMusic);
-
+        FirstTimeTutorial(); //Stores in the save that tutorial has been started once.
         levelTransition.LoadFirstMiniGame();
     }
 
+    private void FirstTimeTutorial()
+    {
+        if (FindObjectOfType<SaveSystem>())
+        {
+            SaveSystem saving = FindObjectOfType<SaveSystem>();
+            if (saving.data.hasPlayedTutorial == false)
+            {
+                saving.data.hasPlayedTutorial = true;
+            }
+        }
+    }
+
+    private void CheckIfTutorialHasRun()
+    {
+        if (FindObjectOfType<SaveSystem>() && playButton)
+        {
+            SaveSystem saving = FindObjectOfType<SaveSystem>();
+            if (saving.data.hasPlayedTutorial == false)
+            {
+                playButton.SetActive(false);
+                tutorialButton.SetActive(false);
+                tutorialPlayButton.SetActive(true);
+            }
+            if (saving.data.hasPlayedTutorial == true)
+            {
+                playButton.SetActive(true);
+                tutorialButton.SetActive(true);
+                tutorialPlayButton.SetActive(false);
+            }
+        }
+    }
     IEnumerator minigameRandomizer()
     {
         for (int randomize = 0; randomize < 1; randomize++)

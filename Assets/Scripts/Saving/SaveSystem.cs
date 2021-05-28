@@ -76,6 +76,7 @@ public class SaveSystem : MonoBehaviour
 public class Data //Serializable class of data. All inf to be saved should be here.
 {
     public bool isFirstRun;
+    public bool hasPlayedTutorial;
 
     public float masterVolLevel;
     public float musicVolLevel;
@@ -93,9 +94,11 @@ public class Data //Serializable class of data. All inf to be saved should be he
     //public int enemiesKilled;
     //public int cardsSummoned;
 
-    public Data(bool isFirstRun, float masterVolLevel, float musicVolLevel, float sfxVolLevel, bool[] unitList, bool[] beastList, bool[] humanoidList, bool[] monstrosityList, bool[] bossList, string lastScene)
+    public Data(bool isFirstRun, float masterVolLevel, float musicVolLevel, float sfxVolLevel, bool[] unitList, bool[] beastList, bool[] humanoidList, bool[] monstrosityList, bool[] bossList, string lastScene, bool hasPlayedTutorial)
     {
+        //First Run
         this.isFirstRun = isFirstRun;
+        this.hasPlayedTutorial = hasPlayedTutorial;
          //Sound Settings
         this.masterVolLevel = masterVolLevel;
         this.musicVolLevel = musicVolLevel;

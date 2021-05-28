@@ -38,6 +38,7 @@ public class EggCollectionSpawning : MonoBehaviour
     public GameObject blackstar1;
     public GameObject blackstar2;
     public GameObject blackstar3;
+    public GameObject FadeboxUI;
 
     [SerializeField] private GameObject nextSceneButton; //The button to reach next scene
     [SerializeField] private LevelTransitionSystem levelTransitioner; //Refrence to give the score of the game.
@@ -68,6 +69,7 @@ public class EggCollectionSpawning : MonoBehaviour
         blackstar1.SetActive(false);
         blackstar2.SetActive(false);
         blackstar3.SetActive(false);
+        FadeboxUI.SetActive(false);
 
         if (MinigameSceneScript.Tutorial == true)
         {
@@ -235,6 +237,7 @@ public class EggCollectionSpawning : MonoBehaviour
                 CardReward.Stars = 3;
                 minigameScore = 3;
             }
+            FadeboxUI.SetActive(true);
         }
 
         if (delay < 2 && delay > 1)

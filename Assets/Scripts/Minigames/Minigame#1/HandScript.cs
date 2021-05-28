@@ -22,6 +22,7 @@ public class HandScript : MonoBehaviour
     public GameObject Blackstar1;
     public GameObject Blackstar2;
     public GameObject Blackstar3;
+    public GameObject FadeboxUI;
 
     [SerializeField] private GameObject nextSceneButton; //The button to reach next scene
     [SerializeField] private LevelTransitionSystem levelTransitioner; //Refrence to give the score of the game.
@@ -38,8 +39,10 @@ public class HandScript : MonoBehaviour
         star1.SetActive(false);
         star2.SetActive(false);
         star3.SetActive(false);
+        FadeboxUI.SetActive(false);
         Blackstar1.SetActive(false);
         Blackstar2.SetActive(false);
+        Blackstar3.SetActive(false);
         Blackstar3.SetActive(false);
 
         score = 0;
@@ -107,6 +110,8 @@ public class HandScript : MonoBehaviour
                 Blackstar3.SetActive(true);
                 //0 stars
             }
+            FadeboxUI.SetActive(true);
+
         levelTransitioner.currentMinigameScore = score;
         nextSceneButton.SetActive(true);
         }
