@@ -17,6 +17,7 @@ public class GoalCounter : MonoBehaviour
     public GameObject blackstar1;
     public GameObject blackstar2;
     public GameObject blackstar3;
+    public GameObject FadeboxUI;
 
     [SerializeField] private GameObject nextSceneButton; //The button to reach next scene
     [SerializeField] private LevelTransitionSystem levelTransitioner; //Refrence to give the score of the game.
@@ -38,6 +39,7 @@ public class GoalCounter : MonoBehaviour
         blackstar1.SetActive(false);
         blackstar2.SetActive(false);
         blackstar3.SetActive(false);
+        FadeboxUI.SetActive(false);
 
         StartCoroutine(TimerForMinigame());
     }
@@ -93,6 +95,7 @@ public class GoalCounter : MonoBehaviour
                 //0 stars
                 score = 0;
             }
+            FadeboxUI.SetActive(true);
             nextSceneButton.SetActive(true);
             levelTransitioner.currentMinigameScore = score;
         }
