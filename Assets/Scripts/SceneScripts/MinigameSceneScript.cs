@@ -75,7 +75,7 @@ public class MinigameSceneScript : MonoBehaviour
 
     private void CheckIfTutorialHasRun()
     {
-        if (FindObjectOfType<SaveSystem>())
+        if (FindObjectOfType<SaveSystem>() && playButton)
         {
             SaveSystem saving = FindObjectOfType<SaveSystem>();
             if (saving.data.hasPlayedTutorial == false)
