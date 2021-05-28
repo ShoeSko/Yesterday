@@ -18,12 +18,15 @@ public class PillowScript : MonoBehaviour
 
     public float timer;
     private bool iWon;
-    private float countdown;
 
     [Header("Level Transition")]
     [SerializeField] private GameObject nextSceneButton; //The button to reach next scene
     [SerializeField] private LevelTransitionSystem levelTransitioner; //Refrence to give the score of the game.  
     private int score;
+
+    [Header("Time Limit Minigame")]
+    [SerializeField] private float minigameTimeLimit = 30f;
+    private bool timeIsUp;
 
     private void Start()
     {
@@ -33,6 +36,8 @@ public class PillowScript : MonoBehaviour
         blackstar1.SetActive(false);
         blackstar2.SetActive(false);
         blackstar3.SetActive(false);
+
+        StartCoroutine(TimerForMinigame());
     }
 
     public void MakeBed()
@@ -54,9 +59,8 @@ public class PillowScript : MonoBehaviour
             iWon = true;
         }
 
-        if (iWon)
+        if (iWon || timeIsUp)
         {
-            countdown += Time.deltaTime;
 
             if(timer <= 9)//3 stars between 0-7 sec
             {
@@ -92,5 +96,12 @@ public class PillowScript : MonoBehaviour
             nextSceneButton.SetActive(true);
             levelTransitioner.currentMinigameScore = score;
         }
+    }
+
+    IEnumerator TimerForMinigame()
+    {
+        yield return new WaitForSeconds(minigameTimeLimit);
+
+        timeIsUp = true;
     }
 }

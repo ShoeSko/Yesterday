@@ -3336,6 +3336,7 @@ MonoBehaviour:
   Blackstar3: {fileID: 564899158}
   nextSceneButton: {fileID: 546377912}
   levelTransitioner: {fileID: 546377911}
+  minigameTimeLimit: 30
 --- !u!61 &2018425324
 BoxCollider2D:
   m_ObjectHideFlags: 0

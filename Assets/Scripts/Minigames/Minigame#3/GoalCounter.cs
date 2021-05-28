@@ -22,6 +22,10 @@ public class GoalCounter : MonoBehaviour
     [SerializeField] private LevelTransitionSystem levelTransitioner; //Refrence to give the score of the game.
     private int score;
 
+    [Header("Time Limit Minigame")]
+    [SerializeField] private float minigameTimeLimit = 30f;
+    private bool timeIsUp;
+
     public void Start()
     {
         counter = 0;
@@ -34,6 +38,8 @@ public class GoalCounter : MonoBehaviour
         blackstar1.SetActive(false);
         blackstar2.SetActive(false);
         blackstar3.SetActive(false);
+
+        StartCoroutine(TimerForMinigame());
     }
     public void Update()
     {
@@ -47,7 +53,7 @@ public class GoalCounter : MonoBehaviour
             counter++;
         }
 
-        if (win)//when you have pressed all 4 cow tits:
+        if (win || timeIsUp)//when you have pressed all 4 cow tits:
         {
             text.SetActive(true);//*show the win screen text
             objective.SetActive(false);
@@ -90,5 +96,12 @@ public class GoalCounter : MonoBehaviour
             nextSceneButton.SetActive(true);
             levelTransitioner.currentMinigameScore = score;
         }
+    }
+
+    IEnumerator TimerForMinigame()
+    {
+        yield return new WaitForSeconds(minigameTimeLimit);
+
+        timeIsUp = true;
     }
 }

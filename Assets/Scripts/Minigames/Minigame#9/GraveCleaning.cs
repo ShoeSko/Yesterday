@@ -29,6 +29,10 @@ public class GraveCleaning : MonoBehaviour
     [SerializeField] private LevelTransitionSystem levelTransitioner; //Refrence to give the score of the game.  
     private int minigameScore;
 
+    [Header("Time Limit Minigame")]
+    [SerializeField] private float minigameTimeLimit = 30f;
+    private bool timeIsUp;
+
     private void Start()
     {
         score = 0;
@@ -51,13 +55,15 @@ public class GraveCleaning : MonoBehaviour
             GameObject leafObject = Instantiate(leaf);
             leafObject.transform.position = spawnLocation;
             leafObject.transform.rotation = Quaternion.Euler(0, 0, randomRotation);
-        }       
+        }
+
+        StartCoroutine(TimerForMinigame());
     }
 
     private void Update()
     {
 
-        if(score == LeavesToSpawn)
+        if(score == LeavesToSpawn || timeIsUp)
         {
             if (timer <= 3)
             {
@@ -97,5 +103,12 @@ public class GraveCleaning : MonoBehaviour
             timer += Time.deltaTime;
 
 
+    }
+
+    IEnumerator TimerForMinigame()
+    {
+        yield return new WaitForSeconds(minigameTimeLimit);
+
+        timeIsUp = true;
     }
 }

@@ -31,6 +31,10 @@ public class fallingEggs : MonoBehaviour
     [SerializeField] private LevelTransitionSystem levelTransitioner; //Refrence to give the score of the game.  
     private int score;
 
+    [Header("Time Limit Minigame")]
+    [SerializeField] private float minigameTimeLimit = 30f;
+    private bool timeIsUp;
+
     public void Start()
     {
         collectedEggs = 0;
@@ -42,6 +46,8 @@ public class fallingEggs : MonoBehaviour
         blackstar3.SetActive(false);
 
         MakeItRain = true;
+
+        StartCoroutine(TimerForMinigame());
     }
 
     IEnumerator itsRainingEgg()//activate spawning coroutine for falling eggs
@@ -75,7 +81,7 @@ public class fallingEggs : MonoBehaviour
             countdown();
         }
 
-        if (timer >= 4)//countdown for how long the game lasts
+        if (timer >= 4 || timeIsUp)//countdown for how long the game lasts
             win();
     }
 
@@ -142,5 +148,12 @@ public class fallingEggs : MonoBehaviour
     private void countdown()
     {
         timer += Time.deltaTime;
+    }
+
+    IEnumerator TimerForMinigame()
+    {
+        yield return new WaitForSeconds(minigameTimeLimit);
+
+        timeIsUp = true;
     }
 }

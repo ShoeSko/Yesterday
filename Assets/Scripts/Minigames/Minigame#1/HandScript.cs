@@ -27,6 +27,9 @@ public class HandScript : MonoBehaviour
     [SerializeField] private LevelTransitionSystem levelTransitioner; //Refrence to give the score of the game.
     private int score;
 
+    [Header("Time Limit Minigame")]
+    [SerializeField] private float minigameTimeLimit = 30f;
+    private bool timeIsUp;
 
     private void Start()
     {
@@ -40,6 +43,8 @@ public class HandScript : MonoBehaviour
         Blackstar3.SetActive(false);
 
         score = 0;
+
+        StartCoroutine(TimerForMinigame());
     }
     private void Update()
     {
@@ -62,7 +67,7 @@ public class HandScript : MonoBehaviour
 #endif
         }
 
-        if (Boop)//when the hand touches the nose, add blush
+        if (Boop || timeIsUp)//when the hand touches the nose, add blush
         {
             text.SetActive(true);
             Objective.SetActive(false);
@@ -119,5 +124,12 @@ public class HandScript : MonoBehaviour
             boopSound.Play();
             Boop = true;
         }
+    }
+
+    IEnumerator TimerForMinigame()
+    {
+        yield return new WaitForSeconds(minigameTimeLimit);
+
+        timeIsUp = true;
     }
 }

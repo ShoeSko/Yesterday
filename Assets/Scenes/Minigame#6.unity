@@ -190,6 +190,7 @@ MonoBehaviour:
   SpeechBubble: {fileID: 1200544324}
   ContinueText: {fileID: 1876244633}
   objective: {fileID: 1523724015}
+  minigameTimeLimit: 30
 --- !u!212 &47159880
 SpriteRenderer:
   m_ObjectHideFlags: 0

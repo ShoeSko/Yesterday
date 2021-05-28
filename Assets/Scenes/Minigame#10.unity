@@ -2241,6 +2241,7 @@ MonoBehaviour:
   - {fileID: 1103703800}
   - {fileID: 1243756101}
   - {fileID: 1836484755}
+  minigameTimeLimit: 30
 --- !u!114 &1292562024
 MonoBehaviour:
   m_ObjectHideFlags: 0

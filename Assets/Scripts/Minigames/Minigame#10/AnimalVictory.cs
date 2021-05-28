@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -34,7 +35,9 @@ public class AnimalVictory : MonoBehaviour
     public List<GameObject> Texts = new List<GameObject>();
     private int Text;
 
-
+    [Header("Time Limit Minigame")]
+    [SerializeField] private float minigameTimeLimit = 30f;
+    private bool timeIsUp;
 
     private void Awake()
     {
@@ -69,6 +72,8 @@ public class AnimalVictory : MonoBehaviour
         }
         else
             GameStarted = true;
+
+        StartCoroutine(TimerForMinigame());
     }
     private void Update()
     {
@@ -108,7 +113,7 @@ public class AnimalVictory : MonoBehaviour
         if(_animalPensFilled != 4)
             scoreTimer += Time.deltaTime;
 
-        if (_animalPensFilled == 4)
+        if (_animalPensFilled == 4 || timeIsUp)
         {
             if(MinigameSceneScript.Tutorial == false)
             {
@@ -183,5 +188,12 @@ public class AnimalVictory : MonoBehaviour
     private void OnDestroy()
     {
         _animalPensFilled = 0; //Resets the game
+    }
+
+    IEnumerator TimerForMinigame()
+    {
+        yield return new WaitForSeconds(minigameTimeLimit);
+
+        timeIsUp = true;
     }
 }

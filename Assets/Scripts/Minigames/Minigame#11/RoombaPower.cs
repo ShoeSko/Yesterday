@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -51,6 +52,10 @@ public class RoombaPower : MonoBehaviour
     [Header("Scene Transition")]
     [SerializeField] private GameObject nextSceneButton; //The button to reach next scene
     [SerializeField] private LevelTransitionSystem levelTransitioner; //Refrence to give the score of the game.  
+
+    [Header("Time Limit Minigame")]
+    [SerializeField] private float minigameTimeLimit = 30f;
+    private bool timeIsUp;
     #endregion
 
     private void Start()
@@ -69,6 +74,8 @@ public class RoombaPower : MonoBehaviour
         {
             stars[i].SetActive(false);
         }
+
+        StartCoroutine(TimerForMinigame());
     }
 
     private void FirstLineInitialization()
@@ -91,7 +98,7 @@ public class RoombaPower : MonoBehaviour
 
         WhichSwitch();
 
-        if (win)
+        if (win || timeIsUp)
         {
             nextSceneButton.SetActive(true);
             levelTransitioner.currentMinigameScore = score;
@@ -153,7 +160,7 @@ public class RoombaPower : MonoBehaviour
 
     private void RoombaTime()
     {
-        if (!thirdSwitch)
+        if (!thirdSwitch || timeIsUp)
         {
             win = true;
             if (scoreTimer <= star1Time)//define score for this minigame
@@ -236,4 +243,12 @@ public class RoombaPower : MonoBehaviour
         connection3[randomiser2].GetComponent<Animator>().enabled = true;
     }
     #endregion
+
+    IEnumerator TimerForMinigame()
+    {
+        yield return new WaitForSeconds(minigameTimeLimit);
+
+        timeIsUp = true;
+        RoombaTime();
+    }
 }

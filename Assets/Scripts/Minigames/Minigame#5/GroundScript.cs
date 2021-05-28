@@ -28,6 +28,10 @@ public class GroundScript : MonoBehaviour
     [SerializeField] private GameObject nextSceneButton; //The button to reach next scene
     [SerializeField] private LevelTransitionSystem levelTransitioner; //Refrence to give the score of the game.  
 
+    [Header("Time Limit Minigame")]
+    [SerializeField] private float minigameTimeLimit = 30f;
+    private bool timeIsUp;
+
     void Start()
     {
         win = false;
@@ -41,6 +45,8 @@ public class GroundScript : MonoBehaviour
         blackstar1.SetActive(false);
         blackstar2.SetActive(false);
         blackstar3.SetActive(false);
+
+        StartCoroutine(TimerForMinigame());
     }
 
     void Update()
@@ -76,7 +82,7 @@ public class GroundScript : MonoBehaviour
             jumpDelay = 0;
         }
 
-        if (win)
+        if (win || timeIsUp)
         {
             Destroy(RunningSound);
             if(score == 3)
@@ -110,5 +116,12 @@ public class GroundScript : MonoBehaviour
             nextSceneButton.SetActive(true);
             levelTransitioner.currentMinigameScore = score;
         }
+    }
+
+    IEnumerator TimerForMinigame()
+    {
+        yield return new WaitForSeconds(minigameTimeLimit);
+
+        timeIsUp = true;
     }
 }

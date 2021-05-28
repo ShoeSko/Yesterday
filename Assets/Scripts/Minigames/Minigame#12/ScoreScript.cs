@@ -21,6 +21,10 @@ public class ScoreScript : MonoBehaviour
     [SerializeField] private LevelTransitionSystem levelTransitioner; //Refrence to give the score of the game.  
     private int score;
 
+    [Header("Time Limit Minigame")]
+    [SerializeField] private float minigameTimeLimit = 30f;
+    private bool timeIsUp;
+
     private void Start()
     {
         star1.SetActive(false);
@@ -29,6 +33,8 @@ public class ScoreScript : MonoBehaviour
         blackstar1.SetActive(false);
         blackstar2.SetActive(false);
         blackstar3.SetActive(false);
+
+        StartCoroutine(TimerForMinigame());
     }
 
     private void Update()
@@ -80,5 +86,13 @@ public class ScoreScript : MonoBehaviour
             blackstar2.SetActive(true);
             blackstar3.SetActive(true);
         }
+    }
+
+    IEnumerator TimerForMinigame()
+    {
+        yield return new WaitForSeconds(minigameTimeLimit);
+
+        timeIsUp = true;
+        win();
     }
 }

@@ -810,6 +810,7 @@ MonoBehaviour:
   score: 0
   nextSceneButton: {fileID: 252648900}
   levelTransitioner: {fileID: 252648899}
+  minigameTimeLimit: 30
 --- !u!1 &796025221
 GameObject:
   m_ObjectHideFlags: 0

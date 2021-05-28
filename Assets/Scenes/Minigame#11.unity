@@ -1965,6 +1965,7 @@ MonoBehaviour:
   roombaSpeed: 2
   nextSceneButton: {fileID: 554665267}
   levelTransitioner: {fileID: 554665266}
+  minigameTimeLimit: 30
 --- !u!1 &691788323
 GameObject:
   m_ObjectHideFlags: 0

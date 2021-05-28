@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -51,6 +52,10 @@ public class WateringCan : MonoBehaviour
 
     private bool GameStarted;
 
+    [Header("Time Limit Minigame")]
+    [SerializeField] private float minigameTimeLimit = 30f;
+    private bool timeIsUp;
+
     private void Start()
     {
         starLenght = stars.Count;
@@ -70,10 +75,13 @@ public class WateringCan : MonoBehaviour
             ContinueText.SetActive(true);
         }
         waterMeter.maxValue = wateringTimeNeeded; //Makes sure the meter has the same max value as the watering should occur.
+
+        StartCoroutine(TimerForMinigame());
     }
 
     private void Update()
     {
+
         if(GameStarted == true)
         {
             if (!watered)
@@ -132,8 +140,9 @@ public class WateringCan : MonoBehaviour
         }
         else { Water.enableEmission = false; } //Turns of emission when not watering plants (Very visual when you are doing it correctly)
 
-        if (wateringTimeNeeded <= 0)
+        if (wateringTimeNeeded <= 0 || timeIsUp)
         {
+            print("I do stuff");
             WateredPlants();
         }
     }
@@ -237,5 +246,15 @@ public class WateringCan : MonoBehaviour
         else if (Input.GetKey(KeyCode.D))//rotate right
             wateringTrans.Rotate(-rotationalDirection * (rotationsSpeed * Time.deltaTime));
 #endif
+    }
+
+    IEnumerator TimerForMinigame()
+    {
+        yield return new WaitForSeconds(minigameTimeLimit);
+
+        timeIsUp = true;
+        watered = true;
+
+        WateredPlants();
     }
 }

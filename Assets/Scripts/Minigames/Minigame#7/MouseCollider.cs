@@ -20,6 +20,11 @@ public class MouseCollider : MonoBehaviour
     [SerializeField] private GameObject nextSceneButton; //The button to reach next scene
     [SerializeField] private LevelTransitionSystem levelTransitioner; //Refrence to give the score of the game.  
     private int gameScore;
+
+    [Header("Time Limit Minigame")]
+    [SerializeField] private float minigameTimeLimit = 30f;
+    private bool timeIsUp;
+
     void Start()
     {
 
@@ -29,6 +34,8 @@ public class MouseCollider : MonoBehaviour
         blackstar1.SetActive(false);
         blackstar2.SetActive(false);
         blackstar3.SetActive(false);
+
+        StartCoroutine(TimerForMinigame());
     }
     void Update()
     {
@@ -36,7 +43,7 @@ public class MouseCollider : MonoBehaviour
             ScoreTimer += Time.deltaTime;//Overall timer for score
 
 
-        if (score == 3)//Win Condition
+        if (score == 3 || timeIsUp)//Win Condition
         {
 
             if (ScoreTimer <= 14)//3 stars
@@ -74,5 +81,12 @@ public class MouseCollider : MonoBehaviour
             levelTransitioner.currentMinigameScore = gameScore;
 
         }
+    }
+
+    IEnumerator TimerForMinigame()
+    {
+        yield return new WaitForSeconds(minigameTimeLimit);
+
+        timeIsUp = true;
     }
 }

@@ -51,6 +51,10 @@ public class EggCollectionSpawning : MonoBehaviour
     public GameObject continueText;
     private bool gameHasStarted;
 
+    [Header("Time Limit Minigame")]
+    [SerializeField] private float minigameTimeLimit = 30f;
+    private bool timeIsUp;
+
     void Start()
     {
         //Prep
@@ -76,6 +80,8 @@ public class EggCollectionSpawning : MonoBehaviour
         }
         else
             GameStarted = true;
+
+        StartCoroutine(TimerForMinigame());
     }
 
     IEnumerator EggSpawner()
@@ -176,7 +182,7 @@ public class EggCollectionSpawning : MonoBehaviour
         if (eggsSpawned == eggSpawnAmount)
             delay += Time.deltaTime;
 
-        if(delay >= 2)
+        if(delay >= 2 || timeIsUp)
         {
             if(MinigameSceneScript.Tutorial == false)
             {
@@ -260,5 +266,12 @@ public class EggCollectionSpawning : MonoBehaviour
                 gameHasStarted = false;
             }
         }
+    }
+
+    IEnumerator TimerForMinigame()
+    {
+        yield return new WaitForSeconds(minigameTimeLimit);
+
+        timeIsUp = true;
     }
 }
