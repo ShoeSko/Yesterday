@@ -35,11 +35,6 @@ public class FirstRunOfGame : MonoBehaviour
         if(saving.data.isFirstRun == false || reset)
         {
             saving.data.hasPlayedTutorial = false;
-
-            if (reset)
-            {
-                reset = false;
-            }
         }
     }
 
