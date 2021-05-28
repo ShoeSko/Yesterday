@@ -359,14 +359,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   data:
     isFirstRun: 0
-    masterVolLevel: 1
-    musicVolLevel: 1
-    sfxVolLevel: 1
+    masterVolLevel: 0.5
+    musicVolLevel: 0.5
+    sfxVolLevel: 0.5
     unitList: 
     beastList: 
     humanoidList: 
     monstrosityList: 
     bossList: 
+    lastScene: 
 --- !u!4 &769017276
 Transform:
   m_ObjectHideFlags: 0
