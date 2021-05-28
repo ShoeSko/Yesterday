@@ -23,6 +23,7 @@ public class FirstRunOfGame : MonoBehaviour
         if (FindObjectOfType<SaveSystem>())
         {
             saving = FindObjectOfType<SaveSystem>();
+            TutorialToBePlayed();
             SetVolume();
             SetListSizes();
             SetContinueValue();
@@ -34,6 +35,7 @@ public class FirstRunOfGame : MonoBehaviour
         if(saving.data.isFirstRun == false || reset)
         {
             saving.data.hasPlayedTutorial = false;
+
             if (reset)
             {
                 reset = false;
