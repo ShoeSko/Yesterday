@@ -29,6 +29,18 @@ public class FirstRunOfGame : MonoBehaviour
         }
     }
 
+    private void TutorialToBePlayed()
+    {
+        if(saving.data.isFirstRun == false || reset)
+        {
+            saving.data.hasPlayedTutorial = false;
+            if (reset)
+            {
+                reset = false;
+            }
+        }
+    }
+
     private void SetVolume()
     {
         if (saving.data.isFirstRun == false || reset) //If this is the first time the game is booted up / reset
