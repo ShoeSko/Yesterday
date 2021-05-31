@@ -1,12 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class ScoreScript : MonoBehaviour
 {
     private bool iWon;
-    private float timer;
     public float scoreTimer;
 
     public GameObject star1;
