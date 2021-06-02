@@ -12,6 +12,9 @@ public class GraveCleaning : MonoBehaviour
     public GameObject blackstar1;
     public GameObject blackstar2;
     public GameObject blackstar3;
+    public GameObject WinText;
+    public GameObject ObjText;
+    public GameObject FadeboxUI;
 
     public int score;//how many leaves have been removed
     private float timer;
@@ -43,6 +46,9 @@ public class GraveCleaning : MonoBehaviour
         blackstar1.SetActive(false);
         blackstar2.SetActive(false);
         blackstar3.SetActive(false);
+        ObjText.SetActive(true);
+        WinText.SetActive(false);
+        FadeboxUI.SetActive(false);
 
         for (int spawnedLeaves = 0; spawnedLeaves < LeavesToSpawn; spawnedLeaves++)//spawn leaves randomly on the grave
         {
@@ -95,6 +101,9 @@ public class GraveCleaning : MonoBehaviour
                 blackstar2.SetActive(true);
                 blackstar3.SetActive(true);
             }
+                ObjText.SetActive(false);
+                WinText.SetActive(true);
+                FadeboxUI.SetActive(true);
 
             nextSceneButton.SetActive(true);
             levelTransitioner.currentMinigameScore = minigameScore;

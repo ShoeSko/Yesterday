@@ -29,6 +29,9 @@ public class WateringCan : MonoBehaviour
     public GameObject blackstar1;
     public GameObject blackstar2;
     public GameObject blackstar3;
+    public GameObject WinText;
+    public GameObject ObjText;
+    public GameObject FadeboxUI;
     private int starLenght;//How long is the star list
     private float scoreTimer; //How long it takes to do the game
     public int star1Time;
@@ -74,6 +77,10 @@ public class WateringCan : MonoBehaviour
             SpeechBubble.SetActive(true);
             ContinueText.SetActive(true);
         }
+        ObjText.SetActive(true);
+        WinText.SetActive(false);
+        FadeboxUI.SetActive(false);
+
         waterMeter.maxValue = wateringTimeNeeded; //Makes sure the meter has the same max value as the watering should occur.
 
         StartCoroutine(TimerForMinigame());
@@ -196,6 +203,10 @@ public class WateringCan : MonoBehaviour
                 blackstar2.SetActive(true);
                 blackstar3.SetActive(true);
             }
+                WinText.SetActive(true);
+                ObjText.SetActive(false);
+            FadeboxUI.SetActive(true);
+                
         }
         else//Tutorial stuff
         {

@@ -15,6 +15,9 @@ public class GroundScript : MonoBehaviour
     public GameObject blackstar2;
     public GameObject blackstar3;
     public GameObject RunningSound;
+    public GameObject FadeboxUI;
+    public GameObject WinText1;
+    public GameObject JumpText;
 
     public AudioSource jump;
     public AudioSource Run;
@@ -45,6 +48,9 @@ public class GroundScript : MonoBehaviour
         blackstar1.SetActive(false);
         blackstar2.SetActive(false);
         blackstar3.SetActive(false);
+        FadeboxUI.SetActive(false);
+        WinText1.SetActive(false);
+        JumpText.SetActive(true);
 
         StartCoroutine(TimerForMinigame());
     }
@@ -112,6 +118,9 @@ public class GroundScript : MonoBehaviour
                 blackstar2.SetActive(true);
                 blackstar3.SetActive(true);
             }
+            FadeboxUI.SetActive(true);
+            WinText1.SetActive(true);
+            JumpText.SetActive(false);
 
             nextSceneButton.SetActive(true);
             levelTransitioner.currentMinigameScore = score;
