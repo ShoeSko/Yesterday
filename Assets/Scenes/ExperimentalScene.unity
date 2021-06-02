@@ -1884,6 +1884,7 @@ MonoBehaviour:
   isRetreating: 0
   obstacleInTheWay: 0
   CorporateBoss: {fileID: 0}
+  isDead: 0
 --- !u!61 &829018181
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2267,6 +2268,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelTransition: {fileID: 0}
+  playButton: {fileID: 0}
+  tutorialButton: {fileID: 0}
+  tutorialPlayButton: {fileID: 0}
 --- !u!4 &950627730
 Transform:
   m_ObjectHideFlags: 0
@@ -2415,108 +2419,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 986990816}
   m_CullTransparentMesh: 1
---- !u!1 &999564916
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 999564919}
-  - component: {fileID: 999564918}
-  - component: {fileID: 999564917}
-  m_Layer: 0
-  m_Name: Boss_Corp_Text_laugh_SpriteSheet_0
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!95 &999564917
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 999564916}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: c85a2c63cc3ae4f4a9cfd30b13bc2b96, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
---- !u!212 &999564918
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 999564916}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 2641491028621044280, guid: 6eccb934656e5e64bad8f46c11571a85, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 26.666666, y: 26.666666}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
---- !u!4 &999564919
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 999564916}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.0840554, y: 0.042380214, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1049035302
 GameObject:
   m_ObjectHideFlags: 0
@@ -4110,9 +4012,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data:
+    isFirstRun: 0
+    hasPlayedTutorial: 0
     masterVolLevel: 1
     musicVolLevel: 1
     sfxVolLevel: 1
+    unitList: 
+    beastList: 
+    humanoidList: 
+    monstrosityList: 
+    bossList: 
+    lastScene: 
 --- !u!1 &1763823502
 GameObject:
   m_ObjectHideFlags: 0
@@ -4396,6 +4306,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 641254781}
     m_Modifications:
+    - target: {fileID: 823591864236670875, guid: 23da5bf24910c0d4eada7dd70d29a093, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4632530650480293340, guid: 23da5bf24910c0d4eada7dd70d29a093, type: 3}
       propertyPath: m_Name
       value: Enemy_Batsy
@@ -4446,6 +4360,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4926562019914492911, guid: 23da5bf24910c0d4eada7dd70d29a093, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8274420193084536368, guid: 23da5bf24910c0d4eada7dd70d29a093, type: 3}
+      propertyPath: m_SortingOrder
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

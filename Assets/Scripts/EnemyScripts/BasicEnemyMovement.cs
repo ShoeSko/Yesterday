@@ -348,7 +348,24 @@ public class BasicEnemyMovement : MonoBehaviour
         StartCoroutine(PeriodOfBeingDamaged());
     }
     #endregion
+    #region Boss Effects
+    public void MotherlyEmbraceBuff()
+    {
+        //Buffing the Enemy
+        enemyHealth += 20;
+        enemyHealth = enemyHealth * 2;
+        attackDamage = attackDamage * 2;
 
+        //Activates the Moth outline
+        for (int child = 0; child < transform.childCount; child++) //Loops trhough all the children(if multiple)
+        {
+            if (transform.GetChild(child).GetComponent<Animator>())//Finds a child with the animator.
+            {
+                transform.GetChild(child).gameObject.SetActive(true); //Turns the child on(Animator and all
+            }
+        }
+    }
+    #endregion
     private void EnemyInfoFeed()
     {
         moveSpeed = enemy.moveSpeed;
@@ -367,12 +384,5 @@ public class BasicEnemyMovement : MonoBehaviour
         isHumanoid = enemy.isHumanoid;
         isMonstrosity = enemy.isMonstrosity;
         enemyIndex = enemy.enemyIndex;
-    }
-
-    public void MotherlyEmbraceBuff()
-    {
-        enemyHealth += 20;
-        enemyHealth = enemyHealth * 2;
-        attackDamage = attackDamage * 2;
     }
 }
