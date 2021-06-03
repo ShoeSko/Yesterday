@@ -2556,6 +2556,7 @@ GameObject:
   - component: {fileID: 4744602394952047243}
   - component: {fileID: 4744602394952047240}
   - component: {fileID: 4744602394952047245}
+  - component: {fileID: 1175135735814060866}
   m_Layer: 5
   m_Name: Options
   m_TagString: Untagged
@@ -2708,6 +2709,20 @@ MonoBehaviour:
   masterMixer: 0
   musicMixer: 0
   sfxMixer: 0
+--- !u!114 &1175135735814060866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4744602394952047350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c8d56aa09dcd0549944142610283a36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  giveUpText: {fileID: 5588563053006978608}
+  giveUpTextVariation: Skip
 --- !u!1 &5631121990282125941
 GameObject:
   m_ObjectHideFlags: 0
