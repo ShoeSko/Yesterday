@@ -15,6 +15,7 @@ MonoBehaviour:
   cardName: Chatte
   image: {fileID: 21300000, guid: 3c5c76a4b83c1724ba1ea87c78f1001c, type: 3}
   backgroundImage: {fileID: 0}
+  icon: {fileID: 21300000, guid: 0f7c73d833ad51241867b6feaa037ca5, type: 3}
   manaCost: 3
   effectDescription: 'Special:'
   effectDescription2: 

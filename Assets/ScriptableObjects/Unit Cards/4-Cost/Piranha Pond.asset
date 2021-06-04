@@ -15,6 +15,7 @@ MonoBehaviour:
   cardName: Piranha Pond
   image: {fileID: 21300000, guid: fd2eddfe48bf1c146ac62fade26c7270, type: 3}
   backgroundImage: {fileID: 0}
+  icon: {fileID: 21300000, guid: 0f7c73d833ad51241867b6feaa037ca5, type: 3}
   manaCost: 4
   effectDescription: 'Special:'
   effectDescription2: 

@@ -15,6 +15,7 @@ MonoBehaviour:
   cardName: Snek
   image: {fileID: 21300000, guid: abb12db7396587d43a75b2f71a30ef5d, type: 3}
   backgroundImage: {fileID: 0}
+  icon: {fileID: 21300000, guid: 2bf6f17ff025d204b91dd5ba765debd0, type: 3}
   manaCost: 2
   effectDescription: 'Type: Melee'
   effectDescription2: 'Health: Medium'
