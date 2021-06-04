@@ -56,6 +56,10 @@ public class RoombaPower : MonoBehaviour
     [Header("Time Limit Minigame")]
     [SerializeField] private float minigameTimeLimit = 30f;
     private bool timeIsUp;
+
+    [Header("Audio")]
+    private bool audio1Played = false;
+    public AudioSource RoombaSound;
     #endregion
 
     private void Start()
@@ -100,6 +104,7 @@ public class RoombaPower : MonoBehaviour
 
         if (win || timeIsUp)
         {
+            WinSound();
             nextSceneButton.SetActive(true);
             levelTransitioner.currentMinigameScore = score;
         }
@@ -250,5 +255,15 @@ public class RoombaPower : MonoBehaviour
 
         timeIsUp = true;
         RoombaTime();
+    }
+
+    private void WinSound()
+    {
+        if (!audio1Played)
+        {
+            RoombaSound.Play();
+            audio1Played = true;
+        }
+
     }
 }

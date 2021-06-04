@@ -6,6 +6,11 @@ public class AnimalPens : MonoBehaviour
     private GameObject currentAnimal;
     public string penLayerName;
 
+    public AudioSource PigSFX;
+    public AudioSource ChickenSFX;
+    public AudioSource CowSFX;
+    public AudioSource SheepSFX;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         currentAnimal = collision.gameObject; //Grabs the gameobject for easier refrence.
@@ -16,6 +21,15 @@ public class AnimalPens : MonoBehaviour
             AnimalVictory._animalPensFilled++; //Increases the finished Animal Pens list.
             currentAnimal.GetComponent<Collider2D>().enabled = false;
             currentAnimal.GetComponent<SpriteRenderer>().sortingOrder = 2;
+
+            if (currentAnimal.name == "Pig")
+                PigSFX.Play();
+            else if (currentAnimal.name == "Chicken")
+                ChickenSFX.Play();
+            else if (currentAnimal.name == "Cow")
+                CowSFX.Play();
+            else if (currentAnimal.name == "Sheep")
+                SheepSFX.Play();
         }
     }
 }

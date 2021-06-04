@@ -16,6 +16,8 @@ public class PillowScript : MonoBehaviour
     private Vector3 moveLenght = new Vector3(0.1078f, 0.02f, 0);
     private Vector3 currentPos;
 
+    public AudioSource PillowSound;
+
     public float timer;
     private bool iWon;
 
@@ -46,6 +48,7 @@ public class PillowScript : MonoBehaviour
         {
             currentPos = bedSheet.transform.position;//clarify current position of the BedSheet
             bedSheet.transform.position = currentPos + moveLenght;//move the BedSheet the destination of (moveLenght)
+            PillowSound.Play();
         }
     }
 
