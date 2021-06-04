@@ -44,9 +44,9 @@ public class CardDisplayer : MonoBehaviour
                 backgroundImage.sprite = card.backgroundImage;
             }
 
-            if (card.image != null)
+            if (card.icon != null)
             {
-                iconImage.sprite = card.image;
+                iconImage.sprite = card.icon;
             }
         //    }
         //    else if (isSpellCard)
