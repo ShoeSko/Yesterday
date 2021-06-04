@@ -88,7 +88,7 @@ public class EnemySpawning : MonoBehaviour
                     strongEnemyDivider--;
                 }
 
-                print(strongEnemyNumber[i] + " this is nr " + i);
+                //print(strongEnemyNumber[i] + " this is nr " + i);
             }
 
             for (int loopLimit = 0; loopLimit < amountOfEnemies; loopLimit++)
@@ -132,9 +132,9 @@ public class EnemySpawning : MonoBehaviour
 
                 if (loopLimit == strongEnemyNumber[loopLimit])
                 {
-                    GameObject enemyObject = Instantiate(strongEnemyTypesSpawnList[0], transform); //Instantiates a random enemy type from the list.
+                    GameObject enemyObject = Instantiate(strongEnemyTypesSpawnList[enemyToKeep], transform); //Instantiates a random enemy type from the list.
                     enemyObject.transform.position = spawnLocation.position; //Sets the random enemy on a random lane from the list.
-                    print("Spawning strong enemy " + strongEnemyTypesSpawnList[0].name);
+                    print("Spawning strong enemy " + strongEnemyTypesSpawnList[enemyToKeep].name);
                 }
                 else
                 {
@@ -167,22 +167,24 @@ public class EnemySpawning : MonoBehaviour
         {
             strongEnemyTypesSpawnList.Add(strongEnemyList.Enemies[i]);
         }
+        sizeOfStrongEnemyTypes = strongEnemyTypesSpawnList.Count;
     }
 
     private void RemodelingOfLists()
     {
-        enemyToRemove = Random.Range(0, sizeOfWeakEnemyTypes - 1); //What enemy to remove from the list
+        enemyToRemove = Random.Range(0, sizeOfWeakEnemyTypes); //What enemy to remove from the list
         weakEnemyTypesSpawnList.Remove(weakEnemyTypesSpawnList[enemyToRemove]); //Remove the enemy
         spriteTokenWeakList.Remove(spriteTokenWeakList[enemyToRemove]);//Removes the obsolete token.
         sizeOfWeakEnemyTypes = weakEnemyTypesSpawnList.Count;//Get the amount of items in the list of weak enemy types after the removal
 
-        enemyToKeep = Random.Range(0, sizeOfStrongEnemyTypes - 1); //What enemy to keep on the list
-        for (int i = 0; i < sizeOfStrongEnemyTypes-1; i++)
+        enemyToKeep = Random.Range(0, sizeOfStrongEnemyTypes); //What enemy to keep on the list
+        for (int i = 0; i < sizeOfStrongEnemyTypes; i++)
         {
             if (i != enemyToKeep)
             {
-                strongEnemyTypesSpawnList.Remove(strongEnemyTypesSpawnList[i]); //Remove all but the 1 strong enemy
+                strongEnemyTypesSpawnList[i] = null; //Remove all but the 1 strong enemy
             }
+            else { print(strongEnemyTypesSpawnList[i].name + " is the one to be kept"); }
         }
         sizeOfStrongEnemyTypes = strongEnemyTypesSpawnList.Count; //Get the amount of items in the list of strong enemy types after the removal
     }
@@ -192,7 +194,7 @@ public class EnemySpawning : MonoBehaviour
     {
         if(amountOfEnemies < strongEnemySpawnWait)
         {
-            print("StrongEnemySpawnWait variable is " + strongEnemySpawnWait + " which is bigger than amountOfEnemies which is " + amountOfEnemies + " please fix this, as that should not be the case");
+            //print("StrongEnemySpawnWait variable is " + strongEnemySpawnWait + " which is bigger than amountOfEnemies which is " + amountOfEnemies + " please fix this, as that should not be the case");
             strongEnemySpawnWait = amountOfEnemies-2;
         }
     }
