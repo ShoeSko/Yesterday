@@ -423,7 +423,7 @@ MonoBehaviour:
   spellCard: {fileID: 0}
   artworkImage: {fileID: 3126888793992432095}
   backgroundImage: {fileID: 6362562398710887752}
-  iconImage: {fileID: 0}
+  iconImage: {fileID: 8036774604346486470}
   nameText: {fileID: 3126888794175403367}
   manatext: {fileID: 3126888795399624551}
   descriptionText: {fileID: 3126888795170594331}
