@@ -62,6 +62,10 @@ public class Bestiary : MonoBehaviour
     private int lastDiscoveredMonstrosityIndex;
     private int currentMonstrosityIndex;
 
+    [Header("Boss Functions")]
+    [SerializeField] private List<GameObject> boss1ContentList = new List<GameObject>();
+    [SerializeField] private List<GameObject> boss2ContentList = new List<GameObject>();
+
     #endregion
     #region Setup Bestiary
     private void Awake()
@@ -157,7 +161,8 @@ public class Bestiary : MonoBehaviour
         {
             if (saving.data.bossList[index] == true)
             {
-                bossBestiaryList[index].SetActive(true);
+                bossBestiaryList[index].GetComponent<Image>().color = Color.white;
+                bossBestiaryList[index].GetComponent<Button>().interactable = true;
             }
         }
     }
@@ -188,11 +193,10 @@ public class Bestiary : MonoBehaviour
             monstrosityBestiaryList[index].GetComponent<Button>().interactable = false;
         }
 
-
-
         for (int index = 0; index < bossBestiaryList.Count; index++)
         {
             bossBestiaryList[index].GetComponent<Image>().color = Color.black;
+            bossBestiaryList[index].GetComponent<Button>().interactable = false;
         }
     }
     #endregion
@@ -677,7 +681,34 @@ public class Bestiary : MonoBehaviour
 
     #endregion
     #region Boss Functions
+    public void Boss0ContentShow()
+    {
+        for (int index = 0; index < boss1ContentList.Count; index++)
+        {
+            boss1ContentList[index].SetActive(true); //Turns on all Boss 1 content features
+        }
+    }
 
+    public void Boss1ContentShow()
+    {
+        for (int index = 0; index < boss1ContentList.Count; index++)
+        {
+            boss1ContentList[index].SetActive(true); //Turns on all Boss 2 content features
+        }
+    }
+
+    public void BossContentHider()
+    {
+        for (int index = 0; index < boss1ContentList.Count; index++)
+        {
+            boss1ContentList[index].SetActive(false);
+        }
+
+        for (int index = 0; index < boss1ContentList.Count; index++)
+        {
+            boss1ContentList[index].SetActive(false);
+        }
+    }
     #endregion
     #region Cheat
     [ContextMenu("Meet the cheat")]

@@ -165,6 +165,7 @@ public class TheCorporate : MonoBehaviour
             if (!hasBeenDefeated)
             {
                 WinCondition.GetComponent<Victory>().Win();
+                AddBossDefeatToBestiary(); //With the defeat, the boss is unlocked in the bestiary.
                 hasBeenDefeated = true;
             }
         }
@@ -304,4 +305,16 @@ public class TheCorporate : MonoBehaviour
         if(Health != 0)
             StartCoroutine(tookDamage());
     }
+
+    #region Bestiary
+    private void AddBossDefeatToBestiary()
+    {
+        if (FindObjectOfType<SaveSystem>())
+        {
+            SaveSystem saving = FindObjectOfType<SaveSystem>();
+
+            saving.data.bossList[0] = true; //Boss index 0 has been defeated Corporate.
+        }
+    }
+    #endregion
 }

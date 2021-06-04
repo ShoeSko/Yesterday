@@ -147,6 +147,7 @@ public class TheGuardian : MonoBehaviour
             if (!hasBeenDefeated)
             {
                 WinCondition.GetComponent<Victory>().Win();
+                AddBossDefeatToBestiary(); //With the defeat, the boss is unlocked in the bestiary.
                 hasBeenDefeated = true;
             }
         }
@@ -219,4 +220,16 @@ public class TheGuardian : MonoBehaviour
         else
             loop--;
     }
+
+    #region Bestiary
+    private void AddBossDefeatToBestiary()
+    {
+        if (FindObjectOfType<SaveSystem>())
+        {
+            SaveSystem saving = FindObjectOfType<SaveSystem>();
+
+            saving.data.bossList[1] = true; //Boss index 1 has been defeated Moth.
+        }
+    }
+    #endregion
 }
