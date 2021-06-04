@@ -15,6 +15,7 @@ MonoBehaviour:
   cardName: MachineCat
   image: {fileID: 21300000, guid: 740d431edf45118429146a7d53b6a86f, type: 3}
   backgroundImage: {fileID: 0}
+  icon: {fileID: 21300000, guid: cdefa914e39dad74fb27e975725738dd, type: 3}
   manaCost: 5
   effectDescription: 'Type: Ranged'
   effectDescription2: 'Health: Very Low'

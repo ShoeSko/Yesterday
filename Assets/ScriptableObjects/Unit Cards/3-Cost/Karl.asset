@@ -15,6 +15,7 @@ MonoBehaviour:
   cardName: Karl
   image: {fileID: 21300000, guid: d7aea8922b7ad6f4e959f72b8b12e339, type: 3}
   backgroundImage: {fileID: 0}
+  icon: {fileID: 21300000, guid: 2bf6f17ff025d204b91dd5ba765debd0, type: 3}
   manaCost: 3
   effectDescription: 'Type: Melee'
   effectDescription2: 'Health: Medium'

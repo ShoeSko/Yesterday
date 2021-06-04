@@ -15,6 +15,7 @@ MonoBehaviour:
   cardName: Wooly Sheep
   image: {fileID: 21300000, guid: 2f234d6f8304e6540969fc8f3994c5c1, type: 3}
   backgroundImage: {fileID: 0}
+  icon: {fileID: 21300000, guid: 0f7c73d833ad51241867b6feaa037ca5, type: 3}
   manaCost: 5
   effectDescription: 'Type: Tank'
   effectDescription2: 'Health: Extreme'

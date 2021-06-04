@@ -15,6 +15,7 @@ MonoBehaviour:
   cardName: Pigster
   image: {fileID: 21300000, guid: 008d611e2bc4758479f2525850001e0f, type: 3}
   backgroundImage: {fileID: 0}
+  icon: {fileID: 21300000, guid: 2bf6f17ff025d204b91dd5ba765debd0, type: 3}
   manaCost: 3
   effectDescription: 'Type: Melee'
   effectDescription2: 'Health: High'
@@ -54,3 +55,4 @@ MonoBehaviour:
   sizeBuff: {x: 0, y: 0, z: 0}
   healthBuff: 0
   damageBuff: 0
+  unitIndex: 0
