@@ -7,6 +7,7 @@ public class CardScript : ScriptableObject
 
     public Sprite image;
     public Sprite backgroundImage;
+    public Sprite icon;
     public int manaCost;
     public string effectDescription;
     public string effectDescription2;

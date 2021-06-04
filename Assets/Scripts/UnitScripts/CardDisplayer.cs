@@ -12,6 +12,7 @@ public class CardDisplayer : MonoBehaviour
 
     public Image artworkImage; //The display image
     public Image backgroundImage; //The background image
+    public Image iconImage; //The Icon image to display
     public TextMeshProUGUI nameText; //The name of the card
     public TextMeshProUGUI manatext; //The cost of the mana
     public TextMeshProUGUI descriptionText; // what does it do
@@ -41,6 +42,11 @@ public class CardDisplayer : MonoBehaviour
             if (useBackground)
             {
                 backgroundImage.sprite = card.backgroundImage;
+            }
+
+            if (card.image != null)
+            {
+                iconImage.sprite = card.image;
             }
         //    }
         //    else if (isSpellCard)
