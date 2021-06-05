@@ -12,7 +12,7 @@ public class NewCardHandScript : MonoBehaviour
     public bool DevStageTest;
     [Range(1,3)] public int whichStage;
 
-    [Header("Variables")]
+    [Header("Base Variables")]
     public bool Smallhand = true;
 
     public GameObject PlayedCard;
@@ -26,41 +26,46 @@ public class NewCardHandScript : MonoBehaviour
     private int card;
     private int RandomBoss;
 
+    [Header("Spawners")]
     public static int Stage;//Which stage is the player on? (Will define which enemies spawn)
     public GameObject SpawnerHuman;//Spawner for Businessmen
     public GameObject SpawnerBeast;//Spawner for Beasts
     public GameObject SpawnerBossCorporate;//Spawner for Boss
     public GameObject SpawnerBossGuardian;//Spawner for Boss
 
-
+    [Header("AUDIO")]
     public AudioSource Music1;
     public AudioSource Music2;
     public AudioSource Boss1;
     public AudioSource Boss2;
 
+    [Header("Backgrounds")]
     public GameObject BG_Day;
     public GameObject BG_Evening;
     public GameObject BG_Night;
 
-
+    [Header("Hands & TowerSpots")]
     public GameObject enlargeButton;//arrow up above your hand to enlarge your hand
     public GameObject minimizeButton;//arrow down visible after enlarging your hand
     public GameObject handSmall;//your hand at the bottom of the screen
     public GameObject handEnlarged;//enlarged hand after pressing the scroll up button
     public GameObject TowerSpots;
 
+    [Header("Small Card Buttons")]
     public GameObject CardButton1S;//all of this is temporary
     public GameObject CardButton2S;
     public GameObject CardButton3S;
     public GameObject CardButton4S;
     public GameObject CardButton5S;
 
+    [Header("Large Card Buttons")]
     public GameObject CardButton1L;//all of this is temporary
     public GameObject CardButton2L;
     public GameObject CardButton3L;
     public GameObject CardButton4L;
     public GameObject CardButton5L;
 
+    [Header("Mana Values")]
     public int ManaCost1;
     public GameObject card1;
     private CardDisplayer CardValues1;
@@ -81,6 +86,7 @@ public class NewCardHandScript : MonoBehaviour
     public GameObject card5;
     private CardDisplayer CardValues5;
 
+    [Header("Large Card Object")]
     public GameObject Lcard1;
     public GameObject Lcard2;
     public GameObject Lcard3;
@@ -99,9 +105,8 @@ public class NewCardHandScript : MonoBehaviour
     public List<GameObject> cardActiveIndicaterList = new List<GameObject>();
     #endregion
 
-
-
     //Additioanl objects & variables used for tutorial
+    [Header("Tutorial Variables")]
     public GameObject manabox;
     public GameObject manabar;
     public GameObject ManaNumber;
@@ -400,6 +405,8 @@ public class NewCardHandScript : MonoBehaviour
 
                 if (SpawnDelay >= 20 && SpawnOnce == false)
                 {
+                    MinimizeButtonPressed(); //Makes sure the player can see that a lot of enemies spawn.
+
                     elitespawner1.GetComponent<EnemySpawning>().gameStarted = true;
                     elitespawner2.GetComponent<EnemySpawning>().gameStarted = true;
                     elitespawner3.GetComponent<EnemySpawning>().gameStarted = true;

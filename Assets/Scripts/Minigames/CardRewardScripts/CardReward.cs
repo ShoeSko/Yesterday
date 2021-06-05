@@ -40,6 +40,7 @@ public class CardReward : MonoBehaviour
 
 
     //Tutorial stuff
+    [Header("Tutorial")]
     public static int TutorialMission;
     public GameObject view1Button;
     public GameObject choose1Button;
@@ -58,6 +59,9 @@ public class CardReward : MonoBehaviour
     public List<GameObject> Texts2 = new List<GameObject>();
     public List<GameObject> Texts3 = new List<GameObject>();
     private int Text;
+
+    [Header("Options")]
+    [SerializeField] private GameObject optionsButton;
 
     private void Start()
     {
@@ -96,12 +100,14 @@ public class CardReward : MonoBehaviour
                 cardgroup3.SetActive(false);
                 cardgroup2.SetActive(false);
                 Texts1[Text].SetActive(true);
+                optionsButton.SetActive(false);
             }
             else if(TutorialMission == 2)
             {
                 cardgroup3.SetActive(false);
                 cardgroup2.SetActive(false);
                 Texts2[Text].SetActive(true);
+                optionsButton.SetActive(false);
 
                 TutorialRandomG2();
             }
@@ -113,6 +119,7 @@ public class CardReward : MonoBehaviour
                 choose2Button.SetActive(false);
                 view3Button.SetActive(false);
                 choose3Button.SetActive(false);
+                optionsButton.SetActive(false);
             }
         }
     }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AnimalVictory : MonoBehaviour
 {
-
+    [Header("Stars")]
     public List<GameObject> stars = new List<GameObject>(); //A list of the stars
     private int starLenght;//How long is the star list
     private float scoreTimer; //How long it takes to do the game
@@ -26,6 +26,7 @@ public class AnimalVictory : MonoBehaviour
     private bool GameStarted;
 
     //Tutorial
+    [Header("Tutorial")]
     public GameObject ObjectiveText;
     public GameObject minigameAnimals;
     public GameObject minigamePens;
@@ -80,16 +81,22 @@ public class AnimalVictory : MonoBehaviour
         if(GameStarted == true)//if its not tutorial
             AllAnimalsInPens();
 
-        if(MinigameSceneScript.Tutorial == true)//tutorial settings
+        RunTutorial();
+
+    }
+
+    private void RunTutorial()
+    {
+        if (MinigameSceneScript.Tutorial == true)//tutorial settings
         {
             if (Input.GetKeyDown(KeyCode.Mouse0) || Input.GetKeyDown(KeyCode.Space))
             {
-                if(GameStarted == false)
+                if (GameStarted == false)
                 {
                     Texts[Text].SetActive(false);
                     Text++;
 
-                    if(Text != 2)
+                    if (Text != 2)
                         Texts[Text].SetActive(true);
                     else
                     {
@@ -107,7 +114,6 @@ public class AnimalVictory : MonoBehaviour
             }
         }
     }
-
     private void AllAnimalsInPens()
     {
         if(_animalPensFilled != 4)
@@ -161,7 +167,7 @@ public class AnimalVictory : MonoBehaviour
                 nextSceneButton.SetActive(true);
                 levelTransitioner.currentMinigameScore = score;
             }
-            else//Tutorial settings
+            else//Tutorial Victory
             {
                 for (int i = 0; i < starLenght - 1; i++)
                 {
@@ -177,7 +183,7 @@ public class AnimalVictory : MonoBehaviour
                 Texts[Text].SetActive(true);
 
                 ObjectiveText.SetActive(false);
-                minigameAnimals.SetActive(false);
+                minigameAnimals.SetActive(false);  //What is the reason to turn of the animals upon victory??
 
                 CardReward.TutorialMission = 2;
                 nextSceneButton.SetActive(true);
