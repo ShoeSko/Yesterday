@@ -909,7 +909,7 @@ public class NewCardHandScript : MonoBehaviour
             Text++;
             Texts[Text].SetActive(true);
             ContinueText.SetActive(true);
-            DeckHideButton.SetActive(false);
+            ////DeckHideButton.SetActive(false);
         }
     }
 

@@ -36,6 +36,7 @@ public class CardReward : MonoBehaviour
 
 
     private GameObject[] unitList;
+    private UnitPrototypeScript[] unitListPrototype;
     private int unitListLenght;
 
 
@@ -59,6 +60,7 @@ public class CardReward : MonoBehaviour
     public List<GameObject> Texts2 = new List<GameObject>();
     public List<GameObject> Texts3 = new List<GameObject>();
     private int Text;
+    [SerializeField] private float timeBeforeBubbleIsHidden;
 
     [Header("Options")]
     [SerializeField] private GameObject optionsButton;
@@ -113,6 +115,8 @@ public class CardReward : MonoBehaviour
             }
             else if(TutorialMission == 3)
             {
+                groupNumber = 1;
+
                 Texts3[Text].SetActive(true);
                 randomize3Cards();
                 view2Button.SetActive(false);
@@ -375,10 +379,15 @@ public class CardReward : MonoBehaviour
         }
     }
 
-    private void ViewCleaner()
+    private void ViewCleaner() //This entire thing needs rework with art.
     {
         SpriteRenderer unitRenderer;
-        unitList = GameObject.FindGameObjectsWithTag("Obstacle"); //Grabs all Units spawned
+        unitListPrototype = UnitPrototypeScript.FindObjectsOfType<UnitPrototypeScript>(); //Grabs all Units spawned
+        unitList = new GameObject[unitListPrototype.Length];
+        for (int i = 0; i < unitListPrototype.Length; i++)
+        {
+            unitList[i] = unitListPrototype[i].gameObject;
+        }
         unitListLenght = unitList.Length;
         for (int i = 0; i < unitListLenght; i++)
         {
@@ -560,6 +569,14 @@ public class CardReward : MonoBehaviour
             Texts2[Text].SetActive(false);
             Text = 2;
             Texts2[Text].SetActive(true);
+            StartCoroutine(Tutorial2RewardBubble3Hiding());
         }
+    }
+
+    IEnumerator Tutorial2RewardBubble3Hiding()
+    {
+        yield return new WaitForSeconds(timeBeforeBubbleIsHidden);
+        SpeechBubble.SetActive(false);
+        Texts2[Text].SetActive(false);
     }
 }

@@ -74,7 +74,10 @@ public class AnimalVictory : MonoBehaviour
         else
             GameStarted = true;
 
-        StartCoroutine(TimerForMinigame());
+        if (!MinigameSceneScript.Tutorial)
+        {
+            StartCoroutine(TimerForMinigame());
+        }
     }
     private void Update()
     {

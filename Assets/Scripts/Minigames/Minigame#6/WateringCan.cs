@@ -83,7 +83,10 @@ public class WateringCan : MonoBehaviour
 
         waterMeter.maxValue = wateringTimeNeeded; //Makes sure the meter has the same max value as the watering should occur.
 
-        StartCoroutine(TimerForMinigame());
+        if (!MinigameSceneScript.Tutorial)
+        {
+            StartCoroutine(TimerForMinigame());
+        }
     }
 
     private void Update()
@@ -103,6 +106,7 @@ public class WateringCan : MonoBehaviour
         {
             if(Text == 0)
             {
+                ObjText.SetActive(false);
                 if (Input.GetKeyDown(KeyCode.Mouse0) || Input.GetKeyDown(KeyCode.Space))
                 {
                     if (Text == 0)
@@ -117,6 +121,18 @@ public class WateringCan : MonoBehaviour
             {
                 if(Text == 1)
                 {
+#if UNITY_ANDROID
+                    ContinueText.SetActive(false);
+                    if ((Input.acceleration.x < -rotDeadZone || Input.acceleration.x > rotDeadZone))
+                    {
+                        objective.SetActive(true);
+                        Texts[Text].SetActive(false);
+                        BotWave.SetActive(false);
+                        SpeechBubble.SetActive(false);
+                        Water.Play();
+                        ObjText.SetActive(true);
+                    }
+#else
                     ContinueText.SetActive(false);
                     if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D))
                     {
@@ -125,7 +141,9 @@ public class WateringCan : MonoBehaviour
                         BotWave.SetActive(false);
                         SpeechBubble.SetActive(false);
                         Water.Play();
+                        ObjText.SetActive(true);
                     }
+#endif
                 }
             }
         }

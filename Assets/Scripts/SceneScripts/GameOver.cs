@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class GameOver : MonoBehaviour
 {
@@ -16,7 +15,18 @@ public class GameOver : MonoBehaviour
             if (MinigameSceneScript.Tutorial == false)
                 lose();
             else
-                HandCode.GetComponent<NewCardHandScript>().TutorialLose();
+            {
+                Destroy(collider.gameObject); //Destroys the Enemy, as you can not win if they are still on the screen.
+                StartCoroutine(CheckIfRobotNeedToGiveTutorialHelp());
+            }
+        }
+    }
+    IEnumerator CheckIfRobotNeedToGiveTutorialHelp()
+    {
+        yield return new WaitForSeconds(0.1f);
+        if (FindObjectsOfType<BasicEnemyMovement>().Length > 0)
+        {
+            HandCode.GetComponent<NewCardHandScript>().TutorialLose();
         }
     }
 

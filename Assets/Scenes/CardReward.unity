@@ -5625,6 +5625,7 @@ MonoBehaviour:
   Texts3:
   - {fileID: 1823372138}
   - {fileID: 904475240}
+  timeBeforeBubbleIsHidden: 5
   optionsButton: {fileID: 501427621}
 --- !u!4 &2062097564
 Transform:
