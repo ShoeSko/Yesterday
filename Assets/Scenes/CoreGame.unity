@@ -832,6 +832,7 @@ MonoBehaviour:
   youWin: {fileID: 2068675839}
   emote: {fileID: 2052679301}
   TutorialHand: {fileID: 1485272399}
+  hamsterAnimator: {fileID: 864154675}
 --- !u!1 &68630990
 GameObject:
   m_ObjectHideFlags: 0
@@ -11554,7 +11555,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: e9feb7eb6c1452c49bc4cfb5af8ee5a9, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 2
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 

@@ -8,6 +8,7 @@ public class Victory : MonoBehaviour
     public GameObject emote;
     public GameObject TutorialHand;
     private bool victoryIsSHown;
+    [SerializeField] private Animator hamsterAnimator;
 
     private void Start()
     {
@@ -52,6 +53,7 @@ public class Victory : MonoBehaviour
         print("Victory");
         s_youWon = false;
         youWin.SetActive(true);
+        hamsterAnimator.SetTrigger("Full");
         Time.timeScale = 0;
     }
 
