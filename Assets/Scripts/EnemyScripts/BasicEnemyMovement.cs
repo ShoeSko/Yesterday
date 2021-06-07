@@ -361,7 +361,7 @@ public class BasicEnemyMovement : MonoBehaviour
         {
             if (transform.GetChild(child).GetComponent<Animator>())//Finds a child with the animator.
             {
-                transform.GetChild(child).gameObject.SetActive(true); //Turns the child on(Animator and all
+                transform.GetChild(child).GetComponent<Animator>().SetTrigger("Chosen"); //Turns the child on(Animator and all
             }
         }
     }
