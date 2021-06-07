@@ -8,7 +8,7 @@ public class CardDisplayer : MonoBehaviour
     [Tooltip("Does it use a background?")] public bool useBackground;
 
     [Tooltip("The scriptableobject holding this cards info")]public CardScript card;//Pulls the Scriptableobject, to get the refrences.
-    [Tooltip("The scriptableobject holding this spell cards info")]public CardSpellScript spellCard;//Pulls the Scriptableobject, to get the refrences.
+    //[Tooltip("The scriptableobject holding this spell cards info")]public CardSpellScript spellCard;//Pulls the Scriptableobject, to get the refrences.
 
     public Image artworkImage; //The display image
     public Image backgroundImage; //The background image
