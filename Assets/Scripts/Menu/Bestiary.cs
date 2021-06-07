@@ -693,7 +693,7 @@ public class Bestiary : MonoBehaviour
     {
         for (int index = 0; index < boss1ContentList.Count; index++)
         {
-            boss1ContentList[index].SetActive(true); //Turns on all Boss 2 content features
+            boss2ContentList[index].SetActive(true); //Turns on all Boss 2 content features
         }
     }
 
