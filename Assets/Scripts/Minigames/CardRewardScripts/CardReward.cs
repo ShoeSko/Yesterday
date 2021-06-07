@@ -55,6 +55,9 @@ public class CardReward : MonoBehaviour
     public GameObject RobotWave;
     public GameObject SpeechBubble;
     public GameObject continueText;
+    public GameObject viewBackButton;
+
+    private bool AllreadyActivated; 
 
     public List<GameObject> Texts1 = new List<GameObject>();
     public List<GameObject> Texts2 = new List<GameObject>();
@@ -103,7 +106,7 @@ public class CardReward : MonoBehaviour
                 cardgroup2.SetActive(false);
                 Texts1[Text].SetActive(true);
                 optionsButton.SetActive(false);
-            }
+            }//Second reward screen of tutorial
             else if(TutorialMission == 2)
             {
                 cardgroup3.SetActive(false);
@@ -112,7 +115,7 @@ public class CardReward : MonoBehaviour
                 optionsButton.SetActive(false);
 
                 TutorialRandomG2();
-            }
+            }//Third reward screen of tutorial
             else if(TutorialMission == 3)
             {
                 groupNumber = 1;
@@ -163,6 +166,16 @@ public class CardReward : MonoBehaviour
                     Texts2[Text].SetActive(true);
                     view1Button.SetActive(true);
                     continueText.SetActive(false);
+                }
+
+                if(Text == 2)
+                {
+                    viewBackButton.SetActive(true);
+                    Texts2[Text].SetActive(false);
+                    SpeechBubble.SetActive(false);
+                    RobotWave.SetActive(false);
+                    continueText.SetActive(false);
+                    Text++;
                 }
             }
         }
@@ -563,20 +576,15 @@ public class CardReward : MonoBehaviour
 
     public void TutorialView2()
     {
-        if(MinigameSceneScript.Tutorial == true && TutorialMission == 2)
+        if(MinigameSceneScript.Tutorial == true && TutorialMission == 2 && AllreadyActivated == false)
         {
             choose1Button.SetActive(true);
+            viewBackButton.SetActive(false);
             Texts2[Text].SetActive(false);
             Text = 2;
             Texts2[Text].SetActive(true);
-            StartCoroutine(Tutorial2RewardBubble3Hiding());
+            continueText.SetActive(true);
+            AllreadyActivated = true;
         }
-    }
-
-    IEnumerator Tutorial2RewardBubble3Hiding()
-    {
-        yield return new WaitForSeconds(timeBeforeBubbleIsHidden);
-        SpeechBubble.SetActive(false);
-        Texts2[Text].SetActive(false);
     }
 }
