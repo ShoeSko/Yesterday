@@ -6544,7 +6544,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -21.5, y: 60.988235}
+  m_AnchoredPosition: {x: -21.5, y: 60.98822}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &495559250
@@ -9855,7 +9855,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 45782125f098f49499e74416ee628dbb, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 2
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
@@ -16870,6 +16870,8 @@ MonoBehaviour:
   YouLost: {fileID: 437649686}
   emote: {fileID: 2052679301}
   HandCode: {fileID: 1485272399}
+  hamsterAnimation: {fileID: 864154675}
+  manaBarIndicator: {fileID: 744461988}
 --- !u!1 &1176326337
 GameObject:
   m_ObjectHideFlags: 0
