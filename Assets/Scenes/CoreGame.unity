@@ -17277,7 +17277,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1190174847}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -150.67883, y: -37.304195, z: -3950.6606}
+  m_LocalPosition: {x: -150.67883, y: -37.304195, z: 0}
   m_LocalScale: {x: 41.075695, y: 41.075695, z: 41.075695}
   m_Children:
   - {fileID: 1936396059}
@@ -23435,6 +23435,7 @@ MonoBehaviour:
   BossHealthbar: {fileID: 2062311314}
   BossHealth: {fileID: 2062311316}
   manaBarStockIndicator: {fileID: 744461984}
+  hamsterAnimator: {fileID: 864154675}
   Default: {fileID: 21300000, guid: 8d69d49ab7c134b4887fd0eac5b70e0e, type: 3}
   Damaged1: {fileID: 21300000, guid: e259a7ae7bde19f4bb7312d92b5b10c4, type: 3}
   Damaged2: {fileID: 21300000, guid: 5329f56b49c5f344c94297e916856a22, type: 3}

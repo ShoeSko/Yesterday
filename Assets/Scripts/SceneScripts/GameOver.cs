@@ -7,6 +7,8 @@ public class GameOver : MonoBehaviour
     public GameObject YouLost;
     public GameObject emote;
     public GameObject HandCode;
+    [SerializeField] private Animator hamsterAnimation;
+    [SerializeField] private Animator manaBarIndicator; //Gives red background.
 
     void OnTriggerEnter2D(Collider2D collider)
     {
@@ -35,6 +37,8 @@ public class GameOver : MonoBehaviour
         emote.GetComponent<Emotes>().LoseGame();
         YouLost.SetActive(true);
         Time.timeScale = 0;
+        hamsterAnimation.SetTrigger("Panic");
+        manaBarIndicator.SetTrigger("Stock");
     }
 
     //public void returnHome()

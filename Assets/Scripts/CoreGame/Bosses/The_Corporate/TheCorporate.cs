@@ -16,6 +16,7 @@ public class TheCorporate : MonoBehaviour
     public GameObject BossHealthbar;
     public Slider BossHealth;
     public GameObject manaBarStockIndicator;
+    [SerializeField] private Animator hamsterAnimator;
     private bool hasBeenDefeated;
 
     //Animations & poses
@@ -232,6 +233,7 @@ public class TheCorporate : MonoBehaviour
     IEnumerator IndicateStockShortage()
     {
         manaBarStockIndicator.GetComponent<Animator>().SetTrigger("Stock"); //Starts warning animation
+        hamsterAnimator.SetTrigger("Panic");
         Snap1.SetActive(true);
         yield return new WaitForSeconds(stockShortageWarningTime);
         Snap1.SetActive(false);
@@ -239,6 +241,7 @@ public class TheCorporate : MonoBehaviour
         manaSteal = Random.Range(1, 4);
         ManaSystem.CurrentMana -= manaSteal;
         manaBarStockIndicator.GetComponent<Animator>().SetTrigger("End");
+        hamsterAnimator.SetTrigger("Charge");
         yield return new WaitForSeconds(0.5f);
         Snap2.SetActive(false);
     }
