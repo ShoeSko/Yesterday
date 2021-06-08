@@ -14,6 +14,10 @@ public class WateringCan : MonoBehaviour
     public GameObject water;
     public ParticleSystem Water;
     public Slider waterMeter;
+    public AudioSource waterSound;
+    private bool waterSoundPlay;
+    private bool minigameBeatForSound;
+    private float startVolume;
 
     [Header("Plants")]
     public float wateringTimeNeeded;
@@ -50,6 +54,8 @@ public class WateringCan : MonoBehaviour
     public GameObject BotWave;
     public GameObject SpeechBubble;
     public GameObject ContinueText;
+    [SerializeField] private string alternativeAndroidText;
+    [SerializeField] private Text textToChange;
 
     public GameObject objective;
 
@@ -58,7 +64,17 @@ public class WateringCan : MonoBehaviour
     [Header("Time Limit Minigame")]
     [SerializeField] private float minigameTimeLimit = 30f;
     private bool timeIsUp;
+    private void Awake()
+    {
+        waterSound.Pause();
+        startVolume = waterSound.volume * 6;
+        print("The sound is awake and currently " + waterSound.isPlaying);
 
+#if UNITY_ANDROID
+        textToChange.text = alternativeAndroidText;
+#endif
+        GameStarted = true;
+    }
     private void Start()
     {
         starLenght = stars.Count;
@@ -147,6 +163,7 @@ public class WateringCan : MonoBehaviour
                 }
             }
         }
+        LowerTheVolume();
     }
 
     private void WateringTime()//How long to water the plants + raycast for knowing when to water
@@ -162,8 +179,19 @@ public class WateringCan : MonoBehaviour
             Water.enableEmission = true; //Turn on water emission
             wateringTimeNeeded -= Time.deltaTime; //Counts down how long one has been watering the plants
             waterMeter.value += Time.deltaTime; //Increases the meter as fast as the time decreases.
+            if (!waterSoundPlay)
+            {
+                PlayWaterSound();
+            }
         }
-        else { Water.enableEmission = false; } //Turns of emission when not watering plants (Very visual when you are doing it correctly)
+        else
+        { 
+            Water.enableEmission = false;
+            if (waterSound.isPlaying)
+            {
+                PlayWaterSound();
+            }
+        } //Turns of emission when not watering plants (Very visual when you are doing it correctly)
 
         if (wateringTimeNeeded <= 0 || timeIsUp)
         {
@@ -251,6 +279,7 @@ public class WateringCan : MonoBehaviour
         }
 
         Water.Stop();
+        minigameBeatForSound = true;
         watered = true; //Plants have now been watered
 
         nextSceneButton.SetActive(true);
@@ -285,5 +314,30 @@ public class WateringCan : MonoBehaviour
         watered = true;
 
         WateredPlants();
+    }
+
+    private void PlayWaterSound()
+    {
+        if (!waterSoundPlay)
+        {
+            waterSound.UnPause();
+            waterSoundPlay = true;
+            print("Me now");
+        }
+        else if(waterSoundPlay)
+        {
+            waterSound.Pause();
+            waterSoundPlay = false;
+        }
+    }
+    private void LowerTheVolume()
+    {
+        if (minigameBeatForSound)
+        {
+            startVolume -= Time.deltaTime;
+            waterSound.volume = startVolume / 6;
+        }
+
+        print("Bool is now " + waterSoundPlay);
     }
 }
