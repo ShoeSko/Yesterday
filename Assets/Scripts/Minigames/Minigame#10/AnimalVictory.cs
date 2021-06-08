@@ -186,7 +186,7 @@ public class AnimalVictory : MonoBehaviour
                 Texts[Text].SetActive(true);
 
                 ObjectiveText.SetActive(false);
-                minigameAnimals.SetActive(false);  //What is the reason to turn of the animals upon victory??
+                //minigameAnimals.SetActive(false);  //What is the reason to turn of the animals upon victory??
 
                 CardReward.TutorialMission = 2;
                 nextSceneButton.SetActive(true);

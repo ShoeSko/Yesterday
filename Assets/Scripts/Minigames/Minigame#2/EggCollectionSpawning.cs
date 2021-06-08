@@ -56,6 +56,9 @@ public class EggCollectionSpawning : MonoBehaviour
     [SerializeField] private float minigameTimeLimit = 30f;
     private bool timeIsUp;
 
+    [Header("Backgrounds")]
+    [SerializeField] private GameObject background1;
+    [SerializeField] private GameObject background2;
     void Start()
     {
         //Prep
@@ -86,6 +89,21 @@ public class EggCollectionSpawning : MonoBehaviour
         StartCoroutine(TimerForMinigame());
     }
 
+    private void RandomBackground()
+    {
+        int randomNumber = Random.Range(1, 3);
+
+        if(randomNumber == 1)
+        {
+            background1.SetActive(true);
+            background2.SetActive(false);
+        }
+        else if (randomNumber == 2)
+        {
+            background1.SetActive(false);
+            background2.SetActive(true);
+        }
+    }
     IEnumerator EggSpawner()
     {
             for (int i = 0; i < eggSpawnAmount; i++)
