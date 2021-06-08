@@ -30,6 +30,7 @@ public class AnimalPens : MonoBehaviour
                 CowSFX.Play();
             else if (currentAnimal.name == "Sheep")
                 SheepSFX.Play();
+            gameObject.SetActive(false);
         }
     }
 }
