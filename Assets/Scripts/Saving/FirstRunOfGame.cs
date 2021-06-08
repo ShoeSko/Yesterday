@@ -27,6 +27,10 @@ public class FirstRunOfGame : MonoBehaviour
             SetVolume();
             SetListSizes();
             SetContinueValue();
+
+
+
+            ContinueReset(); //Here until continue is upgraded with save info(Contains too little to be usable between loads.
         }
     }
 
@@ -70,5 +74,10 @@ public class FirstRunOfGame : MonoBehaviour
             saving.data.lastScene = null;
         }
 
+    }
+
+    private void ContinueReset() //Currently here as we do not save any of the other important information in the game except scene.
+    {
+        saving.data.lastScene = null;
     }
 }
