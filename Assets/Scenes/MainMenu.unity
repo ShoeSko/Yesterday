@@ -8846,42 +8846,22 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Lorem ipsum dolor sit amet, mei ne wisi suscipit, dico suas consul eum
-    at, et duo voluptua delicata suscipiantur. Ei qui liber tempor concludaturque.
-    Vix tempor constituto dissentias ne. Aperiam deseruisse et has, dolorem invidunt
-    et nec, eam modo nostro consulatu ei. Erat summo elitr ex sea, ei mei quot affert
-    referrentur, labore delectus vituperatoribus ne qui.
-
-
-
-    Everti disputando
-    usu in, eu modo dictas consulatu cum. Suas unum feugait eos et. Ut labore commodo
-    pro. Iudico quaestio usu ne.
-
-
-
-    Ad illud aeque mea, ea sea graecis ocurreret
-    laboramus. Elitr aeterno singulis his ad, tritani scaevola atomorum per ut, eam
-    ea aeterno quaeque instructior. In eirmod regione ancillae nam, habeo solet usu
-    at. Est facer iudicabit at, feugiat deserunt dissentiet mea ei.
-
-
-
-    Nec ut
-    soleat utamur gloriatur, dolorum meliore eos ne. Eius phaedrum at vim, vel nonumy
-    diceret graecis ne. No enim delicata euripidis eam, ut liber semper has. Mel
-    docendi consetetur cu. Viderer oblique voluptua per at, at atqui delenit imperdiet
-    his. Tibique complectitur ius eu.
-
-
-
-    Mel id utinam civibus facilisi, per
-    diceret bonorum oporteat et. Ad dolorem mediocrem expetenda pri, duo docendi
-    mediocrem temporibus at, ea magna repudiandae complectitur est. Ne etiam accumsan
-    probatus pri, an omnes aliquando tincidunt sed. In mea modo fastidii, ei cum
-    melius splendide. Qui possim scribentur et, pro et luptatum imperdiet suscipiantur,
-    in tale omnesque sed. Augue legimus consequuntur eum an, vix laoreet postulant
-    ut.'
+  m_text: "The Guardian: \nThe Guardian is the incarnation of nature's wrath fighting
+    back against the invasive force of humans into the natural territories. All deforestation
+    and pollution has led nature to the brink of extinction, and The Guardian is
+    its response.\n\nAbilities:\n\nForce of Nature - Passive: The Guardian is the
+    incarnation of nature, sending all of her forces against its enemies. She will
+    swarm you with her beasts until your farm becomes a part of her forest.\n\nWrath
+    of the Forest: The Guardian accumulates all of her wrath into a singular strike.
+    She sends out a trail of throny vines, dealing 49 damage to all of your units
+    in that lane. Guardian's allies are unaffected by this ability.\n\nEclipse: The
+    Guardian causes the moon itself to shadow her units. For the duration of the
+    Eclipse (12 sec), the right side of the screen is dark, blocking vision of all
+    incoming enemies, as well as your existing units on that side.\n\nMotherly Embrace:
+    The Guardian's connection to nature allows her to strenghten her allies. The
+    Guardian chooses a random enemy unit on the board. That unit's health, damage
+    and attack speed is increased by 100% as the unit grows in size and gains a unnatural
+    aura. When the buffed unit dies, it deals 20% bosse's health."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -23263,42 +23243,51 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Lorem ipsum dolor sit amet, mei ne wisi suscipit, dico suas consul eum
-    at, et duo voluptua delicata suscipiantur. Ei qui liber tempor concludaturque.
-    Vix tempor constituto dissentias ne. Aperiam deseruisse et has, dolorem invidunt
-    et nec, eam modo nostro consulatu ei. Erat summo elitr ex sea, ei mei quot affert
-    referrentur, labore delectus vituperatoribus ne qui.
+  m_text: 'The Corporate:
+
+    "The Corporate is a fat capitalist profiting off of
+    everyone beneath him. He owns everything he wants, and does not take "no" for
+    an answer. Those who defy him always end up with insane checks and loans to pay
+    back. They who have the money, control everything and everyone around them, and
+    The Corporate has a lot of it."
 
 
-
-    Everti disputando
-    usu in, eu modo dictas consulatu cum. Suas unum feugait eos et. Ut labore commodo
-    pro. Iudico quaestio usu ne.
+    Abilities:
 
 
-
-    Ad illud aeque mea, ea sea graecis ocurreret
-    laboramus. Elitr aeterno singulis his ad, tritani scaevola atomorum per ut, eam
-    ea aeterno quaeque instructior. In eirmod regione ancillae nam, habeo solet usu
-    at. Est facer iudicabit at, feugiat deserunt dissentiet mea ei.
+    The boss of all bosses
+    - passive: The Corporate has unlimited resources to manpower. He will send his
+    neverending minnions towards your farm until you surrender.
 
 
-
-    Nec ut
-    soleat utamur gloriatur, dolorum meliore eos ne. Eius phaedrum at vim, vel nonumy
-    diceret graecis ne. No enim delicata euripidis eam, ut liber semper has. Mel
-    docendi consetetur cu. Viderer oblique voluptua per at, at atqui delenit imperdiet
-    his. Tibique complectitur ius eu.
-
+    Property business:
+    The Corporate controls the property market. He will ''buy out'' your land right
+    under your nose. The Corporate will mark an empty unit slot on the map and render
+    it permanently unusuable. You cannot place units in the slot with the Corporate
+    mark.
 
 
-    Mel id utinam civibus facilisi, per
-    diceret bonorum oporteat et. Ad dolorem mediocrem expetenda pri, duo docendi
-    mediocrem temporibus at, ea magna repudiandae complectitur est. Ne etiam accumsan
-    probatus pri, an omnes aliquando tincidunt sed. In mea modo fastidii, ei cum
-    melius splendide. Qui possim scribentur et, pro et luptatum imperdiet suscipiantur,
-    in tale omnesque sed. Augue legimus consequuntur eum an, vix laoreet postulant
-    ut.'
+    Stock Shortage: The Corporate has full control over the stock market,
+    therefore he controls the prices. When The Corporate uses ''Stock Shortage'',
+    he''ll snap his fingers, at which point your mana will be decreased by a random
+    number between 1-3, making risky investments all the more riskier.
+
+
+    Greedy
+    Opportunity: The Corporate''s greed is immeasurable as he will take any opportunity
+    he sees. The Corporate will sometimes try to take one of your units to sell it.
+
+    He
+    will reach out one of his hands on a lane to try and take a unit from that lane.
+    While reaching out, his hand will be vulnerable. The hand has a total of 150HP.
+    If the hand reaches a unit, it will start taking it. After 4 seconds if the hand
+    still persists, the hand will snatch that unit, destroying it. It will then become
+    invincible and go back into hiding. There are a total of 4 hands, each one has
+    its own lane. The hand''s health does not regenerate when this ability is reused.
+    When a hand is destroyed from a lane, it will deal 25% of his maximum health
+    to the boss and be permanatly removed (will no longer spawn from there). If the
+    hand reaches your farm, it will instead steal a unit from your deck, permanently
+    removing it.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

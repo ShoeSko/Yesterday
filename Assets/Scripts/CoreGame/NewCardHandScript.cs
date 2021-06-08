@@ -141,10 +141,13 @@ public class NewCardHandScript : MonoBehaviour
     public bool LookForEnemies;
     public GameObject MenuReturn;
     private bool LostTutorial;
+    private bool QuackenWorks;
     #endregion
     #region Setup
     void Start()
     {
+        MinigameSceneScript.Tutorial = true;//This is a test thingy
+
         if (DevStageTest == true)
             Stage = whichStage;
 
@@ -345,9 +348,6 @@ public class NewCardHandScript : MonoBehaviour
                 Time.timeScale = 0;
             }
 
-            if (Text != 14)
-                quackenButton.SetActive(false);
-
             if (Text == 16)
                 LookForEnemies = true;
             else
@@ -420,11 +420,18 @@ public class NewCardHandScript : MonoBehaviour
                     Texts[Text].SetActive(true);
                     BotWave.SetActive(true);
                     SpeechBubble.SetActive(true);
-                    quackenButton.SetActive(true);
+                    QuackenWorks = true;
+                    //quackenButton.SetActive(true);
                     PlayableCards = false;
                     SpawnDelay = 0;
                 }
             }
+
+            //maybe fix??
+            if (QuackenWorks == false)
+                quackenButton.SetActive(false);
+            else
+                quackenButton.SetActive(true);
         }
     }
     #endregion
@@ -931,6 +938,7 @@ public class NewCardHandScript : MonoBehaviour
         Text++;
         Texts[Text].SetActive(true);
         ContinueText.SetActive(true);
+        QuackenWorks = false;
     }
 
     public void TutorialWin()
