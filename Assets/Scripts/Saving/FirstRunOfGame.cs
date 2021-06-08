@@ -57,8 +57,6 @@ public class FirstRunOfGame : MonoBehaviour
     {
         if (saving.data.isFirstRun == false ||reset) //If this is the first time the game is booted up / reset
         {
-            saving.data.isFirstRun = true;
-
             saving.data.unitList = new bool[amountOfUnits];
             saving.data.beastList = new bool[amountOfBeasts];
             saving.data.humanoidList = new bool[amountOfHumanoids];
@@ -74,6 +72,13 @@ public class FirstRunOfGame : MonoBehaviour
             saving.data.lastScene = null;
         }
 
+    }
+    private void FirstRun()
+    {
+        if(saving.data.isFirstRun == false)
+        {
+            saving.data.isFirstRun = true;
+        }
     }
 
     private void ContinueReset() //Currently here as we do not save any of the other important information in the game except scene.
