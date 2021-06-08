@@ -20,7 +20,7 @@ MonoBehaviour:
   effectDescription: 'Type: Melee, Ranged'
   effectDescription2: 'Health: Low'
   effectDescription3: 'Damage: Average'
-  flavorTxt: Last time they invaded 1/3 of Europe died
+  flavorTxt: He makes all of the rules
   Prefab: {fileID: 2557954877800294563, guid: ac922c74b52c20a42a04ad7d3353188e, type: 3}
   health: 110
   isShooter: 1

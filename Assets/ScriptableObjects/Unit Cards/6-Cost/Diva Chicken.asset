@@ -22,14 +22,14 @@ MonoBehaviour:
   effectDescription3: 'Damage: Weak'
   flavorTxt: A true fashion model
   Prefab: {fileID: 2557954877800294563, guid: 03103f74d0d96104e833e0e2138ce7d3, type: 3}
-  health: 150
+  health: 110
   isShooter: 1
   isPunching: 0
   isSpecial: 0
-  shootRechargeTime: 5
+  shootRechargeTime: 6
   projectileSpeed: 5
   projectilePrefab: {fileID: 3204289923293697707, guid: 5d52c25ce94445743a02a3ddca268b0e, type: 3}
-  projectileDamage: 30
+  projectileDamage: 35
   shootingTargetLayer:
     serializedVersion: 2
     m_Bits: 64

@@ -24,7 +24,7 @@ public class NewCardHandScript : MonoBehaviour
     public GameObject BossIntro;
 
     private int card;
-    private int RandomBoss;
+    public int RandomBoss;
 
     [Header("Spawners")]
     public static int Stage;//Which stage is the player on? (Will define which enemies spawn)
@@ -146,7 +146,6 @@ public class NewCardHandScript : MonoBehaviour
     #region Setup
     void Start()
     {
-        MinigameSceneScript.Tutorial = true;//This is a test thingy
 
         if (DevStageTest == true)
             Stage = whichStage;

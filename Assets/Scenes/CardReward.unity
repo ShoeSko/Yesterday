@@ -5583,6 +5583,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b8802550a13be8341861ad48376fdedb, type: 2}
   - {fileID: 11400000, guid: 581f66dd97b3e8f4bab09049b36e7960, type: 2}
   - {fileID: 11400000, guid: 4773efbd0654cad43a9ab51755340c69, type: 2}
+  - {fileID: 11400000, guid: 7208abb383d866d4fb714598939dee59, type: 2}
+  - {fileID: 11400000, guid: 762fdab4d1500ce4d982a21c3dd74a0c, type: 2}
+  - {fileID: 11400000, guid: 7316443912d8e704491188cf0622328d, type: 2}
   rewardCards:
   - {fileID: 818926379}
   - {fileID: 1104920717}

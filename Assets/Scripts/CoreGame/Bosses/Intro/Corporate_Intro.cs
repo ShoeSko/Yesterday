@@ -114,12 +114,12 @@ public class Corporate_Intro : MonoBehaviour
         background.SetActive(true);
         RBplayer = Player.GetComponent<Rigidbody2D>();
 
-        if(BossManager.GetComponent<NewCardHandScript>().whichBoss == 1)
+        if(BossManager.GetComponent<NewCardHandScript>().RandomBoss == 1)
         {
             Corporate.SetActive(true);
             RBboss = Corporate.GetComponent<Rigidbody2D>();
         }
-        else
+        else if (BossManager.GetComponent<NewCardHandScript>().RandomBoss == 2)
         {
             Guardian.SetActive(true);
             RBboss = Guardian.GetComponent<Rigidbody2D>();
@@ -135,12 +135,12 @@ public class Corporate_Intro : MonoBehaviour
         Player.SetActive(true);
         background.SetActive(true);
         RBplayer = Player.GetComponent<Rigidbody2D>();
-        if (BossManager.GetComponent<NewCardHandScript>().whichBoss == 1)
+        if (BossManager.GetComponent<NewCardHandScript>().RandomBoss == 1)
         {
             Corporate.SetActive(true);
             RBboss = Corporate.GetComponent<Rigidbody2D>();
         }
-        else
+        else if (BossManager.GetComponent<NewCardHandScript>().RandomBoss == 2)
         {
             Guardian.SetActive(true);
             RBboss = Guardian.GetComponent<Rigidbody2D>();
@@ -155,12 +155,12 @@ public class Corporate_Intro : MonoBehaviour
         Player.SetActive(true);
         background.SetActive(true);
         RBplayer = Player.GetComponent<Rigidbody2D>();
-        if (BossManager.GetComponent<NewCardHandScript>().whichBoss == 1)
+        if (BossManager.GetComponent<NewCardHandScript>().RandomBoss == 1)
         {
             Corporate.SetActive(true);
             RBboss = Corporate.GetComponent<Rigidbody2D>();
         }
-        else
+        else if (BossManager.GetComponent<NewCardHandScript>().RandomBoss == 2)
         {
             Guardian.SetActive(true);
             RBboss = Guardian.GetComponent<Rigidbody2D>();
