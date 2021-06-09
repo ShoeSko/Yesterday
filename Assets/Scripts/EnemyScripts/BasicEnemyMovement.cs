@@ -27,6 +27,7 @@ public class BasicEnemyMovement : MonoBehaviour
     private bool isRecharging; //Is it recharging because then you should not make another wait timer.
     private float knockbackPower; //Grabbing a refrence of the knockback Strenght
     private int quackDamage = 80;
+    private bool chosenByMom;
 
     [Header("Enemy confirmation for Animation")]
     [Tooltip("Is the Enemy Merry, so that her animation will play")] private bool isMerry;
@@ -75,6 +76,11 @@ public class BasicEnemyMovement : MonoBehaviour
     {
         EnemyDeath();//Death comes for us all.
         CurrentDamageTaken(); //Calculates damage taken, activates the appropriate animation.
+
+        //if (chosenByMom) //Potential use for making beasts & Monstrosities chosen by the Guardian to be seen in the dark. (Darkness needs work.
+        //{
+        //    ChildOfMothSeenInDark(); //Used to show the child of the Moth when darkness consumes
+        //}
     }
     private void FixedUpdate()
     {
@@ -364,7 +370,33 @@ public class BasicEnemyMovement : MonoBehaviour
                 transform.GetChild(child).GetComponent<Animator>().SetTrigger("Chosen"); //Turns the child on(Animator and all
             }
         }
+        chosenByMom = true; //This child was chosen by mom
     }
+
+    //private void ChildOfMothSeenInDark()
+    //{
+    //    if (transform.position.x > 0)
+    //    {
+    //        for (int child = 0; child < transform.childCount; child++) //Loops trhough all the children(if multiple)
+    //        {
+    //            if (transform.GetChild(child).GetComponent<Animator>())//Finds a child with the animator.
+    //            {
+    //                transform.GetChild(child).GetComponent<SpriteRenderer>().sortingOrder = 10; //Setts the order to high(In front of the darkness to show it.
+    //            }
+    //        }
+    //    }
+    //    else
+    //    {
+    //        for (int child = 0; child < transform.childCount; child++) //Loops trhough all the children(if multiple)
+    //        {
+    //            if (transform.GetChild(child).GetComponent<Animator>())//Finds a child with the animator.
+    //            {
+    //                transform.GetChild(child).GetComponent<SpriteRenderer>().sortingOrder = 0; //Outside of the dark, the outline will return to normal
+    //            }
+    //        }
+    //    }
+
+    //}
     #endregion
     private void EnemyInfoFeed()
     {
