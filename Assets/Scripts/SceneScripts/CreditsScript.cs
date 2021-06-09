@@ -13,9 +13,13 @@ public class CreditsScript : MonoBehaviour
 
     private void Start()
     {
+
+    }
+    
+    private void FixedUpdate()
+    {
         ScrollText();
     }
-
 
     private void ScrollText()
     {

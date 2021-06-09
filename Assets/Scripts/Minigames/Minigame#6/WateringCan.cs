@@ -54,6 +54,8 @@ public class WateringCan : MonoBehaviour
     public GameObject BotWave;
     public GameObject SpeechBubble;
     public GameObject ContinueText;
+    [SerializeField] private string alternativeAndroidText0;
+    [SerializeField] private Text textToChage0;
     [SerializeField] private string alternativeAndroidText;
     [SerializeField] private Text textToChange;
 
@@ -71,6 +73,7 @@ public class WateringCan : MonoBehaviour
         print("The sound is awake and currently " + waterSound.isPlaying);
 
 #if UNITY_ANDROID
+        textToChage0.text = alternativeAndroidText0;
         textToChange.text = alternativeAndroidText;
 #endif
         GameStarted = true;
