@@ -16,7 +16,7 @@ MonoBehaviour:
   enemyHealth: 230
   obstacleTags: Obstacle
   projectileTags: Projectile
-  attackDamage: 25
+  attackDamage: 45
   attackSpeed: 1.5
   whatIsUnitLayer:
     serializedVersion: 2
