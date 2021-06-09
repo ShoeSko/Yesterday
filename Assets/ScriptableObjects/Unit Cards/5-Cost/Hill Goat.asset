@@ -45,7 +45,7 @@ MonoBehaviour:
   targetsToPunch: 1
   canPunchEverything: 0
   hasKnockback: 1
-  knockbackPower: 50
+  knockbackPower: 150
   isSacrificialKill: 0
   isSupportExpert: 0
   allyLayerToTarget:
