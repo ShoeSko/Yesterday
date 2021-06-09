@@ -21432,7 +21432,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BossTesting: 0
-  whichBoss: 2
+  whichBoss: 1
   DevStageTest: 0
   whichStage: 3
   Smallhand: 1
@@ -21442,6 +21442,7 @@ MonoBehaviour:
   TheCorporatePrefab: {fileID: 1646560896}
   TheGuardianPrefab: {fileID: 434857303}
   BossIntro: {fileID: 1190174847}
+  RandomBoss: 0
   SpawnerHuman: {fileID: 2145196942}
   SpawnerBeast: {fileID: 1099777749}
   SpawnerBossCorporate: {fileID: 1519029868}
