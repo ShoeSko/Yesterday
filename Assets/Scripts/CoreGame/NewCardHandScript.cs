@@ -38,6 +38,7 @@ public class NewCardHandScript : MonoBehaviour
     public AudioSource Music2;
     public AudioSource Boss1;
     public AudioSource Boss2;
+    public AudioSource CurrentBGM;
 
     [Header("Backgrounds")]
     public GameObject BG_Day;
@@ -817,12 +818,14 @@ public class NewCardHandScript : MonoBehaviour
         if (Stage == 1)
         {
             SpawnerBeast.GetComponent<EnemySpawning>().gameStarted = true;
-            Music1.Play();
+            CurrentBGM = Music1;
+            CurrentBGM.Play();
         }
         else if (Stage == 2)
         {
             SpawnerHuman.GetComponent<EnemySpawning>().gameStarted = true;
-            Music2.Play();
+            CurrentBGM = Music2;
+            CurrentBGM.Play();
         }
         else if (Stage == 3)
         {
@@ -832,7 +835,8 @@ public class NewCardHandScript : MonoBehaviour
             if (RandomBoss == 1)
             {
                 SpawnerBossCorporate.GetComponent<EnemySpawning>().gameStarted = true;
-                Boss1.Play();
+                CurrentBGM = Boss1;
+                CurrentBGM.Play();
                 TheCorporatePrefab.GetComponent<TheCorporate>().Activate();
                 TheCorporatePrefab.GetComponent<TheCorporate>().IsActive = true;
             }
@@ -840,7 +844,8 @@ public class NewCardHandScript : MonoBehaviour
             {
                 //Do second boss stuff
                 SpawnerBossGuardian.GetComponent<EnemySpawning>().gameStarted = true;
-                Boss2.Play();
+                CurrentBGM = Boss2;
+                CurrentBGM.Play();
                 TheGuardianPrefab.GetComponent<TheGuardian>().Activate();
                 TheGuardianPrefab.GetComponent<TheGuardian>().IsActive = true;
             }

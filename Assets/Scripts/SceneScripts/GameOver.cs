@@ -7,6 +7,8 @@ public class GameOver : MonoBehaviour
     public GameObject YouLost;
     public GameObject emote;
     public GameObject HandCode;
+    public AudioSource GameOverSFX;
+    private bool SilenceBGM;
     [SerializeField] private Animator hamsterAnimation;
     [SerializeField] private Animator manaBarIndicator; //Gives red background.
 
@@ -34,11 +36,24 @@ public class GameOver : MonoBehaviour
 
     private void lose()
     {
+        //SilenceBGM = true;
+        HandCode.GetComponent<NewCardHandScript>().CurrentBGM.Stop();
+        GameOverSFX.Play();
         emote.GetComponent<Emotes>().LoseGame();
         YouLost.SetActive(true);
         Time.timeScale = 0;
         hamsterAnimation.SetTrigger("Panic");
         manaBarIndicator.SetTrigger("Stock");
+    }
+
+    private void Update()
+    {
+        //Potencial code for reducing volume over time
+        if(SilenceBGM == true)
+        {
+            if (HandCode.GetComponent<NewCardHandScript>().CurrentBGM.volume > 0.05f)
+                HandCode.GetComponent<NewCardHandScript>().CurrentBGM.volume -= Time.deltaTime;
+        }
     }
 
     //public void returnHome()
