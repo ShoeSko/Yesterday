@@ -28,7 +28,7 @@ public class FirstRunOfGame : MonoBehaviour
             SetListSizes();
             SetContinueValue();
 
-
+            FirstRun(); //Always the last to be triggered.
 
             ContinueReset(); //Here until continue is upgraded with save info(Contains too little to be usable between loads.
         }

@@ -193,8 +193,10 @@ MonoBehaviour:
   BotWave: {fileID: 1712201280}
   SpeechBubble: {fileID: 1200544324}
   ContinueText: {fileID: 1876244633}
-  alternativeAndroidText: Tilt your device  to rotate  the watercan to water the
-    plants
+  alternativeAndroidText0: Some tasks require you to use your whole device instead
+    of just your finger.
+  textToChage0: {fileID: 1465367650}
+  alternativeAndroidText: Tilt your device to rotate the watercan to water the plants
   textToChange: {fileID: 1366172507}
   objective: {fileID: 1523724015}
   minigameTimeLimit: 30
@@ -7234,8 +7236,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -4.9318542, y: 3.2685394}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: -1.2571, y: 3.5769}
+  m_SizeDelta: {x: 1923.6746, y: 245.1245}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1465367650
 MonoBehaviour:
@@ -7267,10 +7269,10 @@ MonoBehaviour:
     m_Alignment: 3
     m_AlignByGeometry: 1
     m_RichText: 1
-    m_HorizontalOverflow: 1
+    m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "Some tasks require you to use your \nkeyboard instead of your mouse."
+  m_Text: "Some tasks require you to use your \rkeyboard instead of your mouse."
 --- !u!222 &1465367651
 CanvasRenderer:
   m_ObjectHideFlags: 0
