@@ -34,6 +34,8 @@ public class CardReward : MonoBehaviour
     public GameObject Overview;
     public GameObject ViewView;
 
+    private bool ChosenUnits;
+
 
     private GameObject[] unitList;
     private UnitPrototypeScript[] unitListPrototype;
@@ -70,6 +72,7 @@ public class CardReward : MonoBehaviour
 
     private void Start()
     {
+        ChosenUnits = false;
         sizeOfCards = totalCards.Count;
         sizeOfRewardCards = rewardCards.Count;
 
@@ -213,20 +216,15 @@ public class CardReward : MonoBehaviour
         for (int cardsToRandomize = 0; cardsToRandomize < sizeOfRewardCards; cardsToRandomize++)
         {
             cardPrefab = rewardCards[cardsToRandomize];//define the active card spot that's being looked at
+            cardPrefab.SetActive(true);
             prefabPos = cardPrefab.transform.position;
 
             randomCardInt = Random.Range(0, sizeOfCards);//randomise a card from the total card pool
             activeCard = totalCards[randomCardInt];
 
-            CardName = activeCard.cardName;
+            cardPrefab.GetComponent<CardRewardDisplayer>().card = activeCard;
+            cardPrefab.GetComponent<CardRewardDisplayer>().Read();
 
-            cardPrefab = activeCard.Prefab;
-
-            rewardCardsTMPro[cardsToRandomize].text = CardName; //Write the name of the current random card. **
-
-            rewardCardsTMPro[cardsToRandomize].transform.position = new Vector2(prefabPos.x, prefabPos.y + 1);//offset for the text to appear above the icon
-            cardPrefab.transform.position = prefabPos;
-            Instantiate(cardPrefab);
 
             //assign cards in groups
             if (groupNumber == 1)
@@ -251,22 +249,16 @@ public class CardReward : MonoBehaviour
             StarLimit++;
 
             cardPrefab = rewardCards[cardsToRandomize];//define the active card spot that's being looked at
+            cardPrefab.SetActive(true);
             prefabPos = cardPrefab.transform.position;
 
-            if(StarLimit <= 6)//limit cards to randomise to 6
+            if (StarLimit <= 6)//limit cards to randomise to 6
             {
                 randomCardInt = Random.Range(0, sizeOfCards);//randomise a card from the total card pool
                 activeCard = totalCards[randomCardInt];
 
-                CardName = activeCard.cardName;
-
-                cardPrefab = activeCard.Prefab;
-
-                rewardCardsTMPro[cardsToRandomize].text = CardName; //Write the name of the current random card. **
-
-                rewardCardsTMPro[cardsToRandomize].transform.position = new Vector2(prefabPos.x, prefabPos.y + 1);//offset for the text to appear above the icon
-                cardPrefab.transform.position = prefabPos;
-                Instantiate(cardPrefab);
+                cardPrefab.GetComponent<CardRewardDisplayer>().card = activeCard;
+                cardPrefab.GetComponent<CardRewardDisplayer>().Read();
 
                 //assign cards in groups
                 if (groupNumber == 1)
@@ -294,6 +286,7 @@ public class CardReward : MonoBehaviour
             StarLimit++;
 
             cardPrefab = rewardCards[cardsToRandomize];//define the active card spot that's being looked at
+            cardPrefab.SetActive(true);
             prefabPos = cardPrefab.transform.position;
 
             if (StarLimit <= 3)//limit cards to randomise to 3
@@ -301,15 +294,8 @@ public class CardReward : MonoBehaviour
                 randomCardInt = Random.Range(0, sizeOfCards);//randomise a card from the total card pool
                 activeCard = totalCards[randomCardInt];
 
-                CardName = activeCard.cardName;
-
-                cardPrefab = activeCard.Prefab;
-
-                rewardCardsTMPro[cardsToRandomize].text = CardName; //Write the name of the current random card. **
-
-                rewardCardsTMPro[cardsToRandomize].transform.position = new Vector2(prefabPos.x, prefabPos.y + 1);//offset for the text to appear above the icon
-                cardPrefab.transform.position = prefabPos;
-                Instantiate(cardPrefab);
+                cardPrefab.GetComponent<CardRewardDisplayer>().card = activeCard;
+                cardPrefab.GetComponent<CardRewardDisplayer>().Read();
 
                 //assign cards in groups
                 if (groupNumber == 1)
@@ -410,54 +396,60 @@ public class CardReward : MonoBehaviour
 
     public void selectG1()//add cards from group 1 to your deck
     {
-        groupOfCards = Group1.Count;
-
-        for (int CardsInGroup = 0; CardsInGroup < groupOfCards; CardsInGroup++)
+        if(ChosenUnits == false)
         {
-            activeCard = Group1[CardsInGroup];
-            DeckScript.Deck.Add(activeCard);
+            groupOfCards = Group1.Count;
 
-            if (MinigameSceneScript.Tutorial == false) //Stores the info only they are playing normal.
+            for (int CardsInGroup = 0; CardsInGroup < groupOfCards; CardsInGroup++)
             {
-                UnitForBeastiary(activeCard.unitIndex); //Stores the data in the save file.
-            }
-        }
+                activeCard = Group1[CardsInGroup];
+                DeckScript.Deck.Add(activeCard);
 
-        //NextScene();
+                if (MinigameSceneScript.Tutorial == false) //Stores the info only they are playing normal.
+                {
+                    UnitForBeastiary(activeCard.unitIndex); //Stores the data in the save file.
+                }
+            }
+            ChosenUnits = true;
+        }
     }
     public void selectG2()//add cards from group 2 to your deck
     {
-        groupOfCards = Group2.Count;
-
-        for (int CardsInGroup = 0; CardsInGroup < groupOfCards; CardsInGroup++)
+        if(ChosenUnits == false)
         {
-            activeCard = Group2[CardsInGroup];
-            DeckScript.Deck.Add(activeCard);
+            groupOfCards = Group2.Count;
 
-            if (MinigameSceneScript.Tutorial == false) //Stores the info only they are playing normal.
+            for (int CardsInGroup = 0; CardsInGroup < groupOfCards; CardsInGroup++)
             {
-                UnitForBeastiary(activeCard.unitIndex); //Stores the data in the save file.
-            }
-        }
+                activeCard = Group2[CardsInGroup];
+                DeckScript.Deck.Add(activeCard);
 
-        //NextScene();
+                if (MinigameSceneScript.Tutorial == false) //Stores the info only they are playing normal.
+                {
+                    UnitForBeastiary(activeCard.unitIndex); //Stores the data in the save file.
+                }
+            }
+            ChosenUnits = true;
+        }
     }
     public void selectG3()//add cards from group 3 to your deck
     {
-        groupOfCards = Group3.Count;
-
-        for (int CardsInGroup = 0; CardsInGroup < groupOfCards; CardsInGroup++)
+        if(ChosenUnits == false)
         {
-            activeCard = Group3[CardsInGroup];
-            DeckScript.Deck.Add(activeCard);
+            groupOfCards = Group3.Count;
 
-            if(MinigameSceneScript.Tutorial == false) //Stores the info only they are playing normal.
+            for (int CardsInGroup = 0; CardsInGroup < groupOfCards; CardsInGroup++)
             {
-                UnitForBeastiary(activeCard.unitIndex); //Stores the data in the save file.
-            }
-        }
+                activeCard = Group3[CardsInGroup];
+                DeckScript.Deck.Add(activeCard);
 
-        //NextScene();
+                if (MinigameSceneScript.Tutorial == false) //Stores the info only they are playing normal.
+                {
+                    UnitForBeastiary(activeCard.unitIndex); //Stores the data in the save file.
+                }
+            }
+            ChosenUnits = true;
+        }
     }
 
     #region Beastiary storing
@@ -526,20 +518,14 @@ public class CardReward : MonoBehaviour
         for (int cardsToRandomize = 0; cardsToRandomize < sizeOfRewardCards; cardsToRandomize += 3)
         {
             cardPrefab = rewardCards[cardsToRandomize];//define the active card spot that's being looked at
+            cardPrefab.SetActive(true);
             prefabPos = cardPrefab.transform.position;
 
             randomCardInt = Random.Range(0, sizeOfCards);//randomise a card from the total card pool
             activeCard = totalCards[randomCardInt];
 
-            CardName = activeCard.cardName;
-
-            cardPrefab = activeCard.Prefab;
-
-            rewardCardsTMPro[cardsToRandomize].text = CardName; //Write the name of the current random card. **
-
-            rewardCardsTMPro[cardsToRandomize].transform.position = new Vector2(prefabPos.x, prefabPos.y + 1);//offset for the text to appear above the icon
-            cardPrefab.transform.position = prefabPos;
-            Instantiate(cardPrefab);
+            cardPrefab.GetComponent<CardRewardDisplayer>().card = activeCard;
+            cardPrefab.GetComponent<CardRewardDisplayer>().Read();
 
             Group1.Add(activeCard);
         }
@@ -556,18 +542,15 @@ public class CardReward : MonoBehaviour
 
             if (StarLimit <= 2)//limit cards to randomise to 6
             {
+                cardPrefab = rewardCards[cardsToRandomize];//define the active card spot that's being looked at
+                cardPrefab.SetActive(true);
+                prefabPos = cardPrefab.transform.position;
+
                 randomCardInt = Random.Range(0, sizeOfCards);//randomise a card from the total card pool
                 activeCard = totalCards[randomCardInt];
 
-                CardName = activeCard.cardName;
-
-                cardPrefab = activeCard.Prefab;
-
-                rewardCardsTMPro[cardsToRandomize].text = CardName; //Write the name of the current random card. **
-
-                rewardCardsTMPro[cardsToRandomize].transform.position = new Vector2(prefabPos.x, prefabPos.y + 1);//offset for the text to appear above the icon
-                cardPrefab.transform.position = prefabPos;
-                Instantiate(cardPrefab);
+                cardPrefab.GetComponent<CardRewardDisplayer>().card = activeCard;
+                cardPrefab.GetComponent<CardRewardDisplayer>().Read();
 
                 Group1.Add(activeCard);
             }
