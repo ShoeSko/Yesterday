@@ -22,7 +22,7 @@ MonoBehaviour:
   effectDescription3: 'Damage: Insane'
   flavorTxt: What.. is your favorite color?
   Prefab: {fileID: 2557954877800294563, guid: 17ee70d6eb7bbe44a8c11abee6b513d7, type: 3}
-  health: 1
+  health: 50
   isShooter: 0
   isPunching: 1
   isSpecial: 0
@@ -37,7 +37,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   targetsToShoot: 0
-  punchRechargeTime: 2.5
+  punchRechargeTime: 2
   punchDamage: 666
   punchingTargetLayer:
     serializedVersion: 2

@@ -40,7 +40,6 @@ public class MinigameSceneScript : MonoBehaviour
         {
             MinigameOST = MinigameMusic.GetComponent<AudioSource>();
             MinigameOST.Stop();
-            MinigameMusic.SetActive(false);
         }
 
         if (TutorialMusic)
