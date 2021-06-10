@@ -10,19 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 076f6f62ad23884419ae6246752179f9, type: 3}
-  m_Name: WoolySheep
+  m_Name: Sleepy_Turtle
   m_EditorClassIdentifier: 
-  cardName: Wooly Sheep
-  image: {fileID: 21300000, guid: 2f234d6f8304e6540969fc8f3994c5c1, type: 3}
+  cardName: Sleeping Turtle
+  image: {fileID: 21300000, guid: 4a99265b7f2311942bf7d90cdde0ccf7, type: 3}
   backgroundImage: {fileID: 0}
   icon: {fileID: 21300000, guid: 0f7c73d833ad51241867b6feaa037ca5, type: 3}
-  manaCost: 5
+  manaCost: 1
   effectDescription: 'Type: Tank'
-  effectDescription2: 'Health: Extreme'
+  effectDescription2: 'Health: Very High'
   effectDescription3: 'Damage: None'
-  flavorTxt: Story says he went a whole year without shearing
-  Prefab: {fileID: 2557954877800294563, guid: 1378b5dcb7026d04eac637fdfa1f234d, type: 3}
-  health: 800
+  flavorTxt: 
+  Prefab: {fileID: 2557954877800294563, guid: 21e9c0cf5c95c854793d6bcd1f71bdb0, type: 3}
+  health: 250
   isShooter: 0
   isPunching: 0
   isSpecial: 0
@@ -42,7 +42,7 @@ MonoBehaviour:
   punchingTargetLayer:
     serializedVersion: 2
     m_Bits: 64
-  targetsToPunch: 0
+  targetsToPunch: 1
   canPunchEverything: 0
   hasKnockback: 0
   knockbackPower: 0
@@ -55,4 +55,4 @@ MonoBehaviour:
   sizeBuff: {x: 0, y: 0, z: 0}
   healthBuff: 0
   damageBuff: 0
-  unitIndex: 20
+  unitIndex: 21
