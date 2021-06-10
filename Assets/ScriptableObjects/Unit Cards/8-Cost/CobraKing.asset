@@ -20,7 +20,7 @@ MonoBehaviour:
   effectDescription: 'Type: Melee'
   effectDescription2: 'Health: Very High'
   effectDescription3: 'Damage: Average'
-  flavorTxt: The lizard king takes no prisoners
+  flavorTxt: Yessssss queen
   Prefab: {fileID: 2557954877800294563, guid: 7342b99977e1e2247bf8f6f777c8316f, type: 3}
   health: 380
   isShooter: 0

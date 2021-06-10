@@ -20,7 +20,7 @@ MonoBehaviour:
   effectDescription: 'Type: Melee'
   effectDescription2: 'Health: Medium'
   effectDescription3: 'Damage: Good'
-  flavorTxt: 
+  flavorTxt: He got 4 stars for excelent service
   Prefab: {fileID: 2557954877800294563, guid: e847706fc18baa14f9ac2bfa9ae2918b, type: 3}
   health: 170
   isShooter: 0

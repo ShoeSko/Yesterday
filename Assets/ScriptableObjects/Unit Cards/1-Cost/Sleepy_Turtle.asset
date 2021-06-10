@@ -20,7 +20,7 @@ MonoBehaviour:
   effectDescription: 'Type: Tank'
   effectDescription2: 'Health: Very High'
   effectDescription3: 'Damage: None'
-  flavorTxt: 
+  flavorTxt: He likes making games
   Prefab: {fileID: 2557954877800294563, guid: 2381c1b2745708949b4d68c9e076b747, type: 3}
   health: 250
   isShooter: 0

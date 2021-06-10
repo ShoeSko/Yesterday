@@ -20,7 +20,7 @@ MonoBehaviour:
   effectDescription: 'Type: Melee'
   effectDescription2: 'Health: Low'
   effectDescription3: 'Damage: Very Good'
-  flavorTxt: 
+  flavorTxt: He's the one cutting the onions
   Prefab: {fileID: 2557954877800294563, guid: 9a171ac0d3c13054ca0cb59e62ece4ed, type: 3}
   health: 150
   isShooter: 0
