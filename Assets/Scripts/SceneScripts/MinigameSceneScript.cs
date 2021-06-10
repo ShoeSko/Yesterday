@@ -36,17 +36,16 @@ public class MinigameSceneScript : MonoBehaviour
         MinigameMusic = GameObject.Find("MinigameMusic");
         TutorialMusic = GameObject.Find("TutorialMusic");
 
-        TutorialOST = TutorialMusic.GetComponent<AudioSource>();
-        MinigameOST = MinigameMusic.GetComponent<AudioSource>();
-
         if (MinigameMusic)
         {
+            MinigameOST = MinigameMusic.GetComponent<AudioSource>();
             MinigameOST.Stop();
             MinigameMusic.SetActive(false);
         }
 
         if (TutorialMusic)
         {
+            TutorialOST = TutorialMusic.GetComponent<AudioSource>();
             TutorialOST.Stop();
         }
 
