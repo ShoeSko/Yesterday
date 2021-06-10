@@ -18,8 +18,8 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 0f7c73d833ad51241867b6feaa037ca5, type: 3}
   manaCost: 3
   effectDescription: 'Special:'
-  effectDescription2: 
-  effectDescription3: He can't fight but will encourage the unit in-front
+  effectDescription2: He can't fight but will encourage the unit in-front
+  effectDescription3: 
   flavorTxt: 'You can tell he''s shy by looking at his fingers '
   Prefab: {fileID: 2557954877800294563, guid: 422ea58729597f4458461086c76d0a99, type: 3}
   health: 40
