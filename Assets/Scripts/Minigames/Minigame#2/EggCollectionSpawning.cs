@@ -54,7 +54,6 @@ public class EggCollectionSpawning : MonoBehaviour
 
     [Header("Time Limit Minigame")]
     [SerializeField] private float minigameTimeLimit = 30f;
-    private bool timeIsUp;
 
     [Header("Backgrounds")]
     [SerializeField] private GameObject background1;
@@ -84,9 +83,9 @@ public class EggCollectionSpawning : MonoBehaviour
             SpeechBubble.SetActive(true);
         }
         else
+        {
             GameStarted = true;
-
-        StartCoroutine(TimerForMinigame());
+        }
     }
 
     private void RandomBackground()
@@ -202,7 +201,7 @@ public class EggCollectionSpawning : MonoBehaviour
         if (eggsSpawned == eggSpawnAmount)
             delay += Time.deltaTime;
 
-        if(delay >= 2 || timeIsUp)
+        if(delay >= 2)
         {
             if(MinigameSceneScript.Tutorial == false)
             {
@@ -287,12 +286,5 @@ public class EggCollectionSpawning : MonoBehaviour
                 gameHasStarted = false;
             }
         }
-    }
-
-    IEnumerator TimerForMinigame()
-    {
-        yield return new WaitForSeconds(minigameTimeLimit);
-
-        timeIsUp = true;
     }
 }
