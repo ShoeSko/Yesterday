@@ -23,6 +23,8 @@ public class Corporate_Intro : MonoBehaviour
     private bool PlayMe2;
     private bool PlayMe3;
 
+    public AudioSource IntroSFX;
+
     public int Intro;//Test variable to test different intros
 
     private bool SpawnDelay;
@@ -106,6 +108,8 @@ public class Corporate_Intro : MonoBehaviour
             Intro2();
         else if (Intro == 3)
             Intro3();
+
+        IntroSFX.Play();
     }
 
     void Intro1()
