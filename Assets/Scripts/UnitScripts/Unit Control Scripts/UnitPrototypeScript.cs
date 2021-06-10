@@ -88,7 +88,6 @@ public class UnitPrototypeScript : MonoBehaviour
         if(isShooter && isPunching)
         {
             isMultiPurpose = true; //If  it can both attack and punch
-            isPunching = false; //This is now off Until an enemy is within range.
         }
         if (isShooter) { Aim(); }
         if (isSupportExpert) { AllyAim(); }
@@ -248,7 +247,6 @@ public class UnitPrototypeScript : MonoBehaviour
         if (isMultiPurpose) //Switches between range and melee on contact
         {
             isShooter = false;
-            isPunching = true;
         }
         print("Has had a collision");
         if (this.gameObject.tag == "InstaKill")
@@ -277,7 +275,6 @@ public class UnitPrototypeScript : MonoBehaviour
         if (isMultiPurpose) //Switches between range and melee on lack of contact
         {
             isShooter = true;
-            isPunching = false;
         }
     }
     private void AllyAim() //Special Aim for targeting allies specifically.
