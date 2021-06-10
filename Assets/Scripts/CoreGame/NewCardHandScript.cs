@@ -209,7 +209,6 @@ public class NewCardHandScript : MonoBehaviour
             BG_Day.SetActive(true);
             Text = 0;
             ManaSystem.CurrentMana = 10;
-            Music1.Play();
 
             //Deactivate everything
             handSmall.SetActive(false);
