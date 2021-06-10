@@ -520,7 +520,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70ff8b9a1047d0043b09f816c7c4e0fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colour: {r: 0.7529412, g: 0.7529412, b: 0.7529412, a: 1}
+  colour: {r: 0.5019608, g: 0, b: 0.5019608, a: 1}
   useOutline: 0
   outlineColour: {r: 0, g: 0, b: 0, a: 0}
   outlineWitdh: 0
@@ -966,7 +966,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70ff8b9a1047d0043b09f816c7c4e0fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colour: {r: 0.7529412, g: 0.7529412, b: 0.7529412, a: 1}
+  colour: {r: 0.15686275, g: 0.7647059, b: 0.7529412, a: 1}
   useOutline: 0
   outlineColour: {r: 0, g: 0, b: 0, a: 0}
   outlineWitdh: 0
@@ -1335,7 +1335,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -820}
+  m_AnchoredPosition: {x: 0, y: -997}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!61 &632086274
@@ -2530,7 +2530,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70ff8b9a1047d0043b09f816c7c4e0fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colour: {r: 0.7529412, g: 0.7529412, b: 0.7529412, a: 1}
+  colour: {r: 0.5019608, g: 0, b: 0.5019608, a: 1}
   useOutline: 0
   outlineColour: {r: 0, g: 0, b: 0, a: 0}
   outlineWitdh: 0
@@ -2683,7 +2683,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70ff8b9a1047d0043b09f816c7c4e0fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colour: {r: 0.7529412, g: 0.7529412, b: 0.7529412, a: 1}
+  colour: {r: 0.1549929, g: 0.764151, b: 0.7515744, a: 1}
   useOutline: 0
   outlineColour: {r: 0, g: 0, b: 0, a: 0}
   outlineWitdh: 0
@@ -2713,10 +2713,7 @@ MonoBehaviour:
     anonymous#2
 
 
-    anonymous#3
-
-
-    Ect'
+    anonymous#3'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
