@@ -49,6 +49,7 @@ public class Victory : MonoBehaviour
     [ContextMenu("Actiave Win")]
     public void Win()
     {
+        TutorialHand.GetComponent<NewCardHandScript>().IWon = true;
         emote.GetComponent<Emotes>().WonGame();
         print("Victory");
         s_youWon = false;
