@@ -12,6 +12,7 @@ public class PillowScript : MonoBehaviour
     public GameObject blackstar1;
     public GameObject blackstar2;
     public GameObject blackstar3;
+    public GameObject FadeboxUI;
 
     private Vector3 moveLenght = new Vector3(0.1078f, 0.02f, 0);
     private Vector3 currentPos;
@@ -38,6 +39,7 @@ public class PillowScript : MonoBehaviour
         blackstar1.SetActive(false);
         blackstar2.SetActive(false);
         blackstar3.SetActive(false);
+        FadeboxUI.SetActive(false);
 
         StartCoroutine(TimerForMinigame());
     }
@@ -96,6 +98,7 @@ public class PillowScript : MonoBehaviour
                 blackstar3.SetActive(true);
             }
 
+            FadeboxUI.SetActive(true);
             nextSceneButton.SetActive(true);
             levelTransitioner.currentMinigameScore = score;
         }

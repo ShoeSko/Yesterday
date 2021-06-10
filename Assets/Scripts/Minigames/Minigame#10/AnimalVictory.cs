@@ -13,10 +13,12 @@ public class AnimalVictory : MonoBehaviour
     public GameObject blackstar1;
     public GameObject blackstar2;
     public GameObject blackstar3;
+    public GameObject fadeUIBox;
 
     public int star1Time;
     public int star2Time;
     public int star3Time;
+
 
     [Header("Level Transition")]
     [SerializeField] private GameObject nextSceneButton; //The button to reach next scene
@@ -43,6 +45,8 @@ public class AnimalVictory : MonoBehaviour
     private void Awake()
     {
         _animalPensFilled = 0; //Resets the game
+
+        fadeUIBox.SetActive(false);
     }
 
     private void Start()
@@ -167,6 +171,7 @@ public class AnimalVictory : MonoBehaviour
                     //0 stars
                 }
 
+                fadeUIBox.SetActive(true);
                 nextSceneButton.SetActive(true);
                 levelTransitioner.currentMinigameScore = score;
             }
