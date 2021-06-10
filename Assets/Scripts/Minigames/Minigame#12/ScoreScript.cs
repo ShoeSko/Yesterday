@@ -13,6 +13,7 @@ public class ScoreScript : MonoBehaviour
     public GameObject blackstar1;
     public GameObject blackstar2;
     public GameObject blackstar3;
+    public GameObject fadeUIBox;
 
     [Header("Scene Transition")]
     [SerializeField] private GameObject nextSceneButton; //The button to reach next scene
@@ -30,6 +31,7 @@ public class ScoreScript : MonoBehaviour
         blackstar1.SetActive(false);
         blackstar2.SetActive(false);
         blackstar3.SetActive(false);
+        fadeUIBox.SetActive(false);
 
         StartCoroutine(TimerForMinigame());
     }
@@ -83,6 +85,7 @@ public class ScoreScript : MonoBehaviour
             blackstar2.SetActive(true);
             blackstar3.SetActive(true);
         }
+        fadeUIBox.SetActive(true);
     }
 
     IEnumerator TimerForMinigame()

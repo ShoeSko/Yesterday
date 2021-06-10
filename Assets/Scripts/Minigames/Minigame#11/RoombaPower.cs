@@ -29,6 +29,7 @@ public class RoombaPower : MonoBehaviour
     public GameObject blackstar1;
     public GameObject blackstar2;
     public GameObject blackstar3;
+    public GameObject fadeUIBox;
     private int starLenght;//How long is the star list
     private float scoreTimer; //How long it takes to do the game
     public int star1Time;
@@ -70,7 +71,7 @@ public class RoombaPower : MonoBehaviour
         blackstar1.SetActive(false);
         blackstar2.SetActive(false);
         blackstar3.SetActive(false);
-
+        fadeUIBox.SetActive(false);
         FirstLineInitialization();
 
         starLenght = stars.Count;
@@ -210,6 +211,7 @@ public class RoombaPower : MonoBehaviour
                 //0 stars
             }
         }
+        fadeUIBox.SetActive(true);
         RoombaMove();
 
         thirdSwitch = true;//Prevents star script from repeating.

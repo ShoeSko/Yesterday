@@ -10,6 +10,7 @@ public class MouseCollider : MonoBehaviour
     public GameObject blackstar1;
     public GameObject blackstar2;
     public GameObject blackstar3;
+    public GameObject FadeboxUI;
 
     private float ScoreTimer;
 
@@ -34,6 +35,7 @@ public class MouseCollider : MonoBehaviour
         blackstar1.SetActive(false);
         blackstar2.SetActive(false);
         blackstar3.SetActive(false);
+        FadeboxUI.SetActive(false);
 
         StartCoroutine(TimerForMinigame());
     }
@@ -76,7 +78,7 @@ public class MouseCollider : MonoBehaviour
                 blackstar2.SetActive(true);
                 blackstar3.SetActive(true);
             }
-
+            FadeboxUI.SetActive(true);
             nextSceneButton.SetActive(true);
             levelTransitioner.currentMinigameScore = gameScore;
 
