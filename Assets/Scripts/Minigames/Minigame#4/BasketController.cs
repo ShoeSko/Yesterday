@@ -5,7 +5,7 @@ using UnityEngine;
 public class BasketController : MonoBehaviour
 {
     private Rigidbody2D rb;
-    public static int moveSpeed = 7;
+    public static float moveSpeed = 8.5f;
 
     [Range(-0.5f, 0.5f)] public float rotDeadZone = 0.1f;
     public GameObject otherWalls; //The walls to use if it does not support gyro
