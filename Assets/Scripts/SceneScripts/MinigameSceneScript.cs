@@ -33,7 +33,21 @@ public class MinigameSceneScript : MonoBehaviour
     
     private void Start()
     {
-        Silence();
+        MinigameMusic = GameObject.Find("MinigameMusic");
+        TutorialMusic = GameObject.Find("TutorialMusic");
+
+        if (MinigameMusic)
+        {
+            MinigameOST = MinigameMusic.GetComponent<AudioSource>();
+            MinigameOST.Stop();
+            MinigameMusic.SetActive(false);
+        }
+
+        if (TutorialMusic)
+        {
+            TutorialOST = TutorialMusic.GetComponent<AudioSource>();
+            TutorialOST.Stop();
+        }
 
         CheckIfTutorialHasRun();
     }
@@ -144,16 +158,9 @@ public class MinigameSceneScript : MonoBehaviour
         TutorialMusic = GameObject.Find("TutorialMusic");
 
         if (MinigameMusic)
-        {
-            MinigameOST = MinigameMusic.GetComponent<AudioSource>();
-            MinigameOST.Stop();
-            MinigameMusic.SetActive(false);
-        }
+            Destroy(MinigameMusic);
 
         if (TutorialMusic)
-        {
-            TutorialOST = TutorialMusic.GetComponent<AudioSource>();
-            TutorialOST.Stop();
-        }
+            Destroy(TutorialMusic);
     }
 }
