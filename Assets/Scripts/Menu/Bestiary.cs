@@ -704,9 +704,9 @@ public class Bestiary : MonoBehaviour
             boss1ContentList[index].SetActive(false);
         }
 
-        for (int index = 0; index < boss1ContentList.Count; index++)
+        for (int index = 0; index < boss2ContentList.Count; index++)
         {
-            boss1ContentList[index].SetActive(false);
+            boss2ContentList[index].SetActive(false);
         }
     }
     #endregion
