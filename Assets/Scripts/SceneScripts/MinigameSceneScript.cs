@@ -43,10 +43,11 @@ public class MinigameSceneScript : MonoBehaviour
         }
 
         if (TutorialMusic)
-        {
-            TutorialOST = TutorialMusic.GetComponent<AudioSource>();
-            TutorialOST.Stop();
-        }
+            if(Tutorial == false)
+            {
+                TutorialOST = TutorialMusic.GetComponent<AudioSource>();
+                TutorialOST.Stop();
+            }
 
         CheckIfTutorialHasRun();
     }
@@ -147,6 +148,7 @@ public class MinigameSceneScript : MonoBehaviour
     public void DeckClear()
     {
         Tutorial = false;
+        Quacken.s_quackenBeenReleased = false; //Resets the Quacken.
         DeckScript.Deck.Clear();
         NewCardHandScript.Stage = 1;
     }
