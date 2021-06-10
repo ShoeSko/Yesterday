@@ -18,9 +18,9 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 0f7c73d833ad51241867b6feaa037ca5, type: 3}
   manaCost: 4
   effectDescription: 'Special:'
-  effectDescription2: 
-  effectDescription3: The first creature that falls in the pond will be instantly
+  effectDescription2: The first creature that falls in the pond will be instantly
     killed
+  effectDescription3: 
   flavorTxt: Who put that there??
   Prefab: {fileID: 2557954877800294563, guid: 466553edf74b0c345862f03d793a9aa4, type: 3}
   health: 100

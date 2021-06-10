@@ -33,22 +33,7 @@ public class MinigameSceneScript : MonoBehaviour
     
     private void Start()
     {
-        MinigameMusic = GameObject.Find("MinigameMusic");
-        TutorialMusic = GameObject.Find("TutorialMusic");
-
-        if (MinigameMusic)
-        {
-            MinigameOST = MinigameMusic.GetComponent<AudioSource>();
-            MinigameOST.Stop();
-            MinigameMusic.SetActive(false);
-        }
-
-        if (TutorialMusic)
-        {
-            TutorialOST = TutorialMusic.GetComponent<AudioSource>();
-            TutorialOST.Stop();
-        }
-
+        Silence();
 
         CheckIfTutorialHasRun();
     }
@@ -151,5 +136,24 @@ public class MinigameSceneScript : MonoBehaviour
         Tutorial = false;
         DeckScript.Deck.Clear();
         NewCardHandScript.Stage = 1;
+    }
+
+    public void Silence()
+    {
+        MinigameMusic = GameObject.Find("MinigameMusic");
+        TutorialMusic = GameObject.Find("TutorialMusic");
+
+        if (MinigameMusic)
+        {
+            MinigameOST = MinigameMusic.GetComponent<AudioSource>();
+            MinigameOST.Stop();
+            MinigameMusic.SetActive(false);
+        }
+
+        if (TutorialMusic)
+        {
+            TutorialOST = TutorialMusic.GetComponent<AudioSource>();
+            TutorialOST.Stop();
+        }
     }
 }
