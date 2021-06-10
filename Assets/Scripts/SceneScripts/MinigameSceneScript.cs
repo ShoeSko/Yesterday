@@ -71,7 +71,7 @@ public class MinigameSceneScript : MonoBehaviour
         scene3 = 6; //Introduces Tilting
 
         TutorialOST.Play();
-        DontDestroyOnLoad(TutorialMusic);
+        //DontDestroyOnLoad(TutorialMusic);
         FirstTimeTutorial(); //Stores in the save that tutorial has been started once.
         levelTransition.LoadFirstMiniGame();
     }
@@ -134,7 +134,7 @@ public class MinigameSceneScript : MonoBehaviour
             if (randomize == 0)
             {
                 MinigameMusic.SetActive(true);
-                DontDestroyOnLoad(MinigameMusic);
+                //DontDestroyOnLoad(MinigameMusic);
 
                 //TAKE THIS ONE!!!
                 levelTransition.LoadFirstMiniGame();
