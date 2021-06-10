@@ -17600,7 +17600,7 @@ MonoBehaviour:
   Corporate: {fileID: 421133829}
   Guardian: {fileID: 1936396058}
   background: {fileID: 566778478}
-  IntroSFX: {fileID: 0}
+  IntroSFX: {fileID: 564707394}
   Intro: 2
 --- !u!1001 &1192148800
 PrefabInstance:

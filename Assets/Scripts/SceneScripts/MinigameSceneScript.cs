@@ -19,6 +19,10 @@ public class MinigameSceneScript : MonoBehaviour
     private int randomSceneValue;
 
     private GameObject MinigameMusic;
+    private GameObject TutorialMusic;
+
+    private AudioSource MinigameOST;
+    private AudioSource TutorialOST;
 
     [SerializeField] private LevelTransitionSystem levelTransition;
 
@@ -30,13 +34,21 @@ public class MinigameSceneScript : MonoBehaviour
     private void Start()
     {
         MinigameMusic = GameObject.Find("MinigameMusic");
-        if (MinigameMusic)
-        {
+        TutorialMusic = GameObject.Find("TutorialMusic");
+
+        TutorialOST = TutorialMusic.GetComponent<AudioSource>();
+        MinigameOST = MinigameMusic.GetComponent<AudioSource>();
+
+
+        MinigameOST.Stop();
         MinigameMusic.SetActive(false);
-        }
+
+        TutorialOST.Stop();
+
 
         CheckIfTutorialHasRun();
     }
+
 
     public void RandomMinigameScene() //Activate this to start a random scene within the list of minigames
     {
@@ -55,8 +67,8 @@ public class MinigameSceneScript : MonoBehaviour
         scene2 = 10;//Introduces dragging
         scene3 = 6; //Introduces Tilting
 
-        MinigameMusic.SetActive(true);
-        DontDestroyOnLoad(MinigameMusic);
+        TutorialOST.Play();
+        DontDestroyOnLoad(TutorialMusic);
         FirstTimeTutorial(); //Stores in the save that tutorial has been started once.
         levelTransition.LoadFirstMiniGame();
     }
