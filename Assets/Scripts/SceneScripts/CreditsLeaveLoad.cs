@@ -13,6 +13,7 @@ public class CreditsLeaveLoad : MonoBehaviour
     private float loadLeftTime;
     private CanvasGroup canvasGroup;
     private bool hamsterIsRunning;
+    private bool isQuittingCredits;
 
     private void Start()
     {
@@ -59,9 +60,13 @@ public class CreditsLeaveLoad : MonoBehaviour
             }
         }
 
-        if(loadValue == 1)
+        if(loadValue >= 1)
         {
-            BackToMainMenuFromCredits();
+            if (!isQuittingCredits)
+            {
+                BackToMainMenuFromCredits();
+                isQuittingCredits = true;
+            }
         }
     }
 
