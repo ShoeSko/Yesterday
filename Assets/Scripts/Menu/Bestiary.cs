@@ -691,7 +691,7 @@ public class Bestiary : MonoBehaviour
 
     public void Boss1ContentShow()
     {
-        for (int index = 0; index < boss1ContentList.Count; index++)
+        for (int index = 0; index < boss2ContentList.Count; index++)
         {
             boss2ContentList[index].SetActive(true); //Turns on all Boss 2 content features
         }
