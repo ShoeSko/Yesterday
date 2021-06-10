@@ -56,6 +56,7 @@ public class MinigameSceneScript : MonoBehaviour
     {
         if(NewCardHandScript.Stage != 4)
         {
+            GameObject.Find("MinigameMusic").GetComponent<AudioSource>().Play();
             activeMinigame = 1;
             StartCoroutine(minigameRandomizer());
         }
