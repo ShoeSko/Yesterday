@@ -19,6 +19,10 @@ public class SettingsInPlay : MonoBehaviour
 
     public void BackToMainMenu()
     {
+        if (FindObjectOfType<MinigameSceneScript>())
+        {
+            FindObjectOfType<MinigameSceneScript>().Silence();
+        }
         SceneManager.LoadScene("MainMenu");
     }
 }
