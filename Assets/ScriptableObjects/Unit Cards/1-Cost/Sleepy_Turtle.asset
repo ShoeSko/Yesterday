@@ -21,7 +21,7 @@ MonoBehaviour:
   effectDescription2: 'Health: Very High'
   effectDescription3: 'Damage: None'
   flavorTxt: 
-  Prefab: {fileID: 2557954877800294563, guid: 21e9c0cf5c95c854793d6bcd1f71bdb0, type: 3}
+  Prefab: {fileID: 2557954877800294563, guid: 2381c1b2745708949b4d68c9e076b747, type: 3}
   health: 250
   isShooter: 0
   isPunching: 0
@@ -55,4 +55,4 @@ MonoBehaviour:
   sizeBuff: {x: 0, y: 0, z: 0}
   healthBuff: 0
   damageBuff: 0
-  unitIndex: 21
+  unitIndex: 34

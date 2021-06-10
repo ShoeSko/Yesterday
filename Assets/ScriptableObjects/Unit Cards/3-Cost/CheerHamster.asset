@@ -10,19 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 076f6f62ad23884419ae6246752179f9, type: 3}
-  m_Name: Ninjey
+  m_Name: CheerHamster
   m_EditorClassIdentifier: 
-  cardName: Ninjey
-  image: {fileID: 21300000, guid: 2fb68d4590b4b024588c88ee39337ecb, type: 3}
+  cardName: Pigster
+  image: {fileID: 21300000, guid: 73f132aebdda0cf45bac0603edfa6c6c, type: 3}
   backgroundImage: {fileID: 0}
   icon: {fileID: 21300000, guid: 2bf6f17ff025d204b91dd5ba765debd0, type: 3}
-  manaCost: 7
+  manaCost: 3
   effectDescription: 'Type: Melee'
-  effectDescription2: 'Health: Low'
-  effectDescription3: 'Damage: Very Good'
+  effectDescription2: 'Health: Medium'
+  effectDescription3: 'Damage: Average'
   flavorTxt: 
-  Prefab: {fileID: 2557954877800294563, guid: 9a171ac0d3c13054ca0cb59e62ece4ed, type: 3}
-  health: 150
+  Prefab: {fileID: 2557954877800294563, guid: 72a05fdcced59af4ead5a5e3e6fb89d2, type: 3}
+  health: 200
   isShooter: 0
   isPunching: 1
   isSpecial: 0
@@ -37,13 +37,13 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   targetsToShoot: 0
-  punchRechargeTime: 0.4
-  punchDamage: 20
+  punchRechargeTime: 0.8
+  punchDamage: 9
   punchingTargetLayer:
     serializedVersion: 2
     m_Bits: 64
-  targetsToPunch: 5
-  canPunchEverything: 1
+  targetsToPunch: 1
+  canPunchEverything: 0
   hasKnockback: 0
   knockbackPower: 0
   isSacrificialKill: 0
@@ -55,4 +55,4 @@ MonoBehaviour:
   sizeBuff: {x: 0, y: 0, z: 0}
   healthBuff: 0
   damageBuff: 0
-  unitIndex: 33
+  unitIndex: 31

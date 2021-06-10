@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6118651002381041060}
   - component: {fileID: -3116244657460953428}
   m_Layer: 8
-  m_Name: BalckSheep
+  m_Name: SIMP
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -62,13 +62,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 640f5631b972d134691baa2444ec969f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Unit: {fileID: 11400000, guid: d6bf67d5d2f3ab849ab553181cc9cc11, type: 2}
+  Unit: {fileID: 11400000, guid: 61b611b2bb733cd42991e9d9c6ffa42d, type: 2}
   health: 0
   projectileDamage: 10
   targetsToShoot: 0
   punchRange: 1
   punchPosition: {fileID: 2066630506426419775}
-  unitIndex: 0
+  unitIndex: 38
 --- !u!212 &6118651002381041060
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -109,7 +109,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 79510be31546580439f4d3fc1a059e9b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 259081b3860cefe439c5798b5de1a437, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

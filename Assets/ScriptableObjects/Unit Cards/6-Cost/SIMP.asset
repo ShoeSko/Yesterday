@@ -10,40 +10,40 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 076f6f62ad23884419ae6246752179f9, type: 3}
-  m_Name: Ninjey
+  m_Name: SIMP
   m_EditorClassIdentifier: 
-  cardName: Ninjey
-  image: {fileID: 21300000, guid: 2fb68d4590b4b024588c88ee39337ecb, type: 3}
+  cardName: Sniper Monkey
+  image: {fileID: 21300000, guid: 259081b3860cefe439c5798b5de1a437, type: 3}
   backgroundImage: {fileID: 0}
-  icon: {fileID: 21300000, guid: 2bf6f17ff025d204b91dd5ba765debd0, type: 3}
-  manaCost: 7
-  effectDescription: 'Type: Melee'
-  effectDescription2: 'Health: Low'
-  effectDescription3: 'Damage: Very Good'
-  flavorTxt: 
-  Prefab: {fileID: 2557954877800294563, guid: 9a171ac0d3c13054ca0cb59e62ece4ed, type: 3}
-  health: 150
-  isShooter: 0
-  isPunching: 1
+  icon: {fileID: 21300000, guid: cdefa914e39dad74fb27e975725738dd, type: 3}
+  manaCost: 6
+  effectDescription: 'Type: Ranged'
+  effectDescription2: 'Health: Medium'
+  effectDescription3: 'Damage: Very High'
+  flavorTxt: Yes, i am a simp
+  Prefab: {fileID: 2557954877800294563, guid: 8350b215fba1eba4bbb46a0900ecc74d, type: 3}
+  health: 100
+  isShooter: 1
+  isPunching: 0
   isSpecial: 0
-  shootRechargeTime: 0
-  projectileSpeed: 0
+  shootRechargeTime: 7
+  projectileSpeed: 8
   projectilePrefab: {fileID: 3204289923293697707, guid: 5d52c25ce94445743a02a3ddca268b0e, type: 3}
-  projectileDamage: 0
+  projectileDamage: 50
   shootingTargetLayer:
     serializedVersion: 2
     m_Bits: 64
   edgeOfRangeLayer:
     serializedVersion: 2
     m_Bits: 128
-  targetsToShoot: 0
-  punchRechargeTime: 0.4
-  punchDamage: 20
+  targetsToShoot: 1
+  punchRechargeTime: 0
+  punchDamage: 0
   punchingTargetLayer:
     serializedVersion: 2
     m_Bits: 64
-  targetsToPunch: 5
-  canPunchEverything: 1
+  targetsToPunch: 0
+  canPunchEverything: 0
   hasKnockback: 0
   knockbackPower: 0
   isSacrificialKill: 0
@@ -55,4 +55,4 @@ MonoBehaviour:
   sizeBuff: {x: 0, y: 0, z: 0}
   healthBuff: 0
   damageBuff: 0
-  unitIndex: 33
+  unitIndex: 38

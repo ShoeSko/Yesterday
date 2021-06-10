@@ -68,7 +68,7 @@ MonoBehaviour:
   targetsToShoot: 0
   punchRange: 1
   punchPosition: {fileID: 2066630506426419775}
-  unitIndex: 0
+  unitIndex: 34
 --- !u!212 &6118651002381041060
 SpriteRenderer:
   m_ObjectHideFlags: 0

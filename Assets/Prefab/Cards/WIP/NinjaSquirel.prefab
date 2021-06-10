@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6118651002381041060}
   - component: {fileID: -3116244657460953428}
   m_Layer: 8
-  m_Name: NinjaSquirels
+  m_Name: NinjaSquirel
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -68,7 +68,7 @@ MonoBehaviour:
   targetsToShoot: 0
   punchRange: 1
   punchPosition: {fileID: 2066630506426419775}
-  unitIndex: 0
+  unitIndex: 33
 --- !u!212 &6118651002381041060
 SpriteRenderer:
   m_ObjectHideFlags: 0
