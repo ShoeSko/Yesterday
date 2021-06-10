@@ -420,7 +420,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useBackground: 1
   card: {fileID: 11400000, guid: d6bf67d5d2f3ab849ab553181cc9cc11, type: 2}
-  spellCard: {fileID: 0}
   artworkImage: {fileID: 3126888793992432095}
   backgroundImage: {fileID: 6362562398710887752}
   iconImage: {fileID: 8036774604346486470}
@@ -603,8 +602,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -15.74, y: 27.29}
-  m_SizeDelta: {x: 247.99, y: 165.86}
+  m_AnchoredPosition: {x: -16.372791, y: 27.702019}
+  m_SizeDelta: {x: 255.5831, y: 166.684}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3126888794565556825
 CanvasRenderer:
