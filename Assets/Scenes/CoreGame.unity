@@ -21418,7 +21418,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 118.2, y: -21.8}
+  m_AnchoredPosition: {x: 118.20001, y: -21.799988}
   m_SizeDelta: {x: 48.589996, y: 33.73999}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1450511010
@@ -21726,6 +21726,8 @@ MonoBehaviour:
   TheCorporatePrefab: {fileID: 1646560896}
   TheGuardianPrefab: {fileID: 434857303}
   BossIntro: {fileID: 1190174847}
+  DeckButton: {fileID: 982852050}
+  IWon: 0
   RandomBoss: 0
   SpawnerHuman: {fileID: 2145196942}
   SpawnerBeast: {fileID: 1099777749}

@@ -22,6 +22,9 @@ public class NewCardHandScript : MonoBehaviour
     public GameObject TheCorporatePrefab;
     public GameObject TheGuardianPrefab;
     public GameObject BossIntro;
+    public GameObject DeckButton;
+
+    public bool IWon;
 
     private int card;
     public int RandomBoss;
@@ -147,6 +150,7 @@ public class NewCardHandScript : MonoBehaviour
     #region Setup
     void Start()
     {
+        IWon = false;
 
         if (DevStageTest == true)
             Stage = whichStage;
@@ -235,7 +239,15 @@ public class NewCardHandScript : MonoBehaviour
 
     void Update()
     {
-        ManaCostDisplayer();
+        if(IWon == false)
+        {
+            ManaCostDisplayer();
+        }
+        else
+        {
+            quackenButton.SetActive(false);
+            DeckButton.SetActive(false);
+        }
 
         ReadMana(); //Quick fix to read the mana value
 

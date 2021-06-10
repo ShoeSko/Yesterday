@@ -42,12 +42,11 @@ public class MinigameSceneScript : MonoBehaviour
             MinigameOST.Stop();
         }
 
-        if (TutorialMusic)
-            if(Tutorial == false)
-            {
-                TutorialOST = TutorialMusic.GetComponent<AudioSource>();
-                TutorialOST.Stop();
-            }
+        if (TutorialMusic && Tutorial == false)
+        {
+            TutorialOST = TutorialMusic.GetComponent<AudioSource>();
+            TutorialOST.Stop();
+        }
 
         CheckIfTutorialHasRun();
     }

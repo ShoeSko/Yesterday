@@ -36,6 +36,9 @@ public class LevelTransitionSystem : MonoBehaviour
     {
         string nextLevelName = "";
 
+        if (MinigameSceneScript.Tutorial)
+            MinigameSceneScript.Tutorial = false;
+
         Time.timeScale = 1;
         Quacken.s_quackenBeenReleased = false; //Resets the Quacken.
         nextLevelName = "MainMenu";
