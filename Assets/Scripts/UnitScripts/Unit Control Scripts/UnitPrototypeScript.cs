@@ -55,6 +55,7 @@ public class UnitPrototypeScript : MonoBehaviour
     [Tooltip("How much the health should be buffed")] private float healthBuff;
     [Tooltip("How much the damage should be buffed")] private float damageBuff;
     private bool hasInstakilled;
+    private bool isMultiPurpose;
 
     private bool hasBuffedAlly = false; //Has the unit given it's buff?
 
@@ -84,6 +85,11 @@ public class UnitPrototypeScript : MonoBehaviour
     private void Start()
     {
         UnitInfoFeed(); //All info of the Unit is recorded here.
+        if(isShooter && isPunching)
+        {
+            isMultiPurpose = true; //If  it can both attack and punch
+            isPunching = false; //This is now off Until an enemy is within range.
+        }
         if (isShooter) { Aim(); }
         if (isSupportExpert) { AllyAim(); }
         healthSave = health; // Saves the health value at max.
@@ -239,6 +245,11 @@ public class UnitPrototypeScript : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if (isMultiPurpose) //Switches between range and melee on contact
+        {
+            isShooter = false;
+            isPunching = true;
+        }
         print("Has had a collision");
         if (this.gameObject.tag == "InstaKill")
         {
@@ -259,6 +270,14 @@ public class UnitPrototypeScript : MonoBehaviour
                     }
                 }
             }
+        }
+    }
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (isMultiPurpose) //Switches between range and melee on lack of contact
+        {
+            isShooter = true;
+            isPunching = false;
         }
     }
     private void AllyAim() //Special Aim for targeting allies specifically.
