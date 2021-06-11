@@ -23,7 +23,7 @@ public class LevelTransitionSystem : MonoBehaviour
 
         if (NewCardHandScript.Stage >= 4)
         {
-            nextLevelName = "MainMenu";
+            nextLevelName = "Credits";
             if (FindObjectOfType<SaveSystem>())
             {
                 FindObjectOfType<SaveSystem>().data.lastScene = null;

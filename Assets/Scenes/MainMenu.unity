@@ -12941,7 +12941,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &890025498
 RectTransform:
   m_ObjectHideFlags: 0
@@ -20851,15 +20851,15 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 85286c21f4c59784aa46dcae967ae5ab, type: 2}
   - {fileID: 11400000, guid: 01fb32f34ffdc9746a586702493998b1, type: 2}
   - {fileID: 11400000, guid: 9f7a91233fef5a7469a43f408982af6c, type: 2}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 3c703bef3a7247944b19ba2ad50f3daa, type: 2}
   - {fileID: 11400000, guid: b8802550a13be8341861ad48376fdedb, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 54f00f71cb4b18540bcae3cc69ec3f4a, type: 2}
+  - {fileID: 11400000, guid: 50c3df197d59ebd488329d2c3a125d6f, type: 2}
+  - {fileID: 11400000, guid: 0a9359bebe657a74ca3bd9f604c1450f, type: 2}
+  - {fileID: 11400000, guid: a1615bcdbc087b4408eb8b4ebf65f4d2, type: 2}
+  - {fileID: 11400000, guid: 46eaa1a76c974a24f8a82b13c9fd1eaa, type: 2}
+  - {fileID: 11400000, guid: 61b611b2bb733cd42991e9d9c6ffa42d, type: 2}
+  - {fileID: 11400000, guid: 0d64950000bf4ad4591fc745d540268a, type: 2}
   unitPage2: {fileID: 663965958}
   backButtonBeasts: {fileID: 728679660}
   nextButtonBeasts: {fileID: 505001665}
