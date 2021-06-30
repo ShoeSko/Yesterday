@@ -30,14 +30,22 @@ public class EggCollection : MonoBehaviour
         getEgg.Play();
         GetPoints = true;   //counts the eggs towards the total goal
         coreSystem.EggCollected();
-        Destroy(gameObject);//Tempt simple solution, destroy the egg on press.
+        Destroy(gameObject);
     }
 
     private void OnDestroy()
     {
         if (GetPoints == true)//the egg won't give points when disappearing
             EggCollectionSpawning.score++;
-        else { coreSystem.EggLost(); }
+        else if(MinigameSceneScript.Tutorial == false)
+        {
+            coreSystem.EggLost();
+        }
+        else if (GetPoints == false && MinigameSceneScript.Tutorial == true)//When you miss an egg in tutorial
+        {
+            coreSystem.EggCollected();
+            coreSystem.TutorialMissedEgg();
+        }
 
         EggCollectionSpawning.eggsSpawned++;
     }

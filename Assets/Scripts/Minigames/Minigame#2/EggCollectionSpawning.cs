@@ -51,6 +51,7 @@ public class EggCollectionSpawning : MonoBehaviour
     public GameObject SpeechBubble;
     public GameObject continueText;
     private bool gameHasStarted;
+    private bool EggPause;
 
     [Header("Time Limit Minigame")]
     [SerializeField] private float minigameTimeLimit = 30f;
@@ -154,33 +155,49 @@ public class EggCollectionSpawning : MonoBehaviour
     {
         //Tutorial part
 
-        if(MinigameSceneScript.Tutorial == true && gameHasStarted == false)
+        if(MinigameSceneScript.Tutorial == true)
         {
-            if (Input.GetKeyDown(KeyCode.Mouse0) || Input.GetKeyDown(KeyCode.Space))
+            if(gameHasStarted == false)
             {
-                if(Text != 9)
+                if (Input.GetKeyDown(KeyCode.Mouse0) || Input.GetKeyDown(KeyCode.Space))
                 {
-                    Texts[Text].SetActive(false);
-                    Text++;
+                    if (Text != 9)
+                    {
+                        Texts[Text].SetActive(false);
+                        Text++;
+                    }
+                    if (Text != 6 && Text != 10)
+                        Texts[Text].SetActive(true);
+                    else if (Text == 6)
+                    {
+                        RobotSmile1.SetActive(false);
+                        SpeechBubble.SetActive(false);
+                        continueText.SetActive(false);
+                        goaltext.SetActive(true);
+                        GameStarted = true;
+                        gameHasStarted = true;
+                    }
                 }
-                if (Text != 6 && Text != 10)
-                    Texts[Text].SetActive(true);
-                else if(Text == 6)
+
+                if (Text == 9)
                 {
-                    RobotSmile1.SetActive(false);
-                    SpeechBubble.SetActive(false);
+                    nextSceneButton.SetActive(true);
                     continueText.SetActive(false);
-                    goaltext.SetActive(true);
-                    GameStarted = true;
-                    gameHasStarted = true;
+                    levelTransitioner.currentMinigameScore = minigameScore;
                 }
             }
 
-            if(Text == 9)
+            if (EggPause == true)
             {
-                nextSceneButton.SetActive(true);
-                continueText.SetActive(false);
-                levelTransitioner.currentMinigameScore = minigameScore;
+                if (Input.GetKeyDown(KeyCode.Mouse0) || Input.GetKeyDown(KeyCode.Space))
+                {
+                    Time.timeScale = 1;
+                    RobotSmile1.SetActive(false);
+                    SpeechBubble.SetActive(false);
+                    continueText.SetActive(false);
+                    Texts[10].SetActive(false);
+                    EggPause = false;
+                }
             }
         }
 
@@ -286,5 +303,15 @@ public class EggCollectionSpawning : MonoBehaviour
                 gameHasStarted = false;
             }
         }
+    }
+
+    public void TutorialMissedEgg()
+    {
+        Time.timeScale = 0;
+        RobotSmile1.SetActive(true);
+        SpeechBubble.SetActive(true);
+        continueText.SetActive(true);
+        Texts[10].SetActive(true);
+        EggPause = true;
     }
 }

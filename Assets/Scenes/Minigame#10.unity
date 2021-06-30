@@ -2041,11 +2041,92 @@ Transform:
   - {fileID: 530300199}
   - {fileID: 1103703801}
   - {fileID: 1243756102}
+  - {fileID: 1183112648}
   - {fileID: 1836484756}
   - {fileID: 1252094040}
   m_Father: {fileID: 774924401}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1183112647
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1183112648}
+  - component: {fileID: 1183112650}
+  - component: {fileID: 1183112649}
+  m_Layer: 5
+  m_Name: Text 3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1183112648
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1183112647}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 17.200024}
+  m_LocalScale: {x: 0.0038204053, y: 0.0038204053, z: 0.0038204053}
+  m_Children: []
+  m_Father: {fileID: 1175200300}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -4.72, y: 3.1}
+  m_SizeDelta: {x: 100, y: 99.99997}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1183112649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1183112647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 123
+    m_FontStyle: 0
+    m_BestFit: 1
+    m_MinSize: 27
+    m_MaxSize: 123
+    m_Alignment: 3
+    m_AlignByGeometry: 1
+    m_RichText: 1
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
+    m_LineSpacing: 1
+  m_Text: "Wait, something isn't right. \nIt looks like i forgot to bring in \nthe
+    last animal. Sorry, my bad!"
+--- !u!222 &1183112650
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1183112647}
+  m_CullTransparentMesh: 1
 --- !u!1001 &1229781765
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2284,7 +2365,7 @@ RectTransform:
   m_LocalScale: {x: 0.0038204053, y: 0.0038204053, z: 0.0038204053}
   m_Children: []
   m_Father: {fileID: 1175200300}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -2411,7 +2492,9 @@ MonoBehaviour:
   Texts:
   - {fileID: 1103703800}
   - {fileID: 1243756101}
+  - {fileID: 1183112647}
   - {fileID: 1836484755}
+  Ostrich: {fileID: 554522436}
   minigameTimeLimit: 30
 --- !u!114 &1292562024
 MonoBehaviour:
@@ -3616,7 +3699,7 @@ GameObject:
   - component: {fileID: 1836484758}
   - component: {fileID: 1836484757}
   m_Layer: 5
-  m_Name: Text 3
+  m_Name: Text 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3634,11 +3717,11 @@ RectTransform:
   m_LocalScale: {x: 0.0038204053, y: 0.0038204053, z: 0.0038204053}
   m_Children: []
   m_Father: {fileID: 1175200300}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -4.72, y: 3.3}
+  m_AnchoredPosition: {x: -4.72, y: 3.23}
   m_SizeDelta: {x: 100, y: 99.99997}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1836484757
@@ -3674,8 +3757,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "Oh oh, looks like you only got \n2 stars this time, don't worry you \ncan
-    still get your reward."
+  m_Text: "Oops, looks like we only got 2 \nstars because of the error. \nI will
+    make sure to report this to\nmy developers when we're done."
 --- !u!222 &1836484758
 CanvasRenderer:
   m_ObjectHideFlags: 0

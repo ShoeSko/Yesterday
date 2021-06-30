@@ -37,6 +37,8 @@ public class AnimalVictory : MonoBehaviour
     public GameObject ContinueText;
     public List<GameObject> Texts = new List<GameObject>();
     private int Text;
+    public GameObject Ostrich;
+    private bool SpawnedOstrich;
 
     [Header("Time Limit Minigame")]
     [SerializeField] private float minigameTimeLimit = 30f;
@@ -113,12 +115,39 @@ public class AnimalVictory : MonoBehaviour
 
                         GameStarted = true;
 
+                        Ostrich.SetActive(false);
+
                         BotWave.SetActive(false);
                         SpeechBubble.SetActive(false);
                         ContinueText.SetActive(false);
                     }
                 }
             }
+
+            if(SpawnedOstrich == false)
+            {
+                if (_animalPensFilled == 3)
+                {
+                    BotWave.SetActive(true);
+                    SpeechBubble.SetActive(true);
+                    Texts[Text].SetActive(true);
+                    ContinueText.SetActive(true);
+                    ObjectiveText.SetActive(false);
+
+                    if (Input.GetKeyDown(KeyCode.Mouse0) || Input.GetKeyDown(KeyCode.Space))
+                    {
+                        BotWave.SetActive(false);
+                        SpeechBubble.SetActive(false);
+                        Texts[Text].SetActive(false);
+                        ContinueText.SetActive(false);
+                        Ostrich.SetActive(true);
+                        ObjectiveText.SetActive(true);
+                        Text++;
+                        SpawnedOstrich = true;
+                    }
+                }
+            }
+
         }
     }
     private void AllAnimalsInPens()
