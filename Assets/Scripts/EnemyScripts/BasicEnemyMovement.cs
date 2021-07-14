@@ -417,4 +417,12 @@ public class BasicEnemyMovement : MonoBehaviour
         isMonstrosity = enemy.isMonstrosity;
         enemyIndex = enemy.enemyIndex;
     }
+
+    public void RatDebuff()//NOT TESTED, MIGHT CRASH 
+    {
+        float damageFloat;
+        damageFloat = attackDamage;
+        damageFloat = Mathf.Round(damageFloat * 0.9f);
+        attackDamage = (int)damageFloat;
+    }
 }

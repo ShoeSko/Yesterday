@@ -110,6 +110,28 @@ public class UnitPrototypeScript : MonoBehaviour
         CurrentDamageTaken();
         Death();
         }
+
+        //Card ability segment
+        if (Unit.cardName == "Banana Duck")
+        {
+            print("I work");
+        }
+        if (Unit.cardName == "The Chef")
+        {
+            print("I work");
+        }
+        if (Unit.cardName == "Sleeping Turtle")
+        {
+            print("I dont attack");
+        }
+        if (Unit.cardName == "Sumo Racoon")
+        {
+            print("I dont have an ability");
+        }
+        if (Unit.cardName == "Duckey")
+        {
+            print("I work");
+        }
     }
     #endregion
     #region Shooting
@@ -173,7 +195,11 @@ public class UnitPrototypeScript : MonoBehaviour
                         if (enemiesToDamage[i].GetComponent<BasicEnemyMovement>())
                         {
                         enemiesToDamage[i].GetComponent<BasicEnemyMovement>().TakeDamage(punchDamage, hasKnockback, knockbackPower); //Sent attackDamage to Unit
-                        //print("Punch");
+                            if (Unit.cardName == "The Chef")//The chef rat ability
+                            {
+                                enemiesToDamage[i].GetComponent<BasicEnemyMovement>().RatDebuff();
+                            }
+                            //print("Punch");
                         }
                         else if (enemiesToDamage[i].GetComponent<GreedyOpportunity>())
                         {
