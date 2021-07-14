@@ -80,6 +80,15 @@ public class UnitPrototypeScript : MonoBehaviour
     [Header("Unit Damage Taken Visuals")]
     private Animator animatorOfUnit;
 
+    //Unit abilities:
+    private Collider2D hitEnemy;//Used to access the current punched target outside the punch statement
+    private bool OneTimeTrigger;
+    private static bool MafiaBuffPig;
+    private static bool MafiaBuffCow;
+
+    private float BasicHealth;//Variable to store the starting health of the card
+    private int BasicDamage;//Variable to store the starting punching damage of the card
+    private int BasicShootingDamage;//Variable to store the starting shooting damage of the card
     #endregion
     #region Standard Voids
     private void Start()
@@ -98,6 +107,21 @@ public class UnitPrototypeScript : MonoBehaviour
             animatorOfUnit = GetComponent<Animator>();
             animatorOfUnit.enabled = true;
         }
+
+        //Card abilities:
+
+        if (Unit.cardName == "Duckey")
+        {
+            ManaSystem.CurrentMana += Unit.manaCost;
+            Debug.Log("Duckey restored " + Unit.manaCost);
+        }
+
+        if(Unit.cardName == "Pigster" || Unit.cardName == "Cowster")
+        {
+            BasicHealth = health;
+            BasicDamage = punchDamage;
+            BasicShootingDamage = projectileDamage;
+        }
     }
 
     private void Update()
@@ -111,26 +135,39 @@ public class UnitPrototypeScript : MonoBehaviour
         Death();
         }
 
-        //Card ability segment
-        if (Unit.cardName == "Banana Duck")
+        //Card abilities
+        if (Unit.cardName == "Pigster")
         {
-            print("I work");
+            MafiaBuffPig = true;
+
+            if (MafiaBuffCow == true)
+                mafiaAbility();
+            else
+            {
+                OneTimeTrigger = false;
+                health = BasicHealth;
+                punchDamage = BasicDamage;
+
+                Debug.Log("Am smol, health is" + health);
+                Debug.Log("Am smol, damage is" + punchDamage);
+            }
         }
-        if (Unit.cardName == "The Chef")
+
+        if (Unit.cardName == "Cowster")
         {
-            print("I work");
-        }
-        if (Unit.cardName == "Sleeping Turtle")
-        {
-            print("I dont attack");
-        }
-        if (Unit.cardName == "Sumo Racoon")
-        {
-            print("I dont have an ability");
-        }
-        if (Unit.cardName == "Duckey")
-        {
-            print("I work");
+            MafiaBuffCow = true;
+
+            if (MafiaBuffPig == true)
+                mafiaAbility();
+            else
+            {
+                OneTimeTrigger = false;
+                health = BasicHealth;
+                projectileDamage = BasicShootingDamage;
+
+                Debug.Log("Am smol, health is" + health);
+                Debug.Log("Am smol, damage is" + projectileDamage);
+            }
         }
     }
     #endregion
@@ -194,11 +231,9 @@ public class UnitPrototypeScript : MonoBehaviour
                         hasPunched = true;
                         if (enemiesToDamage[i].GetComponent<BasicEnemyMovement>())
                         {
-                        enemiesToDamage[i].GetComponent<BasicEnemyMovement>().TakeDamage(punchDamage, hasKnockback, knockbackPower); //Sent attackDamage to Unit
-                            if (Unit.cardName == "The Chef")//The chef rat ability
-                            {
-                                enemiesToDamage[i].GetComponent<BasicEnemyMovement>().RatDebuff();
-                            }
+                            enemiesToDamage[i].GetComponent<BasicEnemyMovement>().TakeDamage(punchDamage, hasKnockback, knockbackPower); //Sent attackDamage to Unit
+                            hitEnemy = enemiesToDamage[i];
+                            OnHitAbility();//Check if the unit has any abilities that trigger when hitting an enemy
                             //print("Punch");
                         }
                         else if (enemiesToDamage[i].GetComponent<GreedyOpportunity>())
@@ -384,6 +419,18 @@ public class UnitPrototypeScript : MonoBehaviour
     }
     private void OnDestroy()
     {
+        //Unit abilities:
+        if (Unit.cardName == "Pigster")
+        {
+            MafiaBuffPig = false;
+        }
+
+        if (Unit.cardName == "Cowster")
+        {
+            MafiaBuffCow = false;
+        }
+
+
         if (EnemySpawning.s_isCoreGame)
         {
             if (transform.parent && isDead)
@@ -488,5 +535,36 @@ public class UnitPrototypeScript : MonoBehaviour
         damageBuff = Unit.damageBuff;
 
         unitIndex = Unit.unitIndex;
+    }
+
+    private void OnHitAbility()
+    {
+        if (Unit.cardName == "The Chef")//The chef rat ability
+        {
+            hitEnemy.GetComponent<BasicEnemyMovement>().RatDebuff();
+        }
+    }
+
+    private void mafiaAbility()
+    {
+        if (OneTimeTrigger == false)
+        {
+            health = health * 1.5f;
+            Debug.Log("My health changed from " + health / 1.5f + "to " + health);
+
+            float damageFloat;
+            damageFloat = punchDamage;
+            damageFloat = Mathf.Round(damageFloat * 1.5f);
+            punchDamage = (int)damageFloat;
+            Debug.Log("My damage changed from " + punchDamage / 1.5f + "to " + punchDamage);
+
+            float RangeddamageFloat;
+            RangeddamageFloat = projectileDamage;
+            RangeddamageFloat = Mathf.Round(RangeddamageFloat * 1.5f);
+            projectileDamage = (int)RangeddamageFloat;
+            Debug.Log("My damage changed from " + projectileDamage / 1.5f + "to " + projectileDamage);
+
+            OneTimeTrigger = true;//dont trigger this again
+        }
     }
 }

@@ -21718,7 +21718,7 @@ MonoBehaviour:
   BossTesting: 0
   whichBoss: 2
   DevStageTest: 0
-  whichStage: 3
+  whichStage: 1
   Smallhand: 1
   PlayedCard: {fileID: 0}
   quackenButton: {fileID: 1450511008}

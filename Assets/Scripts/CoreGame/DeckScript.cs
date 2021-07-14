@@ -13,6 +13,8 @@ public class DeckScript : MonoBehaviour
     public CardScript CowCard;
     public CardScript Chikin;
     public CardScript Sheep;
+    //public CardScript TestCard; //Test thingy
+    //public CardScript TestCard2; //Test thingy
 
     public GameObject deckViewer;
     public GameObject ViewDeck;
@@ -20,6 +22,10 @@ public class DeckScript : MonoBehaviour
 
     void Start()
     {
+        //Deck.Add(TestCard);
+        //Deck.Add(TestCard2);
+        //Everything above is used for testing, unlock the thing under when finished with testing
+
         Deck.Add(CowCard);//the starting cards 
         Deck.Add(Chikin);//the starting cards 
         Deck.Add(Sheep);//the starting cards 

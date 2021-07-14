@@ -424,5 +424,7 @@ public class BasicEnemyMovement : MonoBehaviour
         damageFloat = attackDamage;
         damageFloat = Mathf.Round(damageFloat * 0.9f);
         attackDamage = (int)damageFloat;
+
+        Debug.Log("Chef Rat reduced the damage of " + enemy.name + "from " + Mathf.Round(attackDamage / 0.9f) + "to " + attackDamage);
     }
 }
