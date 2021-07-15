@@ -83,6 +83,7 @@ public class UnitPrototypeScript : MonoBehaviour
     //Unit abilities:
     private Collider2D hitEnemy;//Used to access the current punched target outside the punch statement
     private bool OneTimeTrigger;
+    private int HitCounter;
     private static bool MafiaBuffPig;
     private static bool MafiaBuffCow;
 
@@ -121,6 +122,12 @@ public class UnitPrototypeScript : MonoBehaviour
             BasicHealth = health;
             BasicDamage = punchDamage;
             BasicShootingDamage = projectileDamage;
+        }
+
+        if (Unit.cardName == "Black Rooster")
+        {
+            BasicHealth = health;
+            BasicDamage = punchDamage;
         }
     }
 
@@ -168,6 +175,11 @@ public class UnitPrototypeScript : MonoBehaviour
                 Debug.Log("Am smol, health is" + health);
                 Debug.Log("Am smol, damage is" + projectileDamage);
             }
+        }
+
+        if (Unit.cardName == "Black Rooster")
+        {
+            ability_BBC();
         }
     }
     #endregion
@@ -543,9 +555,27 @@ public class UnitPrototypeScript : MonoBehaviour
         {
             hitEnemy.GetComponent<BasicEnemyMovement>().RatDebuff();
         }
+        
+        if (Unit.cardName == "Goosey")
+        {
+            HitCounter++;
+
+            if(HitCounter == 4)
+            {
+                punchDamage = punchDamage * 3;
+            }
+            if(HitCounter == 5)
+            {
+                punchDamage = punchDamage / 3;
+                HitCounter = 0;
+            }
+
+            Debug.Log("The hitcounter is" + HitCounter);
+            Debug.Log("My damage is " + punchDamage);
+        }
     }
 
-    private void mafiaAbility()
+    private void mafiaAbility()//"Pigster" + "Cowster" ability
     {
         if (OneTimeTrigger == false)
         {
@@ -566,5 +596,30 @@ public class UnitPrototypeScript : MonoBehaviour
 
             OneTimeTrigger = true;//dont trigger this again
         }
+    }
+    private void ability_BBC()//"Black Rooster" ability
+    {
+        if (health > BasicHealth)//This prevents his damage to be decrease when recieving a health buff
+        {
+            BasicHealth = health;
+        }
+
+        float damageFloat;
+        int damageBuff = BasicDamage;
+        damageFloat = damageBuff;
+        damageFloat = Mathf.Round(damageFloat / 1.5f);
+        damageBuff = (int)damageFloat;
+
+
+        float HealthPercentage;//Calculate current health %
+        HealthPercentage = (health / BasicHealth);
+
+        float floatdamage;//float -> int workaround
+        floatdamage = BasicDamage - (damageBuff * HealthPercentage);//Increase damage when health is lowered
+
+        punchDamage = (int)floatdamage;
+
+        Debug.Log("Im at " + HealthPercentage * 100 + "% of my health");
+        Debug.Log("My damage is " + punchDamage);
     }
 }
