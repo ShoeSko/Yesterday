@@ -862,6 +862,20 @@ public class NewCardHandScript : MonoBehaviour
             }
         }
     }
+
+    public void ReRollHand()
+    {
+        for (card = 1; card <= 5; card++)
+        {
+            Deck.GetComponent<DeckScript>().Randomise();
+
+            CurrentCard = GameObject.Find("SCard" + card);
+            CurrentCard.GetComponent<CardDisplayer>().card = Deck.GetComponent<DeckScript>().activecard;
+            CurrentCard.GetComponent<CardDisplayer>().Read();
+
+            StartCoroutine(CardAnimationOn(CurrentCard, card));//Made to do the animation on start.
+        }
+    }
     #region Animation Controlls
     private void AnimationReset()
     {

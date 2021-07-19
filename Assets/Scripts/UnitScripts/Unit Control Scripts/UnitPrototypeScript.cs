@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class UnitPrototypeScript : MonoBehaviour
 {
@@ -90,6 +91,9 @@ public class UnitPrototypeScript : MonoBehaviour
     private float BasicHealth;//Variable to store the starting health of the card
     private int BasicDamage;//Variable to store the starting punching damage of the card
     private int BasicShootingDamage;//Variable to store the starting shooting damage of the card
+
+    private GameObject DeckObject;
+    private DeckScript DeckCode;
     #endregion
     #region Standard Voids
     private void Start()
@@ -111,7 +115,7 @@ public class UnitPrototypeScript : MonoBehaviour
 
         //Card abilities:
 
-        if (Unit.cardName == "Duckey")
+        if(Unit.cardName == "Duckey")
         {
             ManaSystem.CurrentMana += Unit.manaCost;
             Debug.Log("Duckey restored " + Unit.manaCost);
@@ -128,6 +132,54 @@ public class UnitPrototypeScript : MonoBehaviour
         {
             BasicHealth = health;
             BasicDamage = punchDamage;
+        }
+
+        if(Unit.cardName == "Squirrels")
+        {
+            DeckObject = GameObject.Find("Deck");
+            DeckCode = DeckObject.GetComponent<DeckScript>();
+            DeckCode.CheckForRodents();
+
+            Debug.Log("There are " + DeckCode.Rodents + " rodents in this deck");
+
+            health += 15 * DeckCode.Rodents;
+            punchDamage += 2 * DeckCode.Rodents;
+
+            Debug.Log("My Health is" + health);
+            Debug.Log("My Damage is" + punchDamage);
+
+            DeckCode.Rodents = 0;
+        }
+
+        if(Unit.cardName == "Evil Rabbit")
+        {
+            GameObject [] RandomEnemy = GameObject.FindGameObjectsWithTag("Enemy");
+
+            Debug.Log("There are this many enemies" + RandomEnemy.Length);
+            
+            for(int EnemiesToHit = 0; EnemiesToHit < 3; EnemiesToHit++)
+            {
+                if(RandomEnemy.Length > EnemiesToHit)
+                {
+                    int RandomizedNumber = Random.Range(0, RandomEnemy.Length);
+
+                    RandomEnemy[RandomizedNumber].GetComponent<BasicEnemyMovement>().TakeDamage(punchDamage, hasKnockback, knockbackPower);
+                }
+            }
+        }
+
+        if(Unit.cardName == "Saddler")
+        {
+            DeckObject = GameObject.Find("Deck");
+            DeckCode = DeckObject.GetComponent<DeckScript>();
+
+            DeckCode.OstrichCowardness();
+        }
+
+        if(Unit.cardName == "Snek")
+        {
+            GameObject HandReset = GameObject.Find("HANDscript");
+            HandReset.GetComponent<NewCardHandScript>().ReRollHand();
         }
     }
 

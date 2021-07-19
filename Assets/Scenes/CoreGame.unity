@@ -4550,14 +4550,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be178b46287bfa14da1dc4ebb521c64a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  RodentsList:
+  - {fileID: 11400000, guid: a7f79d8ff64064948b19ac3c1cc02860, type: 2}
+  - {fileID: 11400000, guid: 8f232aae2c0d38c4482a943b7064cbc1, type: 2}
+  - {fileID: 11400000, guid: 1324616e86e85c4438ef344c23bb8e3c, type: 2}
+  - {fileID: 11400000, guid: 99471469f811338408bac4333bac98d1, type: 2}
+  - {fileID: 11400000, guid: 3c703bef3a7247944b19ba2ad50f3daa, type: 2}
+  - {fileID: 11400000, guid: 54f00f71cb4b18540bcae3cc69ec3f4a, type: 2}
   activecard: {fileID: 0}
   CowCard: {fileID: 11400000, guid: 2feaa7772e4a0ed4abe51ab0b90c9614, type: 2}
   Chikin: {fileID: 11400000, guid: d8854abcbe197604194b903ffbcc8e84, type: 2}
   Sheep: {fileID: 11400000, guid: d6bf67d5d2f3ab849ab553181cc9cc11, type: 2}
-  TestCard: {fileID: 11400000, guid: 34617a0e63345c342baf3a006aded0bb, type: 2}
-  TestCard2: {fileID: 0}
+  TestCard: {fileID: 11400000, guid: 180486b47d2b0f44d8898f60cfe68db2, type: 2}
+  TestCard2: {fileID: 11400000, guid: 5f3e525f599024f4c8840ff23083e6cb, type: 2}
   deckViewer: {fileID: 251797549}
   ViewDeck: {fileID: 90165295}
+  Rodents: 0
 --- !u!1 &369066552
 GameObject:
   m_ObjectHideFlags: 0

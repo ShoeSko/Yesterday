@@ -5,6 +5,7 @@ using UnityEngine;
 public class DeckScript : MonoBehaviour
 {
     public static List<CardScript> Deck = new List<CardScript>();
+    public List<CardScript> RodentsList = new List<CardScript>();
 
     private int DeckCards;
     public CardScript activecard;
@@ -18,6 +19,8 @@ public class DeckScript : MonoBehaviour
 
     public GameObject deckViewer;
     public GameObject ViewDeck;
+
+    public int Rodents;//For SquirrelFamily card
 
 
     void Start()
@@ -56,7 +59,7 @@ public class DeckScript : MonoBehaviour
 
             activecard = Deck[randomcard];
 
-            if (activecard == null)
+            if (activecard == null)//just in case something crashes
             {
                 cards--;
             }
@@ -71,5 +74,42 @@ public class DeckScript : MonoBehaviour
     public void DeckViewModeOff()
     {
         Time.timeScale = 1;
+    }
+
+    public void CheckForRodents()
+    {
+        for (int cards = 0; cards < DeckCards; cards++)
+        {
+            Debug.Log("Looking at card number " + cards);
+
+            for (int RodentNumber = 0; RodentNumber <= RodentsList.Count; RodentNumber++)
+            {
+                if (Deck[cards] == RodentsList[RodentNumber])
+                {
+                    Rodents++;
+                    RodentNumber = RodentsList.Count+1;
+                }
+            }
+        }
+        Debug.Log("Found this many rodents: " + Rodents);
+    }
+
+    public void OstrichCowardness()
+    {
+        for (int card = 0; card < DeckCards; card++)
+        {
+            CardScript CurrentCard = Deck[card];
+
+
+            Debug.Log("I am looking at card number " + card + ", its " + CurrentCard);
+
+            if(CurrentCard.cardName == "Saddler")
+            {
+                Deck.Remove(CurrentCard);
+                Debug.Log("This is me, im saddler and should be removed");
+                card--;
+                DeckCards--;
+            }
+        }
     }
 }
