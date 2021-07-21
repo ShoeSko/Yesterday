@@ -181,6 +181,14 @@ public class UnitPrototypeScript : MonoBehaviour
             GameObject HandReset = GameObject.Find("HANDscript");
             HandReset.GetComponent<NewCardHandScript>().ReRollHand();
         }
+
+        if(Unit.cardName == "Cheer Hamster")
+        {
+            GameObject Manager = GameObject.Find("MANAger");
+
+            Manager.GetComponent<ManaSystem>().manaGainSpeed -= 0.25f;
+        }
+
     }
 
     private void Update()
@@ -232,6 +240,14 @@ public class UnitPrototypeScript : MonoBehaviour
         if (Unit.cardName == "Black Rooster")
         {
             ability_BBC();
+        }
+
+        if (Unit.cardName == "Karl")
+        {
+            if(OneTimeTrigger == false)//Is not attacking
+            {
+                BasicDamage = punchDamage;
+            }
         }
     }
     #endregion
@@ -494,6 +510,13 @@ public class UnitPrototypeScript : MonoBehaviour
             MafiaBuffCow = false;
         }
 
+        if (Unit.cardName == "Cheer Hamster")
+        {
+            GameObject Manager = GameObject.Find("MANAger");
+
+            Manager.GetComponent<ManaSystem>().manaGainSpeed += 0.25f;
+        }
+
 
         if (EnemySpawning.s_isCoreGame)
         {
@@ -624,6 +647,38 @@ public class UnitPrototypeScript : MonoBehaviour
 
             Debug.Log("The hitcounter is" + HitCounter);
             Debug.Log("My damage is " + punchDamage);
+        }
+
+        if (Unit.cardName == "Karl")
+        {
+            if (hitEnemy.GetComponent<BasicEnemyMovement>().enemyHealth >= 0)
+            {
+                OneTimeTrigger = true;//Dont update my basic damage
+
+                punchDamage += 8;
+
+                Debug.Log("Enemy got hit and lived, my damage is now " + punchDamage);
+            }
+            else
+            {
+                punchDamage = BasicDamage;
+
+                OneTimeTrigger = false;//No more targets in range
+
+                Debug.Log("Enemy got hit and i died, my damage is now " + punchDamage);
+            }
+        }
+
+        if (Unit.cardName == "Nugget")
+        {
+            punchRechargeTime = punchRechargeTime * 0.9f;
+
+            Debug.Log("My attack speed is now " + punchRechargeTime);
+        }
+
+        if (Unit.cardName == "King Kobra")
+        {
+            hitEnemy.GetComponent<BasicEnemyMovement>().KobraPoison();
         }
     }
 

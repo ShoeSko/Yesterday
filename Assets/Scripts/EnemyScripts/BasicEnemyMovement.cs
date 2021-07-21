@@ -7,9 +7,11 @@ public class BasicEnemyMovement : MonoBehaviour
     #region Variables
     public EnemyScript enemy;
 
+    private float timer;
+
     [Header("Enemy Controls")]
     private float moveSpeed;
-    private int enemyHealth;
+    public int enemyHealth;
     private string obstacleTags;
     private string projectileTags;
 
@@ -43,6 +45,7 @@ public class BasicEnemyMovement : MonoBehaviour
     private bool isBeingPreventedFromDoingAnything; //Prevents actions
     private bool isBeingPreventedFromMoving; //Prevents Movement
     private bool isBeingPreventedFromAttacking; //Prevents attack
+    private int Poison;
 
 
     [Header("Harm Effect Variables")]
@@ -74,6 +77,8 @@ public class BasicEnemyMovement : MonoBehaviour
 
     private void Update()
     {
+        CheckForPoison();
+
         EnemyDeath();//Death comes for us all.
         CurrentDamageTaken(); //Calculates damage taken, activates the appropriate animation.
 
@@ -418,7 +423,24 @@ public class BasicEnemyMovement : MonoBehaviour
         enemyIndex = enemy.enemyIndex;
     }
 
-    public void RatDebuff()//NOT TESTED, MIGHT CRASH 
+    private void CheckForPoison()
+    {
+        if (Poison > 0)
+        {
+            timer += Time.deltaTime;
+
+            if (timer >= 1)//After 1 second
+            {
+                enemyHealth = enemyHealth - Poison * 3;
+                Debug.Log("Poison: " + Poison);
+                Debug.Log("Health: " + enemyHealth);
+                Poison--;//Reduce the poison stack by 1
+                timer = 0;
+            }
+        }
+    }
+
+    public void RatDebuff()
     {
         float damageFloat;
         damageFloat = attackDamage;
@@ -426,5 +448,10 @@ public class BasicEnemyMovement : MonoBehaviour
         attackDamage = (int)damageFloat;
 
         Debug.Log("Chef Rat reduced the damage of " + enemy.name + "from " + Mathf.Round(attackDamage / 0.9f) + "to " + attackDamage);
+    }
+
+    public void KobraPoison()
+    {
+        Poison += 4;
     }
 }

@@ -15,17 +15,17 @@ MonoBehaviour:
   cardName: Cheer Hamster
   image: {fileID: 21300000, guid: 73f132aebdda0cf45bac0603edfa6c6c, type: 3}
   backgroundImage: {fileID: 0}
-  icon: {fileID: 21300000, guid: 2bf6f17ff025d204b91dd5ba765debd0, type: 3}
+  icon: {fileID: 21300000, guid: 0f7c73d833ad51241867b6feaa037ca5, type: 3}
   manaCost: 3
   effectDescription: 'Type: Melee'
-  effectDescription2: 'Health: Medium'
-  effectDescription3: 'Damage: Average'
+  effectDescription2: 'Health: Very Low'
+  effectDescription3: 'Damage: None'
   flavorTxt: I'm not cheering for you, baka
   Prefab: {fileID: 2557954877800294563, guid: 72a05fdcced59af4ead5a5e3e6fb89d2, type: 3}
-  health: 200
+  health: 60
   isShooter: 0
-  isPunching: 1
-  isSpecial: 0
+  isPunching: 0
+  isSpecial: 1
   shootRechargeTime: 0
   projectileSpeed: 0
   projectilePrefab: {fileID: 3204289923293697707, guid: 5d52c25ce94445743a02a3ddca268b0e, type: 3}
@@ -37,8 +37,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   targetsToShoot: 0
-  punchRechargeTime: 0.8
-  punchDamage: 9
+  punchRechargeTime: 0
+  punchDamage: 0
   punchingTargetLayer:
     serializedVersion: 2
     m_Bits: 64

@@ -1008,13 +1008,19 @@ MonoBehaviour:
   - {fileID: 1166500467}
   - {fileID: 977546182}
   - {fileID: 500168016}
-  enemyTypesSpawnList:
-  - {fileID: 5916810900470935036, guid: 17a34d617e1366545a6950c4a31c18bf, type: 3}
-  - {fileID: 4632530650480293340, guid: 6ee4abbf5aa8a9e4a97861ee08d9502f, type: 3}
   amountOfEnemies: 20
   delayBetweenSpawnsMin: 5
   delayBetweenSpawnsMax: 10
   gameStarted: 0
+  strongEnemySpawnWait: 0
+  weakEnemyList: {fileID: 0}
+  strongEnemyList: {fileID: 0}
+  tokenLocationList: []
+  tokenBossLocationList: []
+  spriteTokenWeakList: []
+  spriteTokenStrongList: []
+  maxAmountOfStrongEnemies: 0
+  isBossSpawner: 0
 --- !u!1 &1955344034
 GameObject:
   m_ObjectHideFlags: 0
@@ -1054,7 +1060,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2066630506426419775, guid: 19fdaec487ab265478dee2e3b84fbde0, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2066630506426419775, guid: 19fdaec487ab265478dee2e3b84fbde0, type: 3}
       propertyPath: m_LocalScale.x
@@ -1253,7 +1259,7 @@ Transform:
   - {fileID: 1137620005}
   - {fileID: 1090548655117986167}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4638968446194257714
 Transform:

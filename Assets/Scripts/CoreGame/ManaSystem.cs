@@ -7,7 +7,7 @@ public class ManaSystem : MonoBehaviour
 {
     public static int CurrentMana = 0;//your current mana
     public static int MaximumMana = 10;//maximum possible mana
-    private float manaGainSpeed = 3f; //How long it takes to gain mana.
+    public float manaGainSpeed = 3f; //How long it takes to gain mana (seconds).
 
     public Text mana;//your current mana
 
