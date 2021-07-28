@@ -22,7 +22,7 @@ MonoBehaviour:
   effectDescription3: 'Damage: Good'
   flavorTxt: His real name is "The Bulldozer"
   Prefab: {fileID: 2557954877800294563, guid: b42f75820accb6f439740088a9fcaee1, type: 3}
-  health: 240
+  health: 180
   isShooter: 0
   isPunching: 1
   isSpecial: 0
@@ -38,7 +38,7 @@ MonoBehaviour:
     m_Bits: 128
   targetsToShoot: 0
   punchRechargeTime: 1.8
-  punchDamage: 45
+  punchDamage: 25
   punchingTargetLayer:
     serializedVersion: 2
     m_Bits: 64

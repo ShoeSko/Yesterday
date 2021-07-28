@@ -4561,7 +4561,7 @@ MonoBehaviour:
   CowCard: {fileID: 11400000, guid: 2feaa7772e4a0ed4abe51ab0b90c9614, type: 2}
   Chikin: {fileID: 11400000, guid: d8854abcbe197604194b903ffbcc8e84, type: 2}
   Sheep: {fileID: 11400000, guid: d6bf67d5d2f3ab849ab553181cc9cc11, type: 2}
-  TestCard: {fileID: 11400000, guid: 0d64950000bf4ad4591fc745d540268a, type: 2}
+  TestCard: {fileID: 11400000, guid: 0a9359bebe657a74ca3bd9f604c1450f, type: 2}
   TestCard2: {fileID: 11400000, guid: 5f3e525f599024f4c8840ff23083e6cb, type: 2}
   deckViewer: {fileID: 251797549}
   ViewDeck: {fileID: 90165295}

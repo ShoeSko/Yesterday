@@ -85,6 +85,7 @@ public class UnitPrototypeScript : MonoBehaviour
     private Collider2D hitEnemy;//Used to access the current punched target outside the punch statement
     private bool OneTimeTrigger;
     private int HitCounter;
+    private float countdown;
     private static bool MafiaBuffPig;
     private static bool MafiaBuffCow;
 
@@ -189,6 +190,28 @@ public class UnitPrototypeScript : MonoBehaviour
             Manager.GetComponent<ManaSystem>().manaGainSpeed -= 0.25f;
         }
 
+        if(Unit.cardName == "Ninjey")
+        {
+            BasicHealth = health;
+        }
+
+        if(Unit.cardName == "Super Bull")
+        {
+            int friendly;
+            int enemy;
+
+            friendly = GameObject.FindGameObjectsWithTag("Obstacle").Length;
+            enemy = GameObject.FindGameObjectsWithTag("Enemy").Length;
+
+            health += friendly * 10;
+            punchDamage += enemy * 5;
+
+            Debug.Log("My new health is" + health);
+            Debug.Log("My new damage is" + punchDamage);
+
+            Debug.Log("Friendly units:" + friendly);
+            Debug.Log("Enemy units:" + enemy);
+        }
     }
 
     private void Update()
@@ -247,6 +270,25 @@ public class UnitPrototypeScript : MonoBehaviour
             if(OneTimeTrigger == false)//Is not attacking
             {
                 BasicDamage = punchDamage;
+            }
+        }
+
+        if (Unit.cardName == "Ninjey")
+        {          
+            if (health < BasicHealth)//This means the unit got damaged
+            {
+                ability_Ninjey();
+            }
+
+            if(OneTimeTrigger == true)
+            {
+                countdown += Time.deltaTime;
+
+                if(countdown >= 5)
+                {
+                    GetComponent<Collider2D>().enabled = true;
+                    OneTimeTrigger = false;
+                }
             }
         }
     }
@@ -728,5 +770,13 @@ public class UnitPrototypeScript : MonoBehaviour
 
         Debug.Log("Im at " + HealthPercentage * 100 + "% of my health");
         Debug.Log("My damage is " + punchDamage);
+    }
+
+    private void ability_Ninjey()
+    {
+        GetComponent<Collider2D>().enabled = false;
+        OneTimeTrigger = true;
+
+        BasicHealth = health;
     }
 }

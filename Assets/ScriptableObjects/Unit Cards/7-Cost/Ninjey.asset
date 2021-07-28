@@ -18,11 +18,11 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 2bf6f17ff025d204b91dd5ba765debd0, type: 3}
   manaCost: 7
   effectDescription: 'Type: Melee'
-  effectDescription2: 'Health: Low'
+  effectDescription2: 'Health: Very Low'
   effectDescription3: 'Damage: Very Good'
   flavorTxt: He's the one cutting the onions
   Prefab: {fileID: 2557954877800294563, guid: 9a171ac0d3c13054ca0cb59e62ece4ed, type: 3}
-  health: 150
+  health: 100
   isShooter: 0
   isPunching: 1
   isSpecial: 0
