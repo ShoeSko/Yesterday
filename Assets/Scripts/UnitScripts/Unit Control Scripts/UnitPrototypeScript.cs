@@ -95,6 +95,10 @@ public class UnitPrototypeScript : MonoBehaviour
 
     private GameObject DeckObject;
     private DeckScript DeckCode;
+
+    [Header("Lane Placement")]
+    private int laneNumberUnit;
+    private int lanePlacementUnit;
     #endregion
     #region Standard Voids
     private void Start()
@@ -559,6 +563,23 @@ public class UnitPrototypeScript : MonoBehaviour
             Manager.GetComponent<ManaSystem>().manaGainSpeed += 0.25f;
         }
 
+        if(laneNumberUnit == 1) //In theory, this should remove the unit from the list upon death, preventing post mortem bonus.
+        {
+            LanePlacedUnits.s_lane1[lanePlacementUnit] = null;
+        }
+        if (laneNumberUnit == 2)
+        {
+            LanePlacedUnits.s_lane2[lanePlacementUnit] = null;
+        }
+        if (laneNumberUnit == 3)
+        {
+            LanePlacedUnits.s_lane3[lanePlacementUnit] = null;
+        }
+        if (laneNumberUnit == 4)
+        {
+            LanePlacedUnits.s_lane4[lanePlacementUnit] = null;
+        }
+
 
         if (EnemySpawning.s_isCoreGame)
         {
@@ -628,7 +649,13 @@ public class UnitPrototypeScript : MonoBehaviour
         healthSave = healthSave + (healthSave * healthBuff); //Updates what the max health is, potentially remove this. Makes sure that damage visuals are up to date with the new health max in %.
     }
     #endregion
-
+    #region Lane Placement
+    public void DefineUnitPlacement(int laneNumber, int LanePlacement) //This does nothing else than letting the unit know which lane and spot it is in for when it dies.
+    {
+        laneNumberUnit = laneNumber;
+        lanePlacementUnit = LanePlacement;
+    }
+    #endregion
     private void UnitInfoFeed()
     {
         //Base

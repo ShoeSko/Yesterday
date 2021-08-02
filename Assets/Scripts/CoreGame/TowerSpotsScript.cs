@@ -14,7 +14,8 @@ public class TowerSpotsScript : MonoBehaviour
     private int manacost;
     public GameObject Deck;
     private DeckScript DeckCode;
-
+    [SerializeField ]private int laneNumber; //Used to indicate which lane the spot is from.
+    private int lanePlacement; //Used to indicate the placement in the lane.
 
     public void Start()
     {
@@ -22,8 +23,11 @@ public class TowerSpotsScript : MonoBehaviour
         card = GameObject.Find("HANDscript");
         DeckCode = Deck.GetComponent<DeckScript>();
     }
-    public void PlaceCard()
+
+    public void PlaceCard(int LanePlacement)
     {
+        lanePlacement = LanePlacement;
+
         cardplayed = card.GetComponent<NewCardHandScript>().PlayedCard;//"What card is being played?"
         CardValues = cardplayed.GetComponent<CardDisplayer>();//Access played card information
 
@@ -35,6 +39,9 @@ public class TowerSpotsScript : MonoBehaviour
         GameObject unit = Instantiate(Unit, buttonPos, transform.rotation);//spawn the correct unit
         unit.transform.SetParent(positionResetTransform, true);
         this.transform.SetParent(unit.transform,true);
+
+        LanePlacedUnits.PlaceNewUnitInList(unit,laneNumber,lanePlacement); //Places the newly spawned unit in a list to be refered from.
+
         towerSpots.SetActive(false);
         gameObject.SetActive(false);
 
