@@ -20,7 +20,7 @@ MonoBehaviour:
   effectDescription: 'Type: Melee'
   effectDescription2: 'Health: Medium'
   effectDescription3: 'Damage: Average'
-  flavorTxt: 'You can tell he''s shy by looking at his fingers '
+  flavorTxt: 'WHEN PLAYED: Restore 3 energy'
   Prefab: {fileID: 2557954877800294563, guid: aca273b587f1d8e4eaa41102981ab167, type: 3}
   health: 80
   isShooter: 0

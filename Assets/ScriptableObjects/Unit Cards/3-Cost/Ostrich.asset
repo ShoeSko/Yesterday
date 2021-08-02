@@ -20,7 +20,7 @@ MonoBehaviour:
   effectDescription: 'Type: Melee'
   effectDescription2: 'Health: Very High'
   effectDescription3: 'Damage: Very Weak'
-  flavorTxt: His cousin won a war against Australia
+  flavorTxt: 'WHEN PLAYED: Remove all copies of this card from your deck'
   Prefab: {fileID: 2557954877800294563, guid: 9749a47c6cebafc4bb59e1d960a8be88, type: 3}
   health: 350
   isShooter: 0

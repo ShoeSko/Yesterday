@@ -20,7 +20,7 @@ MonoBehaviour:
   effectDescription: 'Type: Melee'
   effectDescription2: 'Health: Low'
   effectDescription3: 'Damage: Good'
-  flavorTxt: Watch out, he's got a license of stabbin
+  flavorTxt: 'ON HIT: Increase my attack speed by 10%'
   Prefab: {fileID: 2557954877800294563, guid: b5363aadaddcdda4896ee74117c5ee18, type: 3}
   health: 70
   isShooter: 0

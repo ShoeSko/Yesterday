@@ -20,7 +20,7 @@ MonoBehaviour:
   effectDescription: 'Type: Melee'
   effectDescription2: 'Health: Very Low'
   effectDescription3: 'Damage: None'
-  flavorTxt: I'm not cheering for you, baka
+  flavorTxt: Increases energy regeneration
   Prefab: {fileID: 2557954877800294563, guid: 72a05fdcced59af4ead5a5e3e6fb89d2, type: 3}
   health: 60
   isShooter: 0

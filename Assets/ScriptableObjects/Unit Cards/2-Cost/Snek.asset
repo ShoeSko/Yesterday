@@ -20,7 +20,7 @@ MonoBehaviour:
   effectDescription: 'Type: Melee'
   effectDescription2: 'Health: Medium'
   effectDescription3: 'Damage: Average'
-  flavorTxt: NEVER accept an apple from this guy
+  flavorTxt: 'WHEN PLAYED: Re-draw your hand'
   Prefab: {fileID: 2557954877800294563, guid: df9f9c977cedefd42a73273ebb4b188b, type: 3}
   health: 100
   isShooter: 0

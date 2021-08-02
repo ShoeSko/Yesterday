@@ -20,7 +20,7 @@ MonoBehaviour:
   effectDescription: 'Type: Melee'
   effectDescription2: 'Health: High'
   effectDescription3: 'Damage: Weak'
-  flavorTxt: His CHONK is enough to scare most intruders
+  flavorTxt: If Cowster is on the map, we both gain a buff to damage and health
   Prefab: {fileID: 2557954877800294563, guid: f999babf9535eef48abcce9a0b04c469, type: 3}
   health: 230
   isShooter: 0

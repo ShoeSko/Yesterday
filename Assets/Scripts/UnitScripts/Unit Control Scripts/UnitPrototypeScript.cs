@@ -88,6 +88,8 @@ public class UnitPrototypeScript : MonoBehaviour
     private float countdown;
     private static bool MafiaBuffPig;
     private static bool MafiaBuffCow;
+    private static bool MafiaCancelCow;
+    private static bool MafiaCancelPig;
 
     private float BasicHealth;//Variable to store the starting health of the card
     private int BasicDamage;//Variable to store the starting punching damage of the card
@@ -230,34 +232,36 @@ public class UnitPrototypeScript : MonoBehaviour
         {
             MafiaBuffPig = true;
 
-            if (MafiaBuffCow == true)
-                mafiaAbility();
-            else
+            if (MafiaCancelCow == true)
             {
-                OneTimeTrigger = false;
-                health = BasicHealth;
+                health = health / 1.5f;
                 punchDamage = BasicDamage;
-
+                OneTimeTrigger = false;
                 Debug.Log("Am smol, health is" + health);
                 Debug.Log("Am smol, damage is" + punchDamage);
+                MafiaCancelCow = false;
             }
+
+            if (MafiaBuffCow == true)
+                mafiaAbility();
         }
 
         if (Unit.cardName == "Cowster")
         {
             MafiaBuffCow = true;
 
-            if (MafiaBuffPig == true)
-                mafiaAbility();
-            else
+            if (MafiaCancelPig == true)
             {
-                OneTimeTrigger = false;
-                health = BasicHealth;
+                health = health / 1.5f;
                 projectileDamage = BasicShootingDamage;
-
+                OneTimeTrigger = false;
                 Debug.Log("Am smol, health is" + health);
                 Debug.Log("Am smol, damage is" + projectileDamage);
+                MafiaCancelCow = false;
             }
+
+            if (MafiaBuffPig == true)
+                mafiaAbility();
         }
 
         if (Unit.cardName == "Black Rooster")
@@ -545,11 +549,13 @@ public class UnitPrototypeScript : MonoBehaviour
         if (Unit.cardName == "Pigster")
         {
             MafiaBuffPig = false;
+            MafiaCancelPig = true;
         }
 
         if (Unit.cardName == "Cowster")
         {
             MafiaBuffCow = false;
+            MafiaCancelCow = true;
         }
 
         if (Unit.cardName == "Cheer Hamster")
@@ -713,7 +719,7 @@ public class UnitPrototypeScript : MonoBehaviour
 
         if (Unit.cardName == "Nugget")
         {
-            punchRechargeTime = punchRechargeTime * 0.9f;
+            punchRechargeTime = punchRechargeTime * 0.9f;//This needs a nerf
 
             Debug.Log("My attack speed is now " + punchRechargeTime);
         }

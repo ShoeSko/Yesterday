@@ -20,8 +20,7 @@ MonoBehaviour:
   effectDescription: 'Type: Ranged'
   effectDescription2: 'Health: Very Low'
   effectDescription3: 'Damage: Good'
-  flavorTxt: Mess with the cow, and you get the pow. The strangest yet strongest
-    in its herd.
+  flavorTxt: If Pigster is on the map, we both gain a buff to damage and health
   Prefab: {fileID: 2557954877800294563, guid: 19fdaec487ab265478dee2e3b84fbde0, type: 3}
   health: 50
   isShooter: 1

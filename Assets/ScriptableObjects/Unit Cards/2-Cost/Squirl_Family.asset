@@ -20,7 +20,7 @@ MonoBehaviour:
   effectDescription: 'Type: Melee'
   effectDescription2: 'Health: High'
   effectDescription3: 'Damage: Weak'
-  flavorTxt: They say their grandfather ended the ice age
+  flavorTxt: Gain bonus damage and health for each "RODENT" in the deck
   Prefab: {fileID: 2557954877800294563, guid: c6995c491ae7afc47a0630afbd8d7b7f, type: 3}
   health: 75
   isShooter: 0

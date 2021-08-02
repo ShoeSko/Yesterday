@@ -20,7 +20,8 @@ MonoBehaviour:
   effectDescription: 'Type: Melee'
   effectDescription2: 'Health: Very High'
   effectDescription3: 'Damage: Average'
-  flavorTxt: Yessssss queen
+  flavorTxt: 'ON HIT: Apllies 4 poison to the target. Poison deals damage every second
+    for each poison stack. Poison decays over time'
   Prefab: {fileID: 2557954877800294563, guid: 7342b99977e1e2247bf8f6f777c8316f, type: 3}
   health: 380
   isShooter: 0

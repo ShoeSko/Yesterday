@@ -20,7 +20,7 @@ MonoBehaviour:
   effectDescription: 'Type: Melee'
   effectDescription2: 'Health: Extremely Low'
   effectDescription3: 'Damage: Insane'
-  flavorTxt: What.. is your favorite color?
+  flavorTxt: 'WHEN PLAYED: Kill 3 random enemies'
   Prefab: {fileID: 2557954877800294563, guid: 17ee70d6eb7bbe44a8c11abee6b513d7, type: 3}
   health: 50
   isShooter: 0

@@ -20,7 +20,7 @@ MonoBehaviour:
   effectDescription: 'Type: Melee'
   effectDescription2: 'Health: High'
   effectDescription3: 'Damage: Average'
-  flavorTxt: That's a very large rooster
+  flavorTxt: Bonus damage based on missing health
   Prefab: {fileID: 2557954877800294563, guid: 2b00e274c57814347801a268d0441438, type: 3}
   health: 200
   isShooter: 0

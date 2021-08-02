@@ -20,7 +20,7 @@ MonoBehaviour:
   effectDescription: 'Type: Melee'
   effectDescription2: 'Health: Low'
   effectDescription3: 'Damage: Good'
-  flavorTxt: Rumors have it that his ratatouille is the best
+  flavorTxt: 'ON HIT: reduces target''s damage by 10%'
   Prefab: {fileID: 2557954877800294563, guid: fe48313fc5633034da8b85c142c98f0e, type: 3}
   health: 60
   isShooter: 0
