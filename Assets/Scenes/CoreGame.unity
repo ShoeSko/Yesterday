@@ -945,6 +945,7 @@ MonoBehaviour:
   towerSpots: {fileID: 644915287}
   positionResetTransform: {fileID: 1404517288}
   Deck: {fileID: 368766258}
+  laneNumber: 4
 --- !u!114 &79904646
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -992,11 +993,11 @@ MonoBehaviour:
       - m_Target: {fileID: 79904645}
         m_TargetAssemblyTypeName: TowerSpotsScript, Assembly-CSharp
         m_MethodName: PlaceCard
-        m_Mode: 1
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 3
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -1222,6 +1223,7 @@ MonoBehaviour:
   towerSpots: {fileID: 644915287}
   positionResetTransform: {fileID: 1404517288}
   Deck: {fileID: 368766258}
+  laneNumber: 4
 --- !u!114 &97887038
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1269,11 +1271,11 @@ MonoBehaviour:
       - m_Target: {fileID: 97887037}
         m_TargetAssemblyTypeName: TowerSpotsScript, Assembly-CSharp
         m_MethodName: PlaceCard
-        m_Mode: 1
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 6
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -1717,11 +1719,11 @@ MonoBehaviour:
       - m_Target: {fileID: 162433762}
         m_TargetAssemblyTypeName: TowerSpotsScript, Assembly-CSharp
         m_MethodName: PlaceCard
-        m_Mode: 1
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -1779,6 +1781,7 @@ MonoBehaviour:
   towerSpots: {fileID: 644915287}
   positionResetTransform: {fileID: 1404517288}
   Deck: {fileID: 368766258}
+  laneNumber: 1
 --- !u!1 &164716455
 GameObject:
   m_ObjectHideFlags: 0
@@ -1866,11 +1869,11 @@ MonoBehaviour:
       - m_Target: {fileID: 164716460}
         m_TargetAssemblyTypeName: TowerSpotsScript, Assembly-CSharp
         m_MethodName: PlaceCard
-        m_Mode: 1
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 5
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -1928,6 +1931,7 @@ MonoBehaviour:
   towerSpots: {fileID: 644915287}
   positionResetTransform: {fileID: 1404517288}
   Deck: {fileID: 368766258}
+  laneNumber: 1
 --- !u!1 &184784392
 GameObject:
   m_ObjectHideFlags: 0
@@ -5186,6 +5190,7 @@ MonoBehaviour:
   towerSpots: {fileID: 644915287}
   positionResetTransform: {fileID: 1404517288}
   Deck: {fileID: 368766258}
+  laneNumber: 4
 --- !u!114 &418025764
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5233,11 +5238,11 @@ MonoBehaviour:
       - m_Target: {fileID: 418025763}
         m_TargetAssemblyTypeName: TowerSpotsScript, Assembly-CSharp
         m_MethodName: PlaceCard
-        m_Mode: 1
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -6464,6 +6469,7 @@ MonoBehaviour:
   towerSpots: {fileID: 644915287}
   positionResetTransform: {fileID: 1404517288}
   Deck: {fileID: 368766258}
+  laneNumber: 2
 --- !u!114 &486590222
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6511,11 +6517,11 @@ MonoBehaviour:
       - m_Target: {fileID: 486590221}
         m_TargetAssemblyTypeName: TowerSpotsScript, Assembly-CSharp
         m_MethodName: PlaceCard
-        m_Mode: 1
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 7
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -6704,6 +6710,7 @@ MonoBehaviour:
   towerSpots: {fileID: 644915287}
   positionResetTransform: {fileID: 1404517288}
   Deck: {fileID: 368766258}
+  laneNumber: 2
 --- !u!114 &492886035
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6751,11 +6758,11 @@ MonoBehaviour:
       - m_Target: {fileID: 492886034}
         m_TargetAssemblyTypeName: TowerSpotsScript, Assembly-CSharp
         m_MethodName: PlaceCard
-        m_Mode: 1
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 3
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -7412,6 +7419,7 @@ MonoBehaviour:
   towerSpots: {fileID: 644915287}
   positionResetTransform: {fileID: 1404517288}
   Deck: {fileID: 368766258}
+  laneNumber: 4
 --- !u!114 &557068109
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7459,11 +7467,11 @@ MonoBehaviour:
       - m_Target: {fileID: 557068108}
         m_TargetAssemblyTypeName: TowerSpotsScript, Assembly-CSharp
         m_MethodName: PlaceCard
-        m_Mode: 1
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -8827,6 +8835,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 644915288}
+  - component: {fileID: 644915289}
   m_Layer: 0
   m_Name: TowerSpots
   m_TagString: Untagged
@@ -8852,6 +8861,18 @@ Transform:
   m_Father: {fileID: 55712073}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &644915289
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 644915287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fbc6e92c6b94a4429b840f6c16d23a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &646080274
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9226,6 +9247,7 @@ MonoBehaviour:
   towerSpots: {fileID: 644915287}
   positionResetTransform: {fileID: 1404517288}
   Deck: {fileID: 368766258}
+  laneNumber: 3
 --- !u!114 &686929645
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9273,11 +9295,11 @@ MonoBehaviour:
       - m_Target: {fileID: 686929644}
         m_TargetAssemblyTypeName: TowerSpotsScript, Assembly-CSharp
         m_MethodName: PlaceCard
-        m_Mode: 1
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 6
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -11043,6 +11065,7 @@ MonoBehaviour:
   towerSpots: {fileID: 644915287}
   positionResetTransform: {fileID: 1404517288}
   Deck: {fileID: 368766258}
+  laneNumber: 2
 --- !u!114 &807711532
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11090,11 +11113,11 @@ MonoBehaviour:
       - m_Target: {fileID: 807711531}
         m_TargetAssemblyTypeName: TowerSpotsScript, Assembly-CSharp
         m_MethodName: PlaceCard
-        m_Mode: 1
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -11453,6 +11476,7 @@ MonoBehaviour:
   towerSpots: {fileID: 644915287}
   positionResetTransform: {fileID: 1404517288}
   Deck: {fileID: 368766258}
+  laneNumber: 3
 --- !u!114 &817280771
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11500,11 +11524,11 @@ MonoBehaviour:
       - m_Target: {fileID: 817280770}
         m_TargetAssemblyTypeName: TowerSpotsScript, Assembly-CSharp
         m_MethodName: PlaceCard
-        m_Mode: 1
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -11799,6 +11823,7 @@ MonoBehaviour:
   towerSpots: {fileID: 644915287}
   positionResetTransform: {fileID: 1404517288}
   Deck: {fileID: 368766258}
+  laneNumber: 3
 --- !u!114 &841284250
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11846,11 +11871,11 @@ MonoBehaviour:
       - m_Target: {fileID: 841284249}
         m_TargetAssemblyTypeName: TowerSpotsScript, Assembly-CSharp
         m_MethodName: PlaceCard
-        m_Mode: 1
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 3
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -12229,6 +12254,7 @@ MonoBehaviour:
   towerSpots: {fileID: 644915287}
   positionResetTransform: {fileID: 1404517288}
   Deck: {fileID: 368766258}
+  laneNumber: 2
 --- !u!114 &870410982
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12276,11 +12302,11 @@ MonoBehaviour:
       - m_Target: {fileID: 870410981}
         m_TargetAssemblyTypeName: TowerSpotsScript, Assembly-CSharp
         m_MethodName: PlaceCard
-        m_Mode: 1
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 6
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -12501,11 +12527,11 @@ MonoBehaviour:
       - m_Target: {fileID: 883378498}
         m_TargetAssemblyTypeName: TowerSpotsScript, Assembly-CSharp
         m_MethodName: PlaceCard
-        m_Mode: 1
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 3
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -12563,6 +12589,7 @@ MonoBehaviour:
   towerSpots: {fileID: 644915287}
   positionResetTransform: {fileID: 1404517288}
   Deck: {fileID: 368766258}
+  laneNumber: 1
 --- !u!1 &883814495 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3126888794182818876, guid: d435ce751af64744a939d80a11b8e1fd, type: 3}
@@ -13443,6 +13470,7 @@ MonoBehaviour:
   towerSpots: {fileID: 644915287}
   positionResetTransform: {fileID: 1404517288}
   Deck: {fileID: 368766258}
+  laneNumber: 2
 --- !u!114 &929853904
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13490,7 +13518,7 @@ MonoBehaviour:
       - m_Target: {fileID: 929853903}
         m_TargetAssemblyTypeName: TowerSpotsScript, Assembly-CSharp
         m_MethodName: PlaceCard
-        m_Mode: 1
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -14547,6 +14575,7 @@ MonoBehaviour:
   towerSpots: {fileID: 644915287}
   positionResetTransform: {fileID: 1404517288}
   Deck: {fileID: 368766258}
+  laneNumber: 2
 --- !u!114 &1019175922
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14594,11 +14623,11 @@ MonoBehaviour:
       - m_Target: {fileID: 1019175921}
         m_TargetAssemblyTypeName: TowerSpotsScript, Assembly-CSharp
         m_MethodName: PlaceCard
-        m_Mode: 1
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 5
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -15057,11 +15086,11 @@ MonoBehaviour:
       - m_Target: {fileID: 1049215305}
         m_TargetAssemblyTypeName: TowerSpotsScript, Assembly-CSharp
         m_MethodName: PlaceCard
-        m_Mode: 1
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 6
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -15119,6 +15148,7 @@ MonoBehaviour:
   towerSpots: {fileID: 644915287}
   positionResetTransform: {fileID: 1404517288}
   Deck: {fileID: 368766258}
+  laneNumber: 1
 --- !u!1 &1055817703 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3126888794182818876, guid: d435ce751af64744a939d80a11b8e1fd, type: 3}
@@ -15735,6 +15765,7 @@ MonoBehaviour:
   towerSpots: {fileID: 644915287}
   positionResetTransform: {fileID: 1404517288}
   Deck: {fileID: 368766258}
+  laneNumber: 3
 --- !u!114 &1097224099
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15782,11 +15813,11 @@ MonoBehaviour:
       - m_Target: {fileID: 1097224098}
         m_TargetAssemblyTypeName: TowerSpotsScript, Assembly-CSharp
         m_MethodName: PlaceCard
-        m_Mode: 1
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -15884,6 +15915,7 @@ MonoBehaviour:
   towerSpots: {fileID: 644915287}
   positionResetTransform: {fileID: 1404517288}
   Deck: {fileID: 368766258}
+  laneNumber: 4
 --- !u!114 &1097936546
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15931,11 +15963,11 @@ MonoBehaviour:
       - m_Target: {fileID: 1097936545}
         m_TargetAssemblyTypeName: TowerSpotsScript, Assembly-CSharp
         m_MethodName: PlaceCard
-        m_Mode: 1
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 5
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -16420,6 +16452,7 @@ MonoBehaviour:
   towerSpots: {fileID: 644915287}
   positionResetTransform: {fileID: 1404517288}
   Deck: {fileID: 368766258}
+  laneNumber: 4
 --- !u!114 &1120330845
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16467,11 +16500,11 @@ MonoBehaviour:
       - m_Target: {fileID: 1120330844}
         m_TargetAssemblyTypeName: TowerSpotsScript, Assembly-CSharp
         m_MethodName: PlaceCard
-        m_Mode: 1
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 4
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -16645,7 +16678,7 @@ MonoBehaviour:
       - m_Target: {fileID: 1144365965}
         m_TargetAssemblyTypeName: TowerSpotsScript, Assembly-CSharp
         m_MethodName: PlaceCard
-        m_Mode: 1
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -16707,6 +16740,7 @@ MonoBehaviour:
   towerSpots: {fileID: 644915287}
   positionResetTransform: {fileID: 1404517288}
   Deck: {fileID: 368766258}
+  laneNumber: 1
 --- !u!1 &1152558772 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3126888794182818876, guid: d435ce751af64744a939d80a11b8e1fd, type: 3}
@@ -17022,6 +17056,7 @@ MonoBehaviour:
   towerSpots: {fileID: 644915287}
   positionResetTransform: {fileID: 1404517288}
   Deck: {fileID: 368766258}
+  laneNumber: 3
 --- !u!114 &1168022020
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17069,7 +17104,7 @@ MonoBehaviour:
       - m_Target: {fileID: 1168022019}
         m_TargetAssemblyTypeName: TowerSpotsScript, Assembly-CSharp
         m_MethodName: PlaceCard
-        m_Mode: 1
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -17512,11 +17547,11 @@ MonoBehaviour:
       - m_Target: {fileID: 1189148890}
         m_TargetAssemblyTypeName: TowerSpotsScript, Assembly-CSharp
         m_MethodName: PlaceCard
-        m_Mode: 1
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -17574,6 +17609,7 @@ MonoBehaviour:
   towerSpots: {fileID: 644915287}
   positionResetTransform: {fileID: 1404517288}
   Deck: {fileID: 368766258}
+  laneNumber: 1
 --- !u!1 &1190174847
 GameObject:
   m_ObjectHideFlags: 0
@@ -19702,11 +19738,11 @@ MonoBehaviour:
       - m_Target: {fileID: 1344033070}
         m_TargetAssemblyTypeName: TowerSpotsScript, Assembly-CSharp
         m_MethodName: PlaceCard
-        m_Mode: 1
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 4
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -19764,6 +19800,7 @@ MonoBehaviour:
   towerSpots: {fileID: 644915287}
   positionResetTransform: {fileID: 1404517288}
   Deck: {fileID: 368766258}
+  laneNumber: 1
 --- !u!1 &1350844686
 GameObject:
   m_ObjectHideFlags: 0
@@ -20027,6 +20064,7 @@ MonoBehaviour:
   towerSpots: {fileID: 644915287}
   positionResetTransform: {fileID: 1404517288}
   Deck: {fileID: 368766258}
+  laneNumber: 2
 --- !u!114 &1354434995
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20074,11 +20112,11 @@ MonoBehaviour:
       - m_Target: {fileID: 1354434994}
         m_TargetAssemblyTypeName: TowerSpotsScript, Assembly-CSharp
         m_MethodName: PlaceCard
-        m_Mode: 1
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 4
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -20898,6 +20936,7 @@ MonoBehaviour:
   towerSpots: {fileID: 644915287}
   positionResetTransform: {fileID: 1404517288}
   Deck: {fileID: 368766258}
+  laneNumber: 3
 --- !u!114 &1397054372
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20945,11 +20984,11 @@ MonoBehaviour:
       - m_Target: {fileID: 1397054371}
         m_TargetAssemblyTypeName: TowerSpotsScript, Assembly-CSharp
         m_MethodName: PlaceCard
-        m_Mode: 1
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 4
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -23837,6 +23876,7 @@ MonoBehaviour:
   towerSpots: {fileID: 644915287}
   positionResetTransform: {fileID: 1404517288}
   Deck: {fileID: 368766258}
+  laneNumber: 4
 --- !u!114 &1647161717
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23884,11 +23924,11 @@ MonoBehaviour:
       - m_Target: {fileID: 1647161716}
         m_TargetAssemblyTypeName: TowerSpotsScript, Assembly-CSharp
         m_MethodName: PlaceCard
-        m_Mode: 1
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 7
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -24141,6 +24181,7 @@ MonoBehaviour:
   towerSpots: {fileID: 644915287}
   positionResetTransform: {fileID: 1404517288}
   Deck: {fileID: 368766258}
+  laneNumber: 2
 --- !u!114 &1656059096
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24188,11 +24229,11 @@ MonoBehaviour:
       - m_Target: {fileID: 1656059095}
         m_TargetAssemblyTypeName: TowerSpotsScript, Assembly-CSharp
         m_MethodName: PlaceCard
-        m_Mode: 1
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -25940,11 +25981,11 @@ MonoBehaviour:
       - m_Target: {fileID: 1792666699}
         m_TargetAssemblyTypeName: TowerSpotsScript, Assembly-CSharp
         m_MethodName: PlaceCard
-        m_Mode: 1
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 7
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -26002,6 +26043,7 @@ MonoBehaviour:
   towerSpots: {fileID: 644915287}
   positionResetTransform: {fileID: 1404517288}
   Deck: {fileID: 368766258}
+  laneNumber: 1
 --- !u!1 &1802276041
 GameObject:
   m_ObjectHideFlags: 0
@@ -26159,6 +26201,7 @@ MonoBehaviour:
   towerSpots: {fileID: 644915287}
   positionResetTransform: {fileID: 1404517288}
   Deck: {fileID: 368766258}
+  laneNumber: 3
 --- !u!114 &1805673295
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26206,11 +26249,11 @@ MonoBehaviour:
       - m_Target: {fileID: 1805673294}
         m_TargetAssemblyTypeName: TowerSpotsScript, Assembly-CSharp
         m_MethodName: PlaceCard
-        m_Mode: 1
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 5
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -28698,6 +28741,7 @@ MonoBehaviour:
   towerSpots: {fileID: 644915287}
   positionResetTransform: {fileID: 1404517288}
   Deck: {fileID: 368766258}
+  laneNumber: 3
 --- !u!114 &2028297926
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28745,11 +28789,11 @@ MonoBehaviour:
       - m_Target: {fileID: 2028297925}
         m_TargetAssemblyTypeName: TowerSpotsScript, Assembly-CSharp
         m_MethodName: PlaceCard
-        m_Mode: 1
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 7
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -29663,6 +29707,7 @@ MonoBehaviour:
   towerSpots: {fileID: 644915287}
   positionResetTransform: {fileID: 1404517288}
   Deck: {fileID: 368766258}
+  laneNumber: 4
 --- !u!114 &2099444916
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29710,7 +29755,7 @@ MonoBehaviour:
       - m_Target: {fileID: 2099444915}
         m_TargetAssemblyTypeName: TowerSpotsScript, Assembly-CSharp
         m_MethodName: PlaceCard
-        m_Mode: 1
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
