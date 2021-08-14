@@ -20,9 +20,10 @@ MonoBehaviour:
   effectDescription: 'Type: Melee'
   effectDescription2: 'Health: High'
   effectDescription3: 'Damage: Average'
-  flavorTxt: Bonus damage based on missing health
+  flavorTxt: 'WHEN PLAYED: Gain bonus health for each friendly unit, and bonus damage
+    for each enemy'
   Prefab: {fileID: 2557954877800294563, guid: 2b00e274c57814347801a268d0441438, type: 3}
-  health: 200
+  health: 130
   isShooter: 0
   isPunching: 1
   isSpecial: 0
@@ -38,7 +39,7 @@ MonoBehaviour:
     m_Bits: 128
   targetsToShoot: 0
   punchRechargeTime: 2
-  punchDamage: 90
+  punchDamage: 12
   punchingTargetLayer:
     serializedVersion: 2
     m_Bits: 64

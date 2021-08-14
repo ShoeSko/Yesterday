@@ -20,10 +20,9 @@ MonoBehaviour:
   effectDescription: 'Type: Melee'
   effectDescription2: 'Health: Medium'
   effectDescription3: 'Damage: Good'
-  flavorTxt: 'WHEN PLAYED: Gain bonus health for each friendly unit, and bonus damage
-    for each enemy'
+  flavorTxt: 
   Prefab: {fileID: 2557954877800294563, guid: b42f75820accb6f439740088a9fcaee1, type: 3}
-  health: 180
+  health: 240
   isShooter: 0
   isPunching: 1
   isSpecial: 0
@@ -39,7 +38,7 @@ MonoBehaviour:
     m_Bits: 128
   targetsToShoot: 0
   punchRechargeTime: 1.8
-  punchDamage: 25
+  punchDamage: 45
   punchingTargetLayer:
     serializedVersion: 2
     m_Bits: 64

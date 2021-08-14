@@ -135,7 +135,7 @@ public class UnitPrototypeScript : MonoBehaviour
             BasicShootingDamage = projectileDamage;
         }
 
-        if (Unit.cardName == "Black Rooster")
+        if (Unit.cardName == "Croc")
         {
             BasicHealth = health;
             BasicDamage = punchDamage;
@@ -183,7 +183,7 @@ public class UnitPrototypeScript : MonoBehaviour
             DeckCode.OstrichCowardness();
         }
 
-        if(Unit.cardName == "Snek")
+        if(Unit.cardName == "CowBoy")
         {
             GameObject HandReset = GameObject.Find("HANDscript");
             HandReset.GetComponent<NewCardHandScript>().ReRollHand();
@@ -201,22 +201,20 @@ public class UnitPrototypeScript : MonoBehaviour
             BasicHealth = health;
         }
 
-        if(Unit.cardName == "Super Bull")
+        if(Unit.cardName == "Black Rooster")
         {
             int friendly;
-            int enemy;
 
             friendly = GameObject.FindGameObjectsWithTag("Obstacle").Length;
-            enemy = GameObject.FindGameObjectsWithTag("Enemy").Length;
 
             health += friendly * 10;
-            punchDamage += enemy * 5;
+            punchDamage += friendly * 3;
 
             Debug.Log("My new health is" + health);
             Debug.Log("My new damage is" + punchDamage);
 
             Debug.Log("Friendly units:" + friendly);
-            Debug.Log("Enemy units:" + enemy);
+            Debug.Log("Enemy units:" + friendly);
         }
     }
 
@@ -268,9 +266,9 @@ public class UnitPrototypeScript : MonoBehaviour
                 mafiaAbility();
         }
 
-        if (Unit.cardName == "Black Rooster")
+        if (Unit.cardName == "Croc")
         {
-            ability_BBC();
+            ability_Croc();
         }
 
         if (Unit.cardName == "Karl")
@@ -744,7 +742,7 @@ public class UnitPrototypeScript : MonoBehaviour
             }
         }
 
-        if (Unit.cardName == "Nugget")
+        if (Unit.cardName == "Commando Owl")
         {
             punchRechargeTime = punchRechargeTime * 0.9f;//This needs a nerf
 
@@ -754,6 +752,16 @@ public class UnitPrototypeScript : MonoBehaviour
         if (Unit.cardName == "King Kobra")
         {
             hitEnemy.GetComponent<BasicEnemyMovement>().KobraPoison();
+        }
+
+        if (Unit.cardName == "Sniper Monkey")
+        {
+            hitEnemy.GetComponent<BasicEnemyMovement>().MonkePoison();
+        }
+
+        if (Unit.cardName == "Snek")
+        {
+            hitEnemy.GetComponent<BasicEnemyMovement>().SnekPoison();
         }
     }
 
@@ -779,7 +787,7 @@ public class UnitPrototypeScript : MonoBehaviour
             OneTimeTrigger = true;//dont trigger this again
         }
     }
-    private void ability_BBC()//"Black Rooster" ability
+    private void ability_Croc()//"Black Rooster" ability
     {
         if (health > BasicHealth)//This prevents his damage to be decrease when recieving a health buff
         {

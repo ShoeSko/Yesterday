@@ -20,7 +20,7 @@ MonoBehaviour:
   effectDescription: 'Type: Melee'
   effectDescription2: 'Health: Medium'
   effectDescription3: 'Damage: Very Good'
-  flavorTxt: Well this answers how a crocodile would wear pants
+  flavorTxt: Bonus damage based on missing health
   Prefab: {fileID: 2557954877800294563, guid: 02219d542edacea46a714fb5d7356e09, type: 3}
   health: 205
   isShooter: 0
@@ -38,7 +38,7 @@ MonoBehaviour:
     m_Bits: 128
   targetsToShoot: 0
   punchRechargeTime: 0.9
-  punchDamage: 45
+  punchDamage: 90
   punchingTargetLayer:
     serializedVersion: 2
     m_Bits: 64

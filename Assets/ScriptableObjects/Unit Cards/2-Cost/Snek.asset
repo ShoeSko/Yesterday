@@ -20,7 +20,8 @@ MonoBehaviour:
   effectDescription: 'Type: Melee'
   effectDescription2: 'Health: Medium'
   effectDescription3: 'Damage: Average'
-  flavorTxt: 'WHEN PLAYED: Re-draw your hand'
+  flavorTxt: 'ON HIT: Apllies 2 poison to the target. Poison deals damage every second
+    for each poison stack. Poison decays over time'
   Prefab: {fileID: 2557954877800294563, guid: df9f9c977cedefd42a73273ebb4b188b, type: 3}
   health: 100
   isShooter: 0
@@ -37,8 +38,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   targetsToShoot: 0
-  punchRechargeTime: 2
-  punchDamage: 25
+  punchRechargeTime: 1.7
+  punchDamage: 7
   punchingTargetLayer:
     serializedVersion: 2
     m_Bits: 64

@@ -24,15 +24,15 @@ public class LanePlacedUnits : MonoBehaviour
 
             Debug.Log(LanePlacedUnits.s_lane2[lanePlacement].name + " is in Lane " + laneNumber + " Position " + lanePlacement);
         }
-        if (laneNumber == 2)
+        if (laneNumber == 3)
         {
-            s_lane2[lanePlacement] = theUnit;  //Places the unit given from TowerSpotScript in the appropriate slot on the list.
+            s_lane3[lanePlacement] = theUnit;  //Places the unit given from TowerSpotScript in the appropriate slot on the list.
 
             Debug.Log(LanePlacedUnits.s_lane3[lanePlacement].name + " is in Lane " + laneNumber + " Position " + lanePlacement);
         }
-        if (laneNumber == 2)
+        if (laneNumber == 4)
         {
-            s_lane2[lanePlacement] = theUnit;  //Places the unit given from TowerSpotScript in the appropriate slot on the list.
+            s_lane4[lanePlacement] = theUnit;  //Places the unit given from TowerSpotScript in the appropriate slot on the list.
 
             Debug.Log(LanePlacedUnits.s_lane4[lanePlacement].name + " is in Lane " + laneNumber + " Position " + lanePlacement);
         }

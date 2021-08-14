@@ -20,16 +20,17 @@ MonoBehaviour:
   effectDescription: 'Type: Ranged'
   effectDescription2: 'Health: Medium'
   effectDescription3: 'Damage: Very High'
-  flavorTxt: Yes, i am a simp
+  flavorTxt: 'ON HIT: Apllies 5 poison to the target. Poison deals damage every second
+    for each poison stack. Poison decays over time'
   Prefab: {fileID: 2557954877800294563, guid: 8350b215fba1eba4bbb46a0900ecc74d, type: 3}
   health: 100
   isShooter: 1
   isPunching: 0
   isSpecial: 0
-  shootRechargeTime: 7
+  shootRechargeTime: 6
   projectileSpeed: 8
   projectilePrefab: {fileID: 3204289923293697707, guid: 5d52c25ce94445743a02a3ddca268b0e, type: 3}
-  projectileDamage: 50
+  projectileDamage: 5
   shootingTargetLayer:
     serializedVersion: 2
     m_Bits: 64

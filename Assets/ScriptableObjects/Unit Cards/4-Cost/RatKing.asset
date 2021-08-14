@@ -20,7 +20,7 @@ MonoBehaviour:
   effectDescription: 'Type: Melee, Ranged'
   effectDescription2: 'Health: Low'
   effectDescription3: 'Damage: Average'
-  flavorTxt: He makes all of the rules
+  flavorTxt: The rat king can both attack up-close, as well as shoot from afar
   Prefab: {fileID: 2557954877800294563, guid: ac922c74b52c20a42a04ad7d3353188e, type: 3}
   health: 110
   isShooter: 1

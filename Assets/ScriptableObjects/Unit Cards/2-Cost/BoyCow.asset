@@ -20,7 +20,7 @@ MonoBehaviour:
   effectDescription: 'Type: Ranged'
   effectDescription2: 'Health: Very Low'
   effectDescription3: 'Damage: Average'
-  flavorTxt: He's the real owner of the ranch
+  flavorTxt: 'WHEN PLAYED: Re-draw your hand'
   Prefab: {fileID: 2557954877800294563, guid: 67a19028508a73d41a0e90ad7ad43123, type: 3}
   health: 20
   isShooter: 1
