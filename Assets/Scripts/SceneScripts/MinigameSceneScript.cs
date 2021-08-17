@@ -131,6 +131,8 @@ public class MinigameSceneScript : MonoBehaviour
             Debug.Log(scene2);
             Debug.Log(scene3);
 
+            SavingMinigamesToBePlayerd(); //Saves the minigames to be played for progession map
+
             if (randomize == 0)
             {
                 MinigameMusic.SetActive(true);
@@ -163,5 +165,35 @@ public class MinigameSceneScript : MonoBehaviour
 
         if (TutorialMusic)
             Destroy(TutorialMusic);
+    }
+
+    private void SavingMinigamesToBePlayerd()
+    {
+        if (FindObjectOfType<SaveSystem>())
+        {
+            SaveSystem saving = FindObjectOfType<SaveSystem>(); //Finds the save system in the scene
+            if (!Tutorial)
+            {
+                if(NewCardHandScript.Stage == 1)
+                {
+                    saving.data.progressValueList[0] = scene1;
+                    saving.data.progressValueList[1] = scene2;
+                    saving.data.progressValueList[2] = scene3;
+                }
+                else if(NewCardHandScript.Stage == 2)
+                {
+                    saving.data.progressValueList[3] = scene1;
+                    saving.data.progressValueList[4] = scene2;
+                    saving.data.progressValueList[5] = scene3;
+                }
+                else if(NewCardHandScript.Stage == 3)
+                {
+                    saving.data.progressValueList[6] = scene1;
+                    saving.data.progressValueList[7] = scene2;
+                    saving.data.progressValueList[8] = scene3;
+                }
+            }
+
+        }
     }
 }

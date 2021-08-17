@@ -245,6 +245,7 @@ MonoBehaviour:
   amountOfHumanoids: 7
   amountOfMonstrosities: 3
   amountOfBosses: 2
+  amountOfStops: 12
 --- !u!1 &736383880
 GameObject:
   m_ObjectHideFlags: 0
@@ -368,6 +369,7 @@ MonoBehaviour:
     humanoidList: 
     monstrosityList: 
     bossList: 
+    progressValueList: 
     lastScene: 
 --- !u!4 &769017276
 Transform:

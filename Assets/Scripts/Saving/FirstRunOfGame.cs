@@ -18,6 +18,8 @@ public class FirstRunOfGame : MonoBehaviour
     [SerializeField] private int amountOfMonstrosities;
     [SerializeField] private int amountOfBosses;
 
+    [Header("Size of the list containing progression map")]
+    [SerializeField] private int amountOfStops;
     private void Start()
     {
         if (FindObjectOfType<SaveSystem>())
@@ -84,5 +86,6 @@ public class FirstRunOfGame : MonoBehaviour
     private void ContinueReset() //Currently here as we do not save any of the other important information in the game except scene.
     {
         saving.data.lastScene = null;
+        saving.data.progressValueList = new int[amountOfStops];
     }
 }
