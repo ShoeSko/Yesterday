@@ -486,6 +486,9 @@ public class UnitPrototypeScript : MonoBehaviour
                 Debug.Log("Unit that is targeted buffed" + hitAlly.transform.name); //Confirm that the correct unit is hit.
                 UnitPrototypeScript allyUnit = hitAlly.transform.gameObject.GetComponent<UnitPrototypeScript>(); //Get the script to affect it.
                 allyUnit.transform.localScale += sizeBuff; //How much the unit increases in size
+                CapsuleCollider2D HitboxReduction = allyUnit.GetComponent<CapsuleCollider2D>();
+                HitboxReduction.size = new Vector2(HitboxReduction.size.x - 0.3f, HitboxReduction.size.y - 0.3f);//Fixes the issue where the hitbox became larger than the unit's attack range
+
 
                 healthToBuff = allyUnit.health; //Get a refrence for the health
                 damageProjectileToBuff = allyUnit.projectileDamage;//Get a refrence for the damage

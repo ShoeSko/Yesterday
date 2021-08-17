@@ -4567,6 +4567,7 @@ MonoBehaviour:
   Chikin: {fileID: 11400000, guid: d8854abcbe197604194b903ffbcc8e84, type: 2}
   Sheep: {fileID: 11400000, guid: d6bf67d5d2f3ab849ab553181cc9cc11, type: 2}
   TestCard: {fileID: 11400000, guid: c403c658a701fad4aa20a1de30da3120, type: 2}
+  TestCard2: {fileID: 11400000, guid: 7208abb383d866d4fb714598939dee59, type: 2}
   deckViewer: {fileID: 251797549}
   ViewDeck: {fileID: 90165295}
   Rodents: 0
