@@ -118,5 +118,7 @@ public class DeckScript : MonoBehaviour
                 DeckCards--;
             }
         }
+
+        DeckUpdater();
     }
 }
