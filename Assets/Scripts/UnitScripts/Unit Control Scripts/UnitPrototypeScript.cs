@@ -221,41 +221,18 @@ public class UnitPrototypeScript : MonoBehaviour
 
         if (Unit.cardName == "Maid")
         {
-            Debug.Log("my lane is " + lanePlacementUnit);
-            Debug.Log("my number is " + laneNumberUnit);
+            Debug.Log("my number is " + lanePlacementUnit);
+            Debug.Log("my lane is " + laneNumberUnit);
 
+            if (laneNumberUnit == 1)
+                lane = LanePlacedUnits.s_lane1;
+            else if (laneNumberUnit == 2)
+                lane = LanePlacedUnits.s_lane2;
+            else if (laneNumberUnit == 3)
+                lane = LanePlacedUnits.s_lane3;
+            else if (laneNumberUnit == 4)
+                lane = LanePlacedUnits.s_lane4;
 
-            foreach (GameObject unit in LanePlacedUnits.s_lane1)
-            {
-                if(unit == this)
-                {
-                    lane = LanePlacedUnits.s_lane1;
-                }
-            }
-
-            foreach (GameObject unit in LanePlacedUnits.s_lane2)
-            {
-                if (unit == this)
-                {
-                    lane = LanePlacedUnits.s_lane2;
-                }
-            }
-
-            foreach (GameObject unit in LanePlacedUnits.s_lane3)
-            {
-                if (unit == this)
-                {
-                    lane = LanePlacedUnits.s_lane3;
-                }
-            }
-
-            foreach (GameObject unit in LanePlacedUnits.s_lane4)
-            {
-                if (unit == this)
-                {
-                    lane = LanePlacedUnits.s_lane4;
-                }
-            }
         }
     }
 
@@ -339,7 +316,7 @@ public class UnitPrototypeScript : MonoBehaviour
             }
         }
 
-        /*if (Unit.cardName == "Maid")
+        if (Unit.cardName == "Maid")
         {
             Debug.Log(health);
 
@@ -361,7 +338,7 @@ public class UnitPrototypeScript : MonoBehaviour
                     }
                 }
             }
-        }*/
+        }
     }
     #endregion
     #region Shooting
