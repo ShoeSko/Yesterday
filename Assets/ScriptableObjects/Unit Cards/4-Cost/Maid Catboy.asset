@@ -20,9 +20,9 @@ MonoBehaviour:
   effectDescription: 'Type: Melee'
   effectDescription2: 'Health: Medium'
   effectDescription3: 'Damage: Good'
-  flavorTxt: I thought cats are meant to break things not fix them
+  flavorTxt: Passive - Buffs all units on the same lane as this card
   Prefab: {fileID: 2557954877800294563, guid: 031efb49859b5504ea79593392ec6b80, type: 3}
-  health: 169
+  health: 69
   isShooter: 0
   isPunching: 1
   isSpecial: 0
@@ -38,7 +38,7 @@ MonoBehaviour:
     m_Bits: 128
   targetsToShoot: 0
   punchRechargeTime: 2
-  punchDamage: 35
+  punchDamage: 13
   punchingTargetLayer:
     serializedVersion: 2
     m_Bits: 64

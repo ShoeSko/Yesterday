@@ -42,8 +42,8 @@ MonoBehaviour:
   punchingTargetLayer:
     serializedVersion: 2
     m_Bits: 64
-  targetsToPunch: 5
-  canPunchEverything: 1
+  targetsToPunch: 1
+  canPunchEverything: 0
   hasKnockback: 0
   knockbackPower: 0
   isSacrificialKill: 0

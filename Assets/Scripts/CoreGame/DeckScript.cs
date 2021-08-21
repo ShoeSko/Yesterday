@@ -23,6 +23,7 @@ public class DeckScript : MonoBehaviour
     public GameObject ViewDeck;
 
     public int Rodents;//For SquirrelFamily card
+    public int Shiburais;
 
 
     void Start()
@@ -120,5 +121,20 @@ public class DeckScript : MonoBehaviour
         }
 
         DeckUpdater();
+    }
+
+    public void LastShiburai()
+    {
+        Shiburais = 0;
+
+        for (int card = 0; card < DeckCards; card++)
+        {
+            CardScript CurrentCard = Deck[card];
+
+            if (CurrentCard.cardName == "Shiburai")
+            {
+                Shiburais++;
+            }
+        }
     }
 }

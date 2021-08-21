@@ -234,6 +234,30 @@ public class UnitPrototypeScript : MonoBehaviour
                 lane = LanePlacedUnits.s_lane4;
 
         }
+
+        if (Unit.cardName == "Shiburai")
+        {
+            DeckObject = GameObject.Find("Deck");
+            DeckCode = DeckObject.GetComponent<DeckScript>();
+
+            DeckCode.LastShiburai();
+
+            if(DeckCode.Shiburais == 1)
+            {
+                canPunchEverything = true;
+                targetsToPunch = 5;
+                health += 35;
+                punchDamage += 10;
+            }
+            else
+            {
+                canPunchEverything = false;
+                targetsToPunch = 1;
+            }
+
+            Debug.Log(DeckCode.Shiburais);
+            Debug.Log(health);
+        }
     }
 
     private void Update()
@@ -334,6 +358,13 @@ public class UnitPrototypeScript : MonoBehaviour
                         unit.GetComponent<UnitPrototypeScript>().punchDamage += 7;
                         unit.GetComponent<UnitPrototypeScript>().projectileDamage += 1;
 
+                        if(unit.GetComponent<UnitPrototypeScript>().Unit.cardName == "Buffcat")
+                        {
+                            unit.GetComponent<UnitPrototypeScript>().health += 50;
+                            unit.GetComponent<UnitPrototypeScript>().punchDamage += 7;
+                            unit.GetComponent<UnitPrototypeScript>().projectileDamage += 1;
+                        }
+
                         BuffedCards.Add(unit);
                     }
                 }
@@ -429,6 +460,8 @@ public class UnitPrototypeScript : MonoBehaviour
                         if (enemiesToDamage[i].GetComponent<BasicEnemyMovement>())
                         {
                         enemiesToDamage[i].GetComponent<BasicEnemyMovement>().TakeDamage(punchDamage, hasKnockback,knockbackPower); //Sent attackDamage to Unit
+                        OnHitAbility();//Check if the unit has any abilities that trigger when hitting an enemy
+                        //print("Punch");
                         }
                         else if (enemiesToDamage[i].GetComponent<GreedyOpportunity>())
                         {
@@ -541,6 +574,18 @@ public class UnitPrototypeScript : MonoBehaviour
                 allyUnit.health = healthBuff;
                 allyUnit.punchDamage =(int)damageBuff; //How much ounch damage increases
                 allyUnit.projectileDamage = (int)damageBuff; //How much shoot damage increases
+
+                if(allyUnit.name == "Buffcat")
+                {
+                    healthToBuff = allyUnit.health; //Get a refrence for the health
+                    damageProjectileToBuff = allyUnit.projectileDamage;//Get a refrence for the damage
+                    damagePunchToBuff = allyUnit.punchDamage; //Get a refrence for the damage
+
+                    DamageHealingBuff(); //Start the calculation program
+                    allyUnit.health = healthBuff;
+                    allyUnit.punchDamage = (int)damageBuff; //How much ounch damage increases
+                    allyUnit.projectileDamage = (int)damageBuff; //How much shoot damage increases
+                }
 
                 hasBuffedAlly = true; //Currently only 1 buff, more changes needs to be discussed.
             }

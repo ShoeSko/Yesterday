@@ -4562,15 +4562,16 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 3c703bef3a7247944b19ba2ad50f3daa, type: 2}
   - {fileID: 11400000, guid: 54f00f71cb4b18540bcae3cc69ec3f4a, type: 2}
   activecard: {fileID: 0}
-  CardTesting: 1
+  CardTesting: 0
   CowCard: {fileID: 11400000, guid: 2feaa7772e4a0ed4abe51ab0b90c9614, type: 2}
   Chikin: {fileID: 11400000, guid: d8854abcbe197604194b903ffbcc8e84, type: 2}
   Sheep: {fileID: 11400000, guid: d6bf67d5d2f3ab849ab553181cc9cc11, type: 2}
-  TestCard: {fileID: 11400000, guid: 581f66dd97b3e8f4bab09049b36e7960, type: 2}
-  TestCard2: {fileID: 11400000, guid: 7208abb383d866d4fb714598939dee59, type: 2}
+  TestCard: {fileID: 11400000, guid: 95114a9f5c7084f4d9fc0e29bd11a6b2, type: 2}
+  TestCard2: {fileID: 11400000, guid: 95114a9f5c7084f4d9fc0e29bd11a6b2, type: 2}
   deckViewer: {fileID: 251797549}
   ViewDeck: {fileID: 90165295}
   Rodents: 0
+  Shiburais: 0
 --- !u!1 &369066552
 GameObject:
   m_ObjectHideFlags: 0
@@ -21768,7 +21769,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BossTesting: 0
   whichBoss: 2
-  DevStageTest: 1
+  DevStageTest: 0
   whichStage: 1
   Smallhand: 1
   PlayedCard: {fileID: 0}
