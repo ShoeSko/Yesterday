@@ -42,6 +42,8 @@ public class TowerSpotsScript : MonoBehaviour
 
         LanePlacedUnits.PlaceNewUnitInList(unit,laneNumber,lanePlacement); //Places the newly spawned unit in a list to be refered from.
 
+        unit.GetComponent<UnitPrototypeScript>().DefineUnitPlacement(laneNumber, lanePlacement); // Gives the Unit Prototype Script an actual reference to their placement.
+
         towerSpots.SetActive(false);
         gameObject.SetActive(false);
 
