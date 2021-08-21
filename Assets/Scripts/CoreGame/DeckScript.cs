@@ -30,7 +30,7 @@ public class DeckScript : MonoBehaviour
         if (CardTesting)
         {
             Deck.Add(TestCard);
-            Deck.Add(TestCard2);
+            //Deck.Add(TestCard2);
             //Everything above is used for testing, unlock the thing under when finished with testing
         }
         else

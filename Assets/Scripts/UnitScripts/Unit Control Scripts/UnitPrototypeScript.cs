@@ -90,6 +90,8 @@ public class UnitPrototypeScript : MonoBehaviour
     private static bool MafiaBuffCow;
     private static bool MafiaCancelCow;
     private static bool MafiaCancelPig;
+    private GameObject[] lane;
+    private List<GameObject> BuffedCards = new List<GameObject>();
 
     private float BasicHealth;//Variable to store the starting health of the card
     private int BasicDamage;//Variable to store the starting punching damage of the card
@@ -99,8 +101,8 @@ public class UnitPrototypeScript : MonoBehaviour
     private DeckScript DeckCode;
 
     [Header("Lane Placement")]
-    private int laneNumberUnit;
-    private int lanePlacementUnit;
+    public int laneNumberUnit;
+    public int lanePlacementUnit;
     #endregion
     #region Standard Voids
     private void Start()
@@ -216,6 +218,45 @@ public class UnitPrototypeScript : MonoBehaviour
             Debug.Log("Friendly units:" + friendly);
             Debug.Log("Enemy units:" + friendly);
         }
+
+        if (Unit.cardName == "Maid")
+        {
+            Debug.Log("my lane is " + lanePlacementUnit);
+            Debug.Log("my number is " + laneNumberUnit);
+
+
+            foreach (GameObject unit in LanePlacedUnits.s_lane1)
+            {
+                if(unit == this)
+                {
+                    lane = LanePlacedUnits.s_lane1;
+                }
+            }
+
+            foreach (GameObject unit in LanePlacedUnits.s_lane2)
+            {
+                if (unit == this)
+                {
+                    lane = LanePlacedUnits.s_lane2;
+                }
+            }
+
+            foreach (GameObject unit in LanePlacedUnits.s_lane3)
+            {
+                if (unit == this)
+                {
+                    lane = LanePlacedUnits.s_lane3;
+                }
+            }
+
+            foreach (GameObject unit in LanePlacedUnits.s_lane4)
+            {
+                if (unit == this)
+                {
+                    lane = LanePlacedUnits.s_lane4;
+                }
+            }
+        }
     }
 
     private void Update()
@@ -297,6 +338,30 @@ public class UnitPrototypeScript : MonoBehaviour
                 }
             }
         }
+
+        /*if (Unit.cardName == "Maid")
+        {
+            Debug.Log(health);
+
+            foreach (GameObject unit in lane)
+            {
+                if(unit != null)
+                {
+                    if (BuffedCards.Contains(unit))
+                    {
+                        //do nothing
+                    }
+                    else
+                    {
+                        unit.GetComponent<UnitPrototypeScript>().health += 50;
+                        unit.GetComponent<UnitPrototypeScript>().punchDamage += 7;
+                        unit.GetComponent<UnitPrototypeScript>().projectileDamage += 1;
+
+                        BuffedCards.Add(unit);
+                    }
+                }
+            }
+        }*/
     }
     #endregion
     #region Shooting
@@ -487,7 +552,8 @@ public class UnitPrototypeScript : MonoBehaviour
                 UnitPrototypeScript allyUnit = hitAlly.transform.gameObject.GetComponent<UnitPrototypeScript>(); //Get the script to affect it.
                 allyUnit.transform.localScale += sizeBuff; //How much the unit increases in size
                 CapsuleCollider2D HitboxReduction = allyUnit.GetComponent<CapsuleCollider2D>();
-                HitboxReduction.size = new Vector2(HitboxReduction.size.x - 0.3f, HitboxReduction.size.y - 0.3f);//Fixes the issue where the hitbox became larger than the unit's attack range
+                HitboxReduction.size = new Vector2(HitboxReduction.size.x - 0.3f, HitboxReduction.size.y - 0.3f);
+                //Fixes the issue where the hitbox became larger than the unit's attack range
 
 
                 healthToBuff = allyUnit.health; //Get a refrence for the health
