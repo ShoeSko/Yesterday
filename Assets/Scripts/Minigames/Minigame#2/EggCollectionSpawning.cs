@@ -177,6 +177,7 @@ public class EggCollectionSpawning : MonoBehaviour
                         GameStarted = true;
                         gameHasStarted = true;
                     }
+                    FadeboxUI.SetActive(true);
                 }
 
                 if (Text == 9)

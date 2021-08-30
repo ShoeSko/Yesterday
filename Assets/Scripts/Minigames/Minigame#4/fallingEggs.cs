@@ -27,6 +27,8 @@ public class fallingEggs : MonoBehaviour
     public GameObject blackstar2;
     public GameObject blackstar3;
     public GameObject FadeboxUI;
+    public GameObject ObjText;
+    public GameObject WinText;
 
     [SerializeField] private GameObject nextSceneButton; //The button to reach next scene
     [SerializeField] private LevelTransitionSystem levelTransitioner; //Refrence to give the score of the game.  
@@ -46,6 +48,8 @@ public class fallingEggs : MonoBehaviour
         blackstar2.SetActive(false);
         blackstar3.SetActive(false);
         FadeboxUI.SetActive(false);
+        WinText.SetActive(false);
+        ObjText.SetActive(true);
 
         MakeItRain = true;
 
@@ -144,6 +148,8 @@ public class fallingEggs : MonoBehaviour
             blackstar3.SetActive(true);
         }
         FadeboxUI.SetActive(true);
+        WinText.SetActive(true);
+        ObjText.SetActive(false);
         nextSceneButton.SetActive(true);
         levelTransitioner.currentMinigameScore = score;
     }

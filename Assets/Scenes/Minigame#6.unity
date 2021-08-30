@@ -2116,7 +2116,7 @@ GameObject:
   - component: {fileID: 1297862171}
   - component: {fileID: 1297862170}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Pot_lion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7511,9 +7511,9 @@ RectTransform:
   m_Father: {fileID: 94091636}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 1}
-  m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 205, y: -284}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 205, y: 273}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1523724017
@@ -7711,7 +7711,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1765265139
 Transform:
   m_ObjectHideFlags: 0
@@ -8028,6 +8028,14 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 443fffb811c068e4c84e3522437e725c, type: 3}
+    - target: {fileID: 5358953019263804296, guid: 73cef706a19d0e24aa6d68483665b583, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -30.000015
+      objectReference: {fileID: 0}
+    - target: {fileID: 8215722995358795940, guid: 73cef706a19d0e24aa6d68483665b583, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8391648922752055306, guid: 73cef706a19d0e24aa6d68483665b583, type: 3}
       propertyPath: m_Camera
       value: 
