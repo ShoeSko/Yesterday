@@ -22,7 +22,19 @@ public class ProgressionScript : MonoBehaviour
             SaveSystem saving = FindObjectOfType<SaveSystem>(); //Finds the save system in the scene
             if (MinigameSceneScript.Tutorial)
             {
-                //Tutorial has a cut & run order, Minigame 2, Minigame 10 & Minigame 6 + Core Game.
+                stage1ImageList[0].sprite = progressionImageList[2];
+                stage1ImageList[1].sprite = progressionImageList[10];
+                stage1ImageList[2].sprite = progressionImageList[6];
+
+                coreGameImageList[0].sprite = progressionImageList[13];
+
+                for (int i = 0; i < stage2ImageList.Count; i++)
+                {
+                    stage2ImageList[i].gameObject.SetActive(false);
+                    stage3ImageList[i].gameObject.SetActive(false);
+                }
+                coreGameImageList[1].gameObject.SetActive(false);
+                coreGameImageList[2].gameObject.SetActive(false);
             }
             else
             {
@@ -60,10 +72,18 @@ public class ProgressionScript : MonoBehaviour
                     }
                 }
 
-                //coreGameImageList[12].sprite = //Insert permanent Day Icon
-                //coreGameImageList[13].sprite = //Insert permanent Evening Icon
+                coreGameImageList[0].sprite = progressionImageList[13];
+                coreGameImageList[1].sprite = progressionImageList[14];
 
-                //Boss Is random.
+                if (saving.data.bossList[0]!)
+                {
+                    coreGameImageList[2].sprite = progressionImageList[15]; //Corporate boss has yet to be defeated.
+                }
+                else if (saving.data.bossList[0] && saving.data.bossList[1]!)
+                {
+                    coreGameImageList[2].sprite = progressionImageList[16]; //The guardian has yet to be defeated.
+                }
+                //IMPLEMENT THIRD BOSS HERE!
             }
 
         }
