@@ -2194,6 +2194,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: -32.93506
       objectReference: {fileID: 0}
+    - target: {fileID: 5358953019263804296, guid: 73cef706a19d0e24aa6d68483665b583, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -28.3
+      objectReference: {fileID: 0}
     - target: {fileID: 8215722995358795940, guid: 73cef706a19d0e24aa6d68483665b583, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -2478,6 +2482,7 @@ MonoBehaviour:
   blackstar2: {fileID: 675576062}
   blackstar3: {fileID: 51677431}
   fadeUIBox: {fileID: 1826960613}
+  ObjText: {fileID: 254235661}
   star1Time: 5
   star2Time: 10
   star3Time: 15

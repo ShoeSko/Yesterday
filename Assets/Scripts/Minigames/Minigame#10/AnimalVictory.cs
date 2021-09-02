@@ -14,6 +14,7 @@ public class AnimalVictory : MonoBehaviour
     public GameObject blackstar2;
     public GameObject blackstar3;
     public GameObject fadeUIBox;
+    public GameObject ObjText;
 
     public int star1Time;
     public int star2Time;
@@ -49,6 +50,7 @@ public class AnimalVictory : MonoBehaviour
         _animalPensFilled = 0; //Resets the game
 
         fadeUIBox.SetActive(false);
+        ObjText.SetActive(true);
     }
 
     private void Start()
@@ -201,6 +203,7 @@ public class AnimalVictory : MonoBehaviour
                 }
 
                 fadeUIBox.SetActive(true);
+                ObjText.SetActive(false);
                 nextSceneButton.SetActive(true);
                 levelTransitioner.currentMinigameScore = score;
             }
