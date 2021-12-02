@@ -4562,11 +4562,11 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 3c703bef3a7247944b19ba2ad50f3daa, type: 2}
   - {fileID: 11400000, guid: 54f00f71cb4b18540bcae3cc69ec3f4a, type: 2}
   activecard: {fileID: 0}
-  CardTesting: 0
+  CardTesting: 1
   CowCard: {fileID: 11400000, guid: 2feaa7772e4a0ed4abe51ab0b90c9614, type: 2}
   Chikin: {fileID: 11400000, guid: d8854abcbe197604194b903ffbcc8e84, type: 2}
   Sheep: {fileID: 11400000, guid: d6bf67d5d2f3ab849ab553181cc9cc11, type: 2}
-  TestCard: {fileID: 11400000, guid: 95114a9f5c7084f4d9fc0e29bd11a6b2, type: 2}
+  TestCard: {fileID: 11400000, guid: 0a9359bebe657a74ca3bd9f604c1450f, type: 2}
   TestCard2: {fileID: 11400000, guid: 95114a9f5c7084f4d9fc0e29bd11a6b2, type: 2}
   deckViewer: {fileID: 251797549}
   ViewDeck: {fileID: 90165295}
@@ -21767,10 +21767,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb3ce17b543ebbf43b5f18320309c193, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BossTesting: 1
+  BossTesting: 0
   whichBoss: 2
   DevStageTest: 1
-  whichStage: 3
+  whichStage: 1
   Smallhand: 1
   PlayedCard: {fileID: 0}
   quackenButton: {fileID: 1450511008}
@@ -30176,7 +30176,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -4, y: 119.000015}
+  m_AnchoredPosition: {x: -4, y: 119}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2119872156

@@ -85,6 +85,7 @@ public class UnitPrototypeScript : MonoBehaviour
     private Collider2D hitEnemy;//Used to access the current punched target outside the punch statement
     private bool OneTimeTrigger;
     private int HitCounter;
+    private int UnitsInLane;
     private float countdown;
     private static bool MafiaBuffPig;
     private static bool MafiaBuffCow;
@@ -258,6 +259,35 @@ public class UnitPrototypeScript : MonoBehaviour
             Debug.Log(DeckCode.Shiburais);
             Debug.Log(health);
         }
+
+        if(Unit.cardName == "The Duelist")
+        {
+            if (laneNumberUnit == 1)
+                lane = LanePlacedUnits.s_lane1;
+            else if (laneNumberUnit == 2)
+                lane = LanePlacedUnits.s_lane2;
+            else if (laneNumberUnit == 3)
+                lane = LanePlacedUnits.s_lane3;
+            else if (laneNumberUnit == 4)
+                lane = LanePlacedUnits.s_lane4;
+
+            foreach (GameObject unit in lane)
+            {
+                if(unit != null)
+                    UnitsInLane++;
+            }
+
+            if(UnitsInLane == 1)
+            {
+                canPunchEverything = true;
+                targetsToPunch = 5;
+            }
+            else
+            {
+                canPunchEverything = false;
+                targetsToPunch = 1;
+            }
+        }
     }
 
     private void Update()
@@ -368,6 +398,23 @@ public class UnitPrototypeScript : MonoBehaviour
                         BuffedCards.Add(unit);
                     }
                 }
+            }
+        }
+
+        if (Unit.cardName == "Super Bull")
+        {
+            countdown += Time.deltaTime;
+
+            Debug.Log(countdown);
+
+            if(countdown >= 30)
+            {
+                punchDamage += 15;
+                punchRechargeTime = punchRechargeTime / 1.2f;
+                health += 50;
+                transform.localScale = transform.localScale * 1.2f;
+
+                countdown = 0;
             }
         }
     }
