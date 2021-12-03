@@ -259,35 +259,6 @@ public class UnitPrototypeScript : MonoBehaviour
             Debug.Log(DeckCode.Shiburais);
             Debug.Log(health);
         }
-
-        if(Unit.cardName == "The Duelist")
-        {
-            if (laneNumberUnit == 1)
-                lane = LanePlacedUnits.s_lane1;
-            else if (laneNumberUnit == 2)
-                lane = LanePlacedUnits.s_lane2;
-            else if (laneNumberUnit == 3)
-                lane = LanePlacedUnits.s_lane3;
-            else if (laneNumberUnit == 4)
-                lane = LanePlacedUnits.s_lane4;
-
-            foreach (GameObject unit in lane)
-            {
-                if(unit != null)
-                    UnitsInLane++;
-            }
-
-            if(UnitsInLane == 1)
-            {
-                canPunchEverything = true;
-                targetsToPunch = 5;
-            }
-            else
-            {
-                canPunchEverything = false;
-                targetsToPunch = 1;
-            }
-        }
     }
 
     private void Update()
@@ -415,6 +386,68 @@ public class UnitPrototypeScript : MonoBehaviour
                 transform.localScale = transform.localScale * 1.2f;
 
                 countdown = 0;
+            }
+        }
+
+        if (Unit.cardName == "Black Knight")
+        {
+            if (laneNumberUnit == 1)
+                lane = LanePlacedUnits.s_lane1;
+            else if (laneNumberUnit == 2)
+                lane = LanePlacedUnits.s_lane2;
+            else if (laneNumberUnit == 3)
+                lane = LanePlacedUnits.s_lane3;
+            else if (laneNumberUnit == 4)
+                lane = LanePlacedUnits.s_lane4;
+
+            UnitsInLane = 0;
+
+            foreach (GameObject unit in lane)
+            {
+                if (unit != null)
+                    UnitsInLane++;
+            }
+
+            if (UnitsInLane == 1 && OneTimeTrigger == false)
+            {
+                punchDamage += punchDamage;
+                OneTimeTrigger = true;
+            }
+            else if (UnitsInLane > 1 && OneTimeTrigger == true)
+            {
+                punchDamage -= punchDamage / 2;
+                OneTimeTrigger = false;
+            }
+
+            Debug.Log(punchDamage);
+        }
+
+        if (Unit.cardName == "The Duelist")
+        {
+            if (laneNumberUnit == 1)
+                lane = LanePlacedUnits.s_lane1;
+            else if (laneNumberUnit == 2)
+                lane = LanePlacedUnits.s_lane2;
+            else if (laneNumberUnit == 3)
+                lane = LanePlacedUnits.s_lane3;
+            else if (laneNumberUnit == 4)
+                lane = LanePlacedUnits.s_lane4;
+
+            foreach (GameObject unit in lane)
+            {
+                if (unit != null)
+                    UnitsInLane++;
+            }
+
+            if (UnitsInLane == 1)
+            {
+                canPunchEverything = true;
+                targetsToPunch = 5;
+            }
+            else
+            {
+                canPunchEverything = false;
+                targetsToPunch = 1;
             }
         }
     }

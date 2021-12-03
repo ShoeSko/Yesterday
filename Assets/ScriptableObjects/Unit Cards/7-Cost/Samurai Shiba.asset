@@ -20,7 +20,8 @@ MonoBehaviour:
   effectDescription: 'Type: Melee, Pierce'
   effectDescription2: 'Health: Medium'
   effectDescription3: 'Damage: Medium'
-  flavorTxt: A samurai can cut through multiple enemies at once
+  flavorTxt: 'WHEN PLAYED: If your deck has only 1 Shiburai, he increases his statistics
+    and gains Pierce'
   Prefab: {fileID: 2557954877800294563, guid: 881ba56c3e283d5479b8a83bd53b29d9, type: 3}
   health: 190
   isShooter: 0

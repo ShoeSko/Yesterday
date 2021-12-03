@@ -20,7 +20,7 @@ MonoBehaviour:
   effectDescription: 'Type: Melee, Knockback'
   effectDescription2: 'Health: Medium'
   effectDescription3: 'Damage: Weak'
-  flavorTxt: It's last man standing
+  flavorTxt: 'ON HIT: Pushes back enemies'
   Prefab: {fileID: 2557954877800294563, guid: f277d647786c3a0418e9ed2d2e7dc469, type: 3}
   health: 160
   isShooter: 0

@@ -20,7 +20,7 @@ MonoBehaviour:
   effectDescription: 'Type: Melee'
   effectDescription2: 'Health: High'
   effectDescription3: 'Damage: Good'
-  flavorTxt: Buffs work twice as well on this card
+  flavorTxt: 'PASSIVE: Buffs work twice as well on this card'
   Prefab: {fileID: 2557954877800294563, guid: 81c54c406c166cc4c8ee9dfaf46ee2f8, type: 3}
   health: 280
   isShooter: 0

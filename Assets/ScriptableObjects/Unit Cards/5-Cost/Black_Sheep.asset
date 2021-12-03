@@ -20,7 +20,8 @@ MonoBehaviour:
   effectDescription: 'Type: Melee'
   effectDescription2: 'Health: Medium'
   effectDescription3: 'Damage: Good'
-  flavorTxt: Standing out does have some benefits afterall.
+  flavorTxt: 'PASSIVE: Deals 2x damage if there are no other friendly units in his
+    lane'
   Prefab: {fileID: 2557954877800294563, guid: 867cc57a67d30f5488c74ff2bb99af6e, type: 3}
   health: 190
   isShooter: 0
@@ -38,7 +39,7 @@ MonoBehaviour:
     m_Bits: 128
   targetsToShoot: 0
   punchRechargeTime: 3
-  punchDamage: 60
+  punchDamage: 40
   punchingTargetLayer:
     serializedVersion: 2
     m_Bits: 64

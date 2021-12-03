@@ -20,8 +20,8 @@ MonoBehaviour:
   effectDescription: 'Type: Melee'
   effectDescription2: 'Health: Medium'
   effectDescription3: 'Damage: Average'
-  flavorTxt: 'WHEN PLAYED: Gains ''Pierce'' if there are no other friendly units
-    in his lane'
+  flavorTxt: 'PASSIVE: Gains ''Pierce'' if there are no other friendly units in his
+    lane'
   Prefab: {fileID: 2557954877800294563, guid: cecf244629a5d26458813596a18615dc, type: 3}
   health: 130
   isShooter: 0

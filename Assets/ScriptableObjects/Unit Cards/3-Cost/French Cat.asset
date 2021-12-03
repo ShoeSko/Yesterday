@@ -20,7 +20,8 @@ MonoBehaviour:
   effectDescription: 'Special:'
   effectDescription2: 
   effectDescription3: Can't attack
-  flavorTxt: Buffs the unit's health and damage in-front of this card by 1.5x
+  flavorTxt: 'PASSIVE: Buffs the unit''s health and damage in-front of this card
+    by 1.5x'
   Prefab: {fileID: 2557954877800294563, guid: 422ea58729597f4458461086c76d0a99, type: 3}
   health: 40
   isShooter: 0

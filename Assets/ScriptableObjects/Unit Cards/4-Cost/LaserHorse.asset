@@ -20,7 +20,7 @@ MonoBehaviour:
   effectDescription: 'Type: Ranged, Pierce'
   effectDescription2: 'Health: Very Low'
   effectDescription3: 'Damage: Average'
-  flavorTxt: His laservision can pierce through anything.. and anyone
+  flavorTxt: His laservision can Pierce through anything.. and anyone
   Prefab: {fileID: 2557954877800294563, guid: 5535974e39e021f4388de73fb52630a8, type: 3}
   health: 60
   isShooter: 1
