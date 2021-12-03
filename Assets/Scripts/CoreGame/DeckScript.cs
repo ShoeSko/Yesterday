@@ -19,6 +19,8 @@ public class DeckScript : MonoBehaviour
     public CardScript TestCard; //Test thingy
     public CardScript TestCard2; //Test thingy
 
+    public CardScript Rat;
+
     public GameObject deckViewer;
     public GameObject ViewDeck;
 
@@ -136,5 +138,12 @@ public class DeckScript : MonoBehaviour
                 Shiburais++;
             }
         }
+    }
+
+    public void RatKingEffect()
+    {
+        Deck.Add(Rat);
+
+        DeckUpdater();
     }
 }

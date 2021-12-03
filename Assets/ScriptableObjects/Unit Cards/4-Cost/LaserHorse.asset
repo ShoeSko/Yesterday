@@ -20,7 +20,7 @@ MonoBehaviour:
   effectDescription: 'Type: Ranged, Pierce'
   effectDescription2: 'Health: Very Low'
   effectDescription3: 'Damage: Average'
-  flavorTxt: His laservision can Pierce through anything.. and anyone
+  flavorTxt: 'PASSIVE: Every 15 seconds, his projectiles can Pierce 1 more enemy'
   Prefab: {fileID: 2557954877800294563, guid: 5535974e39e021f4388de73fb52630a8, type: 3}
   health: 60
   isShooter: 1
@@ -36,7 +36,7 @@ MonoBehaviour:
   edgeOfRangeLayer:
     serializedVersion: 2
     m_Bits: 128
-  targetsToShoot: 10
+  targetsToShoot: 1
   punchRechargeTime: 0
   punchDamage: 0
   punchingTargetLayer:

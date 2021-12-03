@@ -20,7 +20,8 @@ MonoBehaviour:
   effectDescription: 'Type: Melee, Ranged'
   effectDescription2: 'Health: Low'
   effectDescription3: 'Damage: Average'
-  flavorTxt: The rat king can both attack up-close, as well as shoot from afar
+  flavorTxt: 'WHEN PLAYED: Creates a "The Chef" rat card into your deck. PASSIVE:
+    Can attack ranged and melee.'
   Prefab: {fileID: 2557954877800294563, guid: ac922c74b52c20a42a04ad7d3353188e, type: 3}
   health: 110
   isShooter: 1

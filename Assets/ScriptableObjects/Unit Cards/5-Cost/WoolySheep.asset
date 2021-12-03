@@ -20,7 +20,7 @@ MonoBehaviour:
   effectDescription: 'Type: Tank'
   effectDescription2: 'Health: Extreme'
   effectDescription3: 'Damage: None'
-  flavorTxt: Story says he went a whole year without shearing
+  flavorTxt: 'PASSIVE: Regenerates health every 20 seconds'
   Prefab: {fileID: 2557954877800294563, guid: 1378b5dcb7026d04eac637fdfa1f234d, type: 3}
   health: 800
   isShooter: 0

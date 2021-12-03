@@ -20,7 +20,8 @@ MonoBehaviour:
   effectDescription: 'Type: Melee, Knockback'
   effectDescription2: 'Health: Medium'
   effectDescription3: 'Damage: Weak'
-  flavorTxt: 'ON HIT: Pushes back enemies'
+  flavorTxt: 'ON HIT: Pushes back enemies PASSIVE: Increases knockback every 20 seconds
+    by 20%'
   Prefab: {fileID: 2557954877800294563, guid: f277d647786c3a0418e9ed2d2e7dc469, type: 3}
   health: 160
   isShooter: 0
@@ -45,7 +46,7 @@ MonoBehaviour:
   targetsToPunch: 1
   canPunchEverything: 0
   hasKnockback: 1
-  knockbackPower: 120
+  knockbackPower: 60
   isSacrificialKill: 0
   isSupportExpert: 0
   allyLayerToTarget:

@@ -259,6 +259,14 @@ public class UnitPrototypeScript : MonoBehaviour
             Debug.Log(DeckCode.Shiburais);
             Debug.Log(health);
         }
+
+        if(Unit.cardName == "RatKing")
+        {
+            DeckObject = GameObject.Find("Deck");
+            DeckCode = DeckObject.GetComponent<DeckScript>();
+
+            DeckCode.RatKingEffect();
+        }
     }
 
     private void Update()
@@ -448,6 +456,42 @@ public class UnitPrototypeScript : MonoBehaviour
             {
                 canPunchEverything = false;
                 targetsToPunch = 1;
+            }
+        }
+
+        if (Unit.cardName == "Wooly Sheep")
+        {
+            countdown += Time.deltaTime;
+
+            if (health <= 750 && countdown >= 20)
+            {
+                health += 20;
+                countdown = 0;
+            }
+        }
+
+        if (Unit.cardName == "Laser Horse")
+        {
+            countdown += Time.deltaTime;
+
+            if(countdown >= 15)
+            {
+                if(targetsToShoot < 10)
+                    targetsToShoot++;
+
+                countdown = 0;
+            }
+        }
+
+        if (Unit.cardName == "King of the Hill")
+        {
+            countdown += Time.deltaTime;
+
+            if(countdown >= 20)
+            {
+                knockbackPower = knockbackPower * 1.2f;
+
+                countdown = 0;
             }
         }
     }
