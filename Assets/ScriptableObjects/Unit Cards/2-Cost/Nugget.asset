@@ -18,11 +18,11 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 2bf6f17ff025d204b91dd5ba765debd0, type: 3}
   manaCost: 2
   effectDescription: 'Type: Melee'
-  effectDescription2: 'Health: Low'
-  effectDescription3: 'Damage: Good'
-  flavorTxt: 
+  effectDescription2: 'Health: Very Low'
+  effectDescription3: 'Damage: Average'
+  flavorTxt: 'WHEN PLAYED: Instantly summon a second copy of this card'
   Prefab: {fileID: 2557954877800294563, guid: b5363aadaddcdda4896ee74117c5ee18, type: 3}
-  health: 70
+  health: 35
   isShooter: 0
   isPunching: 1
   isSpecial: 0
@@ -38,7 +38,7 @@ MonoBehaviour:
     m_Bits: 128
   targetsToShoot: 0
   punchRechargeTime: 0.7
-  punchDamage: 12
+  punchDamage: 6
   punchingTargetLayer:
     serializedVersion: 2
     m_Bits: 64

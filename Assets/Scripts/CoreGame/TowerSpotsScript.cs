@@ -16,7 +16,10 @@ public class TowerSpotsScript : MonoBehaviour
     private DeckScript DeckCode;
     [SerializeField ]private int laneNumber; //Used to indicate which lane the spot is from.
     private int lanePlacement; //Used to indicate the placement in the lane.
-    public static bool NuggetSpawnOnce;
+
+    public static bool NuggetSpawnOnce;//Spawns a second nugget
+    public bool AbilitySpawning;
+    public GameObject SpawnedUnit;//A special unit spawned by other means (defined by a card)
 
     public void Start()
     {
@@ -29,40 +32,57 @@ public class TowerSpotsScript : MonoBehaviour
     {
         lanePlacement = LanePlacement;
 
-        cardplayed = card.GetComponent<NewCardHandScript>().PlayedCard;//"What card is being played?"
-        CardValues = cardplayed.GetComponent<CardDisplayer>();//Access played card information
-
-        manacost = CardValues.manaValue; //Define manacost
-        Unit = CardValues.UnitPrefab;//Define unit 
-
-
-        ManaSystem.CurrentMana -= manacost;
-        GameObject unit = Instantiate(Unit, buttonPos, transform.rotation);//spawn the correct unit
-        unit.transform.SetParent(positionResetTransform, true);
-        this.transform.SetParent(unit.transform,true);
-
-        LanePlacedUnits.PlaceNewUnitInList(unit,laneNumber,lanePlacement); //Places the newly spawned unit in a list to be refered from.
-
-        unit.GetComponent<UnitPrototypeScript>().DefineUnitPlacement(laneNumber, lanePlacement); // Gives the Unit Prototype Script an actual reference to their placement.
-
-        towerSpots.SetActive(false);
-        gameObject.SetActive(false);
-
-
-        //Nugget's ability WIP
-        if (CardValues.card.cardName == "Nugget" && NuggetSpawnOnce == false)
+        if(AbilitySpawning == false)//Standard way of playing a card
         {
-            towerSpots.SetActive(true);
-            NuggetSpawnOnce = true;
+            cardplayed = card.GetComponent<NewCardHandScript>().PlayedCard;//"What card is being played?"
+            CardValues = cardplayed.GetComponent<CardDisplayer>();//Access played card information
+
+            manacost = CardValues.manaValue; //Define manacost
+            Unit = CardValues.UnitPrefab;//Define unit 
+
+
+            ManaSystem.CurrentMana -= manacost;
+            GameObject unit = Instantiate(Unit, buttonPos, transform.rotation);//spawn the correct unit
+            unit.transform.SetParent(positionResetTransform, true);
+            this.transform.SetParent(unit.transform, true);
+
+            LanePlacedUnits.PlaceNewUnitInList(unit, laneNumber, lanePlacement); //Places the newly spawned unit in a list to be refered from.
+
+            unit.GetComponent<UnitPrototypeScript>().DefineUnitPlacement(laneNumber, lanePlacement); // Gives the Unit Prototype Script an actual reference to their placement.
+
+            towerSpots.SetActive(false);
+            gameObject.SetActive(false);
+
+
+            //Nugget's ability WIP
+            if (CardValues.card.cardName == "Nugget" && NuggetSpawnOnce == false)
+            {
+                towerSpots.SetActive(true);
+                NuggetSpawnOnce = true;
+            }
+            else
+            {
+                DeckCode.Randomise();
+                CardValues.card = DeckCode.activecard;
+                cardplayed.GetComponent<CardDisplayer>().Read();
+                NewCardHandScript.s_cardWasPlayer = true;
+                card.GetComponent<NewCardHandScript>().ReSetCard();
+                NuggetSpawnOnce = false;
+            }
         }
-        else
+        else //Special effect used when a unit is spawned by other means other than being played from hand
         {
-            DeckCode.Randomise();
-            CardValues.card = DeckCode.activecard;
-            cardplayed.GetComponent<CardDisplayer>().Read();
-            NewCardHandScript.s_cardWasPlayer = true;
-            card.GetComponent<NewCardHandScript>().ReSetCard();
-            NuggetSpawnOnce = false;
+            GameObject unit = Instantiate(SpawnedUnit, buttonPos, transform.rotation);//spawn the correct unit
+            unit.transform.SetParent(positionResetTransform, true);
+            this.transform.SetParent(unit.transform, true);
+
+            LanePlacedUnits.PlaceNewUnitInList(unit, laneNumber, lanePlacement); //Places the newly spawned unit in a list to be refered from.
+
+            unit.GetComponent<UnitPrototypeScript>().DefineUnitPlacement(laneNumber, lanePlacement); // Gives the Unit Prototype Script an actual reference to their placement.
+
+            gameObject.SetActive(false);
+
+            AbilitySpawning = false;
         }
     }
 
