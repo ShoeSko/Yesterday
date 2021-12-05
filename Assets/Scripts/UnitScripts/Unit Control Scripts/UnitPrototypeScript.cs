@@ -86,6 +86,7 @@ public class UnitPrototypeScript : MonoBehaviour
     private bool OneTimeTrigger;
     private int HitCounter;
     private int UnitsInLane;
+    private int RandomNumber;
     private float countdown;
     private static bool MafiaBuffPig;
     private static bool MafiaBuffCow;

@@ -16,6 +16,7 @@ public class TowerSpotsScript : MonoBehaviour
     private DeckScript DeckCode;
     [SerializeField ]private int laneNumber; //Used to indicate which lane the spot is from.
     private int lanePlacement; //Used to indicate the placement in the lane.
+    public static bool NuggetSpawnOnce;
 
     public void Start()
     {
@@ -47,11 +48,22 @@ public class TowerSpotsScript : MonoBehaviour
         towerSpots.SetActive(false);
         gameObject.SetActive(false);
 
-        DeckCode.Randomise();
-        CardValues.card = DeckCode.activecard;
-        cardplayed.GetComponent<CardDisplayer>().Read();
-        NewCardHandScript.s_cardWasPlayer = true;
-        card.GetComponent<NewCardHandScript>().ReSetCard();
+
+        //Nugget's ability WIP
+        if (CardValues.card.cardName == "Nugget" && NuggetSpawnOnce == false)
+        {
+            towerSpots.SetActive(true);
+            NuggetSpawnOnce = true;
+        }
+        else
+        {
+            DeckCode.Randomise();
+            CardValues.card = DeckCode.activecard;
+            cardplayed.GetComponent<CardDisplayer>().Read();
+            NewCardHandScript.s_cardWasPlayer = true;
+            card.GetComponent<NewCardHandScript>().ReSetCard();
+            NuggetSpawnOnce = false;
+        }
     }
 
     private void Update()
