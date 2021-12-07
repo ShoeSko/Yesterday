@@ -84,16 +84,19 @@ public class UnitPrototypeScript : MonoBehaviour
     //Unit abilities:
     private Collider2D hitEnemy;//Used to access the current punched target outside the punch statement
     private bool OneTimeTrigger;
+    private bool CHARRGE;
     private int HitCounter;
     private int UnitsInLane;
-    private int RandomNumber;
+    private float Delay;
     private float countdown;
+    private int BonusDamageInt;
     private static bool MafiaBuffPig;
     private static bool MafiaBuffCow;
     private static bool MafiaCancelCow;
     private static bool MafiaCancelPig;
     private GameObject[] lane;
     private List<GameObject> BuffedCards = new List<GameObject>();
+    private Vector3 StartingPos;
 
     private float BasicHealth;//Variable to store the starting health of the card
     private int BasicDamage;//Variable to store the starting punching damage of the card
@@ -267,6 +270,12 @@ public class UnitPrototypeScript : MonoBehaviour
             DeckCode = DeckObject.GetComponent<DeckScript>();
 
             DeckCode.RatKingEffect();
+        }
+
+        if (Unit.cardName == "Frogger")
+        {
+            StartingPos = transform.position;
+            BasicDamage = punchDamage;
         }
     }
 
@@ -493,6 +502,58 @@ public class UnitPrototypeScript : MonoBehaviour
                 knockbackPower = knockbackPower * 1.2f;
 
                 countdown = 0;
+            }
+        }
+
+        if(Unit.cardName == "Frogger")
+        {
+            originForAim = transform.position;
+            directionForAim = transform.right;
+            RaycastHit2D hitRangeLimit;
+            hitRangeLimit = Physics2D.Raycast(originForAim, directionForAim, 999999, edgeOfRangeLayer);
+            hitRange = hitRangeLimit.distance;
+
+            RaycastHit2D hit;
+
+            hit = Physics2D.Raycast(originForAim, directionForAim, hitRange, shootingTargetLayer);
+            Debug.DrawRay(originForAim, directionForAim * hitRange, Color.red, 10);
+
+            if (hit)
+            {
+                if (!OneTimeTrigger)
+                {
+                    CHARRGE = true;
+                    BonusDamageInt = 0;
+                    Delay = 0;
+
+                    OneTimeTrigger = true;
+                }
+            }
+
+            if (CHARRGE)
+            {
+                transform.position += Vector3.right * Time.deltaTime * 3;
+                countdown += Time.deltaTime;
+                float bonusDamage = countdown * 10;
+                BonusDamageInt = (int)bonusDamage;
+                punchDamage = BasicDamage + BonusDamageInt;
+            }
+            else
+            {
+                if(transform.position.x > StartingPos.x)
+                {
+                    transform.position += Vector3.left * Time.deltaTime * 4;
+                }
+            }
+
+            if (transform.position.x <= StartingPos.x)
+            {
+                Delay += Time.deltaTime;
+
+                if(Delay >= 5)
+                {
+                    OneTimeTrigger = false;
+                }
             }
         }
     }
@@ -978,6 +1039,14 @@ public class UnitPrototypeScript : MonoBehaviour
         if (Unit.cardName == "Snek")
         {
             hitEnemy.GetComponent<BasicEnemyMovement>().SnekPoison();
+        }
+
+        if(Unit.cardName == "Frogger")
+        {
+            punchDamage -= BonusDamageInt;
+            BasicDamage = punchDamage;//Makes sure i dont lose buffs
+            countdown = 0;
+            CHARRGE = false;
         }
     }
 

@@ -18,18 +18,18 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: cdefa914e39dad74fb27e975725738dd, type: 3}
   manaCost: 6
   effectDescription: 'Type: Ranged'
-  effectDescription2: 'Health: Good'
-  effectDescription3: 'Damage: Average'
-  flavorTxt: A true fashion model
+  effectDescription2: 'Health: Medium'
+  effectDescription3: 'Damage: Weak'
+  flavorTxt: 'WHEN PLAYED: Instantly summon a second copy of this card'
   Prefab: {fileID: 2557954877800294563, guid: 03103f74d0d96104e833e0e2138ce7d3, type: 3}
-  health: 150
+  health: 80
   isShooter: 1
   isPunching: 0
   isSpecial: 0
   shootRechargeTime: 2.3
   projectileSpeed: 5
   projectilePrefab: {fileID: 3204289923293697707, guid: 5d52c25ce94445743a02a3ddca268b0e, type: 3}
-  projectileDamage: 12
+  projectileDamage: 8
   shootingTargetLayer:
     serializedVersion: 2
     m_Bits: 64
