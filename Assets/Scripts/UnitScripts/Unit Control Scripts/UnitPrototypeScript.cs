@@ -529,6 +529,10 @@ public class UnitPrototypeScript : MonoBehaviour
                     OneTimeTrigger = true;
                 }
             }
+            else
+            {
+                CHARRGE = false;
+            }
 
             if (CHARRGE)
             {

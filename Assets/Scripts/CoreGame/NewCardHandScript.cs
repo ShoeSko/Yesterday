@@ -146,10 +146,20 @@ public class NewCardHandScript : MonoBehaviour
     public GameObject MenuReturn;
     private bool LostTutorial;
     private bool QuackenWorks;
+    private int DialogueChange = 0;
+    private bool ONCE = true;
+
+    public List<AudioSource> VoiceDialogue = new List<AudioSource>();
+    public List<AudioSource> VoiceWin = new List<AudioSource>();
+    public List<AudioSource> VoiceLose = new List<AudioSource>();
+    public List<AudioSource> VoiceSurprised = new List<AudioSource>();
     #endregion
     #region Setup
     void Start()
     {
+        //TESTING
+        MinigameSceneScript.Tutorial = true;
+
         IWon = false;
 
         if (DevStageTest == true)
@@ -210,6 +220,8 @@ public class NewCardHandScript : MonoBehaviour
     {
         if (MinigameSceneScript.Tutorial == true)
         {
+            TutorialSurprisedVoice();
+
             BG_Day.SetActive(true);
             Text = 0;
             ManaSystem.CurrentMana = 10;
@@ -263,6 +275,8 @@ public class NewCardHandScript : MonoBehaviour
     {
         if (MinigameSceneScript.Tutorial == true)
         {
+            ActivateDialogue();
+
             enlargeButton.SetActive(false);
 
             if (Input.GetKeyDown(KeyCode.Mouse0) || Input.GetKeyDown(KeyCode.Space))
@@ -346,6 +360,7 @@ public class NewCardHandScript : MonoBehaviour
             {
                 if (SpawnOnce == false)
                 {
+                    TutorialSurprisedVoice();
                     TutorialSpawner1.GetComponent<EnemySpawning>().gameStarted = true;
                     Time.timeScale = 0;
                     SpawnOnce = true;
@@ -400,6 +415,7 @@ public class NewCardHandScript : MonoBehaviour
 
                 if (SpawnDelay >= 24.15f)
                 {
+                    TutorialSurprisedVoice();
                     Time.timeScale = 0;
                     CantClick = false;
                     Texts[Text].SetActive(true);
@@ -426,6 +442,7 @@ public class NewCardHandScript : MonoBehaviour
                 }
                 if (SpawnDelay >= 27)
                 {
+                    TutorialSurprisedVoice();
                     Time.timeScale = 0;
                     CantClick = false;
                     Texts[Text].SetActive(true);
@@ -972,6 +989,7 @@ public class NewCardHandScript : MonoBehaviour
 
     public void TutorialWin()
     {
+        TriggerVoiceOnce();
         Texts[Text].SetActive(true);
         SpeechBubble.SetActive(true);
         BotWave.SetActive(true);
@@ -982,12 +1000,84 @@ public class NewCardHandScript : MonoBehaviour
 
     public void TutorialLose()
     {
+        TutorialLoseVoice();
         Texts[19].SetActive(true);
         SpeechBubble.SetActive(true);
         BotWave.SetActive(true);
         ContinueText.SetActive(true);
         LostTutorial = true;
         Time.timeScale = 0;
+    }
+
+    private void TutorialDialogueVoice()
+    {
+        int sound = VoiceDialogue.Count;
+
+        AudioSource PlaySound = VoiceDialogue[Random.Range(0, sound)];
+
+        VoiceDialogue.Remove(PlaySound);
+        PlaySound.Play();
+    }
+
+    private void TutorialWinVoice()
+    {
+        int sound = VoiceWin.Count;
+
+        AudioSource PlaySound = VoiceWin[Random.Range(0, sound)];
+
+        VoiceWin.Remove(PlaySound);
+        PlaySound.Play();
+    }
+
+    private void TutorialLoseVoice()
+    {
+        int sound = VoiceLose.Count;
+
+        AudioSource PlaySound = VoiceLose[Random.Range(0, sound)];
+
+        VoiceLose.Remove(PlaySound);
+        PlaySound.Play();
+    }
+
+    private void TutorialSurprisedVoice()
+    {
+        int sound = VoiceSurprised.Count;
+
+        AudioSource PlaySound = VoiceSurprised[Random.Range(0, sound)];
+
+        VoiceSurprised.Remove(PlaySound);
+        PlaySound.Play();
+    }
+
+    private void ActivateDialogue()
+    {
+        if (DialogueChange != Text)
+        {
+            if(Text <= 10 && Text >= 1)
+            {
+                TutorialDialogueVoice();
+                DialogueChange = Text;
+            }
+            else if (Text == 12 || Text == 15 || Text == 17)
+            {
+                TutorialDialogueVoice();
+                DialogueChange = Text;
+            }
+            else if(Text == 18)
+            {
+                TutorialWinVoice();
+                DialogueChange = Text;
+            }
+        }
+    }
+
+    private void TriggerVoiceOnce()
+    {
+        if (ONCE)
+        {
+            TutorialWinVoice();
+            ONCE = false;
+        }
     }
     #endregion
 }

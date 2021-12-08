@@ -41,6 +41,13 @@ public class AnimalVictory : MonoBehaviour
     public GameObject Ostrich;
     private bool SpawnedOstrich;
 
+    public List<AudioSource> VoiceDialogue = new List<AudioSource>();
+    public List<AudioSource> VoiceWin = new List<AudioSource>();
+    public List<AudioSource> VoiceLose = new List<AudioSource>();
+    public List<AudioSource> VoiceSurprised = new List<AudioSource>();
+
+    private bool playonce;
+
     [Header("Time Limit Minigame")]
     [SerializeField] private float minigameTimeLimit = 30f;
     private bool timeIsUp;
@@ -66,6 +73,8 @@ public class AnimalVictory : MonoBehaviour
 
         if (MinigameSceneScript.Tutorial == true)
         {
+            TutorialDialogueVoice();
+
             GameStarted = false;
 
             ObjectiveText.SetActive(false);
@@ -104,6 +113,7 @@ public class AnimalVictory : MonoBehaviour
             {
                 if (GameStarted == false)
                 {
+                    TutorialDialogueVoice();
                     Texts[Text].SetActive(false);
                     Text++;
 
@@ -130,6 +140,8 @@ public class AnimalVictory : MonoBehaviour
             {
                 if (_animalPensFilled == 3)
                 {
+                    PlayOnce();
+
                     BotWave.SetActive(true);
                     SpeechBubble.SetActive(true);
                     Texts[Text].SetActive(true);
@@ -228,6 +240,8 @@ public class AnimalVictory : MonoBehaviour
                 CardReward.TutorialMission = 2;
                 nextSceneButton.SetActive(true);
                 levelTransitioner.currentMinigameScore = score;
+
+                PlayOnceAgain();
             }
         }
     }
@@ -241,5 +255,63 @@ public class AnimalVictory : MonoBehaviour
         yield return new WaitForSeconds(minigameTimeLimit);
 
         timeIsUp = true;
+    }
+
+    private void TutorialDialogueVoice()
+    {
+        int sound = VoiceDialogue.Count;
+
+        AudioSource PlaySound = VoiceDialogue[Random.Range(0, sound)];
+
+        VoiceDialogue.Remove(PlaySound);
+        PlaySound.Play();
+    }
+
+    private void TutorialWinVoice()
+    {
+        int sound = VoiceWin.Count;
+
+        AudioSource PlaySound = VoiceWin[Random.Range(0, sound)];
+
+        VoiceWin.Remove(PlaySound);
+        PlaySound.Play();
+    }
+
+    private void TutorialLoseVoice()
+    {
+        int sound = VoiceLose.Count;
+
+        AudioSource PlaySound = VoiceLose[Random.Range(0, sound)];
+
+        VoiceLose.Remove(PlaySound);
+        PlaySound.Play();
+    }
+
+    private void TutorialSurprisedVoice()
+    {
+        int sound = VoiceSurprised.Count;
+
+        AudioSource PlaySound = VoiceSurprised[Random.Range(0, sound)];
+
+        VoiceSurprised.Remove(PlaySound);
+        PlaySound.Play();
+    }
+
+    private void PlayOnce()
+    {
+        if (!playonce)
+        {
+            TutorialSurprisedVoice();
+            playonce = true;
+        }
+    }
+
+    private void PlayOnceAgain()
+    {
+        if (playonce)
+        {
+            TutorialLoseVoice();
+            playonce = false;
+        }
     }
 }

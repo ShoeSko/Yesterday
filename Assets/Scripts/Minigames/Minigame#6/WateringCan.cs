@@ -59,6 +59,9 @@ public class WateringCan : MonoBehaviour
     [SerializeField] private string alternativeAndroidText;
     [SerializeField] private Text textToChange;
 
+    public List<AudioSource> VoiceDialogue = new List<AudioSource>();
+    public List<AudioSource> VoiceWin = new List<AudioSource>();
+
     public GameObject objective;
 
     private bool GameStarted;
@@ -88,6 +91,7 @@ public class WateringCan : MonoBehaviour
         }
         else//Tutorial stuff
         {
+            TutorialDialogueVoice();
             Text = 0;
             objective.SetActive(false);
 
@@ -128,8 +132,9 @@ public class WateringCan : MonoBehaviour
                 ObjText.SetActive(false);
                 if (Input.GetKeyDown(KeyCode.Mouse0) || Input.GetKeyDown(KeyCode.Space))
                 {
-                    if (Text == 0)
-                        GameStarted = true;
+                    GameStarted = true;
+
+                    TutorialDialogueVoice();
 
                     Texts[Text].SetActive(false);
                     Text++;
@@ -273,6 +278,7 @@ public class WateringCan : MonoBehaviour
             CardReward.Stars = 3;
             score = 3;
 
+            TutorialWinVoice();
             Text = 2;
             Texts[Text].SetActive(true);
             BotWave.SetActive(true);
@@ -342,5 +348,25 @@ public class WateringCan : MonoBehaviour
         }
 
         print("Bool is now " + waterSoundPlay);
+    }
+
+    private void TutorialDialogueVoice()
+    {
+        int sound = VoiceDialogue.Count;
+
+        AudioSource PlaySound = VoiceDialogue[Random.Range(0, sound)];
+
+        VoiceDialogue.Remove(PlaySound);
+        PlaySound.Play();
+    }
+
+    private void TutorialWinVoice()
+    {
+        int sound = VoiceWin.Count;
+
+        AudioSource PlaySound = VoiceWin[Random.Range(0, sound)];
+
+        VoiceWin.Remove(PlaySound);
+        PlaySound.Play();
     }
 }

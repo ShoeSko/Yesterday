@@ -66,6 +66,11 @@ public class CardReward : MonoBehaviour
     public List<GameObject> Texts3 = new List<GameObject>();
     private int Text;
     [SerializeField] private float timeBeforeBubbleIsHidden;
+    private int DialogueChange;
+
+    public List<AudioSource> VoiceDialogue = new List<AudioSource>();
+    public List<AudioSource> VoiceWin = new List<AudioSource>();
+    public List<AudioSource> VoiceLose = new List<AudioSource>();
 
     [Header("Options")]
     [SerializeField] private GameObject optionsButton;
@@ -95,6 +100,7 @@ public class CardReward : MonoBehaviour
         else//Tutorial settings
         {
             Text = 0;
+            DialogueChange = 0;
             view1Button.SetActive(false);
             choose1Button.SetActive(false);
 
@@ -105,6 +111,8 @@ public class CardReward : MonoBehaviour
             //First reward screen of tutorial
             if (TutorialMission == 1)
             {
+                TutorialWinVoice();
+
                 cardgroup3.SetActive(false);
                 cardgroup2.SetActive(false);
                 Texts1[Text].SetActive(true);
@@ -112,6 +120,8 @@ public class CardReward : MonoBehaviour
             }//Second reward screen of tutorial
             else if(TutorialMission == 2)
             {
+                TutorialLoseVoice();
+
                 cardgroup3.SetActive(false);
                 cardgroup2.SetActive(false);
                 Texts2[Text].SetActive(true);
@@ -121,6 +131,8 @@ public class CardReward : MonoBehaviour
             }//Third reward screen of tutorial
             else if(TutorialMission == 3)
             {
+                TutorialWinVoice();
+
                 groupNumber = 1;
 
                 Texts3[Text].SetActive(true);
@@ -136,8 +148,12 @@ public class CardReward : MonoBehaviour
 
     private void Update()
     {
+        if (MinigameSceneScript.Tutorial == true)
+            ActivateDialogue();
+
+
         //Tutorial stuff
-        if(TutorialMission == 1)
+        if (TutorialMission == 1)
         {
             if (Input.GetKeyDown(KeyCode.Mouse0) || Input.GetKeyDown(KeyCode.Space))
             {
@@ -568,6 +584,45 @@ public class CardReward : MonoBehaviour
             Texts2[Text].SetActive(true);
             continueText.SetActive(true);
             AllreadyActivated = true;
+        }
+    }
+
+    private void TutorialDialogueVoice()
+    {
+        int sound = VoiceDialogue.Count;
+
+        AudioSource PlaySound = VoiceDialogue[Random.Range(0, sound)];
+
+        VoiceDialogue.Remove(PlaySound);
+        PlaySound.Play();
+    }
+
+    private void TutorialWinVoice()
+    {
+        int sound = VoiceWin.Count;
+
+        AudioSource PlaySound = VoiceWin[Random.Range(0, sound)];
+
+        VoiceWin.Remove(PlaySound);
+        PlaySound.Play();
+    }
+
+    private void TutorialLoseVoice()
+    {
+        int sound = VoiceLose.Count;
+
+        AudioSource PlaySound = VoiceLose[Random.Range(0, sound)];
+
+        VoiceLose.Remove(PlaySound);
+        PlaySound.Play();
+    }
+
+    private void ActivateDialogue()
+    {
+        if(DialogueChange != Text)
+        {
+            TutorialDialogueVoice();
+            DialogueChange = Text;
         }
     }
 }

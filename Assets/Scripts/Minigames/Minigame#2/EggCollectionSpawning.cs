@@ -40,6 +40,10 @@ public class EggCollectionSpawning : MonoBehaviour
     public GameObject blackstar3;
     public GameObject FadeboxUI;
 
+    public List<AudioSource> VoiceDialogue = new List<AudioSource>();
+    public List<AudioSource> VoiceWin = new List<AudioSource>();
+    public List<AudioSource> VoiceLose = new List<AudioSource>();
+
     [SerializeField] private GameObject nextSceneButton; //The button to reach next scene
     [SerializeField] private LevelTransitionSystem levelTransitioner; //Refrence to give the score of the game.
     private int minigameScore;
@@ -76,6 +80,7 @@ public class EggCollectionSpawning : MonoBehaviour
 
         if (MinigameSceneScript.Tutorial == true)
         {
+            TutorialDialogueVoice();
             continueText.SetActive(true);
             Text = 0;
             RobotSmile1.SetActive(true);
@@ -167,7 +172,12 @@ public class EggCollectionSpawning : MonoBehaviour
                         Text++;
                     }
                     if (Text != 6 && Text != 10)
+                    {
                         Texts[Text].SetActive(true);
+
+                        if(Text != 9)
+                            TutorialDialogueVoice();
+                    }
                     else if (Text == 6)
                     {
                         RobotSmile1.SetActive(false);
@@ -177,7 +187,6 @@ public class EggCollectionSpawning : MonoBehaviour
                         GameStarted = true;
                         gameHasStarted = true;
                     }
-                    FadeboxUI.SetActive(true);
                 }
 
                 if (Text == 9)
@@ -275,7 +284,7 @@ public class EggCollectionSpawning : MonoBehaviour
             FadeboxUI.SetActive(true);
         }
 
-        if (delay < 2 && delay > 1)
+        if (delay < 2 && delay > 1 && MinigameSceneScript.Tutorial == false)
         {
             Eggscelent.Play();
         }
@@ -294,6 +303,7 @@ public class EggCollectionSpawning : MonoBehaviour
         {
             if(Text == 6)
             {
+                TutorialWinVoice();
                 CardReward.TutorialMission = 1;
                 goaltext.SetActive(false);
                 RobotSmile1.SetActive(true);
@@ -308,11 +318,42 @@ public class EggCollectionSpawning : MonoBehaviour
 
     public void TutorialMissedEgg()
     {
+        TutorialLoseVoice();
         Time.timeScale = 0;
         RobotSmile1.SetActive(true);
         SpeechBubble.SetActive(true);
         continueText.SetActive(true);
         Texts[10].SetActive(true);
         EggPause = true;
+    }
+
+    private void TutorialDialogueVoice()
+    {
+        int sound = VoiceDialogue.Count;
+
+        AudioSource PlaySound = VoiceDialogue[Random.Range(0, sound)];
+
+        VoiceDialogue.Remove(PlaySound);
+        PlaySound.Play();
+    }
+
+    private void TutorialWinVoice()
+    {
+        int sound = VoiceWin.Count;
+
+        AudioSource PlaySound = VoiceWin[Random.Range(0, sound)];
+
+        VoiceWin.Remove(PlaySound);
+        PlaySound.Play();
+    }
+
+    private void TutorialLoseVoice()
+    {
+        int sound = VoiceLose.Count;
+
+        AudioSource PlaySound = VoiceLose[Random.Range(0, sound)];
+
+        VoiceLose.Remove(PlaySound);
+        PlaySound.Play();
     }
 }
