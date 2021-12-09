@@ -29,7 +29,7 @@ public class BasicEnemyMovement : MonoBehaviour
     private bool isRecharging; //Is it recharging because then you should not make another wait timer.
     private float knockbackPower; //Grabbing a refrence of the knockback Strenght
     private int quackDamage = 80;
-    private bool chosenByMom;
+    public bool chosenByMom;
 
     [Header("Enemy confirmation for Animation")]
     [Tooltip("Is the Enemy Merry, so that her animation will play")] private bool isMerry;

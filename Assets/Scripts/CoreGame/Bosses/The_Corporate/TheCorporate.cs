@@ -64,6 +64,11 @@ public class TheCorporate : MonoBehaviour
     //Death confirmation
     private bool isDead;
 
+    public List<AudioSource> VoiceStockShortage = new List<AudioSource>();
+    public List<AudioSource> VoiceGreedyOpportunity = new List<AudioSource>();
+    public List<AudioSource> VoicePropertyBusiness = new List<AudioSource>();
+    public List<AudioSource> VoiceTakeDamage = new List<AudioSource>();
+
     private void Start()
     {
         Health = 4;
@@ -200,6 +205,9 @@ public class TheCorporate : MonoBehaviour
 
             if (activeSpot != null)
             {
+                int RandomVoice = Random.Range(0, VoicePropertyBusiness.Count);
+                VoicePropertyBusiness[RandomVoice].Play();
+
                 GameObject sign = Instantiate(CorporateSign);
                 sign.transform.position = activeSpot.transform.position;
                 sign.transform.position = new Vector3(activeSpot.transform.position.x, activeSpot.transform.position.y, 0); //An attempt to fix Sign placement.
@@ -223,6 +231,9 @@ public class TheCorporate : MonoBehaviour
     {
         if (CD2 <= 0)//Do this ability
         {
+            int RandomVoice = Random.Range(0, VoiceStockShortage.Count);
+            VoiceStockShortage[RandomVoice].Play();
+
             StartCoroutine(IndicateStockShortage()); //Runs a coroutine to give time for the indicator.
 
             CD2 = 2;//set cooldown
@@ -266,6 +277,9 @@ public class TheCorporate : MonoBehaviour
 
                 if (CurrentHand != null && CurrentHand.GetComponent<GreedyOpportunity>().obstacleInTheWay != false)
                 {
+                    int RandomVoice = Random.Range(0, VoiceGreedyOpportunity.Count);
+                    VoiceGreedyOpportunity[RandomVoice].Play();
+
                     CurrentHand.GetComponent<GreedyOpportunity>().obstacleInTheWay = false;
                     StartCoroutine(Laughter());
                 }
@@ -304,6 +318,9 @@ public class TheCorporate : MonoBehaviour
 
     public void RecieveDamage()
     {
+        int RandomVoice = Random.Range(0, VoiceTakeDamage.Count);
+        VoiceTakeDamage[RandomVoice].Play();
+
         Health--;
         if(Health != 0)
             StartCoroutine(tookDamage());

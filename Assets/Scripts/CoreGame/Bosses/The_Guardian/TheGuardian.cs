@@ -48,6 +48,11 @@ public class TheGuardian : MonoBehaviour
     private GameObject MothersChosen;
     private bool ChosenOne;
 
+    public List<AudioSource> VoiceWrathOfTheForest = new List<AudioSource>();
+    public List<AudioSource> VoiceEclipse = new List<AudioSource>();
+    public List<AudioSource> VoiceMotherlyEmbrace = new List<AudioSource>();
+    public List<AudioSource> VoiceTakeDamage = new List<AudioSource>();
+
 
     private float timer;
     private int loop;
@@ -134,6 +139,9 @@ public class TheGuardian : MonoBehaviour
         {
             if(MothersChosen == null)
             {
+                int RandomVoice = Random.Range(0, VoiceTakeDamage.Count);
+                VoiceTakeDamage[RandomVoice].Play();
+
                 Health--;
                 ChosenOne = false;
             }
@@ -162,6 +170,9 @@ public class TheGuardian : MonoBehaviour
         if (CD1 <= 0)
         {
             //Do stuff
+            int RandomVoice = Random.Range(0, VoiceWrathOfTheForest.Count);
+            VoiceWrathOfTheForest[RandomVoice].Play();
+
             spawnLocation = Random.Range(0, 4);
             Instantiate(NaturesWrath);
             NaturesWrath.transform.position = SpawnPoints[spawnLocation].transform.position;
@@ -180,6 +191,9 @@ public class TheGuardian : MonoBehaviour
         if (CD2 <= 0)
         {
             //Do stuff
+            int RandomVoice = Random.Range(0, VoiceEclipse.Count);
+            VoiceEclipse[RandomVoice].Play();
+
             UsedEclipse = true;
 
             CD2 = 3;
@@ -197,16 +211,30 @@ public class TheGuardian : MonoBehaviour
         if (CD3 <= 0)
         {
             //Do stuff
+            int RandomVoice = Random.Range(0, VoiceMotherlyEmbrace.Count);
+            VoiceMotherlyEmbrace[RandomVoice].Play();
+
             VisibleEnemy = GameObject.FindGameObjectWithTag("Enemy");
             if (VisibleEnemy != null)
             {
-                VisibleEnemy.GetComponent<BasicEnemyMovement>().MotherlyEmbraceBuff();
-                VisibleEnemy.transform.localScale = VisibleEnemy.transform.localScale * 1.5f;
+                if(VisibleEnemy.GetComponent<BasicEnemyMovement>().chosenByMom == false)//Can't buff the same guy twice
+                {
+                    VisibleEnemy.GetComponent<BasicEnemyMovement>().MotherlyEmbraceBuff();
+                    VisibleEnemy.transform.localScale = VisibleEnemy.transform.localScale * 1.5f;
 
-                MothersChosen = VisibleEnemy;
-                ChosenOne = true;
+                    MothersChosen = VisibleEnemy;
+                    ChosenOne = true;
 
-                CD3 = 2;
+                    CD3 = 2;
+                }
+                else if (CD1 > 0 && CD2 > 0)
+                {
+                    CD1--;
+                    CD2--;
+                    loop--;
+                }
+                else
+                    loop--;
             }
             else if (CD1 > 0 && CD2 > 0)
             {

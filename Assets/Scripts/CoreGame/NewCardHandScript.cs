@@ -157,9 +157,6 @@ public class NewCardHandScript : MonoBehaviour
     #region Setup
     void Start()
     {
-        //TESTING
-        MinigameSceneScript.Tutorial = true;
-
         IWon = false;
 
         if (DevStageTest == true)

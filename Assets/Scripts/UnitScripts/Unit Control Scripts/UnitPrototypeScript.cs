@@ -630,6 +630,7 @@ public class UnitPrototypeScript : MonoBehaviour
                         else if (enemiesToDamage[i].GetComponent<GreedyOpportunity>())
                         {
                             enemiesToDamage[i].GetComponent<GreedyOpportunity>().TakeDamage(punchDamage, hasKnockback, knockbackPower); //Sent attackDamage to Unit
+                            OnHitAbility();//Check if the unit has any abilities that trigger when hitting an enemy
                             //print("Punch");
                         }
                     }
