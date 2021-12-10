@@ -887,8 +887,24 @@ public class NewCardHandScript : MonoBehaviour
             CurrentCard.GetComponent<CardDisplayer>().card = Deck.GetComponent<DeckScript>().activecard;
             CurrentCard.GetComponent<CardDisplayer>().Read();
 
+            ReSetCard();
+
             StartCoroutine(CardAnimationOn(CurrentCard, card));//Made to do the animation on start.
         }
+    }
+
+    public void CreateFindMaster()
+    {
+        handEnlarged.SetActive(true);
+
+        int RandomCardInHand = Random.Range(1, 6);
+        GameObject SCard = GameObject.Find("SCard" + RandomCardInHand);
+        GameObject LCard = GameObject.Find("LCard" + RandomCardInHand);
+
+        SCard.GetComponent<CardDisplayer>().BecomeFindMaster();
+        LCard.GetComponent<CardDisplayer>().BecomeFindMaster();
+
+        handEnlarged.SetActive(false);
     }
     #region Animation Controlls
     private void AnimationReset()

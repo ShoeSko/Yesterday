@@ -23,11 +23,18 @@ public class CardDisplayer : MonoBehaviour
     [HideInInspector]public GameObject UnitPrefab; //Stores the prefab
     [HideInInspector]public int manaValue; //Accsess
 
+    public Sprite SpecialImage;
+    public Sprite FindMasterArtwork;
+
+    private bool CantBeRead;
+
     [ContextMenu("play")]
     public void Read()
     {
         //if (!isSpellCard)
         //{
+        if (!CantBeRead)
+        {
             manaValue = card.manaCost;
             artworkImage.sprite = card.image;
             UnitPrefab = card.Prefab;
@@ -48,6 +55,11 @@ public class CardDisplayer : MonoBehaviour
             {
                 iconImage.sprite = card.icon;
             }
+        }
+        else
+        {
+            BecomeFindMaster();
+        }
         //    }
         //    else if (isSpellCard)
         //    {
@@ -60,5 +72,33 @@ public class CardDisplayer : MonoBehaviour
         //        descriptionText.text = spellCard.effectDescription;
         //        //flavorTexts.text = spellCard.flavorTxt;// Is flavor needed on spell cards?
         //    }
+    }
+
+
+    public void BecomeFindMaster()
+    {
+        CantBeRead = true;
+
+        manaValue = 4;
+
+        artworkImage.sprite = FindMasterArtwork;
+
+        int CardFromDeck = Random.Range(0, DeckScript.Deck.Count);
+        CardScript Cardscript = DeckScript.Deck[CardFromDeck];
+        UnitPrefab = Cardscript.Prefab;
+
+        nameText.text = "Find Master";
+        manatext.text = 4.ToString();
+        descriptionText.text = "Spell";
+        descriptionText2.text = "";
+        descriptionText3.text = "";
+        flavorTexts.text = "Summons a random unit from your deck";
+
+        if (useBackground)
+        {
+            backgroundImage.sprite = card.backgroundImage;
+        }
+
+        iconImage.sprite = SpecialImage;
     }
 }

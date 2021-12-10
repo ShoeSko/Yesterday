@@ -277,6 +277,11 @@ public class UnitPrototypeScript : MonoBehaviour
             StartingPos = transform.position;
             BasicDamage = punchDamage;
         }
+
+        if (Unit.cardName == "Best boy")
+        {
+            GameObject.Find("HANDscript").GetComponent<NewCardHandScript>().CreateFindMaster();
+        }
     }
 
     private void Update()

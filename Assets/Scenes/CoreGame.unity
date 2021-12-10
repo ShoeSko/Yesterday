@@ -2038,6 +2038,14 @@ PrefabInstance:
       propertyPath: card
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 3126888794182818874, guid: d435ce751af64744a939d80a11b8e1fd, type: 3}
+      propertyPath: SpecialImage
+      value: 
+      objectReference: {fileID: 21300000, guid: 0f7c73d833ad51241867b6feaa037ca5, type: 3}
+    - target: {fileID: 3126888794182818874, guid: d435ce751af64744a939d80a11b8e1fd, type: 3}
+      propertyPath: FindMasterArtwork
+      value: 
+      objectReference: {fileID: 21300000, guid: 1822289bc49be184c976b679ffa260de, type: 3}
     - target: {fileID: 3126888794182818876, guid: d435ce751af64744a939d80a11b8e1fd, type: 3}
       propertyPath: m_Name
       value: SCard1
@@ -5778,8 +5786,8 @@ MonoBehaviour:
   CowCard: {fileID: 11400000, guid: 2feaa7772e4a0ed4abe51ab0b90c9614, type: 2}
   Chikin: {fileID: 11400000, guid: d8854abcbe197604194b903ffbcc8e84, type: 2}
   Sheep: {fileID: 11400000, guid: d6bf67d5d2f3ab849ab553181cc9cc11, type: 2}
-  TestCard: {fileID: 11400000, guid: 9cd11fd03d9aa9b4a88b22d2864ca966, type: 2}
-  TestCard2: {fileID: 11400000, guid: 95114a9f5c7084f4d9fc0e29bd11a6b2, type: 2}
+  TestCard: {fileID: 11400000, guid: 26445e8d8b76b8a42b049b561d4a66b0, type: 2}
+  TestCard2: {fileID: 11400000, guid: 85286c21f4c59784aa46dcae967ae5ab, type: 2}
   Rat: {fileID: 11400000, guid: a7f79d8ff64064948b19ac3c1cc02860, type: 2}
   deckViewer: {fileID: 251797549}
   ViewDeck: {fileID: 90165295}
@@ -5934,6 +5942,14 @@ PrefabInstance:
       propertyPath: card
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 3126888794182818874, guid: d435ce751af64744a939d80a11b8e1fd, type: 3}
+      propertyPath: SpecialImage
+      value: 
+      objectReference: {fileID: 21300000, guid: 0f7c73d833ad51241867b6feaa037ca5, type: 3}
+    - target: {fileID: 3126888794182818874, guid: d435ce751af64744a939d80a11b8e1fd, type: 3}
+      propertyPath: FindMasterArtwork
+      value: 
+      objectReference: {fileID: 21300000, guid: 1822289bc49be184c976b679ffa260de, type: 3}
     - target: {fileID: 3126888794182818876, guid: d435ce751af64744a939d80a11b8e1fd, type: 3}
       propertyPath: m_Name
       value: SCard4
@@ -16838,6 +16854,14 @@ PrefabInstance:
       propertyPath: card
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 3126888794182818874, guid: d435ce751af64744a939d80a11b8e1fd, type: 3}
+      propertyPath: SpecialImage
+      value: 
+      objectReference: {fileID: 21300000, guid: 0f7c73d833ad51241867b6feaa037ca5, type: 3}
+    - target: {fileID: 3126888794182818874, guid: d435ce751af64744a939d80a11b8e1fd, type: 3}
+      propertyPath: FindMasterArtwork
+      value: 
+      objectReference: {fileID: 21300000, guid: 1822289bc49be184c976b679ffa260de, type: 3}
     - target: {fileID: 3126888794182818876, guid: d435ce751af64744a939d80a11b8e1fd, type: 3}
       propertyPath: m_Name
       value: LCard2
@@ -20034,6 +20058,14 @@ PrefabInstance:
       propertyPath: card
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 3126888794182818874, guid: d435ce751af64744a939d80a11b8e1fd, type: 3}
+      propertyPath: SpecialImage
+      value: 
+      objectReference: {fileID: 21300000, guid: 0f7c73d833ad51241867b6feaa037ca5, type: 3}
+    - target: {fileID: 3126888794182818874, guid: d435ce751af64744a939d80a11b8e1fd, type: 3}
+      propertyPath: FindMasterArtwork
+      value: 
+      objectReference: {fileID: 21300000, guid: 1822289bc49be184c976b679ffa260de, type: 3}
     - target: {fileID: 3126888794182818876, guid: d435ce751af64744a939d80a11b8e1fd, type: 3}
       propertyPath: m_Name
       value: LCard3
@@ -21750,6 +21782,14 @@ PrefabInstance:
       propertyPath: card
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 3126888794182818874, guid: d435ce751af64744a939d80a11b8e1fd, type: 3}
+      propertyPath: SpecialImage
+      value: 
+      objectReference: {fileID: 21300000, guid: 0f7c73d833ad51241867b6feaa037ca5, type: 3}
+    - target: {fileID: 3126888794182818874, guid: d435ce751af64744a939d80a11b8e1fd, type: 3}
+      propertyPath: FindMasterArtwork
+      value: 
+      objectReference: {fileID: 21300000, guid: 1822289bc49be184c976b679ffa260de, type: 3}
     - target: {fileID: 3126888794182818876, guid: d435ce751af64744a939d80a11b8e1fd, type: 3}
       propertyPath: m_Name
       value: SCard2
@@ -25170,6 +25210,14 @@ PrefabInstance:
       propertyPath: card
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 3126888794182818874, guid: d435ce751af64744a939d80a11b8e1fd, type: 3}
+      propertyPath: SpecialImage
+      value: 
+      objectReference: {fileID: 21300000, guid: 0f7c73d833ad51241867b6feaa037ca5, type: 3}
+    - target: {fileID: 3126888794182818874, guid: d435ce751af64744a939d80a11b8e1fd, type: 3}
+      propertyPath: FindMasterArtwork
+      value: 
+      objectReference: {fileID: 21300000, guid: 1822289bc49be184c976b679ffa260de, type: 3}
     - target: {fileID: 3126888794182818876, guid: d435ce751af64744a939d80a11b8e1fd, type: 3}
       propertyPath: m_Name
       value: SCard5
@@ -25938,8 +25986,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BossTesting: 0
   whichBoss: 2
-  DevStageTest: 0
-  whichStage: 3
+  DevStageTest: 1
+  whichStage: 1
   Smallhand: 1
   PlayedCard: {fileID: 0}
   quackenButton: {fileID: 1450511008}
@@ -27482,6 +27530,14 @@ PrefabInstance:
       propertyPath: card
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 3126888794182818874, guid: d435ce751af64744a939d80a11b8e1fd, type: 3}
+      propertyPath: SpecialImage
+      value: 
+      objectReference: {fileID: 21300000, guid: 0f7c73d833ad51241867b6feaa037ca5, type: 3}
+    - target: {fileID: 3126888794182818874, guid: d435ce751af64744a939d80a11b8e1fd, type: 3}
+      propertyPath: FindMasterArtwork
+      value: 
+      objectReference: {fileID: 21300000, guid: 1822289bc49be184c976b679ffa260de, type: 3}
     - target: {fileID: 3126888794182818876, guid: d435ce751af64744a939d80a11b8e1fd, type: 3}
       propertyPath: m_Name
       value: LCard5
@@ -30265,6 +30321,14 @@ PrefabInstance:
       propertyPath: card
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 3126888794182818874, guid: d435ce751af64744a939d80a11b8e1fd, type: 3}
+      propertyPath: SpecialImage
+      value: 
+      objectReference: {fileID: 21300000, guid: 0f7c73d833ad51241867b6feaa037ca5, type: 3}
+    - target: {fileID: 3126888794182818874, guid: d435ce751af64744a939d80a11b8e1fd, type: 3}
+      propertyPath: FindMasterArtwork
+      value: 
+      objectReference: {fileID: 21300000, guid: 1822289bc49be184c976b679ffa260de, type: 3}
     - target: {fileID: 3126888794182818876, guid: d435ce751af64744a939d80a11b8e1fd, type: 3}
       propertyPath: m_Name
       value: LCard1
@@ -30824,6 +30888,14 @@ PrefabInstance:
       propertyPath: card
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 3126888794182818874, guid: d435ce751af64744a939d80a11b8e1fd, type: 3}
+      propertyPath: SpecialImage
+      value: 
+      objectReference: {fileID: 21300000, guid: 0f7c73d833ad51241867b6feaa037ca5, type: 3}
+    - target: {fileID: 3126888794182818874, guid: d435ce751af64744a939d80a11b8e1fd, type: 3}
+      propertyPath: FindMasterArtwork
+      value: 
+      objectReference: {fileID: 21300000, guid: 1822289bc49be184c976b679ffa260de, type: 3}
     - target: {fileID: 3126888794182818876, guid: d435ce751af64744a939d80a11b8e1fd, type: 3}
       propertyPath: m_Name
       value: SCard3
@@ -32965,6 +33037,14 @@ PrefabInstance:
       propertyPath: card
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 3126888794182818874, guid: d435ce751af64744a939d80a11b8e1fd, type: 3}
+      propertyPath: SpecialImage
+      value: 
+      objectReference: {fileID: 21300000, guid: 0f7c73d833ad51241867b6feaa037ca5, type: 3}
+    - target: {fileID: 3126888794182818874, guid: d435ce751af64744a939d80a11b8e1fd, type: 3}
+      propertyPath: FindMasterArtwork
+      value: 
+      objectReference: {fileID: 21300000, guid: 1822289bc49be184c976b679ffa260de, type: 3}
     - target: {fileID: 3126888794182818876, guid: d435ce751af64744a939d80a11b8e1fd, type: 3}
       propertyPath: m_Name
       value: LCard4
