@@ -73,7 +73,6 @@ public class TheGuardian : MonoBehaviour
 
     public void Activate()
     {
-
         BossHealthbar.SetActive(true);
         rb = GetComponent<Rigidbody2D>();
         NewPos = new Vector2(6f, 1.59707f);
