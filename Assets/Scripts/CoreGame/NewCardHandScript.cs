@@ -7,7 +7,7 @@ public class NewCardHandScript : MonoBehaviour
     #region Variables
     [Header("Boss Testing")]
     public bool BossTesting;
-    [Range(1,2)] public int whichBoss;
+    [Range(1,3)] public int whichBoss;
 
     public bool DevStageTest;
     [Range(1,3)] public int whichStage;
@@ -21,6 +21,7 @@ public class NewCardHandScript : MonoBehaviour
     private GameObject CurrentCard;
     public GameObject TheCorporatePrefab;
     public GameObject TheGuardianPrefab;
+    public GameObject TheCorruptionPrefab;
     public GameObject BossIntro;
     public GameObject DeckButton;
 
@@ -41,6 +42,7 @@ public class NewCardHandScript : MonoBehaviour
     public AudioSource Music2;
     public AudioSource Boss1;
     public AudioSource Boss2;
+    public AudioSource Boss3;
     public AudioSource CurrentBGM;
 
     [Header("Backgrounds")]
@@ -191,7 +193,11 @@ public class NewCardHandScript : MonoBehaviour
             BG_Evening.SetActive(false);
             BG_Night.SetActive(true);
 
-            RandomBoss = Random.Range(1, 3);//Simple boss randomiser
+            if (!BossTesting)
+                RandomBoss = Random.Range(1, 3);//Simple boss randomiser
+            else
+                RandomBoss = whichBoss;
+            
             BossIntro.GetComponent<Corporate_Intro>().PlayIntro();
         }
 
@@ -859,6 +865,7 @@ public class NewCardHandScript : MonoBehaviour
 
             if (RandomBoss == 1)
             {
+                //Do first boss stuff
                 SpawnerBossCorporate.GetComponent<EnemySpawning>().gameStarted = true;
                 CurrentBGM = Boss1;
                 CurrentBGM.Play();
@@ -873,6 +880,15 @@ public class NewCardHandScript : MonoBehaviour
                 CurrentBGM.Play();
                 TheGuardianPrefab.GetComponent<TheGuardian>().Activate();
                 TheGuardianPrefab.GetComponent<TheGuardian>().IsActive = true;
+            }
+            else if(RandomBoss == 3)
+            {
+                //Do third boss stuff
+                //SpawnerBossCorruption.GetComponent<EnemySpawning>().gameStarted = true;
+                CurrentBGM = Boss3;
+                CurrentBGM.Play();
+                TheCorruptionPrefab.GetComponent<TheCorruption>().Activate();
+                TheCorruptionPrefab.GetComponent<TheCorruption>().IsActive = true;
             }
         }
     }

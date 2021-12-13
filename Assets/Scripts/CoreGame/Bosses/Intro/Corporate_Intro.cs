@@ -9,6 +9,7 @@ public class Corporate_Intro : MonoBehaviour
     public GameObject Player;
     public GameObject Corporate;
     public GameObject Guardian;
+    public GameObject Corruption;
     public GameObject background;
 
     private Rigidbody2D RBplayer;
@@ -139,6 +140,7 @@ public class Corporate_Intro : MonoBehaviour
         Player.SetActive(true);
         background.SetActive(true);
         RBplayer = Player.GetComponent<Rigidbody2D>();
+
         if (BossManager.GetComponent<NewCardHandScript>().RandomBoss == 1)
         {
             Corporate.SetActive(true);
@@ -149,6 +151,13 @@ public class Corporate_Intro : MonoBehaviour
             Guardian.SetActive(true);
             RBboss = Guardian.GetComponent<Rigidbody2D>();
         }
+        else if (BossManager.GetComponent<NewCardHandScript>().RandomBoss == 3)
+        {
+            Corruption.SetActive(true);
+            RBboss = Corruption.GetComponent<Rigidbody2D>();
+        }
+
+
         speedFunction = 0.5f;
 
         PlayMe2 = true;
@@ -180,6 +189,7 @@ public class Corporate_Intro : MonoBehaviour
         Destroy(background);
         Destroy(Corporate);
         Destroy(Guardian);
+        Destroy(Corruption);
         Destroy(Player);
         Destroy(this);
     }
