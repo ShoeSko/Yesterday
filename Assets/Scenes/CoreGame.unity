@@ -4157,11 +4157,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 261b9100b1fbe3c43b3229574a4cf941, type: 3}
   maxAmountOfStrongEnemies: 1
   isBossSpawner: 0
-  isCorruptionSpawner: 0
-  CorruptionweakEnemyList: {fileID: 0}
-  CorruptionstrongEnemyList: {fileID: 0}
-  CorruptionspriteTokenWeakList: []
-  CorruptionspriteTokenStrongList: []
 --- !u!1 &287479968 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3126888794182818876, guid: d435ce751af64744a939d80a11b8e1fd, type: 3}
@@ -5065,6 +5060,10 @@ RectTransform:
   - {fileID: 2052679302}
   - {fileID: 771359342}
   - {fileID: 2007117498}
+  - {fileID: 335580024}
+  - {fileID: 1311088885}
+  - {fileID: 419083625}
+  - {fileID: 690315334}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5600,6 +5599,87 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d435ce751af64744a939d80a11b8e1fd, type: 3}
+--- !u!1 &335580023
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 335580024}
+  - component: {fileID: 335580026}
+  - component: {fileID: 335580025}
+  m_Layer: 0
+  m_Name: CorruptionLine1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &335580024
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 335580023}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.6495321, y: 161.94551, z: 2.999875}
+  m_LocalScale: {x: 795.3287, y: 36.151302, z: 36.151302}
+  m_Children: []
+  m_Father: {fileID: 316652768}
+  m_RootOrder: 19
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!23 &335580025
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 335580023}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 703a474ee584947428099ea16365c2d8, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &335580026
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 335580023}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &348669937
 GameObject:
   m_ObjectHideFlags: 0
@@ -6763,6 +6843,87 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 418025761}
   m_CullTransparentMesh: 1
+--- !u!1 &419083624
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 419083625}
+  - component: {fileID: 419083627}
+  - component: {fileID: 419083626}
+  m_Layer: 0
+  m_Name: CorruptionLine3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &419083625
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 419083624}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.6495321, y: 17.340462, z: 3}
+  m_LocalScale: {x: 795.3287, y: 36.151302, z: 36.151302}
+  m_Children: []
+  m_Father: {fileID: 316652768}
+  m_RootOrder: 21
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!23 &419083626
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 419083624}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 703a474ee584947428099ea16365c2d8, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &419083627
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 419083624}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &421133829
 GameObject:
   m_ObjectHideFlags: 0
@@ -11656,6 +11817,87 @@ Transform:
   m_Father: {fileID: 1542115021}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &690315333
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 690315334}
+  - component: {fileID: 690315336}
+  - component: {fileID: 690315335}
+  m_Layer: 0
+  m_Name: CorruptionLine4
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &690315334
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 690315333}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.6495321, y: -54.962303, z: 2.999875}
+  m_LocalScale: {x: 795.3287, y: 36.151302, z: 36.151302}
+  m_Children: []
+  m_Father: {fileID: 316652768}
+  m_RootOrder: 22
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!23 &690315335
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 690315333}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 703a474ee584947428099ea16365c2d8, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &690315336
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 690315333}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &694777353
 GameObject:
   m_ObjectHideFlags: 0
@@ -19190,11 +19432,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 261b9100b1fbe3c43b3229574a4cf941, type: 3}
   maxAmountOfStrongEnemies: 2
   isBossSpawner: 0
-  isCorruptionSpawner: 0
-  CorruptionweakEnemyList: {fileID: 0}
-  CorruptionstrongEnemyList: {fileID: 0}
-  CorruptionspriteTokenWeakList: []
-  CorruptionspriteTokenStrongList: []
 --- !u!4 &1099777751
 Transform:
   m_ObjectHideFlags: 0
@@ -19416,11 +19653,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 261b9100b1fbe3c43b3229574a4cf941, type: 3}
   maxAmountOfStrongEnemies: 1
   isBossSpawner: 0
-  isCorruptionSpawner: 0
-  CorruptionweakEnemyList: {fileID: 0}
-  CorruptionstrongEnemyList: {fileID: 0}
-  CorruptionspriteTokenWeakList: []
-  CorruptionspriteTokenStrongList: []
 --- !u!1 &1105724848
 GameObject:
   m_ObjectHideFlags: 0
@@ -19977,6 +20209,14 @@ MonoBehaviour:
   WinCondition: {fileID: 55712069}
   IsActive: 0
   Health: 4
+  TemporarySpotDisableL1: {fileID: 26807592}
+  TemporarySpotDisableL2: {fileID: 812926834}
+  TemporarySpotDisableL3: {fileID: 1325952310}
+  TemporarySpotDisableL4: {fileID: 1024048566}
+  LaneChangeL1: {fileID: 335580023}
+  LaneChangeL2: {fileID: 1311088884}
+  LaneChangeL3: {fileID: 419083624}
+  LaneChangeL4: {fileID: 690315333}
 --- !u!1 &1138782514 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3126888794182818876, guid: d435ce751af64744a939d80a11b8e1fd, type: 3}
@@ -20985,11 +21225,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 261b9100b1fbe3c43b3229574a4cf941, type: 3}
   maxAmountOfStrongEnemies: 0
   isBossSpawner: 0
-  isCorruptionSpawner: 0
-  CorruptionweakEnemyList: {fileID: 0}
-  CorruptionstrongEnemyList: {fileID: 0}
-  CorruptionspriteTokenWeakList: []
-  CorruptionspriteTokenStrongList: []
 --- !u!1 &1183652480
 GameObject:
   m_ObjectHideFlags: 0
@@ -22300,18 +22535,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 261b9100b1fbe3c43b3229574a4cf941, type: 3}
   maxAmountOfStrongEnemies: 20
   isBossSpawner: 1
-  isCorruptionSpawner: 1
-  CorruptionweakEnemyList: {fileID: 11400000, guid: 7fe31d80879a5774d92b7a49914a8cbb, type: 2}
-  CorruptionstrongEnemyList: {fileID: 11400000, guid: 0199ba676b28820428294e8bc8fc9191, type: 2}
-  CorruptionspriteTokenWeakList:
-  - {fileID: 21300000, guid: 62787dd5a6c5e5d44982877efe372872, type: 3}
-  - {fileID: 21300000, guid: 374c21740074ec1498ddff02150e1311, type: 3}
-  - {fileID: 21300000, guid: ce5f66af396f93549a856d7d2e878212, type: 3}
-  - {fileID: 21300000, guid: 9db30b3c25138c64cae363b40c593b43, type: 3}
-  CorruptionspriteTokenStrongList:
-  - {fileID: 21300000, guid: 5bfb3aef426ad2c42813e0beffecff6d, type: 3}
-  - {fileID: 21300000, guid: 8d12977aa92127b4db8734d2e9387237, type: 3}
-  - {fileID: 21300000, guid: 753ba16d9789a664cb0dbd99e98ad0a0, type: 3}
 --- !u!1 &1258080186
 GameObject:
   m_ObjectHideFlags: 0
@@ -23272,6 +23495,87 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3126888794182818876, guid: d435ce751af64744a939d80a11b8e1fd, type: 3}
   m_PrefabInstance: {fileID: 1928325803}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1311088884
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1311088885}
+  - component: {fileID: 1311088887}
+  - component: {fileID: 1311088886}
+  m_Layer: 0
+  m_Name: CorruptionLine2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1311088885
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1311088884}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.6495321, y: 89.6429, z: 2.999875}
+  m_LocalScale: {x: 795.3287, y: 36.151302, z: 36.151302}
+  m_Children: []
+  m_Father: {fileID: 316652768}
+  m_RootOrder: 20
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!23 &1311088886
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1311088884}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 703a474ee584947428099ea16365c2d8, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &1311088887
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1311088884}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1312156579
 GameObject:
   m_ObjectHideFlags: 0
@@ -25551,11 +25855,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 261b9100b1fbe3c43b3229574a4cf941, type: 3}
   maxAmountOfStrongEnemies: 1
   isBossSpawner: 0
-  isCorruptionSpawner: 0
-  CorruptionweakEnemyList: {fileID: 0}
-  CorruptionstrongEnemyList: {fileID: 0}
-  CorruptionspriteTokenWeakList: []
-  CorruptionspriteTokenStrongList: []
 --- !u!1 &1397054369
 GameObject:
   m_ObjectHideFlags: 0
@@ -26504,7 +26803,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BossTesting: 1
-  whichBoss: 1
+  whichBoss: 3
   DevStageTest: 1
   whichStage: 3
   Smallhand: 1
@@ -27423,11 +27722,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 753ba16d9789a664cb0dbd99e98ad0a0, type: 3}
   maxAmountOfStrongEnemies: 30
   isBossSpawner: 1
-  isCorruptionSpawner: 0
-  CorruptionweakEnemyList: {fileID: 0}
-  CorruptionstrongEnemyList: {fileID: 0}
-  CorruptionspriteTokenWeakList: []
-  CorruptionspriteTokenStrongList: []
 --- !u!4 &1519029870
 Transform:
   m_ObjectHideFlags: 0
@@ -27622,11 +27916,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 261b9100b1fbe3c43b3229574a4cf941, type: 3}
   maxAmountOfStrongEnemies: 1
   isBossSpawner: 0
-  isCorruptionSpawner: 0
-  CorruptionweakEnemyList: {fileID: 0}
-  CorruptionstrongEnemyList: {fileID: 0}
-  CorruptionspriteTokenWeakList: []
-  CorruptionspriteTokenStrongList: []
 --- !u!1 &1542929275
 GameObject:
   m_ObjectHideFlags: 0
@@ -32907,11 +33196,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 261b9100b1fbe3c43b3229574a4cf941, type: 3}
   maxAmountOfStrongEnemies: 20
   isBossSpawner: 1
-  isCorruptionSpawner: 0
-  CorruptionweakEnemyList: {fileID: 0}
-  CorruptionstrongEnemyList: {fileID: 0}
-  CorruptionspriteTokenWeakList: []
-  CorruptionspriteTokenStrongList: []
 --- !u!4 &1909423688
 Transform:
   m_ObjectHideFlags: 0
@@ -34490,11 +34774,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 261b9100b1fbe3c43b3229574a4cf941, type: 3}
   maxAmountOfStrongEnemies: 1
   isBossSpawner: 0
-  isCorruptionSpawner: 0
-  CorruptionweakEnemyList: {fileID: 0}
-  CorruptionstrongEnemyList: {fileID: 0}
-  CorruptionspriteTokenWeakList: []
-  CorruptionspriteTokenStrongList: []
 --- !u!1 &1993200774 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3126888794182818876, guid: d435ce751af64744a939d80a11b8e1fd, type: 3}
@@ -37040,11 +37319,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 753ba16d9789a664cb0dbd99e98ad0a0, type: 3}
   maxAmountOfStrongEnemies: 2
   isBossSpawner: 0
-  isCorruptionSpawner: 0
-  CorruptionweakEnemyList: {fileID: 0}
-  CorruptionstrongEnemyList: {fileID: 0}
-  CorruptionspriteTokenWeakList: []
-  CorruptionspriteTokenStrongList: []
 --- !u!4 &2145196944
 Transform:
   m_ObjectHideFlags: 0
