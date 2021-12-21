@@ -191,7 +191,7 @@ public class TheCorruption : MonoBehaviour
         {
             //Do stuff
             AbilityDelay = 0;
-            RandomLane = Random.Range(0, 5);
+            RandomLane = Random.Range(1, 5);
 
             if (RandomLane == 1)
             {

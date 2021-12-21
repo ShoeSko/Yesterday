@@ -63,6 +63,7 @@ public class TowerSpotsScript : MonoBehaviour
         }
         else
         {
+            CardValues.CantBeRead = false;
             DeckCode.Randomise();
             CardValues.card = DeckCode.activecard;
             cardplayed.GetComponent<CardDisplayer>().Read();

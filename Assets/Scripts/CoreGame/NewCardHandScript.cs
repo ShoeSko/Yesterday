@@ -36,6 +36,7 @@ public class NewCardHandScript : MonoBehaviour
     public GameObject SpawnerBeast;//Spawner for Beasts
     public GameObject SpawnerBossCorporate;//Spawner for Boss
     public GameObject SpawnerBossGuardian;//Spawner for Boss
+    public GameObject SpawnerBossCorruption;//Spawner for Boss
 
     [Header("AUDIO")]
     public AudioSource Music1;
@@ -828,18 +829,28 @@ public class NewCardHandScript : MonoBehaviour
 
     public void ReSetCard()
     {
+        if (CardValues1.CantBeRead == false)
+            Lcard1.GetComponent<CardDisplayer>().CantBeRead = false;
         Lcard1.GetComponent<CardDisplayer>().card = CardValues1.card;
         Lcard1.GetComponent<CardDisplayer>().Read();
 
+        if (CardValues2.CantBeRead == false)
+            Lcard2.GetComponent<CardDisplayer>().CantBeRead = false;
         Lcard2.GetComponent<CardDisplayer>().card = CardValues2.card;
         Lcard2.GetComponent<CardDisplayer>().Read();
 
+        if (CardValues3.CantBeRead == false)
+            Lcard3.GetComponent<CardDisplayer>().CantBeRead = false;
         Lcard3.GetComponent<CardDisplayer>().card = CardValues3.card;
         Lcard3.GetComponent<CardDisplayer>().Read();
 
+        if (CardValues4.CantBeRead == false)
+            Lcard4.GetComponent<CardDisplayer>().CantBeRead = false;
         Lcard4.GetComponent<CardDisplayer>().card = CardValues4.card;
         Lcard4.GetComponent<CardDisplayer>().Read();
 
+        if (CardValues5.CantBeRead == false)
+            Lcard5.GetComponent<CardDisplayer>().CantBeRead = false;
         Lcard5.GetComponent<CardDisplayer>().card = CardValues5.card;
         Lcard5.GetComponent<CardDisplayer>().Read();
     }
@@ -884,7 +895,7 @@ public class NewCardHandScript : MonoBehaviour
             else if(RandomBoss == 3)
             {
                 //Do third boss stuff
-                //SpawnerBossCorruption.GetComponent<EnemySpawning>().gameStarted = true;
+                SpawnerBossCorruption.GetComponent<EnemySpawning>().gameStarted = true;
                 CurrentBGM = Boss3;
                 CurrentBGM.Play();
                 TheCorruptionPrefab.GetComponent<TheCorruption>().Activate();
@@ -900,6 +911,7 @@ public class NewCardHandScript : MonoBehaviour
             Deck.GetComponent<DeckScript>().Randomise();
 
             CurrentCard = GameObject.Find("SCard" + card);
+            CurrentCard.GetComponent<CardDisplayer>().CantBeRead = false;
             CurrentCard.GetComponent<CardDisplayer>().card = Deck.GetComponent<DeckScript>().activecard;
             CurrentCard.GetComponent<CardDisplayer>().Read();
 

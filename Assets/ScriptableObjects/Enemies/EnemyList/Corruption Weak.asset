@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ef8e28a86c0fb94eb1e64e0ed7a982a, type: 3}
+  m_Name: Corruption Weak
+  m_EditorClassIdentifier: 
+  Enemies:
+  - {fileID: 4632530650480293340, guid: 23da5bf24910c0d4eada7dd70d29a093, type: 3}
+  - {fileID: 4632530650480293340, guid: 7b9185de13495064eb49a2a5bb81ba77, type: 3}
+  - {fileID: 4632530650480293340, guid: 19d6a065ec17bc04395d0da886441b5c, type: 3}
+  - {fileID: 4632530650480293340, guid: c0a99387a5d6b8f43b38d394f1501cb1, type: 3}
+  - {fileID: 4632530650480293340, guid: 4df074e1712742843bdff1a76818ad70, type: 3}
+  - {fileID: 4632530650480293340, guid: 21f8e49263c6d6c449f623f50a943083, type: 3}
+  - {fileID: 4632530650480293340, guid: 9494b6278d2a2f142b88616580c08114, type: 3}
+  - {fileID: 4632530650480293340, guid: 5484f17fa96560a46a70414d028e182d, type: 3}

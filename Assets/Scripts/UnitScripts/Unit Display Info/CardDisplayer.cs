@@ -26,7 +26,7 @@ public class CardDisplayer : MonoBehaviour
     public Sprite SpecialImage;
     public Sprite FindMasterArtwork;
 
-    private bool CantBeRead;
+    public bool CantBeRead;
 
     [ContextMenu("play")]
     public void Read()
