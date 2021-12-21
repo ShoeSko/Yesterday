@@ -5997,7 +5997,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 3c703bef3a7247944b19ba2ad50f3daa, type: 2}
   - {fileID: 11400000, guid: 54f00f71cb4b18540bcae3cc69ec3f4a, type: 2}
   activecard: {fileID: 0}
-  CardTesting: 1
+  CardTesting: 0
   CowCard: {fileID: 11400000, guid: 2feaa7772e4a0ed4abe51ab0b90c9614, type: 2}
   Chikin: {fileID: 11400000, guid: d8854abcbe197604194b903ffbcc8e84, type: 2}
   Sheep: {fileID: 11400000, guid: d6bf67d5d2f3ab849ab553181cc9cc11, type: 2}
@@ -20217,6 +20217,12 @@ MonoBehaviour:
   LaneChangeL2: {fileID: 1311088884}
   LaneChangeL3: {fileID: 419083624}
   LaneChangeL4: {fileID: 690315333}
+  SpawnPlace:
+  - {fileID: 1853726173}
+  - {fileID: 906262139}
+  - {fileID: 2088695301}
+  - {fileID: 1667308654}
+  CorruptedUnit: {fileID: 3915110204328295187, guid: 1027c7e63ce15c24c80c489372230ea6, type: 3}
 --- !u!1 &1138782514 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3126888794182818876, guid: d435ce751af64744a939d80a11b8e1fd, type: 3}

@@ -20,7 +20,7 @@ MonoBehaviour:
   effectDescription: 'Type: Melee'
   effectDescription2: 'Health: High'
   effectDescription3: 'Damage: Weak'
-  flavorTxt: Someone mistook him for a panda so now he does sumo
+  flavorTxt: 
   Prefab: {fileID: 2557954877800294563, guid: 21e9c0cf5c95c854793d6bcd1f71bdb0, type: 3}
   health: 100
   isShooter: 0

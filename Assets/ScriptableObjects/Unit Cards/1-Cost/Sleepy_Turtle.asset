@@ -20,7 +20,7 @@ MonoBehaviour:
   effectDescription: 'Type: Tank'
   effectDescription2: 'Health: Very High'
   effectDescription3: 'Damage: None'
-  flavorTxt: He likes making games
+  flavorTxt: Can't attack but has a lot of health
   Prefab: {fileID: 2557954877800294563, guid: 2381c1b2745708949b4d68c9e076b747, type: 3}
   health: 250
   isShooter: 0
@@ -37,7 +37,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   targetsToShoot: 0
-  punchRechargeTime: 0
+  punchRechargeTime: 1
   punchDamage: 0
   punchingTargetLayer:
     serializedVersion: 2

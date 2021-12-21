@@ -41,10 +41,6 @@ public class Corporate_Intro : MonoBehaviour
 
     void FixedUpdate()
     {
-        //Skip function
-        if (Input.GetKeyDown(KeyCode.Escape))
-            ImDone();
-
         if(PlayMe1 == true)
         {
             speedFunction += Time.deltaTime;
@@ -99,6 +95,13 @@ public class Corporate_Intro : MonoBehaviour
             if (speedFunction >= 8)
                 ImDone();
         }
+    }
+
+    private void Update()
+    {
+        //Skip function
+        if (Input.GetKeyDown(KeyCode.Escape))
+            ImDone();
     }
 
     public void PlayIntro()
@@ -186,6 +189,7 @@ public class Corporate_Intro : MonoBehaviour
 
     void ImDone()
     {
+        IntroSFX.Stop();
         Destroy(background);
         Destroy(Corporate);
         Destroy(Guardian);

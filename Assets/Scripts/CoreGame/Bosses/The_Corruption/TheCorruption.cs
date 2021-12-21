@@ -50,7 +50,14 @@ public class TheCorruption : MonoBehaviour
     public GameObject LaneChangeL4;
 
     //Ability_Corrupting_Gaze
+    public List<GameObject> SpawnPlace = new List<GameObject>();
+    private int SpawnLocation;
 
+    public GameObject CorruptedUnit;
+    private CardScript UnitToCorrupt;
+    private Sprite UnitToCorruptSprite;
+
+    private int SuperSecretBalanceMechanic;//Makes it so a 10-cost unit can't spawn within the first 20 seconds of the round
 
     //Ability_Purification
 
@@ -71,6 +78,7 @@ public class TheCorruption : MonoBehaviour
 
     private void Start()
     {
+        SuperSecretBalanceMechanic = 3;
         Health = 4;
         BossHealthbar.SetActive(false);//Sets his healthbar to inactive
     }
@@ -233,6 +241,38 @@ public class TheCorruption : MonoBehaviour
         if (CD2 <= 0)
         {
             //Do stuff
+
+            //Balancing the game with a SuperSecret mechanic (don't tell the players)
+            for (int loop = 0; loop < 1; loop++)
+            {
+                UnitToCorrupt = DeckScript.Deck[Random.Range(0, DeckScript.Deck.Count)];//Random unit from your deck
+
+                if (UnitToCorrupt.manaCost > SuperSecretBalanceMechanic)
+                    loop--;
+                else
+                    SuperSecretBalanceMechanic += 3;
+            }
+
+            //Define what to spawn and where
+            SpawnLocation = Random.Range(0, SpawnPlace.Count);
+
+            UnitToCorruptSprite = UnitToCorrupt.image;
+
+            CorruptedUnit.GetComponent<SpriteRenderer>().sprite = UnitToCorruptSprite;
+
+            GameObject Enemy = Instantiate(CorruptedUnit, SpawnPlace[SpawnLocation].transform.position, transform.rotation);
+
+            //Enemy.GetComponent<BasicEnemyMovement>().enemy.enemyHealth = 30 + (20 * UnitToCorrupt.manaCost);//Alternative way of balancing this ability
+            //Enemy.GetComponent<BasicEnemyMovement>().enemy.attackDamage = 6 + (4 * UnitToCorrupt.manaCost);//Alternative way of balancing this ability
+            Enemy.GetComponent<BasicEnemyMovement>().enemy.attackDamage = UnitToCorrupt.punchDamage;
+            int CardHealth = (int)UnitToCorrupt.health;
+            Enemy.GetComponent<BasicEnemyMovement>().enemy.enemyHealth = CardHealth;
+
+            Debug.Log("I cost " + UnitToCorrupt.manaCost + "mana");
+            Debug.Log("My damage is:  " + Enemy.GetComponent<BasicEnemyMovement>().enemy.attackDamage);
+            Debug.Log("My health is:  " + Enemy.GetComponent<BasicEnemyMovement>().enemy.enemyHealth);
+
+
 
             CD2 = 3;
         }

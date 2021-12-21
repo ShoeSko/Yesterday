@@ -30,6 +30,8 @@ public class BasicEnemyMovement : MonoBehaviour
     private float knockbackPower; //Grabbing a refrence of the knockback Strenght
     private int quackDamage = 80;
     public bool chosenByMom;
+    public bool IsCorrupted;
+    private Color CorruptedColor = new Color(0.6315554f, 0, 0.8396226f, 1);
 
     [Header("Enemy confirmation for Animation")]
     [Tooltip("Is the Enemy Merry, so that her animation will play")] private bool isMerry;
@@ -86,6 +88,9 @@ public class BasicEnemyMovement : MonoBehaviour
         //{
         //    ChildOfMothSeenInDark(); //Used to show the child of the Moth when darkness consumes
         //}
+
+        if (IsCorrupted)
+            GetComponent<SpriteRenderer>().color = CorruptedColor;
     }
     private void FixedUpdate()
     {
