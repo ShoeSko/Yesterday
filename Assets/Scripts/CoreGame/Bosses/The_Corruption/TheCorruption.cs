@@ -60,6 +60,18 @@ public class TheCorruption : MonoBehaviour
     private int SuperSecretBalanceMechanic;//Makes it so a 10-cost unit can't spawn within the first 20 seconds of the round
 
     //Ability_Purification
+    private bool isNotOccupied = false;
+    public List<GameObject> TowerSpots = new List<GameObject>();
+    private int RandomSpot;
+    private GameObject activeSpot;
+    public GameObject Sanctuary;
+    private bool SanctuaryPlaced;
+    private float SanctuaryTimer;
+    private GameObject sanctuary;
+    public bool SaintLives;
+    public bool SaintDied;
+    public GameObject Spawner;
+    public List<GameObject> PlayedSaints = new List<GameObject>();//This will store all saints played in order to "un-sanctify" them 
 
 
 
@@ -85,6 +97,9 @@ public class TheCorruption : MonoBehaviour
 
     public void Activate()
     {
+        //Testing
+        Purification();
+
         BossHealthbar.SetActive(true);
         rb = GetComponent<Rigidbody2D>();
         NewPos = new Vector2(6.6f, 1.59707f);
@@ -165,6 +180,52 @@ public class TheCorruption : MonoBehaviour
             }
         }
 
+        if (SanctuaryPlaced)//This is Purification Ability
+        {
+            if((timer >= 17 && !SaintLives) || SaintDied)//Time window before the sanctuary disappears
+            {
+                Spawner.GetComponent<EnemySpawning>().delayBetweenSpawnsMin = 8;
+                Spawner.GetComponent<EnemySpawning>().delayBetweenSpawnsMax = 12;
+                activeSpot.GetComponent<TowerSpotsScript>().IsSanctuary = false;
+                activeSpot.GetComponent<Image>().color = Color.black;
+                Destroy(sanctuary);
+                SanctuaryPlaced = false;
+            }
+
+            if (SaintLives)//If spot becomes occupied, boss becomes angy
+            {
+                SanctuaryTimer += Time.deltaTime;
+
+                //Halve the spawning time
+                Spawner.GetComponent<EnemySpawning>().delayBetweenSpawnsMin = 4;
+                Spawner.GetComponent<EnemySpawning>().delayBetweenSpawnsMax = 6;
+            }
+
+            if(SanctuaryTimer >= 15)//Complete Purification
+            {
+                Health--;
+                Desperate_Rage();
+
+                //Un-Sanctify all units to make sure the current saint won't mess with the next use of this ability
+                for (int Animal = 0; Animal < PlayedSaints.Count; Animal++)
+                {
+                    if(PlayedSaints[Animal] != null)
+                    {
+                        PlayedSaints[Animal].GetComponent<UnitPrototypeScript>().IsSaint = false;
+
+                        PlayedSaints[Animal].GetComponent<UnitPrototypeScript>().UnSanctifyUnit();
+                    }
+                } 
+                Spawner.GetComponent<EnemySpawning>().delayBetweenSpawnsMin = 8;
+                Spawner.GetComponent<EnemySpawning>().delayBetweenSpawnsMax = 12;
+                activeSpot.GetComponent<TowerSpotsScript>().IsSanctuary = false;
+                activeSpot.GetComponent<Image>().color = Color.black;
+                Destroy(sanctuary);
+                SanctuaryPlaced = false;
+            }
+
+        }
+
 
         if (Health == 0)
             IsDead = true;
@@ -181,7 +242,7 @@ public class TheCorruption : MonoBehaviour
     }
 
 
-    void Desperate_Rage()//Ability 0 (Soecial Passive)
+    void Desperate_Rage()//Ability 0 (Special Passive)
     /*The Corruption gets even angrier as it weakens in its power, 
      * driving it to utter madness. When The Corruption takes damage, 
      * it uses this ability and corrupts one of your cards from your hand. 
@@ -265,6 +326,7 @@ public class TheCorruption : MonoBehaviour
             //Enemy.GetComponent<BasicEnemyMovement>().enemy.enemyHealth = 30 + (20 * UnitToCorrupt.manaCost);//Alternative way of balancing this ability
             //Enemy.GetComponent<BasicEnemyMovement>().enemy.attackDamage = 6 + (4 * UnitToCorrupt.manaCost);//Alternative way of balancing this ability
             Enemy.GetComponent<BasicEnemyMovement>().enemy.attackDamage = UnitToCorrupt.punchDamage;
+            Enemy.GetComponent<BasicEnemyMovement>().enemy.attackSpeed = UnitToCorrupt.punchRechargeTime;
             int CardHealth = (int)UnitToCorrupt.health;
             Enemy.GetComponent<BasicEnemyMovement>().enemy.enemyHealth = CardHealth;
 
@@ -290,11 +352,52 @@ public class TheCorruption : MonoBehaviour
      * In additon, The Corruption will become aggressive and send more units during that period. 
      * Once the zone is cleansed, The Corruption will take a point of damage and trigger its "Desperate Rage" ability.*/
     {
-        if (CD3 <= 0)
+        if (CD3 <= 0)//Do this ability
         {
-            //Do stuff
+            for (int i = 0; i < TowerSpots.Count; i++)
+            {
+                if (!TowerSpots[i].GetComponentInParent<UnitPrototypeScript>())
+                {
+                    isNotOccupied = true; //Checks the list for slots that can not be used.
+                }
+            }
+            if (isNotOccupied) //If the For Loop discovered a node that did not have the UnitPrototypeScript, then it will allow this to run. If not, skip it.
+            {
+                RandomSpot = Random.Range(0, TowerSpots.Count);
+                while (TowerSpots[RandomSpot].GetComponentInParent<UnitPrototypeScript>())
+                {
+                    RandomSpot = Random.Range(0, TowerSpots.Count);
+                }
+                activeSpot = TowerSpots[RandomSpot];
+            }
+            isNotOccupied = false; //Return the bool to false.
 
-            CD3 = 4;
+            if (activeSpot != null)
+            {
+                //Input for voice later
+                //int RandomVoice = Random.Range(0, VoicePropertyBusiness.Count);
+                //VoicePropertyBusiness[RandomVoice].Play();
+
+                //Visual hints for the player
+                activeSpot.GetComponent<Image>().color = Color.yellow;
+      
+                sanctuary = Instantiate(Sanctuary);
+                sanctuary.transform.position = activeSpot.transform.position;
+                sanctuary.transform.position = new Vector3(activeSpot.transform.position.x, activeSpot.transform.position.y, 0); //An attempt to fix Sign placement.
+                //sanctuary.transform.SetParent(transform); //Places all sanctuaries as children for the Boss.              
+
+                //Reset values
+                SaintLives = false;
+                SaintDied = false;
+                SanctuaryTimer = 0;
+
+                activeSpot.GetComponent<TowerSpotsScript>().IsSanctuary = true;
+                SanctuaryPlaced = true;
+
+
+
+                CD3 = 4;//Set cooldown
+            }
         }
         else
             loop--;

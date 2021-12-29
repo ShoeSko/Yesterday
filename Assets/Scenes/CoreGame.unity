@@ -1201,6 +1201,7 @@ MonoBehaviour:
   positionResetTransform: {fileID: 1404517288}
   Deck: {fileID: 368766258}
   laneNumber: 4
+  IsSanctuary: 0
 --- !u!114 &79904646
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1606,6 +1607,7 @@ MonoBehaviour:
   positionResetTransform: {fileID: 1404517288}
   Deck: {fileID: 368766258}
   laneNumber: 4
+  IsSanctuary: 0
 --- !u!114 &97887038
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2334,6 +2336,7 @@ MonoBehaviour:
   positionResetTransform: {fileID: 1404517288}
   Deck: {fileID: 368766258}
   laneNumber: 1
+  IsSanctuary: 0
 --- !u!1 &164716455
 GameObject:
   m_ObjectHideFlags: 0
@@ -2484,6 +2487,7 @@ MonoBehaviour:
   positionResetTransform: {fileID: 1404517288}
   Deck: {fileID: 368766258}
   laneNumber: 1
+  IsSanctuary: 0
 --- !u!1 &184784392
 GameObject:
   m_ObjectHideFlags: 0
@@ -6749,6 +6753,7 @@ MonoBehaviour:
   positionResetTransform: {fileID: 1404517288}
   Deck: {fileID: 368766258}
   laneNumber: 4
+  IsSanctuary: 0
 --- !u!114 &418025764
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8117,6 +8122,7 @@ MonoBehaviour:
   positionResetTransform: {fileID: 1404517288}
   Deck: {fileID: 368766258}
   laneNumber: 2
+  IsSanctuary: 0
 --- !u!114 &486590222
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8358,6 +8364,7 @@ MonoBehaviour:
   positionResetTransform: {fileID: 1404517288}
   Deck: {fileID: 368766258}
   laneNumber: 2
+  IsSanctuary: 0
 --- !u!114 &492886035
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9483,6 +9490,7 @@ MonoBehaviour:
   positionResetTransform: {fileID: 1404517288}
   Deck: {fileID: 368766258}
   laneNumber: 4
+  IsSanctuary: 0
 --- !u!114 &557068109
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11693,6 +11701,7 @@ MonoBehaviour:
   positionResetTransform: {fileID: 1404517288}
   Deck: {fileID: 368766258}
   laneNumber: 3
+  IsSanctuary: 0
 --- !u!114 &686929645
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13753,6 +13762,7 @@ MonoBehaviour:
   positionResetTransform: {fileID: 1404517288}
   Deck: {fileID: 368766258}
   laneNumber: 2
+  IsSanctuary: 0
 --- !u!114 &807711532
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14164,6 +14174,7 @@ MonoBehaviour:
   positionResetTransform: {fileID: 1404517288}
   Deck: {fileID: 368766258}
   laneNumber: 3
+  IsSanctuary: 0
 --- !u!114 &817280771
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14511,6 +14522,7 @@ MonoBehaviour:
   positionResetTransform: {fileID: 1404517288}
   Deck: {fileID: 368766258}
   laneNumber: 3
+  IsSanctuary: 0
 --- !u!114 &841284250
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14942,6 +14954,7 @@ MonoBehaviour:
   positionResetTransform: {fileID: 1404517288}
   Deck: {fileID: 368766258}
   laneNumber: 2
+  IsSanctuary: 0
 --- !u!114 &870410982
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15404,6 +15417,7 @@ MonoBehaviour:
   positionResetTransform: {fileID: 1404517288}
   Deck: {fileID: 368766258}
   laneNumber: 1
+  IsSanctuary: 0
 --- !u!1 &883814495 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3126888794182818876, guid: d435ce751af64744a939d80a11b8e1fd, type: 3}
@@ -16315,6 +16329,7 @@ MonoBehaviour:
   positionResetTransform: {fileID: 1404517288}
   Deck: {fileID: 368766258}
   laneNumber: 2
+  IsSanctuary: 0
 --- !u!114 &929853904
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17428,6 +17443,7 @@ MonoBehaviour:
   positionResetTransform: {fileID: 1404517288}
   Deck: {fileID: 368766258}
   laneNumber: 2
+  IsSanctuary: 0
 --- !u!114 &1019175922
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18255,6 +18271,7 @@ MonoBehaviour:
   positionResetTransform: {fileID: 1404517288}
   Deck: {fileID: 368766258}
   laneNumber: 1
+  IsSanctuary: 0
 --- !u!1 &1055817703 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3126888794182818876, guid: d435ce751af64744a939d80a11b8e1fd, type: 3}
@@ -18999,6 +19016,7 @@ MonoBehaviour:
   positionResetTransform: {fileID: 1404517288}
   Deck: {fileID: 368766258}
   laneNumber: 3
+  IsSanctuary: 0
 --- !u!114 &1097224099
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19276,6 +19294,7 @@ MonoBehaviour:
   positionResetTransform: {fileID: 1404517288}
   Deck: {fileID: 368766258}
   laneNumber: 4
+  IsSanctuary: 0
 --- !u!114 &1097936546
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19940,6 +19959,7 @@ MonoBehaviour:
   positionResetTransform: {fileID: 1404517288}
   Deck: {fileID: 368766258}
   laneNumber: 4
+  IsSanctuary: 0
 --- !u!114 &1120330845
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20087,7 +20107,7 @@ GameObject:
   - component: {fileID: 1137077419}
   - component: {fileID: 1137077421}
   m_Layer: 0
-  m_Name: TheCorruptionPlaceholder
+  m_Name: The Corruption
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -20223,6 +20243,32 @@ MonoBehaviour:
   - {fileID: 2088695301}
   - {fileID: 1667308654}
   CorruptedUnit: {fileID: 3915110204328295187, guid: 1027c7e63ce15c24c80c489372230ea6, type: 3}
+  TowerSpots:
+  - {fileID: 1144365960}
+  - {fileID: 162433757}
+  - {fileID: 1189148885}
+  - {fileID: 883378493}
+  - {fileID: 1344033065}
+  - {fileID: 929853901}
+  - {fileID: 807711529}
+  - {fileID: 1656059093}
+  - {fileID: 492886032}
+  - {fileID: 1354434992}
+  - {fileID: 1168022017}
+  - {fileID: 1097224096}
+  - {fileID: 817280768}
+  - {fileID: 841284247}
+  - {fileID: 1397054369}
+  - {fileID: 2099444913}
+  - {fileID: 557068106}
+  - {fileID: 418025761}
+  - {fileID: 79904643}
+  - {fileID: 1120330842}
+  Sanctuary: {fileID: 4801177212299731019, guid: 9099b7c5fdc1b4a42a6f54bf406ab2af, type: 3}
+  SaintLives: 0
+  SaintDied: 0
+  Spawner: {fileID: 1251820119}
+  PlayedSaints: []
 --- !u!1 &1138782514 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3126888794182818876, guid: d435ce751af64744a939d80a11b8e1fd, type: 3}
@@ -20377,6 +20423,7 @@ MonoBehaviour:
   positionResetTransform: {fileID: 1404517288}
   Deck: {fileID: 368766258}
   laneNumber: 1
+  IsSanctuary: 0
 --- !u!1 &1146269035
 GameObject:
   m_ObjectHideFlags: 0
@@ -20828,6 +20875,7 @@ MonoBehaviour:
   positionResetTransform: {fileID: 1404517288}
   Deck: {fileID: 368766258}
   laneNumber: 3
+  IsSanctuary: 0
 --- !u!114 &1168022020
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21508,6 +21556,7 @@ MonoBehaviour:
   positionResetTransform: {fileID: 1404517288}
   Deck: {fileID: 368766258}
   laneNumber: 1
+  IsSanctuary: 0
 --- !u!1 &1190174847
 GameObject:
   m_ObjectHideFlags: 0
@@ -24280,6 +24329,7 @@ MonoBehaviour:
   positionResetTransform: {fileID: 1404517288}
   Deck: {fileID: 368766258}
   laneNumber: 1
+  IsSanctuary: 0
 --- !u!1 &1350844686
 GameObject:
   m_ObjectHideFlags: 0
@@ -24544,6 +24594,7 @@ MonoBehaviour:
   positionResetTransform: {fileID: 1404517288}
   Deck: {fileID: 368766258}
   laneNumber: 2
+  IsSanctuary: 0
 --- !u!114 &1354434995
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25924,6 +25975,7 @@ MonoBehaviour:
   positionResetTransform: {fileID: 1404517288}
   Deck: {fileID: 368766258}
   laneNumber: 3
+  IsSanctuary: 0
 --- !u!114 &1397054372
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29605,6 +29657,7 @@ MonoBehaviour:
   positionResetTransform: {fileID: 1404517288}
   Deck: {fileID: 368766258}
   laneNumber: 4
+  IsSanctuary: 0
 --- !u!114 &1647161717
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29910,6 +29963,7 @@ MonoBehaviour:
   positionResetTransform: {fileID: 1404517288}
   Deck: {fileID: 368766258}
   laneNumber: 2
+  IsSanctuary: 0
 --- !u!114 &1656059096
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32199,6 +32253,7 @@ MonoBehaviour:
   positionResetTransform: {fileID: 1404517288}
   Deck: {fileID: 368766258}
   laneNumber: 1
+  IsSanctuary: 0
 --- !u!1 &1802276041
 GameObject:
   m_ObjectHideFlags: 0
@@ -32391,6 +32446,7 @@ MonoBehaviour:
   positionResetTransform: {fileID: 1404517288}
   Deck: {fileID: 368766258}
   laneNumber: 3
+  IsSanctuary: 0
 --- !u!114 &1805673295
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35377,6 +35433,7 @@ MonoBehaviour:
   positionResetTransform: {fileID: 1404517288}
   Deck: {fileID: 368766258}
   laneNumber: 3
+  IsSanctuary: 0
 --- !u!114 &2028297926
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36500,6 +36557,7 @@ MonoBehaviour:
   positionResetTransform: {fileID: 1404517288}
   Deck: {fileID: 368766258}
   laneNumber: 4
+  IsSanctuary: 0
 --- !u!114 &2099444916
 MonoBehaviour:
   m_ObjectHideFlags: 0

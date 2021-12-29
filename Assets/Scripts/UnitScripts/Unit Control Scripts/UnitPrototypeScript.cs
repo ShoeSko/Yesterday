@@ -108,6 +108,11 @@ public class UnitPrototypeScript : MonoBehaviour
     [Header("Lane Placement")]
     public int laneNumberUnit;
     public int lanePlacementUnit;
+
+    public bool IsSaint;//Corruption Boss Effect
+    private bool WasShooter;//Used to turn back on the unit's ability to shoot
+    private bool WasFighter;//Used to turn back on the unit's ability to punch
+
     #endregion
     #region Standard Voids
     private void Start()
@@ -294,6 +299,9 @@ public class UnitPrototypeScript : MonoBehaviour
         CurrentDamageTaken();
         Death();
         }
+        if (IsSaint)
+            SaintEffects();
+
 
         //Card abilities
         if (Unit.cardName == "Pigster")
@@ -822,6 +830,11 @@ public class UnitPrototypeScript : MonoBehaviour
     {
         if (health <= 0)
         {
+            if (IsSaint)
+            {
+                GameObject.Find("The Corruption").GetComponent<TheCorruption>().SaintDied = true;
+            }
+
             Destroy(gameObject);
             isDead = true;
             print("Im die, thank you forever!");
@@ -982,6 +995,33 @@ public class UnitPrototypeScript : MonoBehaviour
         damageBuff = Unit.damageBuff;
 
         unitIndex = Unit.unitIndex;
+    }
+
+    private void SaintEffects()
+    {
+        //Cant attack while purifying
+        if (isPunching)
+        {
+            WasFighter = true;
+            isPunching = false;
+        }
+        if (isShooter)
+        {
+            WasShooter = true;
+            isShooter = false;
+        }
+
+        //Add other visual effects like a slight glow maybe
+
+        GameObject.Find("The Corruption").GetComponent<TheCorruption>().SaintLives = true;
+    }
+
+    public void UnSanctifyUnit()
+    {
+        if (WasShooter)
+            isShooter = true;
+        if (WasFighter)
+            isPunching = true;
     }
 
     private void OnHitAbility()

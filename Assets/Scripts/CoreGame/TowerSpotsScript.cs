@@ -16,6 +16,7 @@ public class TowerSpotsScript : MonoBehaviour
     private DeckScript DeckCode;
     [SerializeField ]private int laneNumber; //Used to indicate which lane the spot is from.
     private int lanePlacement; //Used to indicate the placement in the lane.
+    public bool IsSanctuary;//Corruption Boss Ability
 
     public static bool NuggetSpawnOnce;//Spawns a second nugget
 
@@ -70,6 +71,13 @@ public class TowerSpotsScript : MonoBehaviour
             NewCardHandScript.s_cardWasPlayer = true;
             card.GetComponent<NewCardHandScript>().ReSetCard();
             NuggetSpawnOnce = false;
+        }
+
+        if (IsSanctuary)//BossEffect
+        {
+            //tell unit -> unit tells boss
+            unit.GetComponent<UnitPrototypeScript>().IsSaint = true;
+            GameObject.Find("The Corruption").GetComponent<TheCorruption>().PlayedSaints.Add(unit);
         }
     }
 
