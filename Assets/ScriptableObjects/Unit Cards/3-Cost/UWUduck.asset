@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: Duckey
   image: {fileID: 21300000, guid: 0bd1642b5f6e22d4da7a73b9ef9a0611, type: 3}
-  backgroundImage: {fileID: 0}
+  backgroundImage: {fileID: 21300000, guid: 67a0714d7ad4cfd4aa0d0ad0a91186b5, type: 3}
   icon: {fileID: 21300000, guid: 2bf6f17ff025d204b91dd5ba765debd0, type: 3}
   manaCost: 3
   effectDescription: 'Type: Melee'

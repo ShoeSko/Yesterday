@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: Diva
   image: {fileID: 21300000, guid: 204ed40b85acb9c4e8299770cee87aaf, type: 3}
-  backgroundImage: {fileID: 0}
+  backgroundImage: {fileID: 21300000, guid: 36fcae48088d0444faeb4759a11fc17b, type: 3}
   icon: {fileID: 21300000, guid: cdefa914e39dad74fb27e975725738dd, type: 3}
   manaCost: 6
   effectDescription: 'Type: Ranged'

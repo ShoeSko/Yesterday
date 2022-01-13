@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: Sumo Racoon
   image: {fileID: 21300000, guid: 2d91666d0e5a5184ca2d80156af57226, type: 3}
-  backgroundImage: {fileID: 0}
+  backgroundImage: {fileID: 21300000, guid: 9b7eb0281d567a948b033ef462fa5eeb, type: 3}
   icon: {fileID: 21300000, guid: 2bf6f17ff025d204b91dd5ba765debd0, type: 3}
   manaCost: 1
   effectDescription: 'Type: Melee'

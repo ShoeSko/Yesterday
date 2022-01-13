@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: Black Knight
   image: {fileID: 21300000, guid: 79510be31546580439f4d3fc1a059e9b, type: 3}
-  backgroundImage: {fileID: 0}
+  backgroundImage: {fileID: 21300000, guid: 317e9970add25d740bd73f742e439ac9, type: 3}
   icon: {fileID: 21300000, guid: 2bf6f17ff025d204b91dd5ba765debd0, type: 3}
   manaCost: 5
   effectDescription: 'Type: Melee'

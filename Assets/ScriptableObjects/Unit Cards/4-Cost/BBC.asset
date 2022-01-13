@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: Black Rooster
   image: {fileID: 21300000, guid: 981fce76029587842a0937d34c7be08d, type: 3}
-  backgroundImage: {fileID: 0}
+  backgroundImage: {fileID: 21300000, guid: d15574021ba3ee849aa27a1be1333756, type: 3}
   icon: {fileID: 21300000, guid: 2bf6f17ff025d204b91dd5ba765debd0, type: 3}
   manaCost: 4
   effectDescription: 'Type: Melee'

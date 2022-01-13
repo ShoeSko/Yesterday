@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: Sleeping Turtle
   image: {fileID: 21300000, guid: 4a99265b7f2311942bf7d90cdde0ccf7, type: 3}
-  backgroundImage: {fileID: 0}
+  backgroundImage: {fileID: 21300000, guid: 1293ccd4231fb5e48ab273f8cdb734bd, type: 3}
   icon: {fileID: 21300000, guid: 0f7c73d833ad51241867b6feaa037ca5, type: 3}
   manaCost: 1
   effectDescription: 'Type: Tank'

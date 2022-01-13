@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: Frogger
   image: {fileID: 21300000, guid: 894232edbd585b94399f11b3cca7b719, type: 3}
-  backgroundImage: {fileID: 0}
+  backgroundImage: {fileID: 21300000, guid: 47809ab869445d84fb334192cd47edb3, type: 3}
   icon: {fileID: 21300000, guid: 2bf6f17ff025d204b91dd5ba765debd0, type: 3}
   manaCost: 3
   effectDescription: 'Type: Melee'

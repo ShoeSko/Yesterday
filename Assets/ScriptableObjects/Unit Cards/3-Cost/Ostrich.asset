@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: Saddler
   image: {fileID: 21300000, guid: b768a8e65bd222148bf29a3044147e93, type: 3}
-  backgroundImage: {fileID: 0}
+  backgroundImage: {fileID: 21300000, guid: a9ce451214fbea34abe90f68b6fcafa9, type: 3}
   icon: {fileID: 21300000, guid: 2bf6f17ff025d204b91dd5ba765debd0, type: 3}
   manaCost: 3
   effectDescription: 'Type: Melee'

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: Pengu
   image: {fileID: 21300000, guid: e5711879413a32347af23f3e1d01050a, type: 3}
-  backgroundImage: {fileID: 0}
+  backgroundImage: {fileID: 21300000, guid: 076425bd5af925840923a5d0128f0c77, type: 3}
   icon: {fileID: 21300000, guid: 2bf6f17ff025d204b91dd5ba765debd0, type: 3}
   manaCost: 4
   effectDescription: 'Type: Melee'

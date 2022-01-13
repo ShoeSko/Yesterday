@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: RatKing
   image: {fileID: 21300000, guid: b70c6907a20fb1645b2e3a7c678da4a0, type: 3}
-  backgroundImage: {fileID: 0}
+  backgroundImage: {fileID: 21300000, guid: 63165fa3c2c9f564c92e905ed8432d58, type: 3}
   icon: {fileID: 21300000, guid: cdefa914e39dad74fb27e975725738dd, type: 3}
   manaCost: 4
   effectDescription: 'Type: Melee, Ranged'

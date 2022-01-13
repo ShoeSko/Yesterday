@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: Comfy Bear
   image: {fileID: 21300000, guid: af355cb111cf1474fb30d953ef9a4ae3, type: 3}
-  backgroundImage: {fileID: 0}
+  backgroundImage: {fileID: 21300000, guid: a9ce451214fbea34abe90f68b6fcafa9, type: 3}
   icon: {fileID: 21300000, guid: 2bf6f17ff025d204b91dd5ba765debd0, type: 3}
   manaCost: 6
   effectDescription: 'Type: Melee'

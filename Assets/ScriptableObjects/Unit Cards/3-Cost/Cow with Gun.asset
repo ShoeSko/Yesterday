@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: Cowster
   image: {fileID: 21300000, guid: 89f6812af5240ce488e5e5aadbee6687, type: 3}
-  backgroundImage: {fileID: 0}
+  backgroundImage: {fileID: 21300000, guid: bab62ef69e5f7eb4b886118309a528c4, type: 3}
   icon: {fileID: 21300000, guid: cdefa914e39dad74fb27e975725738dd, type: 3}
   manaCost: 3
   effectDescription: 'Type: Ranged'

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: Evil Rabbit
   image: {fileID: 21300000, guid: 2bd9dc7bc000a64478cb05c37eae9626, type: 3}
-  backgroundImage: {fileID: 0}
+  backgroundImage: {fileID: 21300000, guid: 63165fa3c2c9f564c92e905ed8432d58, type: 3}
   icon: {fileID: 21300000, guid: 2bf6f17ff025d204b91dd5ba765debd0, type: 3}
   manaCost: 10
   effectDescription: 'Type: Melee'

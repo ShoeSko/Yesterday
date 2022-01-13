@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: Shiburai
   image: {fileID: 21300000, guid: 4177813cd72eb91439b05885cb055ceb, type: 3}
-  backgroundImage: {fileID: 0}
+  backgroundImage: {fileID: 21300000, guid: 9b7eb0281d567a948b033ef462fa5eeb, type: 3}
   icon: {fileID: 21300000, guid: 2bf6f17ff025d204b91dd5ba765debd0, type: 3}
   manaCost: 7
   effectDescription: 'Type: Melee, Pierce'
