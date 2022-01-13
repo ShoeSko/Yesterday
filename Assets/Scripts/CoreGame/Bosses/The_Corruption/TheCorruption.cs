@@ -32,7 +32,12 @@ public class TheCorruption : MonoBehaviour
     private int RandomAbility;
 
     //Ability_Desperate_Rage
+    public GameObject HandManager;
+    private int randomCard;
+    private NewCardHandScript HandCode;
+    private Color CorruptedColor = new Color(0.6315554f, 0, 0.8396226f, 1);
 
+    public List<GameObject> CardBG = new List<GameObject>();
 
     //Ability_Corrupted_Grounds
     private int RandomLane;
@@ -74,13 +79,11 @@ public class TheCorruption : MonoBehaviour
     public List<GameObject> PlayedSaints = new List<GameObject>();//This will store all saints played in order to "un-sanctify" them 
 
 
-
     //Sound
     //public List<AudioSource> VoiceCorruptedGrounds = new List<AudioSource>();
     //public List<AudioSource> VoiceCorruptingGaze = new List<AudioSource>();
     //public List<AudioSource> VoicePurification = new List<AudioSource>();
     //public List<AudioSource> VoiceTakeDamage = new List<AudioSource>();
-
 
 
     private float timer;
@@ -98,7 +101,6 @@ public class TheCorruption : MonoBehaviour
     public void Activate()
     {
         //Testing
-        //Purification();
 
         BossHealthbar.SetActive(true);
         rb = GetComponent<Rigidbody2D>();
@@ -249,6 +251,11 @@ public class TheCorruption : MonoBehaviour
      * A corrupted card cannot be played.*/
     {
         //Do stuff
+        HandCode = HandManager.GetComponent<NewCardHandScript>();
+
+        randomCard = Random.Range(1, 6);
+
+        CorruptCards();
     }
 
     void Corrupted_Grounds()//Ability 1
@@ -401,5 +408,91 @@ public class TheCorruption : MonoBehaviour
         }
         else
             loop--;
+    }
+
+    private void CorruptCards()
+    {
+        CardBG[randomCard - 1].GetComponent<Image>().color = CorruptedColor;
+        CardBG[randomCard + 4].GetComponent<Image>().color = CorruptedColor;
+
+        if(randomCard == 1)
+        {
+            if (HandCode.Card1Corrupted == false)
+            {
+                HandCode.card1.GetComponent<CardDisplayer>().artworkImage.GetComponent<Image>().color = CorruptedColor;
+                HandCode.Lcard1.GetComponent<CardDisplayer>().artworkImage.GetComponent<Image>().color = CorruptedColor;
+                HandCode.card1.GetComponent<CardDisplayer>().backgroundImage.GetComponent<Image>().color = CorruptedColor;
+                HandCode.Lcard1.GetComponent<CardDisplayer>().backgroundImage.GetComponent<Image>().color = CorruptedColor;
+                HandCode.card1.GetComponent<CardDisplayer>().iconImage.GetComponent<Image>().color = CorruptedColor;
+                HandCode.Lcard1.GetComponent<CardDisplayer>().iconImage.GetComponent<Image>().color = CorruptedColor;
+
+                HandCode.Card1Corrupted = true;
+            }
+            else Desperate_Rage();
+        }
+
+        if (randomCard == 2)
+        {
+            if (HandCode.Card2Corrupted == false)
+            {
+                HandCode.card2.GetComponent<CardDisplayer>().artworkImage.GetComponent<Image>().color = CorruptedColor;
+                HandCode.Lcard2.GetComponent<CardDisplayer>().artworkImage.GetComponent<Image>().color = CorruptedColor;
+                HandCode.card2.GetComponent<CardDisplayer>().backgroundImage.GetComponent<Image>().color = CorruptedColor;
+                HandCode.Lcard2.GetComponent<CardDisplayer>().backgroundImage.GetComponent<Image>().color = CorruptedColor;
+                HandCode.card2.GetComponent<CardDisplayer>().iconImage.GetComponent<Image>().color = CorruptedColor;
+                HandCode.Lcard2.GetComponent<CardDisplayer>().iconImage.GetComponent<Image>().color = CorruptedColor;
+
+                HandCode.Card2Corrupted = true;
+            }
+            else Desperate_Rage();
+        }
+
+        if (randomCard == 3)
+        {
+            if (HandCode.Card3Corrupted == false)
+            {
+                HandCode.card3.GetComponent<CardDisplayer>().artworkImage.GetComponent<Image>().color = CorruptedColor;
+                HandCode.Lcard3.GetComponent<CardDisplayer>().artworkImage.GetComponent<Image>().color = CorruptedColor;
+                HandCode.card3.GetComponent<CardDisplayer>().backgroundImage.GetComponent<Image>().color = CorruptedColor;
+                HandCode.Lcard3.GetComponent<CardDisplayer>().backgroundImage.GetComponent<Image>().color = CorruptedColor;
+                HandCode.card3.GetComponent<CardDisplayer>().iconImage.GetComponent<Image>().color = CorruptedColor;
+                HandCode.Lcard3.GetComponent<CardDisplayer>().iconImage.GetComponent<Image>().color = CorruptedColor;
+
+                HandCode.Card3Corrupted = true;
+            }
+            else Desperate_Rage();
+        }
+
+        if (randomCard == 4)
+        {
+            if (HandCode.Card4Corrupted == false)
+            {
+                HandCode.card4.GetComponent<CardDisplayer>().artworkImage.GetComponent<Image>().color = CorruptedColor;
+                HandCode.Lcard4.GetComponent<CardDisplayer>().artworkImage.GetComponent<Image>().color = CorruptedColor;
+                HandCode.card4.GetComponent<CardDisplayer>().backgroundImage.GetComponent<Image>().color = CorruptedColor;
+                HandCode.Lcard4.GetComponent<CardDisplayer>().backgroundImage.GetComponent<Image>().color = CorruptedColor;
+                HandCode.card4.GetComponent<CardDisplayer>().iconImage.GetComponent<Image>().color = CorruptedColor;
+                HandCode.Lcard4.GetComponent<CardDisplayer>().iconImage.GetComponent<Image>().color = CorruptedColor;
+
+                HandCode.Card4Corrupted = true;
+            }
+            else Desperate_Rage();
+        }
+
+        if (randomCard == 5)
+        {
+            if (HandCode.Card5Corrupted == false)
+            {
+                HandCode.card5.GetComponent<CardDisplayer>().artworkImage.GetComponent<Image>().color = CorruptedColor;
+                HandCode.Lcard5.GetComponent<CardDisplayer>().artworkImage.GetComponent<Image>().color = CorruptedColor;
+                HandCode.card5.GetComponent<CardDisplayer>().backgroundImage.GetComponent<Image>().color = CorruptedColor;
+                HandCode.Lcard5.GetComponent<CardDisplayer>().backgroundImage.GetComponent<Image>().color = CorruptedColor;
+                HandCode.card5.GetComponent<CardDisplayer>().iconImage.GetComponent<Image>().color = CorruptedColor;
+                HandCode.Lcard5.GetComponent<CardDisplayer>().iconImage.GetComponent<Image>().color = CorruptedColor;
+
+                HandCode.Card5Corrupted = true;
+            }
+            else Desperate_Rage();
+        }
     }
 }

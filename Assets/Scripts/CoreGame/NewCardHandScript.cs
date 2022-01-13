@@ -59,14 +59,14 @@ public class NewCardHandScript : MonoBehaviour
     public GameObject TowerSpots;
 
     [Header("Small Card Buttons")]
-    public GameObject CardButton1S;//all of this is temporary
+    public GameObject CardButton1S;
     public GameObject CardButton2S;
     public GameObject CardButton3S;
     public GameObject CardButton4S;
     public GameObject CardButton5S;
 
     [Header("Large Card Buttons")]
-    public GameObject CardButton1L;//all of this is temporary
+    public GameObject CardButton1L;
     public GameObject CardButton2L;
     public GameObject CardButton3L;
     public GameObject CardButton4L;
@@ -108,6 +108,12 @@ public class NewCardHandScript : MonoBehaviour
     [HideInInspector]public bool isManaCardGlow3;
     [HideInInspector]public bool isManaCardGlow4;
     [HideInInspector]public bool isManaCardGlow5;
+
+    [HideInInspector] public bool Card1Corrupted;
+    [HideInInspector] public bool Card2Corrupted;
+    [HideInInspector] public bool Card3Corrupted;
+    [HideInInspector] public bool Card4Corrupted;
+    [HideInInspector] public bool Card5Corrupted;
 
     public List<GameObject> cardActiveIndicaterList = new List<GameObject>();
     #endregion
@@ -471,7 +477,7 @@ public class NewCardHandScript : MonoBehaviour
     private void ManaCostDisplayer()
     {
 
-        if (ManaSystem.CurrentMana >= ManaCost1 && isManaCardGlow1)
+        if (ManaSystem.CurrentMana >= ManaCost1 && isManaCardGlow1 && !Card1Corrupted)
         {
             if (Smallhand)
                 CardButton1S.SetActive(true);
@@ -484,7 +490,7 @@ public class NewCardHandScript : MonoBehaviour
             CardButton1L.SetActive(false);
         }
 
-        if (ManaSystem.CurrentMana >= ManaCost2 && isManaCardGlow2)
+        if (ManaSystem.CurrentMana >= ManaCost2 && isManaCardGlow2 && !Card2Corrupted)
         {
             if (Smallhand)
                 CardButton2S.SetActive(true);
@@ -497,7 +503,7 @@ public class NewCardHandScript : MonoBehaviour
             CardButton2L.SetActive(false);
         }
 
-        if (ManaSystem.CurrentMana >= ManaCost3 && isManaCardGlow3)
+        if (ManaSystem.CurrentMana >= ManaCost3 && isManaCardGlow3 && !Card3Corrupted)
         {
             if (Smallhand)
                 CardButton3S.SetActive(true);
@@ -510,7 +516,7 @@ public class NewCardHandScript : MonoBehaviour
             CardButton3L.SetActive(false);
         }
 
-        if (ManaSystem.CurrentMana >= ManaCost4 && isManaCardGlow4)
+        if (ManaSystem.CurrentMana >= ManaCost4 && isManaCardGlow4 && !Card4Corrupted)
         {
             if (Smallhand)
                 CardButton4S.SetActive(true);
@@ -523,7 +529,7 @@ public class NewCardHandScript : MonoBehaviour
             CardButton4L.SetActive(false);
         }
 
-        if (ManaSystem.CurrentMana >= ManaCost5 && isManaCardGlow5)
+        if (ManaSystem.CurrentMana >= ManaCost5 && isManaCardGlow5 && !Card5Corrupted)
         {
             if (Smallhand)
                 CardButton5S.SetActive(true);
