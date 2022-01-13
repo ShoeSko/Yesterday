@@ -98,7 +98,7 @@ public class TheCorruption : MonoBehaviour
     public void Activate()
     {
         //Testing
-        Purification();
+        //Purification();
 
         BossHealthbar.SetActive(true);
         rb = GetComponent<Rigidbody2D>();
