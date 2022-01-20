@@ -59,7 +59,7 @@ public class IntroCutsceneController : MonoBehaviour
                 }
             }
 
-            transform.position = Vector3.MoveTowards(transform.position, PageLocations[WhichPage].transform.position, TurnSpeed * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, PageLocations[WhichPage].transform.position, TurnSpeed * Time.deltaTime);//Automatically move the camera towards the new panel when designated
         }
 
         if (FadeOut)
