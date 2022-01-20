@@ -40,7 +40,7 @@ public class DialogueCode : MonoBehaviour
 
         if (Prepare)//Dim
         {
-            if(fadefloat <= 0.5f)
+            if(fadefloat <= 0.78f)
             {
                 fadefloat += Time.deltaTime * 0.5f;
 
@@ -49,7 +49,7 @@ public class DialogueCode : MonoBehaviour
                 fadecolor = new Color(fadecolor.r, fadecolor.g, fadecolor.b, fadefloat);
                 Dimmer.GetComponent<Renderer>().material.color = fadecolor;
             }
-            else//Time stop
+            else//Za Warudo
             {
                 for(int i = 0; i < HUDitems.Count; i++)//Turn off HUD (remember to turn it back on
                 {
