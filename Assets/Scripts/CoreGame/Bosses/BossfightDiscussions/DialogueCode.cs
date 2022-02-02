@@ -30,6 +30,18 @@ public class DialogueCode : MonoBehaviour
 
     public List<GameObject> HUDitems = new List<GameObject>();
 
+    public GameObject RobotDialogue;
+    public GameObject EnemyDialogue;
+
+    //private Vector3 FriendlyDialogueSpawn = new Vector3(-9.52f, 0.07f, -16);
+    //private Vector3 EnemyDialogueSpawn = new Vector3(-9.52f, 0.07f, -16);
+
+    private List<GameObject> Messages = new List<GameObject>();
+
+    private GameObject NewDialogue;
+
+    private bool Robotext;
+
     private void Update()
     {
         //cheatcode: Press 0 during a bossfight to activate the dialogue. This will automatically trigger when the boss takes damage (when i implement it)
@@ -64,6 +76,8 @@ public class DialogueCode : MonoBehaviour
                 else if (WhichBoss == 2)
                     Beasts[BossStage - 1].GetComponent<Animator>().Play("EnemyIntro");
 
+                StartCoroutine(Wait());//Wait until displaying the dialogue
+
                 ConversationMode = true;
             }
         }
@@ -82,6 +96,15 @@ public class DialogueCode : MonoBehaviour
                 CorruptionDialogue();
         }
     }
+    IEnumerator Wait()
+    {
+        yield return new WaitForSecondsRealtime(3);
+
+        NewDialogue = Instantiate(RobotDialogue);
+        Messages.Add(NewDialogue);
+        NewDialogue.GetComponent<Animator>().Play("DialogueBoxIntro");
+    }
+
 
     public void PreperationMode()
     {
@@ -97,6 +120,29 @@ public class DialogueCode : MonoBehaviour
 
         if(BossStage == 1)//Mommy
         {
+            if (Input.GetKeyDown(KeyCode.Space))//have this be a button not a random key
+            {
+                if (!Robotext)//this should be the other way, but for testing ill leave it like this
+                {
+                    NewDialogue = Instantiate(RobotDialogue);
+                    Messages.Add(NewDialogue);
+                }
+                else//This should be for the enemy texts
+                {
+
+                }
+
+                for(int i = 0; i < Messages.Count; i++)//this again should be "enemy texts" not robot )
+                {
+                    if(i == 0)
+                        Messages[i].GetComponent<Animator>().Play("DialogueBoxIntro");
+                    else
+                    {
+                        //Play the animation of going up
+                    }
+                }
+            }
+
             Debug.Log("Now this works and i can do stuff here");
         }
         else if(BossStage == 2)//Vi
