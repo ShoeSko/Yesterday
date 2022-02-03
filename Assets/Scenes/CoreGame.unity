@@ -10854,7 +10854,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &620298803
 Transform:
   m_ObjectHideFlags: 0
@@ -10863,7 +10863,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 620298802}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 8.67, y: -1.22, z: -16}
+  m_LocalPosition: {x: 14.51, y: -1.22, z: -16}
   m_LocalScale: {x: 0.4971312, y: 0.4971312, z: 0.4971312}
   m_Children: []
   m_Father: {fileID: 717424808}
@@ -10930,7 +10930,7 @@ Animator:
   m_GameObject: {fileID: 620298802}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d11bc896b1914c146917a050dbd5d150, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 2
   m_ApplyRootMotion: 0
@@ -13056,10 +13056,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24f4412677d3c1249967de38e3bab169, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Robot_Farmer: {fileID: 1488846762}
-  Robot_Armor: {fileID: 1692595387}
-  Robot_Suit: {fileID: 21529789}
-  Robot_Casual: {fileID: 2141145597}
+  Robot:
+  - {fileID: 1488846762}
+  - {fileID: 1692595387}
+  - {fileID: 21529789}
+  - {fileID: 2141145597}
   Businessmen:
   - {fileID: 2139777596}
   - {fileID: 2108763547}
@@ -13087,6 +13088,17 @@ MonoBehaviour:
   - No thank you!
   - You won't do it for me?
   - Hmmm.....
+  - Well then robo-boy, why don't you just hand over the property to the overlord?
+  - Sorry, can't do. My master told me strictly not to make any deals with the corporations.
+  - Come on man, sure you can make an exception right?
+  - Nope, I'm physically incapable of making such adjustments.
+  - According to the law of property ownership, under the paragraph  12, the overlord
+    may purchase any property he can afford.
+  - That's correct, but I'm also allowed to sell the property for whatever value
+    I wish. Therefore I've decided to make it invaluable
+  - That's silly, everything has a price, property, robots, even people.
+  - Again, you are correct. In that case, the price of this property is set to the
+    overlord's total value + 1.
   Guardiandialogue: []
   Corruptiondialogue: []
   Parent: {fileID: 1619638461}
@@ -30482,6 +30494,7 @@ MonoBehaviour:
   Snap1: {fileID: 816550937}
   Snap2: {fileID: 647791713}
   Laugh: {fileID: 893737819}
+  CorpDialogue: {fileID: 717424807}
   IsActive: 0
   Health: 0
   stockShortageWarningTime: 1.5
@@ -38160,7 +38173,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2108763548
 Transform:
   m_ObjectHideFlags: 0
@@ -38169,7 +38182,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2108763547}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7.82, y: -1.33, z: -16}
+  m_LocalPosition: {x: 14.51, y: -1.33, z: -16}
   m_LocalScale: {x: 0.45929, y: 0.45929, z: 0.45929}
   m_Children: []
   m_Father: {fileID: 717424808}
@@ -38236,7 +38249,7 @@ Animator:
   m_GameObject: {fileID: 2108763547}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d11bc896b1914c146917a050dbd5d150, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 2
   m_ApplyRootMotion: 0
@@ -38683,7 +38696,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2139777596}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 20.39, y: -0.79, z: -16}
+  m_LocalPosition: {x: 14.51, y: -0.79, z: -16}
   m_LocalScale: {x: 1.1189492, y: 1.1189492, z: 1.1189492}
   m_Children: []
   m_Father: {fileID: 717424808}

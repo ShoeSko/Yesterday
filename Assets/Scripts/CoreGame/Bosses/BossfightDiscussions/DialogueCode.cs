@@ -6,10 +6,9 @@ using UnityEngine.UI;
 public class DialogueCode : MonoBehaviour
 {
     //Various Robot visuals
-    public GameObject Robot_Farmer;
-    public GameObject Robot_Armor;
-    public GameObject Robot_Suit;
-    public GameObject Robot_Casual;
+    public List<GameObject> Robot = new List<GameObject>();
+    private int RandomOutfit;
+    private GameObject CurrentOutfit;
 
     //Various Businessmen
     public List<GameObject> Businessmen = new List<GameObject>();//Mommy, vi, demonessa
@@ -43,10 +42,6 @@ public class DialogueCode : MonoBehaviour
     private int WhichDialogue = 0;
     private Text CurrentText;
 
-
-    //private Vector3 FriendlyDialogueSpawn = new Vector3(-9.52f, 0.07f, -16);
-    //private Vector3 EnemyDialogueSpawn = new Vector3(-9.52f, 0.07f, -16);
-
     public GameObject Parent;
     public GameObject Papa;
     private GameObject CurrentPapa;
@@ -64,7 +59,7 @@ public class DialogueCode : MonoBehaviour
 
         if (Prepare)//Dim
         {
-            if(fadefloat <= 0.78f)
+            if (fadefloat <= 0.78f)
             {
                 fadefloat += Time.deltaTime * 0.5f;
 
@@ -75,13 +70,15 @@ public class DialogueCode : MonoBehaviour
             }
             else//Za Warudo
             {
-                for(int i = 0; i < HUDitems.Count; i++)//Turn off HUD (remember to turn it back on
+                for (int i = 0; i < HUDitems.Count; i++)//Turn off HUD
                 {
                     HUDitems[i].SetActive(false);
                 }
 
                 Time.timeScale = 0;
-                Robot_Farmer.GetComponent<Animator>().Play("FarmerIntro");
+                RandomOutfit = Random.Range(0, Robot.Count);
+                CurrentOutfit = Robot[RandomOutfit];
+                CurrentOutfit.GetComponent<Animator>().Play("FarmerIntro");
 
                 if (WhichBoss == 1)
                 {
@@ -104,6 +101,9 @@ public class DialogueCode : MonoBehaviour
         {
             Prepare = false;
 
+            DialogueManager();
+
+            /*
             if (WhichBoss == 1)
                 CorporateDialogue();
 
@@ -112,6 +112,7 @@ public class DialogueCode : MonoBehaviour
 
             if (WhichBoss == 3)
                 CorruptionDialogue();
+            */
         }
 
 
@@ -162,84 +163,57 @@ public class DialogueCode : MonoBehaviour
     {
         WhichBoss = BossDefiner.GetComponent<NewCardHandScript>().RandomBoss;
         BossStage++;
+        Robotext = true;
 
         Prepare = true;
     }
 
-    private void CorporateDialogue()
+
+    IEnumerator ResumeGame()
     {
-        //BossStage++; Trigger this from the boss
+        movement = true;
+        CurrentOutfit.GetComponent<Animator>().Play("FarmerOutro");
+        Businessmen[BossStage - 1].GetComponent<Animator>().Play("EnemyOutro");
 
-        if(BossStage == 1)//Mommy
+        yield return new WaitForSecondsRealtime(2);
+
+        fadefloat = 0;
+
+        Color fadecolor = Dimmer.GetComponent<Renderer>().material.color;
+
+        fadecolor = new Color(fadecolor.r, fadecolor.g, fadecolor.b, fadefloat);
+        Dimmer.GetComponent<Renderer>().material.color = fadecolor;
+
+        for (int i = 0; i < HUDitems.Count; i++)//Turn off HUD (remember to turn it back on
         {
-            if (Input.GetKeyDown(KeyCode.Space))//have this be a button not a random key
-            {
-                if(WhichDialogue == 3)//Input any number after which the dialogue should end for each character in the Corporate battle
-                {
-                    //End dialogue
-                }
-                else
-                {
-                    WhichDialogue++;
-                    //Currentdialogue = Corporatedialogue;
-                    StartCoroutine(Move());
+            HUDitems[i].SetActive(true);
+        }
 
-                    Robotext = !Robotext;//This SHOULD swap the value of robotext
-                }
+        WhichDialogue++;
+        movement = false;
+        ConversationMode = false;
+
+        Time.timeScale = 1;
+    }
+
+    private void DialogueManager()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))//have this be a button not a random key
+        {
+            if (WhichDialogue == 3 || WhichDialogue == 7 || WhichDialogue == 11)//Input any number after which the dialogue should end for each character in the Corporate battle
+            {
+                //End dialogue
+                StartCoroutine(ResumeGame());
+            }
+            else
+            {
+                WhichDialogue++;
+                StartCoroutine(Move());
+
+                Robotext = !Robotext;//This SHOULD swap the value of robotext
             }
         }
-        //I dont think i need these anymore but ill delete them when im sure
-        /*
-        else if(BossStage == 2)//Vi
-        {
-
-        }
-        else//Stage 3 - Demoness
-        {
-
-        }
-        */
     }
 
-
-    private void WardenDialogue()
-    {
-        BossStage++;
-
-        if (BossStage == 1)
-        {
-
-        }
-        else if (BossStage == 2)
-        {
-
-        }
-        else if (BossStage == 3)
-        {
-
-        }
-        else//Stage 4
-        {
-
-        }
-    }
-
-
-    private void CorruptionDialogue()
-    {
-        BossStage++;
-
-        if (BossStage == 1)
-        {
-
-        }
-        else if (BossStage == 2)
-        {
-
-        }
-        else//Stage 3
-        {
-
-        }
-    }
+    //I could also have a "Guardiandialogue" and "Corruptiondiologue" voids here but currently there's no reason to and this one void works fine
 }

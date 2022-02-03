@@ -30,6 +30,8 @@ public class TheCorporate : MonoBehaviour
 
     public GameObject Laugh;
 
+    public GameObject CorpDialogue;
+
     //setup
     private Rigidbody2D rb;
     public bool IsActive;
@@ -307,6 +309,8 @@ public class TheCorporate : MonoBehaviour
         yield return new WaitForSeconds(2);
 
         this.gameObject.GetComponent<SpriteRenderer>().sprite = Default;
+
+        CorpDialogue.GetComponent<DialogueCode>().PreperationMode();
     }
 
     IEnumerator Laughter()
