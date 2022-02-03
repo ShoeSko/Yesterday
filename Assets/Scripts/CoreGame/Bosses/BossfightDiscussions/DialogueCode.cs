@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DialogueCode : MonoBehaviour
 {
@@ -21,9 +22,9 @@ public class DialogueCode : MonoBehaviour
 
     private bool Prepare;
     private bool ConversationMode;
+    private bool movement;
 
     public GameObject BossDefiner;
-
 
     public GameObject Dimmer;
     private float fadefloat;
@@ -32,15 +33,26 @@ public class DialogueCode : MonoBehaviour
 
     public GameObject RobotDialogue;
     public GameObject EnemyDialogue;
+    private GameObject NewDialogue;
+    private List<GameObject> Messages = new List<GameObject>();
+
+    private List<string> Currentdialogue = new List<string>();
+    public List<string> Corporatedialogue = new List<string>();//Includes ALL DIALOGUES from corporate fight
+    public List<string> Guardiandialogue = new List<string>();//Includes ALL DIALOGUES from guardian fight
+    public List<string> Corruptiondialogue = new List<string>();//Includes ALL DIALOGUES from currouption fight
+    private int WhichDialogue = 0;
+    private Text CurrentText;
+
 
     //private Vector3 FriendlyDialogueSpawn = new Vector3(-9.52f, 0.07f, -16);
     //private Vector3 EnemyDialogueSpawn = new Vector3(-9.52f, 0.07f, -16);
 
-    private List<GameObject> Messages = new List<GameObject>();
+    public GameObject Parent;
+    public GameObject Papa;
+    private GameObject CurrentPapa;
+    private Vector3 Direction = new Vector3(0, 0.018f, 0);
 
-    private GameObject NewDialogue;
-
-    private bool Robotext;
+    private bool Robotext = true;
 
     private void Update()
     {
@@ -72,9 +84,15 @@ public class DialogueCode : MonoBehaviour
                 Robot_Farmer.GetComponent<Animator>().Play("FarmerIntro");
 
                 if (WhichBoss == 1)
+                {
+                    Currentdialogue = Corporatedialogue;
                     Businessmen[BossStage - 1].GetComponent<Animator>().Play("EnemyIntro");
+                }
                 else if (WhichBoss == 2)
+                {
+                    Currentdialogue = Guardiandialogue;
                     Beasts[BossStage - 1].GetComponent<Animator>().Play("EnemyIntro");
+                }
 
                 StartCoroutine(Wait());//Wait until displaying the dialogue
 
@@ -95,18 +113,52 @@ public class DialogueCode : MonoBehaviour
             if (WhichBoss == 3)
                 CorruptionDialogue();
         }
+
+
+        if (movement)
+        {
+            Parent.transform.Translate(Direction, Space.World);
+        }
     }
     IEnumerator Wait()
     {
         yield return new WaitForSecondsRealtime(3);
 
-        NewDialogue = Instantiate(RobotDialogue);
+        NewDialogue = Instantiate(EnemyDialogue);
+        Messages.Add(NewDialogue);
+        CurrentText = NewDialogue.transform.GetChild(0).gameObject.GetComponent<Text>();
+        CurrentText.text = Currentdialogue[WhichDialogue];
+        NewDialogue.GetComponent<Animator>().Play("DialogueBoxIntro");
+
+        CurrentPapa = Instantiate(Papa);
+        CurrentPapa.transform.parent = Parent.transform;
+        NewDialogue.transform.parent = CurrentPapa.transform;
+    }
+
+    IEnumerator Move()
+    {
+        movement = true;
+
+        if(Robotext)
+            NewDialogue = Instantiate(RobotDialogue);
+        else
+            NewDialogue = Instantiate(EnemyDialogue);
+
+        CurrentText = NewDialogue.transform.GetChild(0).gameObject.GetComponent<Text>();
+        CurrentText.text = Currentdialogue[WhichDialogue];
         Messages.Add(NewDialogue);
         NewDialogue.GetComponent<Animator>().Play("DialogueBoxIntro");
+
+        yield return new WaitForSecondsRealtime(0.3f);
+
+        CurrentPapa = Instantiate(Papa);
+        CurrentPapa.transform.parent = Parent.transform;
+        NewDialogue.transform.parent = CurrentPapa.transform;
+        movement = false;
     }
 
 
-    public void PreperationMode()
+    public void PreperationMode()//This is triggered by the boss
     {
         WhichBoss = BossDefiner.GetComponent<NewCardHandScript>().RandomBoss;
         BossStage++;
@@ -122,29 +174,22 @@ public class DialogueCode : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Space))//have this be a button not a random key
             {
-                if (!Robotext)//this should be the other way, but for testing ill leave it like this
+                if(WhichDialogue == 3)//Input any number after which the dialogue should end for each character in the Corporate battle
                 {
-                    NewDialogue = Instantiate(RobotDialogue);
-                    Messages.Add(NewDialogue);
+                    //End dialogue
                 }
-                else//This should be for the enemy texts
+                else
                 {
+                    WhichDialogue++;
+                    //Currentdialogue = Corporatedialogue;
+                    StartCoroutine(Move());
 
-                }
-
-                for(int i = 0; i < Messages.Count; i++)//this again should be "enemy texts" not robot )
-                {
-                    if(i == 0)
-                        Messages[i].GetComponent<Animator>().Play("DialogueBoxIntro");
-                    else
-                    {
-                        //Play the animation of going up
-                    }
+                    Robotext = !Robotext;//This SHOULD swap the value of robotext
                 }
             }
-
-            Debug.Log("Now this works and i can do stuff here");
         }
+        //I dont think i need these anymore but ill delete them when im sure
+        /*
         else if(BossStage == 2)//Vi
         {
 
@@ -153,6 +198,7 @@ public class DialogueCode : MonoBehaviour
         {
 
         }
+        */
     }
 
 
