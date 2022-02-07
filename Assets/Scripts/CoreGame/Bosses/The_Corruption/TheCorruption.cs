@@ -56,6 +56,7 @@ public class TheCorruption : MonoBehaviour
 
     //Ability_Corrupting_Gaze
     public List<GameObject> SpawnPlace = new List<GameObject>();
+    public GameObject DialogueCode;
     private int SpawnLocation;
 
     public GameObject CorruptedUnit;
@@ -224,10 +225,12 @@ public class TheCorruption : MonoBehaviour
                 activeSpot.GetComponent<Image>().color = Color.black;
                 Destroy(sanctuary);
                 SanctuaryPlaced = false;
+
+                if(Health != 0)
+                    DialogueCode.GetComponent<DialogueCode>().PreperationMode();
             }
 
         }
-
 
         if (Health == 0)
             IsDead = true;
@@ -327,6 +330,7 @@ public class TheCorruption : MonoBehaviour
             UnitToCorruptSprite = UnitToCorrupt.image;
 
             CorruptedUnit.GetComponent<SpriteRenderer>().sprite = UnitToCorruptSprite;
+            DialogueCode.GetComponent<DialogueCode>().CorruptionSprites.Add(UnitToCorruptSprite);
 
             GameObject Enemy = Instantiate(CorruptedUnit, SpawnPlace[SpawnLocation].transform.position, transform.rotation);
 

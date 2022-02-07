@@ -10,6 +10,8 @@ public class TheGuardian : MonoBehaviour
     public List<GameObject> DeactivateTowerSpots = new List<GameObject>();
     private GameObject CurrentTowerSpot;
 
+    public GameObject Dialoguecode;
+
     public GameObject BossHealthbar;
     public Slider BossHealth;
     public GameObject WinCondition;
@@ -20,7 +22,7 @@ public class TheGuardian : MonoBehaviour
     public bool IsActive;
     private Vector2 NewPos;
     private float speed;
-    public int Health = 4;//boss' health
+    public int Health = 5;//boss' health
 
     //This will keep track of boss' cooldowns
     private int CD1;
@@ -143,6 +145,9 @@ public class TheGuardian : MonoBehaviour
 
                 Health--;
                 ChosenOne = false;
+
+                if(Health != 0)
+                    Dialoguecode.GetComponent<DialogueCode>().PreperationMode();
             }
         }
 

@@ -16,6 +16,12 @@ public class DialogueCode : MonoBehaviour
     //Various Beasts
     public List<GameObject> Beasts = new List<GameObject>();//rat, shadowdoggo, cricket, lurker
 
+    //Corrupted Units
+    public List<GameObject> Corruptions = new List<GameObject>();//Units defined by your own deck
+    public List<Sprite> CorruptionSprites = new List<Sprite>();//Used in "TheCorruption" code
+
+    private List<GameObject> CurrentEnemies = new List<GameObject>();//The currently used list
+
     private int WhichBoss;//What boss is the player facing
     private int BossStage;//How much damage has the boss taken already
 
@@ -85,13 +91,26 @@ public class DialogueCode : MonoBehaviour
                 if (WhichBoss == 1)
                 {
                     Currentdialogue = Corporatedialogue;
-                    Businessmen[BossStage - 1].GetComponent<Animator>().Play("EnemyIntro");
+                    CurrentEnemies = Businessmen;
                 }
                 else if (WhichBoss == 2)
                 {
                     Currentdialogue = Guardiandialogue;
-                    Beasts[BossStage - 1].GetComponent<Animator>().Play("EnemyIntro");
+                    CurrentEnemies = Beasts;
                 }
+                else if (WhichBoss == 3)
+                {
+                    Currentdialogue = Corruptiondialogue;
+                    CurrentEnemies = Corruptions;
+                    CurrentEnemies[BossStage - 1].GetComponent<SpriteRenderer>().sprite = CorruptionSprites[BossStage - 1];
+                }
+
+                for (int i = 0; i < CurrentEnemies.Count; i++)//Turn on correct the enemies
+                {
+                    CurrentEnemies[i].SetActive(true);
+                }
+
+                CurrentEnemies[BossStage - 1].GetComponent<Animator>().Play("EnemyIntro");
 
                 StartCoroutine(Wait());//Wait until displaying the dialogue
 
@@ -179,7 +198,7 @@ public class DialogueCode : MonoBehaviour
         Offset += 8;
         movement = true;
         CurrentOutfit.GetComponent<Animator>().Play("FarmerOutro");
-        Businessmen[BossStage - 1].GetComponent<Animator>().Play("EnemyOutro");
+        CurrentEnemies[BossStage - 1].GetComponent<Animator>().Play("EnemyOutro");
 
         yield return new WaitForSecondsRealtime(2);
 
@@ -205,7 +224,7 @@ public class DialogueCode : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))//have this be a button not a random key
         {
-            if (WhichDialogue == 3 || WhichDialogue == 7 || WhichDialogue == 11)//Input any number after which the dialogue should end for each character in the Corporate battle
+            if (WhichDialogue == 3 || WhichDialogue == 7 || WhichDialogue == 11 || WhichDialogue == 15)//Input any number after which the dialogue should end for each character in the Corporate battle
             {
                 //End dialogue
                 StartCoroutine(ResumeGame());
