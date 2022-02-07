@@ -45,9 +45,11 @@ public class DialogueCode : MonoBehaviour
     public GameObject Parent;
     public GameObject Papa;
     private GameObject CurrentPapa;
-    private Vector3 Direction = new Vector3(0, 0.018f, 0);
+    private Vector3 Direction = new Vector3(0, 0.038f, 0);
+    private int Offset;
 
     private bool Robotext = true;
+    private bool GameResuming;
 
     private void Update()
     {
@@ -102,23 +104,23 @@ public class DialogueCode : MonoBehaviour
             Prepare = false;
 
             DialogueManager();
-
-            /*
-            if (WhichBoss == 1)
-                CorporateDialogue();
-
-            if (WhichBoss == 2)
-                WardenDialogue();
-
-            if (WhichBoss == 3)
-                CorruptionDialogue();
-            */
         }
 
 
         if (movement)
         {
             Parent.transform.Translate(Direction, Space.World);
+
+            if(Parent.transform.position.y >= WhichDialogue * 2.5f + Offset)
+            {
+                if (!GameResuming)
+                {
+                    CurrentPapa = Instantiate(Papa);
+                    CurrentPapa.transform.parent = Parent.transform;
+                    NewDialogue.transform.parent = CurrentPapa.transform;
+                }
+                movement = false;
+            }
         }
     }
     IEnumerator Wait()
@@ -131,13 +133,16 @@ public class DialogueCode : MonoBehaviour
         CurrentText.text = Currentdialogue[WhichDialogue];
         NewDialogue.GetComponent<Animator>().Play("DialogueBoxIntro");
 
-        CurrentPapa = Instantiate(Papa);
-        CurrentPapa.transform.parent = Parent.transform;
-        NewDialogue.transform.parent = CurrentPapa.transform;
+        GameResuming = false;
+        movement = true;
+        //CurrentPapa = Instantiate(Papa);
+        //CurrentPapa.transform.parent = Parent.transform;
+        //NewDialogue.transform.parent = CurrentPapa.transform;
     }
 
     IEnumerator Move()
     {
+        GameResuming = false;
         movement = true;
 
         if(Robotext)
@@ -152,10 +157,9 @@ public class DialogueCode : MonoBehaviour
 
         yield return new WaitForSecondsRealtime(0.3f);
 
-        CurrentPapa = Instantiate(Papa);
-        CurrentPapa.transform.parent = Parent.transform;
-        NewDialogue.transform.parent = CurrentPapa.transform;
-        movement = false;
+        //CurrentPapa = Instantiate(Papa);
+        //CurrentPapa.transform.parent = Parent.transform;
+        //NewDialogue.transform.parent = CurrentPapa.transform;
     }
 
 
@@ -171,6 +175,8 @@ public class DialogueCode : MonoBehaviour
 
     IEnumerator ResumeGame()
     {
+        GameResuming = true;
+        Offset += 8;
         movement = true;
         CurrentOutfit.GetComponent<Animator>().Play("FarmerOutro");
         Businessmen[BossStage - 1].GetComponent<Animator>().Play("EnemyOutro");
@@ -190,7 +196,6 @@ public class DialogueCode : MonoBehaviour
         }
 
         WhichDialogue++;
-        movement = false;
         ConversationMode = false;
 
         Time.timeScale = 1;
@@ -210,7 +215,7 @@ public class DialogueCode : MonoBehaviour
                 WhichDialogue++;
                 StartCoroutine(Move());
 
-                Robotext = !Robotext;//This SHOULD swap the value of robotext
+                Robotext = !Robotext;//Swaps between wether its the dialogue or the oponent's turn to speak
             }
         }
     }
