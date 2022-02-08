@@ -51,11 +51,12 @@ public class DialogueCode : MonoBehaviour
     public GameObject Parent;
     public GameObject Papa;
     private GameObject CurrentPapa;
-    private Vector3 Direction = new Vector3(0, 0.038f, 0);
+    private Vector3 Direction = new Vector3(0, 10f, 0);
     private int Offset;
 
     private bool Robotext = true;
     private bool GameResuming;
+    private bool CanSkipDialogue;
 
     private void Update()
     {
@@ -128,7 +129,7 @@ public class DialogueCode : MonoBehaviour
 
         if (movement)
         {
-            Parent.transform.Translate(Direction, Space.World);
+            Parent.transform.Translate(Direction * Time.unscaledDeltaTime, Space.World);
 
             if(Parent.transform.position.y >= WhichDialogue * 2.5f + Offset)
             {
@@ -138,6 +139,7 @@ public class DialogueCode : MonoBehaviour
                     CurrentPapa.transform.parent = Parent.transform;
                     NewDialogue.transform.parent = CurrentPapa.transform;
                 }
+                CanSkipDialogue = true;
                 movement = false;
             }
         }
@@ -153,15 +155,14 @@ public class DialogueCode : MonoBehaviour
         NewDialogue.GetComponent<Animator>().Play("DialogueBoxIntro");
 
         GameResuming = false;
+        CanSkipDialogue = false;
         movement = true;
-        //CurrentPapa = Instantiate(Papa);
-        //CurrentPapa.transform.parent = Parent.transform;
-        //NewDialogue.transform.parent = CurrentPapa.transform;
     }
 
     IEnumerator Move()
     {
         GameResuming = false;
+        CanSkipDialogue = false;
         movement = true;
 
         if(Robotext)
@@ -175,15 +176,12 @@ public class DialogueCode : MonoBehaviour
         NewDialogue.GetComponent<Animator>().Play("DialogueBoxIntro");
 
         yield return new WaitForSecondsRealtime(0.3f);
-
-        //CurrentPapa = Instantiate(Papa);
-        //CurrentPapa.transform.parent = Parent.transform;
-        //NewDialogue.transform.parent = CurrentPapa.transform;
     }
 
 
     public void PreperationMode()//This is triggered by the boss
     {
+        CanSkipDialogue = false;
         WhichBoss = BossDefiner.GetComponent<NewCardHandScript>().RandomBoss;
         BossStage++;
         Robotext = true;
@@ -196,6 +194,7 @@ public class DialogueCode : MonoBehaviour
     {
         GameResuming = true;
         Offset += 8;
+        CanSkipDialogue = false;
         movement = true;
         CurrentOutfit.GetComponent<Animator>().Play("FarmerOutro");
         CurrentEnemies[BossStage - 1].GetComponent<Animator>().Play("EnemyOutro");
@@ -222,7 +221,7 @@ public class DialogueCode : MonoBehaviour
 
     private void DialogueManager()
     {
-        if (Input.GetKeyDown(KeyCode.Space))//have this be a button not a random key
+        if (Input.GetKeyDown(KeyCode.Space) && CanSkipDialogue == true)//have this be a button not a random key
         {
             if (WhichDialogue == 3 || WhichDialogue == 7 || WhichDialogue == 11 || WhichDialogue == 15)//Input any number after which the dialogue should end for each character in the Corporate battle
             {
