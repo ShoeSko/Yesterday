@@ -189,8 +189,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 11400000, guid: a8bd23d3ec60a4c4b8897d716d9a8cd0, type: 2}
+  enemyHealth: 0
   attackRange: 0.8
   attackPosition: {fileID: 4841129555665310197}
+  chosenByMom: 0
+  IsCorrupted: 0
 --- !u!212 &3188923526487577536
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -130,6 +130,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 772115726}
     m_Modifications:
+    - target: {fileID: 3703624841697138727, guid: 69a4e81b8aa9b9c478fddb8c528678a3, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3981910294360084574, guid: 69a4e81b8aa9b9c478fddb8c528678a3, type: 3}
       propertyPath: m_Name
       value: Reward_Choice_Pack1.1
