@@ -2854,6 +2854,7 @@ GameObject:
   m_Component:
   - component: {fileID: 264430443}
   - component: {fileID: 264430444}
+  - component: {fileID: 264430445}
   m_Layer: 0
   m_Name: Menu_screen_Sticker_dogo
   m_TagString: Untagged
@@ -2926,6 +2927,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &264430445
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 264430442}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5d488db2b3f4aef428f4ed91709b6918, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &265066077
 GameObject:
   m_ObjectHideFlags: 0
@@ -27906,6 +27926,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1853297293}
   - component: {fileID: 1853297294}
+  - component: {fileID: 1853297295}
   m_Layer: 0
   m_Name: Menu_screen_Sticker_robot
   m_TagString: Untagged
@@ -27978,6 +27999,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &1853297295
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1853297292}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 97bdb127e21156a40a771a9d7bf793d5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1863461824
 GameObject:
   m_ObjectHideFlags: 0
