@@ -64,6 +64,7 @@ public class FirstRunOfGame : MonoBehaviour
             saving.data.humanoidList = new bool[amountOfHumanoids];
             saving.data.monstrosityList = new bool[amountOfMonstrosities];
             saving.data.bossList = new bool[amountOfBosses];
+            saving.data.bossMeetList = new bool[amountOfBosses];
         }
     }
 

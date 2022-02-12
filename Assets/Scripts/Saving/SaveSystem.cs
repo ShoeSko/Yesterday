@@ -87,6 +87,7 @@ public class Data //Serializable class of data. All inf to be saved should be he
     public bool[] humanoidList;
     public bool[] monstrosityList;
     public bool[] bossList;
+    public bool[] bossMeetList;
 
     public int[] progressValueList;
 
@@ -96,7 +97,7 @@ public class Data //Serializable class of data. All inf to be saved should be he
     //public int enemiesKilled;
     //public int cardsSummoned;
 
-    public Data(bool isFirstRun, float masterVolLevel, float musicVolLevel, float sfxVolLevel, bool[] unitList, bool[] beastList, bool[] humanoidList, bool[] monstrosityList, bool[] bossList, string lastScene, int[] progressValueList, bool hasPlayedTutorial)
+    public Data(bool isFirstRun, float masterVolLevel, float musicVolLevel, float sfxVolLevel, bool[] unitList, bool[] beastList, bool[] humanoidList, bool[] monstrosityList, bool[] bossList, bool[] bossMeetList, string lastScene, int[] progressValueList, bool hasPlayedTutorial)
     {
         //First Run
         this.isFirstRun = isFirstRun;
@@ -111,6 +112,7 @@ public class Data //Serializable class of data. All inf to be saved should be he
         this.humanoidList = humanoidList;
         this.monstrosityList = monstrosityList;
         this.bossList = bossList;
+        this.bossMeetList = bossMeetList;
         //Progression map storage
         this.progressValueList = progressValueList;
         //Continue Function
