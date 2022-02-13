@@ -26,7 +26,6 @@ public class DialogueCode : MonoBehaviour
     private int BossStage;//How much damage has the boss taken already
 
     private bool Prepare;
-    private bool ConversationMode;
     private bool movement;
 
     public GameObject BossDefiner;
@@ -58,6 +57,8 @@ public class DialogueCode : MonoBehaviour
     private bool GameResuming;
     private bool CanSkipDialogue;
 
+    public GameObject NextButton;
+
     private void Update()
     {
         //cheatcode: Press 0 during a bossfight to activate the dialogue. This will automatically trigger when the boss takes damage (when i implement it)
@@ -72,10 +73,10 @@ public class DialogueCode : MonoBehaviour
             {
                 fadefloat += Time.deltaTime * 0.5f;
 
-                Color fadecolor = Dimmer.GetComponent<Renderer>().material.color;
+                Color fadecolor = Dimmer.GetComponent<SpriteRenderer>().color;
 
                 fadecolor = new Color(fadecolor.r, fadecolor.g, fadecolor.b, fadefloat);
-                Dimmer.GetComponent<Renderer>().material.color = fadecolor;
+                Dimmer.GetComponent<SpriteRenderer>().color = fadecolor;
             }
             else//Za Warudo
             {
@@ -115,15 +116,8 @@ public class DialogueCode : MonoBehaviour
 
                 StartCoroutine(Wait());//Wait until displaying the dialogue
 
-                ConversationMode = true;
+                Prepare = false;
             }
-        }
-
-        if (ConversationMode)//Trigger the correct void
-        {
-            Prepare = false;
-
-            DialogueManager();
         }
 
 
@@ -139,10 +133,15 @@ public class DialogueCode : MonoBehaviour
                     CurrentPapa.transform.parent = Parent.transform;
                     NewDialogue.transform.parent = CurrentPapa.transform;
                 }
-                CanSkipDialogue = true;
+                StartCoroutine(ButtonDelay());
                 movement = false;
             }
         }
+
+        if (CanSkipDialogue && !GameResuming)
+            NextButton.SetActive(true);
+        else
+            NextButton.SetActive(false);
     }
     IEnumerator Wait()
     {
@@ -178,6 +177,13 @@ public class DialogueCode : MonoBehaviour
         yield return new WaitForSecondsRealtime(0.3f);
     }
 
+    IEnumerator ButtonDelay()
+    {
+        yield return new WaitForSecondsRealtime(0.6f);
+
+        CanSkipDialogue = true;
+    }
+
 
     public void PreperationMode()//This is triggered by the boss
     {
@@ -203,10 +209,10 @@ public class DialogueCode : MonoBehaviour
 
         fadefloat = 0;
 
-        Color fadecolor = Dimmer.GetComponent<Renderer>().material.color;
+        Color fadecolor = Dimmer.GetComponent<SpriteRenderer>().color;
 
         fadecolor = new Color(fadecolor.r, fadecolor.g, fadecolor.b, fadefloat);
-        Dimmer.GetComponent<Renderer>().material.color = fadecolor;
+        Dimmer.GetComponent<SpriteRenderer>().color = fadecolor;
 
         for (int i = 0; i < HUDitems.Count; i++)//Turn off HUD (remember to turn it back on
         {
@@ -214,27 +220,23 @@ public class DialogueCode : MonoBehaviour
         }
 
         WhichDialogue++;
-        ConversationMode = false;
 
         Time.timeScale = 1;
     }
 
-    private void DialogueManager()
+    public void DialogueManager()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && CanSkipDialogue == true)//have this be a button not a random key
+        if (WhichDialogue == 3 || WhichDialogue == 7 || WhichDialogue == 11 || WhichDialogue == 15)//Input any number after which the dialogue should end for each character in the Corporate battle
         {
-            if (WhichDialogue == 3 || WhichDialogue == 7 || WhichDialogue == 11 || WhichDialogue == 15)//Input any number after which the dialogue should end for each character in the Corporate battle
-            {
-                //End dialogue
-                StartCoroutine(ResumeGame());
-            }
-            else
-            {
-                WhichDialogue++;
-                StartCoroutine(Move());
+            //End dialogue
+            StartCoroutine(ResumeGame());
+        }
+        else
+        {
+            WhichDialogue++;
+            StartCoroutine(Move());
 
-                Robotext = !Robotext;//Swaps between wether its the dialogue or the oponent's turn to speak
-            }
+            Robotext = !Robotext;//Swaps between wether its the dialogue or the oponent's turn to speak
         }
     }
 

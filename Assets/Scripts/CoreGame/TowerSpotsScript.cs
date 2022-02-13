@@ -38,7 +38,9 @@ public class TowerSpotsScript : MonoBehaviour
         Unit = CardValues.UnitPrefab;//Define unit 
 
 
-        ManaSystem.CurrentMana -= manacost;
+        if (!NuggetSpawnOnce)
+            ManaSystem.CurrentMana -= manacost;
+
         GameObject unit = Instantiate(Unit, buttonPos, transform.rotation);//spawn the correct unit
         unit.transform.SetParent(positionResetTransform, true);
         this.transform.SetParent(unit.transform, true);
@@ -52,12 +54,12 @@ public class TowerSpotsScript : MonoBehaviour
 
 
         //Nugget's ability
-        if (CardValues.card.cardName == "Nugget" && NuggetSpawnOnce == false)
+        if (CardValues.card.cardName == "Nugget" && !NuggetSpawnOnce)
         {
             towerSpots.SetActive(true);
             NuggetSpawnOnce = true;
         }
-        else if (CardValues.card.cardName == "Diva" && NuggetSpawnOnce == false)
+        else if (CardValues.card.cardName == "Diva" && !NuggetSpawnOnce)
         {
             towerSpots.SetActive(true);
             NuggetSpawnOnce = true;
@@ -87,7 +89,6 @@ public class TowerSpotsScript : MonoBehaviour
         {
             //print("Found " + towerSpots + " it was not this");
             transform.SetParent(towerSpots.transform, true);
-            //print("I run");
         }
     }
 
