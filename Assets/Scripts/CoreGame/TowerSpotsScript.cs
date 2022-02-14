@@ -54,6 +54,7 @@ public class TowerSpotsScript : MonoBehaviour
 
 
         //Nugget's ability
+
         if (CardValues.card.cardName == "Nugget" && !NuggetSpawnOnce)
         {
             towerSpots.SetActive(true);
