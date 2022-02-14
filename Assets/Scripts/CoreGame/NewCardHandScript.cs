@@ -158,6 +158,8 @@ public class NewCardHandScript : MonoBehaviour
     private int DialogueChange = 0;
     private bool ONCE = true;
 
+    public bool CantPlayCards;
+
     public List<AudioSource> VoiceDialogue = new List<AudioSource>();
     public List<AudioSource> VoiceWin = new List<AudioSource>();
     public List<AudioSource> VoiceLose = new List<AudioSource>();
@@ -261,9 +263,10 @@ public class NewCardHandScript : MonoBehaviour
 
     void Update()
     {
-        if(IWon == false)
+        if(!IWon)
         {
-            ManaCostDisplayer();
+            if(!CantPlayCards)
+                ManaCostDisplayer();
         }
         else
         {

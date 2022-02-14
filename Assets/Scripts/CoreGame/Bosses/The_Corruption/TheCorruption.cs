@@ -78,6 +78,8 @@ public class TheCorruption : MonoBehaviour
     public bool SaintDied;
     public GameObject Spawner;
     public List<GameObject> PlayedSaints = new List<GameObject>();//This will store all saints played in order to "un-sanctify" them 
+    private int MinimumSpawnDelay;
+    private int MaximumSpawnDelay;
 
 
     //Sound
@@ -97,6 +99,8 @@ public class TheCorruption : MonoBehaviour
         SuperSecretBalanceMechanic = 3;
         Health = 4;
         BossHealthbar.SetActive(false);//Sets his healthbar to inactive
+        MinimumSpawnDelay = 8;
+        MaximumSpawnDelay = 12;
     }
 
     public void Activate()
@@ -187,8 +191,8 @@ public class TheCorruption : MonoBehaviour
         {
             if((timer >= 17 && !SaintLives) || SaintDied)//Time window before the sanctuary disappears
             {
-                Spawner.GetComponent<EnemySpawning>().delayBetweenSpawnsMin = 8;
-                Spawner.GetComponent<EnemySpawning>().delayBetweenSpawnsMax = 12;
+                Spawner.GetComponent<EnemySpawning>().delayBetweenSpawnsMin = MinimumSpawnDelay;
+                Spawner.GetComponent<EnemySpawning>().delayBetweenSpawnsMax = MaximumSpawnDelay;
                 activeSpot.GetComponent<TowerSpotsScript>().IsSanctuary = false;
                 activeSpot.GetComponent<Image>().color = Color.black;
                 Destroy(sanctuary);
@@ -199,40 +203,46 @@ public class TheCorruption : MonoBehaviour
             {
                 SanctuaryTimer += Time.deltaTime;
 
-                //Halve the spawning time
-                Spawner.GetComponent<EnemySpawning>().delayBetweenSpawnsMin = 4;
-                Spawner.GetComponent<EnemySpawning>().delayBetweenSpawnsMax = 6;
+                //Reduce the spawning time
+                Spawner.GetComponent<EnemySpawning>().delayBetweenSpawnsMin = 2;
+                Spawner.GetComponent<EnemySpawning>().delayBetweenSpawnsMax = 3;
             }
 
             if(SanctuaryTimer >= 15)//Complete Purification
             {
                 Health--;
-                Desperate_Rage();
 
-                //Un-Sanctify all units to make sure the current saint won't mess with the next use of this ability
-                for (int Animal = 0; Animal < PlayedSaints.Count; Animal++)
+                if (Health > 0)
                 {
-                    if(PlayedSaints[Animal] != null)
+                    MinimumSpawnDelay--;
+                    MaximumSpawnDelay -= 2;
+
+                    Desperate_Rage();
+
+                    //Un-Sanctify all units to make sure the current saint won't mess with the next use of this ability
+                    for (int Animal = 0; Animal < PlayedSaints.Count; Animal++)
                     {
-                        PlayedSaints[Animal].GetComponent<UnitPrototypeScript>().IsSaint = false;
+                        if (PlayedSaints[Animal] != null)
+                        {
+                            PlayedSaints[Animal].GetComponent<UnitPrototypeScript>().IsSaint = false;
 
-                        PlayedSaints[Animal].GetComponent<UnitPrototypeScript>().UnSanctifyUnit();
+                            PlayedSaints[Animal].GetComponent<UnitPrototypeScript>().UnSanctifyUnit();
+                        }
                     }
-                } 
-                Spawner.GetComponent<EnemySpawning>().delayBetweenSpawnsMin = 8;
-                Spawner.GetComponent<EnemySpawning>().delayBetweenSpawnsMax = 12;
-                activeSpot.GetComponent<TowerSpotsScript>().IsSanctuary = false;
-                activeSpot.GetComponent<Image>().color = Color.black;
-                Destroy(sanctuary);
-                SanctuaryPlaced = false;
+                    Spawner.GetComponent<EnemySpawning>().delayBetweenSpawnsMin = MinimumSpawnDelay;
+                    Spawner.GetComponent<EnemySpawning>().delayBetweenSpawnsMax = MaximumSpawnDelay;
+                    activeSpot.GetComponent<TowerSpotsScript>().IsSanctuary = false;
+                    activeSpot.GetComponent<Image>().color = Color.black;
+                    Destroy(sanctuary);
+                    SanctuaryPlaced = false;
 
-                if(Health != 0)
                     DialogueCode.GetComponent<DialogueCode>().PreperationMode();
+                }
             }
 
         }
 
-        if (Health == 0)
+        if (Health <= 0)
             IsDead = true;
 
         if (IsDead == true)

@@ -58,11 +58,13 @@ public class TowerSpotsScript : MonoBehaviour
         {
             towerSpots.SetActive(true);
             NuggetSpawnOnce = true;
+            card.GetComponent<NewCardHandScript>().CantPlayCards = true;
         }
         else if (CardValues.card.cardName == "Diva" && !NuggetSpawnOnce)
         {
             towerSpots.SetActive(true);
             NuggetSpawnOnce = true;
+            card.GetComponent<NewCardHandScript>().CantPlayCards = true;
         }
         else
         {
@@ -73,6 +75,7 @@ public class TowerSpotsScript : MonoBehaviour
             NewCardHandScript.s_cardWasPlayer = true;
             card.GetComponent<NewCardHandScript>().ReSetCard();
             NuggetSpawnOnce = false;
+            card.GetComponent<NewCardHandScript>().CantPlayCards = false;
         }
 
         if (IsSanctuary)//BossEffect
