@@ -263,10 +263,14 @@ public class NewCardHandScript : MonoBehaviour
 
     void Update()
     {
-        if(!IWon)
+        if (CantPlayCards)
+            enlargeButton.SetActive(false);
+        else
+            enlargeButton.SetActive(true);
+
+        if (!IWon)
         {
-            if(!CantPlayCards)
-                ManaCostDisplayer();
+            ManaCostDisplayer();
         }
         else
         {
@@ -479,8 +483,7 @@ public class NewCardHandScript : MonoBehaviour
     #region ManaDisplay & Enlarge/Reduce buttons
     private void ManaCostDisplayer()
     {
-
-        if (ManaSystem.CurrentMana >= ManaCost1 && isManaCardGlow1 && !Card1Corrupted)
+        if (ManaSystem.CurrentMana >= ManaCost1 && isManaCardGlow1 && !Card1Corrupted && !CantPlayCards)
         {
             if (Smallhand)
                 CardButton1S.SetActive(true);
@@ -493,7 +496,7 @@ public class NewCardHandScript : MonoBehaviour
             CardButton1L.SetActive(false);
         }
 
-        if (ManaSystem.CurrentMana >= ManaCost2 && isManaCardGlow2 && !Card2Corrupted)
+        if (ManaSystem.CurrentMana >= ManaCost2 && isManaCardGlow2 && !Card2Corrupted && !CantPlayCards)
         {
             if (Smallhand)
                 CardButton2S.SetActive(true);
@@ -506,7 +509,7 @@ public class NewCardHandScript : MonoBehaviour
             CardButton2L.SetActive(false);
         }
 
-        if (ManaSystem.CurrentMana >= ManaCost3 && isManaCardGlow3 && !Card3Corrupted)
+        if (ManaSystem.CurrentMana >= ManaCost3 && isManaCardGlow3 && !Card3Corrupted && !CantPlayCards)
         {
             if (Smallhand)
                 CardButton3S.SetActive(true);
@@ -519,7 +522,7 @@ public class NewCardHandScript : MonoBehaviour
             CardButton3L.SetActive(false);
         }
 
-        if (ManaSystem.CurrentMana >= ManaCost4 && isManaCardGlow4 && !Card4Corrupted)
+        if (ManaSystem.CurrentMana >= ManaCost4 && isManaCardGlow4 && !Card4Corrupted && !CantPlayCards)
         {
             if (Smallhand)
                 CardButton4S.SetActive(true);
@@ -532,7 +535,7 @@ public class NewCardHandScript : MonoBehaviour
             CardButton4L.SetActive(false);
         }
 
-        if (ManaSystem.CurrentMana >= ManaCost5 && isManaCardGlow5 && !Card5Corrupted)
+        if (ManaSystem.CurrentMana >= ManaCost5 && isManaCardGlow5 && !Card5Corrupted && !CantPlayCards)
         {
             if (Smallhand)
                 CardButton5S.SetActive(true);
@@ -544,7 +547,6 @@ public class NewCardHandScript : MonoBehaviour
             CardButton5S.SetActive(false);
             CardButton5L.SetActive(false);
         }
-
     }
 
     public void EnlargeButtonPressed()//enlarge your hand
