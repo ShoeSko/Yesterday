@@ -56,6 +56,7 @@ public class DialogueCode : MonoBehaviour
     private bool Robotext = true;
     private bool GameResuming;
     private bool CanSkipDialogue;
+    private bool GamePaused;
 
     public GameObject NextButton;
 
@@ -85,7 +86,7 @@ public class DialogueCode : MonoBehaviour
                     HUDitems[i].SetActive(false);
                 }
 
-                Time.timeScale = 0;
+                GamePaused = true;
                 RandomOutfit = Random.Range(0, Robot.Count);
                 CurrentOutfit = Robot[RandomOutfit];
                 CurrentOutfit.GetComponent<Animator>().Play("FarmerIntro");
@@ -142,6 +143,9 @@ public class DialogueCode : MonoBehaviour
             NextButton.SetActive(true);
         else
             NextButton.SetActive(false);
+
+        if (GamePaused)
+            Time.timeScale = 0;
     }
     IEnumerator Wait()
     {
@@ -221,6 +225,7 @@ public class DialogueCode : MonoBehaviour
 
         WhichDialogue++;
 
+        GamePaused = false;
         Time.timeScale = 1;
     }
 

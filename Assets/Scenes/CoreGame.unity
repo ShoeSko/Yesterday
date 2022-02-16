@@ -28314,7 +28314,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BossTesting: 1
-  whichBoss: 3
+  whichBoss: 1
   DevStageTest: 1
   whichStage: 3
   Smallhand: 1
@@ -28433,6 +28433,7 @@ MonoBehaviour:
   - {fileID: 1288200704}
   LookForEnemies: 0
   MenuReturn: {fileID: 366520314}
+  CantPlayCards: 0
   VoiceDialogue:
   - {fileID: 1368568103}
   - {fileID: 1357717221}

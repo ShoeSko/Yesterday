@@ -486,9 +486,9 @@ public class UnitPrototypeScript : MonoBehaviour
         {
             countdown += Time.deltaTime;
 
-            if (health <= 750 && countdown >= 20)
+            if (health <= 750 && countdown >= 15)
             {
-                health += 20;
+                health += 25;
                 countdown = 0;
             }
         }
@@ -510,9 +510,9 @@ public class UnitPrototypeScript : MonoBehaviour
         {
             countdown += Time.deltaTime;
 
-            if(countdown >= 20)
+            if(countdown >= 10)
             {
-                knockbackPower = knockbackPower * 1.2f;
+                knockbackPower = knockbackPower * 1.1f;
 
                 countdown = 0;
             }
