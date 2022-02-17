@@ -235,6 +235,7 @@ GameObject:
   m_Component:
   - component: {fileID: 436185968}
   - component: {fileID: 436185969}
+  - component: {fileID: 436185970}
   m_Layer: 0
   m_Name: Boss_Moth_Body
   m_TagString: Untagged
@@ -250,7 +251,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 436185967}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 8.9, y: -1.77, z: 0}
+  m_LocalPosition: {x: 8.9, y: -1.77, z: -1.65}
   m_LocalScale: {x: 1.0080855, y: 1.0080855, z: 1.0080855}
   m_Children: []
   m_Father: {fileID: 641426635}
@@ -307,6 +308,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &436185970
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 436185967}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d11bc896b1914c146917a050dbd5d150, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &480800729
 GameObject:
   m_ObjectHideFlags: 0
@@ -540,29 +560,40 @@ MonoBehaviour:
   - {fileID: 1162871297}
   - {fileID: 436185967}
   - {fileID: 903960950}
+  Robot: {fileID: 364697649}
   RobotDialogue: {fileID: 551011565}
   EnemyDialogue: {fileID: 1608773606}
   Corporatedialogue:
-  - CORP1
-  - CORP2
-  - CORP3
-  - CORP4
-  - CORP5
-  - CORP6
+  - Ouch, my head! Alas, you have my gratitude for freeing me from this thing.
+  - "You\u2019re welcome. But what was that, what happened to you?"
+  - "I-I don\u2019t really know. The last thing I remember was this purple shadow,
+    and an immense sense of greed came washing over me."
+  - 'Do you have any idea what could have caused this? '
+  - 'Unfortunately no, but i have noticed that whatever this is started affecting
+    not only humans, but animals from the forest nearby too. '
+  - 'Hmm.. In that case I should go check it out and hope to learn more about this
+    affliction. '
   Guardiandialogue:
-  - MOTH1
-  - MOTH2
-  - MOTH3
-  - MOTH4
-  - MOTH5
-  - MOTH6
+  - 'Good evening, small mechanical creature. I thank thee for coming to my aid. '
+  - 'No worries! What happened to this forest, why were your animals different from
+    mine? '
+  - 'Something rotten has taken seed in here, The Corruption, we call it. It slowly
+    oozes its madness, driving every living creature to the brink of insanity. '
+  - "How come i wasn\u2019t affected by it? And why is my owner\u2019s farm completely
+    untouched? "
+  - "You seem resistant to its effects. As to your farm, since it couldn\u2019t corrupt
+    it, this creature used us instead. Now that it has lost its allies, I can sense
+    its anger. "
+  - "Looks like this \u201Ccorruption\u201D will take things into its own hands now,
+    i have to be ready for it. "
   Corruptiondialogue:
-  - CORR1
-  - CORR2
-  - CORR3
-  - CORR4
-  - CORR5
-  - CORR6
+  - 'WHAT IS THIS, WHAT ARE YOU '
+  - 'Your corruption has been purged, this fight is over. '
+  - "HOW DID HE KNOW, HOW DID HE DO IT, WHY CAN\u2019T YOU FEEL ME "
+  - "Actually I thought you would answer me, but it seems you don\u2019t even know
+    yourself. "
+  - 'THAT DAMNED SCIENTIST WAS EVEN SMARTER THAN I THOUGHT '
+  - 'Quiet down your screams now, your grasp over this city is no more. '
   Parent: {fileID: 1386898551}
   Papa: {fileID: 1962994029}
   NextButton: {fileID: 1482962839}
@@ -812,8 +843,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.06298828, y: 1.3409383}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 0.06298828, y: 0.76}
+  m_SizeDelta: {x: 149.9, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &738544745
 MonoBehaviour:
@@ -1053,6 +1084,7 @@ GameObject:
   m_Component:
   - component: {fileID: 903960952}
   - component: {fileID: 903960951}
+  - component: {fileID: 903960953}
   m_Layer: 0
   m_Name: TheCorruptionPlaceholder
   m_TagString: Untagged
@@ -1119,12 +1151,31 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 903960950}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 9.23, y: -0.3, z: 0}
+  m_LocalPosition: {x: 9.23, y: -0.3, z: -1.65}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 641426635}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &903960953
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 903960950}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d11bc896b1914c146917a050dbd5d150, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &904784970
 GameObject:
   m_ObjectHideFlags: 0
@@ -1201,6 +1252,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1162871299}
   - component: {fileID: 1162871298}
+  - component: {fileID: 1162871300}
   m_Layer: 0
   m_Name: Boss_Corp_Body_Default
   m_TagString: Untagged
@@ -1267,12 +1319,31 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1162871297}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7.18, y: -0.4, z: 0}
+  m_LocalPosition: {x: 7.18, y: -0.4, z: -1.65}
   m_LocalScale: {x: 0.4157014, y: 0.4157014, z: 0.4157014}
   m_Children: []
   m_Father: {fileID: 641426635}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1162871300
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1162871297}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d11bc896b1914c146917a050dbd5d150, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1386898551
 GameObject:
   m_ObjectHideFlags: 0

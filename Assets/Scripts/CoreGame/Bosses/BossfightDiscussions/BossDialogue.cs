@@ -8,6 +8,7 @@ public class BossDialogue : MonoBehaviour
     public static int Boss;//0 = Corp, 1 = Moth, 2 = Corruption
 
     public List<GameObject> bossObject = new List<GameObject>();
+    public GameObject Robot;
 
     private bool movement;
 
@@ -39,9 +40,13 @@ public class BossDialogue : MonoBehaviour
     void Start()
     {
         //cheatcode for testing
-        //Boss = 0;
+        Boss = 1;
 
         bossObject[Boss].SetActive(true);
+
+        bossObject[Boss].GetComponent<Animator>().Play("EnemyIntro");
+        Robot.GetComponent<Animator>().Play("FarmerIntro");
+
         PreperationMode();
     }
 
@@ -66,6 +71,12 @@ public class BossDialogue : MonoBehaviour
             NextButton.SetActive(true);
         else
             NextButton.SetActive(false);
+
+
+        if (WhichDialogue == 5)
+        {
+            bossObject[Boss].GetComponent<Animator>().Play("EnemyOutro");
+        }
     }
 
     IEnumerator Wait()
@@ -125,15 +136,16 @@ public class BossDialogue : MonoBehaviour
         }
 
         Robotext = true;
+
         StartCoroutine(Wait());//Wait until displaying the dialogue
     }
 
     public void DialogueManager()
     {
-        Debug.Log("I got here");
         if (WhichDialogue == 5)//Input any number after which the dialogue should end for each character in the Corporate battle
         {
             //End dialogue
+            Robot.GetComponent<Animator>().Play("FarmerOutro");
             FinishButton.GetComponent<LevelTransitionSystem>().VictoryButtonPress();
         }
         else
