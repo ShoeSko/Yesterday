@@ -65,4 +65,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/IntroCutscene.unity
     guid: 31a5be2857844d24588a6a1d5bf54508
+  - enabled: 1
+    path: Assets/Scenes/ConversationScene.unity
+    guid: 158d412935cb9184d8116a8dafe9b43b
   m_configObjects: {}

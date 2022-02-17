@@ -120,6 +120,11 @@ public class TheGuardian : MonoBehaviour
                 CD3--;
                 timer = 0;
             }
+
+            if (Input.GetKey(KeyCode.Alpha5) && Input.GetKeyDown(KeyCode.Alpha7))//cheat to damage boss
+            {
+                Health--;
+            }
         }
 
         if(UsedEclipse == true)//The "Eclipse" ability
@@ -156,6 +161,7 @@ public class TheGuardian : MonoBehaviour
 
         if(IsDead == true)
         {
+            BossDialogue.Boss = 1;
             if (!hasBeenDefeated)
             {
                 WinCondition.GetComponent<Victory>().Win();

@@ -21,7 +21,12 @@ public class LevelTransitionSystem : MonoBehaviour
         NewCardHandScript.Stage++;
         Debug.Log(NewCardHandScript.Stage);
 
-        if (NewCardHandScript.Stage >= 4)
+        if (NewCardHandScript.Stage == 4)
+        {
+            nextLevelName = "ConversationScene";
+        }
+
+        if (NewCardHandScript.Stage >= 5)
         {
             nextLevelName = "Credits";
             if (FindObjectOfType<SaveSystem>())

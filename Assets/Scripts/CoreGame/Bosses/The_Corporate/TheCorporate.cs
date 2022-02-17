@@ -155,10 +155,16 @@ public class TheCorporate : MonoBehaviour
                 CD3--;
                 timer = 0;
             }
+
+            if (Input.GetKey(KeyCode.Alpha5) && Input.GetKeyDown(KeyCode.Alpha7))//cheat to damage boss
+            {
+                Health--;
+            }
         }
 
          if (Health == 0)
         {
+            BossDialogue.Boss = 0;
             isDead = true;
         }
 
