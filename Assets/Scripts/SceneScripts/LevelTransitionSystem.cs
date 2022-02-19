@@ -11,6 +11,7 @@ public class LevelTransitionSystem : MonoBehaviour
 
     [HideInInspector] public int currentMinigameScore;
     [SerializeField] private Color hideButtonColour;
+    [HideInInspector] public bool GoToCredits;
 
     #region Core Game
     public void VictoryButtonPress()
@@ -28,7 +29,12 @@ public class LevelTransitionSystem : MonoBehaviour
 
         if (NewCardHandScript.Stage >= 5)
         {
-            nextLevelName = "Credits";
+            if (GoToCredits)
+                nextLevelName = "Credits";
+            else
+                nextLevelName = "MainMenu";
+
+
             if (FindObjectOfType<SaveSystem>())
             {
                 FindObjectOfType<SaveSystem>().data.lastScene = null;

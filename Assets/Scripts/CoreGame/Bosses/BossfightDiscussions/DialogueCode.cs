@@ -37,6 +37,7 @@ public class DialogueCode : MonoBehaviour
 
     public GameObject RobotDialogue;
     public GameObject EnemyDialogue;
+    public Text EnemyDialoguetext;
     private GameObject NewDialogue;
     private List<GameObject> Messages = new List<GameObject>();
 
@@ -59,6 +60,10 @@ public class DialogueCode : MonoBehaviour
     private bool GamePaused;
 
     public GameObject NextButton;
+
+    private Color CorporateColor = new Color(0.8113208f, 0.2104842f, 0.2104842f, 1);
+    private Color GuardianColor = new Color(0.2010959f, 0.1251335f, 0.7169812f, 1);
+    private Color CorruptionColor = new Color(0.6315554f, 0, 0.8396226f, 1);
 
     private void Update()
     {
@@ -95,17 +100,20 @@ public class DialogueCode : MonoBehaviour
                 {
                     Currentdialogue = Corporatedialogue;
                     CurrentEnemies = Businessmen;
+                    EnemyDialoguetext.color = CorporateColor;
                 }
                 else if (WhichBoss == 2)
                 {
                     Currentdialogue = Guardiandialogue;
                     CurrentEnemies = Beasts;
+                    EnemyDialoguetext.color = GuardianColor;
                 }
                 else if (WhichBoss == 3)
                 {
                     Currentdialogue = Corruptiondialogue;
                     CurrentEnemies = Corruptions;
                     CurrentEnemies[BossStage - 1].GetComponent<SpriteRenderer>().sprite = CorruptionSprites[BossStage - 1];
+                    EnemyDialoguetext.color = CorruptionColor;
                 }
 
                 for (int i = 0; i < CurrentEnemies.Count; i++)//Turn on correct the enemies

@@ -9,11 +9,14 @@ public class BossDialogue : MonoBehaviour
 
     public List<GameObject> bossObject = new List<GameObject>();
     public GameObject Robot;
+    public GameObject FriendlyCorp;
+    public GameObject FriendlyMoth;
 
     private bool movement;
 
     public GameObject RobotDialogue;
     public GameObject EnemyDialogue;
+    public Text EnemyDialoguetext;
     private GameObject NewDialogue;
     private List<GameObject> Messages = new List<GameObject>();
 
@@ -36,11 +39,28 @@ public class BossDialogue : MonoBehaviour
     public GameObject NextButton;
     public GameObject FinishButton;
 
+    private Color CorporateColor = new Color(0.8113208f, 0.2104842f, 0.2104842f, 1);
+    private Color GuardianColor = new Color(0.2010959f, 0.1251335f, 0.7169812f, 1);
+    private Color CorruptionColor = new Color(0.6315554f, 0, 0.8396226f, 1);
+
+    private bool CanChangeColor;
+
 
     void Start()
     {
         //cheatcode for testing
-        Boss = 1;
+        //Boss = 2;
+
+        if(Boss == 0)
+            EnemyDialoguetext.color = CorporateColor;
+        else if(Boss == 1)
+            EnemyDialoguetext.color = GuardianColor;
+        else
+        {
+            EnemyDialoguetext.color = CorruptionColor;
+            FriendlyMoth.SetActive(true);
+            FriendlyCorp.SetActive(true);
+        }
 
         bossObject[Boss].SetActive(true);
 
@@ -73,9 +93,31 @@ public class BossDialogue : MonoBehaviour
             NextButton.SetActive(false);
 
 
-        if (WhichDialogue == 5)
+        if (WhichDialogue == 5 && Boss != 2)
         {
             bossObject[Boss].GetComponent<Animator>().Play("EnemyOutro");
+        }
+        else if(WhichDialogue == 7)
+        {
+            bossObject[Boss].GetComponent<Animator>().Play("EnemyOutro");
+        }
+
+
+        if (CanChangeColor)
+        {
+            if (Boss == 2)
+            {
+                if (WhichDialogue == 3 || WhichDialogue == 8)
+                {
+                    print("i change color");
+                    CurrentText.color = CorporateColor;
+                }
+                else if (WhichDialogue == 5 || WhichDialogue == 9)
+                {
+                    print("i change color");
+                    CurrentText.color = GuardianColor;
+                }
+            }
         }
     }
 
@@ -86,8 +128,8 @@ public class BossDialogue : MonoBehaviour
         NewDialogue = Instantiate(EnemyDialogue);
         Messages.Add(NewDialogue);
         CurrentText = NewDialogue.transform.GetChild(0).gameObject.GetComponent<Text>();
-        Debug.Log("I got here4");
         CurrentText.text = Currentdialogue[WhichDialogue];
+
         NewDialogue.GetComponent<Animator>().Play("DialogueBoxIntro");
 
         CanSkipDialogue = false;
@@ -119,6 +161,32 @@ public class BossDialogue : MonoBehaviour
         CanSkipDialogue = true;
     }
 
+    IEnumerator FriendlyCorporateIntroduction()
+    {
+        FriendlyCorp.GetComponent<Animator>().Play("FriendlyCorporateIntro");
+        CanSkipDialogue = false;
+        CanChangeColor = false;
+
+        yield return new WaitForSecondsRealtime(1.4f);
+
+        StartCoroutine(Move());
+        Robotext = !Robotext;
+        CanChangeColor = true;
+    }
+
+    IEnumerator FriendlyGuardianIntroduction()
+    {
+        FriendlyMoth.GetComponent<Animator>().Play("FriendlyGuardianIntro");
+        CanSkipDialogue = false;
+        CanChangeColor = false;
+
+        yield return new WaitForSecondsRealtime(1.4f);
+
+        StartCoroutine(Move());
+        Robotext = !Robotext;
+        CanChangeColor = true;
+    }
+
 
     public void PreperationMode()//This is triggered by the boss
     {
@@ -142,18 +210,54 @@ public class BossDialogue : MonoBehaviour
 
     public void DialogueManager()
     {
-        if (WhichDialogue == 5)//Input any number after which the dialogue should end for each character in the Corporate battle
+        if(Boss != 2)
         {
-            //End dialogue
-            Robot.GetComponent<Animator>().Play("FarmerOutro");
-            FinishButton.GetComponent<LevelTransitionSystem>().VictoryButtonPress();
+            if (WhichDialogue == 5)//Input any number after which the dialogue should end for each character in the Corporate battle
+            {
+                //End dialogue
+                Robot.GetComponent<Animator>().Play("FarmerOutro");
+                FinishButton.GetComponent<LevelTransitionSystem>().VictoryButtonPress();
+            }
+            else
+            {
+                WhichDialogue++;
+                StartCoroutine(Move());
+
+                Robotext = !Robotext;//Swaps between wether its the dialogue or the oponent's turn to speak
+            }
         }
         else
         {
-            WhichDialogue++;
-            StartCoroutine(Move());
+            if(WhichDialogue == 10)
+            {
+                Robot.GetComponent<Animator>().Play("FarmerOutro");
+                FriendlyMoth.GetComponent<Animator>().Play("FriendlyGuardianOutro");
+                FriendlyCorp.GetComponent<Animator>().Play("FriendlyCorporateOutro");
+                FinishButton.GetComponent<LevelTransitionSystem>().GoToCredits = true;
+                FinishButton.GetComponent<LevelTransitionSystem>().VictoryButtonPress();
+            }
+            else
+            {
+                WhichDialogue++;
 
-            Robotext = !Robotext;//Swaps between wether its the dialogue or the oponent's turn to speak
+                if(WhichDialogue == 3)
+                {
+                    //do corp intro
+                    StartCoroutine(FriendlyCorporateIntroduction());
+                }
+                else if(WhichDialogue == 5)
+                {
+                    //do mom intro
+                    StartCoroutine(FriendlyGuardianIntroduction());
+                }
+                else
+                {
+                    StartCoroutine(Move());
+
+                    if(WhichDialogue < 7)
+                        Robotext = !Robotext;//Swaps between wether its the dialogue or the oponent's turn to speak
+                }
+            }
         }
     }
 
