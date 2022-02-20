@@ -165,6 +165,7 @@ public class TheCorporate : MonoBehaviour
          if (Health == 0)
         {
             BossDialogue.Boss = 0;
+            GJcanvas.DefeatedCorporate = true;
             isDead = true;
         }
 

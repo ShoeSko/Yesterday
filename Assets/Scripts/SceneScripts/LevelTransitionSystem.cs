@@ -32,7 +32,7 @@ public class LevelTransitionSystem : MonoBehaviour
             if (GoToCredits)
                 nextLevelName = "Credits";
             else
-                nextLevelName = "MainMenu";
+                nextLevelName = "FirstScene";
 
 
             if (FindObjectOfType<SaveSystem>())

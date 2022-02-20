@@ -209,8 +209,8 @@ public class TheCorruption : MonoBehaviour
                 SanctuaryTimer += Time.deltaTime;
 
                 //Reduce the spawning time
-                Spawner.GetComponent<EnemySpawning>().delayBetweenSpawnsMin = 2;
-                Spawner.GetComponent<EnemySpawning>().delayBetweenSpawnsMax = 3;
+                Spawner.GetComponent<EnemySpawning>().delayBetweenSpawnsMin = 3;
+                Spawner.GetComponent<EnemySpawning>().delayBetweenSpawnsMax = 4;
             }
 
             if(SanctuaryTimer >= 15)//Complete Purification

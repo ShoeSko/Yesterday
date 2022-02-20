@@ -32,6 +32,8 @@ public class BasicEnemyMovement : MonoBehaviour
     public bool chosenByMom;
     public bool IsCorrupted;
     private Color CorruptedColor = new Color(0.6315554f, 0, 0.8396226f, 1);
+    private Color PoisonedColor = new Color(0.4447657f, 0.6792453f, 0.1569954f, 1);
+    private Color StandardColor = new Color(1, 1, 1, 1);
 
     [Header("Enemy confirmation for Animation")]
     [Tooltip("Is the Enemy Merry, so that her animation will play")] private bool isMerry;
@@ -436,7 +438,7 @@ public class BasicEnemyMovement : MonoBehaviour
 
             if (timer >= 1)//After 1 second
             {
-                enemyHealth = enemyHealth - Poison * 3;
+                enemyHealth = enemyHealth - Poison * 3;//3 damage per poison stack
                 Debug.Log("Poison: " + Poison);
                 Debug.Log("Health: " + enemyHealth);
                 Poison--;//Reduce the poison stack by 1
