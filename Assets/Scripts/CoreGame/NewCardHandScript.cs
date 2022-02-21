@@ -29,6 +29,7 @@ public class NewCardHandScript : MonoBehaviour
 
     private int card;
     public int RandomBoss;
+    public bool isCampaign;
 
     [Header("Spawners")]
     public static int Stage;//Which stage is the player on? (Will define which enemies spawn)
@@ -202,8 +203,22 @@ public class NewCardHandScript : MonoBehaviour
             BG_Evening.SetActive(false);
             BG_Night.SetActive(true);
 
-            if (!BossTesting)
+            if (BossTesting)
                 RandomBoss = Random.Range(1, 3);//Simple boss randomiser
+            else if (isCampaign)
+            {
+                if (FindObjectOfType<SaveSystem>())
+                {
+                    SaveSystem saving = FindObjectOfType<SaveSystem>();
+                    for (int currentBoss = 2; currentBoss >= 0; currentBoss--)
+                    {
+                        if(saving.data.bossList[currentBoss] == false)
+                        {
+                            RandomBoss = currentBoss++;
+                        }
+                    }
+                }
+            }
             else
                 RandomBoss = whichBoss;
             
@@ -884,6 +899,17 @@ public class NewCardHandScript : MonoBehaviour
         {
             if (BossTesting == true)
                 RandomBoss = whichBoss;//Set this number to the boss you want to test // Added a variable that can be accesed from outside the script. More usefull for testing.
+
+            #region Boos Meet n Greet
+            if (!BossTesting)
+            {
+                if (FindObjectOfType<SaveSystem>())
+                {
+                    SaveSystem saving = FindObjectOfType<SaveSystem>();
+                    saving.data.bossMeetList[RandomBoss--] = true;
+                }
+            }
+            #endregion
 
             if (RandomBoss == 1)
             {

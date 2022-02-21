@@ -256,7 +256,7 @@ public class TheCorruption : MonoBehaviour
             if (!hasBeenDefeated)
             {
                 WinCondition.GetComponent<Victory>().Win();
-                //AddBossDefeatToBestiary(); //Sebastian please fix this, i dont know what to do
+                AddBossDefeatToBestiary();
                 hasBeenDefeated = true;
             }
         }
@@ -515,4 +515,16 @@ public class TheCorruption : MonoBehaviour
             else Desperate_Rage();
         }
     }
+
+    #region Bestiary
+    private void AddBossDefeatToBestiary()
+    {
+        if (FindObjectOfType<SaveSystem>())
+        {
+            SaveSystem saving = FindObjectOfType<SaveSystem>();
+
+            saving.data.bossList[2] = true; //Boss index 0 has been defeated Corruption.
+        }
+    }
+    #endregion
 }

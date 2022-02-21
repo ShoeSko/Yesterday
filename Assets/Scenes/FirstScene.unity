@@ -244,7 +244,7 @@ MonoBehaviour:
   amountOfBeasts: 4
   amountOfHumanoids: 7
   amountOfMonstrosities: 3
-  amountOfBosses: 2
+  amountOfBosses: 3
   amountOfStops: 12
 --- !u!1 &736383880
 GameObject:
@@ -369,6 +369,7 @@ MonoBehaviour:
     humanoidList: 
     monstrosityList: 
     bossList: 
+    bossMeetList: 
     progressValueList: 
     lastScene: 
 --- !u!4 &769017276
