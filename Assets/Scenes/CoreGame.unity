@@ -28316,7 +28316,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BossTesting: 0
   whichBoss: 3
-  DevStageTest: 0
+  DevStageTest: 1
   whichStage: 3
   Smallhand: 1
   PlayedCard: {fileID: 0}

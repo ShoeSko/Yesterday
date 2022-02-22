@@ -204,23 +204,31 @@ public class NewCardHandScript : MonoBehaviour
             BG_Night.SetActive(true);
 
             if (BossTesting)
+            {
                 RandomBoss = whichBoss;//Simple boss randomiser
+                print("boss testing is on????");
+            }
             else if (isCampaign)
             {
+                print("the campaign is on");
                 if (FindObjectOfType<SaveSystem>())
                 {
+                    print("And the save system exists");
                     SaveSystem saving = FindObjectOfType<SaveSystem>();
-                    for (int currentBoss = 2; currentBoss >= 0; currentBoss--)
+                    for (int currentBoss = 2; currentBoss >= 0; currentBoss--)//This for loop crashes the game for some reason
                     {
                         if (saving.data.bossList[currentBoss] == false)
                         {
                             RandomBoss = currentBoss++;
+                            Debug.Log("Random boss is" + RandomBoss);
                         }
                     }
                 }
             }
             else
+            {
                 RandomBoss = Random.Range(1, 3);
+            }
 
             BossIntro.GetComponent<Corporate_Intro>().PlayIntro();
         }
