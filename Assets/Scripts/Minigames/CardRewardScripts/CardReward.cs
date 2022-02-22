@@ -34,6 +34,8 @@ public class CardReward : MonoBehaviour
     public GameObject Overview;
     public GameObject ViewView;
 
+    public GameObject DeckViewList;
+
     private bool ChosenUnits;
 
 
@@ -96,6 +98,8 @@ public class CardReward : MonoBehaviour
                 randomize2Cards();
             if (Stars == 1)
                 randomize1Cards();
+
+            DeckViewList.GetComponent<DeckView>().CreateList();
         }
         else//Tutorial settings
         {
@@ -103,6 +107,7 @@ public class CardReward : MonoBehaviour
             DialogueChange = 0;
             view1Button.SetActive(false);
             choose1Button.SetActive(false);
+            DeckViewList.SetActive(false);
 
             RobotWave.SetActive(true);
             SpeechBubble.SetActive(true);

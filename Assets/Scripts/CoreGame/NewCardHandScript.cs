@@ -29,7 +29,7 @@ public class NewCardHandScript : MonoBehaviour
 
     private int card;
     public int RandomBoss;
-    public bool isCampaign;
+    public static bool isCampaign;
 
     [Header("Spawners")]
     public static int Stage;//Which stage is the player on? (Will define which enemies spawn)
@@ -204,7 +204,7 @@ public class NewCardHandScript : MonoBehaviour
             BG_Night.SetActive(true);
 
             if (BossTesting)
-                RandomBoss = Random.Range(1, 3);//Simple boss randomiser
+                RandomBoss = whichBoss;//Simple boss randomiser
             else if (isCampaign)
             {
                 if (FindObjectOfType<SaveSystem>())
@@ -212,7 +212,7 @@ public class NewCardHandScript : MonoBehaviour
                     SaveSystem saving = FindObjectOfType<SaveSystem>();
                     for (int currentBoss = 2; currentBoss >= 0; currentBoss--)
                     {
-                        if(saving.data.bossList[currentBoss] == false)
+                        if (saving.data.bossList[currentBoss] == false)
                         {
                             RandomBoss = currentBoss++;
                         }
@@ -220,8 +220,8 @@ public class NewCardHandScript : MonoBehaviour
                 }
             }
             else
-                RandomBoss = whichBoss;
-            
+                RandomBoss = Random.Range(1, 3);
+
             BossIntro.GetComponent<Corporate_Intro>().PlayIntro();
         }
 

@@ -27,6 +27,8 @@ public class DeckScript : MonoBehaviour
     public int Rodents;//For SquirrelFamily card
     public int Shiburais;
 
+    public static bool AddStartingCards;
+
 
     void Start()
     {
@@ -38,9 +40,13 @@ public class DeckScript : MonoBehaviour
         }
         else
         {
-            Deck.Add(CowCard);//the starting cards 
-            Deck.Add(Chikin);//the starting cards 
-            Deck.Add(Sheep);//the starting cards 
+            if (!AddStartingCards)
+            {
+                Deck.Add(CowCard);//the starting cards 
+                Deck.Add(Chikin);//the starting cards 
+                Deck.Add(Sheep);//the starting cards 
+                AddStartingCards = true;
+            }
         }
 
         DeckUpdater();

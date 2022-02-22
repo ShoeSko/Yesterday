@@ -151,7 +151,9 @@ public class MinigameSceneScript : MonoBehaviour
     {
         Tutorial = false;
         Quacken.s_quackenBeenReleased = false; //Resets the Quacken.
+        NewCardHandScript.isCampaign = true;//this might need to be relocated
         DeckScript.Deck.Clear();
+        DeckScript.AddStartingCards = false;
         NewCardHandScript.Stage = 1;
     }
 
