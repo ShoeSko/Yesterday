@@ -136,7 +136,7 @@ MonoBehaviour:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 0
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -431,6 +431,9 @@ MonoBehaviour:
   flavorTexts: {fileID: 3126888794526754905}
   UnitPrefab: {fileID: 2557954877800294563, guid: 19fdaec487ab265478dee2e3b84fbde0, type: 3}
   manaValue: 3
+  SpecialImage: {fileID: 0}
+  FindMasterArtwork: {fileID: 0}
+  CantBeRead: 0
 --- !u!1 &3126888794526754907
 GameObject:
   m_ObjectHideFlags: 0
