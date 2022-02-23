@@ -66,9 +66,12 @@ MonoBehaviour:
   health: 0
   projectileDamage: 10
   targetsToShoot: 0
-  punchRange: 1.5
+  punchRange: 2
   punchPosition: {fileID: 2066630506426419775}
   unitIndex: 36
+  laneNumberUnit: 0
+  lanePlacementUnit: 0
+  IsSaint: 0
 --- !u!212 &6118651002381041060
 SpriteRenderer:
   m_ObjectHideFlags: 0

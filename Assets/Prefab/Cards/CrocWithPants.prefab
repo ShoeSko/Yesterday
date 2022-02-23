@@ -47,8 +47,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.25072384, y: -0.1276412}
-  m_Size: {x: 1.4383469, y: 2.2529442}
+  m_Offset: {x: 0.25072384, y: -0.068380594}
+  m_Size: {x: 1.4383469, y: 1.5587478}
   m_Direction: 0
 --- !u!114 &2557954877800294562
 MonoBehaviour:
@@ -69,6 +69,9 @@ MonoBehaviour:
   punchRange: 1
   punchPosition: {fileID: 2066630506426419775}
   unitIndex: 0
+  laneNumberUnit: 0
+  lanePlacementUnit: 0
+  IsSaint: 0
 --- !u!212 &6118651002381041060
 SpriteRenderer:
   m_ObjectHideFlags: 0
