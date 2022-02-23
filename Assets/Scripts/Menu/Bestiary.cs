@@ -63,8 +63,13 @@ public class Bestiary : MonoBehaviour
     private int currentMonstrosityIndex;
 
     [Header("Boss Functions")]
-    [SerializeField] private List<GameObject> boss1ContentList = new List<GameObject>();
-    [SerializeField] private List<GameObject> boss2ContentList = new List<GameObject>();
+    [SerializeField] private List<GameObject> boss1AbilityContentList = new List<GameObject>();
+    [SerializeField] private List<GameObject> boss2AbilityContentList = new List<GameObject>();
+    [SerializeField] private List<GameObject> boss3AbilityContentList = new List<GameObject>();    
+    
+    [SerializeField] private List<GameObject> boss1GeneralContentList = new List<GameObject>();
+    [SerializeField] private List<GameObject> boss2GeneralContentList = new List<GameObject>();
+    [SerializeField] private List<GameObject> boss3GeneralContentList = new List<GameObject>();
 
     #endregion
     #region Setup Bestiary
@@ -195,8 +200,10 @@ public class Bestiary : MonoBehaviour
 
         for (int index = 0; index < bossBestiaryList.Count; index++)
         {
-            bossBestiaryList[index].GetComponent<Image>().color = Color.black;
-            bossBestiaryList[index].GetComponent<Button>().interactable = false;
+            //bossBestiaryList[index].GetComponent<Image>().color = Color.black;
+            //bossBestiaryList[index].GetComponent<Button>().interactable = false;
+
+            //This needs some help later
         }
     }
     #endregion
@@ -681,32 +688,77 @@ public class Bestiary : MonoBehaviour
 
     #endregion
     #region Boss Functions
-    public void Boss0ContentShow()
+    public void Boss0AbilityContentShow()
     {
-        for (int index = 0; index < boss1ContentList.Count; index++)
+        for (int index = 0; index < boss1AbilityContentList.Count; index++)
         {
-            boss1ContentList[index].SetActive(true); //Turns on all Boss 1 content features
+            boss1AbilityContentList[index].SetActive(true); //Turns on all Boss 1 content features
         }
     }
-
-    public void Boss1ContentShow()
+    public void Boss0GeneralContentShow()
     {
-        for (int index = 0; index < boss2ContentList.Count; index++)
+        for (int index = 0; index < boss1GeneralContentList.Count; index++)
         {
-            boss2ContentList[index].SetActive(true); //Turns on all Boss 2 content features
+            boss1GeneralContentList[index].SetActive(true); //Turns on all Boss 1 content features
+        }
+    }
+    public void Boss1AbilityContentShow()
+    {
+        for (int index = 0; index < boss2AbilityContentList.Count; index++)
+        {
+            boss2AbilityContentList[index].SetActive(true); //Turns on all Boss 2 content features
+        }
+    }
+    public void Boss1GeneralContentShow()
+    {
+        for (int index = 0; index < boss2GeneralContentList.Count; index++)
+        {
+            boss2GeneralContentList[index].SetActive(true); //Turns on all Boss 1 content features
+        }
+    }
+    public void Boss2AbilityContentShow()
+    {
+        for (int index = 0; index < boss3AbilityContentList.Count; index++)
+        {
+            boss3AbilityContentList[index].SetActive(true); //Turns on all Boss 2 content features
+        }
+    }
+    public void Boss2GeneralContentShow()
+    {
+        for (int index = 0; index < boss3GeneralContentList.Count; index++)
+        {
+            boss3GeneralContentList[index].SetActive(true); //Turns on all Boss 1 content features
         }
     }
 
     public void BossContentHider()
     {
-        for (int index = 0; index < boss1ContentList.Count; index++)
+        //Boss 0
+        for (int index = 0; index < boss1AbilityContentList.Count; index++)
         {
-            boss1ContentList[index].SetActive(false);
+            boss1AbilityContentList[index].SetActive(false);
         }
-
-        for (int index = 0; index < boss2ContentList.Count; index++)
+        for (int index = 0; index < boss1GeneralContentList.Count; index++)
         {
-            boss2ContentList[index].SetActive(false);
+            boss1GeneralContentList[index].SetActive(true); //Turns on all Boss 1 content features
+        }
+        //Boss 1
+        for (int index = 0; index < boss2AbilityContentList.Count; index++)
+        {
+            boss2AbilityContentList[index].SetActive(false);
+        }
+        for (int index = 0; index < boss2GeneralContentList.Count; index++)
+        {
+            boss2GeneralContentList[index].SetActive(true); //Turns on all Boss 1 content features
+        }
+        //Boss 2
+        for (int index = 0; index < boss3AbilityContentList.Count; index++)
+        {
+            boss3AbilityContentList[index].SetActive(false); //Turns on all Boss 2 content features
+        }
+        for (int index = 0; index < boss3GeneralContentList.Count; index++)
+        {
+            boss3GeneralContentList[index].SetActive(true); //Turns on all Boss 1 content features
         }
     }
     #endregion
