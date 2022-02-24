@@ -80,6 +80,8 @@ public class TheCorruption : MonoBehaviour
     public List<GameObject> PlayedSaints = new List<GameObject>();//This will store all saints played in order to "un-sanctify" them 
     private int MinimumSpawnDelay;
     private int MaximumSpawnDelay;
+    private Color RageColor = new Color(0.9622642f, 0.4039694f, 0.4039694f, 1);
+    private Color BaseColor = new Color(1, 1, 1, 1);
 
 
     //Sound
@@ -206,6 +208,7 @@ public class TheCorruption : MonoBehaviour
                 activeSpot.GetComponent<TowerSpotsScript>().IsSanctuary = false;
                 activeSpot.GetComponent<Image>().color = Color.black;
                 Destroy(sanctuary);
+                GetComponent<SpriteRenderer>().color = BaseColor;
                 SanctuaryPlaced = false;
             }
 
@@ -214,6 +217,7 @@ public class TheCorruption : MonoBehaviour
                 SanctuaryTimer += Time.deltaTime;
 
                 //Reduce the spawning time
+                GetComponent<SpriteRenderer>().color = RageColor;
                 Spawner.GetComponent<EnemySpawning>().delayBetweenSpawnsMin = 3;
                 Spawner.GetComponent<EnemySpawning>().delayBetweenSpawnsMax = 4;
             }
@@ -244,6 +248,7 @@ public class TheCorruption : MonoBehaviour
                     activeSpot.GetComponent<TowerSpotsScript>().IsSanctuary = false;
                     activeSpot.GetComponent<Image>().color = Color.black;
                     Destroy(sanctuary);
+                    GetComponent<SpriteRenderer>().color = BaseColor;
                     SanctuaryPlaced = false;
 
                     DialogueCode.GetComponent<DialogueCode>().PreperationMode();
