@@ -438,7 +438,7 @@ public class BasicEnemyMovement : MonoBehaviour
 
             if (timer >= 1)//After 1 second
             {
-                enemyHealth = enemyHealth - Poison * 3;//3 damage per poison stack
+                enemyHealth = enemyHealth - Poison * 4;//3 damage per poison stack
                 Debug.Log("Poison: " + Poison);
                 Debug.Log("Health: " + enemyHealth);
                 Poison--;//Reduce the poison stack by 1

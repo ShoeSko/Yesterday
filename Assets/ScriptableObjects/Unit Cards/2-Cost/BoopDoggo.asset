@@ -19,8 +19,8 @@ MonoBehaviour:
   manaCost: 2
   effectDescription: 'Type: Melee'
   effectDescription2: 'Health: Medium'
-  effectDescription3: 'Damage: High'
-  flavorTxt: Who's a good boy? You are!
+  effectDescription3: 'Damage: Good'
+  flavorTxt: 'WHEN PLAYED: Creates a "Find Master" card in your rhand'
   Prefab: {fileID: 2557954877800294563, guid: db9dd3e4e09d26e449955fab07a20fd2, type: 3}
   health: 90
   isShooter: 0

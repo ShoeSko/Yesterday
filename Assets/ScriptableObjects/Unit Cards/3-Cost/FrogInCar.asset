@@ -20,7 +20,7 @@ MonoBehaviour:
   effectDescription: 'Type: Melee'
   effectDescription2: 'Health: Low'
   effectDescription3: 'Damage: Very Good'
-  flavorTxt: Look at that boy oh damn whats up
+  flavorTxt: Charges at his enemies, dealing damage based on distance
   Prefab: {fileID: 2557954877800294563, guid: b86e97acb46beb346bb23f0c0e144e94, type: 3}
   health: 70
   isShooter: 0

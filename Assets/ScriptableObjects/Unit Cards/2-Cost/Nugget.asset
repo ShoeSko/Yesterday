@@ -22,7 +22,7 @@ MonoBehaviour:
   effectDescription3: 'Damage: Average'
   flavorTxt: 'WHEN PLAYED: Instantly summon a second copy of this card'
   Prefab: {fileID: 2557954877800294563, guid: b5363aadaddcdda4896ee74117c5ee18, type: 3}
-  health: 45
+  health: 50
   isShooter: 0
   isPunching: 1
   isSpecial: 0
@@ -37,7 +37,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   targetsToShoot: 0
-  punchRechargeTime: 0.7
+  punchRechargeTime: 0.6
   punchDamage: 7
   punchingTargetLayer:
     serializedVersion: 2

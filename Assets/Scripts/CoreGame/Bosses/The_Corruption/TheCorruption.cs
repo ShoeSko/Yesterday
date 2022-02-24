@@ -257,6 +257,9 @@ public class TheCorruption : MonoBehaviour
 
         if (IsDead == true)
         {
+            if(NewCardHandScript.isCampaign)
+                GJcanvas.DefeatedCorruption = true;
+
             BossDialogue.Boss = 2;
             if (!hasBeenDefeated)
             {

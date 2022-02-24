@@ -171,8 +171,10 @@ public class TheCorporate : MonoBehaviour
 
          if (Health == 0)
         {
+            if(NewCardHandScript.isCampaign)
+                GJcanvas.DefeatedCorporate = true;
+
             BossDialogue.Boss = 0;
-            GJcanvas.DefeatedCorporate = true;
             isDead = true;
         }
 

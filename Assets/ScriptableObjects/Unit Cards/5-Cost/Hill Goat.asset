@@ -23,7 +23,7 @@ MonoBehaviour:
   flavorTxt: 'ON HIT: Pushes back enemies PASSIVE: Increases knockback every 20 seconds
     by 20%'
   Prefab: {fileID: 2557954877800294563, guid: f277d647786c3a0418e9ed2d2e7dc469, type: 3}
-  health: 160
+  health: 175
   isShooter: 0
   isPunching: 1
   isSpecial: 0

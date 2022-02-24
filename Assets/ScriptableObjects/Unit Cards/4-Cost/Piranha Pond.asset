@@ -19,9 +19,8 @@ MonoBehaviour:
   manaCost: 4
   effectDescription: 'Special:'
   effectDescription2: 
-  effectDescription3: The first creature that falls in the pond will be instantly
-    killed
-  flavorTxt: Who put that there??
+  effectDescription3: Can't attack
+  flavorTxt: The first creature that falls in the pond will be instantly killed
   Prefab: {fileID: 2557954877800294563, guid: 466553edf74b0c345862f03d793a9aa4, type: 3}
   health: 100
   isShooter: 0

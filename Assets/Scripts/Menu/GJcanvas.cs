@@ -5,18 +5,27 @@ using UnityEngine.UI;
 
 public class GJcanvas : MonoBehaviour
 {
-    public GameObject NewCanvas;
+    public GameObject NewCanvasCorporate;
+    public GameObject NewCanvasCorruption;
     public GameObject ButtonCanvas;
     public GameObject Dimmer;
 
     public static bool DefeatedCorporate;
+    public static bool DefeatedCorruption;
 
     private void Start()
     {
         if (DefeatedCorporate)
         {
             ButtonCanvas.GetComponent<GraphicRaycaster>().enabled = false;
-            NewCanvas.SetActive(true);
+            NewCanvasCorporate.SetActive(true);
+            Dimmer.SetActive(true);
+        }
+
+        if (DefeatedCorruption)
+        {
+            ButtonCanvas.GetComponent<GraphicRaycaster>().enabled = false;
+            NewCanvasCorruption.SetActive(true);
             Dimmer.SetActive(true);
         }
     }
@@ -25,7 +34,16 @@ public class GJcanvas : MonoBehaviour
     {
         Dimmer.SetActive(false);
         ButtonCanvas.GetComponent<GraphicRaycaster>().enabled = true;
-        NewCanvas.SetActive(false);
-        DefeatedCorporate = false;
+
+        if (DefeatedCorporate)
+        {
+            NewCanvasCorporate.SetActive(false);
+            DefeatedCorporate = false;
+        }
+        else
+        {
+            NewCanvasCorruption.SetActive(false);
+            DefeatedCorruption = false;
+        }
     }
 }

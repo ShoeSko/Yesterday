@@ -24,6 +24,8 @@ public class MinigameSceneScript : MonoBehaviour
     private AudioSource MinigameOST;
     private AudioSource TutorialOST;
 
+    public static bool HasFinishedCampaign;
+
     [SerializeField] private LevelTransitionSystem levelTransition;
 
     [SerializeField] private GameObject playButton;
@@ -149,9 +151,11 @@ public class MinigameSceneScript : MonoBehaviour
 
     public void DeckClear()
     {
+        if (!HasFinishedCampaign)
+            NewCardHandScript.isCampaign = true;//this might need to be relocated
+
         Tutorial = false;
         Quacken.s_quackenBeenReleased = false; //Resets the Quacken.
-        NewCardHandScript.isCampaign = true;//this might need to be relocated
         DeckScript.Deck.Clear();
         DeckScript.AddStartingCards = false;
         NewCardHandScript.Stage = 1;

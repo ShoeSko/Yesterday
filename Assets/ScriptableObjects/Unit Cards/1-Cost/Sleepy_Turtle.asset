@@ -22,7 +22,7 @@ MonoBehaviour:
   effectDescription3: 'Damage: None'
   flavorTxt: Can't attack but has a lot of health
   Prefab: {fileID: 2557954877800294563, guid: 2381c1b2745708949b4d68c9e076b747, type: 3}
-  health: 250
+  health: 350
   isShooter: 0
   isPunching: 0
   isSpecial: 0
