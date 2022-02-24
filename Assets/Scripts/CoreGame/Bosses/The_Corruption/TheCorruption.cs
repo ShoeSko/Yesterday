@@ -106,6 +106,11 @@ public class TheCorruption : MonoBehaviour
     public void Activate()
     {
         //Testing
+        if (FindObjectOfType<SaveSystem>())
+        {
+            SaveSystem saving = FindObjectOfType<SaveSystem>();
+            saving.data.bossMeetList[0] = true;
+        }
 
         BossHealthbar.SetActive(true);
         rb = GetComponent<Rigidbody2D>();
@@ -255,6 +260,12 @@ public class TheCorruption : MonoBehaviour
             BossDialogue.Boss = 2;
             if (!hasBeenDefeated)
             {
+                if (FindObjectOfType<SaveSystem>())
+                {
+                    SaveSystem saving = FindObjectOfType<SaveSystem>();
+                    saving.data.bossList[2] = true;
+                }
+
                 WinCondition.GetComponent<Victory>().Win();
                 AddBossDefeatToBestiary();
                 hasBeenDefeated = true;

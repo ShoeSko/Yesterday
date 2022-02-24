@@ -75,6 +75,12 @@ public class TheGuardian : MonoBehaviour
 
     public void Activate()
     {
+        if (FindObjectOfType<SaveSystem>())
+        {
+            SaveSystem saving = FindObjectOfType<SaveSystem>();
+            saving.data.bossMeetList[0] = true;
+        }
+
         BossHealthbar.SetActive(true);
         rb = GetComponent<Rigidbody2D>();
         NewPos = new Vector2(6f, 1.59707f);
@@ -164,6 +170,12 @@ public class TheGuardian : MonoBehaviour
             BossDialogue.Boss = 1;
             if (!hasBeenDefeated)
             {
+                if (FindObjectOfType<SaveSystem>())
+                {
+                    SaveSystem saving = FindObjectOfType<SaveSystem>();
+                    saving.data.bossList[1] = true;
+                }
+
                 WinCondition.GetComponent<Victory>().Win();
                 AddBossDefeatToBestiary(); //With the defeat, the boss is unlocked in the bestiary.
                 hasBeenDefeated = true;

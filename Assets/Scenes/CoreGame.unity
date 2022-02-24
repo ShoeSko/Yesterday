@@ -28315,7 +28315,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BossTesting: 0
-  whichBoss: 3
+  whichBoss: 1
   DevStageTest: 1
   whichStage: 3
   Smallhand: 1

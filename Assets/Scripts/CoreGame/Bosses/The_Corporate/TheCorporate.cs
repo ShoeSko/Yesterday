@@ -88,6 +88,13 @@ public class TheCorporate : MonoBehaviour
 
     public void Activate()//Do this at the start
     {
+        if (FindObjectOfType<SaveSystem>())
+        {
+            SaveSystem saving = FindObjectOfType<SaveSystem>();
+            saving.data.bossMeetList[0] = true;
+            print("the save code worked");
+        }
+
         BossHealthbar.SetActive(true);
         rb = GetComponent<Rigidbody2D>();
         NewPos = new Vector2(6f, 1.34f);
@@ -179,7 +186,13 @@ public class TheCorporate : MonoBehaviour
             GetComponent<Animator>().enabled = true;
             if (!hasBeenDefeated)
             {
-                WinCondition.GetComponent<Victory>().Win();
+                if (FindObjectOfType<SaveSystem>())
+                {
+                    SaveSystem saving = FindObjectOfType<SaveSystem>();
+                    saving.data.bossList[0] = true;
+                }
+
+                    WinCondition.GetComponent<Victory>().Win();
                 AddBossDefeatToBestiary(); //With the defeat, the boss is unlocked in the bestiary.
                 hasBeenDefeated = true;
             }

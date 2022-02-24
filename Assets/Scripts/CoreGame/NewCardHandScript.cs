@@ -210,12 +210,45 @@ public class NewCardHandScript : MonoBehaviour
             }
             else if (isCampaign)
             {
+                if (FindObjectOfType<SaveSystem>())
+                {
+                    SaveSystem saving = FindObjectOfType<SaveSystem>();
+
+                    print("Now i check if i fought boss");
+
+                    if (saving.data.bossList[2] == false)
+                    {
+                        RandomBoss = 3;
+                        print("I didnt fight corruption");
+                    }
+                    else
+                        print("I allready fought corruption");
+
+                    if (saving.data.bossList[1] == false)
+                    {
+                        RandomBoss = 2;
+                        print("I didnt fight nature");
+                    }
+                    else
+                        print("I allready fought nature");
+
+                    if (saving.data.bossList[0] == false)
+                    {
+                        RandomBoss = 1;
+                        print("I didnt fight corpo");
+                    }
+                    else
+                        print("I allready fought corpo (wtf?)");
+
+                }
+                /*
+                 * //This code crashes the game in its current state
                 print("the campaign is on");
                 if (FindObjectOfType<SaveSystem>())
                 {
                     print("And the save system exists");
                     SaveSystem saving = FindObjectOfType<SaveSystem>();
-                    for (int currentBoss = 2; currentBoss >= 0; currentBoss--)//This for loop crashes the game for some reason
+                    for (int currentBoss = 2; currentBoss >= 0; currentBoss--)
                     {
                         if (saving.data.bossList[currentBoss] == false)
                         {
@@ -224,6 +257,7 @@ public class NewCardHandScript : MonoBehaviour
                         }
                     }
                 }
+                */
             }
             else
             {
@@ -891,6 +925,9 @@ public class NewCardHandScript : MonoBehaviour
     #endregion
     public void Spawn()
     {
+        print("Stage is " + Stage);
+        print("RandomBoss is " + RandomBoss);
+
         if (Stage == 1)
         {
             SpawnerBeast.GetComponent<EnemySpawning>().gameStarted = true;
@@ -908,6 +945,7 @@ public class NewCardHandScript : MonoBehaviour
             if (BossTesting == true)
                 RandomBoss = whichBoss;//Set this number to the boss you want to test // Added a variable that can be accesed from outside the script. More usefull for testing.
 
+            /*
             #region Boos Meet n Greet
             if (!BossTesting)
             {
@@ -918,9 +956,11 @@ public class NewCardHandScript : MonoBehaviour
                 }
             }
             #endregion
+            */
 
             if (RandomBoss == 1)
             {
+                print("now play boss");
                 //Do first boss stuff
                 SpawnerBossCorporate.GetComponent<EnemySpawning>().gameStarted = true;
                 CurrentBGM = Boss1;
