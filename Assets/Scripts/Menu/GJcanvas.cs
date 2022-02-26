@@ -24,6 +24,7 @@ public class GJcanvas : MonoBehaviour
 
         if (DefeatedCorruption)
         {
+            MinigameSceneScript.HasFinishedCampaign = true;
             ButtonCanvas.GetComponent<GraphicRaycaster>().enabled = false;
             NewCanvasCorruption.SetActive(true);
             Dimmer.SetActive(true);
