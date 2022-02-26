@@ -231,6 +231,11 @@ public class DialogueCode : MonoBehaviour
             HUDitems[i].SetActive(true);
         }
 
+        if (FindObjectOfType<ManaSystem>()) //Hamster Anim Fix
+        {
+            FindObjectOfType<ManaSystem>().isHamsterRunning = false; //Explains to the Hamster that he is not on vacation.
+        }
+
         WhichDialogue++;
 
         GamePaused = false;

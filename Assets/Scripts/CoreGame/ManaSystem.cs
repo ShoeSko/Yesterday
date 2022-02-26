@@ -16,7 +16,7 @@ public class ManaSystem : MonoBehaviour
 
     [Header("Hamster Animation Variables")]
     [SerializeField] private Animator hamsterAnimation;
-    private bool isHamsterRunning;
+    [HideInInspector] public bool isHamsterRunning;
 
     [SerializeField] private Image hamsterCircle;
 
@@ -53,6 +53,7 @@ public class ManaSystem : MonoBehaviour
             {
                 hamsterAnimation.SetTrigger("Full");
                 isHamsterRunning = false;
+                Debug.Log("I AM FULL!!");
             }
         }
 
