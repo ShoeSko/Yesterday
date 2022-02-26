@@ -164,10 +164,18 @@ public class Bestiary : MonoBehaviour
     {
         for (int index = 0; index < bossBestiaryList.Count; index++)
         {
-            if (saving.data.bossList[index] == true)
+            if (saving.data.bossMeetList[index] == true)
             {
                 bossBestiaryList[index].GetComponent<Image>().color = Color.white;
                 bossBestiaryList[index].GetComponent<Button>().interactable = true;
+            }
+        }
+
+        for (int index = 0; index < bossBestiaryList.Count-1; index++)
+        {
+            if (saving.data.bossList[index] == false)
+            {
+                bossBestiaryList[index+1].GetComponent<Image>().enabled = false;
             }
         }
     }
@@ -198,12 +206,10 @@ public class Bestiary : MonoBehaviour
             monstrosityBestiaryList[index].GetComponent<Button>().interactable = false;
         }
 
-        for (int index = 0; index < bossBestiaryList.Count; index++)
+        for (int index = 0; index < bossBestiaryList.Count; index++) // DO STUFF HERE
         {
-            //bossBestiaryList[index].GetComponent<Image>().color = Color.black;
-            //bossBestiaryList[index].GetComponent<Button>().interactable = false;
-
-            //This needs some help later
+            bossBestiaryList[index].GetComponent<Image>().color = Color.black;
+            bossBestiaryList[index].GetComponent<Button>().interactable = false;
         }
     }
     #endregion
@@ -788,6 +794,7 @@ public class Bestiary : MonoBehaviour
         for (int index = 0; index < saving.data.bossList.Length; index++)
         {
             saving.data.bossList[index] = true;
+            saving.data.bossMeetList[index] = true;
         }
         InitiateTheBestiary();
 
