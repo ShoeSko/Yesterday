@@ -151,10 +151,15 @@ public class MinigameSceneScript : MonoBehaviour
 
     public void DeckClear()
     {
-        if (!HasFinishedCampaign)
-            NewCardHandScript.isCampaign = true;//this might need to be relocated
-        else
-            NewCardHandScript.isCampaign = false;//this might need to be relocated
+        if (FindObjectOfType<SaveSystem>())
+        {
+            SaveSystem saving = FindObjectOfType<SaveSystem>();
+
+            if (!saving.data.bossList[2]) //Corruption has been defeated.
+                NewCardHandScript.isCampaign = true;//this might need to be relocated
+            else
+                NewCardHandScript.isCampaign = false;//this might need to be relocated
+        }
 
         Tutorial = false;
         Quacken.s_quackenBeenReleased = false; //Resets the Quacken.
