@@ -63,6 +63,8 @@ public class Bestiary : MonoBehaviour
     private int currentMonstrosityIndex;
 
     [Header("Boss Functions")]
+    [SerializeField] private List<GameObject> bossGeneralButtonActivation = new List<GameObject>();
+
     [SerializeField] private List<GameObject> boss1AbilityContentList = new List<GameObject>();
     [SerializeField] private List<GameObject> boss2AbilityContentList = new List<GameObject>();
     [SerializeField] private List<GameObject> boss3AbilityContentList = new List<GameObject>();    
@@ -734,6 +736,18 @@ public class Bestiary : MonoBehaviour
         for (int index = 0; index < boss3GeneralContentList.Count; index++)
         {
             boss3GeneralContentList[index].SetActive(true); //Turns on all Boss 1 content features
+        }
+    }
+
+    public void BossGeneralButtonController(int bossIndex)
+    {
+        if (saving.data.bossList[bossIndex] == false) //Only turn it off if the boss has not been defeated.
+        {
+            bossGeneralButtonActivation[bossIndex].SetActive(false);
+        }
+        else
+        {
+            bossGeneralButtonActivation[bossIndex].SetActive(true);
         }
     }
 
