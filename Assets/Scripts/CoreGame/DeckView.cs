@@ -22,7 +22,7 @@ public class DeckView : MonoBehaviour
         {
             activeCard = Cards[card];
 
-            if (card < DeckList)
+            if (card < DeckList && card < 30)
             {
                 activeCard.SetActive(true); 
                 CardStats = activeCard.GetComponent<CardDisplayer>();
