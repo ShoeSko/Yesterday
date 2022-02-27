@@ -1,91 +1,77 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class ProgressionScript : MonoBehaviour
 {
-
+    #region Variables
     [SerializeField] private List<Sprite> progressionImageList = new List<Sprite>(); // value 0 Question mark, 1-12 Minigames, Day, Evening, boss 1-3
 
-    [SerializeField] private List<Image> stage1ImageList = new List<Image>(); //Contains the 3 first Minigames
-    [SerializeField] private List<Image> stage2ImageList = new List<Image>(); //Contains the 3 Minigames after day
-    [SerializeField] private List<Image> stage3ImageList = new List<Image>(); //Contains the 3 last Minigames
+    [SerializeField] private List<Image> stageMinigameImageSlotList = new List<Image>(); //Contains the 3 slots for Minigames
 
-    [SerializeField] private List<Image> coreGameImageList = new List<Image>(); //Contains Day, evening + all night.
-
-
+    [SerializeField] private Image coreGameImage; //Contains Day, evening + all night.
+    #endregion
+    #region Tutorial
     private void Start()
     {
+    
         if (FindObjectOfType<SaveSystem>())
         {
             SaveSystem saving = FindObjectOfType<SaveSystem>(); //Finds the save system in the scene
             if (MinigameSceneScript.Tutorial)
             {
-                stage1ImageList[0].sprite = progressionImageList[2];
-                stage1ImageList[1].sprite = progressionImageList[10];
-                stage1ImageList[2].sprite = progressionImageList[6];
+                stageMinigameImageSlotList[0].sprite = progressionImageList[2]; //Sets the first minigame into egg click
+                stageMinigameImageSlotList[1].sprite = progressionImageList[10]; //Sets the second minigame into sort animals
+                stageMinigameImageSlotList[2].sprite = progressionImageList[6]; //Sets the third minigame into water plants
 
-                coreGameImageList[0].sprite = progressionImageList[13];
-
-                for (int i = 0; i < stage2ImageList.Count; i++)
-                {
-                    stage2ImageList[i].gameObject.SetActive(false);
-                    stage3ImageList[i].gameObject.SetActive(false);
-                }
-                coreGameImageList[1].gameObject.SetActive(false);
-                coreGameImageList[2].gameObject.SetActive(false);
+                coreGameImage.sprite = progressionImageList[13]; //Sets the core game into daytime (tutorial)
             }
+    #endregion
+    #region Stage 1
             else
             {
                 if(NewCardHandScript.Stage == 1)
                 {
-                    for (int i = 0; i < stage1ImageList.Count; i++)
+                    for (int i = 0; i < stageMinigameImageSlotList.Count; i++)
                     {
-                        stage1ImageList[i].sprite = progressionImageList[saving.data.progressValueList[i]]; //Sets the stage 1 images to match the value stored in the save data.
+                        stageMinigameImageSlotList[i].sprite = progressionImageList[saving.data.progressValueList[i]]; //Sets the stage 1 images to match the value stored in the save data.
                     }
+                    coreGameImage.sprite = progressionImageList[13]; //Sets the core game into daytime(RAT)
                 }
-                else if(NewCardHandScript.Stage == 2)
+    #endregion
+    #region Stage 2
+                else if (NewCardHandScript.Stage == 2)
                 {
-                    for (int i = 0; i < stage1ImageList.Count; i++)
+                    for (int i = 0; i < stageMinigameImageSlotList.Count; i++)
                     {
-                        stage1ImageList[i].sprite = progressionImageList[saving.data.progressValueList[i]]; //Sets the stage 1 images to match the value stored in the save data.
+                    stageMinigameImageSlotList[i].sprite = progressionImageList[saving.data.progressValueList[i+3]]; //Sets the stage 1 images to match the value stored in the save data.
                     }
-                    for (int i = 0; i < stage2ImageList.Count; i++)
-                    {
-                    stage2ImageList[i].sprite = progressionImageList[saving.data.progressValueList[i+3]]; //Sets the stage 1 images to match the value stored in the save data.
-                    }
+                    coreGameImage.sprite = progressionImageList[14]; //Sets the core game into evening(Business)
                 }
-                else if(NewCardHandScript.Stage == 3)
+    #endregion
+    #region Stage 3
+                else if (NewCardHandScript.Stage == 3)
                 {
-                    for (int i = 0; i < stage1ImageList.Count; i++)
+                    for (int i = 0; i < stageMinigameImageSlotList.Count; i++)
                     {
-                        stage1ImageList[i].sprite = progressionImageList[saving.data.progressValueList[i]]; //Sets the stage 1 images to match the value stored in the save data.
+                        stageMinigameImageSlotList[i].sprite = progressionImageList[saving.data.progressValueList[i+6]]; //Sets the stage 1 images to match the value stored in the save data.
                     }
-                    for (int i = 0; i < stage2ImageList.Count; i++)
-                    {
-                        stage2ImageList[i].sprite = progressionImageList[saving.data.progressValueList[i + 3]]; //Sets the stage 1 images to match the value stored in the save data.
-                    }
-                    for (int i = 0; i < stage3ImageList.Count; i++)
-                    {
-                        stage3ImageList[i].sprite = progressionImageList[saving.data.progressValueList[i+6]]; //Sets the stage 1 images to match the value stored in the save data.
-                    }
-                }
 
-                coreGameImageList[0].sprite = progressionImageList[13];
-                coreGameImageList[1].sprite = progressionImageList[14];
-
-                if (saving.data.bossList[0]!)
-                {
-                    coreGameImageList[2].sprite = progressionImageList[15]; //Corporate boss has yet to be defeated.
+                    if (saving.data.bossList[0]!) //Corporate boss has yet to be defeated.
+                    {
+                        coreGameImage.sprite = progressionImageList[15]; //Sets the core game image to Corporation.
+                    }
+                    else if (saving.data.bossList[1]!) //The guardian has yet to be defeated.
+                    {
+                        coreGameImage.sprite = progressionImageList[16];  //Sets the core game image to Guardian.
+                    }
+                    else if (saving.data.bossList[2]!) //The Corruption has yet to be defeated.
+                    {
+                        coreGameImage.sprite = progressionImageList[17]; //Sets the core game image to Corruption.
+                    }
                 }
-                else if (saving.data.bossList[0] && saving.data.bossList[1]!)
-                {
-                    coreGameImageList[2].sprite = progressionImageList[16]; //The guardian has yet to be defeated.
-                }
-                //IMPLEMENT THIRD BOSS HERE!
             }
-
         }
     }
+    #endregion
 }
