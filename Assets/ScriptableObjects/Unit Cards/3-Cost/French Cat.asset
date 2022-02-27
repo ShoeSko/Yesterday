@@ -54,6 +54,6 @@ MonoBehaviour:
     m_Bits: 256
   hitAllyRange: 2
   sizeBuff: {x: 0.2, y: 0.2, z: 0.2}
-  healthBuff: 1.5
-  damageBuff: 1.5
+  healthBuff: 150
+  damageBuff: 150
   unitIndex: 23
