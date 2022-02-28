@@ -830,11 +830,6 @@ public class UnitPrototypeScript : MonoBehaviour
     {
         if (health <= 0)
         {
-            if (IsSaint)
-            {
-                GameObject.Find("The Corruption").GetComponent<TheCorruption>().SaintDied = true;
-            }
-
             Destroy(gameObject);
             isDead = true;
             print("Im die, thank you forever!");
@@ -847,6 +842,12 @@ public class UnitPrototypeScript : MonoBehaviour
     }
     private void OnDestroy()
     {
+        if (IsSaint)
+        {
+            GameObject.Find("The Corruption").GetComponent<TheCorruption>().PurifierDied();
+            IsSaint = false;
+        }
+
         //Unit abilities:
         if (Unit.cardName == "Pigster")
         {

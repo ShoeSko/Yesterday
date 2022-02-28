@@ -75,7 +75,6 @@ public class TheCorruption : MonoBehaviour
     private float SanctuaryTimer;
     private GameObject sanctuary;
     public bool SaintLives;
-    public bool SaintDied;
     public GameObject Spawner;
     public List<GameObject> PlayedSaints = new List<GameObject>();//This will store all saints played in order to "un-sanctify" them 
     private int MinimumSpawnDelay;
@@ -107,7 +106,6 @@ public class TheCorruption : MonoBehaviour
 
     public void Activate()
     {
-        //Testing
         if (FindObjectOfType<SaveSystem>())
         {
             SaveSystem saving = FindObjectOfType<SaveSystem>();
@@ -201,7 +199,7 @@ public class TheCorruption : MonoBehaviour
 
         if (SanctuaryPlaced)//This is Purification Ability
         {
-            if((timer >= 17 && !SaintLives) || SaintDied)//Time window before the sanctuary disappears
+            if(timer >= 17 && !SaintLives)//Time window before the sanctuary disappears
             {
                 Spawner.GetComponent<EnemySpawning>().delayBetweenSpawnsMin = MinimumSpawnDelay;
                 Spawner.GetComponent<EnemySpawning>().delayBetweenSpawnsMax = MaximumSpawnDelay;
@@ -434,7 +432,6 @@ public class TheCorruption : MonoBehaviour
 
                 //Reset values
                 SaintLives = false;
-                SaintDied = false;
                 SanctuaryTimer = 0;
 
                 activeSpot.GetComponent<TowerSpotsScript>().IsSanctuary = true;
@@ -533,6 +530,18 @@ public class TheCorruption : MonoBehaviour
             }
             else Desperate_Rage();
         }
+    }
+
+    public void PurifierDied()
+    {
+        Spawner.GetComponent<EnemySpawning>().delayBetweenSpawnsMin = MinimumSpawnDelay;
+        Spawner.GetComponent<EnemySpawning>().delayBetweenSpawnsMax = MaximumSpawnDelay;
+        activeSpot.GetComponent<TowerSpotsScript>().IsSanctuary = false;
+        activeSpot.GetComponent<Image>().color = Color.black;
+        Destroy(sanctuary);
+        GetComponent<SpriteRenderer>().color = BaseColor;
+        SaintLives = false;
+        SanctuaryPlaced = false;
     }
 
     #region Bestiary
