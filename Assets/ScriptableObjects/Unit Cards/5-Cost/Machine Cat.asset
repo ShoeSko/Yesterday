@@ -20,7 +20,7 @@ MonoBehaviour:
   effectDescription: 'Type: Ranged'
   effectDescription2: 'Health: Very Low'
   effectDescription3: 'Damage: Very Good'
-  flavorTxt: Wait, didn't he play the bongos?
+  flavorTxt: 
   Prefab: {fileID: 2557954877800294563, guid: dff8d710c757c9542973584d6f70005d, type: 3}
   health: 90
   isShooter: 1

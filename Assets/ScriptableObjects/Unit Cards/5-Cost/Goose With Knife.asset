@@ -20,7 +20,7 @@ MonoBehaviour:
   effectDescription: 'Type: Melee'
   effectDescription2: 'Health: Low'
   effectDescription3: 'Damage: Very Good'
-  flavorTxt: Every third attack deal 3x normal damage
+  flavorTxt: 'ON HIT: Every third attack deal 3x normal damage'
   Prefab: {fileID: 2557954877800294563, guid: d2df80c9c8f83f840bdd180972f981a7, type: 3}
   health: 120
   isShooter: 0

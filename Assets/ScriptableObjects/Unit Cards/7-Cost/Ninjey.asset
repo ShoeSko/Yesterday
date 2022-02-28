@@ -20,7 +20,7 @@ MonoBehaviour:
   effectDescription: 'Type: Melee'
   effectDescription2: 'Health: Very Low'
   effectDescription3: 'Damage: Very Good'
-  flavorTxt: When i get hit, i go invisible for 5 seconds
+  flavorTxt: 'PASSIVE: When i get hit, i go invisible for 5 seconds'
   Prefab: {fileID: 2557954877800294563, guid: 9a171ac0d3c13054ca0cb59e62ece4ed, type: 3}
   health: 100
   isShooter: 0

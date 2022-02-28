@@ -20,7 +20,7 @@ MonoBehaviour:
   effectDescription: 'Type: Melee'
   effectDescription2: 'Health: Very High'
   effectDescription3: 'Damage: Weak'
-  flavorTxt: He just hasn't had his morning coffee
+  flavorTxt: 
   Prefab: {fileID: 2557954877800294563, guid: 13c8ce4460acff84182af971b9c82b35, type: 3}
   health: 350
   isShooter: 0

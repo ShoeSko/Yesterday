@@ -20,7 +20,7 @@ MonoBehaviour:
   effectDescription: 'Type: Melee'
   effectDescription2: 'Health: Medium'
   effectDescription3: 'Damage: Good'
-  flavorTxt: Consecutive hits on the same target deal more damage
+  flavorTxt: 'ON HIT: Consecutive hits on the same target deal more damage'
   Prefab: {fileID: 2557954877800294563, guid: 1c2df22f4d8b5b64a8eee850bb52421d, type: 3}
   health: 160
   isShooter: 0
