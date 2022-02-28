@@ -5349,54 +5349,31 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'ABILITY INFO HEREEEEE
-
-
-    The Corporate:
-
-    "The Corporate is a fat
-    capitalist profiting off of everyone beneath him. He owns everything he wants,
-    and does not take "no" for an answer. Those who defy him always end up with insane
-    checks and loans to pay back. They who have the money, control everything and
-    everyone around them, and The Corporate has a lot of it."
-
-
-    Abilities:
-
-
-    The
-    boss of all bosses - passive: The Corporate has unlimited resources to manpower.
-    He will send his neverending minnions towards your farm until you surrender.
-
-
-    Property
-    business: The Corporate controls the property market. He will ''buy out'' your
-    land right under your nose. The Corporate will mark an empty unit slot on the
-    map and render it permanently unusuable. You cannot place units in the slot with
-    the Corporate mark.
-
-
-    Stock Shortage: The Corporate has full control over
-    the stock market, therefore he controls the prices. When The Corporate uses ''Stock
-    Shortage'', he''ll snap his fingers, at which point your mana will be decreased
-    by a random number between 1-3, making risky investments all the more riskier.
-
-
-    Greedy
-    Opportunity: The Corporate''s greed is immeasurable as he will take any opportunity
-    he sees. The Corporate will sometimes try to take one of your units to sell it.
-
-    He
-    will reach out one of his hands on a lane to try and take a unit from that lane.
-    While reaching out, his hand will be vulnerable. The hand has a total of 150HP.
-    If the hand reaches a unit, it will start taking it. After 4 seconds if the hand
-    still persists, the hand will snatch that unit, destroying it. It will then become
-    invincible and go back into hiding. There are a total of 4 hands, each one has
-    its own lane. The hand''s health does not regenerate when this ability is reused.
-    When a hand is destroyed from a lane, it will deal 25% of his maximum health
-    to the boss and be permanatly removed (will no longer spawn from there). If the
-    hand reaches your farm, it will instead steal a unit from your deck, permanently
-    removing it.'
+  m_text: "The Corruption:\n\n\nAbilities:\n\nMinions of Madness - passive: The Corruption
+    will use everything that it has to overtake your farm. It will send both businessmen
+    and vile beasts against your farm. It will also use one of its active abilities
+    once every 18 seconds.\n\nDesperate Rage - Special Ability: The Corruption gets
+    angrier as its power weakens, driving it to utter madness. When The Corruption
+    takes damage, this ability activates, corrupting one of your cards from your
+    hand. A corrupted card cannot be played for the rest of the game. In addition,
+    the average spawn rate will also decrease by 1 second.\n\nCorrupted Grounds:
+    The Corruption starts taking over your land, corrupting it to its will. One of
+    your lanes starts oozing purple liquid and becomes corrupted for 16 seconds.
+    While corrupted in this way, you cannot place any units in that lane until The
+    Corruptions releases its grasp on it.\n\nCorrupting Gaze: The Corruption's gaze
+    is so powerful it can corrupt any living creature, turning it against its own
+    will, under the command of this entity. Apart from sending businessmen and beasts,
+    The Corruption will corrupt the units from your deck and send them against you
+    as enemies. These units use the same stats, but do not gain the benefits of their
+    abilities. \n\nPurification: When fighting The Corruption, its roots start coming
+    out of the ground. By sending one of your units to that spot, it can be purified
+    to push back the entity. The spot disappears after 17 seconds if no unit is placed
+    within that time. When a unit is placed in the \"purification zone\", it starts
+    the purification process, which takes 15 seconds. During that time the unit becomes
+    vulnurable and can't attack. In additon, The Corruption will become aggressive
+    and send much more units during that period. If the unit survives, the zone will
+    be cleansed and The Corruption will take a point of damage and trigger its \"Desperate
+    Rage\" ability."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -9682,23 +9659,20 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "General Info HEREEEEEEEEEe\n\nThe Guardian: \nThe Guardian is the incarnation
-    of nature's wrath fighting back against the invasive force of humans into the
-    natural territories. All deforestation and pollution has led nature to the brink
-    of extinction, and The Guardian is its response.\n\nAbilities:\n\nForce of Nature
-    - Passive: The Guardian is the incarnation of nature, sending all of her forces
-    against its enemies. She will swarm you with her beasts until your farm becomes
-    a part of her forest.\n\nWrath of the Forest: The Guardian accumulates all of
-    her wrath into a singular strike. She sends out a trail of throny vines, dealing
-    49 damage to all of your units in that lane. Guardian's allies are unaffected
-    by this ability.\n\nEclipse: The Guardian causes the moon itself to shadow her
-    units. For the duration of the Eclipse (12 sec), the right side of the screen
-    is dark, blocking vision of all incoming enemies, as well as your existing units
-    on that side.\n\nMotherly Embrace: The Guardian's connection to nature allows
-    her to strenghten her allies. The Guardian chooses a random enemy unit on the
-    board. That unit's health, damage and attack speed is increased by 100% as the
-    unit grows in size and gains a unnatural aura. When the buffed unit dies, it
-    deals 20% bosse's health."
+  m_text: 'The Guardian:
+
+
+    Age: >3000
+
+    Gender: Female
+
+
+    The incarnate
+    of mother nature and defender of the forest, nature''s last line of defence in
+    the form of a moth-like creature has fallen corrupt by an unnatural source of
+    evil. Aided by the robot, the farmer gained a powerful ally by removing the Corruption''s
+    grasp over her. Together they now seek not revenge nor justice, but to restore
+    the rest of nature to its former state, and protect both the wild and farm animals.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -10254,54 +10228,26 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'General Info HEREEEEEEEEEe
+  m_text: 'The Corruption:
 
 
-    The Corporate:
+    Age: ???
 
-    "The Corporate is
-    a fat capitalist profiting off of everyone beneath him. He owns everything he
-    wants, and does not take "no" for an answer. Those who defy him always end up
-    with insane checks and loans to pay back. They who have the money, control everything
-    and everyone around them, and The Corporate has a lot of it."
+    Gender: ???
 
 
-    Abilities:
+    This unnatural being
+    of unknown origin has one day appeared in the city''s outskirts, seeking only
+    to corrupt and destroy everything in its path. The Corruption had the ability
+    to corrupt any living creature, infesting it with greed, rage or madness. However
+    due to the mechanical  nature of the robot not being fully "living", it was unable
+    to take control of the farmer. Instead it turned its gaze into its allies, slowly
+    turning tand manipulating them against eachother.
 
 
-    The
-    boss of all bosses - passive: The Corporate has unlimited resources to manpower.
-    He will send his neverending minnions towards your farm until you surrender.
-
-
-    Property
-    business: The Corporate controls the property market. He will ''buy out'' your
-    land right under your nose. The Corporate will mark an empty unit slot on the
-    map and render it permanently unusuable. You cannot place units in the slot with
-    the Corporate mark.
-
-
-    Stock Shortage: The Corporate has full control over
-    the stock market, therefore he controls the prices. When The Corporate uses ''Stock
-    Shortage'', he''ll snap his fingers, at which point your mana will be decreased
-    by a random number between 1-3, making risky investments all the more riskier.
-
-
-    Greedy
-    Opportunity: The Corporate''s greed is immeasurable as he will take any opportunity
-    he sees. The Corporate will sometimes try to take one of your units to sell it.
-
-    He
-    will reach out one of his hands on a lane to try and take a unit from that lane.
-    While reaching out, his hand will be vulnerable. The hand has a total of 150HP.
-    If the hand reaches a unit, it will start taking it. After 4 seconds if the hand
-    still persists, the hand will snatch that unit, destroying it. It will then become
-    invincible and go back into hiding. There are a total of 4 hands, each one has
-    its own lane. The hand''s health does not regenerate when this ability is reused.
-    When a hand is destroyed from a lane, it will deal 25% of his maximum health
-    to the boss and be permanatly removed (will no longer spawn from there). If the
-    hand reaches your farm, it will instead steal a unit from your deck, permanently
-    removing it.'
+    Now banished and defeated,
+    The Corruption was forced to retreat back to who knows where, likely never to
+    return to the farm of Yesterday.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -15039,23 +14985,20 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "ABILITY INFO HEREEEEE\n\nThe Guardian: \nThe Guardian is the incarnation
-    of nature's wrath fighting back against the invasive force of humans into the
-    natural territories. All deforestation and pollution has led nature to the brink
-    of extinction, and The Guardian is its response.\n\nAbilities:\n\nForce of Nature
-    - Passive: The Guardian is the incarnation of nature, sending all of her forces
-    against its enemies. She will swarm you with her beasts until your farm becomes
-    a part of her forest.\n\nWrath of the Forest: The Guardian accumulates all of
-    her wrath into a singular strike. She sends out a trail of throny vines, dealing
-    49 damage to all of your units in that lane. Guardian's allies are unaffected
-    by this ability.\n\nEclipse: The Guardian causes the moon itself to shadow her
-    units. For the duration of the Eclipse (12 sec), the right side of the screen
-    is dark, blocking vision of all incoming enemies, as well as your existing units
-    on that side.\n\nMotherly Embrace: The Guardian's connection to nature allows
-    her to strenghten her allies. The Guardian chooses a random enemy unit on the
-    board. That unit's health, damage and attack speed is increased by 100% as the
-    unit grows in size and gains a unnatural aura. When the buffed unit dies, it
-    deals 20% bosse's health."
+  m_text: "The Guardian: \n\n\nAbilities:\n\nForce of Nature - Passive: The Guardian
+    is the incarnation of nature, sending all of her forces against its enemies.
+    She will swarm you with her beasts until your farm becomes a part of her forest.
+    In addition, she will use one of her abilities every 12 seconds.\n\nWrath of
+    the Forest: The Guardian accumulates all of her wrath into a singular strike.
+    She sends out a trail of throny vines, dealing 49 damage to all of your units
+    in that lane. Guardian's allies are unaffected by this ability.\n\nEclipse: The
+    Guardian causes the moon itself to shadow her units. For the duration of the
+    Eclipse (15 sec), the right side of the screen is dark, blocking vision of all
+    incoming enemies, as well as your existing units on that side.\n\nMotherly Embrace:
+    The Guardian's connection to nature allows her to strenghten her allies. The
+    Guardian chooses a random enemy unit on the board. That unit's health, damage
+    and attack speed is increased by 100% as the unit grows in size and gains a unnatural
+    aura. When the buffed unit dies, it deals 20% bosse's health."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -21167,54 +21110,19 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'General Info HEREEEEEEEEEe
+  m_text: 'The Corporate:
 
 
-    The Corporate:
+    Age: 36
 
-    "The Corporate is
-    a fat capitalist profiting off of everyone beneath him. He owns everything he
-    wants, and does not take "no" for an answer. Those who defy him always end up
-    with insane checks and loans to pay back. They who have the money, control everything
-    and everyone around them, and The Corporate has a lot of it."
+    Gender: Male
 
 
-    Abilities:
-
-
-    The
-    boss of all bosses - passive: The Corporate has unlimited resources to manpower.
-    He will send his neverending minnions towards your farm until you surrender.
-
-
-    Property
-    business: The Corporate controls the property market. He will ''buy out'' your
-    land right under your nose. The Corporate will mark an empty unit slot on the
-    map and render it permanently unusuable. You cannot place units in the slot with
-    the Corporate mark.
-
-
-    Stock Shortage: The Corporate has full control over
-    the stock market, therefore he controls the prices. When The Corporate uses ''Stock
-    Shortage'', he''ll snap his fingers, at which point your mana will be decreased
-    by a random number between 1-3, making risky investments all the more riskier.
-
-
-    Greedy
-    Opportunity: The Corporate''s greed is immeasurable as he will take any opportunity
-    he sees. The Corporate will sometimes try to take one of your units to sell it.
-
-    He
-    will reach out one of his hands on a lane to try and take a unit from that lane.
-    While reaching out, his hand will be vulnerable. The hand has a total of 150HP.
-    If the hand reaches a unit, it will start taking it. After 4 seconds if the hand
-    still persists, the hand will snatch that unit, destroying it. It will then become
-    invincible and go back into hiding. There are a total of 4 hands, each one has
-    its own lane. The hand''s health does not regenerate when this ability is reused.
-    When a hand is destroyed from a lane, it will deal 25% of his maximum health
-    to the boss and be permanatly removed (will no longer spawn from there). If the
-    hand reaches your farm, it will instead steal a unit from your deck, permanently
-    removing it.'
+    Corrupted no more
+    by the mysterious taint, It turns out that The Corporate was not as greedy and
+    evil as it may seem at first glance. Cured of his ailment, he decided to help
+    the robot in search for the source of whatever tried to manipulate him. However,
+    greedy corporates weren''t the only thing that was after the robot''s farm.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -27627,54 +27535,28 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'ABILITY INFO HEREEEEE
-
-
-    The Corporate:
-
-    "The Corporate is a fat
-    capitalist profiting off of everyone beneath him. He owns everything he wants,
-    and does not take "no" for an answer. Those who defy him always end up with insane
-    checks and loans to pay back. They who have the money, control everything and
-    everyone around them, and The Corporate has a lot of it."
-
-
-    Abilities:
-
-
-    The
-    boss of all bosses - passive: The Corporate has unlimited resources to manpower.
-    He will send his neverending minnions towards your farm until you surrender.
-
-
-    Property
-    business: The Corporate controls the property market. He will ''buy out'' your
-    land right under your nose. The Corporate will mark an empty unit slot on the
-    map and render it permanently unusuable. You cannot place units in the slot with
-    the Corporate mark.
-
-
-    Stock Shortage: The Corporate has full control over
-    the stock market, therefore he controls the prices. When The Corporate uses ''Stock
-    Shortage'', he''ll snap his fingers, at which point your mana will be decreased
-    by a random number between 1-3, making risky investments all the more riskier.
-
-
-    Greedy
-    Opportunity: The Corporate''s greed is immeasurable as he will take any opportunity
-    he sees. The Corporate will sometimes try to take one of your units to sell it.
-
-    He
-    will reach out one of his hands on a lane to try and take a unit from that lane.
-    While reaching out, his hand will be vulnerable. The hand has a total of 150HP.
-    If the hand reaches a unit, it will start taking it. After 4 seconds if the hand
-    still persists, the hand will snatch that unit, destroying it. It will then become
-    invincible and go back into hiding. There are a total of 4 hands, each one has
-    its own lane. The hand''s health does not regenerate when this ability is reused.
-    When a hand is destroyed from a lane, it will deal 25% of his maximum health
-    to the boss and be permanatly removed (will no longer spawn from there). If the
-    hand reaches your farm, it will instead steal a unit from your deck, permanently
-    removing it.'
+  m_text: "The Corporate:\n\n\nAbilities:\n\nThe boss of all bosses - passive: The
+    Corporate has unlimited resources to manpower. He will send his neverending minnions
+    towards your farm until you surrender. He will aditionally use one of his abilities
+    every 12 seconds.\n\nProperty business: The Corporate controls the property market.
+    He will 'buy out' your land right under your nose. The Corporate will mark an
+    empty unit slot on the map and render it permanently unusuable. You cannot place
+    units in the slot with the Corporate mark.\n\nStock Shortage: The Corporate has
+    full control over the stock market, therefore he controls the prices. When The
+    Corporate uses 'Stock Shortage', he'll snap his fingers, at which point your
+    mana will be decreased by a random number between 1-3, making risky investments
+    all the more riskier.\n\nGreedy Opportunity: The Corporate's greed is immeasurable
+    as he will take any opportunity he sees. The Corporate will sometimes try to
+    take one of your units to sell it.\nHe will reach out one of his hands on a lane
+    to try and take a unit from that lane. While reaching out, his hand will be vulnerable.
+    \nThe hand has a total of 150HP. If the hand reaches a unit, it will start taking
+    it. After 4 seconds if the hand still persists, the hand will snatch that unit,
+    destroying it. It will then become invincible and go back into hiding. \nThere
+    are a total of 4 hands, each one has its own lane. The hand's health does not
+    regenerate when this ability is reused. When a hand is destroyed from a lane,
+    it will deal 25% of his maximum health to the boss and be permanatly removed
+    (will no longer spawn from there). \nIf the hand reaches your farm, it will instead
+    steal a unit from your deck, permanently removing it."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -34541,8 +34423,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2011667577}
   m_HandleRect: {fileID: 2011667576}
   m_Direction: 2
-  m_Value: 0.99999994
-  m_Size: 0.5264964
+  m_Value: 1.0000001
+  m_Size: 0.5264965
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

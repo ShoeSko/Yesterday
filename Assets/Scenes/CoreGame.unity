@@ -7843,14 +7843,6 @@ MonoBehaviour:
   - {fileID: 1424822939}
   - {fileID: 446325259}
   Darkness: {fileID: 1751664150}
-  VoiceWrathOfTheForest:
-  - {fileID: 1542929277}
-  VoiceEclipse:
-  - {fileID: 1545235054}
-  VoiceMotherlyEmbrace:
-  - {fileID: 405902461}
-  VoiceTakeDamage:
-  - {fileID: 1496374908}
 --- !u!50 &434857307
 Rigidbody2D:
   serializedVersion: 4
@@ -21464,7 +21456,6 @@ MonoBehaviour:
   - {fileID: 1120330842}
   Sanctuary: {fileID: 4801177212299731019, guid: 9099b7c5fdc1b4a42a6f54bf406ab2af, type: 3}
   SaintLives: 0
-  SaintDied: 0
   Spawner: {fileID: 1251820119}
   PlayedSaints: []
 --- !u!1 &1138782514 stripped
@@ -28443,9 +28434,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb3ce17b543ebbf43b5f18320309c193, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BossTesting: 1
-  whichBoss: 3
-  DevStageTest: 1
+  BossTesting: 0
+  whichBoss: 1
+  DevStageTest: 0
   whichStage: 3
   Smallhand: 1
   PlayedCard: {fileID: 0}
@@ -31388,14 +31379,6 @@ MonoBehaviour:
   Health: 0
   stockShortageWarningTime: 1.5
   CorporateSign: {fileID: 4747197676616993944, guid: 02883c7e53818ce41b04f183980b183c, type: 3}
-  VoiceStockShortage:
-  - {fileID: 1198055552}
-  VoiceGreedyOpportunity:
-  - {fileID: 1042403107}
-  VoicePropertyBusiness:
-  - {fileID: 771377329}
-  VoiceTakeDamage:
-  - {fileID: 22000800}
 --- !u!95 &1646560901
 Animator:
   serializedVersion: 3

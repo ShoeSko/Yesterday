@@ -66,10 +66,10 @@ public class TheCorporate : MonoBehaviour
     //Death confirmation
     private bool isDead;
 
-    public List<AudioSource> VoiceStockShortage = new List<AudioSource>();
-    public List<AudioSource> VoiceGreedyOpportunity = new List<AudioSource>();
-    public List<AudioSource> VoicePropertyBusiness = new List<AudioSource>();
-    public List<AudioSource> VoiceTakeDamage = new List<AudioSource>();
+    //public List<AudioSource> VoiceStockShortage = new List<AudioSource>();
+    //public List<AudioSource> VoiceGreedyOpportunity = new List<AudioSource>();
+    //public List<AudioSource> VoicePropertyBusiness = new List<AudioSource>();
+    //public List<AudioSource> VoiceTakeDamage = new List<AudioSource>();
 
     private void Start()
     {
@@ -163,13 +163,15 @@ public class TheCorporate : MonoBehaviour
                 timer = 0;
             }
 
+            /*
             if (Input.GetKey(KeyCode.Alpha5) && Input.GetKeyDown(KeyCode.Alpha7))//cheat to damage boss
             {
                 Health--;
             }
+            */
         }
 
-         if (Health == 0)
+        if (Health == 0)
         {
             if(NewCardHandScript.isCampaign)
                 GJcanvas.DefeatedCorporate = true;
@@ -229,8 +231,9 @@ public class TheCorporate : MonoBehaviour
 
             if (activeSpot != null)
             {
-                int RandomVoice = Random.Range(0, VoicePropertyBusiness.Count);
-                VoicePropertyBusiness[RandomVoice].Play();
+                
+                //int RandomVoice = Random.Range(0, VoicePropertyBusiness.Count);
+                //VoicePropertyBusiness[RandomVoice].Play();
 
                 GameObject sign = Instantiate(CorporateSign);
                 sign.transform.position = activeSpot.transform.position;
@@ -255,8 +258,8 @@ public class TheCorporate : MonoBehaviour
     {
         if (CD2 <= 0)//Do this ability
         {
-            int RandomVoice = Random.Range(0, VoiceStockShortage.Count);
-            VoiceStockShortage[RandomVoice].Play();
+            //int RandomVoice = Random.Range(0, VoiceStockShortage.Count);
+            //VoiceStockShortage[RandomVoice].Play();
 
             StartCoroutine(IndicateStockShortage()); //Runs a coroutine to give time for the indicator.
 
@@ -301,8 +304,8 @@ public class TheCorporate : MonoBehaviour
 
                 if (CurrentHand != null && CurrentHand.GetComponent<GreedyOpportunity>().obstacleInTheWay != false)
                 {
-                    int RandomVoice = Random.Range(0, VoiceGreedyOpportunity.Count);
-                    VoiceGreedyOpportunity[RandomVoice].Play();
+                    //int RandomVoice = Random.Range(0, VoiceGreedyOpportunity.Count);
+                    //VoiceGreedyOpportunity[RandomVoice].Play();
 
                     CurrentHand.GetComponent<GreedyOpportunity>().obstacleInTheWay = false;
                     StartCoroutine(Laughter());
@@ -344,8 +347,8 @@ public class TheCorporate : MonoBehaviour
 
     public void RecieveDamage()
     {
-        int RandomVoice = Random.Range(0, VoiceTakeDamage.Count);
-        VoiceTakeDamage[RandomVoice].Play();
+        //int RandomVoice = Random.Range(0, VoiceTakeDamage.Count);
+        //VoiceTakeDamage[RandomVoice].Play();
 
         Health--;
         if(Health != 0)

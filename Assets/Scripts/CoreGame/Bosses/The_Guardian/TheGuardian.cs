@@ -50,10 +50,10 @@ public class TheGuardian : MonoBehaviour
     private GameObject MothersChosen;
     private bool ChosenOne;
 
-    public List<AudioSource> VoiceWrathOfTheForest = new List<AudioSource>();
-    public List<AudioSource> VoiceEclipse = new List<AudioSource>();
-    public List<AudioSource> VoiceMotherlyEmbrace = new List<AudioSource>();
-    public List<AudioSource> VoiceTakeDamage = new List<AudioSource>();
+    //public List<AudioSource> VoiceWrathOfTheForest = new List<AudioSource>();
+    //public List<AudioSource> VoiceEclipse = new List<AudioSource>();
+    //public List<AudioSource> VoiceMotherlyEmbrace = new List<AudioSource>();
+    //public List<AudioSource> VoiceTakeDamage = new List<AudioSource>();
 
 
     private float timer;
@@ -127,13 +127,15 @@ public class TheGuardian : MonoBehaviour
                 timer = 0;
             }
 
+            /*
             if (Input.GetKey(KeyCode.Alpha5) && Input.GetKeyDown(KeyCode.Alpha7))//cheat to damage boss
             {
                 Health--;
             }
+            */
         }
 
-        if(UsedEclipse == true)//The "Eclipse" ability
+        if (UsedEclipse == true)//The "Eclipse" ability
         {
             DarknessRB.transform.position = Vector3.MoveTowards(DarknessRB.transform.position, DarknessEndingPos, DarknessSpeed * Time.deltaTime);
             EclipseDuration += Time.deltaTime;
@@ -151,8 +153,8 @@ public class TheGuardian : MonoBehaviour
         {
             if(MothersChosen == null)
             {
-                int RandomVoice = Random.Range(0, VoiceTakeDamage.Count);
-                VoiceTakeDamage[RandomVoice].Play();
+                //int RandomVoice = Random.Range(0, VoiceTakeDamage.Count);
+                //VoiceTakeDamage[RandomVoice].Play();
 
                 Health--;
                 ChosenOne = false;
@@ -193,8 +195,8 @@ public class TheGuardian : MonoBehaviour
         if (CD1 <= 0)
         {
             //Do stuff
-            int RandomVoice = Random.Range(0, VoiceWrathOfTheForest.Count);
-            VoiceWrathOfTheForest[RandomVoice].Play();
+            //int RandomVoice = Random.Range(0, VoiceWrathOfTheForest.Count);
+            //VoiceWrathOfTheForest[RandomVoice].Play();
 
             spawnLocation = Random.Range(0, 4);
             Instantiate(NaturesWrath);
@@ -214,8 +216,8 @@ public class TheGuardian : MonoBehaviour
         if (CD2 <= 0)
         {
             //Do stuff
-            int RandomVoice = Random.Range(0, VoiceEclipse.Count);
-            VoiceEclipse[RandomVoice].Play();
+            //int RandomVoice = Random.Range(0, VoiceEclipse.Count);
+            //VoiceEclipse[RandomVoice].Play();
 
             UsedEclipse = true;
 
@@ -234,8 +236,8 @@ public class TheGuardian : MonoBehaviour
         if (CD3 <= 0)
         {
             //Do stuff
-            int RandomVoice = Random.Range(0, VoiceMotherlyEmbrace.Count);
-            VoiceMotherlyEmbrace[RandomVoice].Play();
+            //int RandomVoice = Random.Range(0, VoiceMotherlyEmbrace.Count);
+            //VoiceMotherlyEmbrace[RandomVoice].Play();
 
             VisibleEnemy = GameObject.FindGameObjectWithTag("Enemy");
             if (VisibleEnemy != null)

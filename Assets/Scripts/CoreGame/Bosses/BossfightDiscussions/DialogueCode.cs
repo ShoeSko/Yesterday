@@ -68,10 +68,12 @@ public class DialogueCode : MonoBehaviour
     private void Update()
     {
         //cheatcode: Press 0 during a bossfight to activate the dialogue. This will automatically trigger when the boss takes damage (when i implement it)
+        /*
         if (Input.GetKeyDown(KeyCode.Alpha0))
         {
             PreperationMode();
         }
+        */
 
         if (Prepare)//Dim
         {
