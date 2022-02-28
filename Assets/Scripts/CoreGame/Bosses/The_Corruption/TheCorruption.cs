@@ -111,7 +111,7 @@ public class TheCorruption : MonoBehaviour
         if (FindObjectOfType<SaveSystem>())
         {
             SaveSystem saving = FindObjectOfType<SaveSystem>();
-            saving.data.bossMeetList[0] = true;
+            saving.data.bossMeetList[2] = true;
         }
 
         BossHealthbar.SetActive(true);

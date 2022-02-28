@@ -78,7 +78,7 @@ public class TheGuardian : MonoBehaviour
         if (FindObjectOfType<SaveSystem>())
         {
             SaveSystem saving = FindObjectOfType<SaveSystem>();
-            saving.data.bossMeetList[0] = true;
+            saving.data.bossMeetList[1] = true;
         }
 
         BossHealthbar.SetActive(true);
@@ -174,6 +174,7 @@ public class TheGuardian : MonoBehaviour
                 {
                     SaveSystem saving = FindObjectOfType<SaveSystem>();
                     saving.data.bossList[1] = true;
+                    Debug.Log("I saved");
                 }
 
                 WinCondition.GetComponent<Victory>().Win();
