@@ -22,6 +22,8 @@ public class WeedPulling : MonoBehaviour
     public float topSpeed = 10;
     public float speed = 2f;
 
+    public bool NewControlls;
+
 
     void Start()
     {
@@ -42,28 +44,41 @@ public class WeedPulling : MonoBehaviour
 
     private void OnMouseDown()
     {
-        //This grabs the position of the object in the world and turns it into the position on the screen
-        gameObjectSreenPoint = Camera.main.WorldToScreenPoint(gameObject.transform.position);
-        //Sets the mouse pointers vector3
-        mousePreviousLocation = new Vector3(Input.mousePosition.x, Input.mousePosition.y, gameObjectSreenPoint.z);
+        if (!NewControlls)
+        {
+            //This grabs the position of the object in the world and turns it into the position on the screen
+            gameObjectSreenPoint = Camera.main.WorldToScreenPoint(gameObject.transform.position);
+            //Sets the mouse pointers vector3
+            mousePreviousLocation = new Vector3(Input.mousePosition.x, Input.mousePosition.y, gameObjectSreenPoint.z);
+        }
+        else
+        {
+            transform.position += new Vector3(0, 0.26f, 0);
+        }
     }
 
     private void OnMouseDrag() //This runs as long as you press down on a colider hold down, then move.
     {
-        if (Input.mousePosition.y > mousePreviousLocation.y) //As long as the new input goes up, preventing the carrot from being dragged down.
+        if (!NewControlls)
         {
-            mouseCurLocation = new Vector3(Input.mousePosition.x, Input.mousePosition.y, gameObjectSreenPoint.z);
-            force = mouseCurLocation - mousePreviousLocation;//Changes the force to be applied
-            mousePreviousLocation = mouseCurLocation;
+            if (Input.mousePosition.y > mousePreviousLocation.y) //As long as the new input goes up, preventing the carrot from being dragged down.
+            {
+                mouseCurLocation = new Vector3(Input.mousePosition.x, Input.mousePosition.y, gameObjectSreenPoint.z);
+                force = mouseCurLocation - mousePreviousLocation;//Changes the force to be applied
+                mousePreviousLocation = mouseCurLocation;
+            }
         }
     }
 
 
     private void OnMouseUp()
     {
-        //Makes sure there isn't a ludicrous speed
-        if (rb.velocity.magnitude > topSpeed)
-            force = rb.velocity.normalized * topSpeed;
+        if (!NewControlls)
+        {
+            //Makes sure there isn't a ludicrous speed
+            if (rb.velocity.magnitude > topSpeed)
+                force = rb.velocity.normalized * topSpeed;
+        }
     }
 
     public void FixedUpdate()

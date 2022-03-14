@@ -48,7 +48,7 @@ public class MouseCollider : MonoBehaviour
         if (score == 3 || timeIsUp)//Win Condition
         {
 
-            if (ScoreTimer <= 14)//3 stars
+            if (ScoreTimer <= 9)//3 stars
             {
                 star1.SetActive(true);
                 star2.SetActive(true);
@@ -56,7 +56,7 @@ public class MouseCollider : MonoBehaviour
                 CardReward.Stars = 3;
                 gameScore = 3;
             }
-            else if (ScoreTimer > 14 && ScoreTimer <= 19)//2 stars
+            else if (ScoreTimer > 9 && ScoreTimer <= 14)//2 stars
             {
                 star1.SetActive(true);
                 star2.SetActive(true);
@@ -64,7 +64,7 @@ public class MouseCollider : MonoBehaviour
                 CardReward.Stars = 2;
                 gameScore = 2;
             }
-            else if (ScoreTimer > 19 && ScoreTimer <= 26)//1 stars
+            else if (ScoreTimer > 14 && ScoreTimer <= 21)//1 stars
             {
                 star1.SetActive(true);
                 blackstar2.SetActive(true);
@@ -72,7 +72,7 @@ public class MouseCollider : MonoBehaviour
                 CardReward.Stars = 1;
                 gameScore = 1;
             }
-            else if (ScoreTimer > 26)
+            else if (ScoreTimer > 21)
             {
                 blackstar1.SetActive(true);
                 blackstar2.SetActive(true);

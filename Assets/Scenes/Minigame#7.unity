@@ -2113,6 +2113,7 @@ MonoBehaviour:
   PulledOut: 0
   topSpeed: 10
   speed: 10
+  NewControlls: 1
 --- !u!23 &1535107125
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2808,6 +2809,7 @@ MonoBehaviour:
   PulledOut: 0
   topSpeed: 10
   speed: 10
+  NewControlls: 1
 --- !u!23 &1998586120
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3077,6 +3079,7 @@ MonoBehaviour:
   PulledOut: 0
   topSpeed: 10
   speed: 10
+  NewControlls: 1
 --- !u!50 &2078817265
 Rigidbody2D:
   serializedVersion: 4
