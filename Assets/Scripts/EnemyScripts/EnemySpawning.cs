@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemySpawning : MonoBehaviour
 {
+    #region Variables
     [Header ("Spawner Details")]
     [Tooltip("Empty gameobjects in the locations of spawning")]public List<GameObject> spawnLocationList = new List<GameObject>();//All lane spawn markers
     [Tooltip("The amount of enemies the script will spawn")] public int amountOfEnemies;//The amount of enemies that is suposed to spawn
@@ -39,7 +40,8 @@ public class EnemySpawning : MonoBehaviour
     static public bool s_isCoreGame;
     public int maxAmountOfStrongEnemies;
     public bool isBossSpawner;
-
+    #endregion
+    #region Start / Update
     private void Start()
     {
         ListNewModelMake(); //Runs script to make all scripts belong to this script for the run.
@@ -55,9 +57,12 @@ public class EnemySpawning : MonoBehaviour
             StartCoroutine(EnemySpawnDelayTimer());//Start the coroutine
             gameStarted = false;//Stop the coroutine from being repeatedly started
         }
-    }
 
-    IEnumerator EnemySpawnDelayTimer()
+        //EnemyDifficultyScaller(); //Continously change difficulty compared to enemy spawn amount?
+    }
+    #endregion
+    #region The Spawner Logic
+    IEnumerator EnemySpawnDelayTimer() //The spawner
     {
         if (loopLimit < amountOfEnemies)//As long as the loop has not looped the amount of enemies to spawn GO. Might be obsolete
         {
@@ -149,7 +154,40 @@ public class EnemySpawning : MonoBehaviour
             }
         }   
     }
+    #endregion
+    private void EnemyDifficultyScaller() //Used to scale difficulty by limiting / increasing enemy spawn time.
+    {
+        if (!MinigameSceneScript.Tutorial) //Does not run during tutorial
+        {
+            if(NewCardHandScript.Stage == 1) //If it is first stage Beasts
+            {
+                //Step 1, check amount of Friendly Units on field at all times.
+                UnitPrototypeScript[] listOfFriendlyUnitsInPlay = FindObjectsOfType<UnitPrototypeScript>(); //List of Units on screen
 
+                //Step 2, check amount of Enemies on field at all times. ... Be ignored, based solely on Friendly units on screen.
+                //BasicEnemyMovement[] listOfEnemiesInPlay = FindObjectsOfType<BasicEnemyMovement>(); //List of Enemies on screen.
+
+                //Step 3, Calculate Value changes.
+                if(listOfFriendlyUnitsInPlay.Length > 4 && listOfFriendlyUnitsInPlay.Length < 14) //Only run if there are more than 4 & less than 14 units in play
+                {
+                    float delayDecreaseValue = (listOfFriendlyUnitsInPlay.Length - 4) * 0.22f; //Creates the delay value 0.22 per value over 4.
+
+                }
+                else
+                {
+                    delayBetweenSpawnsMax = 7.6f; //Hardcoded the baseline of Max spawning.
+                    delayBetweenSpawnsMin = 6.1f; //Hardcoded the basline of Min spawning.
+                }
+            }
+            else if(NewCardHandScript.Stage == 2) //If it is second stage Humanoids/Businessmen
+            {
+
+            }
+        }
+
+
+    }
+    #region Spawner List structurer
     public void SpawnEnemies()
     {
         gameStarted = true;
@@ -203,4 +241,5 @@ public class EnemySpawning : MonoBehaviour
     {
         s_isCoreGame = false;
     }
+    #endregion
 }
