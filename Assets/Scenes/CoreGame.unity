@@ -7794,7 +7794,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: e50d718aca43d2c41ac07006127e694b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 72cc0f8a1cea2d94bad911b515d88199, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -28434,9 +28434,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb3ce17b543ebbf43b5f18320309c193, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BossTesting: 0
-  whichBoss: 1
-  DevStageTest: 0
+  BossTesting: 1
+  whichBoss: 2
+  DevStageTest: 1
   whichStage: 3
   Smallhand: 1
   PlayedCard: {fileID: 0}
@@ -35228,7 +35228,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -1
-  m_Sprite: {fileID: 21300000, guid: bb138299ae136e740aefd7d52463e6bf, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a88b96ce2ae18314f8366658e87185e0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -36277,7 +36277,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 201
-  m_Sprite: {fileID: 21300000, guid: e50d718aca43d2c41ac07006127e694b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 72cc0f8a1cea2d94bad911b515d88199, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
