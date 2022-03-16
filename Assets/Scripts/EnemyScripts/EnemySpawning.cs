@@ -58,7 +58,7 @@ public class EnemySpawning : MonoBehaviour
             gameStarted = false;//Stop the coroutine from being repeatedly started
         }
 
-        //EnemyDifficultyScaller(); //Continously change difficulty compared to enemy spawn amount?
+        EnemyDifficultyScaller(); //Continously change difficulty compared to enemy spawn amount?
     }
     #endregion
     #region The Spawner Logic
@@ -164,24 +164,49 @@ public class EnemySpawning : MonoBehaviour
                 //Step 1, check amount of Friendly Units on field at all times.
                 UnitPrototypeScript[] listOfFriendlyUnitsInPlay = FindObjectsOfType<UnitPrototypeScript>(); //List of Units on screen
 
-                //Step 2, check amount of Enemies on field at all times. ... Be ignored, based solely on Friendly units on screen.
-                //BasicEnemyMovement[] listOfEnemiesInPlay = FindObjectsOfType<BasicEnemyMovement>(); //List of Enemies on screen.
-
-                //Step 3, Calculate Value changes.
+                //Step 2, Calculate Value changes.
                 if(listOfFriendlyUnitsInPlay.Length > 4 && listOfFriendlyUnitsInPlay.Length < 14) //Only run if there are more than 4 & less than 14 units in play
                 {
                     float delayDecreaseValue = (listOfFriendlyUnitsInPlay.Length - 4) * 0.22f; //Creates the delay value 0.22 per value over 4.
 
+                    if (delayBetweenSpawnsMax != 8.2F - delayDecreaseValue)
+                    {
+                        debug.log("Current spawn delay is " + 8.2F - delayDecreaseValue); //DEBUG
+                    }
+
+                    delayBetweenSpawnsMin = 8.2F - delayDecreaseValue; //Sets the Min Value equal to 8.2s - the delay amount. 
+                    delayBetweenSpawnsMax = 8.2F - delayDecreaseValue; //Sets the Max value to the same, as that is how I interpret the new vesion of it.
                 }
-                else
-                {
-                    delayBetweenSpawnsMax = 7.6f; //Hardcoded the baseline of Max spawning.
-                    delayBetweenSpawnsMin = 6.1f; //Hardcoded the basline of Min spawning.
-                }
+                //else //To be used to default the value, though it starts at default, then after 4 units changes to the adaption mode.
+                //{
+                //    delayBetweenSpawnsMax = 7.6f; //Hardcoded the baseline of Max spawning.
+                //    delayBetweenSpawnsMin = 6.1f; //Hardcoded the basline of Min spawning.
+                //}
             }
             else if(NewCardHandScript.Stage == 2) //If it is second stage Humanoids/Businessmen
             {
+                //Step 1, check amount of Friendly Units on field at all times.
+                UnitPrototypeScript[] listOfFriendlyUnitsInPlay = FindObjectsOfType<UnitPrototypeScript>(); //List of Units on screen
 
+                //Step 2, Calculate Value changes.
+                if (listOfFriendlyUnitsInPlay.Length > 4 && listOfFriendlyUnitsInPlay.Length < 14) //Only run if there are more than 4 & less than 14 units in play
+                {
+                    float delayDecreaseValue = (listOfFriendlyUnitsInPlay.Length - 4) * 0.48f; //Creates the delay value 0.22 per value over 4.
+
+
+                    if (delayBetweenSpawnsMax != 11F - delayDecreaseValue)
+                    {
+                        debug.log("Current spawn delay is " + 11F - delayDecreaseValue); //DEBUG
+                    }
+
+                    delayBetweenSpawnsMin = 11F - delayDecreaseValue; //Sets the Min Value equal to 8.2s - the delay amount. 
+                    delayBetweenSpawnsMax = 11F - delayDecreaseValue; //Sets the Max value to the same, as that is how I interpret the new vesion of it.
+                }
+                //else //To be used to default the value, though it starts at default, then after 4 units changes to the adaption mode.
+                //{
+                //    delayBetweenSpawnsMax = 7.6f; //Hardcoded the baseline of Max spawning.
+                //    delayBetweenSpawnsMin = 6.1f; //Hardcoded the basline of Min spawning.
+                //}
             }
         }
 
