@@ -114,8 +114,8 @@ public class TheCorruption : MonoBehaviour
 
         BossHealthbar.SetActive(true);
         rb = GetComponent<Rigidbody2D>();
-        NewPos = new Vector2(6.6f, 1.59707f);
-        speed = 0.9f;
+        NewPos = new Vector2(4.5f, 1.05f);
+        speed = 1.1f;
 
         CD2 = 1;
         CD3 = 3;
