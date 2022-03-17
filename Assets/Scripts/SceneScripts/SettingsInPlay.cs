@@ -21,7 +21,10 @@ public class SettingsInPlay : MonoBehaviour
     {
         if (FindObjectOfType<MinigameSceneScript>())
         {
-            FindObjectOfType<MinigameSceneScript>().Silence();
+            if (!GameObject.Find("TutorialMusic"))
+            {
+                FindObjectOfType<MinigameSceneScript>().Silence();
+            }
         }
         SceneManager.LoadScene("MainMenu");
     }
