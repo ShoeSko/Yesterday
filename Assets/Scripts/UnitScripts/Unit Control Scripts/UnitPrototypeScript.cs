@@ -865,7 +865,7 @@ public class UnitPrototypeScript : MonoBehaviour
         {
             GameObject Manager = GameObject.Find("MANAger");
 
-            Manager.GetComponent<ManaSystem>().manaGainSpeed += 0.25f;
+            Manager.GetComponent<ManaSystem>().manaGainSpeed += 0.3f;
         }
 
         if(laneNumberUnit == 1) //In theory, this should remove the unit from the list upon death, preventing post mortem bonus.
