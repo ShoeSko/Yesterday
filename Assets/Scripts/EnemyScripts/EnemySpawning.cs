@@ -169,14 +169,14 @@ public class EnemySpawning : MonoBehaviour
                 {
                     float delayDecreaseValue = (listOfFriendlyUnitsInPlay.Length - 4) * 0.22f; //Creates the delay value 0.22 per value over 4.
 
-                    if (delayBetweenSpawnsMax != 8.2F - delayDecreaseValue)
+                    if (delayBetweenSpawnsMax != 9.2F - delayDecreaseValue)
                     {
-                        float tempDelayForTesting = 8.2F - delayDecreaseValue;
+                        float tempDelayForTesting = 9.2F - delayDecreaseValue;
                         Debug.Log("Current spawn delay is " + tempDelayForTesting); //DEBUG
                     }
 
-                    delayBetweenSpawnsMin = 8.2F - delayDecreaseValue; //Sets the Min Value equal to 8.2s - the delay amount. 
-                    delayBetweenSpawnsMax = 8.2F - delayDecreaseValue; //Sets the Max value to the same, as that is how I interpret the new vesion of it.
+                    delayBetweenSpawnsMin = 9.2F - delayDecreaseValue; //Sets the Min Value equal to 8.2s - the delay amount. 
+                    delayBetweenSpawnsMax = 9.2F - delayDecreaseValue; //Sets the Max value to the same, as that is how I interpret the new vesion of it.
                 }
                 //else //To be used to default the value, though it starts at default, then after 4 units changes to the adaption mode.
                 //{
@@ -195,14 +195,14 @@ public class EnemySpawning : MonoBehaviour
                     float delayDecreaseValue = (listOfFriendlyUnitsInPlay.Length - 4) * 0.48f; //Creates the delay value 0.22 per value over 4.
 
 
-                    if (delayBetweenSpawnsMax != 11F - delayDecreaseValue)
+                    if (delayBetweenSpawnsMax != 12F - delayDecreaseValue)
                     {
-                        float tempDelayForTesting = 11F - delayDecreaseValue;
+                        float tempDelayForTesting = 12F - delayDecreaseValue;
                         Debug.Log("Current spawn delay is " + tempDelayForTesting); //DEBUG
                     }
 
-                    delayBetweenSpawnsMin = 11F - delayDecreaseValue; //Sets the Min Value equal to 8.2s - the delay amount. 
-                    delayBetweenSpawnsMax = 11F - delayDecreaseValue; //Sets the Max value to the same, as that is how I interpret the new vesion of it.
+                    delayBetweenSpawnsMin = 12F - delayDecreaseValue; //Sets the Min Value equal to 8.2s - the delay amount. 
+                    delayBetweenSpawnsMax = 12F - delayDecreaseValue; //Sets the Max value to the same, as that is how I interpret the new vesion of it.
                 }
                 //else //To be used to default the value, though it starts at default, then after 4 units changes to the adaption mode.
                 //{
