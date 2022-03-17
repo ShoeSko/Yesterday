@@ -205,7 +205,7 @@ public class UnitPrototypeScript : MonoBehaviour
         {
             GameObject Manager = GameObject.Find("MANAger");
 
-            Manager.GetComponent<ManaSystem>().manaGainSpeed -= 0.25f;
+            Manager.GetComponent<ManaSystem>().manaGainSpeed -= 0.3f;
         }
 
         if(Unit.cardName == "Ninjey")
@@ -409,7 +409,7 @@ public class UnitPrototypeScript : MonoBehaviour
 
             Debug.Log(countdown);
 
-            if(countdown >= 30)
+            if(countdown >= 20)
             {
                 punchDamage += 15;
                 punchRechargeTime = punchRechargeTime / 1.2f;

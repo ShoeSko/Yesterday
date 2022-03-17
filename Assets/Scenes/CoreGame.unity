@@ -6754,8 +6754,8 @@ MonoBehaviour:
   CowCard: {fileID: 11400000, guid: 2feaa7772e4a0ed4abe51ab0b90c9614, type: 2}
   Chikin: {fileID: 11400000, guid: d8854abcbe197604194b903ffbcc8e84, type: 2}
   Sheep: {fileID: 11400000, guid: d6bf67d5d2f3ab849ab553181cc9cc11, type: 2}
-  TestCard: {fileID: 11400000, guid: 180486b47d2b0f44d8898f60cfe68db2, type: 2}
-  TestCard2: {fileID: 11400000, guid: 26445e8d8b76b8a42b049b561d4a66b0, type: 2}
+  TestCard: {fileID: 11400000, guid: 2feaa7772e4a0ed4abe51ab0b90c9614, type: 2}
+  TestCard2: {fileID: 11400000, guid: 4384fdca5bba346488c6adff280c2ba1, type: 2}
   Rat: {fileID: 11400000, guid: a7f79d8ff64064948b19ac3c1cc02860, type: 2}
   deckViewer: {fileID: 251797549}
   ViewDeck: {fileID: 90165295}
@@ -9389,7 +9389,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38dd179c66d001c4faeef01cf761c4db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  manaGainSpeed: 2.5
+  manaGainSpeed: 3
   mana: {fileID: 1994198032}
   hamsterAnimation: {fileID: 864154675}
   isHamsterRunning: 0
@@ -28709,9 +28709,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb3ce17b543ebbf43b5f18320309c193, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BossTesting: 1
+  BossTesting: 0
   whichBoss: 3
-  DevStageTest: 1
+  DevStageTest: 0
   whichStage: 3
   Smallhand: 1
   PlayedCard: {fileID: 0}
