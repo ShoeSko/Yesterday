@@ -889,11 +889,11 @@ MonoBehaviour:
   - {fileID: 21300000, guid: c077024adc9217a4297534e7f072e0f0, type: 3}
   - {fileID: 21300000, guid: 008ff7306f79f1e41ad1de9af0c7c4f7, type: 3}
   - {fileID: 21300000, guid: aef5bc4364253c54f856b7a85d08c32c, type: 3}
-  - {fileID: 21300000, guid: 10f7006ea66707a4f8d308ed27d93efc, type: 3}
+  - {fileID: 21300000, guid: af5dc7d2d4e8fe04e9c52677a1e6145a, type: 3}
   - {fileID: 21300000, guid: ce5f66af396f93549a856d7d2e878212, type: 3}
   - {fileID: 21300000, guid: 3dc99e99cee515441aa3820ed5baee14, type: 3}
-  - {fileID: 21300000, guid: e50d718aca43d2c41ac07006127e694b, type: 3}
-  - {fileID: 21300000, guid: 849524797fe178b4ebd366f65f97a8c8, type: 3}
+  - {fileID: 21300000, guid: 72cc0f8a1cea2d94bad911b515d88199, type: 3}
+  - {fileID: 21300000, guid: 016962359ae9673409f1c1d6df538210, type: 3}
   - {fileID: 21300000, guid: a0fb89c2d118cd24eb08df099a09d4dc, type: 3}
   stageMinigameImageSlotList:
   - {fileID: 1852222536}
