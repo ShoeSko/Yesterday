@@ -15072,7 +15072,7 @@ MonoBehaviour:
   m_text: "The Guardian: \n\n\nAbilities:\n\nForce of Nature - Passive: The Guardian
     is the incarnation of nature, sending all of her forces against its enemies.
     She will swarm you with her beasts until your farm becomes a part of her forest.
-    In addition, she will use one of her abilities every 12 seconds.\n\nWrath of
+    In addition, she will use one of her abilities every 13 seconds.\n\nWrath of
     the Forest: The Guardian accumulates all of her wrath into a singular strike.
     She sends out a trail of throny vines, dealing 49 damage to all of your units
     in that lane. Guardian's allies are unaffected by this ability.\n\nEclipse: The
@@ -27809,7 +27809,7 @@ MonoBehaviour:
   m_text: "The Corporate:\n\n\nAbilities:\n\nThe boss of all bosses - passive: The
     Corporate has unlimited resources to manpower. He will send his neverending minnions
     towards your farm until you surrender. He will aditionally use one of his abilities
-    every 12 seconds.\n\nProperty business: The Corporate controls the property market.
+    every 16 seconds.\n\nProperty business: The Corporate controls the property market.
     He will 'buy out' your land right under your nose. The Corporate will mark an
     empty unit slot on the map and render it permanently unusuable. You cannot place
     units in the slot with the Corporate mark.\n\nStock Shortage: The Corporate has

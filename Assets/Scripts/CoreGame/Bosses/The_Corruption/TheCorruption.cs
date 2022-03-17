@@ -172,12 +172,12 @@ public class TheCorruption : MonoBehaviour
                 timer = 0;
             }
 
-            /*
+            
             if (Input.GetKey(KeyCode.Alpha5) && Input.GetKeyDown(KeyCode.Alpha7))//cheat to damage boss
             {
                 Health--;
             }
-            */
+            
         }
 
         if (DeactivateDelay)//This is the Corrupted_Grounds Ability

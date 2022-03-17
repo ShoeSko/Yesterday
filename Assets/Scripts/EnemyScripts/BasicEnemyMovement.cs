@@ -464,7 +464,7 @@ public class BasicEnemyMovement : MonoBehaviour
 
     public void MonkePoison()
     {
-        Poison += 5;
+        Poison += 6;
     }
 
     public void SnekPoison()
