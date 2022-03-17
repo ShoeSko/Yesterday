@@ -171,7 +171,7 @@ public class EnemySpawning : MonoBehaviour
 
                     if (delayBetweenSpawnsMax != 8.2F - delayDecreaseValue)
                     {
-                        debug.log("Current spawn delay is " + 8.2F - delayDecreaseValue); //DEBUG
+                        //debug.log("Current spawn delay is " + 8.2F - delayDecreaseValue); //DEBUG
                     }
 
                     delayBetweenSpawnsMin = 8.2F - delayDecreaseValue; //Sets the Min Value equal to 8.2s - the delay amount. 
@@ -196,7 +196,7 @@ public class EnemySpawning : MonoBehaviour
 
                     if (delayBetweenSpawnsMax != 11F - delayDecreaseValue)
                     {
-                        debug.log("Current spawn delay is " + 11F - delayDecreaseValue); //DEBUG
+                        //debug.log("Current spawn delay is " + 11F - delayDecreaseValue); //DEBUG
                     }
 
                     delayBetweenSpawnsMin = 11F - delayDecreaseValue; //Sets the Min Value equal to 8.2s - the delay amount. 
