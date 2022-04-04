@@ -16,6 +16,7 @@ public class UnitPrototypeScript : MonoBehaviour
     [Tooltip("Is this unit going to shoot?")] private bool isShooter;
     [Tooltip("Is this unit going to punch?")] private bool isPunching;
     [Tooltip("Is this Unit special in some way?")] private bool isSpecial;
+    [Tooltip("The type of damage done/taken")] private int damageType;
 
     [Header("Shooting")]
     [Tooltip("Time between each shot")] [Range(0, 100)] private float shootRechargeTime;
@@ -182,7 +183,7 @@ public class UnitPrototypeScript : MonoBehaviour
                 {
                     int RandomizedNumber = Random.Range(0, RandomEnemy.Length);
 
-                    RandomEnemy[RandomizedNumber].GetComponent<BasicEnemyMovement>().TakeDamage(punchDamage, hasKnockback, knockbackPower);
+                    RandomEnemy[RandomizedNumber].GetComponent<BasicEnemyMovement>().TakeDamage(punchDamage, hasKnockback, knockbackPower, damageType);
                 }
             }
         }
@@ -635,7 +636,7 @@ public class UnitPrototypeScript : MonoBehaviour
                         hasPunched = true;
                         if (enemiesToDamage[i].GetComponent<BasicEnemyMovement>())
                         {
-                            enemiesToDamage[i].GetComponent<BasicEnemyMovement>().TakeDamage(punchDamage, hasKnockback, knockbackPower); //Sent attackDamage to Unit
+                            enemiesToDamage[i].GetComponent<BasicEnemyMovement>().TakeDamage(punchDamage, hasKnockback, knockbackPower, damageType); //Sent attackDamage to Unit
                             hitEnemy = enemiesToDamage[i];
                             OnHitAbility();//Check if the unit has any abilities that trigger when hitting an enemy
                             //print("Punch");
@@ -663,7 +664,7 @@ public class UnitPrototypeScript : MonoBehaviour
                         hasPunched = true;
                         if (enemiesToDamage[i].GetComponent<BasicEnemyMovement>())
                         {
-                        enemiesToDamage[i].GetComponent<BasicEnemyMovement>().TakeDamage(punchDamage, hasKnockback,knockbackPower); //Sent attackDamage to Unit
+                        enemiesToDamage[i].GetComponent<BasicEnemyMovement>().TakeDamage(punchDamage, hasKnockback,knockbackPower, damageType); //Sent attackDamage to Unit
                         OnHitAbility();//Check if the unit has any abilities that trigger when hitting an enemy
                         //print("Punch");
                         }
@@ -805,9 +806,42 @@ public class UnitPrototypeScript : MonoBehaviour
 
     #endregion
     #region Take Damage
-    public void TakeDamage(int damage)
+    public void TakeDamage(int damage, int damageTypeTaken)
     {
-        health -= damage;
+        if(damageTypeTaken == LanePlacedUnits.s_HighestDamageTyping)
+        {
+            if(damageType == 0)
+            {
+                health -= (damage + (damage / LanePlacedUnits.s_DamageDivisionModule));
+            }
+            else if(damageType == (LanePlacedUnits.s_HighestDamageTyping - 1))
+            {
+                health -= (damage - (damage / LanePlacedUnits.s_DamageDivisionModule));
+            }
+        }
+        else if(damageTypeTaken == 0)
+        {
+            if(damageType == 1)
+            {
+                health -= (damage + (damage / LanePlacedUnits.s_DamageDivisionModule));
+            }
+            else if(damageType == LanePlacedUnits.s_HighestDamageTyping)
+            {
+                health -= (damage - (damage / LanePlacedUnits.s_DamageDivisionModule));
+            }
+        }
+        if(damageType == (damageTypeTaken + 1))
+        {
+            health -= (damage + (damage / LanePlacedUnits.s_DamageDivisionModule));
+        }
+        else if(damageType == (damageTypeTaken - 1))
+        {
+            health -= (damage - (damage / LanePlacedUnits.s_DamageDivisionModule));
+        }
+        else
+        {
+            health -= damage;
+        }
         //print("Unit health is " + health);
         if (health > 0)
         {
@@ -969,6 +1003,7 @@ public class UnitPrototypeScript : MonoBehaviour
         isShooter = Unit.isShooter;
         isPunching = Unit.isPunching;
         isSpecial = Unit.isSpecial;
+        damageType = Unit.damageType;
         //Shooting
         shootRechargeTime = Unit.shootRechargeTime;
         projectileSpeed = Unit.projectileSpeed;

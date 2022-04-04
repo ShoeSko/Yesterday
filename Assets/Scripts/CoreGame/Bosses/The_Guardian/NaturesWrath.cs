@@ -26,7 +26,7 @@ public class NaturesWrath : MonoBehaviour
         if(collider.gameObject.tag == "Obstacle")
         {
             Debug.Log("I dealth damage");
-            collider.GetComponent<UnitPrototypeScript>().TakeDamage(damage);//Deal damage to that unit (hopefully)
+            collider.GetComponent<UnitPrototypeScript>().TakeDamage(damage, 99999999);//Deal damage to that unit (hopefully)
         }
     }
 

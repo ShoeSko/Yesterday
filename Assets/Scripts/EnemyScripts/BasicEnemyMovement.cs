@@ -19,6 +19,7 @@ public class BasicEnemyMovement : MonoBehaviour
     private int attackDamage;
     private float attackSpeed;
     private LayerMask whatIsUnitLayer;
+    private int damageType;
 
     [Tooltip("How big is the attack range?")][SerializeField]private float attackRange; //These two stay here as they are harder to do from a scriptableobject.
     [Tooltip("Where does it attack from?")][SerializeField]private Transform attackPosition;
@@ -149,7 +150,7 @@ public class BasicEnemyMovement : MonoBehaviour
             {
                 if(enemiesToDamage[i])
                 {
-                    enemiesToDamage[i].GetComponent<UnitPrototypeScript>().TakeDamage(attackDamage); //Sent attackDamage to Unit
+                    enemiesToDamage[i].GetComponent<UnitPrototypeScript>().TakeDamage(attackDamage, damageType); //Sent attackDamage to Unit
                     hasAttacked = true;
                 }
             }
@@ -191,8 +192,38 @@ public class BasicEnemyMovement : MonoBehaviour
         }
     }
 
-    public void TakeDamage(int damage, bool isKnockback, float knockbackStrenght)
+    public void TakeDamage(int damage, bool isKnockback, float knockbackStrenght, int damageTypeTaken)
     {
+        if (damageTypeTaken == LanePlacedUnits.s_HighestDamageTyping)
+        {
+            if (damageType == 0)
+            {
+                enemyHealth -= (damage + (damage / LanePlacedUnits.s_DamageDivisionModule));
+            }
+            else if (damageType == (LanePlacedUnits.s_HighestDamageTyping - 1))
+            {
+                enemyHealth -= (damage - (damage / LanePlacedUnits.s_DamageDivisionModule));
+            }
+        }
+        else if (damageTypeTaken == 0)
+        {
+            if (damageType == 1)
+            {
+                enemyHealth -= (damage + (damage / LanePlacedUnits.s_DamageDivisionModule));
+            }
+            else if (damageType == LanePlacedUnits.s_HighestDamageTyping)
+            {
+                enemyHealth -= (damage - (damage / LanePlacedUnits.s_DamageDivisionModule));
+            }
+        }
+        if (damageType == (damageTypeTaken + 1))
+        {
+            enemyHealth -= (damage + (damage / LanePlacedUnits.s_DamageDivisionModule));
+        }
+        else if (damageType == (damageTypeTaken - 1))
+        {
+            enemyHealth -= (damage - (damage / LanePlacedUnits.s_DamageDivisionModule));
+        }
         enemyHealth -= damage;
         print(enemyHealth);
         if (!isKnockback)
@@ -419,6 +450,7 @@ public class BasicEnemyMovement : MonoBehaviour
         attackDamage = enemy.attackDamage;
         attackSpeed = enemy.attackSpeed;
         whatIsUnitLayer = enemy.whatIsUnitLayer;
+        damageType = enemy.damageType;
 
         //Enemy confirmation
         specialAnimationCheckList = enemy.specialAnimationCheckList;

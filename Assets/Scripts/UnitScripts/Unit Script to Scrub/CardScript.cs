@@ -22,6 +22,7 @@ public class CardScript : ScriptableObject
     [Tooltip("Is this unit going to shoot?")] public bool isShooter;
     [Tooltip("Is this unit going to punch?")] public bool isPunching;
     [Tooltip("Is this Unit special in some way?")] public bool isSpecial;
+    [Tooltip("The type of damage done/taken")] public int damageType;
 
     [Header("Shooting")]
     [Tooltip("Time between each shot")] [Range(0, 100)] public float shootRechargeTime;

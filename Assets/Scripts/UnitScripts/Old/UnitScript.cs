@@ -9,7 +9,8 @@ public class UnitScript : ScriptableObject
     [Tooltip("Is this unit going to shoot?")] public bool isShooter;
     [Tooltip("Is this unit going to punch?")] public bool isCQC;
     [Tooltip("Is this Unit special in some way?")] public bool isSpecial;
-    
+
+
     [Header("Shooting")]
     [Tooltip("Time between each shot")] [Range(0, 100)] public float shootRechargeTime;
     [Tooltip("The speed of the projectile being fired")] [Range(0, 100)] public float projectileSpeed;
