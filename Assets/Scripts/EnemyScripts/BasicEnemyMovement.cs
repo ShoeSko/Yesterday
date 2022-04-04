@@ -36,7 +36,7 @@ public class BasicEnemyMovement : MonoBehaviour
     private Color StandardColor = new Color(1, 1, 1, 1);
 
     [Header("Enemy confirmation for Animation")]
-    [Tooltip("Is the Enemy Merry, so that her animation will play")] private bool isMerry;
+    [Tooltip("Is the Enemy Merry, so that her animation will play")] private bool[] specialAnimationCheckList;
 
     [Header("Enemy Index")]
     [Tooltip("Is it a beast?")] private bool isBeast;
@@ -73,7 +73,7 @@ public class BasicEnemyMovement : MonoBehaviour
 
     private void MovingAnimation()
     {
-        if (isMerry)
+        if (specialAnimationCheckList[0])
         {
             animatorOfEnemies.SetBool("IsMerry", true);
         }
@@ -421,7 +421,7 @@ public class BasicEnemyMovement : MonoBehaviour
         whatIsUnitLayer = enemy.whatIsUnitLayer;
 
         //Enemy confirmation
-        isMerry = enemy.isMerry;
+        specialAnimationCheckList = enemy.specialAnimationCheckList;
 
         //Indexing
         isBeast = enemy.isBeast;
