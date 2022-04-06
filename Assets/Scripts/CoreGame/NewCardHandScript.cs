@@ -19,9 +19,12 @@ public class NewCardHandScript : MonoBehaviour
     public GameObject quackenButton;
     public GameObject Deck;
     private GameObject CurrentCard;
+    public GameObject BossCore;
+    //Old stuff, delete later
     public GameObject TheCorporatePrefab;
     public GameObject TheGuardianPrefab;
     public GameObject TheCorruptionPrefab;
+    //
     public GameObject BossIntro;
     public GameObject DeckButton;
 
@@ -42,9 +45,13 @@ public class NewCardHandScript : MonoBehaviour
     [Header("AUDIO")]
     public AudioSource Music1;
     public AudioSource Music2;
+    public AudioSource BossmusicContainer;
+    private AudioClip Bossmusic;
+    //More old stuff to delete
     public AudioSource Boss1;
     public AudioSource Boss2;
     public AudioSource Boss3;
+    //
     public AudioSource CurrentBGM;
 
     [Header("Backgrounds")]
@@ -205,7 +212,7 @@ public class NewCardHandScript : MonoBehaviour
 
             if (BossTesting)
             {
-                RandomBoss = whichBoss;//Simple boss randomiser
+                RandomBoss = whichBoss--;//Simple boss randomiser
                 print("boss testing is on????");
             }
             else if (isCampaign)
@@ -261,7 +268,7 @@ public class NewCardHandScript : MonoBehaviour
             }
             else
             {
-                RandomBoss = Random.Range(1, 3);
+                RandomBoss = Random.Range(0, 2);
             }
 
             BossIntro.GetComponent<Corporate_Intro>().PlayIntro();
@@ -943,22 +950,16 @@ public class NewCardHandScript : MonoBehaviour
         else if (Stage == 3)
         {
             if (BossTesting == true)
-                RandomBoss = whichBoss;//Set this number to the boss you want to test // Added a variable that can be accesed from outside the script. More usefull for testing.
+                RandomBoss = whichBoss--;//Set this number to the boss you want to test
+
+            BossCore.GetComponent<CoreBossManager>().Activate();
+            Bossmusic = BossmusicContainer.GetComponent<AudioClip>();
+            Bossmusic = BossCore.GetComponent<CoreBossManager>().soundtrack;
+            CurrentBGM = BossmusicContainer;
+            CurrentBGM.Play();
 
             /*
-            #region Boos Meet n Greet
-            if (!BossTesting)
-            {
-                if (FindObjectOfType<SaveSystem>())
-                {
-                    SaveSystem saving = FindObjectOfType<SaveSystem>();
-                    saving.data.bossMeetList[RandomBoss--] = true;
-                }
-            }
-            #endregion
-            */
-
-            if (RandomBoss == 1)
+            if (RandomBoss == 0)
             {
                 print("now play boss");
                 //Do first boss stuff
@@ -968,7 +969,7 @@ public class NewCardHandScript : MonoBehaviour
                 TheCorporatePrefab.GetComponent<TheCorporate>().Activate();
                 TheCorporatePrefab.GetComponent<TheCorporate>().IsActive = true;
             }
-            else if(RandomBoss == 2)
+            else if(RandomBoss == 1)
             {
                 //Do second boss stuff
                 SpawnerBossGuardian.GetComponent<EnemySpawning>().gameStarted = true;
@@ -977,7 +978,7 @@ public class NewCardHandScript : MonoBehaviour
                 TheGuardianPrefab.GetComponent<TheGuardian>().Activate();
                 TheGuardianPrefab.GetComponent<TheGuardian>().IsActive = true;
             }
-            else if(RandomBoss == 3)
+            else if(RandomBoss == 2)
             {
                 //Do third boss stuff
                 SpawnerBossCorruption.GetComponent<EnemySpawning>().gameStarted = true;
@@ -986,6 +987,7 @@ public class NewCardHandScript : MonoBehaviour
                 TheCorruptionPrefab.GetComponent<TheCorruption>().Activate();
                 TheCorruptionPrefab.GetComponent<TheCorruption>().IsActive = true;
             }
+            */
         }
     }
 

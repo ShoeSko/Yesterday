@@ -20,6 +20,7 @@ public class BossScriptableObject : ScriptableObject
 
     [Header("Audio")]
     public List<AudioClip> AbilitySFX = new List<AudioClip>();
+    public AudioClip Soundtrack;
 
     [Header("Physics")]
     public float Xpos;
