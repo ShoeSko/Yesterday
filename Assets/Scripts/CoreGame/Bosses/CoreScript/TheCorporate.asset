@@ -21,7 +21,8 @@ MonoBehaviour:
   AbilityCooldown: 000000000100000001000000
   StartAbilityCooldown: 000000000100000001000000
   AbilitySFX: []
-  Soundtrack: {fileID: 8300000, guid: 791c9db50f8a14b4fae94371c1833f25, type: 3}
+  Soundtrack: {fileID: 8300000, guid: 676d2ca8bb7b647439ceb6ad1a0cf33d, type: 3}
   Xpos: 6
   Ypos: 1.34
   IntroSpeed: 0.9
+  ScaleModifier: 1

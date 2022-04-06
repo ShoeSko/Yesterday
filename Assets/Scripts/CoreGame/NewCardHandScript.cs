@@ -953,8 +953,8 @@ public class NewCardHandScript : MonoBehaviour
                 RandomBoss = whichBoss--;//Set this number to the boss you want to test
 
             BossCore.GetComponent<CoreBossManager>().Activate();
-            Bossmusic = BossmusicContainer.GetComponent<AudioClip>();
             Bossmusic = BossCore.GetComponent<CoreBossManager>().soundtrack;
+            BossmusicContainer.clip = Bossmusic;
             CurrentBGM = BossmusicContainer;
             CurrentBGM.Play();
 

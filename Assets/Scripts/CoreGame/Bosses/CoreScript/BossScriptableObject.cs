@@ -26,5 +26,6 @@ public class BossScriptableObject : ScriptableObject
     public float Xpos;
     public float Ypos;
     public float IntroSpeed;
+    public float ScaleModifier;
 
 }
