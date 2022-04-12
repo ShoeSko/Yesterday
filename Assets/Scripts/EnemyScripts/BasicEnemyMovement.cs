@@ -40,6 +40,8 @@ public class BasicEnemyMovement : MonoBehaviour
     [Tooltip("Is the Enemy Merry, so that her animation will play")] private bool[] specialAnimationCheckList;
 
     [Header("Enemy Index")]
+    //[Tooltip("What type of enemy is this?")] private bestiaryOptions bestiaryType;
+    //public enum bestiaryOptions { Beast, Humanoid, Monstrosity }
     [Tooltip("Is it a beast?")] private bool isBeast;
     [Tooltip("Is it a humanoid?")] private bool isHumanoid;
     [Tooltip("Is it a monstrosity?")] private bool isMonstrosity;
@@ -456,6 +458,7 @@ public class BasicEnemyMovement : MonoBehaviour
         specialAnimationCheckList = enemy.specialAnimationCheckList;
 
         //Indexing
+        //bestiaryType = (bestiaryOptions)enemy.bestiaryType;
         isBeast = enemy.isBeast;
         isHumanoid = enemy.isHumanoid;
         isMonstrosity = enemy.isMonstrosity;

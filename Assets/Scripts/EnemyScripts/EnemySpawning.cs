@@ -9,7 +9,7 @@ public class EnemySpawning : MonoBehaviour
     [Tooltip("Empty gameobjects in the locations of spawning")]public List<GameObject> spawnLocationList = new List<GameObject>();//All lane spawn markers
     [Tooltip("The amount of enemies the script will spawn")] public int amountOfEnemies;//The amount of enemies that is suposed to spawn
     [Range(0,25)]public float delayBetweenSpawnsMin;//The minimum time between spawns
-    [Range(0,25)]public float delayBetweenSpawnsMax;//The maximum time between spawns
+    [Range(0,25)]public float delayBetweenSpawnsMax;//The maximum time between spawnsz
 
 
     private int randomLaneForSpawning; //The index number for the list of Lanes

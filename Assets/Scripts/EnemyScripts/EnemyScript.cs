@@ -1,5 +1,5 @@
 using UnityEngine;
-[CreateAssetMenu (fileName = "New Enemy", menuName ="EnemyTemplate")]
+[CreateAssetMenu(fileName = "New Enemy", menuName = "EnemyTemplate")]
 public class EnemyScript : ScriptableObject
 {
     [Header("Enemy Controls")]
@@ -18,6 +18,8 @@ public class EnemyScript : ScriptableObject
     [Tooltip("Is the Enemy Merry, so that her animation will play")] public bool[] specialAnimationCheckList;
 
     [Header("Enemy Index")]
+    //[Tooltip("What type of enemy is this?")]public bestiaryOptions bestiaryType;
+    //public enum bestiaryOptions { Beast, Humanoid, Monstrosity }
     [Tooltip("Is it a beast?")] public bool isBeast;
     [Tooltip("Is it a humanoid?")] public bool isHumanoid;
     [Tooltip("Is it a monstrosity?")] public bool isMonstrosity;
