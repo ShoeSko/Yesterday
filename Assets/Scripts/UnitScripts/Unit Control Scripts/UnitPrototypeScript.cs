@@ -16,7 +16,7 @@ public class UnitPrototypeScript : MonoBehaviour
     [Tooltip("Is this unit going to shoot?")] private bool isShooter;
     [Tooltip("Is this unit going to punch?")] private bool isPunching;
     [Tooltip("Is this Unit special in some way?")] private bool isSpecial;
-    [Tooltip("The type of damage done/taken")] private int damageType;
+    [Tooltip("The type of damage done/taken")] [HideInInspector] public int damageType;
 
     [Header("Shooting")]
     [Tooltip("Time between each shot")] [Range(0, 100)] private float shootRechargeTime;
@@ -160,13 +160,13 @@ public class UnitPrototypeScript : MonoBehaviour
             DeckCode = DeckObject.GetComponent<DeckScript>();
             DeckCode.CheckForRodents();
 
-            Debug.Log("There are " + DeckCode.Rodents + " rodents in this deck");
+            //Debug.Log("There are " + DeckCode.Rodents + " rodents in this deck");
 
             health += 15 * DeckCode.Rodents;
             punchDamage += 2 * DeckCode.Rodents;
 
-            Debug.Log("My Health is" + health);
-            Debug.Log("My Damage is" + punchDamage);
+            //Debug.Log("My Health is" + health);
+            //Debug.Log("My Damage is" + punchDamage);
 
             DeckCode.Rodents = 0;
         }
@@ -175,7 +175,7 @@ public class UnitPrototypeScript : MonoBehaviour
         {
             GameObject [] RandomEnemy = GameObject.FindGameObjectsWithTag("Enemy");
 
-            Debug.Log("There are this many enemies" + RandomEnemy.Length);
+            //Debug.Log("There are this many enemies" + RandomEnemy.Length);
             
             for(int EnemiesToHit = 0; EnemiesToHit < 3; EnemiesToHit++)
             {
@@ -223,11 +223,11 @@ public class UnitPrototypeScript : MonoBehaviour
             health += friendly * 10;
             punchDamage += friendly * 3;
 
-            Debug.Log("My new health is" + health);
-            Debug.Log("My new damage is" + punchDamage);
+            //Debug.Log("My new health is" + health);
+            //Debug.Log("My new damage is" + punchDamage);
 
-            Debug.Log("Friendly units:" + friendly);
-            Debug.Log("Enemy units:" + friendly);
+            //Debug.Log("Friendly units:" + friendly);
+            //Debug.Log("Enemy units:" + friendly);
         }
 
         if (Unit.cardName == "Maid")
@@ -813,10 +813,12 @@ public class UnitPrototypeScript : MonoBehaviour
 
             if (damageTypeTaken == DamageTypeCore.s_HighestDamageTyping)
             {
+                print("A unit took damage of type " + damageTypeTaken);
                 if (damageType == 0)
                 {
                     health -= (damage + (damage / DamageTypeCore.s_DamageDivisionModule));
                     animatorOfUnit.SetTrigger("HitStrong");
+                    print("Anim should run??");
                 }
                 else if (damageType == (DamageTypeCore.s_HighestDamageTyping - 1))
                 {

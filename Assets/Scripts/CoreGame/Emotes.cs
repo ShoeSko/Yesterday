@@ -22,8 +22,8 @@ public class Emotes : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(EnemiesInStressZone);
-        Debug.Log(EnemiesInPanicZone);
+        //Debug.Log(EnemiesInStressZone);
+        //Debug.Log(EnemiesInPanicZone);
 
         if (GameOver == false && GameStarted == true && !isEndGame)
         {

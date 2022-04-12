@@ -26,6 +26,7 @@ MonoBehaviour:
   isShooter: 0
   isPunching: 1
   isSpecial: 0
+  damageType: 1
   shootRechargeTime: 0
   projectileSpeed: 0
   projectilePrefab: {fileID: 3204289923293697707, guid: 5d52c25ce94445743a02a3ddca268b0e, type: 3}

@@ -28931,6 +28931,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1485272400}
   - component: {fileID: 1485272402}
+  - component: {fileID: 1485272401}
   m_Layer: 0
   m_Name: HANDscript
   m_TagString: Untagged
@@ -28952,6 +28953,21 @@ Transform:
   m_Father: {fileID: 1972738022}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1485272401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1485272399}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b53342ebb854e84daa8b4e06e50caa6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highestDamageTyping: 2
+  damageDivisionModule: 4
+  isUsingWeaknessStrenght: 0
 --- !u!114 &1485272402
 MonoBehaviour:
   m_ObjectHideFlags: 0

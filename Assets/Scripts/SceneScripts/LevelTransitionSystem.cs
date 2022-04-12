@@ -18,34 +18,42 @@ public class LevelTransitionSystem : MonoBehaviour
     {
         string nextLevelName = ""; //Remembers the name
 
-        Time.timeScale = 1;
-        NewCardHandScript.Stage++;
-        Debug.Log(NewCardHandScript.Stage);
-
-        if (NewCardHandScript.Stage == 4)
+        if (DamageTypeCore.s_isUsingWeaknessStrenght)
         {
-            nextLevelName = "ConversationScene";
+            SceneManager.LoadScene("CoreGame"); //Supposedly Reload core game during Testing.
         }
-
-        if (NewCardHandScript.Stage >= 5)
+        else
         {
-            if (GoToCredits)
-                nextLevelName = "Credits";
-            else
-                nextLevelName = "FirstScene";
+            Time.timeScale = 1;
+            NewCardHandScript.Stage++;
+            Debug.Log(NewCardHandScript.Stage);
 
-
-            if (FindObjectOfType<SaveSystem>())
+            if (NewCardHandScript.Stage == 4)
             {
-                FindObjectOfType<SaveSystem>().data.lastScene = null;
+                nextLevelName = "ConversationScene";
             }
+
+            if (NewCardHandScript.Stage >= 5)
+            {
+                if (GoToCredits)
+                    nextLevelName = "Credits";
+                else
+                    nextLevelName = "FirstScene";
+
+
+                if (FindObjectOfType<SaveSystem>())
+                {
+                    FindObjectOfType<SaveSystem>().data.lastScene = null;
+                }
+            }
+            StartCoroutine(SceneFadeMechanic(nextLevelName)); 
         }
-        StartCoroutine(SceneFadeMechanic(nextLevelName));
     }
 
     public void GameOverButtonPress() // You lost. Straight to the main menu for a quick and easy reset.
     {
         string nextLevelName = "";
+
 
         if (MinigameSceneScript.Tutorial)
             MinigameSceneScript.Tutorial = false;
@@ -53,11 +61,20 @@ public class LevelTransitionSystem : MonoBehaviour
         Time.timeScale = 1;
         Quacken.s_quackenBeenReleased = false; //Resets the Quacken.
         nextLevelName = "MainMenu";
-        if (FindObjectOfType<SaveSystem>())
+
+        if (DamageTypeCore.s_isUsingWeaknessStrenght)
         {
-            FindObjectOfType<SaveSystem>().data.lastScene = null;
+            StartCoroutine(SceneFadeMechanic("CoreGame"));
+
         }
-        StartCoroutine(SceneFadeMechanic(nextLevelName));
+        else
+        {
+            if (FindObjectOfType<SaveSystem>())
+            {
+                FindObjectOfType<SaveSystem>().data.lastScene = null;
+            }
+            StartCoroutine(SceneFadeMechanic(nextLevelName)); 
+        }
     }
     public void LoadFirstMiniGame() //Sends you to the loading scene
     {

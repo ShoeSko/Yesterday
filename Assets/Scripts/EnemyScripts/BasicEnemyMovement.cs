@@ -181,9 +181,10 @@ public class BasicEnemyMovement : MonoBehaviour
         if (other.gameObject.CompareTag(projectileTags))
         {
             ProjectileScript projectileScript = other.gameObject.GetComponent<ProjectileScript>();
-            enemyHealth = enemyHealth - projectileScript.projectileDamage;//Reads damage from the projectile script(Which reads it from their parent)
+            TakeDamage(projectileScript.projectileDamage, false, 0, projectileScript.damageTypeFromParent);
+            //enemyHealth = enemyHealth - projectileScript.projectileDamage;//Reads damage from the projectile script(Which reads it from their parent) Obsolete, should have been done long ago.
             projectileScript.numberOfMaxTargets--;
-            StartCoroutine(PeriodOfBeingDamaged());
+            //StartCoroutine(PeriodOfBeingDamaged());
             ////Destroy(other.gameObject);//Current issue for later, bullet takes time to dissapear.
         }
 
@@ -198,6 +199,7 @@ public class BasicEnemyMovement : MonoBehaviour
     {
         if (DamageTypeCore.s_isUsingWeaknessStrenght) //If using the system do this.
         {
+            print("Yes, is using it, got hit by " + damageTypeTaken);
             if (damageTypeTaken == DamageTypeCore.s_HighestDamageTyping)
             {
                 if (damageType == 0)

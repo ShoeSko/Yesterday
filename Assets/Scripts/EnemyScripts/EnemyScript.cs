@@ -18,9 +18,9 @@ public class EnemyScript : ScriptableObject
     [Tooltip("Is the Enemy Merry, so that her animation will play")] public bool[] specialAnimationCheckList;
 
     [Header("Enemy Index")]
-    //[Tooltip("What type of enemy is this?")]public bestiaryOptions bestiaryType;
+    //[Tooltip("What type of enemy is this?")]public bestiaryOptions bestiaryType; 
     //public enum bestiaryOptions { Beast, Humanoid, Monstrosity }
-    [Tooltip("Is it a beast?")] public bool isBeast;
+    [Tooltip("Is it a beast?")] public bool isBeast; 
     [Tooltip("Is it a humanoid?")] public bool isHumanoid;
     [Tooltip("Is it a monstrosity?")] public bool isMonstrosity;
     [Tooltip("What index number does it have? Please start with 0.")] public int enemyIndex;

@@ -11,7 +11,7 @@ public class DamageTypeCore : MonoBehaviour
     static public int s_DamageDivisionModule = 4; //What the damage increase/Decrease is divided by.
 
     [SerializeField] private bool isUsingWeaknessStrenght;
-    static public bool s_isUsingWeaknessStrenght;
+    static public bool s_isUsingWeaknessStrenght; //Is using the Weakness & Strenght System
     
     private void Awake() //This just makes the static variables coincide with changes in inspector.
     {
