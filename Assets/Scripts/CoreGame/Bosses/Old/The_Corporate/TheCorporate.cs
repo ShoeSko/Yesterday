@@ -196,7 +196,7 @@ public class TheCorporate : MonoBehaviour
                     saving.data.bossList[0] = true;
                 }
 
-                    WinCondition.GetComponent<Victory>().Win();
+                WinCondition.GetComponent<Victory>().Win();
                 AddBossDefeatToBestiary(); //With the defeat, the boss is unlocked in the bestiary.
                 hasBeenDefeated = true;
             }

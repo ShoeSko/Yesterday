@@ -67,7 +67,7 @@ public class DialogueCode : MonoBehaviour
 
     private void Update()
     {
-        //cheatcode: Press 0 during a bossfight to activate the dialogue. This will automatically trigger when the boss takes damage (when i implement it)
+        //cheatcode: Press 0 during a bossfight to activate the dialogue. This will automatically trigger when the boss takes damage
         /*
         if (Input.GetKeyDown(KeyCode.Alpha0))
         {
@@ -98,19 +98,19 @@ public class DialogueCode : MonoBehaviour
                 CurrentOutfit = Robot[RandomOutfit];
                 CurrentOutfit.GetComponent<Animator>().Play("FarmerIntro");
 
-                if (WhichBoss == 1)
+                if (WhichBoss == 0)
                 {
                     Currentdialogue = Corporatedialogue;
                     CurrentEnemies = Businessmen;
                     EnemyDialoguetext.color = CorporateColor;
                 }
-                else if (WhichBoss == 2)
+                else if (WhichBoss == 1)
                 {
                     Currentdialogue = Guardiandialogue;
                     CurrentEnemies = Beasts;
                     EnemyDialoguetext.color = GuardianColor;
                 }
-                else if (WhichBoss == 3)
+                else if (WhichBoss == 2)
                 {
                     Currentdialogue = Corruptiondialogue;
                     CurrentEnemies = Corruptions;

@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a067928e44216f4baf5983c6167c2a9, type: 3}
+  m_Name: TheCorporate
+  m_EditorClassIdentifier: 
+  Name: The Corporate
+  BossHealth: 4
+  BossSprites:
+  - {fileID: 21300000, guid: 8d69d49ab7c134b4887fd0eac5b70e0e, type: 3}
+  BossSliderColor: {r: 1, g: 0, b: 0, a: 0}
+  UseAbilityDelay: 15
+  AbilityCooldown: 000000000100000001000000
+  StartAbilityCooldown: 000000000100000001000000
+  AbilitySFX: []
+  Soundtrack: {fileID: 8300000, guid: 676d2ca8bb7b647439ceb6ad1a0cf33d, type: 3}
+  Xpos: 6
+  Ypos: 1.34
+  IntroSpeed: 0.9
+  ScaleModifier: 1

@@ -3,6 +3,31 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+public class TheBossClass_Parent : MonoBehaviour     //Ability reference to "BossAbilities" scripts
+{
+    //All bosses must use class "BossAbilites : TheBossClass_Parent"
+    //All bosses must reffer to all voids in this class
+
+    delegate void AbilityList();//Stores ability voids
+    List<AbilityList> Ability = new List<AbilityList>();
+
+    private void Start()
+    {
+        Ability.Add(Ability1);
+        Ability.Add(Ability2);
+        Ability.Add(Ability3);
+    }
+
+    public void UseAbility(int whatAbility)
+    {
+        Ability[whatAbility]();
+    }
+
+    public virtual void Ability1() { }
+    public virtual void Ability2() { }
+    public virtual void Ability3() { }
+}
+
 public class CoreBossManager : MonoBehaviour
 {
     #region Parameters
@@ -10,7 +35,7 @@ public class CoreBossManager : MonoBehaviour
     private BossScriptableObject currentBoss;
 
     private string bossname;
-    public int health;
+    [HideInInspector] public int health;
 
     private List<Sprite> bossSprites = new List<Sprite>();
     private Color healthbarColor;
@@ -20,10 +45,12 @@ public class CoreBossManager : MonoBehaviour
     private List<int> startabilityCD;
 
     private List<AudioClip> abilitySFX = new List<AudioClip>();
+    [HideInInspector]public AudioClip soundtrack;
 
     private float xpos;
     private float ypos;
-    private float speed;//= 0.9f;
+    private float speed; //Standard = 0.9
+    private float scaleMod;
 
     #endregion
 
@@ -31,8 +58,8 @@ public class CoreBossManager : MonoBehaviour
     private float timer;//Used as countdown for ability CD
     private Sprite currentSprite;
     private Rigidbody2D rb;
-    public bool IsActive;
-    private Vector2 NewPos; //= new Vector2(6f, 1.59707f);
+    [HideInInspector] public bool IsActive;
+    private Vector2 NewPos; //Standard = Vector2(6f, 1.59707f);
 
     public List<GameObject> DeactivateTowerSpots = new List<GameObject>();
     private GameObject CurrentTowerSpot;
@@ -40,27 +67,51 @@ public class CoreBossManager : MonoBehaviour
     public GameObject Dialoguecode;
     public GameObject GameManager;
     private int randomAbility;
-    public int loop;
-    private int failsafe;//Makes sure ability cd won't get stuck
+    private int loop;
 
     public GameObject BossHealthbar;
     public Text BossHealthbarName;
     public Slider BossHealthslider;
     public Image BossHealthbarColor;
     public GameObject WinCondition;
-    private bool hasBeenDefeated;
 
+    [HideInInspector]public int defineBoss;
+    [HideInInspector] public TheBossClass_Parent bossClass;
+
+    public List<GameObject> Spawners = new List<GameObject>();
+
+    public GameObject Dialogue;
+    public AudioSource SFXplayer;
     #endregion
+
 
     public void Activate()
     {
         PullInformation();
 
+        GameObject spawnedBoss = new GameObject();
+        defineBoss = GameManager.GetComponent<NewCardHandScript>().RandomBoss;
+        Debug.Log("The defineboss is: " + defineBoss);
+        switch (defineBoss)//Add more scripts when implementing more bosses
+        {
+            case 0:
+                bossClass = spawnedBoss.AddComponent<CorporateAbilities>();
+                break;
+            case 1:
+                bossClass = spawnedBoss.AddComponent<GuardianAbilities>();
+                break;
+            case 2:
+                bossClass = spawnedBoss.AddComponent<CorruptionAbilities>();
+                break;
+            default:
+                break;
+        }
+
         //Saving system
         if (FindObjectOfType<SaveSystem>())
         {
             SaveSystem saving = FindObjectOfType<SaveSystem>();
-            saving.data.bossMeetList[GameManager.GetComponent<NewCardHandScript>().whichStage] = true;//Save information of current boss to the beastiary
+            saving.data.bossMeetList[GameManager.GetComponent<NewCardHandScript>().RandomBoss] = true;//Save information of current boss to the beastiary
         }
 
         //Deactivate Slots
@@ -71,23 +122,35 @@ public class CoreBossManager : MonoBehaviour
         }
 
         //Abilities
-        for(int i = 0; i < abilityCD.Count; i++)
+        for (int i = 0; i < abilityCD.Count; i++)
         {
             abilityCD[i] = startabilityCD[i];
+
         }
 
         //Visual
         currentSprite = bossSprites[0];
         this.GetComponent<SpriteRenderer>().sprite = currentSprite;
+        transform.localScale = transform.localScale * scaleMod;
 
         BossHealthbar.SetActive(true);
         BossHealthbarName.text = bossname;
         BossHealthbarColor.color = healthbarColor;
         BossHealthslider.maxValue = health;
+        BossHealthslider.value = health;
 
         //Physics
         NewPos = new Vector2(xpos, ypos);
         rb = GetComponent<Rigidbody2D>();
+
+        Debug.Log("new pos is: " + NewPos);
+        Debug.Log("my sprite should be: " + bossSprites[0]);
+        Debug.Log("my sprite is: " + GetComponent<SpriteRenderer>().sprite);
+
+        //Other
+        Spawners[defineBoss].GetComponent<EnemySpawning>().gameStarted = true;
+
+        IsActive = true;
     }
 
     private void Update()
@@ -102,50 +165,99 @@ public class CoreBossManager : MonoBehaviour
 
             if (timer >= useAbilityDelay)//The time before boss uses an ability
             {
-                for (loop = 0; loop < 1; loop++)
+                if(abilityCD[0] > 0 && abilityCD[1] > 0 && abilityCD[2] > 0)//Makes sure the loop below doesn't get stuck
                 {
-                    failsafe++;
-
-                    if(failsafe < 20)
+                    for (int ability = 0; ability < abilityCD.Count; ability++)
                     {
-                        randomAbility = Random.Range(0, abilityCD.Count);//choose one random ability
-
-                        if (abilityCD[randomAbility] > 0)
-                            loop--;
-                    }
-                    else//This is an emergency break in case no ability is off cooldown for any reason
-                    {
-                        for (int ability = 0; ability < abilityCD.Count; ability++)
-                        {
-                            abilityCD[ability]--;
-                        }
-
-                        loop--;
+                        abilityCD[ability]--;
                     }
                 }
 
-                failsafe = 0;
+                for (loop = 0; loop < 1; loop++)
+                {
+                    randomAbility = Random.Range(0, abilityCD.Count);//choose one random ability
+
+                    if (abilityCD[randomAbility] > 0)
+                        loop--;
+                }
+
+                if (abilitySFX[randomAbility] != null)
+                {
+                    SFXplayer.clip = abilitySFX[randomAbility];
+                    SFXplayer.Play();
+                }
+                bossClass.GetComponent<TheBossClass_Parent>().UseAbility(randomAbility);
+
+                for (int ability = 0; ability < abilityCD.Count; ability++)//Reduce all ability-cooldowns by 1
+                {
+                    abilityCD[ability]--;
+                }
+
                 timer = 0;
             }
         }
     }
 
-
-    private void PullInformation()
+    public void TakeDamage()
     {
-        currentBoss = Bosses[GameManager.GetComponent<NewCardHandScript>().whichStage];//Define which boss I should read
+        health--;
+
+        if(health != 0)//If the boss is still alive
+        {
+            StartCoroutine(tookDamage());
+        }
+        else//If the boss has died
+        {
+            if (NewCardHandScript.isCampaign)
+                GJcanvas.DefeatedCorporate = true;
+
+            BossDialogue.Boss = defineBoss;
+
+            if (FindObjectOfType<SaveSystem>())
+            {
+                SaveSystem saving = FindObjectOfType<SaveSystem>();
+                saving.data.bossList[0] = true;
+            }
+
+            WinCondition.GetComponent<Victory>().Win();
+            AddBossDefeatToBestiary(); //With the defeat, the boss is unlocked in the bestiary.
+        }
+    }
+
+    IEnumerator tookDamage()
+    {
+        if (bossSprites[bossSprites.Count - health] != null)//Change sprite if there is any
+            this.gameObject.GetComponent<SpriteRenderer>().sprite = bossSprites[bossSprites.Count - health];
+
+        yield return new WaitForSeconds(2);
+
+        this.gameObject.GetComponent<SpriteRenderer>().sprite = bossSprites[0];//return to default
+
+        Dialogue.GetComponent<DialogueCode>().PreperationMode();
+    }
+
+    private void PullInformation()//Obtain information from ScritableObjects
+    {
+        currentBoss = Bosses[GameManager.GetComponent<NewCardHandScript>().RandomBoss];//Define which boss I should read
+        Debug.Log("Current boss is: " + currentBoss);
 
         bossname = currentBoss.Name;
         health = currentBoss.BossHealth;
+
         bossSprites = currentBoss.BossSprites;
         healthbarColor = currentBoss.BossSliderColor;
+
         useAbilityDelay = currentBoss.UseAbilityDelay;
         abilityCD = currentBoss.AbilityCooldown;
         startabilityCD = currentBoss.StartAbilityCooldown;
+
         abilitySFX = currentBoss.AbilitySFX;
+        soundtrack = currentBoss.Soundtrack;
+
         xpos = currentBoss.Xpos;
         ypos = currentBoss.Ypos;
         speed = currentBoss.IntroSpeed;
+        scaleMod = currentBoss.ScaleModifier;
     }
 
     private void AddBossDefeatToBestiary()
