@@ -808,37 +808,59 @@ public class UnitPrototypeScript : MonoBehaviour
     #region Take Damage
     public void TakeDamage(int damage, int damageTypeTaken)
     {
-        if(damageTypeTaken == LanePlacedUnits.s_HighestDamageTyping)
+        if (DamageTypeCore.s_isUsingWeaknessStrenght) //Do this if it is being used.
         {
-            if(damageType == 0)
+
+            if (damageTypeTaken == DamageTypeCore.s_HighestDamageTyping)
             {
-                health -= (damage + (damage / LanePlacedUnits.s_DamageDivisionModule));
+                if (damageType == 0)
+                {
+                    health -= (damage + (damage / DamageTypeCore.s_DamageDivisionModule));
+                    animatorOfUnit.SetTrigger("HitStrong");
+                }
+                else if (damageType == (DamageTypeCore.s_HighestDamageTyping - 1))
+                {
+                    health -= (damage - (damage / DamageTypeCore.s_DamageDivisionModule));
+                    animatorOfUnit.SetTrigger("HitWeak");
+                }
+                else
+                {
+                    health -= damage; //If none of the above apply 
+                }
             }
-            else if(damageType == (LanePlacedUnits.s_HighestDamageTyping - 1))
+            else if (damageTypeTaken == 0)
             {
-                health -= (damage - (damage / LanePlacedUnits.s_DamageDivisionModule));
+                if (damageType == 1)
+                {
+                    health -= (damage + (damage / DamageTypeCore.s_DamageDivisionModule));
+                    animatorOfUnit.SetTrigger("HitStrong");
+                }
+                else if (damageType == DamageTypeCore.s_HighestDamageTyping)
+                {
+                    health -= (damage - (damage / DamageTypeCore.s_DamageDivisionModule));
+                    animatorOfUnit.SetTrigger("HitWeak");
+                }
+                else //If none of the above apply
+                {
+                    health -= damage;
+                }
             }
-        }
-        else if(damageTypeTaken == 0)
-        {
-            if(damageType == 1)
+            if (damageType == (damageTypeTaken + 1))
             {
-                health -= (damage + (damage / LanePlacedUnits.s_DamageDivisionModule));
+                health -= (damage + (damage / DamageTypeCore.s_DamageDivisionModule));
+                animatorOfUnit.SetTrigger("HitStrong");
             }
-            else if(damageType == LanePlacedUnits.s_HighestDamageTyping)
+            else if (damageType == (damageTypeTaken - 1))
             {
-                health -= (damage - (damage / LanePlacedUnits.s_DamageDivisionModule));
+                health -= (damage - (damage / DamageTypeCore.s_DamageDivisionModule));
+                animatorOfUnit.SetTrigger("HitWeak");
             }
+            else
+            {
+                health -= damage;
+            } 
         }
-        if(damageType == (damageTypeTaken + 1))
-        {
-            health -= (damage + (damage / LanePlacedUnits.s_DamageDivisionModule));
-        }
-        else if(damageType == (damageTypeTaken - 1))
-        {
-            health -= (damage - (damage / LanePlacedUnits.s_DamageDivisionModule));
-        }
-        else
+        else //If not using the Weakness strenght system
         {
             health -= damage;
         }

@@ -196,37 +196,62 @@ public class BasicEnemyMovement : MonoBehaviour
 
     public void TakeDamage(int damage, bool isKnockback, float knockbackStrenght, int damageTypeTaken)
     {
-        if (damageTypeTaken == LanePlacedUnits.s_HighestDamageTyping)
+        if (DamageTypeCore.s_isUsingWeaknessStrenght) //If using the system do this.
         {
-            if (damageType == 0)
+            if (damageTypeTaken == DamageTypeCore.s_HighestDamageTyping)
             {
-                enemyHealth -= (damage + (damage / LanePlacedUnits.s_DamageDivisionModule));
+                if (damageType == 0)
+                {
+                    enemyHealth -= (damage + (damage / DamageTypeCore.s_DamageDivisionModule));
+                    animatorOfEnemies.SetTrigger("HitStrong");
+                }
+                else if (damageType == (DamageTypeCore.s_HighestDamageTyping - 1))
+                {
+                    enemyHealth -= (damage - (damage / DamageTypeCore.s_DamageDivisionModule));
+                    animatorOfEnemies.SetTrigger("HitWeak");
+                }
+                else
+                {
+                    enemyHealth -= damage;
+                }
             }
-            else if (damageType == (LanePlacedUnits.s_HighestDamageTyping - 1))
+            else if (damageTypeTaken == 0)
             {
-                enemyHealth -= (damage - (damage / LanePlacedUnits.s_DamageDivisionModule));
+                if (damageType == 1)
+                {
+                    enemyHealth -= (damage + (damage / DamageTypeCore.s_DamageDivisionModule));
+                    animatorOfEnemies.SetTrigger("HitStrong");
+                }
+                else if (damageType == DamageTypeCore.s_HighestDamageTyping)
+                {
+                    enemyHealth -= (damage - (damage / DamageTypeCore.s_DamageDivisionModule));
+                    animatorOfEnemies.SetTrigger("HitWeak");
+                }
+                else
+                {
+                    enemyHealth -= damage;
+                }
             }
+            else if (damageType == (damageTypeTaken + 1))
+            {
+                enemyHealth -= (damage + (damage / DamageTypeCore.s_DamageDivisionModule));
+                animatorOfEnemies.SetTrigger("HitStrong");
+            }
+            else if (damageType == (damageTypeTaken - 1))
+            {
+                enemyHealth -= (damage - (damage / DamageTypeCore.s_DamageDivisionModule));
+                animatorOfEnemies.SetTrigger("HitWeak");
+            }
+            else
+            {
+                enemyHealth -= damage;
+            } 
         }
-        else if (damageTypeTaken == 0)
+        else //If not using the system, damage!
         {
-            if (damageType == 1)
-            {
-                enemyHealth -= (damage + (damage / LanePlacedUnits.s_DamageDivisionModule));
-            }
-            else if (damageType == LanePlacedUnits.s_HighestDamageTyping)
-            {
-                enemyHealth -= (damage - (damage / LanePlacedUnits.s_DamageDivisionModule));
-            }
+            enemyHealth -= damage;
         }
-        if (damageType == (damageTypeTaken + 1))
-        {
-            enemyHealth -= (damage + (damage / LanePlacedUnits.s_DamageDivisionModule));
-        }
-        else if (damageType == (damageTypeTaken - 1))
-        {
-            enemyHealth -= (damage - (damage / LanePlacedUnits.s_DamageDivisionModule));
-        }
-        enemyHealth -= damage;
+
         print(enemyHealth);
         if (!isKnockback)
         {

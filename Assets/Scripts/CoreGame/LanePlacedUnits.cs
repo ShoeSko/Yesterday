@@ -7,9 +7,6 @@ public class LanePlacedUnits : MonoBehaviour
     public static GameObject[] s_lane3 = new GameObject[8];
     public static GameObject[] s_lane4 = new GameObject[8];
 
-    static public int s_HighestDamageTyping = 2; //the highest value a damage type can be given.
-    static public int s_DamageDivisionModule = 4; //What the damage increase/Decrease is divided by.
-
     public static void PlaceNewUnitInList(GameObject theUnit, int laneNumber, int lanePlacement)
     {
         //Debug.Log("List was started and the values are = " + laneNumber + " lane and " + lanePlacement + " as position");
