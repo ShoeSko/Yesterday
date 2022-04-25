@@ -16,7 +16,7 @@ MonoBehaviour:
   BossHealth: 5
   BossSprites:
   - {fileID: 21300000, guid: 72cc0f8a1cea2d94bad911b515d88199, type: 3}
-  BossSliderColor: {r: 0.3131567, g: 0.0035243165, b: 0.9339623, a: 0}
+  BossSliderColor: {r: 0.3131567, g: 0.0035243165, b: 0.9339623, a: 1}
   UseAbilityDelay: 12
   AbilityCooldown: 000000000000000001000000
   StartAbilityCooldown: 000000000000000001000000

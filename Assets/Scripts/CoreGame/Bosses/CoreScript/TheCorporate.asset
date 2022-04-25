@@ -16,11 +16,14 @@ MonoBehaviour:
   BossHealth: 4
   BossSprites:
   - {fileID: 21300000, guid: 8d69d49ab7c134b4887fd0eac5b70e0e, type: 3}
-  BossSliderColor: {r: 1, g: 0, b: 0, a: 0}
+  BossSliderColor: {r: 1, g: 0, b: 0, a: 1}
   UseAbilityDelay: 15
-  AbilityCooldown: 000000000100000001000000
+  AbilityCooldown: ffffffff0000000000000000
   StartAbilityCooldown: 000000000100000001000000
-  AbilitySFX: []
+  AbilitySFX:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   Soundtrack: {fileID: 8300000, guid: 676d2ca8bb7b647439ceb6ad1a0cf33d, type: 3}
   Xpos: 6
   Ypos: 1.34

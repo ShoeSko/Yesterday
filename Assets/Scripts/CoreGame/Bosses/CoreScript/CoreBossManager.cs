@@ -66,6 +66,7 @@ public class CoreBossManager : MonoBehaviour
 
     public GameObject Dialoguecode;
     public GameObject GameManager;
+    private List<int> CooldownTracker = new List<int>();
     private int randomAbility;
     private int loop;
 
@@ -124,8 +125,7 @@ public class CoreBossManager : MonoBehaviour
         //Abilities
         for (int i = 0; i < abilityCD.Count; i++)
         {
-            abilityCD[i] = startabilityCD[i];
-
+            CooldownTracker.Add(startabilityCD[i]);
         }
 
         //Visual
@@ -165,11 +165,11 @@ public class CoreBossManager : MonoBehaviour
 
             if (timer >= useAbilityDelay)//The time before boss uses an ability
             {
-                if(abilityCD[0] > 0 && abilityCD[1] > 0 && abilityCD[2] > 0)//Makes sure the loop below doesn't get stuck
+                if(CooldownTracker[0] > 0 && CooldownTracker[1] > 0 && CooldownTracker[2] > 0)//Makes sure the loop below doesn't get stuck
                 {
                     for (int ability = 0; ability < abilityCD.Count; ability++)
                     {
-                        abilityCD[ability]--;
+                        CooldownTracker[ability]--;
                     }
                 }
 
@@ -177,21 +177,23 @@ public class CoreBossManager : MonoBehaviour
                 {
                     randomAbility = Random.Range(0, abilityCD.Count);//choose one random ability
 
-                    if (abilityCD[randomAbility] > 0)
+                    if (CooldownTracker[randomAbility] > 0)//if ability on cd, try again
                         loop--;
                 }
 
-                if (abilitySFX[randomAbility] != null)
+                if (abilitySFX[randomAbility] != null)//play sound if any
                 {
                     SFXplayer.clip = abilitySFX[randomAbility];
                     SFXplayer.Play();
                 }
-                bossClass.GetComponent<TheBossClass_Parent>().UseAbility(randomAbility);
+                bossClass.GetComponent<TheBossClass_Parent>().UseAbility(randomAbility);//Use ability
 
                 for (int ability = 0; ability < abilityCD.Count; ability++)//Reduce all ability-cooldowns by 1
                 {
-                    abilityCD[ability]--;
+                    CooldownTracker[ability]--;
                 }
+
+                CooldownTracker[randomAbility] = abilityCD[randomAbility];//Apply cooldown to used ability
 
                 timer = 0;
             }
