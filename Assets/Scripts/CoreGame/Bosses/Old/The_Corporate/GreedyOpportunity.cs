@@ -47,6 +47,8 @@ public class GreedyOpportunity : MonoBehaviour
         animatorOfHand = GetComponent<Animator>();
         healthSave = handHealth; //Saves the max health of the unit.
         canGreedStrike = false;
+
+        obstacleInTheWay = true;
     }
     private void Update()
     {
@@ -249,7 +251,7 @@ public class GreedyOpportunity : MonoBehaviour
     {
         if (isDead) //A condition to preven scene loading to cause errors.
         {
-            CorporateBoss.GetComponent<TheCorporate>().RecieveDamage();
+            GameObject.Find("The Boss").GetComponent<CoreBossManager>().TakeDamage();
         }
     }
 

@@ -64,7 +64,6 @@ public class CoreBossManager : MonoBehaviour
     public List<GameObject> DeactivateTowerSpots = new List<GameObject>();
     private GameObject CurrentTowerSpot;
 
-    public GameObject Dialoguecode;
     public GameObject GameManager;
     private List<int> CooldownTracker = new List<int>();
     private int randomAbility;
@@ -83,8 +82,14 @@ public class CoreBossManager : MonoBehaviour
 
     public GameObject Dialogue;
     public AudioSource SFXplayer;
+
+    public List<GameObject> AvailableSlots = new List<GameObject>();
     #endregion
 
+    #region Corporate
+    public GameObject Sign;
+    public List<GameObject> GreedyHands = new List<GameObject>();
+    #endregion
 
     public void Activate()
     {
@@ -92,7 +97,6 @@ public class CoreBossManager : MonoBehaviour
 
         GameObject spawnedBoss = new GameObject();
         defineBoss = GameManager.GetComponent<NewCardHandScript>().RandomBoss;
-        Debug.Log("The defineboss is: " + defineBoss);
         switch (defineBoss)//Add more scripts when implementing more bosses
         {
             case 0:
@@ -194,6 +198,12 @@ public class CoreBossManager : MonoBehaviour
                 }
 
                 CooldownTracker[randomAbility] = abilityCD[randomAbility];//Apply cooldown to used ability
+
+                for (int ability = 0; ability < abilityCD.Count; ability++)//Reduce all ability-cooldowns by 1
+                {
+                    Debug.Log("Ability " + ability + " is on cooldown of " + CooldownTracker[ability]);
+                    Debug.Log("Ability " + ability + " should have cooldown of " + abilityCD[ability]);
+                }
 
                 timer = 0;
             }
