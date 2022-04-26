@@ -6,7 +6,7 @@ public class EnemyScriptEditor : Editor
     // The various categories the editor will display the variables in
     public enum DisplayCategory
     {
-        Base, Attack, Bestiary
+        Base, Attack, Special, Bestiary
     }
     // The enum field that will determine what variables to display in the Inspector
     public DisplayCategory categoryToDisplay;
@@ -32,10 +32,13 @@ public class EnemyScriptEditor : Editor
                 DisplayAttackInfo();
                 break;
 
+            case DisplayCategory.Special:
+                DisplaySpecialInfo();
+                break;
+
             case DisplayCategory.Bestiary:
                 DisplayBestiaryInfo();
                 break;
-
         }
 
         // Save all changes made on the Inspector
@@ -53,13 +56,25 @@ public class EnemyScriptEditor : Editor
 
     void DisplayAttackInfo()
     {
-        //EditorGUILayout.PropertyField(serializedObject.FindProperty("IsShooter"));
-
             EditorGUILayout.PropertyField(serializedObject.FindProperty("attackDamage"));
             EditorGUILayout.PropertyField(serializedObject.FindProperty("attackSpeed"));
             EditorGUILayout.PropertyField(serializedObject.FindProperty("whatIsUnitLayer"));
             EditorGUILayout.PropertyField(serializedObject.FindProperty("damageType"));
             EditorGUILayout.PropertyField(serializedObject.FindProperty("specialAnimationCheckList"));
+    }
+
+    void DisplaySpecialInfo()
+    {
+        SerializedProperty canUseNaturesWrath = serializedObject.FindProperty("canUseNaturesWrath");
+
+        // Draw a property for the canUseNaturesWrath bool
+        EditorGUILayout.PropertyField(canUseNaturesWrath);
+
+        // Check if canUseNaturesWrath is true
+        if (canUseNaturesWrath.boolValue)
+        {
+            EditorGUILayout.PropertyField(serializedObject.FindProperty("naturesWrathObject"));
+        }
     }
 
     void DisplayBestiaryInfo()

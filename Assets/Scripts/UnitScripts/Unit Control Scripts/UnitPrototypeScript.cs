@@ -717,13 +717,13 @@ public class UnitPrototypeScript : MonoBehaviour
         {
             isShooter = false;
         }
-        print("Has had a collision");
+        //print("Has had a collision");
         if (this.gameObject.tag == "InstaKill")
         {
-            print("Was insta kill");
+            //print("Was insta kill");
             if (collision.gameObject.GetComponent<BasicEnemyMovement>() || collision.gameObject.GetComponent<GreedyOpportunity>())
             {
-                print("Got the kill inn");
+                //print("Got the kill inn");
                 if (!hasInstakilled)
                 {
                     HandDeath();
@@ -813,7 +813,7 @@ public class UnitPrototypeScript : MonoBehaviour
 
             if (damageTypeTaken == DamageTypeCore.s_HighestDamageTyping)
             {
-                print("A unit took damage of type " + damageTypeTaken);
+                //print("A unit took damage of type " + damageTypeTaken);
                 if (damageType == 0)
                 {
                     health -= (damage + (damage / DamageTypeCore.s_DamageDivisionModule));
@@ -890,7 +890,7 @@ public class UnitPrototypeScript : MonoBehaviour
         {
             Destroy(gameObject);
             isDead = true;
-            print("Im die, thank you forever!");
+            //print("Im die, thank you forever!");
         }
     }
 
@@ -948,13 +948,13 @@ public class UnitPrototypeScript : MonoBehaviour
         {
             if (transform.parent && isDead)
             {
-                transform.GetChild(0).gameObject.SetActive(true);
+                transform.GetChild(1).gameObject.SetActive(true);
 
-                transform.GetChild(0).gameObject.GetComponent<TowerSpotsScript>().enabled = true;
-                transform.GetChild(0).gameObject.GetComponent<Image>().enabled = true;
-                transform.GetChild(0).gameObject.GetComponent<Button>().enabled = true;
+                transform.GetChild(1).gameObject.GetComponent<TowerSpotsScript>().enabled = true;
+                transform.GetChild(1).gameObject.GetComponent<Image>().enabled = true;
+                transform.GetChild(1).gameObject.GetComponent<Button>().enabled = true;
 
-                transform.GetChild(0).gameObject.transform.SetParent(transform.parent, true);
+                transform.GetChild(1).gameObject.transform.SetParent(transform.parent, true);
 
             }
         }

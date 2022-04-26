@@ -21,6 +21,10 @@ public class BasicEnemyMovement : MonoBehaviour
     private LayerMask whatIsUnitLayer;
     private int damageType;
 
+    [Header("Special Abilities")]
+    private bool canUseNaturesWrath;
+    private GameObject naturesWrathObject;
+
     [Tooltip("How big is the attack range?")][SerializeField]private float attackRange; //These two stay here as they are harder to do from a scriptableobject.
     [Tooltip("Where does it attack from?")][SerializeField]private Transform attackPosition;
 
@@ -59,6 +63,7 @@ public class BasicEnemyMovement : MonoBehaviour
     private Animator animatorOfEnemies; //The Animator for the enemies change in apperance during damaged periods.
     private float healthSave; //A place to store the original health pool.
     #endregion
+
     #region Standard Voids
     private void Start()
     {
@@ -109,6 +114,7 @@ public class BasicEnemyMovement : MonoBehaviour
         }
     }
     #endregion
+
     #region Movement
     void MovingEnemy()
     {
@@ -142,6 +148,7 @@ public class BasicEnemyMovement : MonoBehaviour
         }        
     }
     #endregion
+
     #region Attack
     private void AttackObstacle() //Attack time
     {
@@ -174,6 +181,7 @@ public class BasicEnemyMovement : MonoBehaviour
         yield return null;
     }
     #endregion
+
     #region Take Damage
 
     void OnTriggerEnter2D(Collider2D other)
@@ -265,6 +273,7 @@ public class BasicEnemyMovement : MonoBehaviour
             StartCoroutine(PeriodOfBeingDamagedWithKnockback());
         }
     }
+
     IEnumerator PeriodOfBeingDamaged() //This entire thing can do whatever is put in here(Rotation is just a short representation.
     {
         Quaternion orgRot;
@@ -310,6 +319,22 @@ public class BasicEnemyMovement : MonoBehaviour
     }
 
     #endregion
+
+    #region OnDeath
+    private void OnDestroy()
+    {
+        if (DamageTypeCore.s_isUsingWeaknessStrenght)
+        {
+            if (canUseNaturesWrath) // If the unit can use Natures Wrath it will spawn on their death location.
+            {
+                var _naturesWrath = Instantiate(naturesWrathObject);
+                _naturesWrath.transform.position = transform.position; //Natures Wrath starts at the enemies death point.
+                _naturesWrath.transform.parent = null;
+            }
+        }
+    }
+    #endregion
+
     #region Beastiary storing
     private void UnitForBeastiary(int indexOfEnemy)
     {
@@ -373,6 +398,7 @@ public class BasicEnemyMovement : MonoBehaviour
         }
     }
     #endregion
+
     #region Spell effects
 
     public void Slow(float slowDebuff,float debuffTime)
@@ -426,6 +452,7 @@ public class BasicEnemyMovement : MonoBehaviour
         StartCoroutine(PeriodOfBeingDamaged());
     }
     #endregion
+
     #region Boss Effects
     public void MotherlyEmbraceBuff()
     {
@@ -470,28 +497,8 @@ public class BasicEnemyMovement : MonoBehaviour
 
     //}
     #endregion
-    private void EnemyInfoFeed()
-    {
-        moveSpeed = enemy.moveSpeed;
-        enemyHealth = enemy.enemyHealth;
-        obstacleTags = enemy.obstacleTags;
-        projectileTags = enemy.projectileTags;
-        attackDamage = enemy.attackDamage;
-        attackSpeed = enemy.attackSpeed;
-        whatIsUnitLayer = enemy.whatIsUnitLayer;
-        damageType = enemy.damageType;
 
-        //Enemy confirmation
-        specialAnimationCheckList = enemy.specialAnimationCheckList;
-
-        //Indexing
-        //bestiaryType = (bestiaryOptions)enemy.bestiaryType;
-        isBeast = enemy.isBeast;
-        isHumanoid = enemy.isHumanoid;
-        isMonstrosity = enemy.isMonstrosity;
-        enemyIndex = enemy.enemyIndex;
-    }
-
+    #region NegativeEffects
     private void CheckForPoison()
     {
         if (Poison > 0)
@@ -533,4 +540,36 @@ public class BasicEnemyMovement : MonoBehaviour
     {
         Poison += 2;
     }
+    #endregion
+
+    #region InfoFeed
+    private void EnemyInfoFeed()
+    {
+        moveSpeed = enemy.moveSpeed;
+        enemyHealth = enemy.enemyHealth;
+        obstacleTags = enemy.obstacleTags;
+        projectileTags = enemy.projectileTags;
+        attackDamage = enemy.attackDamage;
+        attackSpeed = enemy.attackSpeed;
+        whatIsUnitLayer = enemy.whatIsUnitLayer;
+        damageType = enemy.damageType;
+
+        //Special Abilities
+        canUseNaturesWrath = enemy.canUseNaturesWrath;
+        if (canUseNaturesWrath)
+        {
+            naturesWrathObject = enemy.naturesWrathObject;
+        }
+
+        //Enemy confirmation
+        specialAnimationCheckList = enemy.specialAnimationCheckList;
+
+        //Indexing
+        //bestiaryType = (bestiaryOptions)enemy.bestiaryType;
+        isBeast = enemy.isBeast;
+        isHumanoid = enemy.isHumanoid;
+        isMonstrosity = enemy.isMonstrosity;
+        enemyIndex = enemy.enemyIndex;
+    }
+    #endregion
 }

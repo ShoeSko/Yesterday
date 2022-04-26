@@ -139,7 +139,7 @@ public class EnemySpawning : MonoBehaviour
                 {
                     GameObject enemyObject = Instantiate(strongEnemyTypesSpawnList[enemyToKeep], transform); //Instantiates a random enemy type from the list.
                     enemyObject.transform.position = spawnLocation.position; //Sets the random enemy on a random lane from the list.
-                    print("Spawning strong enemy " + strongEnemyTypesSpawnList[enemyToKeep].name);
+                    //print("Spawning strong enemy " + strongEnemyTypesSpawnList[enemyToKeep].name);
                 }
                 else
                 {
@@ -148,7 +148,7 @@ public class EnemySpawning : MonoBehaviour
                 }
                 if(loopLimit == amountOfEnemies-1)
                 {
-                    print("Last enemy has spawned, time to win");
+                    //print("Last enemy has spawned, time to win");
                     Victory.s_youWon = true; // Starts the search for win condition
                 }
             }
@@ -172,7 +172,7 @@ public class EnemySpawning : MonoBehaviour
                     if (delayBetweenSpawnsMax != 9.2F - delayDecreaseValue)
                     {
                         float tempDelayForTesting = 9.2F - delayDecreaseValue;
-                        Debug.Log("Current spawn delay is " + tempDelayForTesting); //DEBUG
+                        //Debug.Log("Current spawn delay is " + tempDelayForTesting); //DEBUG
                     }
 
                     delayBetweenSpawnsMin = 9.2F - delayDecreaseValue; //Sets the Min Value equal to 8.2s - the delay amount. 
@@ -198,7 +198,7 @@ public class EnemySpawning : MonoBehaviour
                     if (delayBetweenSpawnsMax != 12F - delayDecreaseValue)
                     {
                         float tempDelayForTesting = 12F - delayDecreaseValue;
-                        Debug.Log("Current spawn delay is " + tempDelayForTesting); //DEBUG
+                        //Debug.Log("Current spawn delay is " + tempDelayForTesting); //DEBUG
                     }
 
                     delayBetweenSpawnsMin = 12F - delayDecreaseValue; //Sets the Min Value equal to 8.2s - the delay amount. 
@@ -249,7 +249,7 @@ public class EnemySpawning : MonoBehaviour
             {
                 strongEnemyTypesSpawnList[i] = null; //Remove all but the 1 strong enemy
             }
-            else { print(strongEnemyTypesSpawnList[i].name + " is the one to be kept"); }
+            //else { print(strongEnemyTypesSpawnList[i].name + " is the one to be kept"); }
         }
         sizeOfStrongEnemyTypes = strongEnemyTypesSpawnList.Count; //Get the amount of items in the list of strong enemy types after the removal
     }

@@ -14,6 +14,10 @@ public class EnemyScript : ScriptableObject
     [Tooltip("What layer is to be attacked?")] public LayerMask whatIsUnitLayer = 10;
     [Tooltip("The type of damage done/taken")] public int damageType;
 
+    [Header("Special Abilities")]
+    [Tooltip("Will natures wrath spawn upon enemy death?")] public bool canUseNaturesWrath;
+    [Tooltip("The Nature's Wrath prefab is needed containg script with similair name")] public GameObject naturesWrathObject;
+
     [Header("Enemy confirmation for Animation")]
     [Tooltip("Is the Enemy Merry, so that her animation will play")] public bool[] specialAnimationCheckList;
 
