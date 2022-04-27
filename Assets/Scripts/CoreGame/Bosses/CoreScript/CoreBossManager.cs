@@ -91,6 +91,10 @@ public class CoreBossManager : MonoBehaviour
     public List<GameObject> GreedyHands = new List<GameObject>();
     #endregion
 
+    #region Guardian
+    public GameObject Natureswrath;
+    #endregion
+
     public void Activate()
     {
         PullInformation();
