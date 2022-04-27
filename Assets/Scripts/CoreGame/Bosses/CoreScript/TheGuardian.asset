@@ -19,7 +19,7 @@ MonoBehaviour:
   BossSliderColor: {r: 0.0039215405, g: 0.3936076, b: 0.93333334, a: 1}
   UseAbilityDelay: 12
   AbilityCooldown: 000000000200000001000000
-  StartAbilityCooldown: 000000000100000001000000
+  StartAbilityCooldown: 010000000000000001000000
   AbilitySFX:
   - {fileID: 0}
   - {fileID: 0}
