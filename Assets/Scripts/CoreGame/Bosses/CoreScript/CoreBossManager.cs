@@ -90,6 +90,13 @@ public class CoreBossManager : MonoBehaviour
     public GameObject Sign;
     public List<GameObject> GreedyHands = new List<GameObject>();
     #endregion
+    #region Guardian
+    public GameObject Natureswrath;
+    public GameObject GuardianSpecialSprite;
+    #endregion
+    #region Corruption
+    public List<GameObject> Lanes = new List<GameObject>();
+    #endregion
 
     public void Activate()
     {
@@ -104,6 +111,7 @@ public class CoreBossManager : MonoBehaviour
                 break;
             case 1:
                 bossClass = spawnedBoss.AddComponent<GuardianAbilities>();
+                GuardianSpecialSprite.SetActive(true);
                 break;
             case 2:
                 bossClass = spawnedBoss.AddComponent<CorruptionAbilities>();

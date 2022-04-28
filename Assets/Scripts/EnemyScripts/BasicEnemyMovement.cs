@@ -332,6 +332,11 @@ public class BasicEnemyMovement : MonoBehaviour
                 _naturesWrath.transform.parent = null;
             }
         }
+
+        if (chosenByMom)
+        {
+            GameObject.Find("The Boss").GetComponent<CoreBossManager>().TakeDamage();
+        }
     }
     #endregion
 

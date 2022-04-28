@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a067928e44216f4baf5983c6167c2a9, type: 3}
+  m_Name: TheCorruption
+  m_EditorClassIdentifier: 
+  Name: The Corruption
+  BossHealth: 4
+  BossSprites:
+  - {fileID: 21300000, guid: 016962359ae9673409f1c1d6df538210, type: 3}
+  - {fileID: 21300000, guid: 016962359ae9673409f1c1d6df538210, type: 3}
+  - {fileID: 21300000, guid: 016962359ae9673409f1c1d6df538210, type: 3}
+  - {fileID: 21300000, guid: 016962359ae9673409f1c1d6df538210, type: 3}
+  - {fileID: 21300000, guid: 016962359ae9673409f1c1d6df538210, type: 3}
+  BossSliderColor: {r: 0.58943784, g: 0.08962262, b: 1, a: 1}
+  UseAbilityDelay: 18
+  AbilityCooldown: 010000000200000003000000
+  StartAbilityCooldown: 000000000100000003000000
+  AbilitySFX:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  Soundtrack: {fileID: 8300000, guid: 791c9db50f8a14b4fae94371c1833f25, type: 3}
+  Xpos: 5
+  Ypos: 1.34
+  IntroSpeed: 0.9
+  ScaleModifier: 2.4
