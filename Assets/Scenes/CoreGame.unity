@@ -1011,7 +1011,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 26807592}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -2538,7 +2538,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &122316505
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6674,13 +6674,14 @@ GameObject:
   - component: {fileID: 335580024}
   - component: {fileID: 335580026}
   - component: {fileID: 335580025}
+  - component: {fileID: 335580027}
   m_Layer: 0
   m_Name: CorruptionLine1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &335580024
 Transform:
   m_ObjectHideFlags: 0
@@ -6689,7 +6690,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 335580023}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.6495321, y: 161.94551, z: 2.999875}
+  m_LocalPosition: {x: 0.6495321, y: 161.94551, z: 24}
   m_LocalScale: {x: 795.3287, y: 36.151302, z: 36.151302}
   m_Children: []
   m_Father: {fileID: 316652768}
@@ -6744,6 +6745,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 335580023}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &335580027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 335580023}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e626c69d6817f3c45bf572b361fb4a21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ActiveLane: {fileID: 0}
 --- !u!1 &348669937
 GameObject:
   m_ObjectHideFlags: 0
@@ -7939,13 +7953,14 @@ GameObject:
   - component: {fileID: 419083625}
   - component: {fileID: 419083627}
   - component: {fileID: 419083626}
+  - component: {fileID: 419083628}
   m_Layer: 0
   m_Name: CorruptionLine3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &419083625
 Transform:
   m_ObjectHideFlags: 0
@@ -7954,7 +7969,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 419083624}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.6495321, y: 17.340462, z: 3}
+  m_LocalPosition: {x: 0.6495321, y: 17.340462, z: 24}
   m_LocalScale: {x: 795.3287, y: 36.151302, z: 36.151302}
   m_Children: []
   m_Father: {fileID: 316652768}
@@ -8009,6 +8024,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 419083624}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &419083628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 419083624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e626c69d6817f3c45bf572b361fb4a21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ActiveLane: {fileID: 0}
 --- !u!1 &421133829
 GameObject:
   m_ObjectHideFlags: 0
@@ -9297,7 +9325,7 @@ MonoBehaviour:
   Bosses:
   - {fileID: 11400000, guid: 46269f3052453ab4e833c799fa474bf2, type: 2}
   - {fileID: 11400000, guid: 0be89e6428c252040b02a1e5fa22bd1e, type: 2}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: f47b40713ad72514ba8f0a01584d27fd, type: 2}
   health: 0
   soundtrack: {fileID: 0}
   IsActive: 0
@@ -9356,6 +9384,12 @@ MonoBehaviour:
   - {fileID: 1466860313}
   - {fileID: 15644364}
   Natureswrath: {fileID: 3465558172937363183, guid: 93356b999225f6f41aab83411be2fd29, type: 3}
+  GuardianSpecialSprite: {fileID: 575220246}
+  Lanes:
+  - {fileID: 26807592}
+  - {fileID: 812926834}
+  - {fileID: 1325952310}
+  - {fileID: 1024048566}
 --- !u!95 &481404960
 Animator:
   serializedVersion: 3
@@ -11364,7 +11398,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &575220247
 Transform:
   m_ObjectHideFlags: 0
@@ -13601,13 +13635,14 @@ GameObject:
   - component: {fileID: 690315334}
   - component: {fileID: 690315336}
   - component: {fileID: 690315335}
+  - component: {fileID: 690315337}
   m_Layer: 0
   m_Name: CorruptionLine4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &690315334
 Transform:
   m_ObjectHideFlags: 0
@@ -13616,7 +13651,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 690315333}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.6495321, y: -54.962303, z: 2.999875}
+  m_LocalPosition: {x: 0.6495321, y: -54.962303, z: 24}
   m_LocalScale: {x: 795.3287, y: 36.151302, z: 36.151302}
   m_Children: []
   m_Father: {fileID: 316652768}
@@ -13671,6 +13706,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 690315333}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &690315337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 690315333}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e626c69d6817f3c45bf572b361fb4a21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ActiveLane: {fileID: 0}
 --- !u!1 &694777353
 GameObject:
   m_ObjectHideFlags: 0
@@ -16091,8 +16139,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 812926834}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.75, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -1.7499998, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 929853902}
@@ -19981,7 +20029,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1024048566}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: -5.29, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -26440,13 +26488,14 @@ GameObject:
   - component: {fileID: 1311088885}
   - component: {fileID: 1311088887}
   - component: {fileID: 1311088886}
+  - component: {fileID: 1311088888}
   m_Layer: 0
   m_Name: CorruptionLine2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1311088885
 Transform:
   m_ObjectHideFlags: 0
@@ -26455,7 +26504,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1311088884}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.6495321, y: 89.6429, z: 2.999875}
+  m_LocalPosition: {x: 0.6495321, y: 89.6429, z: 24}
   m_LocalScale: {x: 795.3287, y: 36.151302, z: 36.151302}
   m_Children: []
   m_Father: {fileID: 316652768}
@@ -26510,6 +26559,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1311088884}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1311088888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1311088884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e626c69d6817f3c45bf572b361fb4a21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ActiveLane: {fileID: 0}
 --- !u!1 &1312156579
 GameObject:
   m_ObjectHideFlags: 0
@@ -26760,7 +26822,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1325952310}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: -3.52, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -30121,7 +30183,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BossTesting: 1
-  whichBoss: 1
+  whichBoss: 3
   DevStageTest: 1
   whichStage: 3
   Smallhand: 1
