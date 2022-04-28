@@ -25,8 +25,8 @@ public class BasicEnemyMovement : MonoBehaviour
     private bool canUseNaturesWrath;
     private GameObject naturesWrathObject;
 
-    [Tooltip("How big is the attack range?")][SerializeField]private float attackRange; //These two stay here as they are harder to do from a scriptableobject.
-    [Tooltip("Where does it attack from?")][SerializeField]private Transform attackPosition;
+    [Tooltip("How big is the attack range?")] [SerializeField] private float attackRange; //These two stay here as they are harder to do from a scriptableobject.
+    [Tooltip("Where does it attack from?")] [SerializeField] private Transform attackPosition;
 
     private bool obstacleInTheWay;//Is there a unit blocking the path?
     private Rigidbody2D rg2D;
@@ -39,6 +39,7 @@ public class BasicEnemyMovement : MonoBehaviour
     private Color CorruptedColor = new Color(0.6315554f, 0, 0.8396226f, 1);
     private Color PoisonedColor = new Color(0.4447657f, 0.6792453f, 0.1569954f, 1);
     private Color StandardColor = new Color(1, 1, 1, 1);
+
 
     [Header("Enemy confirmation for Animation")]
     [Tooltip("Is the Enemy Merry, so that her animation will play")] private bool[] specialAnimationCheckList;
@@ -73,7 +74,7 @@ public class BasicEnemyMovement : MonoBehaviour
         healthSave = enemyHealth; //Saves the max health of the unit.
         MovingAnimation(); //If there is extra animation, activate it.
 
-        if(MinigameSceneScript.Tutorial == false) //Will not update beastiary from Tutorial run
+        if (MinigameSceneScript.Tutorial == false) //Will not update beastiary from Tutorial run
         {
             UnitForBeastiary(enemyIndex); //New enemy has spawned so they will be added to Beastieary (If the load a new scene.
         }
@@ -145,7 +146,7 @@ public class BasicEnemyMovement : MonoBehaviour
         if (other.collider.CompareTag(obstacleTags))
         {
             obstacleInTheWay = false;
-        }        
+        }
     }
     #endregion
 
@@ -154,10 +155,10 @@ public class BasicEnemyMovement : MonoBehaviour
     {
         if (!hasAttacked) //If you have yet to attack
         {
-            Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(attackPosition.position,attackRange, whatIsUnitLayer); //Overlap of all Units withing the attack range
+            Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(attackPosition.position, attackRange, whatIsUnitLayer); //Overlap of all Units withing the attack range
             for (int i = 0; i < enemiesToDamage.Length; i++)
             {
-                if(enemiesToDamage[i])
+                if (enemiesToDamage[i])
                 {
                     enemiesToDamage[i].GetComponent<UnitPrototypeScript>().TakeDamage(attackDamage, damageType); //Sent attackDamage to Unit
                     hasAttacked = true;
@@ -213,12 +214,13 @@ public class BasicEnemyMovement : MonoBehaviour
                 if (damageType == 0)
                 {
                     enemyHealth -= (damage + (damage / DamageTypeCore.s_DamageDivisionModule));
-                    animatorOfEnemies.SetTrigger("HitStrong");
+                    animatorOfEnemies.SetBool("Vulnerable", true);
+                    Debug.Log("STRONG HIT MAN!");
                 }
                 else if (damageType == (DamageTypeCore.s_HighestDamageTyping - 1))
                 {
                     enemyHealth -= (damage - (damage / DamageTypeCore.s_DamageDivisionModule));
-                    animatorOfEnemies.SetTrigger("HitWeak");
+                    animatorOfEnemies.SetBool("Resistant", true);
                 }
                 else
                 {
@@ -230,12 +232,13 @@ public class BasicEnemyMovement : MonoBehaviour
                 if (damageType == 1)
                 {
                     enemyHealth -= (damage + (damage / DamageTypeCore.s_DamageDivisionModule));
-                    animatorOfEnemies.SetTrigger("HitStrong");
+                    animatorOfEnemies.SetBool("Vulnerable", true);
+                    Debug.Log("STRONG HIT MAN!");
                 }
                 else if (damageType == DamageTypeCore.s_HighestDamageTyping)
                 {
                     enemyHealth -= (damage - (damage / DamageTypeCore.s_DamageDivisionModule));
-                    animatorOfEnemies.SetTrigger("HitWeak");
+                    animatorOfEnemies.SetBool("Resistant", true);
                 }
                 else
                 {
@@ -245,17 +248,18 @@ public class BasicEnemyMovement : MonoBehaviour
             else if (damageType == (damageTypeTaken + 1))
             {
                 enemyHealth -= (damage + (damage / DamageTypeCore.s_DamageDivisionModule));
-                animatorOfEnemies.SetTrigger("HitStrong");
+                animatorOfEnemies.SetBool("Vulnerable", true);
+                Debug.Log("STRONG HIT MAN!");
             }
             else if (damageType == (damageTypeTaken - 1))
             {
                 enemyHealth -= (damage - (damage / DamageTypeCore.s_DamageDivisionModule));
-                animatorOfEnemies.SetTrigger("HitWeak");
+                animatorOfEnemies.SetBool("Resistant", true);
             }
             else
             {
                 enemyHealth -= damage;
-            } 
+            }
         }
         else //If not using the system, damage!
         {
@@ -265,7 +269,7 @@ public class BasicEnemyMovement : MonoBehaviour
         print(enemyHealth);
         if (!isKnockback)
         {
-        StartCoroutine(PeriodOfBeingDamaged());
+            StartCoroutine(PeriodOfBeingDamaged());
         }
         else if (isKnockback)
         {
@@ -280,8 +284,14 @@ public class BasicEnemyMovement : MonoBehaviour
         orgRot = new Quaternion(0, 0, 0, 0); //Retain the original rotational value
 
         transform.Rotate(0, 0, -10);//Tilts the figure on hit,,, to note Will change their attack area.
+
+
         yield return new WaitForSeconds(0.2f);
         transform.rotation = orgRot;
+
+        animatorOfEnemies.SetBool("Vulnerable", false);
+        animatorOfEnemies.SetBool("Resistant", false);
+
         //print("Got hit");
         yield return null;
     }
@@ -295,6 +305,10 @@ public class BasicEnemyMovement : MonoBehaviour
         rg2D.AddForce(new Vector2(knockbackPower, 0)); //Does the knockback
         yield return new WaitForSeconds(1); //Dictates how long the knockback takes effect
         transform.rotation = orgRot;
+
+        animatorOfEnemies.SetBool("HitStrong", false);
+        animatorOfEnemies.SetBool("HitWeak", false);
+
         //print("Got hit");
 
 
@@ -406,7 +420,7 @@ public class BasicEnemyMovement : MonoBehaviour
 
     #region Spell effects
 
-    public void Slow(float slowDebuff,float debuffTime)
+    public void Slow(float slowDebuff, float debuffTime)
     {
         StartCoroutine(SlowedTime(slowDebuff, debuffTime));
     }
