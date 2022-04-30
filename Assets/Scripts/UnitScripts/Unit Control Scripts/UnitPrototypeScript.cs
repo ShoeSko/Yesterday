@@ -817,13 +817,12 @@ public class UnitPrototypeScript : MonoBehaviour
                 if (damageType == 0)
                 {
                     health -= (damage + (damage / DamageTypeCore.s_DamageDivisionModule));
-                    animatorOfUnit.SetTrigger("HitStrong");
-                    print("Anim should run??");
+                    animatorOfUnit.SetTrigger("Vulnerable");
                 }
                 else if (damageType == (DamageTypeCore.s_HighestDamageTyping - 1))
                 {
                     health -= (damage - (damage / DamageTypeCore.s_DamageDivisionModule));
-                    animatorOfUnit.SetTrigger("HitWeak");
+                    animatorOfUnit.SetTrigger("Resistant");
                 }
                 else
                 {
@@ -835,12 +834,12 @@ public class UnitPrototypeScript : MonoBehaviour
                 if (damageType == 1)
                 {
                     health -= (damage + (damage / DamageTypeCore.s_DamageDivisionModule));
-                    animatorOfUnit.SetTrigger("HitStrong");
+                    animatorOfUnit.SetTrigger("Vulnerable");
                 }
                 else if (damageType == DamageTypeCore.s_HighestDamageTyping)
                 {
                     health -= (damage - (damage / DamageTypeCore.s_DamageDivisionModule));
-                    animatorOfUnit.SetTrigger("HitWeak");
+                    animatorOfUnit.SetTrigger("Resistant");
                 }
                 else //If none of the above apply
                 {
@@ -850,12 +849,12 @@ public class UnitPrototypeScript : MonoBehaviour
             if (damageType == (damageTypeTaken + 1))
             {
                 health -= (damage + (damage / DamageTypeCore.s_DamageDivisionModule));
-                animatorOfUnit.SetTrigger("HitStrong");
+                animatorOfUnit.SetTrigger("Vulnerable");
             }
             else if (damageType == (damageTypeTaken - 1))
             {
                 health -= (damage - (damage / DamageTypeCore.s_DamageDivisionModule));
-                animatorOfUnit.SetTrigger("HitWeak");
+                animatorOfUnit.SetTrigger("Resistant");
             }
             else
             {

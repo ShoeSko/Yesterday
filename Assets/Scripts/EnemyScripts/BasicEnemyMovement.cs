@@ -208,19 +208,19 @@ public class BasicEnemyMovement : MonoBehaviour
     {
         if (DamageTypeCore.s_isUsingWeaknessStrenght) //If using the system do this.
         {
-            print("Yes, is using it, got hit by " + damageTypeTaken);
+            //print("Yes, is using it, got hit by " + damageTypeTaken);
             if (damageTypeTaken == DamageTypeCore.s_HighestDamageTyping)
             {
                 if (damageType == 0)
                 {
                     enemyHealth -= (damage + (damage / DamageTypeCore.s_DamageDivisionModule));
-                    animatorOfEnemies.SetBool("Vulnerable", true);
-                    Debug.Log("STRONG HIT MAN!");
+                    animatorOfEnemies.SetTrigger("Vulnerable");
+                    //Debug.Log("STRONG HIT MAN!");
                 }
                 else if (damageType == (DamageTypeCore.s_HighestDamageTyping - 1))
                 {
                     enemyHealth -= (damage - (damage / DamageTypeCore.s_DamageDivisionModule));
-                    animatorOfEnemies.SetBool("Resistant", true);
+                    animatorOfEnemies.SetTrigger("Resistant");
                 }
                 else
                 {
@@ -232,13 +232,15 @@ public class BasicEnemyMovement : MonoBehaviour
                 if (damageType == 1)
                 {
                     enemyHealth -= (damage + (damage / DamageTypeCore.s_DamageDivisionModule));
-                    animatorOfEnemies.SetBool("Vulnerable", true);
+                    //animatorOfEnemies.SetBool("Vulnerable", true);
+                    animatorOfEnemies.SetTrigger("Vulnerable");
                     Debug.Log("STRONG HIT MAN!");
                 }
                 else if (damageType == DamageTypeCore.s_HighestDamageTyping)
                 {
                     enemyHealth -= (damage - (damage / DamageTypeCore.s_DamageDivisionModule));
-                    animatorOfEnemies.SetBool("Resistant", true);
+                    //animatorOfEnemies.SetBool("Resistant", true);
+                    animatorOfEnemies.SetTrigger("Resistant");
                 }
                 else
                 {
@@ -248,13 +250,15 @@ public class BasicEnemyMovement : MonoBehaviour
             else if (damageType == (damageTypeTaken + 1))
             {
                 enemyHealth -= (damage + (damage / DamageTypeCore.s_DamageDivisionModule));
-                animatorOfEnemies.SetBool("Vulnerable", true);
+                //animatorOfEnemies.SetBool("Vulnerable", true);
+                animatorOfEnemies.SetTrigger("Vulnerable");
                 Debug.Log("STRONG HIT MAN!");
             }
             else if (damageType == (damageTypeTaken - 1))
             {
                 enemyHealth -= (damage - (damage / DamageTypeCore.s_DamageDivisionModule));
-                animatorOfEnemies.SetBool("Resistant", true);
+                //animatorOfEnemies.SetBool("Resistant", true);
+                animatorOfEnemies.SetTrigger("Resistant");
             }
             else
             {
@@ -289,8 +293,8 @@ public class BasicEnemyMovement : MonoBehaviour
         yield return new WaitForSeconds(0.2f);
         transform.rotation = orgRot;
 
-        animatorOfEnemies.SetBool("Vulnerable", false);
-        animatorOfEnemies.SetBool("Resistant", false);
+        //animatorOfEnemies.SetBool("Vulnerable", false);
+        //animatorOfEnemies.SetBool("Resistant", false);
 
         //print("Got hit");
         yield return null;
@@ -306,8 +310,8 @@ public class BasicEnemyMovement : MonoBehaviour
         yield return new WaitForSeconds(1); //Dictates how long the knockback takes effect
         transform.rotation = orgRot;
 
-        animatorOfEnemies.SetBool("HitStrong", false);
-        animatorOfEnemies.SetBool("HitWeak", false);
+        //animatorOfEnemies.SetBool("HitStrong", false);
+        //animatorOfEnemies.SetBool("HitWeak", false);
 
         //print("Got hit");
 
