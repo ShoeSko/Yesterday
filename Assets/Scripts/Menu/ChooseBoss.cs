@@ -10,7 +10,7 @@ public class ChooseBoss : MonoBehaviour
 
     private void Update()
     {
-        NewCardHandScript.whichBoss = (int)choosebossSlider.value +1;
+        //NewCardHandScript.whichBoss = (int)choosebossSlider.value +1;
 
         for(int i = 0; i < bosses.Count; i++)
         {

@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a067928e44216f4baf5983c6167c2a9, type: 3}
   m_Name: BossScriptableObject
   m_EditorClassIdentifier: 
-  Name: The Guardian
-  BossHealth: 5
+  Name: 
+  BossHealth: 0
   BossSprites:
   - {fileID: 0}
   BossSliderColor: {r: 0, g: 0, b: 0, a: 0}
@@ -28,3 +28,4 @@ MonoBehaviour:
   Xpos: 0
   Ypos: 0
   IntroSpeed: 0
+  ScaleModifier: 0

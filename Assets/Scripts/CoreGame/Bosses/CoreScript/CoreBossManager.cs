@@ -122,8 +122,6 @@ public class CoreBossManager : MonoBehaviour
             case 2:
                 bossClass = spawnedBoss.AddComponent<CorruptionAbilities>();
                 break;
-            default:
-                break;
         }
 
         //Saving system
