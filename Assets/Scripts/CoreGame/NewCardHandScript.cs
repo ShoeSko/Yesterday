@@ -7,7 +7,7 @@ public class NewCardHandScript : MonoBehaviour
     #region Variables
     [Header("Boss Testing")]
     public bool BossTesting;
-    [Range(1,3)] public int whichBoss;
+    [Range(1,3)] public static int whichBoss;
 
     public bool DevStageTest;
     [Range(1,3)] public int whichStage;
