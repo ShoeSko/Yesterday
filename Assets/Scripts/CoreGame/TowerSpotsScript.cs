@@ -83,7 +83,7 @@ public class TowerSpotsScript : MonoBehaviour
         {
             //tell unit -> unit tells boss
             unit.GetComponent<UnitPrototypeScript>().IsSaint = true;
-            GameObject.Find("The Corruption").GetComponent<TheCorruption>().PlayedSaints.Add(unit);
+            //GameObject.Find("The Corruption").GetComponent<TheCorruption>().PlayedSaints.Add(unit);
         }
     }
 

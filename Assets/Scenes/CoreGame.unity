@@ -9347,7 +9347,7 @@ MonoBehaviour:
   BossHealthbarName: {fileID: 1294225490}
   BossHealthslider: {fileID: 2030835860}
   BossHealthbarColor: {fileID: 2091243066}
-  WinCondition: {fileID: 2068675839}
+  WinCondition: {fileID: 55712069}
   defineBoss: 0
   bossClass: {fileID: 0}
   Spawners:
@@ -9390,6 +9390,19 @@ MonoBehaviour:
   - {fileID: 812926834}
   - {fileID: 1325952310}
   - {fileID: 1024048566}
+  CorruptedUnit: {fileID: 3915110204328295187, guid: 1027c7e63ce15c24c80c489372230ea6, type: 3}
+  Sanctuary: {fileID: 4801177212299731019, guid: 9099b7c5fdc1b4a42a6f54bf406ab2af, type: 3}
+  Cards:
+  - {fileID: 422985396}
+  - {fileID: 48041714}
+  - {fileID: 914165062}
+  - {fileID: 1445005778}
+  - {fileID: 1915195148}
+  - {fileID: 1706533286}
+  - {fileID: 1889949731}
+  - {fileID: 587312343}
+  - {fileID: 1847950937}
+  - {fileID: 1061350371}
 --- !u!95 &481404960
 Animator:
   serializedVersion: 3
@@ -14367,7 +14380,7 @@ MonoBehaviour:
   - {fileID: 1450511008}
   - {fileID: 495559248}
   - {fileID: 254510077}
-  - {fileID: 1664626946}
+  - {fileID: 2030835858}
   - {fileID: 982852050}
   - {fileID: 2052679301}
   RobotDialogue: {fileID: 1744040927}
@@ -26364,7 +26377,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.50351, g: 0.078097194, b: 0.6132076, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -30183,7 +30196,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BossTesting: 1
-  whichBoss: 3
+  whichBoss: 2
   DevStageTest: 1
   whichStage: 3
   Smallhand: 1

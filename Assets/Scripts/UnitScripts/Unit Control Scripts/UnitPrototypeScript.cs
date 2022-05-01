@@ -901,8 +901,7 @@ public class UnitPrototypeScript : MonoBehaviour
     {
         if (IsSaint)
         {
-            GameObject.Find("The Corruption").GetComponent<TheCorruption>().PurifierDied();
-            IsSaint = false;
+            GameObject.Find("PurificationZone").GetComponent<SanctuaryCode>().PurifierDied();
         }
 
         //Unit abilities:
@@ -1072,7 +1071,8 @@ public class UnitPrototypeScript : MonoBehaviour
 
         //Add other visual effects like a slight glow maybe
 
-        GameObject.Find("The Corruption").GetComponent<TheCorruption>().SaintLives = true;
+        GameObject.Find("PurificationZone(Clone)").GetComponent<SanctuaryCode>().SaintLives = true;
+        GameObject.Find("PurificationZone(Clone)").GetComponent<SanctuaryCode>().CurrentSaint = this;
     }
 
     public void UnSanctifyUnit()
@@ -1081,6 +1081,8 @@ public class UnitPrototypeScript : MonoBehaviour
             isShooter = true;
         if (WasFighter)
             isPunching = true;
+
+        IsSaint = false;
     }
 
     private void OnHitAbility()

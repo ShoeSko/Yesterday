@@ -87,15 +87,21 @@ public class CoreBossManager : MonoBehaviour
     #endregion
 
     #region Corporate
+    [Header("Corporate")]
     public GameObject Sign;
     public List<GameObject> GreedyHands = new List<GameObject>();
     #endregion
     #region Guardian
+    [Header("Guardian")]
     public GameObject Natureswrath;
     public GameObject GuardianSpecialSprite;
     #endregion
     #region Corruption
+    [Header("Corruption")]
     public List<GameObject> Lanes = new List<GameObject>();
+    public GameObject CorruptedUnit;
+    public GameObject Sanctuary;
+    public List<GameObject> Cards = new List<GameObject>();
     #endregion
 
     public void Activate()
@@ -169,6 +175,12 @@ public class CoreBossManager : MonoBehaviour
     {
         if (IsActive == true)
         {
+            //Cheatcode:
+            if (Input.GetKey(KeyCode.Alpha5) && Input.GetKeyDown(KeyCode.Alpha7))//cheat to damage boss
+            {
+                TakeDamage();
+            }
+
             BossHealthslider.value = health;
             rb.transform.position = Vector2.MoveTowards(rb.transform.position, NewPos, speed * Time.deltaTime);//move dramatically to new position
 
